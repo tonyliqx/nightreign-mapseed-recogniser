@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>艾尔登法环 黑夜君临：地图种子识别器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="description" content="交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子">
+    <meta name="keywords" content="艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body ontouchstart="">
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-map"></i>
+                艾尔登法环 黑夜君临：地图种子识别器
+            </h1>
+            <div class="subtitle">
+                <p class="version">版本 1.0 | 黑夜君临 版本 1.01.3（汉化）</p>
+                <span id="cv-status" style="font-size: 11px; color: #6c757d; margin-left: 15px;"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div id="loading-section" class="section" style="display: block;">
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>正在初始化地图数据，请稍候...</p>
+                </div>
+            </div>
+
+            <div id="selection-section" class="section" style="display: none;">
+                <div class="selection-grid">
+                    <div class="selection-card">
+                        <h3>选择你的夜王</h3>
+                        <p class="current-selection">当前选择：<span id="chosen-nightlord">无</span></p>
+                        <div class="button-grid">
+                            <button class="nightlord-btn" data-nightlord="Gladius">三狼</button>
+                            <button class="nightlord-btn" data-nightlord="Adel">大嘴</button>
+                            <button class="nightlord-btn" data-nightlord="Gnoster">慧心虫</button>
+                            <button class="nightlord-btn" data-nightlord="Maris">水皮蛋</button>
+                            <button class="nightlord-btn" data-nightlord="Libra">山羊</button>
+                            <button class="nightlord-btn" data-nightlord="Fulghor">人马</button>
+                            <button class="nightlord-btn" data-nightlord="Caligo">冰龙</button>
+                            <button class="nightlord-btn" data-nightlord="Heolstor">黑夜王</button>
+                        </div>
+                    </div>
+
+                    <div class="selection-card">
+                        <h3>选择你的地图 / 特殊地形</h3>
+                        <p class="current-selection">当前选择：<span id="chosen-map">无</span></p>
+                        <div class="button-grid">
+                            <button class="map-btn" data-map="Default">默认</button>
+                            <button class="map-btn" data-map="Mountaintop">山顶</button>
+                            <button class="map-btn" data-map="Crater">火山</button>
+                            <button class="map-btn" data-map="Rotted Woods">腐败森林</button>
+                            <button class="map-btn" data-map="Noklateo">隐城</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="interaction-section" class="section" style="display: none;">
+                <div class="instructions-card">
+                    <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
+                <div class="instruction-grid">
+                    <div class="instruction-item">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span><strong>左键点击</strong>/<strong>轻触</strong>橙色圆点标记教堂</span>
+                    </div>
+                    <div class="instruction-item">
+                        <i class="fas fa-hand-pointer"></i>
+                        <span><strong>右键点击</strong>/<strong>长按</strong>选择法师塔或村庄</span>
+                    </div>
+                </div>
+                <div class="mobile-hint">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>移动设备：<strong>长按</strong>橙色圆点可打开选择菜单</span>
+                </div>
+                    <div class="button-row">
+                        <button id="reset-map-btn" class="reset-btn">
+                            <i class="fas fa-undo"></i>
+                            重置地图并移除所有标记
+                        </button>
+                        
+                        <button id="help-btn" class="help-btn">
+                            <i class="fas fa-question-circle"></i>
+                            帮助与提示
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-section" class="section" style="display: none;">
+                <div class="results-grid">
+                    <div class="seed-counter">
+                        <h3>可能的地图种子</h3>
+                        <div class="seed-count" id="seed-count">0</div>
+                    </div>
+
+                    <div class="map-container">
+                        <canvas id="map-canvas" width="768" height="768"></canvas>
+                        <div id="seed-image-container" style="display: none;"></div>
+                        <div id="selection-overlay" class="selection-overlay">
+                            <div class="overlay-message">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>请选择特殊地形</p>
+                                <small>选择参数后开始识别地图种子</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- 帮助弹窗 -->
+    <div id="help-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-question-circle"></i> 帮助与提示</h3>
+                <button class="close-btn" id="close-help">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4><i class="fas fa-gamepad"></i> 工具使用方法</h4>
+                    <p>该工具通过对比地图上的教堂和法师塔位置，帮助你识别 黑夜君临 地图种子。</p>
+                    
+                    <h4><i class="fas fa-list-ol"></i> 使用步骤</h4>
+                    <ol>
+                        <li>从列表中选择<strong>夜王</strong></li>
+                        <li>选择<strong>地图/大地变迁</strong>类型</li>
+                        <li>查看地图上高亮的橙色圆点 —— 这些是可能的兴趣点位置</li>
+                        <li>点击这些点，标记你在游戏中看到的内容：
+                            <ul>
+                                <li><strong>左键点击</strong> = 教堂</li>
+                                <li><strong>右键点击</strong> = 选择法师塔或其他兴趣点</li>
+                            </ul>
+                        </li>
+                        <li>随着标记增加，可能的种子会逐步筛选</li>
+                        <li>当仅剩一个结果时，会显示完整的种子详情和地图图像</li>
+                    </ol>
+
+                    <h4><i class="fas fa-lightbulb"></i> 提示</h4>
+                    <ul>
+                        <li>尽量多标记你在游戏中能确认的兴趣点</li>
+                        <li>使用右键菜单选择法师塔、村庄或其他兴趣点</li>
+                        <li>如果没有结果，请重置并更精确地点击</li>
+                        <li>种子图像会显示确切布局以便核对</li>
+                        <li>在标记兴趣点前请选择夜王和地图</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右键菜单 -->
+    <div id="poi-context-menu" class="context-menu" style="display: none;">
+        <div class="context-menu-item" data-type="mage">
+            <img src="assets/images/mage-tower.png" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+            法师塔
+        </div>
+        <div class="context-menu-item" data-type="village">
+            <img src="assets/images/village.png" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+            村庄
+        </div>
+        <div class="context-menu-item" data-type="other">
+            <i class="fas fa-question-circle"></i>
+            其他兴趣点
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: #6c757d; font-size: 14px; border-top: 1px solid #e0e0e0; margin-top: 40px;">
+        <p>
+            <i class="fab fa-github"></i> 
+            开源项目 - 
+            <a href="https://github.com/thanosapollo/nightreign-mapseed-recogniser" target="_blank" style="color: #007bff; text-decoration: none;">
+                在 GitHub 查看源代码
+            </a>
+        </p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
