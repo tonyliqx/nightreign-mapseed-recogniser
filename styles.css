@@ -471,48 +471,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 400px;
-    overflow: hidden;
-    touch-action: none; /* 禁用浏览器默认触摸行为 */
-}
-
-.map-scroll-container {
-    position: relative;
-    overflow: auto;
-    max-width: 100%;
-    max-height: 80vh;
-    -webkit-overflow-scrolling: touch; /* 平滑滚动 */
-    touch-action: pan-x pan-y; /* 允许平移 */
-    transform-origin: 0 0;
-}
-
-/* 缩放控制按钮 */
-.zoom-controls {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 100;
-}
-
-.zoom-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: #333;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.zoom-btn:active {
-    background: rgba(255, 255, 255, 0.6);
 }
 
 .selection-overlay {
