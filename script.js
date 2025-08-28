@@ -40,16 +40,6 @@ class NightreignMapRecogniser {
         this.contextMenu = null;
         this.currentRightClickedPOI = null;
         
-        // 缩放和平移相关属性
-        this.scale = 1;
-        this.offsetX = 0;
-        this.offsetY = 0;
-        this.isDragging = false;
-        this.lastX = 0;
-        this.lastY = 0;
-        this.minScale = 0.5;
-        this.maxScale = 3;
-        
         this.init();
     }
 
@@ -58,8 +48,8 @@ class NightreignMapRecogniser {
         this.setupEventListeners();
         await this.loadInitialData();
         this.showSelectionSection();
-        // 不要在初始化时自动显示默认地图
     }
+
 
     setupImages() {
         // Load icon images (data URIs don't need crossOrigin)
@@ -107,12 +97,7 @@ class NightreignMapRecogniser {
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const nightlord = btn.dataset.nightlord;
-                // 如果已经选择了这个夜王，则取消选择
-                if (this.chosenNightlord === nightlord) {
-                    this.selectNightlord(null);
-                } else {
-                    this.selectNightlord(nightlord);
-                }
+                this.selectNightlord(nightlord);
             });
         });
 
@@ -164,125 +149,6 @@ class NightreignMapRecogniser {
                 this.hideContextMenu();
             }
         });
-        
-        // 缩放控制按钮
-        const zoomInBtn = document.getElementById('zoom-in-btn');
-        const zoomOutBtn = document.getElementById('zoom-out-btn');
-        const zoomResetBtn = document.getElementById('zoom-reset-btn');
-        
-        if (zoomInBtn) {
-            zoomInBtn.addEventListener('click', () => {
-                this.zoomIn();
-            });
-        }
-        
-        if (zoomOutBtn) {
-            zoomOutBtn.addEventListener('click', () => {
-                this.zoomOut();
-            });
-        }
-        
-        if (zoomResetBtn) {
-            zoomResetBtn.addEventListener('click', () => {
-                this.resetZoom();
-            });
-        }
-        
-        // 添加鼠标滚轮缩放
-        if (this.canvas) {
-            this.canvas.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                const rect = this.canvas.getBoundingClientRect();
-                const mouseX = e.clientX - rect.left;
-                const mouseY = e.clientY - rect.top;
-                
-                // 确定缩放方向
-                const delta = e.deltaY > 0 ? -0.1 : 0.1;
-                this.zoom(delta, mouseX, mouseY);
-            });
-            
-            // 添加拖动功能
-            this.canvas.addEventListener('mousedown', (e) => {
-                if (e.button === 0 && e.ctrlKey) { // 左键 + Ctrl 键用于拖动
-                    e.preventDefault();
-                    this.startDrag(e.clientX, e.clientY);
-                }
-            });
-            
-            this.canvas.addEventListener('mousemove', (e) => {
-                if (this.isDragging) {
-                    e.preventDefault();
-                    this.drag(e.clientX, e.clientY);
-                }
-            });
-            
-            this.canvas.addEventListener('mouseup', () => {
-                this.stopDrag();
-            });
-            
-            this.canvas.addEventListener('mouseleave', () => {
-                this.stopDrag();
-            });
-            
-            // 触摸事件用于平移
-            let touchStartX = 0;
-            let touchStartY = 0;
-            let touchMoved = false;
-            
-            this.canvas.addEventListener('touchstart', (e) => {
-                if (e.touches.length === 2) {
-                    e.preventDefault();
-                    // 双指触摸，用于缩放
-                    const touch1 = e.touches[0];
-                    const touch2 = e.touches[1];
-                    const distance = Math.hypot(
-                        touch1.clientX - touch2.clientX,
-                        touch1.clientY - touch2.clientY
-                    );
-                    this.initialPinchDistance = distance;
-                    this.initialScale = this.scale;
-                } else if (e.touches.length === 1) {
-                    // 单指触摸，用于平移或点击
-                    touchStartX = e.touches[0].clientX;
-                    touchStartY = e.touches[0].clientY;
-                    touchMoved = false;
-                }
-            }, { passive: false });
-            
-            this.canvas.addEventListener('touchmove', (e) => {
-                if (e.touches.length === 2) {
-                    e.preventDefault();
-                    // 双指缩放
-                    const touch1 = e.touches[0];
-                    const touch2 = e.touches[1];
-                    const distance = Math.hypot(
-                        touch1.clientX - touch2.clientX,
-                        touch1.clientY - touch2.clientY
-                    );
-                    
-                    if (this.initialPinchDistance) {
-                        const deltaScale = (distance / this.initialPinchDistance) - 1;
-                        const newScale = this.initialScale * (1 + deltaScale);
-                        this.setScale(newScale);
-                        this.redrawMap();
-                    }
-                } else if (e.touches.length === 1) {
-                    // 单指平移
-                    const deltaX = e.touches[0].clientX - touchStartX;
-                    const deltaY = e.touches[0].clientY - touchStartY;
-                    
-                    // 如果移动距离超过阈值，标记为移动而非点击
-                    if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
-                        touchMoved = true;
-                        this.offsetX += deltaX / this.scale;
-                        this.offsetY += deltaY / this.scale;
-                        touchStartX = e.touches[0].clientX;
-                        touchStartY = e.touches[0].clientY;
-                        this.redrawMap();
-                    }
-                }
-            }, { passive: false });
-        }
     }
 
     async loadInitialData() {
@@ -325,16 +191,13 @@ class NightreignMapRecogniser {
         resultsSection.style.display = 'block';
         this.updateSeedCount();
         
-        // 显示选择覆盖层，提示用户选择地图
-        this.showSelectionOverlay();
-        
-        // 移除自动显示默认地图的调用
-        // this.showDefaultMap();
+        // Show default map immediately so users can start clicking
+        this.showDefaultMap();
     }
 
     showDefaultMap() {
-        // Set up a default map for immediate interaction using the chosen map
-        this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
+        // Set up a default map (Default map type) for immediate interaction
+        this.currentPOIs = POIS_BY_MAP['Default'] || [];
         this.poiStates = this.initializePOIStates();
         
         // Show interaction section
@@ -454,7 +317,7 @@ class NightreignMapRecogniser {
         this.chosenNightlord = nightlord;
         
         // Update UI
-        document.getElementById('chosen-nightlord').textContent = nightlord || '无';
+        document.getElementById('chosen-nightlord').textContent = nightlord;
         
         // Update button states
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
@@ -479,9 +342,15 @@ class NightreignMapRecogniser {
             btn.classList.toggle('active', btn.dataset.map === map);
         });
 
-        // 初始化地图显示
-        this.showDefaultMap();
-        
+        // Re-render the map with new POIs
+        if (this.canvas && this.ctx) {
+            if (this.chosenNightlord) {
+                this.renderMap(); // Full render if both are selected
+            } else {
+                this.drawMapWithSelectedImage(); // Use selected map image if available
+            }
+        }
+
         this.updateGameState();
     }
 
@@ -544,7 +413,7 @@ class NightreignMapRecogniser {
                 const type = e.currentTarget.dataset.type;
                 if (this.currentRightClickedPOI) {
                     this.poiStates[this.currentRightClickedPOI.id] = type;
-                    this.redrawMap();
+                    this.drawMap(this.images.maps[this.chosenMap]);
                     this.updateSeedFiltering();
                     this.hideContextMenu();
                     this.currentRightClickedPOI = null;
@@ -608,121 +477,6 @@ class NightreignMapRecogniser {
             indicator.remove();
         }
     }
-    
-    // 缩放和平移方法
-    zoomIn() {
-        this.zoom(0.1);
-    }
-    
-    zoomOut() {
-        this.zoom(-0.1);
-    }
-    
-    zoom(delta, centerX, centerY) {
-        const oldScale = this.scale;
-        this.scale = Math.min(Math.max(this.scale + delta, this.minScale), this.maxScale);
-        
-        // 如果提供了中心点，则围绕该点缩放
-        if (centerX !== undefined && centerY !== undefined) {
-            // 计算缩放前的世界坐标
-            const worldX = (centerX / oldScale) - this.offsetX;
-            const worldY = (centerY / oldScale) - this.offsetY;
-            
-            // 计算缩放后的偏移量，保持鼠标位置不变
-            this.offsetX = -(worldX * this.scale - centerX);
-            this.offsetY = -(worldY * this.scale - centerY);
-        }
-        
-        this.redrawMap();
-    }
-    
-    resetZoom() {
-        this.scale = 1;
-        this.offsetX = 0;
-        this.offsetY = 0;
-        this.redrawMap();
-    }
-    
-    startDrag(x, y) {
-        this.isDragging = true;
-        this.lastX = x;
-        this.lastY = y;
-    }
-    
-    drag(x, y) {
-        if (!this.isDragging) return;
-        
-        const deltaX = x - this.lastX;
-        const deltaY = y - this.lastY;
-        
-        this.offsetX += deltaX / this.scale;
-        this.offsetY += deltaY / this.scale;
-        
-        this.lastX = x;
-        this.lastY = y;
-        
-        this.redrawMap();
-    }
-    
-    stopDrag() {
-        this.isDragging = false;
-    }
-    
-    setScale(newScale) {
-        this.scale = Math.min(Math.max(newScale, this.minScale), this.maxScale);
-    }
-    
-    redrawMap() {
-        if (this.chosenMap) {
-            this.drawMap(this.images.maps[this.chosenMap]);
-        } else {
-            this.drawDefaultMapWithImage();
-        }
-    }
-    
-    resetMap() {
-        // 重置所有POI状态为默认点
-        this.poiStates = this.initializePOIStates();
-        
-        // 重绘地图
-        this.redrawMap();
-        
-        // 更新种子过滤
-        this.updateSeedFiltering();
-        
-        console.log('地图已重置');
-    }
-    
-    showHelpModal() {
-        const modal = document.getElementById('help-modal');
-        if (modal) {
-            modal.style.display = 'flex';
-        }
-    }
-    
-    hideHelpModal() {
-        const modal = document.getElementById('help-modal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
-    
-    showError(message) {
-        console.error(message);
-        
-        // 创建错误提示元素
-        const errorElement = document.createElement('div');
-        errorElement.className = 'error-message';
-        errorElement.textContent = message;
-        
-        // 添加到页面
-        document.body.appendChild(errorElement);
-        
-        // 3秒后自动消失
-        setTimeout(() => {
-            errorElement.remove();
-        }, 3000);
-    }
 
     renderMap() {
         if (this.showingSeedImage) return;
@@ -769,13 +523,6 @@ class NightreignMapRecogniser {
     drawMap(mapImage) {
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
         
-        // 保存当前状态
-        this.ctx.save();
-        
-        // 应用缩放和平移
-        this.ctx.translate(this.offsetX * this.scale, this.offsetY * this.scale);
-        this.ctx.scale(this.scale, this.scale);
-        
         // Always draw a background first
         this.ctx.fillStyle = '#2b2b2b';
         this.ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
@@ -810,150 +557,481 @@ class NightreignMapRecogniser {
             this.drawPOI(poi, state);
         });
         
-        // 恢复状态
-        this.ctx.restore();
-        
-        // 绘制缩放信息
-        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-        this.ctx.font = '12px Inter, sans-serif';
-        this.ctx.textAlign = 'left';
-        this.ctx.textBaseline = 'top';
-        this.ctx.fillText(`缩放: ${Math.round(this.scale * 100)}%`, 10, 10);
-        
-        console.log(`Drew map with ${this.currentPOIs.length} POIs for ${this.chosenMap} at scale ${this.scale}`);
+        console.log(`Drew map with ${this.currentPOIs.length} POIs for ${this.chosenMap}`);
     }
-    
-    // 绘制POI点
+
     drawPOI(poi, state) {
-        const x = poi.x;
-        const y = poi.y;
-        const radius = ICON_SIZE / 2;
+        const { x, y } = poi;
         
-        // 根据状态绘制不同的图标
         switch (state) {
+            case 'dot':
+                this.drawDot(x, y, '', '#ff8c00');
+                break;
             case 'church':
-                if (this.images.church.complete) {
-                    this.ctx.drawImage(this.images.church, x - radius, y - radius, ICON_SIZE, ICON_SIZE);
+                // Use favicon if available, otherwise fallback to church icon
+                if (this.images.favicon.complete && this.images.favicon.naturalWidth > 0) {
+                    this.drawIcon(this.images.favicon, x, y);
                 } else {
-                    // 备用绘制
-                    this.ctx.fillStyle = '#ff9800';
-                    this.ctx.beginPath();
-                    this.ctx.arc(x, y, radius, 0, Math.PI * 2);
-                    this.ctx.fill();
-                    this.ctx.strokeStyle = '#ffffff';
-                    this.ctx.lineWidth = 2;
-                    this.ctx.stroke();
+                    this.drawIcon(this.images.church, x, y);
                 }
                 break;
             case 'mage':
-                if (this.images.mage.complete) {
-                    this.ctx.drawImage(this.images.mage, x - radius, y - radius, ICON_SIZE, ICON_SIZE);
-                } else {
-                    // 备用绘制
-                    this.ctx.fillStyle = '#2196f3';
-                    this.ctx.beginPath();
-                    this.ctx.arc(x, y, radius, 0, Math.PI * 2);
-                    this.ctx.fill();
-                }
+                this.drawIcon(this.images.mage, x, y);
                 break;
             case 'village':
-                if (this.images.village.complete) {
-                    this.ctx.drawImage(this.images.village, x - radius, y - radius, ICON_SIZE, ICON_SIZE);
-                } else {
-                    // 备用绘制
-                    this.ctx.fillStyle = '#4caf50';
-                    this.ctx.beginPath();
-                    this.ctx.arc(x, y, radius, 0, Math.PI * 2);
-                    this.ctx.fill();
-                }
+                this.drawIcon(this.images.village, x, y);
                 break;
-            case 'dot':
-            default:
-                // 默认绘制为橙色点
-                this.ctx.fillStyle = '#ff9800';
-                this.ctx.beginPath();
-                this.ctx.arc(x, y, radius * 0.8, 0, Math.PI * 2);
-                this.ctx.fill();
+            case 'other':
+                this.drawDot(x, y, '', '#808080');
+                break;
+            case 'unknown':
+                this.drawDot(x, y, '?', '#808080');
                 break;
         }
     }
-    
-    // 更新种子计数显示
-    updateSeedCount() {
-        // 根据当前选择过滤种子
-        const filteredSeeds = this.getFilteredSeeds();
-        const totalSeeds = seedDataMatrix.length;
+
+    drawDot(x, y, label, color) {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, ICON_SIZE / 2, 0, 2 * Math.PI);
+        this.ctx.fillStyle = color;
+        this.ctx.fill();
+        this.ctx.strokeStyle = '#000000';
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+
+        if (label) {
+            this.ctx.fillStyle = '#000000';
+            this.ctx.font = 'bold 16px Inter, sans-serif';
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText(label, x, y);
+        }
+    }
+
+    drawIcon(image, x, y) {
+        if (image.complete) {
+            this.ctx.drawImage(image, x - ICON_SIZE / 2, y - ICON_SIZE / 2, ICON_SIZE, ICON_SIZE);
+        }
+    }
+
+    setupCanvasEventListeners() {
+        // Track touch start time for long press detection
+        let touchStartTime = 0;
+        let touchTimeout = null;
+        let lastTouchPos = { x: 0, y: 0 };
         
-        // 更新UI显示
-        const seedCountElement = document.getElementById('seed-count');
-        if (seedCountElement) {
-            seedCountElement.textContent = `${filteredSeeds.length} / ${totalSeeds}`;
-        }
-    }
-    
-    // 获取符合当前选择条件的种子
-    getFilteredSeeds() {
-        return seedDataMatrix.filter(seed => {
-            // 如果选择了夜王但不匹配，则过滤掉
-            if (this.chosenNightlord && seed.nightlord !== this.chosenNightlord) {
-                return false;
+        // Left click - place church
+        this.canvas.addEventListener('click', (e) => {
+            if (!this.chosenMap) {
+                console.log('Please select Map before marking POIs');
+                return;
+            }
+            const pos = this.getMousePos(e);
+            const poi = this.findClickedPOI(pos.x, pos.y);
+            if (poi) {
+                this.poiStates[poi.id] = 'church';
+                this.drawMap(this.images.maps[this.chosenMap]);
+                this.updateSeedFiltering();
+            }
+        });
+
+        // Touch events for mobile
+        this.canvas.addEventListener('touchstart', (e) => {
+            // Prevent default to avoid scrolling
+            e.preventDefault();
+            
+            if (!this.chosenMap) {
+                console.log('Please select Map before marking POIs');
+                return;
             }
             
-            // 如果选择了地图但不匹配，则过滤掉
-            if (this.chosenMap && seed.map !== this.chosenMap) {
-                return false;
-            }
+            // Record touch start time for long press detection
+            touchStartTime = Date.now();
             
-            // 检查POI标记是否匹配
-            for (const poiId in this.poiStates) {
-                const state = this.poiStates[poiId];
-                // 只检查已标记的POI（不是默认的dot状态）
-                if (state !== 'dot') {
-                    // 如果种子中没有这个POI或者类型不匹配，则过滤掉
-                    if (!seed.pois[poiId] || seed.pois[poiId] !== state) {
-                        return false;
+            // Get touch position
+            const touch = e.touches[0];
+            const pos = this.getMousePos(touch);
+            lastTouchPos = pos;
+            
+            // Find if a POI was touched
+            const poi = this.findClickedPOI(pos.x, pos.y);
+            if (poi) {
+                // Show visual feedback for long press
+                this.showLongPressIndicator(poi.x, poi.y);
+                
+                // Set timeout for long press (right-click equivalent)
+                touchTimeout = setTimeout(() => {
+                    this.currentRightClickedPOI = poi;
+                    // Position context menu near the touch point but ensure it's visible
+                    const menuX = Math.min(touch.clientX, window.innerWidth - 160);
+                    const menuY = Math.min(touch.clientY, window.innerHeight - 150);
+                    this.showContextMenu(menuX, menuY);
+                    touchTimeout = null;
+                    
+                    // Hide the long press indicator
+                    this.hideLongPressIndicator();
+                    
+                    // Add vibration feedback if supported
+                    if (navigator.vibrate) {
+                        navigator.vibrate(50);
+                    }
+                }, 500); // 500ms long press
+            }
+        }, { passive: false });
+        
+        this.canvas.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            
+            // 隐藏长按指示器
+            this.hideLongPressIndicator();
+            
+            // If this was a short tap (not a long press that showed the menu)
+            if (touchTimeout) {
+                clearTimeout(touchTimeout);
+                touchTimeout = null;
+                
+                // Only process if it was a short tap (less than 500ms)
+                if (Date.now() - touchStartTime < 500) {
+                    const poi = this.findClickedPOI(lastTouchPos.x, lastTouchPos.y);
+                    if (poi) {
+                        this.poiStates[poi.id] = 'church';
+                        this.drawMap(this.images.maps[this.chosenMap]);
+                        this.updateSeedFiltering();
                     }
                 }
             }
-            
-            return true;
+        }, { passive: false });
+        
+        this.canvas.addEventListener('touchmove', (e) => {
+            // Cancel long press if finger moves too much
+            if (touchTimeout) {
+                clearTimeout(touchTimeout);
+                touchTimeout = null;
+                
+                // 隐藏长按指示器
+                this.hideLongPressIndicator();
+            }
+        }, { passive: true });
+        
+        // 确保在触摸取消时也清理
+        this.canvas.addEventListener('touchcancel', (e) => {
+            if (touchTimeout) {
+                clearTimeout(touchTimeout);
+                touchTimeout = null;
+            }
+            this.hideLongPressIndicator();
+        }, { passive: true });
+
+        // Right click - show context menu
+        this.canvas.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            if (!this.chosenMap) {
+                console.log('Please select Map before marking POIs');
+                return;
+            }
+            const pos = this.getMousePos(e);
+            const poi = this.findClickedPOI(pos.x, pos.y);
+            if (poi) {
+                this.currentRightClickedPOI = poi;
+                this.showContextMenu(e.clientX, e.clientY);
+            }
+        });
+
+        // Middle click - mark as unknown
+        this.canvas.addEventListener('mousedown', (e) => {
+            if (e.button === 1) {
+                e.preventDefault();
+                if (!this.chosenMap) {
+                    console.log('Please select Map before marking POIs');
+                    return;
+                }
+                const pos = this.getMousePos(e);
+                const poi = this.findClickedPOI(pos.x, pos.y);
+                if (poi) {
+                    this.poiStates[poi.id] = 'unknown';
+                    this.drawMap(this.images.maps[this.chosenMap]);
+                    this.updateSeedFiltering();
+                }
+            }
+        });
+
+        // Prevent middle click scroll
+        this.canvas.addEventListener('auxclick', (e) => {
+            if (e.button === 1) {
+                e.preventDefault();
+            }
         });
     }
-    
-    // 更新种子过滤结果
+
+    getMousePos(event) {
+        const rect = this.canvas.getBoundingClientRect();
+        const scaleX = this.canvas.width / rect.width;
+        const scaleY = this.canvas.height / rect.height;
+        
+        return {
+            x: (event.clientX - rect.left) * scaleX,
+            y: (event.clientY - rect.top) * scaleY
+        };
+    }
+
+    findClickedPOI(x, y) {
+        return this.currentPOIs.find(poi => {
+            const dx = x - poi.x;
+            const dy = y - poi.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= ICON_SIZE / 2;
+        });
+    }
+
+    resetMap() {
+        this.poiStates = this.initializePOIStates();
+        this.showingSeedImage = false;
+        
+        if (this.chosenMap && this.chosenNightlord) {
+            this.renderMap();
+        } else if (this.chosenMap) {
+            this.drawMapWithSelectedImage();
+        } else if (this.currentPOIs.length > 0) {
+            this.drawDefaultMapWithImage();
+        }
+        
+        this.updateSeedFiltering();
+    }
+
+
+    classifyPOI(poiString) {
+        if (!poiString) return null;
+        if (poiString.includes('Church')) return 'Church';
+        if (poiString.includes('Sorcerer') || poiString.includes('Mage') || poiString.includes('Rise')) return 'Mage';
+        if (poiString.includes('Village')) return 'Village';
+        return 'Other'; // Return 'Other' for non-Church/Mage/Village POIs instead of null
+    }
+
+    updateSeedCount() {
+        if (!this.chosenNightlord && !this.chosenMap) {
+            document.getElementById('seed-count').textContent = '320';
+            return;
+        }
+
+        // Use actual seed data to count seeds
+        let count = 0;
+        if (this.chosenNightlord && this.chosenMap) {
+            // Both selected - count actual seeds with this combination
+            count = seedDataMatrix.filter(row => 
+                row[1] === this.chosenNightlord && row[2] === this.chosenMap
+            ).length;
+        } else if (this.chosenNightlord) {
+            // Only nightlord selected - count all seeds for this nightlord
+            count = seedDataMatrix.filter(row => 
+                row[1] === this.chosenNightlord
+            ).length;
+        } else if (this.chosenMap) {
+            // Only map selected - count all seeds for this map type
+            count = seedDataMatrix.filter(row => 
+                row[2] === this.chosenMap
+            ).length;
+        }
+
+        this.updateSeedCountDisplay(count);
+    }
+
     updateSeedFiltering() {
-        // 更新种子计数
-        this.updateSeedCount();
-        
-        // 获取符合条件的种子
-        const filteredSeeds = this.getFilteredSeeds();
-        
-        // 更新UI显示
-        const seedListElement = document.getElementById('seed-list');
-        if (seedListElement) {
-            // 清空现有列表
-            seedListElement.innerHTML = '';
+        if (!this.chosenMap) {
+            this.updateSeedCount();
+            this.hideSeedDetails();
+            return;
+        }
+
+        // Filter seeds by nightlord and map
+        const possibleSeeds = seedDataMatrix.filter(row => {
+            //return row[1] === this.chosenNightlord && row[2] === this.chosenMap;
+            const allNightlords = !this.chosenNightlord || row[1] === this.chosenNightlord;
+            return allNightlords && row[2] === this.chosenMap;
+        });
+
+        console.log(`Found ${possibleSeeds.length} seeds for ${this.chosenNightlord} + ${this.chosenMap}`);
+
+        // Filter by POI states using coordinate-based matching
+        const filteredSeeds = possibleSeeds.filter(row => {
+            const seedNum = row[0];
+            console.log(`\n🔍 Checking Seed ${seedNum}:`);
             
-            // 添加新的种子项
-            filteredSeeds.forEach(seed => {
-                const seedItem = document.createElement('div');
-                seedItem.className = 'seed-item';
-                seedItem.textContent = `种子 #${seed.id}: ${seed.nightlord} - ${seed.map}`;
-                seedListElement.appendChild(seedItem);
-            });
-            
-            // 如果没有匹配的种子，显示提示
-            if (filteredSeeds.length === 0) {
-                const noSeedItem = document.createElement('div');
-                noSeedItem.className = 'no-seed-item';
-                noSeedItem.textContent = '没有匹配的种子';
-                seedListElement.appendChild(noSeedItem);
+            for (const poi of this.currentPOIs) {
+                const userState = this.poiStates[poi.id];
+                
+                // If user hasn't marked this POI yet, skip it
+                if (userState === 'dot') {
+                    console.log(`  POI ${poi.id} at (${poi.x}, ${poi.y}): User hasn't marked - SKIPPING`);
+                    continue;
+                }
+                
+                console.log(`  POI ${poi.id} at (${poi.x}, ${poi.y}): User marked as ${userState.toUpperCase()}`);
+                
+                // Find what POI type exists at this coordinate in the real seed data
+                const realPOIType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
+                console.log(`    Real data shows: ${realPOIType || 'NOTHING'} at this location`);
+                
+                // If user marked as unknown (?), reject if seed has Church/Mage/Village here
+                if (userState === 'unknown') {
+                    if (realPOIType === 'church' || realPOIType === 'mage' || realPOIType === 'village') {
+                        console.log(`    ❌ REJECTED: User said unknown but real data has ${realPOIType}`);
+                        return false;
+                    }
+                    console.log(`    ✅ OK: User said unknown and real data has ${realPOIType || 'nothing'}`);
+                    continue;
+                }
+
+                // User has marked as church, mage, or other - seed MUST match exactly
+                if (userState === 'church') {
+                    if (realPOIType !== 'church') {
+                        console.log(`    ❌ REJECTED: User said church but real data has ${realPOIType || 'nothing'}`);
+                        return false;
+                    }
+                    console.log(`    ✅ MATCH: User said church and real data has church`);
+                } else if (userState === 'mage') {
+                    if (realPOIType !== 'mage') {
+                        console.log(`    ❌ REJECTED: User said mage but real data has ${realPOIType || 'nothing'}`);
+                        return false;
+                    }
+                    console.log(`    ✅ MATCH: User said mage and real data has mage`);
+                } else if (userState === 'village') {
+                    if (realPOIType !== 'village') {
+                        console.log(`    ❌ REJECTED: User said village but real data has ${realPOIType || 'nothing'}`);
+                        return false;
+                    }
+                    console.log(`    ✅ MATCH: User said village and real data has village`);
+                } else if (userState === 'other') {
+                    if (realPOIType === 'church' || realPOIType === 'mage' || realPOIType === 'village' || !realPOIType) {
+                        console.log(`    ❌ REJECTED: User said other POI but real data has ${realPOIType || 'nothing'}`);
+                        return false;
+                    }
+                    console.log(`    ✅ MATCH: User said other POI and real data has ${realPOIType}`);
+                }
             }
+            console.log(`  ✅ Seed ${seedNum} PASSED all POI checks`);
+            return true;
+        });
+
+        console.log(`After POI filtering: ${filteredSeeds.length} seeds remaining`);
+
+
+        this.updateSeedCountDisplay(filteredSeeds.length);
+
+        if (filteredSeeds.length === 0) {
+            this.showNoSeedsFound();
+        } else if (filteredSeeds.length === 1) {
+            this.showSingleSeed(filteredSeeds[0]);
+        } else {
+            this.showingSeedImage = false;
+            this.renderMap();
         }
     }
+
+    updateSeedCountDisplay(count) {
+        const seedCountElement = document.getElementById('seed-count');
+        seedCountElement.textContent = count;
+        seedCountElement.className = count === 0 ? 'seed-count no-seeds' : 'seed-count';
+    }
+
+    showNoSeedsFound() {
+        const seedCountElement = document.getElementById('seed-count');
+        seedCountElement.innerHTML = '<span style="color: #e74c3c; font-weight: 600;">NO SEED FOUND<br>RESET THE MAP!</span>';
+    }
+
+    showSingleSeed(seedRow) {
+        const mapSeed = seedRow[0];
+        this.showingSeedImage = true;
+        
+        // Show seed image
+        this.showSeedImage(mapSeed);
+    }
+
+    showSeedImage(mapSeed) {
+        const canvas = document.getElementById('map-canvas');
+        const seedImageContainer = document.getElementById('seed-image-container');
+        
+        canvas.style.display = 'none';
+        seedImageContainer.style.display = 'block';
+        
+        const seedStr = mapSeed.toString().padStart(3, '0');
+        //const seedImageUrl = "https://www.trc-playground.hu/GameZ/NightreignSeeds/Seeds/" + seedStr + ".jpg";
+        //local
+        const seedImageUrl = "assets/pattern/" + seedStr + ".jpg";
+        
+        seedImageContainer.innerHTML = `
+            <center>
+                <a href="${seedImageUrl}" target="_blank">
+                    <img src="${seedImageUrl}" alt="Seed ${mapSeed}" style="max-width: 768px; border: 2px solid black;">
+                </a>
+                <br>
+                <b style="color: black;">Mapseed: ${mapSeed}</b>
+                <br>
+                <small style="color: blue;">Click on the map to open it in a new tab.</small>
+            </center>
+        `;
+    }
+
+
+
+    showError(message) {
+        const loadingSection = document.getElementById('loading-section');
+        loadingSection.innerHTML = `
+            <div class="loading-indicator">
+                <i class="fas fa-exclamation-triangle" style="color: #e74c3c;"></i>
+                <p style="color: #e74c3c;">${message}</p>
+            </div>
+        `;
+    }
+
+    showHelpModal() {
+        const helpModal = document.getElementById('help-modal');
+        helpModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    hideHelpModal() {
+        const helpModal = document.getElementById('help-modal');
+        helpModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    findRealPOITypeAtCoordinate(seedNum, clickX, clickY) {
+        // Use CV classification data if available
+        if (CV_CLASSIFICATION_DATA) {
+            const seedKey = seedNum.toString().padStart(3, '0');
+            const seedClassifications = CV_CLASSIFICATION_DATA[seedKey];
+            
+            if (seedClassifications) {
+                // Find which clickable POI this coordinate matches
+                const clickablePOI = this.currentPOIs.find(poi => {
+                    const dx = clickX - poi.x;
+                    const dy = clickY - poi.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    return distance <= 40; // Same tolerance as used elsewhere
+                });
+                
+                if (clickablePOI) {
+                    const poiKey = `POI${clickablePOI.id}`;
+                    const cvClassification = seedClassifications[poiKey];
+                    
+                    if (cvClassification) {
+                        console.log(`    ✅ Classification: ${cvClassification.toUpperCase()} for POI ${clickablePOI.id}`);
+                        return cvClassification === 'nothing' ? null : cvClassification;
+                    }
+                }
+            }
+        }
+        
+        // No classification data available - return null
+        console.log(`    ❌ No classification found in dataset for seed ${seedNum}`);
+        return null;
+    }
+    
+
+
 }
 
-// 初始化应用
+// Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const app = new NightreignMapRecogniser();
+    new NightreignMapRecogniser();
 });
