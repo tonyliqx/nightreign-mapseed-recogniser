@@ -1247,6 +1247,7 @@ class NightreignMapRecogniser {
                 </a>
                 <div class="seed-info">
                     <span class="seed-number">地图种子: ${mapSeed}</span>
+                    ${isMobile && nightlordChinese ? `<span class="seed-nightlord">夜王: ${nightlordChinese}</span>` : ''}
                     <small class="seed-hint">${isMobile ? '点击图片查看大图' : '点击图片在新标签页中查看'}</small>
                 </div>
             </div>
