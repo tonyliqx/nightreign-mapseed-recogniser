@@ -722,7 +722,7 @@ class NightreignMapRecogniser {
         // Track touch start time for long press detection
         let touchStartTime = 0;
         let touchTimeout = null;
-        let lastTouch极速赛车群Pos = { x: 0, y: 0 };
+        let lastTouchPos = { x: 0, y: 0 };
         let touchStarted = false;
         let touchMoved = false;
         let lastTouchedPoi = null;
