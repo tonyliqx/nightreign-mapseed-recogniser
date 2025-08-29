@@ -1012,9 +1012,8 @@ class NightreignMapRecogniser {
     }
 
     resetMap() {
-        // Clear all selections
+        // Clear only nightlord selection and POI states, keep map selection
         this.chosenNightlord = null;
-        this.chosenMap = null;
         this.poiStates = this.initializePOIStates();
         this.showingSeedImage = false;
         
@@ -1024,26 +1023,34 @@ class NightreignMapRecogniser {
             btn.classList.remove('active');
         });
         
-        // Update UI for map selection
-        document.getElementById('chosen-map').textContent = 'None';
-        document.querySelectorAll('.map-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Reset to default map
-        this.currentPOIs = POIS_BY_MAP['Default'] || [];
-        this.poiStates = this.initializePOIStates();
-        
-        // Draw default map
-        if (this.canvas && this.ctx) {
-            this.drawDefaultMapWithImage();
+        // If a map is selected, keep it and redraw with reset POIs
+        if (this.chosenMap) {
+            // Reinitialize POI states for current map
+            this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
+            this.poiStates = this.initializePOIStates();
+            
+            // Redraw current map with reset POIs
+            if (this.canvas && this.ctx) {
+                this.drawMap(this.images.maps[this.chosenMap]);
+            }
+            
+            // Update seed filtering
+            this.updateSeedFiltering();
+        } else {
+            // No map selected - reset to default
+            this.currentPOIs = POIS_BY_MAP['Default'] || [];
+            this.poiStates = this.initializePOIStates();
+            
+            // Draw default map
+            if (this.canvas && this.ctx) {
+                this.drawDefaultMapWithImage();
+            }
+            
+            this.updateSeedCount();
+            this.showSelectionOverlay();
         }
         
-        // Update game state
-        this.updateSeedCount();
-        this.showSelectionOverlay();
-        
-        console.log('Reset completed - cleared all selections and POI states');
+        console.log('Reset completed - cleared nightlord selection and POI states, kept map selection');
     }
 
 
