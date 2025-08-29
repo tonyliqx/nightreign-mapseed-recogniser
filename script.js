@@ -39,6 +39,7 @@ class NightreignMapRecogniser {
         this.ctx = null;
         this.contextMenu = null;
         this.currentRightClickedPOI = null;
+        this.canvasEventListenersSetup = false; // 新增标志
         
         this.init();
     }
@@ -713,10 +714,15 @@ class NightreignMapRecogniser {
     }
 
     setupCanvasEventListeners() {
+        // 如果监听器已经设置过，直接返回
+        if (this.canvasEventListenersSetup) {
+            return;
+        }
+        
         // Track touch start time for long press detection
         let touchStartTime = 0;
         let touchTimeout = null;
-        let lastTouchPos = { x: 0, y: 0 };
+        let lastTouch极速赛车群Pos = { x: 0, y: 0 };
         let touchStarted = false;
         let touchMoved = false;
         let lastTouchedPoi = null;
@@ -920,6 +926,9 @@ class NightreignMapRecogniser {
                 e.preventDefault();
             }
         });
+        
+        // 标记监听器已设置
+        this.canvasEventListenersSetup = true;
     }
 
     getMousePos(event) {
@@ -945,6 +954,11 @@ class NightreignMapRecogniser {
     resetMap() {
         this.poiStates = this.initializePOIStates();
         this.showingSeedImage = false;
+        
+        // 确保当前POI列表与选择的地图匹配
+        if (this.chosenMap) {
+            this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
+        }
         
         if (this.chosenMap && this.chosenNightlord) {
             this.renderMap();
