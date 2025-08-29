@@ -767,10 +767,27 @@ body {
         transform: scale(0.8);
         opacity: 0.7;
     }
+    50% {
+        transform: scale(1.0);
+        opacity: 0.5;
+    }
     100% {
         transform: scale(1.2);
         opacity: 0;
     }
+}
+
+/* 长按指示器样式 */
+#long-press-indicator {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    animation: longPressAnimation 0.5s linear forwards;
+    pointer-events: none;
+    z-index: 1000;
 }
 
 .active-poi {

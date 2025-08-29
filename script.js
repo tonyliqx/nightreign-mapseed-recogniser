@@ -424,15 +424,52 @@ class NightreignMapRecogniser {
 
     showContextMenu(x, y) {
         if (this.contextMenu) {
+            // 确保菜单在视口内
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const menuWidth = 200; // 估计的菜单宽度
+            const menuHeight = 150; // 估计的菜单高度
+            
+            // 调整位置以确保菜单完全可见
+            let adjustedX = x;
+            let adjustedY = y;
+            
+            if (x + menuWidth > viewportWidth) {
+                adjustedX = viewportWidth - menuWidth - 10;
+            }
+            
+            if (y + menuHeight > viewportHeight) {
+                adjustedY = viewportHeight - menuHeight - 10;
+            }
+            
+            // 设置菜单位置并显示
+            this.contextMenu.style.left = `${adjustedX}px`;
+            this.contextMenu.style.top = `${adjustedY}px`;
             this.contextMenu.style.display = 'block';
-            this.contextMenu.style.left = `${x}px`;
-            this.contextMenu.style.top = `${y}px`;
+            
+            // 添加动画效果
+            this.contextMenu.style.opacity = '0';
+            this.contextMenu.style.transform = 'scale(0.95)';
+            this.contextMenu.style.transition = 'opacity 0.2s, transform 0.2s';
+            
+            // 强制重绘以确保动画生效
+            setTimeout(() => {
+                this.contextMenu.style.opacity = '1';
+                this.contextMenu.style.transform = 'scale(1)';
+            }, 10);
         }
     }
 
     hideContextMenu() {
         if (this.contextMenu) {
-            this.contextMenu.style.display = 'none';
+            // 添加淡出效果
+            this.contextMenu.style.opacity = '0';
+            this.contextMenu.style.transform = 'scale(0.95)';
+            
+            // 等待淡出完成后隐藏
+            setTimeout(() => {
+                this.contextMenu.style.display = 'none';
+            }, 200);
         }
         this.currentRightClickedPOI = null;
     }
@@ -445,15 +482,6 @@ class NightreignMapRecogniser {
         // 创建一个新的指示器元素
         const indicator = document.createElement('div');
         indicator.id = 'long-press-indicator';
-        indicator.style.position = 'absolute';
-        indicator.style.width = '60px';
-        indicator.style.height = '60px';
-        indicator.style.borderRadius = '50%';
-        indicator.style.border = '3px solid #ffd700';
-        indicator.style.boxShadow = '0 0 10px rgba(255, 215, 0, 0.7)';
-        indicator.style.animation = 'longPressAnimation 0.5s linear forwards';
-        indicator.style.pointerEvents = 'none';
-        indicator.style.zIndex = '1000';
         
         // 计算指示器位置
         const canvas = document.getElementById('map-canvas');
@@ -469,12 +497,26 @@ class NightreignMapRecogniser {
         
         // 添加到文档
         document.body.appendChild(indicator);
+        
+        // 强制重绘以确保动画生效
+        setTimeout(() => {
+            indicator.style.opacity = '0.9';
+        }, 10);
     }
     
     hideLongPressIndicator() {
         const indicator = document.getElementById('long-press-indicator');
         if (indicator) {
-            indicator.remove();
+            // 添加淡出效果
+            indicator.style.opacity = '0';
+            indicator.style.transition = 'opacity 0.2s';
+            
+            // 等待淡出完成后移除元素
+            setTimeout(() => {
+                if (indicator.parentNode) {
+                    indicator.remove();
+                }
+            }, 200);
         }
     }
 
@@ -619,6 +661,8 @@ class NightreignMapRecogniser {
         let touchStartTime = 0;
         let touchTimeout = null;
         let lastTouchPos = { x: 0, y: 0 };
+        let touchStarted = false;
+        let touchMoved = false;
         
         // Left click - place church
         this.canvas.addEventListener('click', (e) => {
@@ -647,6 +691,8 @@ class NightreignMapRecogniser {
             
             // Record touch start time for long press detection
             touchStartTime = Date.now();
+            touchStarted = true;
+            touchMoved = false;
             
             // Get touch position
             const touch = e.touches[0];
@@ -661,20 +707,22 @@ class NightreignMapRecogniser {
                 
                 // Set timeout for long press (right-click equivalent)
                 touchTimeout = setTimeout(() => {
-                    this.currentRightClickedPOI = poi;
-                    // Position context menu near the touch point but ensure it's visible
-                    const menuX = Math.min(touch.clientX, window.innerWidth - 160);
-                    const menuY = Math.min(touch.clientY, window.innerHeight - 150);
-                    this.showContextMenu(menuX, menuY);
-                    touchTimeout = null;
-                    
-                    // Hide the long press indicator
-                    this.hideLongPressIndicator();
-                    
-                    // Add vibration feedback if supported
-                    if (navigator.vibrate) {
-                        navigator.vibrate(50);
+                    if (touchStarted && !touchMoved) {
+                        this.currentRightClickedPOI = poi;
+                        // Position context menu near the touch point but ensure it's visible
+                        const menuX = Math.min(touch.clientX, window.innerWidth - 160);
+                        const menuY = Math.min(touch.clientY, window.innerHeight - 150);
+                        this.showContextMenu(menuX, menuY);
+                        
+                        // Hide the long press indicator
+                        this.hideLongPressIndicator();
+                        
+                        // Add vibration feedback if supported
+                        if (navigator.vibrate) {
+                            navigator.vibrate(50);
+                        }
                     }
+                    touchTimeout = null;
                 }, 500); // 500ms long press
             }
         }, { passive: false });
@@ -690,8 +738,8 @@ class NightreignMapRecogniser {
                 clearTimeout(touchTimeout);
                 touchTimeout = null;
                 
-                // Only process if it was a short tap (less than 500ms)
-                if (Date.now() - touchStartTime < 500) {
+                // Only process if it was a short tap (less than 500ms) and finger didn't move much
+                if (Date.now() - touchStartTime < 500 && !touchMoved) {
                     const poi = this.findClickedPOI(lastTouchPos.x, lastTouchPos.y);
                     if (poi) {
                         this.poiStates[poi.id] = 'church';
@@ -700,10 +748,15 @@ class NightreignMapRecogniser {
                     }
                 }
             }
+            
+            touchStarted = false;
         }, { passive: false });
         
         this.canvas.addEventListener('touchmove', (e) => {
-            // Cancel long press if finger moves too much
+            // Mark as moved to prevent accidental clicks
+            touchMoved = true;
+            
+            // Cancel long press if finger moves
             if (touchTimeout) {
                 clearTimeout(touchTimeout);
                 touchTimeout = null;
@@ -720,6 +773,7 @@ class NightreignMapRecogniser {
                 touchTimeout = null;
             }
             this.hideLongPressIndicator();
+            touchStarted = false;
         }, { passive: true });
 
         // Right click - show context menu
