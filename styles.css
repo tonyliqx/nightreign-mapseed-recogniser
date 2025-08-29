@@ -343,15 +343,19 @@ body {
 }
 
 .reset-btn {
-    padding: 12px 30px;
+    padding: 8px 20px;
     background: linear-gradient(45deg, #e74c3c, #c0392b);
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
 }
 
@@ -402,15 +406,19 @@ body {
 }
 
 .help-btn {
-    padding: 12px 30px;
+    padding: 8px 20px;
     background: linear-gradient(45deg, #3498db, #2980b9);
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
@@ -434,6 +442,16 @@ body {
 @media (max-width: 1024px) {
     .results-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .seed-counter {
+        order: 1;
+        margin-bottom: 0;
+    }
+    
+    .map-container {
+        order: 2;
     }
 }
 
@@ -618,11 +636,12 @@ body {
     justify-content: center;
     gap: 15px;
     padding: 20px;
+    width: 100%;
 }
 
 .seed-image-link {
     display: block;
-    max-width: 100%;
+    width: 100%;
     transition: transform 0.2s ease;
 }
 
@@ -631,16 +650,18 @@ body {
 }
 
 .seed-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border: 3px solid #4fc3f7;
     border-radius: 12px;
     box-shadow: 0 6px 24px rgba(79, 195, 247, 0.4);
+    object-fit: contain;
 }
 
 .seed-info {
     text-align: center;
     color: #ffffff;
+    width: 100%;
 }
 
 .seed-number {
@@ -649,6 +670,71 @@ body {
     font-weight: 600;
     color: #ffd700;
     margin-bottom: 8px;
+}
+
+.seed-nightlord {
+    display: block;
+    font-size: 1.3rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* 夜王信息样式 */
+.nightlord-info {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    text-align: center;
+}
+
+.nightlord-label {
+    font-size: 1rem;
+    color: #4fc3f7;
+    font-weight: 500;
+}
+
+.nightlord-name {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* 重置按钮区域紧凑样式 */
+.compact-button-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin: 0;
+    min-height: auto;
+}
+
+/* 移动端夜王信息样式 */
+@media (max-width: 768px) {
+    .nightlord-info {
+        margin-top: 10px;
+        padding: 10px;
+    }
+    
+    .nightlord-label {
+        font-size: 0.9rem;
+    }
+    
+    .nightlord-name {
+        font-size: 1.1rem;
+    }
+    
+    /* 移动端重置按钮区域更紧凑 */
+    .compact-button-row {
+        padding: 10px;
+        gap: 10px;
+    }
 }
 
 .seed-hint {
@@ -754,10 +840,16 @@ body {
     
     .results-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .seed-counter {
-        margin-bottom: 15px;
+        margin-bottom: 0;
+        order: 1;
+    }
+    
+    .map-container {
+        order: 2;
     }
     
     #map-canvas {

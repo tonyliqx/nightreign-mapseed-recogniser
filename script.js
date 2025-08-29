@@ -201,9 +201,10 @@ class NightreignMapRecogniser {
         this.currentPOIs = POIS_BY_MAP['Default'] || [];
         this.poiStates = this.initializePOIStates();
         
-        // Show interaction section
+        // Show interaction section and instructions
         const interactionSection = document.getElementById('interaction-section');
         interactionSection.style.display = 'block';
+        this.showInstructionsSection();
         
         // Render the default map
         this.renderDefaultMap();
@@ -431,6 +432,8 @@ class NightreignMapRecogniser {
         const resultsSection = document.getElementById('results-section');
         resultsSection.style.display = 'block';
     }
+
+
 
     showSelectionOverlay() {
         const overlay = document.getElementById('selection-overlay');
@@ -1019,6 +1022,9 @@ class NightreignMapRecogniser {
         this.poiStates = this.initializePOIStates();
         this.showingSeedImage = false;
         
+        // Hide nightlord info
+        this.hideNightlordInfo();
+        
         // Update UI for nightlord selection
         document.getElementById('chosen-nightlord').textContent = 'None';
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
@@ -1053,6 +1059,13 @@ class NightreignMapRecogniser {
         }
         
         console.log('Reset completed - cleared nightlord selection and POI states, kept map selection');
+    }
+    
+    hideNightlordInfo() {
+        const nightlordInfo = document.getElementById('nightlord-info');
+        if (nightlordInfo) {
+            nightlordInfo.style.display = 'none';
+        }
     }
 
 
@@ -1199,11 +1212,21 @@ class NightreignMapRecogniser {
         const mapSeed = seedRow[0];
         this.showingSeedImage = true;
         
-        // Show seed image
-        this.showSeedImage(mapSeed);
+        // Show seed image with nightlord info
+        this.showSeedImage(seedRow);
     }
 
-    showSeedImage(mapSeed) {
+    showSeedImage(seedRow) {
+        const mapSeed = seedRow[0];
+        const nightlord = seedRow[1] || '未知夜王';
+        const mapType = seedRow[2] || '默认地图';
+        
+        // 将英文夜王名称转换为中文
+        const nightlordChinese = this.getNightlordChineseName(nightlord);
+        
+        // 在种子计数器区域显示夜王信息
+        this.updateNightlordInfo(nightlordChinese);
+        
         const canvas = document.getElementById('map-canvas');
         const seedImageContainer = document.getElementById('seed-image-container');
         
@@ -1224,6 +1247,31 @@ class NightreignMapRecogniser {
                 </div>
             </div>
         `;
+    }
+    
+    updateNightlordInfo(nightlordChinese) {
+        const nightlordInfo = document.getElementById('nightlord-info');
+        const nightlordName = document.getElementById('nightlord-name');
+        
+        if (nightlordInfo && nightlordName) {
+            nightlordName.textContent = nightlordChinese;
+            nightlordInfo.style.display = 'block';
+        }
+    }
+
+    getNightlordChineseName(englishName) {
+        const nightlordMap = {
+            'Gladius': '三狼',
+            'Adel': '大嘴',
+            'Gnoster': '慧心虫',
+            'Maris': '水皮蛋',
+            'Libra': '山羊',
+            'Fulghor': '人马',
+            'Caligo': '冰龙',
+            'Heolstor': '黑夜王',
+            '未知夜王': '未知夜王'
+        };
+        return nightlordMap[englishName] || englishName;
     }
 
 
