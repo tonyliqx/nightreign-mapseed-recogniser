@@ -67,32 +67,37 @@
             </div>
 
             <div id="interaction-section" class="section" style="display: none;">
+                <!-- 重置按钮保留在原来的位置，使用紧凑样式 -->
+                <div class="compact-button-row">
+                    <button id="reset-map-btn" class="reset-btn">
+                        <i class="fas fa-undo"></i>
+                        重置地图并移除所有标记
+                    </button>
+                    
+                    <button id="help-btn" class="help-btn">
+                        <i class="fas fa-question-circle"></i>
+                        帮助与提示
+                    </button>
+                </div>
+            </div>
+
+            <!-- 使用说明模块移动到页面底部 -->
+            <div id="instructions-section" class="section" style="display: none;">
                 <div class="instructions-card">
                     <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
-                <div class="instruction-grid">
-                    <div class="instruction-item">
-                        <i class="fas fa-mouse-pointer"></i>
-                        <span><strong>左键点击</strong>/<strong>轻触</strong>橙色圆点标记教堂</span>
+                    <div class="instruction-grid">
+                        <div class="instruction-item">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span><strong>左键点击</strong>/<strong>轻触</strong>橙色圆点标记教堂</span>
+                        </div>
+                        <div class="instruction-item">
+                            <i class="fas fa-hand-pointer"></i>
+                            <span><strong>右键点击</strong>/<strong>长按</strong>选择法师塔或村庄</span>
+                        </div>
                     </div>
-                    <div class="instruction-item">
-                        <i class="fas fa-hand-pointer"></i>
-                        <span><strong>右键点击</strong>/<strong>长按</strong>选择法师塔或村庄</span>
-                    </div>
-                </div>
-                <div class="mobile-hint">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>移动设备：<strong>长按</strong>橙色圆点可打开选择菜单</span>
-                </div>
-                    <div class="button-row">
-                        <button id="reset-map-btn" class="reset-btn">
-                            <i class="fas fa-undo"></i>
-                            重置地图并移除所有标记
-                        </button>
-                        
-                        <button id="help-btn" class="help-btn">
-                            <i class="fas fa-question-circle"></i>
-                            帮助与提示
-                        </button>
+                    <div class="mobile-hint">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>移动设备：<strong>长按</strong>橙色圆点可打开选择菜单</span>
                     </div>
                 </div>
             </div>
@@ -102,6 +107,10 @@
                     <div class="seed-counter">
                         <h3>可能的地图种子</h3>
                         <div class="seed-count" id="seed-count">0</div>
+                        <div class="nightlord-info" id="nightlord-info" style="display: none;">
+                            <span class="nightlord-label">夜王: </span>
+                            <span class="nightlord-name" id="nightlord-name"></span>
+                        </div>
                     </div>
 
                     <div class="map-container">
@@ -116,6 +125,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
             </div>
         </main>
@@ -140,8 +151,8 @@
                         <li>查看地图上高亮的橙色圆点 —— 这些是可能的兴趣点位置</li>
                         <li>点击这些点，标记你在游戏中看到的内容：
                             <ul>
-                                <li><strong>左键点击</strong> = 教堂</li>
-                                <li><strong>右键点击</strong> = 选择法师塔或其他兴趣点</li>
+                                <li><strong>左键点击/屏幕轻触</strong> = 教堂</li>
+                                <li><strong>右键点击/屏幕长按</strong> = 选择法师塔或其他兴趣点</li>
                             </ul>
                         </li>
                         <li>随着标记增加，可能的种子会逐步筛选</li>
