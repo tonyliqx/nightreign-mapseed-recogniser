@@ -439,6 +439,69 @@ body {
     align-items: start;
 }
 
+/* 种子计数器和夜王信息在一行展示 - 参照nightlord-info样式 */
+.results-header {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 12px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 调整seed-counter样式 - 确保标签和计数在同一行 */
+.results-header .seed-counter {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.results-header .seed-counter h3 {
+    display: none; /* 移除h3标题 */
+}
+
+.results-header .seed-count {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.results-header .seed-counter .nightlord-label {
+    font-size: 1rem;
+    color: #4fc3f7;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 调整nightlord-info样式 */
+.results-header .nightlord-info {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 1024px) {
     .results-grid {
         grid-template-columns: 1fr;
@@ -455,11 +518,13 @@ body {
     }
 }
 
+/* 基础seed-counter样式 - 用于独立显示的情况 */
 .seed-counter {
     text-align: center;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 15px;
+    padding: 20px;
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -850,11 +915,88 @@ body {
     
     .map-container {
         order: 2;
+        min-height: 300px;
     }
     
     #map-canvas {
         max-width: 100%;
         height: auto;
+    }
+    
+    /* 移动端种子图片全屏显示 */
+    #seed-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .seed-result-container {
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+    }
+    
+    .seed-image-link {
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .seed-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .seed-info {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        backdrop-filter: blur(10px);
+    }
+    
+    /* 移动端关闭按钮 */
+    .close-fullscreen-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+        backdrop-filter: blur(10px);
+    }
+    
+    .close-fullscreen-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
     }
     
     .modal-content {

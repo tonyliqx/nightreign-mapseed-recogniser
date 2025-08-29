@@ -71,7 +71,7 @@
                 <div class="compact-button-row">
                     <button id="reset-map-btn" class="reset-btn">
                         <i class="fas fa-undo"></i>
-                        重置地图并移除所有标记
+                        重置并移除所有标记
                     </button>
                     
                     <button id="help-btn" class="help-btn">
@@ -104,9 +104,12 @@
 
             <div id="results-section" class="section" style="display: none;">
                 <div class="results-grid">
-                    <div class="seed-counter">
-                        <h3>可能的地图种子</h3>
-                        <div class="seed-count" id="seed-count">0</div>
+                    <div class="results-header">
+                        <div class="seed-counter">
+                            <span class="nightlord-label">已匹配地图: </span>
+                            <div class="seed-count" id="seed-count">0</div>
+                        </div>
+                        
                         <div class="nightlord-info" id="nightlord-info" style="display: none;">
                             <span class="nightlord-label">夜王: </span>
                             <span class="nightlord-name" id="nightlord-name"></span>

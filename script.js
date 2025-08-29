@@ -1236,17 +1236,33 @@ class NightreignMapRecogniser {
         const seedStr = mapSeed.toString().padStart(3, '0');
         const seedImageUrl = "assets/pattern/" + seedStr + ".jpg";
         
+        // 检查是否为移动设备
+        const isMobile = window.innerWidth <= 768;
+        
         seedImageContainer.innerHTML = `
             <div class="seed-result-container">
+                ${isMobile ? '<button class="close-fullscreen-btn">&times;</button>' : ''}
                 <a href="${seedImageUrl}" target="_blank" class="seed-image-link">
                     <img src="${seedImageUrl}" alt="Seed ${mapSeed}" class="seed-image">
                 </a>
                 <div class="seed-info">
                     <span class="seed-number">地图种子: ${mapSeed}</span>
-                    <small class="seed-hint">点击图片在新标签页中查看</small>
+                    <small class="seed-hint">${isMobile ? '点击图片查看大图' : '点击图片在新标签页中查看'}</small>
                 </div>
             </div>
         `;
+        
+        // 为移动端关闭按钮添加事件监听
+        if (isMobile) {
+            const closeBtn = seedImageContainer.querySelector('.close-fullscreen-btn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    seedImageContainer.style.display = 'none';
+                    canvas.style.display = 'block';
+                    this.renderMap();
+                });
+            }
+        }
     }
     
     updateNightlordInfo(nightlordChinese) {
