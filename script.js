@@ -407,40 +407,92 @@ class NightreignMapRecogniser {
     setupContextMenu() {
         this.contextMenu = document.getElementById('poi-context-menu');
         
-        // Handle context menu item clicks
+        // 处理上下文菜单项点击
         document.querySelectorAll('.context-menu-item').forEach(item => {
-            item.addEventListener('click', (e) => {
+            // 同时处理点击和触摸事件
+            const handleSelection = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // 添加触摸反馈效果
+                item.classList.add('touch-feedback');
+                
+                // 获取POI类型
                 const type = e.currentTarget.dataset.type;
+                
                 if (this.currentRightClickedPOI) {
+                    console.log(`Selected ${type} for POI ${this.currentRightClickedPOI.id}`);
+                    
+                    // 更新POI状态
                     this.poiStates[this.currentRightClickedPOI.id] = type;
+                    
+                    // 重绘地图
                     this.drawMap(this.images.maps[this.chosenMap]);
+                    
+                    // 更新种子过滤
                     this.updateSeedFiltering();
-                    this.hideContextMenu();
-                    this.currentRightClickedPOI = null;
+                    
+                    // 隐藏菜单
+                    setTimeout(() => {
+                        this.hideContextMenu();
+                        this.currentRightClickedPOI = null;
+                        
+                        // 移除触摸反馈效果
+                        item.classList.remove('touch-feedback');
+                    }, 150);
                 }
+            };
+            
+            // 添加点击事件监听器
+            item.addEventListener('click', handleSelection);
+            
+            // 添加触摸事件监听器
+            item.addEventListener('touchstart', (e) => {
+                // 添加触摸反馈
+                item.classList.add('touch-feedback');
+            });
+            
+            item.addEventListener('touchend', handleSelection);
+            
+            item.addEventListener('touchcancel', (e) => {
+                // 移除触摸反馈
+                item.classList.remove('touch-feedback');
             });
         });
+        
+        // 点击其他区域关闭菜单
+        document.addEventListener('touchstart', (e) => {
+            if (this.contextMenu && 
+                this.contextMenu.style.display === 'block' && 
+                !this.contextMenu.contains(e.target)) {
+                this.hideContextMenu();
+            }
+        }, { passive: true });
     }
 
     showContextMenu(x, y) {
         if (this.contextMenu) {
+            console.log(`Showing context menu at (${x}, ${y})`);
+            
             // 确保菜单在视口内
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
-            const menuWidth = 200; // 估计的菜单宽度
-            const menuHeight = 150; // 估计的菜单高度
+            const menuWidth = 240; // 更新的菜单宽度
+            const menuHeight = 180; // 更新的菜单高度
             
             // 调整位置以确保菜单完全可见
             let adjustedX = x;
             let adjustedY = y;
             
             if (x + menuWidth > viewportWidth) {
-                adjustedX = viewportWidth - menuWidth - 10;
+                adjustedX = viewportWidth - menuWidth - 20;
             }
             
             if (y + menuHeight > viewportHeight) {
-                adjustedY = viewportHeight - menuHeight - 10;
+                adjustedY = viewportHeight - menuHeight - 20;
             }
+            
+            console.log(`Adjusted position: (${adjustedX}, ${adjustedY})`);
             
             // 设置菜单位置并显示
             this.contextMenu.style.left = `${adjustedX}px`;
@@ -456,7 +508,11 @@ class NightreignMapRecogniser {
             setTimeout(() => {
                 this.contextMenu.style.opacity = '1';
                 this.contextMenu.style.transform = 'scale(1)';
+                console.log('Context menu animation completed');
             }, 10);
+            
+            // 确保菜单可见
+            this.contextMenu.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     }
 
@@ -663,6 +719,7 @@ class NightreignMapRecogniser {
         let lastTouchPos = { x: 0, y: 0 };
         let touchStarted = false;
         let touchMoved = false;
+        let lastTouchedPoi = null;
         
         // Left click - place church
         this.canvas.addEventListener('click', (e) => {
@@ -679,6 +736,47 @@ class NightreignMapRecogniser {
             }
         });
 
+        // 专门为安卓设备添加的长按处理
+        let longPressHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (!touchStarted || touchMoved || !lastTouchedPoi) return;
+            
+            console.log("Long press detected!");
+            
+            // 显示上下文菜单
+            this.currentRightClickedPOI = lastTouchedPoi;
+            
+            // 获取触摸位置
+            const touch = e.changedTouches ? e.changedTouches[0] : e.touches[0];
+            
+            // 计算菜单位置
+            const menuX = Math.min(touch.clientX, window.innerWidth - 160);
+            const menuY = Math.min(touch.clientY, window.innerHeight - 150);
+            
+            // 显示菜单
+            this.showContextMenu(menuX, menuY);
+            
+            // 隐藏长按指示器
+            this.hideLongPressIndicator();
+            
+            // 添加振动反馈
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+            
+            // 清理状态
+            touchStarted = false;
+            touchMoved = false;
+            lastTouchedPoi = null;
+            
+            if (touchTimeout) {
+                clearTimeout(touchTimeout);
+                touchTimeout = null;
+            }
+        };
+
         // Touch events for mobile
         this.canvas.addEventListener('touchstart', (e) => {
             // Prevent default to avoid scrolling
@@ -689,41 +787,34 @@ class NightreignMapRecogniser {
                 return;
             }
             
-            // Record touch start time for long press detection
+            // 记录触摸开始时间
             touchStartTime = Date.now();
             touchStarted = true;
             touchMoved = false;
             
-            // Get touch position
+            // 获取触摸位置
             const touch = e.touches[0];
             const pos = this.getMousePos(touch);
             lastTouchPos = pos;
             
-            // Find if a POI was touched
+            // 查找是否触摸了POI
             const poi = this.findClickedPOI(pos.x, pos.y);
+            lastTouchedPoi = poi;
+            
             if (poi) {
-                // Show visual feedback for long press
+                console.log(`Touched POI ${poi.id} at (${poi.x}, ${poi.y})`);
+                
+                // 显示长按视觉反馈
                 this.showLongPressIndicator(poi.x, poi.y);
                 
-                // Set timeout for long press (right-click equivalent)
+                // 设置长按超时
+                if (touchTimeout) {
+                    clearTimeout(touchTimeout);
+                }
+                
                 touchTimeout = setTimeout(() => {
-                    if (touchStarted && !touchMoved) {
-                        this.currentRightClickedPOI = poi;
-                        // Position context menu near the touch point but ensure it's visible
-                        const menuX = Math.min(touch.clientX, window.innerWidth - 160);
-                        const menuY = Math.min(touch.clientY, window.innerHeight - 150);
-                        this.showContextMenu(menuX, menuY);
-                        
-                        // Hide the long press indicator
-                        this.hideLongPressIndicator();
-                        
-                        // Add vibration feedback if supported
-                        if (navigator.vibrate) {
-                            navigator.vibrate(50);
-                        }
-                    }
-                    touchTimeout = null;
-                }, 500); // 500ms long press
+                    longPressHandler(e);
+                }, 500);
             }
         }, { passive: false });
         
@@ -733,47 +824,61 @@ class NightreignMapRecogniser {
             // 隐藏长按指示器
             this.hideLongPressIndicator();
             
-            // If this was a short tap (not a long press that showed the menu)
+            // 如果是短暂点击（不是长按）
+            const touchDuration = Date.now() - touchStartTime;
+            console.log(`Touch duration: ${touchDuration}ms, moved: ${touchMoved}`);
+            
+            if (touchDuration < 500 && !touchMoved && lastTouchedPoi) {
+                console.log(`Short tap on POI ${lastTouchedPoi.id}`);
+                this.poiStates[lastTouchedPoi.id] = 'church';
+                this.drawMap(this.images.maps[this.chosenMap]);
+                this.updateSeedFiltering();
+            }
+            
+            // 清理状态
             if (touchTimeout) {
                 clearTimeout(touchTimeout);
                 touchTimeout = null;
-                
-                // Only process if it was a short tap (less than 500ms) and finger didn't move much
-                if (Date.now() - touchStartTime < 500 && !touchMoved) {
-                    const poi = this.findClickedPOI(lastTouchPos.x, lastTouchPos.y);
-                    if (poi) {
-                        this.poiStates[poi.id] = 'church';
-                        this.drawMap(this.images.maps[this.chosenMap]);
-                        this.updateSeedFiltering();
-                    }
-                }
             }
             
             touchStarted = false;
+            lastTouchedPoi = null;
         }, { passive: false });
         
         this.canvas.addEventListener('touchmove', (e) => {
-            // Mark as moved to prevent accidental clicks
-            touchMoved = true;
+            // 标记为已移动，防止意外点击
+            const touch = e.touches[0];
+            const pos = this.getMousePos(touch);
+            const dx = pos.x - lastTouchPos.x;
+            const dy = pos.y - lastTouchPos.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
             
-            // Cancel long press if finger moves
-            if (touchTimeout) {
-                clearTimeout(touchTimeout);
-                touchTimeout = null;
+            // 只有移动超过一定距离才算移动
+            if (distance > 10) {
+                touchMoved = true;
+                console.log("Touch moved");
+                
+                // 取消长按
+                if (touchTimeout) {
+                    clearTimeout(touchTimeout);
+                    touchTimeout = null;
+                }
                 
                 // 隐藏长按指示器
                 this.hideLongPressIndicator();
             }
-        }, { passive: true });
+        }, { passive: false });
         
         // 确保在触摸取消时也清理
         this.canvas.addEventListener('touchcancel', (e) => {
+            console.log("Touch cancelled");
             if (touchTimeout) {
                 clearTimeout(touchTimeout);
                 touchTimeout = null;
             }
             this.hideLongPressIndicator();
             touchStarted = false;
+            lastTouchedPoi = null;
         }, { passive: true });
 
         // Right click - show context menu

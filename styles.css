@@ -520,22 +520,28 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     z-index: 1000;
-    min-width: 180px;
+    min-width: 220px;
     overflow: hidden;
+    transform-origin: top left;
 }
 
 .context-menu-item {
-    padding: 16px;
+    padding: 20px 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: #333;
     font-weight: 500;
     transition: background-color 0.2s ease;
+    font-size: 16px;
+}
+
+.context-menu-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .context-menu-item:hover {
@@ -548,28 +554,39 @@ body {
 }
 
 .context-menu-item i {
-    font-size: 16px;
-    width: 20px;
+    font-size: 18px;
+    width: 24px;
     text-align: center;
 }
 
 /* Mobile-specific context menu styles */
 @media (max-width: 768px) {
     .context-menu {
-        min-width: 200px;
-        border-radius: 16px;
+        min-width: 240px;
+        border-radius: 20px;
     }
     
     .context-menu-item {
-        padding: 18px 16px;
-        font-size: 16px;
+        padding: 22px 18px;
+        font-size: 18px;
     }
     
     .context-menu-item img {
-        width: 20px !important;
-        height: 20px !important;
-        margin-right: 12px !important;
+        width: 24px !important;
+        height: 24px !important;
+        margin-right: 14px !important;
     }
+}
+
+/* 添加触摸反馈效果 */
+@keyframes touchFeedback {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(79, 195, 247, 0.2); }
+    100% { background-color: rgba(79, 195, 247, 0.1); }
+}
+
+.touch-feedback {
+    animation: touchFeedback 0.3s forwards;
 }
 
 #map-canvas {
