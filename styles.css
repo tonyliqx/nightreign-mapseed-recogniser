@@ -1024,31 +1024,33 @@ body {
         display: block;
     }
     
-    /* 移动端关闭按钮 - 简化样式 */
+    /* 移动端关闭按钮 - 图片内部右上角 */
     .close-fullscreen-btn {
         position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 35px;
-        height: 35px;
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 50%;
         color: white;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1001;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(8px);
         margin: 0;
         padding: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
     
     .close-fullscreen-btn:hover {
         background: rgba(0, 0, 0, 0.9);
-        border-color: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.6);
+        transform: scale(1.05);
     }
     
     .modal-content {
