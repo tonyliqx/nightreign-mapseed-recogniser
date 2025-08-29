@@ -1,5 +1,7 @@
 
-You can access the site [[https://thanosapollo.github.io/nightreign-mapseed-recogniser/][here]]
+You can access this tool from one of these sites:
++ Beta version[[https://liqixian19970305.github.io/nightreign-mapseed-recogniser/][here]]
++ Stable version[[https://dsm.lixiangzj.xyz:7443/nightreign-mapseed-recogniser-master/index.html/][here]]
 
 * About
 
