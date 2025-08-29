@@ -777,7 +777,16 @@ class NightreignMapRecogniser {
             const pos = this.getMousePos(e);
             const poi = this.findClickedPOI(pos.x, pos.y);
             if (poi) {
-                this.poiStates[poi.id] = 'church';
+                // If POI is already marked (not a dot), clear it back to dot
+                if (this.poiStates[poi.id] !== 'dot') {
+                    console.log(`Clearing POI ${poi.id} - was ${this.poiStates[poi.id]}`);
+                    this.poiStates[poi.id] = 'dot';
+                } else {
+                    // If it's a dot, mark as church
+                    console.log(`Marking POI ${poi.id} as church`);
+                    this.poiStates[poi.id] = 'church';
+                }
+                
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
             }
@@ -877,7 +886,17 @@ class NightreignMapRecogniser {
             
             if (touchDuration < 500 && !touchMoved && lastTouchedPoi) {
                 console.log(`Short tap on POI ${lastTouchedPoi.id}`);
-                this.poiStates[lastTouchedPoi.id] = 'church';
+                
+                // If POI is already marked (not a dot), clear it back to dot
+                if (this.poiStates[lastTouchedPoi.id] !== 'dot') {
+                    console.log(`Clearing POI ${lastTouchedPoi.id} - was ${this.poiStates[lastTouchedPoi.id]}`);
+                    this.poiStates[lastTouchedPoi.id] = 'dot';
+                } else {
+                    // If it's a dot, mark as church
+                    console.log(`Marking POI ${lastTouchedPoi.id} as church`);
+                    this.poiStates[lastTouchedPoi.id] = 'church';
+                }
+                
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
             }
