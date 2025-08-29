@@ -1211,20 +1211,18 @@ class NightreignMapRecogniser {
         seedImageContainer.style.display = 'block';
         
         const seedStr = mapSeed.toString().padStart(3, '0');
-        //const seedImageUrl = "https://www.trc-playground.hu/GameZ/NightreignSeeds/Seeds/" + seedStr + ".jpg";
-        //local
         const seedImageUrl = "assets/pattern/" + seedStr + ".jpg";
         
         seedImageContainer.innerHTML = `
-            <center>
-                <a href="${seedImageUrl}" target="_blank">
-                    <img src="${seedImageUrl}" alt="Seed ${mapSeed}" style="max-width: 768px; border: 2px solid black;">
+            <div class="seed-result-container">
+                <a href="${seedImageUrl}" target="_blank" class="seed-image-link">
+                    <img src="${seedImageUrl}" alt="Seed ${mapSeed}" class="seed-image">
                 </a>
-                <br>
-                <b style="color: black;">Mapseed: ${mapSeed}</b>
-                <br>
-                <small style="color: blue;">Click on the map to open it in a new tab.</small>
-            </center>
+                <div class="seed-info">
+                    <span class="seed-number">地图种子: ${mapSeed}</span>
+                    <small class="seed-hint">点击图片在新标签页中查看</small>
+                </div>
+            </div>
         `;
     }
 
