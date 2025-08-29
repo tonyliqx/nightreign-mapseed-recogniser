@@ -2,6 +2,10 @@
 
 Nightreign Map Recogniser is an application designed for identifying and interactively exploring game maps. It is specifically built to recognize Points of Interest (POI) on maps and provides a user-friendly interface for analyzing and manipulating map data.
 
+You can access this tool from one of these sites:
+- **Beta version** [here](https://liqixian19970305.github.io/nightreign-mapseed-recogniser/)
+- **Stable version** [here](https://dsm.lixiangzj.xyz:7443/nightreign-mapseed-recogniser-master/index.html/)
+
 ## Features
 
 - **Map Recognition**: Identify Points of Interest (POI) on maps using predefined patterns.

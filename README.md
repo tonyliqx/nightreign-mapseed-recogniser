@@ -2,6 +2,10 @@
 
 Nightreign Map Recogniser 是一个用于识别和交互式探索游戏地图的应用程序，特别设计用于识别地图上的兴趣点（POI）并提供用户友好的界面来分析和操作地图数据。
 
+可以用以下站点访问此工具：
+- **beta版** [here](https://liqixian19970305.github.io/nightreign-mapseed-recogniser/)
+- **稳定版** [here](https://dsm.lixiangzj.xyz:7443/nightreign-mapseed-recogniser-master/index.html/)
+
 ## 功能特点
 
 - **地图识别**：通过预定义的模式识别地图上的兴趣点（POI）。
