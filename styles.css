@@ -981,7 +981,7 @@ body {
         right: 0;
         text-align: center;
         background: rgba(0, 0, 0, 0.8);
-        padding: 15px;
+        padding: 12px;
         backdrop-filter: blur(10px);
         margin: 0;
         border: none;
@@ -991,29 +991,37 @@ body {
         color: #ffffff;
         font-size: 1.1rem;
         font-weight: 500;
-        margin: 0 0 5px 0;
+        margin: 0;
         padding: 0;
         text-shadow: none;
-        display: block;
+        display: inline;
     }
     
-    /* 移动端夜王信息样式 */
+    /* 移动端夜王信息样式 - 与种子ID在同一行 */
     .seed-nightlord {
         color: #ffd700;
         font-size: 1rem;
         font-weight: 600;
-        margin: 5px 0;
+        margin: 0 0 0 10px;
         padding: 0;
-        display: block;
+        display: inline;
         text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+    
+    /* 移动端信息分隔符 */
+    .seed-info-separator {
+        color: #4fc3f7;
+        margin: 0 5px;
+        font-weight: 500;
     }
     
     .seed-hint {
         color: #cccccc;
         font-size: 0.8rem;
         opacity: 0.9;
-        margin: 5px 0 0 0;
+        margin: 8px 0 0 0;
         padding: 0;
+        display: block;
     }
     
     /* 移动端关闭按钮 - 简化样式 */
