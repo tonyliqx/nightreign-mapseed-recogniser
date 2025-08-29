@@ -1007,7 +1007,9 @@ class NightreignMapRecogniser {
             const dx = x - poi.x;
             const dy = y - poi.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            return distance <= ICON_SIZE / 2;
+            // 增加移动端触控判定面积，使用1.5倍图标半径
+            const touchRadius = ICON_SIZE / 2 * 1.5;
+            return distance <= touchRadius;
         });
     }
 
