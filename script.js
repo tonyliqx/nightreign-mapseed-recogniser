@@ -315,41 +315,70 @@ class NightreignMapRecogniser {
     }
 
     selectNightlord(nightlord) {
-        this.chosenNightlord = nightlord;
-        
-        // Update UI
-        document.getElementById('chosen-nightlord').textContent = nightlord;
-        
-        // Update button states
-        document.querySelectorAll('.nightlord-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.nightlord === nightlord);
-        });
+        // If the same nightlord is clicked again, clear the selection
+        if (this.chosenNightlord === nightlord) {
+            this.chosenNightlord = null;
+            
+            // Update UI
+            document.getElementById('chosen-nightlord').textContent = 'None';
+            
+            // Clear all button states
+            document.querySelectorAll('.nightlord-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            console.log('Cleared nightlord selection');
+        } else {
+            // Select the new nightlord
+            this.chosenNightlord = nightlord;
+            
+            // Update UI
+            document.getElementById('chosen-nightlord').textContent = nightlord;
+            
+            // Update button states
+            document.querySelectorAll('.nightlord-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.nightlord === nightlord);
+            });
+            
+            console.log(`Selected nightlord: ${nightlord}`);
+        }
 
         this.updateGameState();
     }
 
     selectMap(map) {
-        this.chosenMap = map;
-        this.currentPOIs = POIS_BY_MAP[map] || [];
-        this.poiStates = this.initializePOIStates();
-        
-        console.log(`Selected map: ${map}, POIs: ${this.currentPOIs.length}`);
-        
-        // Update UI
-        document.getElementById('chosen-map').textContent = map;
-        
-        // Update button states
-        document.querySelectorAll('.map-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.map === map);
-        });
-
-        // Re-render the map with new POIs
-        if (this.canvas && this.ctx) {
-            if (this.chosenNightlord) {
-                this.renderMap(); // Full render if both are selected
-            } else {
-                this.drawMapWithSelectedImage(); // Use selected map image if available
-            }
+        // If the same map is clicked again, clear the selection
+        if (this.chosenMap === map) {
+            this.chosenMap = null;
+            this.currentPOIs = POIS_BY_MAP['Default'] || [];
+            this.poiStates = this.initializePOIStates();
+            
+            // Update UI
+            document.getElementById('chosen-map').textContent = 'None';
+            
+            // Clear all button states
+            document.querySelectorAll('.map-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            console.log('Cleared map selection');
+        } else {
+            // Select the new map
+            this.chosenMap = map;
+            this.currentPOIs = POIS_BY_MAP[map] || [];
+            this.poiStates = this.initializePOIStates();
+            
+            console.log(`Selected map: ${map}, POIs: ${this.currentPOIs.length}`);
+            
+            // Update UI
+            document.getElementById('chosen-map').textContent = map;
+            
+            // Update button states
+            document.querySelectorAll('.map-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.map === map);
+            });
+            
+            console.log(`Selected map: ${map}`);
         }
 
         this.updateGameState();
@@ -365,7 +394,7 @@ class NightreignMapRecogniser {
 
     updateGameState() {
         if (this.chosenMap) {
-            // Keep using the original clickable coordinates for user interaction
+            // Map is selected - show full functionality
             this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
             this.poiStates = this.initializePOIStates();
             
@@ -375,7 +404,19 @@ class NightreignMapRecogniser {
             this.updateSeedFiltering();
             this.hideSelectionOverlay();
         } else {
-            // Always update seed count when selections change
+            // No map selected - show default view but keep interaction available
+            this.currentPOIs = POIS_BY_MAP['Default'] || [];
+            this.poiStates = this.initializePOIStates();
+            
+            this.showInteractionSection();
+            this.showResultsSection();
+            
+            // Draw default map if canvas exists
+            if (this.canvas && this.ctx) {
+                this.drawDefaultMapWithImage();
+            }
+            
+            // Update seed count and show overlay
             this.updateSeedCount();
             this.showSelectionOverlay();
         }
@@ -952,23 +993,38 @@ class NightreignMapRecogniser {
     }
 
     resetMap() {
+        // Clear all selections
+        this.chosenNightlord = null;
+        this.chosenMap = null;
         this.poiStates = this.initializePOIStates();
         this.showingSeedImage = false;
         
-        // 确保当前POI列表与选择的地图匹配
-        if (this.chosenMap) {
-            this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
-        }
+        // Update UI for nightlord selection
+        document.getElementById('chosen-nightlord').textContent = 'None';
+        document.querySelectorAll('.nightlord-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
         
-        if (this.chosenMap && this.chosenNightlord) {
-            this.renderMap();
-        } else if (this.chosenMap) {
-            this.drawMapWithSelectedImage();
-        } else if (this.currentPOIs.length > 0) {
+        // Update UI for map selection
+        document.getElementById('chosen-map').textContent = 'None';
+        document.querySelectorAll('.map-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Reset to default map
+        this.currentPOIs = POIS_BY_MAP['Default'] || [];
+        this.poiStates = this.initializePOIStates();
+        
+        // Draw default map
+        if (this.canvas && this.ctx) {
             this.drawDefaultMapWithImage();
         }
         
-        this.updateSeedFiltering();
+        // Update game state
+        this.updateSeedCount();
+        this.showSelectionOverlay();
+        
+        console.log('Reset completed - cleared all selections and POI states');
     }
 
 
