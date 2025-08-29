@@ -610,6 +610,53 @@ body {
     box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
 }
 
+/* 种子结果显示容器 */
+.seed-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.seed-image-link {
+    display: block;
+    max-width: 100%;
+    transition: transform 0.2s ease;
+}
+
+.seed-image-link:hover {
+    transform: scale(1.02);
+}
+
+.seed-image {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #4fc3f7;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(79, 195, 247, 0.4);
+}
+
+.seed-info {
+    text-align: center;
+    color: #ffffff;
+}
+
+.seed-number {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffd700;
+    margin-bottom: 8px;
+}
+
+.seed-hint {
+    font-size: 0.9rem;
+    color: #4fc3f7;
+    opacity: 0.8;
+}
+
 .seed-details {
     margin-top: 30px;
     padding: 25px;
