@@ -1205,7 +1205,7 @@ class NightreignMapRecogniser {
 
     showNoSeedsFound() {
         const seedCountElement = document.getElementById('seed-count');
-        seedCountElement.innerHTML = '<span style="color: #e74c3c; font-weight: 600;">NO SEED FOUND<br>RESET THE MAP!</span>';
+        seedCountElement.innerHTML = '<span style="color: #e74c3c; font-weight: 600;">未找到种子<br>请重置地图</span>';
     }
 
     showSingleSeed(seedRow) {
