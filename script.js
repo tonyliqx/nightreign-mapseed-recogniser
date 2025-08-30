@@ -1274,16 +1274,13 @@ class NightreignMapRecogniser {
                     const seedNum = seedRow[0];
                     const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
 
+                    // Only consider church, mage and village in the POI suggestions
                     if (realType === 'church') {
                         possibleTypes.add('church');
                     } else if (realType === 'mage') {
                         possibleTypes.add('mage');
                     } else if (realType === 'village') {
                         possibleTypes.add('village');
-                    } else if (realType && realType !== 'nothing') {
-                        possibleTypes.add('other');
-                    } else {
-                        possibleTypes.add('unknown');
                     }
                 });
 
@@ -1306,17 +1303,21 @@ class NightreignMapRecogniser {
         suggestionContainer.id = `suggestion-${poiId}`;
 
         // Position it near the POI on the canvas
+        const mapContainer = document.querySelector('.map-container');
         const canvas = document.getElementById('map-canvas');
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = rect.width / canvas.width;
-        const scaleY = rect.height / canvas.height;
+        const canvasRect = canvas.getBoundingClientRect();
+        const containerRect = mapContainer.getBoundingClientRect();
 
-        const screenX = (poi.x * scaleX) + rect.left;
-        const screenY = (poi.y * scaleY) + rect.top;
+        const scaleX = canvasRect.width / canvas.width;
+        const scaleY = canvasRect.height / canvas.height;
 
-        // Position the container above the POI
-        suggestionContainer.style.left = `${screenX - 60}px`;
-        suggestionContainer.style.top = `${screenY - 60}px`;
+        // Calculate POI position relative to the map container
+        const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
+        const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
+
+        // Position the container above the POI using relative coordinates
+        suggestionContainer.style.left = `${relativeX - 60}px`;
+        suggestionContainer.style.top = `${relativeY - 60}px`;
 
         // Create suggestion buttons for each possible type
         possibleTypes.forEach(type => {
@@ -1332,10 +1333,6 @@ class NightreignMapRecogniser {
                 button.innerHTML = '<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="法师塔"><span>法师塔</span>';
             } else if (type === 'village') {
                 button.innerHTML = '<img src="assets/images/village.png" class="suggestion-icon" alt="村庄"><span>村庄</span>';
-            } else if (type === 'other') {
-                button.innerHTML = '<i class="fas fa-question-circle suggestion-icon" style="color: #6c757d;"></i><span>其他</span>';
-            } else if (type === 'unknown') {
-                button.innerHTML = '<i class="fas fa-times suggestion-icon" style="color: #e74c3c;"></i><span>无建筑</span>';
             }
 
             // Add click handler
@@ -1349,7 +1346,6 @@ class NightreignMapRecogniser {
         });
 
         // Add to the map container
-        const mapContainer = document.querySelector('.map-container');
         mapContainer.appendChild(suggestionContainer);
 
         // Add entrance animation

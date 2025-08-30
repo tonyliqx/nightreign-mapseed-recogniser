@@ -507,12 +507,12 @@ body {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .seed-counter {
         order: 1;
         margin-bottom: 0;
     }
-    
+
     .map-container {
         order: 2;
     }
@@ -648,12 +648,12 @@ body {
         min-width: 240px;
         border-radius: 20px;
     }
-    
+
     .context-menu-item {
         padding: 22px 18px;
         font-size: 18px;
     }
-    
+
     .context-menu-item img {
         width: 24px !important;
         height: 24px !important;
@@ -786,15 +786,15 @@ body {
         margin-top: 10px;
         padding: 10px;
     }
-    
+
     .nightlord-label {
         font-size: 0.9rem;
     }
-    
+
     .nightlord-name {
         font-size: 1.1rem;
     }
-    
+
     /* 移动端重置按钮区域更紧凑 */
     .compact-button-row {
         padding: 10px;
@@ -893,36 +893,36 @@ body {
         gap: 10px;
         padding: 12px;
     }
-    
+
     .button-row {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .button-row button {
         width: 100%;
     }
-    
+
     .results-grid {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .seed-counter {
         margin-bottom: 0;
         order: 1;
     }
-    
+
     .map-container {
         order: 2;
         min-height: 300px;
     }
-    
+
     #map-canvas {
         max-width: 100%;
         height: auto;
     }
-    
+
     /* 移动端种子图片全屏显示 - 最大化展示，移除金边 */
     #seed-image-container {
         position: fixed;
@@ -939,7 +939,7 @@ body {
         padding: 0;
         margin: 0;
     }
-    
+
     .seed-result-container {
         width: 100%;
         height: 100%;
@@ -951,7 +951,7 @@ body {
         margin: 0;
         padding: 20px 0;
     }
-    
+
     .seed-image-link {
         width: 100%;
         height: calc(100% - 80px);
@@ -962,7 +962,7 @@ body {
         padding: 0;
         text-decoration: none;
     }
-    
+
     .seed-image {
         width: 100%;
         height: 100%;
@@ -973,7 +973,7 @@ body {
         margin: 0;
         padding: 0;
     }
-    
+
     .seed-info {
         position: absolute;
         bottom: 20px;
@@ -989,7 +989,7 @@ body {
         max-width: 90%;
         margin: 0 auto;
     }
-    
+
     .seed-number {
         color: #ffffff;
         font-size: 1.1rem;
@@ -999,7 +999,7 @@ body {
         text-shadow: none;
         display: inline;
     }
-    
+
     /* 移动端夜王信息样式 - 与种子ID在同一行 */
     .seed-nightlord {
         color: #ffd700;
@@ -1010,14 +1010,14 @@ body {
         display: inline;
         text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
     }
-    
+
     /* 移动端信息分隔符 */
     .seed-info-separator {
         color: #4fc3f7;
         margin: 0 5px;
         font-weight: 500;
     }
-    
+
     .seed-hint {
         color: #cccccc;
         font-size: 0.8rem;
@@ -1026,7 +1026,7 @@ body {
         padding: 0;
         display: block;
     }
-    
+
     /* 移动端关闭按钮 - 图片内部右上角 */
     .close-fullscreen-btn {
         position: absolute;
@@ -1049,22 +1049,22 @@ body {
         padding: 0;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
-    
+
     .close-fullscreen-btn:hover {
         background: rgba(0, 0, 0, 0.9);
         border-color: rgba(255, 255, 255, 0.6);
         transform: scale(1.05);
     }
-    
+
     .modal-content {
         width: 95%;
         max-height: 85vh;
     }
-    
+
     .modal-header {
         padding: 15px;
     }
-    
+
     .modal-body {
         padding: 15px;
         max-height: 70vh;
@@ -1076,27 +1076,27 @@ body {
     .title {
         font-size: 1.5rem;
     }
-    
+
     .header {
         padding: 20px 15px;
         margin-bottom: 20px;
     }
-    
+
     .subtitle {
         font-size: 0.8rem;
     }
-    
+
     .nightlord-btn,
     .map-btn {
         font-size: 0.8rem;
         padding: 10px 5px;
     }
-    
+
     .button-grid {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 5px;
     }
-    
+
     .reset-btn,
     .help-btn {
         padding: 10px 15px;
@@ -1323,16 +1323,16 @@ body {
 
 /* POI Suggestion Styles */
 .poi-suggestion-container {
-    position: fixed !important;
-    z-index: 1000 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
+    position: absolute;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 12px;
-    padding: 8px;
+    padding: 4px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 2px solid #4fc3f7 !important;
-    display: flex !important;
-    gap: 6px;
+    border: 2px solid #4fc3f7;
+    display: flex;
+    gap: 4px;
     flex-wrap: wrap;
     max-width: 200px;
     opacity: 0;
@@ -1342,36 +1342,36 @@ body {
 }
 
 .poi-suggestion-container.visible {
-    opacity: 1 !important;
-    transform: translateY(0) scale(1) !important;
-    pointer-events: auto !important;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
 }
 
 .poi-suggestion-container.hiding {
-    opacity: 0 !important;
-    transform: translateY(-10px) scale(0.9) !important;
-    pointer-events: none !important;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+    pointer-events: none;
 }
 
 .poi-suggestion-btn {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 6px 8px;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
-    border: 2px solid #dee2e6;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 1px solid #dee2e6;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     min-width: 50px;
     font-size: 10px;
     font-weight: 500;
-    color: #495057 !important;
+    color: #495057;
 }
 
 .poi-suggestion-btn:hover {
-    background: linear-gradient(135deg, #e3f2fd, #bbdefb) !important;
-    border-color: #4fc3f7 !important;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-color: #4fc3f7;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
 }
@@ -1382,19 +1382,18 @@ body {
 }
 
 .suggestion-icon {
-    width: 20px !important;
-    height: 20px !important;
+    width: 20px;
+    height: 20px;
     margin-bottom: 2px;
     object-fit: contain;
 }
 
 .poi-suggestion-btn span {
-    font-size: 9px !important;
+    font-size: 9px;
     text-align: center;
     line-height: 1.1;
     max-width: 40px;
     word-wrap: break-word;
-    color: #495057 !important;
 }
 
 /* Touch feedback for context menu items */
@@ -1406,23 +1405,27 @@ body {
 /* Responsive adjustments for suggestions */
 @media (max-width: 768px) {
     .poi-suggestion-container {
-        max-width: 160px !important;
-        padding: 6px;
-        gap: 4px;
+        max-width: 140px;
+        padding: 2px;
+        gap: 2px;
+        border-radius: 10px;
     }
 
     .poi-suggestion-btn {
-        min-width: 40px !important;
-        padding: 4px 6px;
+        min-width: 40px;
+        padding: 4px;
+        border-radius: 6px;
     }
 
     .suggestion-icon {
-        width: 16px !important;
-        height: 16px !important;
+        width: 16px;
+        height: 16px;
+        margin-bottom: 2px;
     }
 
     .poi-suggestion-btn span {
-        font-size: 8px !important;
+        font-size: 8px;
+        line-height: 1;
         max-width: 35px;
     }
 }
