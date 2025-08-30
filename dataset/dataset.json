@@ -3880,6 +3880,14 @@
               "y": 455
             },
             "type": "church"
+          },
+          "10": {
+            "id": 10,
+            "coordinates": {
+              "x": 595,
+              "y": 278
+            },
+            "type": "village"
           }
         }
       },
@@ -7198,6 +7206,14 @@
             },
             "type": "church"
           },
+          "9": {
+            "id": 9,
+            "coordinates": {
+              "x": 530,
+              "y": 295
+            },
+            "type": "village"
+          },
           "10": {
             "id": 10,
             "coordinates": {
@@ -8295,6 +8311,14 @@
               "y": 285
             },
             "type": "church"
+          },
+          "10": {
+            "id": 10,
+            "coordinates": {
+              "x": 595,
+              "y": 278
+            },
+            "type": "village"
           }
         }
       },
@@ -11691,6 +11715,14 @@
             },
             "type": "church"
           },
+          "10": {
+            "id": 10,
+            "coordinates": {
+              "x": 595,
+              "y": 278
+            },
+            "type": "village"
+          },
           "11": {
             "id": 11,
             "coordinates": {
@@ -13211,6 +13243,14 @@
               "y": 455
             },
             "type": "church"
+          },
+          "9": {
+            "id": 9,
+            "coordinates": {
+              "x": 530,
+              "y": 295
+            },
+            "type": "village"
           }
         }
       },
@@ -16170,7 +16210,7 @@
       "POI6": "other",
       "POI7": "other",
       "POI8": "church",
-      "POI9": "other",
+      "POI9": "village",
       "POI10": "mage"
     },
     "148": {
@@ -16422,7 +16462,7 @@
       "POI7": "mage",
       "POI8": "other",
       "POI9": "church",
-      "POI10": "other",
+      "POI10": "village",
       "POI11": "other"
     },
     "170": {
@@ -17222,7 +17262,7 @@
       "POI7": "other",
       "POI8": "church",
       "POI9": "other",
-      "POI10": "other",
+      "POI10": "village",
       "POI11": "church"
     },
     "239": {
@@ -17602,7 +17642,7 @@
       "POI6": "other",
       "POI7": "mage",
       "POI8": "church",
-      "POI9": "other",
+      "POI9": "village",
       "POI10": "other"
     },
     "270": {
@@ -19125,7 +19165,7 @@
       "POI7": "other",
       "POI8": "church",
       "POI9": "other",
-      "POI10": "other",
+      "POI10": "village",
       "POI11": "other"
     },
     "081": {
