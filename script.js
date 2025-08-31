@@ -1332,25 +1332,33 @@ class NightreignMapRecogniser {
         const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
 
+        suggestionContainer.style.transform = 'translateX(-50%)';
+
         // Position the container above the POI using relative coordinates
         // Hard code some offset to avoid overlapping.
         if (poiIdInt === 2) {
-            suggestionContainer.style.left = `${relativeX - 100}px`;
+            suggestionContainer.style.left = `${relativeX - 30}px`;
             suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 4) {
+            suggestionContainer.style.left = `${relativeX + 20}px`;
+            suggestionContainer.style.top = `${relativeY - 80}px`;
+        } else if (poiIdInt === 5) {
+            suggestionContainer.style.left = `${relativeX - 40}px`;
+            suggestionContainer.style.top = `${relativeY - 100}px`;
         } else if (poiIdInt === 6) {
-            suggestionContainer.style.left = `${relativeX - 80}px`;
+            suggestionContainer.style.left = `${relativeX}px`;
             suggestionContainer.style.top = `${relativeY + 20}px`;
         } else if (poiIdInt === 8) {
-            suggestionContainer.style.left = `${relativeX - 80}px`;
+            suggestionContainer.style.left = `${relativeX + 20}px`;
             suggestionContainer.style.top = `${relativeY + 20}px`;
         } else if (poiIdInt === 9) {
-            suggestionContainer.style.left = `${relativeX - 100}px`;
+            suggestionContainer.style.left = `${relativeX - 40}px`;
             suggestionContainer.style.top = `${relativeY + 20}px`;
         } else if (poiIdInt === 10) {
-            suggestionContainer.style.left = `${relativeX - 60}px`;
+            suggestionContainer.style.left = `${relativeX + 40}px`;
             suggestionContainer.style.top = `${relativeY - 80}px`;
         } else {
-            suggestionContainer.style.left = `${relativeX - 80}px`;
+            suggestionContainer.style.left = `${relativeX}px`;
             suggestionContainer.style.top = `${relativeY - 80}px`;
         }
 
