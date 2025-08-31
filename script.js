@@ -1233,9 +1233,10 @@ class NightreignMapRecogniser {
             });
         }
 
-        // Check if we should show POI suggestions
+        // Check if we should show POI suggestions (Desktop only)
+        const isMobile = window.innerWidth <= 768;
         const suggestionThreshold = 10; // Show suggestions when ≤ 10 seeds remain
-        if (filteredSeeds.length > 0 && filteredSeeds.length <= suggestionThreshold && filteredSeeds.length > 1) {
+        if (!isMobile && filteredSeeds.length > 0 && filteredSeeds.length <= suggestionThreshold && filteredSeeds.length > 1) {
             this.showPOISuggestions(filteredSeeds);
         } else {
             this.hidePOISuggestions();
