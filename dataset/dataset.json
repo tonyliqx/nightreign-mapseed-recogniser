@@ -2,11 +2,11 @@
   "version": "2025-08-18-predefined",
   "extractedBy": "predefined-poi-extraction-tool",
   "extractionDate": "2025-08-18T10:34:10.846Z",
-  "lastUpdated": "2025-08-25T18:49:45.403Z",
+  "lastUpdated": "2025-08-31T12:16:47.392Z",
   "description": "POI classifications for Nightreign seed recognition",
-  "currentSeed": 319,
+  "currentSeed": 294,
   "currentNightlord": "heolstor",
-  "currentMapType": "noklateo",
+  "currentMapType": "default",
   "poiDatabase": {
     "version": "2025-08-18-predefined",
     "extractedBy": "predefined-poi-extraction-tool",
@@ -1005,6 +1005,14 @@
         "nightlord": "Gladius",
         "mapType": "Mountaintop",
         "pois": {
+          "2": {
+            "id": 2,
+            "coordinates": {
+              "x": 345,
+              "y": 547
+            },
+            "type": "mage"
+          },
           "3": {
             "id": 3,
             "coordinates": {
@@ -1153,6 +1161,14 @@
               "y": 620
             },
             "type": "church"
+          },
+          "8": {
+            "id": 8,
+            "coordinates": {
+              "x": 620,
+              "y": 460
+            },
+            "type": "mage"
           },
           "10": {
             "id": 10,
@@ -2996,6 +3012,14 @@
         "nightlord": "Adel",
         "mapType": "Mountaintop",
         "pois": {
+          "2": {
+            "id": 2,
+            "coordinates": {
+              "x": 345,
+              "y": 547
+            },
+            "type": "mage"
+          },
           "3": {
             "id": 3,
             "coordinates": {
@@ -3262,6 +3286,14 @@
         "nightlord": "Adel",
         "mapType": "Crater",
         "pois": {
+          "1": {
+            "id": 1,
+            "coordinates": {
+              "x": 155,
+              "y": 551
+            },
+            "type": "mage"
+          },
           "2": {
             "id": 2,
             "coordinates": {
@@ -4093,6 +4125,14 @@
             },
             "type": "village"
           },
+          "7": {
+            "id": 7,
+            "coordinates": {
+              "x": 420,
+              "y": 495
+            },
+            "type": "mage"
+          },
           "10": {
             "id": 10,
             "coordinates": {
@@ -4388,6 +4428,14 @@
             "coordinates": {
               "x": 165,
               "y": 284
+            },
+            "type": "mage"
+          },
+          "6": {
+            "id": 6,
+            "coordinates": {
+              "x": 436,
+              "y": 620
             },
             "type": "mage"
           },
@@ -5481,6 +5529,14 @@
             },
             "type": "mage"
           },
+          "5": {
+            "id": 5,
+            "coordinates": {
+              "x": 165,
+              "y": 284
+            },
+            "type": "mage"
+          },
           "9": {
             "id": 9,
             "coordinates": {
@@ -5911,6 +5967,14 @@
               "y": 436
             },
             "type": "church"
+          },
+          "5": {
+            "id": 5,
+            "coordinates": {
+              "x": 165,
+              "y": 284
+            },
+            "type": "mage"
           },
           "7": {
             "id": 7,
@@ -8084,6 +8148,14 @@
             },
             "type": "church"
           },
+          "10": {
+            "id": 10,
+            "coordinates": {
+              "x": 595,
+              "y": 278
+            },
+            "type": "mage"
+          },
           "11": {
             "id": 11,
             "coordinates": {
@@ -8586,6 +8658,14 @@
               "y": 285
             },
             "type": "church"
+          },
+          "11": {
+            "id": 11,
+            "coordinates": {
+              "x": 410,
+              "y": 180
+            },
+            "type": "mage"
           }
         }
       },
@@ -9425,6 +9505,14 @@
               "y": 285
             },
             "type": "church"
+          },
+          "10": {
+            "id": 10,
+            "coordinates": {
+              "x": 597,
+              "y": 285
+            },
+            "type": "mage"
           },
           "11": {
             "id": 11,
@@ -14443,6 +14531,14 @@
             },
             "type": "mage"
           },
+          "4": {
+            "id": 4,
+            "coordinates": {
+              "x": 280,
+              "y": 308
+            },
+            "type": "mage"
+          },
           "5": {
             "id": 5,
             "coordinates": {
@@ -15790,7 +15886,7 @@
       "POI2": "church",
       "POI3": "other",
       "POI4": "mage",
-      "POI5": "other",
+      "POI5": "mage",
       "POI9": "mage",
       "POI10": "church",
       "POI11": "other"
@@ -15883,7 +15979,7 @@
       "POI2": "church",
       "POI3": "church",
       "POI4": "other",
-      "POI5": "other",
+      "POI5": "mage",
       "POI6": "other",
       "POI7": "mage",
       "POI8": "other",
@@ -16410,7 +16506,7 @@
       "POI7": "other",
       "POI8": "church",
       "POI9": "other",
-      "POI10": "other",
+      "POI10": "mage",
       "POI11": "church"
     },
     "166": {
@@ -16528,7 +16624,7 @@
       "POI8": "other",
       "POI9": "church",
       "POI10": "other",
-      "POI11": "other"
+      "POI11": "mage"
     },
     "175": {
       "POI1": "other",
@@ -16722,7 +16818,7 @@
       "POI4": "church",
       "POI5": "other",
       "POI9": "church",
-      "POI10": "other",
+      "POI10": "mage",
       "POI11": "church"
     },
     "192": {
@@ -17931,7 +18027,7 @@
       "POI1": "other",
       "POI2": "other",
       "POI3": "mage",
-      "POI4": "other",
+      "POI4": "mage",
       "POI5": "church",
       "POI6": "church",
       "POI7": "other",
@@ -18477,7 +18573,7 @@
     },
     "020": {
       "POI1": "other",
-      "POI2": "other",
+      "POI2": "mage",
       "POI3": "church",
       "POI6": "church",
       "POI7": "other",
@@ -18514,7 +18610,7 @@
       "POI3": "other",
       "POI6": "church",
       "POI7": "other",
-      "POI8": "other",
+      "POI8": "mage",
       "POI9": "other",
       "POI10": "church",
       "POI11": "village"
@@ -18958,7 +19054,7 @@
     },
     "061": {
       "POI1": "other",
-      "POI2": "other",
+      "POI2": "mage",
       "POI3": "church",
       "POI6": "church",
       "POI7": "village",
@@ -19023,7 +19119,7 @@
       "POI10": "church"
     },
     "067": {
-      "POI1": "other",
+      "POI1": "mage",
       "POI2": "church",
       "POI3": "other",
       "POI5": "church",
@@ -19214,7 +19310,7 @@
       "POI4": "church",
       "POI5": "other",
       "POI6": "village",
-      "POI7": "other",
+      "POI7": "mage",
       "POI8": "other",
       "POI9": "other",
       "POI10": "church",
@@ -19291,7 +19387,7 @@
       "POI3": "other",
       "POI4": "other",
       "POI5": "mage",
-      "POI6": "other",
+      "POI6": "mage",
       "POI7": "other",
       "POI8": "other",
       "POI9": "mage",
