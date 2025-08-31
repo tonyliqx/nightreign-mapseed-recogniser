@@ -725,10 +725,8 @@ class NightreignMapRecogniser {
                 this.drawIcon(this.images.village, x, y);
                 break;
             case 'other':
-                this.drawDot(x, y, '', '#808080');
-                break;
             case 'unknown':
-                this.drawDot(x, y, '?', '#808080');
+                // Per user request, these are now invisible, removing the dot.
                 break;
         }
     }
@@ -1204,6 +1202,36 @@ class NightreignMapRecogniser {
         console.log(`After POI filtering: ${filteredSeeds.length} seeds remaining`);
 
         this.updateSeedCountDisplay(filteredSeeds.length);
+
+        // Auto-fill determined POIs
+        if (filteredSeeds.length > 0) {
+            this.currentPOIs.forEach(poi => {
+                // Only check POIs that the user hasn't marked yet
+                if (this.poiStates[poi.id] === 'dot') {
+                    const possibleTypes = new Set();
+
+                    filteredSeeds.forEach(seedRow => {
+                        const seedNum = seedRow[0];
+                        const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
+                        possibleTypes.add(realType);
+                    });
+
+                    // If all remaining seeds agree on the type for this POI
+                    if (possibleTypes.size === 1) {
+                        const determinedType = possibleTypes.values().next().value;
+
+                        if (determinedType === 'church' || determinedType === 'mage' || determinedType === 'village') {
+                            console.log(`✅ Auto-setting POI ${poi.id} to ${determinedType}`);
+                            this.poiStates[poi.id] = determinedType;
+                        } else if (determinedType === 'other') {
+                            console.log(`✅ Auto-clearing POI ${poi.id} (determined to be empty)`);
+                            // Set to 'other', which will now be drawn as empty
+                            this.poiStates[poi.id] = 'other';
+                        }
+                    }
+                }
+            });
+        }
 
         // Check if we should show POI suggestions
         const suggestionThreshold = 10; // Show suggestions when ≤ 10 seeds remain
