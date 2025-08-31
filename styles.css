@@ -1334,7 +1334,7 @@ body {
     display: flex;
     gap: 4px;
     flex-wrap: wrap;
-    max-width: 200px;
+    max-width: 240px;
     opacity: 0;
     transform: translateY(10px) scale(0.9);
     transition: all 0.3s ease;
