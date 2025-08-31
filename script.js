@@ -1296,6 +1296,8 @@ class NightreignMapRecogniser {
                         possibleTypes.add('mage');
                     } else if (realType === 'village') {
                         possibleTypes.add('village');
+                    } else if (realType === 'other') {
+                        possibleTypes.add('other');
                     }
                 });
 
@@ -1331,8 +1333,26 @@ class NightreignMapRecogniser {
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
 
         // Position the container above the POI using relative coordinates
-        suggestionContainer.style.left = `${relativeX - 60}px`;
-        suggestionContainer.style.top = `${relativeY - 60}px`;
+        // Hard code some offset to avoid overlapping.
+        if (poiIdInt === 2) {
+            suggestionContainer.style.left = `${relativeX - 100}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 6) {
+            suggestionContainer.style.left = `${relativeX - 80}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 8) {
+            suggestionContainer.style.left = `${relativeX - 80}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 9) {
+            suggestionContainer.style.left = `${relativeX - 100}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 10) {
+            suggestionContainer.style.left = `${relativeX - 60}px`;
+            suggestionContainer.style.top = `${relativeY - 80}px`;
+        } else {
+            suggestionContainer.style.left = `${relativeX - 80}px`;
+            suggestionContainer.style.top = `${relativeY - 80}px`;
+        }
 
         // Create suggestion buttons for each possible type
         possibleTypes.forEach(type => {
@@ -1348,6 +1368,8 @@ class NightreignMapRecogniser {
                 button.innerHTML = '<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="法师塔"><span>法师塔</span>';
             } else if (type === 'village') {
                 button.innerHTML = '<img src="assets/images/village.png" class="suggestion-icon" alt="村庄"><span>村庄</span>';
+            } else if (type === 'other') {
+                button.innerHTML = '<img src="assets/images/empty.png" class="suggestion-icon" alt="空白"><span>空白</span>';
             }
 
             // Add click handler
