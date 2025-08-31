@@ -204,7 +204,6 @@ class NightreignMapRecogniser {
         // Show interaction section and instructions
         const interactionSection = document.getElementById('interaction-section');
         interactionSection.style.display = 'block';
-        this.showInstructionsSection();
 
         // Render the default map
         this.renderDefaultMap();
@@ -1067,19 +1066,6 @@ class NightreignMapRecogniser {
         }
     }
 
-    showInstructionsSection() {
-        const instructionsSection = document.getElementById('instructions-section');
-        if (instructionsSection) {
-            instructionsSection.style.display = 'block';
-        }
-    }
-
-    hideInstructionsSection() {
-        const instructionsSection = document.getElementById('instructions-section');
-        if (instructionsSection) {
-            instructionsSection.style.display = 'none';
-        }
-    }
 
     hideSeedDetails() {
         this.hideNightlordInfo();
