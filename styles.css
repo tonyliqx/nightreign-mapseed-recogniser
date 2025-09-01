@@ -1396,36 +1396,104 @@ body {
     word-wrap: break-word;
 }
 
-/* Touch feedback for context menu items */
-.context-menu-item.touch-feedback {
-    background-color: #e3f2fd !important;
-    transform: scale(0.98);
+/* Mobile-specific POI Suggestion Styles */
+.poi-suggestion-container.mobile-suggestion {
+    /* 缩小50% */
+    transform: scale(0.5);
+    transform-origin: center;
+    max-width: 120px;
+    padding: 3px;
+    gap: 2px;
+    border-radius: 8px;
+    border-width: 1px;
+}
+
+.poi-suggestion-container.mobile-suggestion.visible {
+    transform: scale(0.5);
+    opacity: 1;
+}
+
+.poi-suggestion-container.mobile-suggestion.hiding {
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+.poi-suggestion-container.mobile-suggestion .poi-suggestion-btn {
+    min-width: 30px;
+    padding: 3px 4px;
+    border-radius: 5px;
+    font-size: 8px;
+}
+
+.poi-suggestion-container.mobile-suggestion .suggestion-icon {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 1px;
+}
+
+.poi-suggestion-container.mobile-suggestion .poi-suggestion-btn span {
+    font-size: 7px;
+    max-width: 25px;
+    line-height: 1;
+}
+
+/* Ensure mobile suggestions don't overlap */
+.poi-suggestion-container.mobile-suggestion {
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+.poi-suggestion-container.mobile-suggestion::-webkit-scrollbar {
+    width: 3px;
+}
+
+.poi-suggestion-container.mobile-suggestion::-webkit-scrollbar-thumb {
+    background: rgba(79, 195, 247, 0.5);
+    border-radius: 2px;
+}
+
+/* Touch feedback for mobile suggestions */
+.poi-suggestion-container.mobile-suggestion .poi-suggestion-btn:active {
+    background: linear-gradient(135deg, #bbdefb, #90caf9);
+    transform: scale(0.95);
+}
+
+/* Mobile suggestions use absolute positioning within map container */
+.poi-suggestion-container.mobile-suggestion {
+    position: absolute !important;
+    z-index: 1001 !important;
 }
 
 /* Responsive adjustments for suggestions */
 @media (max-width: 768px) {
-    .poi-suggestion-container {
+    .poi-suggestion-container:not(.mobile-suggestion) {
         max-width: 140px;
         padding: 2px;
         gap: 2px;
         border-radius: 10px;
     }
 
-    .poi-suggestion-btn {
+    .poi-suggestion-container:not(.mobile-suggestion) .poi-suggestion-btn {
         min-width: 40px;
         padding: 4px;
         border-radius: 6px;
     }
 
-    .suggestion-icon {
+    .poi-suggestion-container:not(.mobile-suggestion) .suggestion-icon {
         width: 16px;
         height: 16px;
         margin-bottom: 2px;
     }
 
-    .poi-suggestion-btn span {
+    .poi-suggestion-container:not(.mobile-suggestion) .poi-suggestion-btn span {
         font-size: 8px;
         line-height: 1;
         max-width: 35px;
     }
+}
+
+/* Touch feedback for context menu items */
+.context-menu-item.touch-feedback {
+    background-color: #e3f2fd !important;
+    transform: scale(0.98);
 }
