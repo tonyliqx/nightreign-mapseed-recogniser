@@ -40,6 +40,7 @@ class NightreignMapRecogniser {
         this.contextMenu = null;
         this.currentRightClickedPOI = null;
         this.canvasEventListenersSetup = false; // 新增标志
+        this.userIsClearing = false; // Flag to track when user is clearing an existing POI.
 
         this.init();
     }
@@ -781,6 +782,7 @@ class NightreignMapRecogniser {
                 if (this.poiStates[poi.id] !== 'dot') {
                     console.log(`Clearing POI ${poi.id} - was ${this.poiStates[poi.id]}`);
                     this.poiStates[poi.id] = 'dot';
+                    this.userIsClearing = true; // Set flag before clearing
                 } else {
                     // If it's a dot, mark as church
                     console.log(`Marking POI ${poi.id} as church`);
@@ -789,6 +791,9 @@ class NightreignMapRecogniser {
 
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
+
+                // Reset the flag after processing
+                this.userIsClearing = false;
             }
         });
 
@@ -891,6 +896,7 @@ class NightreignMapRecogniser {
                 if (this.poiStates[lastTouchedPoi.id] !== 'dot') {
                     console.log(`Clearing POI ${lastTouchedPoi.id} - was ${this.poiStates[lastTouchedPoi.id]}`);
                     this.poiStates[lastTouchedPoi.id] = 'dot';
+                    this.userIsClearing = true; // Set flag before clearing
                 } else {
                     // If it's a dot, mark as church
                     console.log(`Marking POI ${lastTouchedPoi.id} as church`);
@@ -899,6 +905,9 @@ class NightreignMapRecogniser {
 
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
+
+                // Reset the flag after processing
+                this.userIsClearing = false;
             }
 
             // 清理状态
@@ -1190,7 +1199,8 @@ class NightreignMapRecogniser {
         this.updateSeedCountDisplay(filteredSeeds.length);
 
         // Auto-fill determined POIs
-        if (filteredSeeds.length > 0) {
+        // IMPORTANT: Disable auto-fill when the user is trying to clear an existing POI, auto-fill may just put the cleared value back in automatically.
+        if (filteredSeeds.length > 0 && !this.userIsClearing) {
             this.currentPOIs.forEach(poi => {
                 // Only check POIs that the user hasn't marked yet
                 if (this.poiStates[poi.id] === 'dot') {
