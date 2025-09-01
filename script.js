@@ -32,6 +32,7 @@ class NightreignMapRecogniser {
             church: new Image(),
             mage: new Image(),
             village: new Image(),
+            empty: new Image(),
             favicon: new Image()
         };
         this.showingSeedImage = false;
@@ -58,6 +59,7 @@ class NightreignMapRecogniser {
         this.images.church.src = ICON_ASSETS.church;
         this.images.mage.src = ICON_ASSETS.mage;
         this.images.village.src = ICON_ASSETS.village;
+        this.images.empty.src = ICON_ASSETS.empty;
         this.images.favicon.src = 'assets/images/church.png';
 
         // Add error handling for images
@@ -72,6 +74,9 @@ class NightreignMapRecogniser {
         };
         this.images.village.onerror = () => {
             console.warn('Failed to load village icon');
+        };
+        this.images.empty.onerror = () => {
+            console.warn('Failed to load empty icon');
         };
 
         // Load map images with error handling
@@ -725,6 +730,7 @@ class NightreignMapRecogniser {
                 this.drawIcon(this.images.village, x, y);
                 break;
             case 'other':
+                this.drawIcon(this.images.empty, x, y);
             case 'unknown':
                 // Per user request, these are now invisible, removing the dot.
                 break;
