@@ -75,7 +75,8 @@ const MAP_IMAGES = {
 const ICON_ASSETS = {
   church: "assets/images/church.png",
   mage: "assets/images/mage-tower.png",
-  village: "assets/images/village.png"
+  village: "assets/images/village.png",
+  empty: "assets/images/empty.png",
 };
 
 // Constants
