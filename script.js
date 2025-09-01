@@ -6,7 +6,7 @@ async function loadClassificationResults() {
     try {
         const response = await fetch('dataset/dataset.json');
         const data = await response.json();
-        
+
         if (data.classifications) {
             CV_CLASSIFICATION_DATA = data.classifications;
             const seedCount = Object.keys(CV_CLASSIFICATION_DATA).length;
@@ -32,6 +32,7 @@ class NightreignMapRecogniser {
             church: new Image(),
             mage: new Image(),
             village: new Image(),
+            empty: new Image(),
             favicon: new Image()
         };
         this.showingSeedImage = false;
@@ -40,7 +41,8 @@ class NightreignMapRecogniser {
         this.contextMenu = null;
         this.currentRightClickedPOI = null;
         this.canvasEventListenersSetup = false; // 新增标志
-        
+        this.userIsClearing = false; // Flag to track when user is clearing an existing POI.
+
         this.init();
     }
 
@@ -57,6 +59,7 @@ class NightreignMapRecogniser {
         this.images.church.src = ICON_ASSETS.church;
         this.images.mage.src = ICON_ASSETS.mage;
         this.images.village.src = ICON_ASSETS.village;
+        this.images.empty.src = ICON_ASSETS.empty;
         this.images.favicon.src = 'assets/images/church.png';
 
         // Add error handling for images
@@ -72,6 +75,9 @@ class NightreignMapRecogniser {
         this.images.village.onerror = () => {
             console.warn('Failed to load village icon');
         };
+        this.images.empty.onerror = () => {
+            console.warn('Failed to load empty icon');
+        };
 
         // Load map images with error handling
         Object.entries(MAP_IMAGES).forEach(([mapName, url]) => {
@@ -84,10 +90,10 @@ class NightreignMapRecogniser {
             img.onerror = () => {
                 console.warn(`Failed to load map image: ${mapName}`, url);
             };
-            
+
             // Load real images
             img.src = url;
-            
+
             this.images.maps[mapName] = img;
         });
     }
@@ -114,7 +120,7 @@ class NightreignMapRecogniser {
         document.getElementById('reset-map-btn').addEventListener('click', () => {
             this.resetMap();
         });
-        
+
         // CV Classification data loader
 
         // Help button and modal
@@ -157,7 +163,7 @@ class NightreignMapRecogniser {
             // Load both seed data and classification data
             const hasClassifications = await loadClassificationResults();
             const seedCount = seedDataMatrix.length;
-            
+
             // Update status display
             const statusElement = document.getElementById('cv-status');
             if (statusElement) {
@@ -168,7 +174,7 @@ class NightreignMapRecogniser {
                     statusElement.innerHTML = `<span style="color: #28a745;">✅ Loaded ${seedCount} seeds</span>`;
                 }
             }
-            
+
             this.hideLoadingSection();
         } catch (error) {
             console.error('Error loading initial data:', error);
@@ -186,12 +192,12 @@ class NightreignMapRecogniser {
     showSelectionSection() {
         const selectionSection = document.getElementById('selection-section');
         selectionSection.style.display = 'block';
-        
+
         // Also show results section with initial seed count
         const resultsSection = document.getElementById('results-section');
         resultsSection.style.display = 'block';
         this.updateSeedCount();
-        
+
         // Show default map immediately so users can start clicking
         this.showDefaultMap();
     }
@@ -200,28 +206,27 @@ class NightreignMapRecogniser {
         // Set up a default map (Default map type) for immediate interaction
         this.currentPOIs = POIS_BY_MAP['Default'] || [];
         this.poiStates = this.initializePOIStates();
-        
+
         // Show interaction section and instructions
         const interactionSection = document.getElementById('interaction-section');
         interactionSection.style.display = 'block';
-        this.showInstructionsSection();
-        
+
         // Render the default map
         this.renderDefaultMap();
     }
 
     renderDefaultMap() {
         console.log('Rendering default map for immediate interaction');
-        
+
         const canvas = document.getElementById('map-canvas');
         if (!canvas) {
             console.error('Canvas element not found!');
             return;
         }
-        
+
         canvas.style.display = 'block';
         document.getElementById('seed-image-container').style.display = 'none';
-        
+
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
 
@@ -232,7 +237,7 @@ class NightreignMapRecogniser {
 
     drawDefaultMap() {
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        
+
         // Draw a nice default background
         const gradient = this.ctx.createRadialGradient(CANVAS_SIZE/2, CANVAS_SIZE/2, 0, CANVAS_SIZE/2, CANVAS_SIZE/2, CANVAS_SIZE/2);
         gradient.addColorStop(0, '#34495e');
@@ -240,12 +245,12 @@ class NightreignMapRecogniser {
         gradient.addColorStop(1, '#1a1a2e');
         this.ctx.fillStyle = gradient;
         this.ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        
+
         // Add decorative border
         this.ctx.strokeStyle = '#4fc3f7';
         this.ctx.lineWidth = 4;
         this.ctx.strokeRect(10, 10, CANVAS_SIZE - 20, CANVAS_SIZE - 20);
-        
+
         // Add title
         this.ctx.fillStyle = '#ffd700';
         this.ctx.font = 'bold 28px Inter, sans-serif';
@@ -253,11 +258,11 @@ class NightreignMapRecogniser {
         this.ctx.textBaseline = 'middle';
         const mapTitle = this.chosenMap ? `${this.chosenMap} Map Area` : 'Default Map Area';
         this.ctx.fillText(mapTitle, CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 60);
-        
+
         this.ctx.fillStyle = '#4fc3f7';
         this.ctx.font = 'bold 18px Inter, sans-serif';
         this.ctx.fillText('Click orange dots to mark POI locations', CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 20);
-        
+
         this.ctx.fillStyle = '#ffffff';
         this.ctx.font = '14px Inter, sans-serif';
         this.ctx.fillText('Select Nightlord and Map above for accurate seed detection', CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 20);
@@ -267,25 +272,25 @@ class NightreignMapRecogniser {
             const state = this.poiStates[poi.id];
             this.drawPOI(poi, state);
         });
-        
+
         console.log(`Drew default map with ${this.currentPOIs.length} POIs`);
     }
 
     drawDefaultMapWithImage() {
         // Try to use the actual Default POI image if available
         const defaultMapImg = this.images.maps['Default'];
-        
+
         if (defaultMapImg && defaultMapImg.complete && defaultMapImg.naturalWidth > 0) {
             // Use the actual POI image
             this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
             this.ctx.drawImage(defaultMapImg, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-            
+
             // Draw POIs on top
             this.currentPOIs.forEach(poi => {
                 const state = this.poiStates[poi.id];
                 this.drawPOI(poi, state);
             });
-            
+
             console.log(`Drew default map with actual POI image and ${this.currentPOIs.length} POIs`);
         } else {
             // Fall back to placeholder
@@ -296,18 +301,18 @@ class NightreignMapRecogniser {
     drawMapWithSelectedImage() {
         // Use the selected map's POI image if available
         const mapImg = this.images.maps[this.chosenMap];
-        
+
         if (mapImg && mapImg.complete && mapImg.naturalWidth > 0) {
             // Use the actual POI image for the selected map
             this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
             this.ctx.drawImage(mapImg, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
-            
+
             // Draw POIs on top
             this.currentPOIs.forEach(poi => {
                 const state = this.poiStates[poi.id];
                 this.drawPOI(poi, state);
             });
-            
+
             console.log(`Drew ${this.chosenMap} map with actual POI image and ${this.currentPOIs.length} POIs`);
         } else {
             // Fall back to placeholder with map name
@@ -319,28 +324,28 @@ class NightreignMapRecogniser {
         // If the same nightlord is clicked again, clear the selection
         if (this.chosenNightlord === nightlord) {
             this.chosenNightlord = null;
-            
+
             // Update UI
             document.getElementById('chosen-nightlord').textContent = 'None';
-            
+
             // Clear all button states
             document.querySelectorAll('.nightlord-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
+
             console.log('Cleared nightlord selection');
         } else {
             // Select the new nightlord
             this.chosenNightlord = nightlord;
-            
+
             // Update UI
             document.getElementById('chosen-nightlord').textContent = nightlord;
-            
+
             // Update button states
             document.querySelectorAll('.nightlord-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.nightlord === nightlord);
             });
-            
+
             console.log(`Selected nightlord: ${nightlord}`);
         }
 
@@ -353,32 +358,32 @@ class NightreignMapRecogniser {
             this.chosenMap = null;
             this.currentPOIs = POIS_BY_MAP['Default'] || [];
             this.poiStates = this.initializePOIStates();
-            
+
             // Update UI
             document.getElementById('chosen-map').textContent = 'None';
-            
+
             // Clear all button states
             document.querySelectorAll('.map-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
+
             console.log('Cleared map selection');
         } else {
             // Select the new map
             this.chosenMap = map;
             this.currentPOIs = POIS_BY_MAP[map] || [];
             this.poiStates = this.initializePOIStates();
-            
+
             console.log(`Selected map: ${map}, POIs: ${this.currentPOIs.length}`);
-            
+
             // Update UI
             document.getElementById('chosen-map').textContent = map;
-            
+
             // Update button states
             document.querySelectorAll('.map-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.map === map);
             });
-            
+
             console.log(`Selected map: ${map}`);
         }
 
@@ -398,7 +403,7 @@ class NightreignMapRecogniser {
             // Map is selected - show full functionality
             this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
             this.poiStates = this.initializePOIStates();
-            
+
             this.showInteractionSection();
             this.showResultsSection();
             this.renderMap();
@@ -408,15 +413,15 @@ class NightreignMapRecogniser {
             // No map selected - show default view but keep interaction available
             this.currentPOIs = POIS_BY_MAP['Default'] || [];
             this.poiStates = this.initializePOIStates();
-            
+
             this.showInteractionSection();
             this.showResultsSection();
-            
+
             // Draw default map if canvas exists
             if (this.canvas && this.ctx) {
                 this.drawDefaultMapWithImage();
             }
-            
+
             // Update seed count and show overlay
             this.updateSeedCount();
             this.showSelectionOverlay();
@@ -451,64 +456,64 @@ class NightreignMapRecogniser {
 
     setupContextMenu() {
         this.contextMenu = document.getElementById('poi-context-menu');
-        
+
         // 处理上下文菜单项点击
         document.querySelectorAll('.context-menu-item').forEach(item => {
             // 同时处理点击和触摸事件
             const handleSelection = (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 // 添加触摸反馈效果
                 item.classList.add('touch-feedback');
-                
+
                 // 获取POI类型
                 const type = e.currentTarget.dataset.type;
-                
+
                 if (this.currentRightClickedPOI) {
                     console.log(`Selected ${type} for POI ${this.currentRightClickedPOI.id}`);
-                    
+
                     // 更新POI状态
                     this.poiStates[this.currentRightClickedPOI.id] = type;
-                    
+
                     // 重绘地图
                     this.drawMap(this.images.maps[this.chosenMap]);
-                    
+
                     // 更新种子过滤
                     this.updateSeedFiltering();
-                    
+
                     // 隐藏菜单
                     setTimeout(() => {
                         this.hideContextMenu();
                         this.currentRightClickedPOI = null;
-                        
+
                         // 移除触摸反馈效果
                         item.classList.remove('touch-feedback');
                     }, 150);
                 }
             };
-            
+
             // 添加点击事件监听器
             item.addEventListener('click', handleSelection);
-            
+
             // 添加触摸事件监听器
             item.addEventListener('touchstart', (e) => {
                 // 添加触摸反馈
                 item.classList.add('touch-feedback');
             });
-            
+
             item.addEventListener('touchend', handleSelection);
-            
+
             item.addEventListener('touchcancel', (e) => {
                 // 移除触摸反馈
                 item.classList.remove('touch-feedback');
             });
         });
-        
+
         // 点击其他区域关闭菜单
         document.addEventListener('touchstart', (e) => {
-            if (this.contextMenu && 
-                this.contextMenu.style.display === 'block' && 
+            if (this.contextMenu &&
+                this.contextMenu.style.display === 'block' &&
                 !this.contextMenu.contains(e.target)) {
                 this.hideContextMenu();
             }
@@ -518,44 +523,44 @@ class NightreignMapRecogniser {
     showContextMenu(x, y) {
         if (this.contextMenu) {
             console.log(`Showing context menu at (${x}, ${y})`);
-            
+
             // 确保菜单在视口内
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
             const menuWidth = 240; // 更新的菜单宽度
             const menuHeight = 180; // 更新的菜单高度
-            
+
             // 调整位置以确保菜单完全可见
             let adjustedX = x;
             let adjustedY = y;
-            
+
             if (x + menuWidth > viewportWidth) {
                 adjustedX = viewportWidth - menuWidth - 20;
             }
-            
+
             if (y + menuHeight > viewportHeight) {
                 adjustedY = viewportHeight - menuHeight - 20;
             }
-            
+
             console.log(`Adjusted position: (${adjustedX}, ${adjustedY})`);
-            
+
             // 设置菜单位置并显示
             this.contextMenu.style.left = `${adjustedX}px`;
             this.contextMenu.style.top = `${adjustedY}px`;
             this.contextMenu.style.display = 'block';
-            
+
             // 添加动画效果
             this.contextMenu.style.opacity = '0';
             this.contextMenu.style.transform = 'scale(0.95)';
             this.contextMenu.style.transition = 'opacity 0.2s, transform 0.2s';
-            
+
             // 强制重绘以确保动画生效
             setTimeout(() => {
                 this.contextMenu.style.opacity = '1';
                 this.contextMenu.style.transform = 'scale(1)';
                 console.log('Context menu animation completed');
             }, 10);
-            
+
             // 确保菜单可见
             this.contextMenu.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
@@ -566,7 +571,7 @@ class NightreignMapRecogniser {
             // 添加淡出效果
             this.contextMenu.style.opacity = '0';
             this.contextMenu.style.transform = 'scale(0.95)';
-            
+
             // 等待淡出完成后隐藏
             setTimeout(() => {
                 this.contextMenu.style.display = 'none';
@@ -574,44 +579,44 @@ class NightreignMapRecogniser {
         }
         this.currentRightClickedPOI = null;
     }
-    
+
     // 长按指示器方法
     showLongPressIndicator(x, y) {
         // 清除任何现有的指示器
         this.hideLongPressIndicator();
-        
+
         // 创建一个新的指示器元素
         const indicator = document.createElement('div');
         indicator.id = 'long-press-indicator';
-        
+
         // 计算指示器位置
         const canvas = document.getElementById('map-canvas');
         const rect = canvas.getBoundingClientRect();
         const scaleX = canvas.width / rect.width;
         const scaleY = canvas.height / rect.height;
-        
+
         const screenX = (x / scaleX) + rect.left - 30;
         const screenY = (y / scaleY) + rect.top - 30;
-        
+
         indicator.style.left = `${screenX}px`;
         indicator.style.top = `${screenY}px`;
-        
+
         // 添加到文档
         document.body.appendChild(indicator);
-        
+
         // 强制重绘以确保动画生效
         setTimeout(() => {
             indicator.style.opacity = '0.9';
         }, 10);
     }
-    
+
     hideLongPressIndicator() {
         const indicator = document.getElementById('long-press-indicator');
         if (indicator) {
             // 添加淡出效果
             indicator.style.opacity = '0';
             indicator.style.transition = 'opacity 0.2s';
-            
+
             // 等待淡出完成后移除元素
             setTimeout(() => {
                 if (indicator.parentNode) {
@@ -625,24 +630,24 @@ class NightreignMapRecogniser {
         if (this.showingSeedImage) return;
 
         console.log(`Rendering map for ${this.chosenMap}`);
-        
+
         const mapContainer = document.querySelector('.map-container');
         const canvas = document.getElementById('map-canvas');
         const seedImageContainer = document.getElementById('seed-image-container');
-        
+
         if (!canvas) {
             console.error('Canvas element not found!');
             return;
         }
-        
+
         canvas.style.display = 'block';
         seedImageContainer.style.display = 'none';
-        
+
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
 
         const mapImage = this.images.maps[this.chosenMap];
-        
+
         if (!mapImage) {
             console.error(`Map image not found for ${this.chosenMap}`);
             // Draw anyway with placeholder
@@ -665,11 +670,11 @@ class NightreignMapRecogniser {
 
     drawMap(mapImage) {
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        
+
         // Always draw a background first
         this.ctx.fillStyle = '#2b2b2b';
         this.ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-        
+
         // Draw map image if available
         if (mapImage && mapImage.complete && mapImage.naturalWidth > 0) {
             try {
@@ -682,7 +687,7 @@ class NightreignMapRecogniser {
                 gradient.addColorStop(1, '#34495e');
                 this.ctx.fillStyle = gradient;
                 this.ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-                
+
                 // Add text
                 this.ctx.fillStyle = '#ffffff';
                 this.ctx.font = 'bold 20px Inter, sans-serif';
@@ -699,13 +704,13 @@ class NightreignMapRecogniser {
             const state = this.poiStates[poi.id];
             this.drawPOI(poi, state);
         });
-        
+
         console.log(`Drew map with ${this.currentPOIs.length} POIs for ${this.chosenMap}`);
     }
 
     drawPOI(poi, state) {
         const { x, y } = poi;
-        
+
         switch (state) {
             case 'dot':
                 this.drawDot(x, y, '', '#ff8c00');
@@ -725,10 +730,9 @@ class NightreignMapRecogniser {
                 this.drawIcon(this.images.village, x, y);
                 break;
             case 'other':
-                this.drawDot(x, y, '', '#808080');
-                break;
+                this.drawIcon(this.images.empty, x, y);
             case 'unknown':
-                this.drawDot(x, y, '?', '#808080');
+                // Per user request, these are now invisible, removing the dot.
                 break;
         }
     }
@@ -762,7 +766,7 @@ class NightreignMapRecogniser {
         if (this.canvasEventListenersSetup) {
             return;
         }
-        
+
         // Track touch start time for long press detection
         let touchStartTime = 0;
         let touchTimeout = null;
@@ -770,7 +774,7 @@ class NightreignMapRecogniser {
         let touchStarted = false;
         let touchMoved = false;
         let lastTouchedPoi = null;
-        
+
         // Left click - place church
         this.canvas.addEventListener('click', (e) => {
             if (!this.chosenMap) {
@@ -784,14 +788,18 @@ class NightreignMapRecogniser {
                 if (this.poiStates[poi.id] !== 'dot') {
                     console.log(`Clearing POI ${poi.id} - was ${this.poiStates[poi.id]}`);
                     this.poiStates[poi.id] = 'dot';
+                    this.userIsClearing = true; // Set flag before clearing
                 } else {
                     // If it's a dot, mark as church
                     console.log(`Marking POI ${poi.id} as church`);
                     this.poiStates[poi.id] = 'church';
                 }
-                
+
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
+
+                // Reset the flag after processing
+                this.userIsClearing = false;
             }
         });
 
@@ -799,37 +807,37 @@ class NightreignMapRecogniser {
         let longPressHandler = (e) => {
             e.preventDefault();
             e.stopPropagation();
-            
+
             if (!touchStarted || touchMoved || !lastTouchedPoi) return;
-            
+
             console.log("Long press detected!");
-            
+
             // 显示上下文菜单
             this.currentRightClickedPOI = lastTouchedPoi;
-            
+
             // 获取触摸位置
             const touch = e.changedTouches ? e.changedTouches[0] : e.touches[0];
-            
+
             // 计算菜单位置
             const menuX = Math.min(touch.clientX, window.innerWidth - 160);
             const menuY = Math.min(touch.clientY, window.innerHeight - 150);
-            
+
             // 显示菜单
             this.showContextMenu(menuX, menuY);
-            
+
             // 隐藏长按指示器
             this.hideLongPressIndicator();
-            
+
             // 添加振动反馈
             if (navigator.vibrate) {
                 navigator.vibrate(50);
             }
-            
+
             // 清理状态
             touchStarted = false;
             touchMoved = false;
             lastTouchedPoi = null;
-            
+
             if (touchTimeout) {
                 clearTimeout(touchTimeout);
                 touchTimeout = null;
@@ -840,80 +848,84 @@ class NightreignMapRecogniser {
         this.canvas.addEventListener('touchstart', (e) => {
             // Prevent default to avoid scrolling
             e.preventDefault();
-            
+
             if (!this.chosenMap) {
                 console.log('Please select Map before marking POIs');
                 return;
             }
-            
+
             // 记录触摸开始时间
             touchStartTime = Date.now();
             touchStarted = true;
             touchMoved = false;
-            
+
             // 获取触摸位置
             const touch = e.touches[0];
             const pos = this.getMousePos(touch);
             lastTouchPos = pos;
-            
+
             // 查找是否触摸了POI
             const poi = this.findClickedPOI(pos.x, pos.y);
             lastTouchedPoi = poi;
-            
+
             if (poi) {
                 console.log(`Touched POI ${poi.id} at (${poi.x}, ${poi.y})`);
-                
+
                 // 显示长按视觉反馈
                 this.showLongPressIndicator(poi.x, poi.y);
-                
+
                 // 设置长按超时
                 if (touchTimeout) {
                     clearTimeout(touchTimeout);
                 }
-                
+
                 touchTimeout = setTimeout(() => {
                     longPressHandler(e);
                 }, 500);
             }
         }, { passive: false });
-        
+
         this.canvas.addEventListener('touchend', (e) => {
             e.preventDefault();
-            
+
             // 隐藏长按指示器
             this.hideLongPressIndicator();
-            
+
             // 如果是短暂点击（不是长按）
             const touchDuration = Date.now() - touchStartTime;
             console.log(`Touch duration: ${touchDuration}ms, moved: ${touchMoved}`);
-            
+
             if (touchDuration < 500 && !touchMoved && lastTouchedPoi) {
                 console.log(`Short tap on POI ${lastTouchedPoi.id}`);
-                
+
                 // If POI is already marked (not a dot), clear it back to dot
                 if (this.poiStates[lastTouchedPoi.id] !== 'dot') {
                     console.log(`Clearing POI ${lastTouchedPoi.id} - was ${this.poiStates[lastTouchedPoi.id]}`);
                     this.poiStates[lastTouchedPoi.id] = 'dot';
+                    this.userIsClearing = true; // Set flag before clearing
                 } else {
                     // If it's a dot, mark as church
                     console.log(`Marking POI ${lastTouchedPoi.id} as church`);
                     this.poiStates[lastTouchedPoi.id] = 'church';
                 }
-                
+
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
+
+                // Reset the flag after processing
+                this.userIsClearing = false;
             }
-            
+
             // 清理状态
             if (touchTimeout) {
                 clearTimeout(touchTimeout);
                 touchTimeout = null;
             }
-            
+
             touchStarted = false;
             lastTouchedPoi = null;
         }, { passive: false });
-        
+
         this.canvas.addEventListener('touchmove', (e) => {
             // 标记为已移动，防止意外点击
             const touch = e.touches[0];
@@ -921,23 +933,23 @@ class NightreignMapRecogniser {
             const dx = pos.x - lastTouchPos.x;
             const dy = pos.y - lastTouchPos.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            
+
             // 只有移动超过一定距离才算移动
             if (distance > 10) {
                 touchMoved = true;
                 console.log("Touch moved");
-                
+
                 // 取消长按
                 if (touchTimeout) {
                     clearTimeout(touchTimeout);
                     touchTimeout = null;
                 }
-                
+
                 // 隐藏长按指示器
                 this.hideLongPressIndicator();
             }
         }, { passive: false });
-        
+
         // 确保在触摸取消时也清理
         this.canvas.addEventListener('touchcancel', (e) => {
             console.log("Touch cancelled");
@@ -989,7 +1001,7 @@ class NightreignMapRecogniser {
                 e.preventDefault();
             }
         });
-        
+
         // 标记监听器已设置
         this.canvasEventListenersSetup = true;
     }
@@ -998,7 +1010,7 @@ class NightreignMapRecogniser {
         const rect = this.canvas.getBoundingClientRect();
         const scaleX = this.canvas.width / rect.width;
         const scaleY = this.canvas.height / rect.height;
-        
+
         return {
             x: (event.clientX - rect.left) * scaleX,
             y: (event.clientY - rect.top) * scaleY
@@ -1021,46 +1033,47 @@ class NightreignMapRecogniser {
         this.chosenNightlord = null;
         this.poiStates = this.initializePOIStates();
         this.showingSeedImage = false;
-        
-        // Hide nightlord info
+
+        // Hide POI suggestions and nightlord info
+        this.hidePOISuggestions();
         this.hideNightlordInfo();
-        
+
         // Update UI for nightlord selection
         document.getElementById('chosen-nightlord').textContent = 'None';
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        
+
         // If a map is selected, keep it and redraw with reset POIs
         if (this.chosenMap) {
             // Reinitialize POI states for current map
             this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
             this.poiStates = this.initializePOIStates();
-            
+
             // Redraw current map with reset POIs
             if (this.canvas && this.ctx) {
                 this.drawMap(this.images.maps[this.chosenMap]);
             }
-            
+
             // Update seed filtering
             this.updateSeedFiltering();
         } else {
             // No map selected - reset to default
             this.currentPOIs = POIS_BY_MAP['Default'] || [];
             this.poiStates = this.initializePOIStates();
-            
+
             // Draw default map
             if (this.canvas && this.ctx) {
                 this.drawDefaultMapWithImage();
             }
-            
+
             this.updateSeedCount();
             this.showSelectionOverlay();
         }
-        
+
         console.log('Reset completed - cleared nightlord selection and POI states, kept map selection');
     }
-    
+
     hideNightlordInfo() {
         const nightlordInfo = document.getElementById('nightlord-info');
         if (nightlordInfo) {
@@ -1068,6 +1081,11 @@ class NightreignMapRecogniser {
         }
     }
 
+
+    hideSeedDetails() {
+        this.hideNightlordInfo();
+        this.hidePOISuggestions();
+    }
 
     classifyPOI(poiString) {
         if (!poiString) return null;
@@ -1087,17 +1105,17 @@ class NightreignMapRecogniser {
         let count = 0;
         if (this.chosenNightlord && this.chosenMap) {
             // Both selected - count actual seeds with this combination
-            count = seedDataMatrix.filter(row => 
+            count = seedDataMatrix.filter(row =>
                 row[1] === this.chosenNightlord && row[2] === this.chosenMap
             ).length;
         } else if (this.chosenNightlord) {
             // Only nightlord selected - count all seeds for this nightlord
-            count = seedDataMatrix.filter(row => 
+            count = seedDataMatrix.filter(row =>
                 row[1] === this.chosenNightlord
             ).length;
         } else if (this.chosenMap) {
             // Only map selected - count all seeds for this map type
-            count = seedDataMatrix.filter(row => 
+            count = seedDataMatrix.filter(row =>
                 row[2] === this.chosenMap
             ).length;
         }
@@ -1125,22 +1143,22 @@ class NightreignMapRecogniser {
         const filteredSeeds = possibleSeeds.filter(row => {
             const seedNum = row[0];
             console.log(`\n🔍 Checking Seed ${seedNum}:`);
-            
+
             for (const poi of this.currentPOIs) {
                 const userState = this.poiStates[poi.id];
-                
+
                 // If user hasn't marked this POI yet, skip it
                 if (userState === 'dot') {
                     console.log(`  POI ${poi.id} at (${poi.x}, ${poi.y}): User hasn't marked - SKIPPING`);
                     continue;
                 }
-                
+
                 console.log(`  POI ${poi.id} at (${poi.x}, ${poi.y}): User marked as ${userState.toUpperCase()}`);
-                
+
                 // Find what POI type exists at this coordinate in the real seed data
                 const realPOIType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
                 console.log(`    Real data shows: ${realPOIType || 'NOTHING'} at this location`);
-                
+
                 // If user marked as unknown (?), reject if seed has Church/Mage/Village here
                 if (userState === 'unknown') {
                     if (realPOIType === 'church' || realPOIType === 'mage' || realPOIType === 'village') {
@@ -1184,8 +1202,47 @@ class NightreignMapRecogniser {
 
         console.log(`After POI filtering: ${filteredSeeds.length} seeds remaining`);
 
-
         this.updateSeedCountDisplay(filteredSeeds.length);
+
+        // Auto-fill determined POIs
+        // IMPORTANT: Disable auto-fill when the user is trying to clear an existing POI, auto-fill may just put the cleared value back in automatically.
+        if (filteredSeeds.length > 0 && !this.userIsClearing) {
+            this.currentPOIs.forEach(poi => {
+                // Only check POIs that the user hasn't marked yet
+                if (this.poiStates[poi.id] === 'dot') {
+                    const possibleTypes = new Set();
+
+                    filteredSeeds.forEach(seedRow => {
+                        const seedNum = seedRow[0];
+                        const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
+                        possibleTypes.add(realType);
+                    });
+
+                    // If all remaining seeds agree on the type for this POI
+                    if (possibleTypes.size === 1) {
+                        const determinedType = possibleTypes.values().next().value;
+
+                        if (determinedType === 'church' || determinedType === 'mage' || determinedType === 'village') {
+                            console.log(`✅ Auto-setting POI ${poi.id} to ${determinedType}`);
+                            this.poiStates[poi.id] = determinedType;
+                        } else if (determinedType === 'other') {
+                            console.log(`✅ Auto-clearing POI ${poi.id} (determined to be empty)`);
+                            // Set to 'other', which will now be drawn as empty
+                            this.poiStates[poi.id] = 'other';
+                        }
+                    }
+                }
+            });
+        }
+
+        // Check if we should show POI suggestions (Desktop only)
+        const isMobile = window.innerWidth <= 768;
+        const suggestionThreshold = 10; // Show suggestions when ≤ 10 seeds remain
+        if (!isMobile && filteredSeeds.length > 0 && filteredSeeds.length <= suggestionThreshold && filteredSeeds.length > 1) {
+            this.showPOISuggestions(filteredSeeds);
+        } else {
+            this.hidePOISuggestions();
+        }
 
         if (filteredSeeds.length === 0) {
             this.showNoSeedsFound();
@@ -1211,34 +1268,201 @@ class NightreignMapRecogniser {
     showSingleSeed(seedRow) {
         const mapSeed = seedRow[0];
         this.showingSeedImage = true;
-        
+
+        // Hide any POI suggestions since we found the final seed
+        this.hidePOISuggestions();
+
         // Show seed image with nightlord info
         this.showSeedImage(seedRow);
+    }
+
+    showPOISuggestions(filteredSeeds) {
+        console.log(`Showing POI suggestions for ${filteredSeeds.length} remaining seeds`);
+
+        // Calculate possible POI types for each unmarked POI
+        const suggestions = this.calculatePOISuggestions(filteredSeeds);
+
+        // Remove any existing suggestions
+        this.hidePOISuggestions();
+
+        // Create suggestion UI for each POI that has possible values
+        Object.entries(suggestions).forEach(([poiId, possibleTypes]) => {
+            if (possibleTypes.length > 0) {
+                this.createPOISuggestionUI(poiId, possibleTypes);
+            }
+        });
+    }
+
+    calculatePOISuggestions(filteredSeeds) {
+        const suggestions = {};
+
+        // For each unmarked POI, find what types are possible across remaining seeds
+        this.currentPOIs.forEach(poi => {
+            if (this.poiStates[poi.id] === 'dot') {
+                const possibleTypes = new Set();
+
+                filteredSeeds.forEach(seedRow => {
+                    const seedNum = seedRow[0];
+                    const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
+
+                    // Only consider church, mage and village in the POI suggestions
+                    if (realType === 'church') {
+                        possibleTypes.add('church');
+                    } else if (realType === 'mage') {
+                        possibleTypes.add('mage');
+                    } else if (realType === 'village') {
+                        possibleTypes.add('village');
+                    } else if (realType === 'other') {
+                        possibleTypes.add('other');
+                    }
+                });
+
+                suggestions[poi.id] = Array.from(possibleTypes);
+                console.log(`POI ${poi.id} can be: ${Array.from(possibleTypes).join(', ')}`);
+            }
+        });
+
+        return suggestions;
+    }
+
+    createPOISuggestionUI(poiId, possibleTypes) {
+        const poiIdInt = parseInt(poiId, 10);
+        const poi = this.currentPOIs.find(p => p.id === poiIdInt);
+        if (!poi) return;
+
+        // Create suggestion container
+        const suggestionContainer = document.createElement('div');
+        suggestionContainer.className = 'poi-suggestion-container';
+        suggestionContainer.id = `suggestion-${poiId}`;
+
+        // Position it near the POI on the canvas
+        const mapContainer = document.querySelector('.map-container');
+        const canvas = document.getElementById('map-canvas');
+        const canvasRect = canvas.getBoundingClientRect();
+        const containerRect = mapContainer.getBoundingClientRect();
+
+        const scaleX = canvasRect.width / canvas.width;
+        const scaleY = canvasRect.height / canvas.height;
+
+        // Calculate POI position relative to the map container
+        const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
+        const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
+
+        suggestionContainer.style.transform = 'translateX(-50%)';
+
+        // Position the container above the POI using relative coordinates
+        // Hard code some offset to avoid overlapping.
+        if (poiIdInt === 2) {
+            suggestionContainer.style.left = `${relativeX - 30}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 4) {
+            suggestionContainer.style.left = `${relativeX + 20}px`;
+            suggestionContainer.style.top = `${relativeY - 80}px`;
+        } else if (poiIdInt === 5) {
+            suggestionContainer.style.left = `${relativeX - 40}px`;
+            suggestionContainer.style.top = `${relativeY - 100}px`;
+        } else if (poiIdInt === 6) {
+            suggestionContainer.style.left = `${relativeX}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 8) {
+            suggestionContainer.style.left = `${relativeX + 20}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 9) {
+            suggestionContainer.style.left = `${relativeX - 40}px`;
+            suggestionContainer.style.top = `${relativeY + 20}px`;
+        } else if (poiIdInt === 10) {
+            suggestionContainer.style.left = `${relativeX + 40}px`;
+            suggestionContainer.style.top = `${relativeY - 80}px`;
+        } else {
+            suggestionContainer.style.left = `${relativeX}px`;
+            suggestionContainer.style.top = `${relativeY - 80}px`;
+        }
+
+        // Create suggestion buttons for each possible type
+        possibleTypes.forEach(type => {
+            const button = document.createElement('button');
+            button.className = 'poi-suggestion-btn';
+            button.dataset.type = type;
+            button.dataset.poiId = poiId;
+
+            // Add icon and label
+            if (type === 'church') {
+                button.innerHTML = '<img src="assets/images/church.png" class="suggestion-icon" alt="教堂"><span>教堂</span>';
+            } else if (type === 'mage') {
+                button.innerHTML = '<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="法师塔"><span>法师塔</span>';
+            } else if (type === 'village') {
+                button.innerHTML = '<img src="assets/images/village.png" class="suggestion-icon" alt="村庄"><span>村庄</span>';
+            } else if (type === 'other') {
+                button.innerHTML = '<img src="assets/images/empty.png" class="suggestion-icon" alt="空白"><span>空白</span>';
+            }
+
+            // Add click handler
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.selectSuggestedPOI(poiId, type);
+            });
+
+            suggestionContainer.appendChild(button);
+        });
+
+        // Add to the map container
+        mapContainer.appendChild(suggestionContainer);
+
+        // Add entrance animation
+        setTimeout(() => {
+            suggestionContainer.classList.add('visible');
+        }, 50);
+    }
+
+    selectSuggestedPOI(poiId, type) {
+        console.log(`Selecting suggested ${type} for POI ${poiId}`);
+
+        // Update POI state
+        this.poiStates[poiId] = type;
+
+        // Redraw map
+        this.drawMap(this.images.maps[this.chosenMap]);
+
+        // Update seed filtering (this will recalculate suggestions)
+        this.updateSeedFiltering();
+    }
+
+    hidePOISuggestions() {
+        // Remove all existing suggestion containers
+        document.querySelectorAll('.poi-suggestion-container').forEach(container => {
+            container.classList.add('hiding');
+            setTimeout(() => {
+                if (container.parentNode) {
+                    container.remove();
+                }
+            }, 200);
+        });
     }
 
     showSeedImage(seedRow) {
         const mapSeed = seedRow[0];
         const nightlord = seedRow[1] || '未知夜王';
         const mapType = seedRow[2] || '默认地图';
-        
+
         // 将英文夜王名称转换为中文
         const nightlordChinese = this.getNightlordChineseName(nightlord);
-        
+
         // 在种子计数器区域显示夜王信息
         this.updateNightlordInfo(nightlordChinese);
-        
+
         const canvas = document.getElementById('map-canvas');
         const seedImageContainer = document.getElementById('seed-image-container');
-        
+
         canvas.style.display = 'none';
         seedImageContainer.style.display = 'block';
-        
+
         const seedStr = mapSeed.toString().padStart(3, '0');
         const seedImageUrl = "assets/pattern/" + seedStr + ".jpg";
-        
+
         // 检查是否为移动设备
         const isMobile = window.innerWidth <= 768;
-        
+
         seedImageContainer.innerHTML = `
             <div class="seed-result-container">
                 ${isMobile ? '<button class="close-fullscreen-btn">&times;</button>' : ''}
@@ -1252,7 +1476,7 @@ class NightreignMapRecogniser {
                 </div>
             </div>
         `;
-        
+
         // 为移动端关闭按钮添加事件监听
         if (isMobile) {
             const closeBtn = seedImageContainer.querySelector('.close-fullscreen-btn');
@@ -1265,11 +1489,11 @@ class NightreignMapRecogniser {
             }
         }
     }
-    
+
     updateNightlordInfo(nightlordChinese) {
         const nightlordInfo = document.getElementById('nightlord-info');
         const nightlordName = document.getElementById('nightlord-name');
-        
+
         if (nightlordInfo && nightlordName) {
             nightlordName.textContent = nightlordChinese;
             nightlordInfo.style.display = 'block';
@@ -1320,7 +1544,7 @@ class NightreignMapRecogniser {
         if (CV_CLASSIFICATION_DATA) {
             const seedKey = seedNum.toString().padStart(3, '0');
             const seedClassifications = CV_CLASSIFICATION_DATA[seedKey];
-            
+
             if (seedClassifications) {
                 // Find which clickable POI this coordinate matches
                 const clickablePOI = this.currentPOIs.find(poi => {
@@ -1329,11 +1553,11 @@ class NightreignMapRecogniser {
                     const distance = Math.sqrt(dx * dx + dy * dy);
                     return distance <= 40; // Same tolerance as used elsewhere
                 });
-                
+
                 if (clickablePOI) {
                     const poiKey = `POI${clickablePOI.id}`;
                     const cvClassification = seedClassifications[poiKey];
-                    
+
                     if (cvClassification) {
                         console.log(`    ✅ Classification: ${cvClassification.toUpperCase()} for POI ${clickablePOI.id}`);
                         return cvClassification === 'nothing' ? null : cvClassification;
@@ -1341,13 +1565,11 @@ class NightreignMapRecogniser {
                 }
             }
         }
-        
+
         // No classification data available - return null
         console.log(`    ❌ No classification found in dataset for seed ${seedNum}`);
         return null;
     }
-    
-
 
 }
 
