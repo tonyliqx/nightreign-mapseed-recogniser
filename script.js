@@ -1235,11 +1235,20 @@ class NightreignMapRecogniser {
             });
         }
 
-        // Check if we should show POI suggestions (Desktop only)
+        // Check if we should show POI suggestions
         const isMobile = window.innerWidth <= 768;
-        const suggestionThreshold = 10; // Show suggestions when ≤ 10 seeds remain
-        if (!isMobile && filteredSeeds.length > 0 && filteredSeeds.length <= suggestionThreshold && filteredSeeds.length > 1) {
-            this.showPOISuggestions(filteredSeeds);
+        
+        // Desktop: show when ≤ 10 seeds remain, Mobile: show when < 4 seeds remain
+        const desktopThreshold = 10;
+        const mobileThreshold = 4;
+        
+        const shouldShowSuggestions = filteredSeeds.length > 0 && 
+                                    filteredSeeds.length > 1 &&
+                                    (isMobile ? filteredSeeds.length < mobileThreshold : 
+                                               filteredSeeds.length <= desktopThreshold);
+        
+        if (shouldShowSuggestions) {
+            this.showPOISuggestions(filteredSeeds, isMobile);
         } else {
             this.hidePOISuggestions();
         }
@@ -1276,8 +1285,8 @@ class NightreignMapRecogniser {
         this.showSeedImage(seedRow);
     }
 
-    showPOISuggestions(filteredSeeds) {
-        console.log(`Showing POI suggestions for ${filteredSeeds.length} remaining seeds`);
+    showPOISuggestions(filteredSeeds, isMobile = false) {
+        console.log(`Showing POI suggestions for ${filteredSeeds.length} remaining seeds${isMobile ? ' (mobile)' : ''}`);
 
         // Calculate possible POI types for each unmarked POI
         const suggestions = this.calculatePOISuggestions(filteredSeeds);
@@ -1288,7 +1297,7 @@ class NightreignMapRecogniser {
         // Create suggestion UI for each POI that has possible values
         Object.entries(suggestions).forEach(([poiId, possibleTypes]) => {
             if (possibleTypes.length > 0) {
-                this.createPOISuggestionUI(poiId, possibleTypes);
+                this.createPOISuggestionUI(poiId, possibleTypes, isMobile);
             }
         });
     }
@@ -1325,7 +1334,7 @@ class NightreignMapRecogniser {
         return suggestions;
     }
 
-    createPOISuggestionUI(poiId, possibleTypes) {
+    createPOISuggestionUI(poiId, possibleTypes, isMobile = false) {
         const poiIdInt = parseInt(poiId, 10);
         const poi = this.currentPOIs.find(p => p.id === poiIdInt);
         if (!poi) return;
@@ -1334,6 +1343,11 @@ class NightreignMapRecogniser {
         const suggestionContainer = document.createElement('div');
         suggestionContainer.className = 'poi-suggestion-container';
         suggestionContainer.id = `suggestion-${poiId}`;
+        
+        // Add mobile class for styling
+        if (isMobile) {
+            suggestionContainer.classList.add('mobile-suggestion');
+        }
 
         // Position it near the POI on the canvas
         const mapContainer = document.querySelector('.map-container');
@@ -1348,34 +1362,67 @@ class NightreignMapRecogniser {
         const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
 
-        suggestionContainer.style.transform = 'translateX(-50%)';
-
-        // Position the container above the POI using relative coordinates
-        // Hard code some offset to avoid overlapping.
-        if (poiIdInt === 2) {
-            suggestionContainer.style.left = `${relativeX - 30}px`;
-            suggestionContainer.style.top = `${relativeY + 20}px`;
-        } else if (poiIdInt === 4) {
-            suggestionContainer.style.left = `${relativeX + 20}px`;
-            suggestionContainer.style.top = `${relativeY - 80}px`;
-        } else if (poiIdInt === 5) {
-            suggestionContainer.style.left = `${relativeX - 40}px`;
-            suggestionContainer.style.top = `${relativeY - 100}px`;
-        } else if (poiIdInt === 6) {
-            suggestionContainer.style.left = `${relativeX}px`;
-            suggestionContainer.style.top = `${relativeY + 20}px`;
-        } else if (poiIdInt === 8) {
-            suggestionContainer.style.left = `${relativeX + 20}px`;
-            suggestionContainer.style.top = `${relativeY + 20}px`;
-        } else if (poiIdInt === 9) {
-            suggestionContainer.style.left = `${relativeX - 40}px`;
-            suggestionContainer.style.top = `${relativeY + 20}px`;
-        } else if (poiIdInt === 10) {
-            suggestionContainer.style.left = `${relativeX + 40}px`;
-            suggestionContainer.style.top = `${relativeY - 80}px`;
+        // For mobile, use the same relative positioning as desktop but with adjusted offsets
+        if (isMobile) {
+            suggestionContainer.style.position = 'absolute';
+            suggestionContainer.style.transform = 'translateX(-50%)';
+            
+            // Use the same positioning logic as desktop but with smaller offsets
+            // to account for the smaller size (50% scale)
+            if (poiIdInt === 2) {
+                suggestionContainer.style.left = `${relativeX - 15}px`;
+                suggestionContainer.style.top = `${relativeY + 10}px`;
+            } else if (poiIdInt === 4) {
+                suggestionContainer.style.left = `${relativeX + 10}px`;
+                suggestionContainer.style.top = `${relativeY - 40}px`;
+            } else if (poiIdInt === 5) {
+                suggestionContainer.style.left = `${relativeX - 20}px`;
+                suggestionContainer.style.top = `${relativeY - 50}px`;
+            } else if (poiIdInt === 6) {
+                suggestionContainer.style.left = `${relativeX}px`;
+                suggestionContainer.style.top = `${relativeY + 10}px`;
+            } else if (poiIdInt === 8) {
+                suggestionContainer.style.left = `${relativeX + 10}px`;
+                suggestionContainer.style.top = `${relativeY + 10}px`;
+            } else if (poiIdInt === 9) {
+                suggestionContainer.style.left = `${relativeX - 20}px`;
+                suggestionContainer.style.top = `${relativeY + 10}px`;
+            } else if (poiIdInt === 10) {
+                suggestionContainer.style.left = `${relativeX + 20}px`;
+                suggestionContainer.style.top = `${relativeY - 40}px`;
+            } else {
+                suggestionContainer.style.left = `${relativeX}px`;
+                suggestionContainer.style.top = `${relativeY - 40}px`;
+            }
         } else {
-            suggestionContainer.style.left = `${relativeX}px`;
-            suggestionContainer.style.top = `${relativeY - 80}px`;
+            // Desktop positioning (original logic)
+            suggestionContainer.style.transform = 'translateX(-50%)';
+
+            if (poiIdInt === 2) {
+                suggestionContainer.style.left = `${relativeX - 30}px`;
+                suggestionContainer.style.top = `${relativeY + 20}px`;
+            } else if (poiIdInt === 4) {
+                suggestionContainer.style.left = `${relativeX + 20}px`;
+                suggestionContainer.style.top = `${relativeY - 80}px`;
+            } else if (poiIdInt === 5) {
+                suggestionContainer.style.left = `${relativeX - 40}px`;
+                suggestionContainer.style.top = `${relativeY - 100}px`;
+            } else if (poiIdInt === 6) {
+                suggestionContainer.style.left = `${relativeX}px`;
+                suggestionContainer.style.top = `${relativeY + 20}px`;
+            } else if (poiIdInt === 8) {
+                suggestionContainer.style.left = `${relativeX + 20}px`;
+                suggestionContainer.style.top = `${relativeY + 20}px`;
+            } else if (poiIdInt === 9) {
+                suggestionContainer.style.left = `${relativeX - 40}px`;
+                suggestionContainer.style.top = `${relativeY + 20}px`;
+            } else if (poiIdInt === 10) {
+                suggestionContainer.style.left = `${relativeX + 40}px`;
+                suggestionContainer.style.top = `${relativeY - 80}px`;
+            } else {
+                suggestionContainer.style.left = `${relativeX}px`;
+                suggestionContainer.style.top = `${relativeY - 80}px`;
+            }
         }
 
         // Create suggestion buttons for each possible type
@@ -1403,11 +1450,22 @@ class NightreignMapRecogniser {
                 this.selectSuggestedPOI(poiId, type);
             });
 
+            // Add touch handler for mobile
+            button.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.selectSuggestedPOI(poiId, type);
+            }, { passive: false });
+
             suggestionContainer.appendChild(button);
         });
 
         // Add to the map container
         mapContainer.appendChild(suggestionContainer);
+
+        // Add scroll event listener for mobile to keep suggestions positioned correctly
+        if (isMobile) {
+        }
 
         // Add entrance animation
         setTimeout(() => {
@@ -1426,6 +1484,72 @@ class NightreignMapRecogniser {
 
         // Update seed filtering (this will recalculate suggestions)
         this.updateSeedFiltering();
+    }
+
+    ensureSuggestionInViewport(suggestionContainer, mapContainer) {
+        // Ensure suggestion doesn't go outside viewport bounds
+        const rect = suggestionContainer.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        let left = parseFloat(suggestionContainer.style.left);
+        let top = parseFloat(suggestionContainer.style.top);
+        
+        // Check right edge
+        if (rect.right > viewportWidth) {
+            left -= (rect.right - viewportWidth + 10);
+        }
+        
+        // Check left edge
+        if (rect.left < 10) {
+            left = 10;
+        }
+        
+        // Check bottom edge
+        if (rect.bottom > viewportHeight) {
+            top -= (rect.bottom - viewportHeight + 10);
+        }
+        
+        // Check top edge
+        if (rect.top < 10) {
+            top = 10;
+        }
+        
+        suggestionContainer.style.left = `${left}px`;
+        suggestionContainer.style.top = `${top}px`;
+    }
+
+    ensureSuggestionInViewport(suggestionContainer, mapContainer) {
+        // Ensure suggestion doesn't go outside viewport bounds
+        const rect = suggestionContainer.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        let left = parseFloat(suggestionContainer.style.left);
+        let top = parseFloat(suggestionContainer.style.top);
+        
+        // Check right edge
+        if (rect.right > viewportWidth) {
+            left -= (rect.right - viewportWidth + 10);
+        }
+        
+        // Check left edge
+        if (rect.left < 10) {
+            left = 10;
+        }
+        
+        // Check bottom edge
+        if (rect.bottom > viewportHeight) {
+            top -= (rect.bottom - viewportHeight + 10);
+        }
+        
+        // Check top edge
+        if (rect.top < 10) {
+            top = 10;
+        }
+        
+        suggestionContainer.style.left = `${left}px`;
+        suggestionContainer.style.top = `${top}px`;
     }
 
     hidePOISuggestions() {
