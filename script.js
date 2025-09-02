@@ -1238,13 +1238,13 @@ class NightreignMapRecogniser {
         // Check if we should show POI suggestions
         const isMobile = window.innerWidth <= 768;
         
-        // Desktop: show when ≤ 10 seeds remain, Mobile: show when < 4 seeds remain
+        // Desktop: show when ≤ 10 seeds remain, Mobile: show when ≤ 4 seeds remain
         const desktopThreshold = 10;
         const mobileThreshold = 4;
         
         const shouldShowSuggestions = filteredSeeds.length > 0 && 
                                     filteredSeeds.length > 1 &&
-                                    (isMobile ? filteredSeeds.length < mobileThreshold : 
+                                    (isMobile ? filteredSeeds.length <= mobileThreshold : 
                                                filteredSeeds.length <= desktopThreshold);
         
         if (shouldShowSuggestions) {
@@ -1347,6 +1347,30 @@ class NightreignMapRecogniser {
         // Add mobile class for styling
         if (isMobile) {
             suggestionContainer.classList.add('mobile-suggestion');
+            
+            // For mobile, we'll check the layout after buttons are added
+            // to determine if it's single column
+            setTimeout(() => {
+                const buttons = suggestionContainer.querySelectorAll('.poi-suggestion-btn');
+                if (buttons.length > 0) {
+                    // Check if buttons are stacked vertically (single column)
+                    const firstButton = buttons[0];
+                    const secondButton = buttons[1];
+                    
+                    if (secondButton) {
+                        const firstRect = firstButton.getBoundingClientRect();
+                        const secondRect = secondButton.getBoundingClientRect();
+                        
+                        // If buttons are stacked vertically (second button is below first)
+                        if (secondRect.top > firstRect.bottom) {
+                            suggestionContainer.classList.add('single-column');
+                        }
+                    } else {
+                        // Only one button, definitely single column
+                        suggestionContainer.classList.add('single-column');
+                    }
+                }
+            }, 50);
         }
 
         // Position it near the POI on the canvas

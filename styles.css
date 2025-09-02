@@ -1437,20 +1437,21 @@ body {
     line-height: 1;
 }
 
-/* Ensure mobile suggestions don't overlap */
+/* Ensure mobile suggestions don't overlap - use flex wrap instead of scroll */
 .poi-suggestion-container.mobile-suggestion {
-    max-height: 80px;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
+    flex-wrap: wrap;
+    /* Default width for multiple items */
+    max-width: 120px;
 }
 
-.poi-suggestion-container.mobile-suggestion::-webkit-scrollbar {
-    width: 3px;
+/* When only one suggestion per row (single column layout) */
+.poi-suggestion-container.mobile-suggestion.single-column {
+    max-width: 40px;
 }
 
-.poi-suggestion-container.mobile-suggestion::-webkit-scrollbar-thumb {
-    background: rgba(79, 195, 247, 0.5);
-    border-radius: 2px;
-}
+/* Remove scrollbar styles since we're not using scrolling anymore */
 
 /* Touch feedback for mobile suggestions */
 .poi-suggestion-container.mobile-suggestion .poi-suggestion-btn:active {
