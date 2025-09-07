@@ -110,34 +110,15 @@ class NightreignMapRecogniser {
     onLanguageChanged(language) {
         console.log('Language changed to:', language);
         
-        // Update pattern image paths
-        this.updatePatternImagePaths();
-        
-        // Update any dynamic text that's not handled by data-i18n
-        this.updateDynamicText();
-        
-        // Redraw the map if it's currently displayed
-        if (this.canvas && this.ctx) {
-            if (this.showingSeedImage) {
-                // If showing seed image, refresh it with new language
-                this.refreshSeedImage();
-            } else if (this.chosenMap) {
-                this.drawMap(this.images.maps[this.chosenMap]);
-            } else {
-                this.drawDefaultMapWithImage();
-            }
+        // Refresh seed image if currently displayed (handles pattern images)
+        if (this.showingSeedImage) {
+            this.refreshSeedImage();
         }
+        
+        // Update loading status messages if they exist
+        this.updateLoadingStatusMessages();
     }
 
-    updatePatternImagePaths() {
-        // This will be called when language changes to update pattern image paths
-        // The actual pattern loading happens in showSeedImage method
-    }
-
-    updateDynamicText() {
-        // Update any dynamic text that's not handled by data-i18n attributes
-        // This includes status messages, error messages, etc.
-    }
 
     refreshSeedImage() {
         // Refresh the currently displayed seed image with new language
@@ -145,6 +126,25 @@ class NightreignMapRecogniser {
             this.showSeedImage(this.lastSeedRow);
         }
     }
+
+    updateLoadingStatusMessages() {
+        // Update loading status messages if they exist
+        const statusElement = document.getElementById('cv-status');
+        if (statusElement && statusElement.dataset.loadingType) {
+            const loadingType = statusElement.dataset.loadingType;
+            const seedCount = parseInt(statusElement.dataset.seedCount);
+            
+            if (loadingType === 'classified') {
+                const classCount = parseInt(statusElement.dataset.classCount);
+                statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.classified', { count: seedCount, classified: classCount })}</span>`;
+            } else if (loadingType === 'seeds') {
+                statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.seeds', { count: seedCount })}</span>`;
+            }
+        }
+    }
+
+
+
 
 
     setupEventListeners() {
@@ -217,8 +217,15 @@ class NightreignMapRecogniser {
             if (statusElement) {
                 if (hasClassifications) {
                     const classCount = Object.keys(CV_CLASSIFICATION_DATA).length;
+                    // Store parameters for language updates
+                    statusElement.dataset.loadingType = 'classified';
+                    statusElement.dataset.seedCount = seedCount;
+                    statusElement.dataset.classCount = classCount;
                     statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.classified', { count: seedCount, classified: classCount })}</span>`;
                 } else {
+                    // Store parameters for language updates
+                    statusElement.dataset.loadingType = 'seeds';
+                    statusElement.dataset.seedCount = seedCount;
                     statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.seeds', { count: seedCount })}</span>`;
                 }
             }
@@ -1504,15 +1511,15 @@ class NightreignMapRecogniser {
             button.dataset.type = type;
             button.dataset.poiId = poiId;
 
-            // Add icon and label
+            // Add icon and label with data-i18n attribute for automatic translation
             if (type === 'church') {
-                button.innerHTML = `<img src="assets/images/church.png" class="suggestion-icon" alt="${this.getText('poi.church')}"><span>${this.getText('poi.church')}</span>`;
+                button.innerHTML = `<img src="assets/images/church.png" class="suggestion-icon" alt="${this.getText('poi.church')}"><span data-i18n="poi.church">${this.getText('poi.church')}</span>`;
             } else if (type === 'mage') {
-                button.innerHTML = `<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="${this.getText('poi.mage')}"><span>${this.getText('poi.mage')}</span>`;
+                button.innerHTML = `<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="${this.getText('poi.mage')}"><span data-i18n="poi.mage">${this.getText('poi.mage')}</span>`;
             } else if (type === 'village') {
-                button.innerHTML = `<img src="assets/images/village.png" class="suggestion-icon" alt="${this.getText('poi.village')}"><span>${this.getText('poi.village')}</span>`;
+                button.innerHTML = `<img src="assets/images/village.png" class="suggestion-icon" alt="${this.getText('poi.village')}"><span data-i18n="poi.village">${this.getText('poi.village')}</span>`;
             } else if (type === 'other') {
-                button.innerHTML = `<img src="assets/images/empty.png" class="suggestion-icon" alt="${this.getText('poi.empty')}"><span>${this.getText('poi.empty')}</span>`;
+                button.innerHTML = `<img src="assets/images/empty.png" class="suggestion-icon" alt="${this.getText('poi.empty')}"><span data-i18n="poi.empty">${this.getText('poi.empty')}</span>`;
             }
 
             // Add click handler
@@ -1668,11 +1675,11 @@ class NightreignMapRecogniser {
             <div class="seed-result-container">
                 ${isMobile ? '<button class="close-fullscreen-btn">&times;</button>' : ''}
                 <a href="${seedImageUrl}" target="_blank" class="seed-image-link">
-                    <img src="${seedImageUrl}" alt="Seed ${mapSeed}" class="seed-image">
+                    <img src="${seedImageUrl}" alt="${this.getText('seed.alt_text', { seed: mapSeed })}" class="seed-image">
                 </a>
                 <div class="seed-info">
-                    <span class="seed-number">${this.getText('results.seed')} ${mapSeed}</span>
-                    ${isMobile && nightlordTranslated ? `<span class="seed-info-separator">|</span><span class="seed-nightlord">${this.getText('results.nightlord')} ${nightlordTranslated}</span>` : ''}
+                    <span class="seed-number">${this.getText('seed.number', { seed: mapSeed })}</span>
+                    ${isMobile && nightlordTranslated ? `<span class="seed-info-separator">|</span><span class="seed-nightlord">${this.getText('seed.nightlord', { nightlord: nightlordTranslated })}</span>` : ''}
                     <small class="seed-hint">${isMobile ? this.getText('seed.click_mobile') : this.getText('seed.click_large')}</small>
                 </div>
             </div>
@@ -1706,44 +1713,11 @@ class NightreignMapRecogniser {
     }
 
     getNightlordTranslatedName(englishName) {
-        const nightlordMap = {
-            'Gladius': this.getText('nightlord.gladius'),
-            'Adel': this.getText('nightlord.adel'),
-            'Gnoster': this.getText('nightlord.gnoster'),
-            'Maris': this.getText('nightlord.maris'),
-            'Libra': this.getText('nightlord.libra'),
-            'Fulghor': this.getText('nightlord.fulghor'),
-            'Caligo': this.getText('nightlord.caligo'),
-            'Heolstor': this.getText('nightlord.heolstor'),
-            '未知夜王': this.getText('nightlord.unknown')
-        };
-        return nightlordMap[englishName] || englishName;
+        return this.getText(`nightlord.${englishName.toLowerCase()}`);
     }
 
     getMapTranslatedName(englishName) {
-        const mapMap = {
-            'Default': this.getText('map.default'),
-            'Mountaintop': this.getText('map.mountaintop'),
-            'Crater': this.getText('map.crater'),
-            'Rotted Woods': this.getText('map.rotted_woods'),
-            'Noklateo': this.getText('map.noklateo')
-        };
-        return mapMap[englishName] || englishName;
-    }
-
-    getNightlordChineseName(englishName) {
-        const nightlordMap = {
-            'Gladius': '三狼',
-            'Adel': '大嘴',
-            'Gnoster': '慧心虫',
-            'Maris': '水皮蛋',
-            'Libra': '山羊',
-            'Fulghor': '人马',
-            'Caligo': '冰龙',
-            'Heolstor': '黑夜王',
-            '未知夜王': '未知夜王'
-        };
-        return nightlordMap[englishName] || englishName;
+        return this.getText(`map.${englishName.toLowerCase().replace(/\s+/g, '_')}`);
     }
 
 
@@ -1753,7 +1727,7 @@ class NightreignMapRecogniser {
         loadingSection.innerHTML = `
             <div class="loading-indicator">
                 <i class="fas fa-exclamation-triangle" style="color: #e74c3c;"></i>
-                <p style="color: #e74c3c;">${message}</p>
+                <p style="color: #e74c3c;" data-i18n="error.load_failed">${message}</p>
             </div>
         `;
     }

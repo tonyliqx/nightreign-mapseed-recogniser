@@ -17,6 +17,11 @@ const translations = {
     'loading.seeds': '已加载 {count} 个种子',
     'loading.classified': '已加载 {count} 个种子（{classified} 个已分类）',
     
+    // Seed display
+    'seed.alt_text': '种子 {seed}',
+    'seed.number': '种子 {seed}',
+    'seed.nightlord': '夜王 {nightlord}',
+    
     // Nightlords
     'nightlord.none': '无',
     'nightlord.gladius': '三狼',
@@ -121,6 +126,11 @@ const translations = {
     'loading.init': 'Initializing map data, please wait...',
     'loading.seeds': 'Loaded {count} seeds',
     'loading.classified': 'Loaded {count} seeds ({classified} classified)',
+    
+    // Seed display
+    'seed.alt_text': 'Seed {seed}',
+    'seed.number': 'Seed {seed}',
+    'seed.nightlord': 'Nightlord {nightlord}',
     
     // Nightlords
     'nightlord.none': 'None',
