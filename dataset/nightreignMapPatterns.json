@@ -1,5 +1,5 @@
 {
-  "extractedTime": "2025-09-07T15:09:09.971209",
+  "extractedTime": "2025-09-07T15:50:53.287317",
   "seeds": {
     "0": {
       "seedNumber": 0,
@@ -8309,7 +8309,7 @@
     "20": {
       "seedNumber": 20,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Night Horde",
       "night1": {
@@ -8612,7 +8612,7 @@
     "21": {
       "seedNumber": 21,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
@@ -8918,7 +8918,7 @@
     "22": {
       "seedNumber": 22,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -9224,7 +9224,7 @@
     "23": {
       "seedNumber": 23,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -9527,7 +9527,7 @@
     "24": {
       "seedNumber": 24,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -9830,7 +9830,7 @@
     "25": {
       "seedNumber": 25,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -10124,7 +10124,7 @@
     "26": {
       "seedNumber": 26,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -10419,7 +10419,7 @@
     "27": {
       "seedNumber": 27,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -10715,7 +10715,7 @@
     "28": {
       "seedNumber": 28,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": "Day 2 Night Horde",
       "night1": {
@@ -11009,7 +11009,7 @@
     "29": {
       "seedNumber": 29,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
@@ -11304,7 +11304,7 @@
     "30": {
       "seedNumber": 30,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -11682,7 +11682,7 @@
     "31": {
       "seedNumber": 31,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -12056,7 +12056,7 @@
     "32": {
       "seedNumber": 32,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
@@ -12432,7 +12432,7 @@
     "33": {
       "seedNumber": 33,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Night Horde",
       "night1": {
@@ -12810,7 +12810,7 @@
     "34": {
       "seedNumber": 34,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -13187,7 +13187,7 @@
     "35": {
       "seedNumber": 35,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": "Day 1 Night Horde",
       "night1": {
@@ -13522,7 +13522,7 @@
     "36": {
       "seedNumber": 36,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -13857,7 +13857,7 @@
     "37": {
       "seedNumber": 37,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
@@ -14193,7 +14193,7 @@
     "38": {
       "seedNumber": 38,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -14530,7 +14530,7 @@
     "39": {
       "seedNumber": 39,
       "nightlord": "Gladius",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -23168,7 +23168,7 @@
     "60": {
       "seedNumber": 60,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -23472,7 +23472,7 @@
     "61": {
       "seedNumber": 61,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Far Southwest",
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
@@ -23775,7 +23775,7 @@
     "62": {
       "seedNumber": 62,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -24078,7 +24078,7 @@
     "63": {
       "seedNumber": 63,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
@@ -24384,7 +24384,7 @@
     "64": {
       "seedNumber": 64,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -24687,7 +24687,7 @@
     "65": {
       "seedNumber": 65,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -24981,7 +24981,7 @@
     "66": {
       "seedNumber": 66,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -25276,7 +25276,7 @@
     "67": {
       "seedNumber": 67,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
@@ -25573,7 +25573,7 @@
     "68": {
       "seedNumber": 68,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
@@ -25867,7 +25867,7 @@
     "69": {
       "seedNumber": 69,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -26164,7 +26164,7 @@
     "70": {
       "seedNumber": 70,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": "Day 1 Extra Night Boss",
       "night1": {
@@ -26540,7 +26540,7 @@
     "71": {
       "seedNumber": 71,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
@@ -26916,7 +26916,7 @@
     "72": {
       "seedNumber": 72,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
@@ -27291,7 +27291,7 @@
     "73": {
       "seedNumber": 73,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -27667,7 +27667,7 @@
     "74": {
       "seedNumber": 74,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -28045,7 +28045,7 @@
     "75": {
       "seedNumber": 75,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -28381,7 +28381,7 @@
     "76": {
       "seedNumber": 76,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -28717,7 +28717,7 @@
     "77": {
       "seedNumber": 77,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -29052,7 +29052,7 @@
     "78": {
       "seedNumber": 78,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
@@ -29388,7 +29388,7 @@
     "79": {
       "seedNumber": 79,
       "nightlord": "Adel",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -38033,7 +38033,7 @@
     "100": {
       "seedNumber": 100,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -38336,7 +38336,7 @@
     "101": {
       "seedNumber": 101,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -38641,7 +38641,7 @@
     "102": {
       "seedNumber": 102,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
@@ -38945,7 +38945,7 @@
     "103": {
       "seedNumber": 103,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -39249,7 +39249,7 @@
     "104": {
       "seedNumber": 104,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
@@ -39554,7 +39554,7 @@
     "105": {
       "seedNumber": 105,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -39849,7 +39849,7 @@
     "106": {
       "seedNumber": 106,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
@@ -40143,7 +40143,7 @@
     "107": {
       "seedNumber": 107,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -40440,7 +40440,7 @@
     "108": {
       "seedNumber": 108,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -40736,7 +40736,7 @@
     "109": {
       "seedNumber": 109,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": "Frenzy Tower",
       "night1": {
@@ -41030,7 +41030,7 @@
     "110": {
       "seedNumber": 110,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -41408,7 +41408,7 @@
     "111": {
       "seedNumber": 111,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -41785,7 +41785,7 @@
     "112": {
       "seedNumber": 112,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
@@ -42167,7 +42167,7 @@
     "113": {
       "seedNumber": 113,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
@@ -42544,7 +42544,7 @@
     "114": {
       "seedNumber": 114,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -42919,7 +42919,7 @@
     "115": {
       "seedNumber": 115,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
@@ -43254,7 +43254,7 @@
     "116": {
       "seedNumber": 116,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -43589,7 +43589,7 @@
     "117": {
       "seedNumber": 117,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
@@ -43926,7 +43926,7 @@
     "118": {
       "seedNumber": 118,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -44264,7 +44264,7 @@
     "119": {
       "seedNumber": 119,
       "nightlord": "Gnoster",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -52914,7 +52914,7 @@
     "140": {
       "seedNumber": 140,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Far Southwest",
       "specialEvent": "Day 1 Night Horde",
       "night1": {
@@ -53220,7 +53220,7 @@
     "141": {
       "seedNumber": 141,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -53526,7 +53526,7 @@
     "142": {
       "seedNumber": 142,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -53831,7 +53831,7 @@
     "143": {
       "seedNumber": 143,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
@@ -54135,7 +54135,7 @@
     "144": {
       "seedNumber": 144,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -54439,7 +54439,7 @@
     "145": {
       "seedNumber": 145,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -54734,7 +54734,7 @@
     "146": {
       "seedNumber": 146,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -55022,7 +55022,7 @@
     "147": {
       "seedNumber": 147,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Walking Mausoleum",
       "night1": {
@@ -55316,7 +55316,7 @@
     "148": {
       "seedNumber": 148,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
@@ -55611,7 +55611,7 @@
     "149": {
       "seedNumber": 149,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -55907,7 +55907,7 @@
     "150": {
       "seedNumber": 150,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Far Southwest",
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
@@ -56282,7 +56282,7 @@
     "151": {
       "seedNumber": 151,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -56658,7 +56658,7 @@
     "152": {
       "seedNumber": 152,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Far Southwest",
       "specialEvent": "Walking Mausoleum",
       "night1": {
@@ -57035,7 +57035,7 @@
     "153": {
       "seedNumber": 153,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -57411,7 +57411,7 @@
     "154": {
       "seedNumber": 154,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -57786,7 +57786,7 @@
     "155": {
       "seedNumber": 155,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -58124,7 +58124,7 @@
     "156": {
       "seedNumber": 156,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": "Day 2 Night Horde",
       "night1": {
@@ -58462,7 +58462,7 @@
     "157": {
       "seedNumber": 157,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -58797,7 +58797,7 @@
     "158": {
       "seedNumber": 158,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
@@ -59134,7 +59134,7 @@
     "159": {
       "seedNumber": 159,
       "nightlord": "Maris",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -67795,7 +67795,7 @@
     "180": {
       "seedNumber": 180,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Frenzy Tower",
       "night1": {
@@ -68101,7 +68101,7 @@
     "181": {
       "seedNumber": 181,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
@@ -68406,7 +68406,7 @@
     "182": {
       "seedNumber": 182,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -68710,7 +68710,7 @@
     "183": {
       "seedNumber": 183,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -69016,7 +69016,7 @@
     "184": {
       "seedNumber": 184,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -69320,7 +69320,7 @@
     "185": {
       "seedNumber": 185,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -69614,7 +69614,7 @@
     "186": {
       "seedNumber": 186,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -69910,7 +69910,7 @@
     "187": {
       "seedNumber": 187,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
@@ -70204,7 +70204,7 @@
     "188": {
       "seedNumber": 188,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
@@ -70502,7 +70502,7 @@
     "189": {
       "seedNumber": 189,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -70799,7 +70799,7 @@
     "190": {
       "seedNumber": 190,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -71174,7 +71174,7 @@
     "191": {
       "seedNumber": 191,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Far Southwest",
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
@@ -71553,7 +71553,7 @@
     "192": {
       "seedNumber": 192,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -71929,7 +71929,7 @@
     "193": {
       "seedNumber": 193,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -72304,7 +72304,7 @@
     "194": {
       "seedNumber": 194,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
@@ -72682,7 +72682,7 @@
     "195": {
       "seedNumber": 195,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Frenzy Tower",
       "night1": {
@@ -73017,7 +73017,7 @@
     "196": {
       "seedNumber": 196,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
@@ -73353,7 +73353,7 @@
     "197": {
       "seedNumber": 197,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -73690,7 +73690,7 @@
     "198": {
       "seedNumber": 198,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -74025,7 +74025,7 @@
     "199": {
       "seedNumber": 199,
       "nightlord": "Libra",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": null,
       "night1": {
@@ -82665,7 +82665,7 @@
     "220": {
       "seedNumber": 220,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Day 1 Extra Night Boss",
       "night1": {
@@ -82971,7 +82971,7 @@
     "221": {
       "seedNumber": 221,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -83274,7 +83274,7 @@
     "222": {
       "seedNumber": 222,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -83578,7 +83578,7 @@
     "223": {
       "seedNumber": 223,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -83875,7 +83875,7 @@
     "224": {
       "seedNumber": 224,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
@@ -84180,7 +84180,7 @@
     "225": {
       "seedNumber": 225,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Far Southwest",
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
@@ -84475,7 +84475,7 @@
     "226": {
       "seedNumber": 226,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -84769,7 +84769,7 @@
     "227": {
       "seedNumber": 227,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": "Day 2 Night Horde",
       "night1": {
@@ -85062,7 +85062,7 @@
     "228": {
       "seedNumber": 228,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -85357,7 +85357,7 @@
     "229": {
       "seedNumber": 229,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -85654,7 +85654,7 @@
     "230": {
       "seedNumber": 230,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -86031,7 +86031,7 @@
     "231": {
       "seedNumber": 231,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
@@ -86409,7 +86409,7 @@
     "232": {
       "seedNumber": 232,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -86784,7 +86784,7 @@
     "233": {
       "seedNumber": 233,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -87162,7 +87162,7 @@
     "234": {
       "seedNumber": 234,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
@@ -87537,7 +87537,7 @@
     "235": {
       "seedNumber": 235,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 1 Night Horde",
       "night1": {
@@ -87872,7 +87872,7 @@
     "236": {
       "seedNumber": 236,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -88209,7 +88209,7 @@
     "237": {
       "seedNumber": 237,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -88545,7 +88545,7 @@
     "238": {
       "seedNumber": 238,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -88880,7 +88880,7 @@
     "239": {
       "seedNumber": 239,
       "nightlord": "Fulghor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
@@ -97513,7 +97513,7 @@
     "260": {
       "seedNumber": 260,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
@@ -97817,7 +97817,7 @@
     "261": {
       "seedNumber": 261,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -98122,7 +98122,7 @@
     "262": {
       "seedNumber": 262,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
@@ -98426,7 +98426,7 @@
     "263": {
       "seedNumber": 263,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -98729,7 +98729,7 @@
     "264": {
       "seedNumber": 264,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -99033,7 +99033,7 @@
     "265": {
       "seedNumber": 265,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -99330,7 +99330,7 @@
     "266": {
       "seedNumber": 266,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
@@ -99624,7 +99624,7 @@
     "267": {
       "seedNumber": 267,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": "Walking Mausoleum",
       "night1": {
@@ -99920,7 +99920,7 @@
     "268": {
       "seedNumber": 268,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -100213,7 +100213,7 @@
     "269": {
       "seedNumber": 269,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -100509,7 +100509,7 @@
     "270": {
       "seedNumber": 270,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": null,
       "night1": {
@@ -100884,7 +100884,7 @@
     "271": {
       "seedNumber": 271,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -101262,7 +101262,7 @@
     "272": {
       "seedNumber": 272,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
@@ -101640,7 +101640,7 @@
     "273": {
       "seedNumber": 273,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Above Stormhill Tunnel Entrance",
       "specialEvent": "Walking Mausoleum",
       "night1": {
@@ -102018,7 +102018,7 @@
     "274": {
       "seedNumber": 274,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -102394,7 +102394,7 @@
     "275": {
       "seedNumber": 275,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
@@ -102729,7 +102729,7 @@
     "276": {
       "seedNumber": 276,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -103065,7 +103065,7 @@
     "277": {
       "seedNumber": 277,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -103399,7 +103399,7 @@
     "278": {
       "seedNumber": 278,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
@@ -103737,7 +103737,7 @@
     "279": {
       "seedNumber": 279,
       "nightlord": "Caligo",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -112372,7 +112372,7 @@
     "300": {
       "seedNumber": 300,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
@@ -112678,7 +112678,7 @@
     "301": {
       "seedNumber": 301,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -112984,7 +112984,7 @@
     "302": {
       "seedNumber": 302,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
@@ -113290,7 +113290,7 @@
     "303": {
       "seedNumber": 303,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -113594,7 +113594,7 @@
     "304": {
       "seedNumber": 304,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Mountaintop",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -113898,7 +113898,7 @@
     "305": {
       "seedNumber": 305,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Far Southwest",
       "specialEvent": null,
       "night1": {
@@ -114194,7 +114194,7 @@
     "306": {
       "seedNumber": 306,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
@@ -114491,7 +114491,7 @@
     "307": {
       "seedNumber": 307,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "Southeast of Lake",
       "specialEvent": null,
       "night1": {
@@ -114786,7 +114786,7 @@
     "308": {
       "seedNumber": 308,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "East of Cavalry Bridge",
       "specialEvent": null,
       "night1": {
@@ -115081,7 +115081,7 @@
     "309": {
       "seedNumber": 309,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Crater",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
@@ -115374,7 +115374,7 @@
     "310": {
       "seedNumber": 310,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -115752,7 +115752,7 @@
     "311": {
       "seedNumber": 311,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": null,
       "night1": {
@@ -116129,7 +116129,7 @@
     "312": {
       "seedNumber": 312,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "West of Warmaster's Shack",
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
@@ -116507,7 +116507,7 @@
     "313": {
       "seedNumber": 313,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
@@ -116885,7 +116885,7 @@
     "314": {
       "seedNumber": 314,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Rotted Woods",
       "spawnPoint": "Stormhill South of Gate",
       "specialEvent": null,
       "night1": {
@@ -117260,7 +117260,7 @@
     "315": {
       "seedNumber": 315,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": null,
       "night1": {
@@ -117598,7 +117598,7 @@
     "316": {
       "seedNumber": 316,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Minor Erdtree",
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
@@ -117936,7 +117936,7 @@
     "317": {
       "seedNumber": 317,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": null,
       "night1": {
@@ -118271,7 +118271,7 @@
     "318": {
       "seedNumber": 318,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Northeast of Saintsbridge",
       "specialEvent": null,
       "night1": {
@@ -118608,7 +118608,7 @@
     "319": {
       "seedNumber": 319,
       "nightlord": "Heolstor",
-      "mapType": "Default",
+      "mapType": "Noklateo",
       "spawnPoint": "Below Summonwater Hawk",
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
@@ -118939,6 +118939,1338 @@
       "rotBlessing": null,
       "frenzyTower": null,
       "scaleBearingMerchant": null
+    }
+  },
+  "poiLookupByMapType": {
+    "Default": {
+      "majorBase": [
+        {
+          "location": "Alexander Spot",
+          "coordinates": {
+            "x": 641,
+            "y": 460
+          }
+        },
+        {
+          "location": "Artist's Shack",
+          "coordinates": {
+            "x": 899,
+            "y": 652
+          }
+        },
+        {
+          "location": "Gatefront",
+          "coordinates": {
+            "x": 493,
+            "y": 845
+          }
+        },
+        {
+          "location": "Groveside",
+          "coordinates": {
+            "x": 430,
+            "y": 1002
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1157,
+            "y": 963
+          }
+        },
+        {
+          "location": "Northeast Mistwood",
+          "coordinates": {
+            "x": 1192,
+            "y": 648
+          }
+        },
+        {
+          "location": "Northeast Stormhill",
+          "coordinates": {
+            "x": 1097,
+            "y": 329
+          }
+        },
+        {
+          "location": "Northwest Mistwood",
+          "coordinates": {
+            "x": 1023,
+            "y": 709
+          }
+        },
+        {
+          "location": "Northwest Stormhill",
+          "coordinates": {
+            "x": 355,
+            "y": 428
+          }
+        },
+        {
+          "location": "South Lake",
+          "coordinates": {
+            "x": 612,
+            "y": 1200
+          }
+        },
+        {
+          "location": "South Mistwood",
+          "coordinates": {
+            "x": 1148,
+            "y": 1131
+          }
+        },
+        {
+          "location": "Stormhill North of Gate",
+          "coordinates": {
+            "x": 438,
+            "y": 683
+          }
+        },
+        {
+          "location": "Summonwater",
+          "coordinates": {
+            "x": 617,
+            "y": 272
+          }
+        },
+        {
+          "location": "Summonwater Approach",
+          "coordinates": {
+            "x": 970,
+            "y": 447
+          }
+        },
+        {
+          "location": "Waypoint Ruins",
+          "coordinates": {
+            "x": 942,
+            "y": 1053
+          }
+        },
+        {
+          "location": "West Mistwood",
+          "coordinates": {
+            "x": 972,
+            "y": 904
+          }
+        }
+      ],
+      "minorBase": [
+        {
+          "location": "Above Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 554,
+            "y": 608
+          }
+        },
+        {
+          "location": "Below Summonwater Hawk",
+          "coordinates": {
+            "x": 1066,
+            "y": 559
+          }
+        },
+        {
+          "location": "East of Cavalry Bridge",
+          "coordinates": {
+            "x": 844,
+            "y": 972
+          }
+        },
+        {
+          "location": "Far Southwest",
+          "coordinates": {
+            "x": 310,
+            "y": 1090
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 697,
+            "y": 1067
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1238,
+            "y": 892
+          }
+        },
+        {
+          "location": "Northeast of Saintsbridge",
+          "coordinates": {
+            "x": 824,
+            "y": 340
+          }
+        },
+        {
+          "location": "Southeast of Lake",
+          "coordinates": {
+            "x": 874,
+            "y": 1224
+          }
+        },
+        {
+          "location": "Stormhill South of Gate",
+          "coordinates": {
+            "x": 318,
+            "y": 852
+          }
+        },
+        {
+          "location": "Third Church",
+          "coordinates": {
+            "x": 1196,
+            "y": 543
+          }
+        },
+        {
+          "location": "West of Warmaster's Shack",
+          "coordinates": {
+            "x": 336,
+            "y": 542
+          }
+        }
+      ],
+      "evergaol": [
+        {
+          "location": "East of Lake",
+          "coordinates": {
+            "x": 952,
+            "y": 1176
+          }
+        },
+        {
+          "location": "Highroad",
+          "coordinates": {
+            "x": 739,
+            "y": 300
+          }
+        },
+        {
+          "location": "Mistwood",
+          "coordinates": {
+            "x": 1212,
+            "y": 748
+          }
+        },
+        {
+          "location": "Murkwater Terminus",
+          "coordinates": {
+            "x": 684,
+            "y": 585
+          }
+        },
+        {
+          "location": "Northeast Tunnel Entrance",
+          "coordinates": {
+            "x": 968,
+            "y": 556
+          }
+        },
+        {
+          "location": "Northwest of Lake",
+          "coordinates": {
+            "x": 532,
+            "y": 968
+          }
+        },
+        {
+          "location": "Stormhill",
+          "coordinates": {
+            "x": 258,
+            "y": 485
+          }
+        }
+      ],
+      "fieldBoss": [
+        {
+          "location": "East of Murkwater Terminus",
+          "coordinates": {
+            "x": 845,
+            "y": 585
+          }
+        },
+        {
+          "location": "Far Southwest of Lake",
+          "coordinates": {
+            "x": 477,
+            "y": 1263
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 665,
+            "y": 1097
+          }
+        },
+        {
+          "location": "Mistwood Spectral Hawk",
+          "coordinates": {
+            "x": 1048,
+            "y": 1198
+          }
+        },
+        {
+          "location": "North Mistwood",
+          "coordinates": {
+            "x": 1173,
+            "y": 778
+          }
+        },
+        {
+          "location": "North of Murkwater Terminus",
+          "coordinates": {
+            "x": 724,
+            "y": 552
+          }
+        },
+        {
+          "location": "North of Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 478,
+            "y": 575
+          }
+        },
+        {
+          "location": "Northwest Stormhill Cliffside",
+          "coordinates": {
+            "x": 453,
+            "y": 294
+          }
+        },
+        {
+          "location": "Northwest of Summonwater",
+          "coordinates": {
+            "x": 974,
+            "y": 334
+          }
+        },
+        {
+          "location": "Stormhill Spectral Hawk",
+          "coordinates": {
+            "x": 515,
+            "y": 365
+          }
+        }
+      ],
+      "rottedWoods": []
+    },
+    "Mountaintop": {
+      "majorBase": [
+        {
+          "location": "Artist's Shack",
+          "coordinates": {
+            "x": 899,
+            "y": 652
+          }
+        },
+        {
+          "location": "Gatefront",
+          "coordinates": {
+            "x": 493,
+            "y": 845
+          }
+        },
+        {
+          "location": "Groveside",
+          "coordinates": {
+            "x": 430,
+            "y": 1002
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1157,
+            "y": 963
+          }
+        },
+        {
+          "location": "Northeast Mistwood",
+          "coordinates": {
+            "x": 1192,
+            "y": 648
+          }
+        },
+        {
+          "location": "Northwest Mistwood",
+          "coordinates": {
+            "x": 1023,
+            "y": 709
+          }
+        },
+        {
+          "location": "South Lake",
+          "coordinates": {
+            "x": 612,
+            "y": 1200
+          }
+        },
+        {
+          "location": "South Mistwood",
+          "coordinates": {
+            "x": 1148,
+            "y": 1131
+          }
+        },
+        {
+          "location": "Summonwater",
+          "coordinates": {
+            "x": 617,
+            "y": 272
+          }
+        },
+        {
+          "location": "Summonwater Approach",
+          "coordinates": {
+            "x": 970,
+            "y": 447
+          }
+        },
+        {
+          "location": "Waypoint Ruins",
+          "coordinates": {
+            "x": 942,
+            "y": 1053
+          }
+        },
+        {
+          "location": "West Mistwood",
+          "coordinates": {
+            "x": 972,
+            "y": 904
+          }
+        }
+      ],
+      "minorBase": [
+        {
+          "location": "Below Summonwater Hawk",
+          "coordinates": {
+            "x": 1066,
+            "y": 559
+          }
+        },
+        {
+          "location": "East of Cavalry Bridge",
+          "coordinates": {
+            "x": 844,
+            "y": 972
+          }
+        },
+        {
+          "location": "Far Southwest",
+          "coordinates": {
+            "x": 310,
+            "y": 1090
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 697,
+            "y": 1067
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1238,
+            "y": 892
+          }
+        },
+        {
+          "location": "Northeast of Saintsbridge",
+          "coordinates": {
+            "x": 824,
+            "y": 340
+          }
+        },
+        {
+          "location": "Southeast of Lake",
+          "coordinates": {
+            "x": 874,
+            "y": 1224
+          }
+        },
+        {
+          "location": "Stormhill South of Gate",
+          "coordinates": {
+            "x": 318,
+            "y": 852
+          }
+        },
+        {
+          "location": "Third Church",
+          "coordinates": {
+            "x": 1196,
+            "y": 543
+          }
+        }
+      ],
+      "evergaol": [
+        {
+          "location": "East of Lake",
+          "coordinates": {
+            "x": 952,
+            "y": 1176
+          }
+        },
+        {
+          "location": "Mistwood",
+          "coordinates": {
+            "x": 1212,
+            "y": 748
+          }
+        },
+        {
+          "location": "Northeast Tunnel Entrance",
+          "coordinates": {
+            "x": 968,
+            "y": 556
+          }
+        },
+        {
+          "location": "Northwest of Lake",
+          "coordinates": {
+            "x": 532,
+            "y": 968
+          }
+        }
+      ],
+      "fieldBoss": [
+        {
+          "location": "East of Murkwater Terminus",
+          "coordinates": {
+            "x": 845,
+            "y": 585
+          }
+        },
+        {
+          "location": "Far Southwest of Lake",
+          "coordinates": {
+            "x": 477,
+            "y": 1263
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 665,
+            "y": 1097
+          }
+        },
+        {
+          "location": "Mistwood Spectral Hawk",
+          "coordinates": {
+            "x": 1048,
+            "y": 1198
+          }
+        },
+        {
+          "location": "North Mistwood",
+          "coordinates": {
+            "x": 1173,
+            "y": 778
+          }
+        },
+        {
+          "location": "Northwest of Summonwater",
+          "coordinates": {
+            "x": 974,
+            "y": 334
+          }
+        }
+      ],
+      "rottedWoods": []
+    },
+    "Crater": {
+      "majorBase": [
+        {
+          "location": "Gatefront",
+          "coordinates": {
+            "x": 493,
+            "y": 845
+          }
+        },
+        {
+          "location": "Groveside",
+          "coordinates": {
+            "x": 430,
+            "y": 1002
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1157,
+            "y": 963
+          }
+        },
+        {
+          "location": "Northeast Mistwood",
+          "coordinates": {
+            "x": 1192,
+            "y": 648
+          }
+        },
+        {
+          "location": "Northwest Stormhill",
+          "coordinates": {
+            "x": 355,
+            "y": 428
+          }
+        },
+        {
+          "location": "South Lake",
+          "coordinates": {
+            "x": 612,
+            "y": 1200
+          }
+        },
+        {
+          "location": "South Mistwood",
+          "coordinates": {
+            "x": 1148,
+            "y": 1131
+          }
+        },
+        {
+          "location": "Stormhill North of Gate",
+          "coordinates": {
+            "x": 438,
+            "y": 683
+          }
+        },
+        {
+          "location": "Summonwater",
+          "coordinates": {
+            "x": 617,
+            "y": 272
+          }
+        },
+        {
+          "location": "Waypoint Ruins",
+          "coordinates": {
+            "x": 942,
+            "y": 1053
+          }
+        },
+        {
+          "location": "West Mistwood",
+          "coordinates": {
+            "x": 972,
+            "y": 904
+          }
+        }
+      ],
+      "minorBase": [
+        {
+          "location": "Below Summonwater Hawk",
+          "coordinates": {
+            "x": 1066,
+            "y": 559
+          }
+        },
+        {
+          "location": "East of Cavalry Bridge",
+          "coordinates": {
+            "x": 844,
+            "y": 972
+          }
+        },
+        {
+          "location": "Far Southwest",
+          "coordinates": {
+            "x": 310,
+            "y": 1090
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 697,
+            "y": 1067
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1238,
+            "y": 892
+          }
+        },
+        {
+          "location": "Southeast of Lake",
+          "coordinates": {
+            "x": 874,
+            "y": 1224
+          }
+        },
+        {
+          "location": "Stormhill South of Gate",
+          "coordinates": {
+            "x": 318,
+            "y": 852
+          }
+        },
+        {
+          "location": "Third Church",
+          "coordinates": {
+            "x": 1196,
+            "y": 543
+          }
+        },
+        {
+          "location": "West of Warmaster's Shack",
+          "coordinates": {
+            "x": 336,
+            "y": 542
+          }
+        }
+      ],
+      "evergaol": [
+        {
+          "location": "East of Lake",
+          "coordinates": {
+            "x": 952,
+            "y": 1176
+          }
+        },
+        {
+          "location": "Mistwood",
+          "coordinates": {
+            "x": 1212,
+            "y": 748
+          }
+        },
+        {
+          "location": "Northwest of Lake",
+          "coordinates": {
+            "x": 532,
+            "y": 968
+          }
+        },
+        {
+          "location": "Stormhill",
+          "coordinates": {
+            "x": 258,
+            "y": 485
+          }
+        }
+      ],
+      "fieldBoss": [
+        {
+          "location": "Far Southwest of Lake",
+          "coordinates": {
+            "x": 477,
+            "y": 1263
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 665,
+            "y": 1097
+          }
+        },
+        {
+          "location": "Mistwood Spectral Hawk",
+          "coordinates": {
+            "x": 1048,
+            "y": 1198
+          }
+        },
+        {
+          "location": "North Mistwood",
+          "coordinates": {
+            "x": 1173,
+            "y": 778
+          }
+        },
+        {
+          "location": "North of Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 478,
+            "y": 575
+          }
+        },
+        {
+          "location": "Northwest Stormhill Cliffside",
+          "coordinates": {
+            "x": 453,
+            "y": 294
+          }
+        }
+      ],
+      "rottedWoods": []
+    },
+    "Rotted Woods": {
+      "majorBase": [
+        {
+          "location": "Alexander Spot",
+          "coordinates": {
+            "x": 641,
+            "y": 460
+          }
+        },
+        {
+          "location": "Artist's Shack",
+          "coordinates": {
+            "x": 899,
+            "y": 652
+          }
+        },
+        {
+          "location": "Gatefront",
+          "coordinates": {
+            "x": 493,
+            "y": 845
+          }
+        },
+        {
+          "location": "Groveside",
+          "coordinates": {
+            "x": 430,
+            "y": 1002
+          }
+        },
+        {
+          "location": "Northeast Mistwood",
+          "coordinates": {
+            "x": 1192,
+            "y": 648
+          }
+        },
+        {
+          "location": "Northeast Stormhill",
+          "coordinates": {
+            "x": 1097,
+            "y": 329
+          }
+        },
+        {
+          "location": "Northwest Mistwood",
+          "coordinates": {
+            "x": 1023,
+            "y": 709
+          }
+        },
+        {
+          "location": "Northwest Stormhill",
+          "coordinates": {
+            "x": 355,
+            "y": 428
+          }
+        },
+        {
+          "location": "South Lake",
+          "coordinates": {
+            "x": 612,
+            "y": 1200
+          }
+        },
+        {
+          "location": "Stormhill North of Gate",
+          "coordinates": {
+            "x": 438,
+            "y": 683
+          }
+        },
+        {
+          "location": "Summonwater",
+          "coordinates": {
+            "x": 617,
+            "y": 272
+          }
+        },
+        {
+          "location": "Summonwater Approach",
+          "coordinates": {
+            "x": 970,
+            "y": 447
+          }
+        }
+      ],
+      "minorBase": [
+        {
+          "location": "Above Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 554,
+            "y": 608
+          }
+        },
+        {
+          "location": "Below Summonwater Hawk",
+          "coordinates": {
+            "x": 1066,
+            "y": 559
+          }
+        },
+        {
+          "location": "Far Southwest",
+          "coordinates": {
+            "x": 310,
+            "y": 1090
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 697,
+            "y": 1067
+          }
+        },
+        {
+          "location": "Northeast of Saintsbridge",
+          "coordinates": {
+            "x": 824,
+            "y": 340
+          }
+        },
+        {
+          "location": "Stormhill South of Gate",
+          "coordinates": {
+            "x": 318,
+            "y": 852
+          }
+        },
+        {
+          "location": "Third Church",
+          "coordinates": {
+            "x": 1196,
+            "y": 543
+          }
+        },
+        {
+          "location": "West of Warmaster's Shack",
+          "coordinates": {
+            "x": 336,
+            "y": 542
+          }
+        }
+      ],
+      "evergaol": [
+        {
+          "location": "Highroad",
+          "coordinates": {
+            "x": 739,
+            "y": 300
+          }
+        },
+        {
+          "location": "Mistwood",
+          "coordinates": {
+            "x": 1212,
+            "y": 748
+          }
+        },
+        {
+          "location": "Murkwater Terminus",
+          "coordinates": {
+            "x": 684,
+            "y": 585
+          }
+        },
+        {
+          "location": "Northeast Tunnel Entrance",
+          "coordinates": {
+            "x": 968,
+            "y": 556
+          }
+        },
+        {
+          "location": "Northwest of Lake",
+          "coordinates": {
+            "x": 532,
+            "y": 968
+          }
+        },
+        {
+          "location": "Stormhill",
+          "coordinates": {
+            "x": 258,
+            "y": 485
+          }
+        }
+      ],
+      "fieldBoss": [
+        {
+          "location": "East of Murkwater Terminus",
+          "coordinates": {
+            "x": 845,
+            "y": 585
+          }
+        },
+        {
+          "location": "Far Southwest of Lake",
+          "coordinates": {
+            "x": 477,
+            "y": 1263
+          }
+        },
+        {
+          "location": "Lake",
+          "coordinates": {
+            "x": 665,
+            "y": 1097
+          }
+        },
+        {
+          "location": "North of Murkwater Terminus",
+          "coordinates": {
+            "x": 724,
+            "y": 552
+          }
+        },
+        {
+          "location": "North of Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 478,
+            "y": 575
+          }
+        },
+        {
+          "location": "Northwest Stormhill Cliffside",
+          "coordinates": {
+            "x": 453,
+            "y": 294
+          }
+        },
+        {
+          "location": "Northwest of Summonwater",
+          "coordinates": {
+            "x": 974,
+            "y": 334
+          }
+        },
+        {
+          "location": "Stormhill Spectral Hawk",
+          "coordinates": {
+            "x": 515,
+            "y": 365
+          }
+        }
+      ],
+      "rottedWoods": [
+        {
+          "location": "Center East",
+          "coordinates": {
+            "x": 1110,
+            "y": 979
+          }
+        },
+        {
+          "location": "Center West",
+          "coordinates": {
+            "x": 929,
+            "y": 954
+          }
+        },
+        {
+          "location": "Far Northeast",
+          "coordinates": {
+            "x": 1200,
+            "y": 849
+          }
+        },
+        {
+          "location": "Far Northwest",
+          "coordinates": {
+            "x": 881,
+            "y": 867
+          }
+        },
+        {
+          "location": "Northeast",
+          "coordinates": {
+            "x": 1176,
+            "y": 921
+          }
+        },
+        {
+          "location": "Northwest",
+          "coordinates": {
+            "x": 967,
+            "y": 856
+          }
+        },
+        {
+          "location": "Southeast",
+          "coordinates": {
+            "x": 1204,
+            "y": 1059
+          }
+        },
+        {
+          "location": "Southwest",
+          "coordinates": {
+            "x": 994,
+            "y": 1139
+          }
+        }
+      ]
+    },
+    "Noklateo": {
+      "majorBase": [
+        {
+          "location": "Alexander Spot",
+          "coordinates": {
+            "x": 641,
+            "y": 460
+          }
+        },
+        {
+          "location": "Artist's Shack",
+          "coordinates": {
+            "x": 899,
+            "y": 652
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1157,
+            "y": 963
+          }
+        },
+        {
+          "location": "Northeast Mistwood",
+          "coordinates": {
+            "x": 1192,
+            "y": 648
+          }
+        },
+        {
+          "location": "Northeast Stormhill",
+          "coordinates": {
+            "x": 1097,
+            "y": 329
+          }
+        },
+        {
+          "location": "Northwest Mistwood",
+          "coordinates": {
+            "x": 1023,
+            "y": 709
+          }
+        },
+        {
+          "location": "Northwest Stormhill",
+          "coordinates": {
+            "x": 355,
+            "y": 428
+          }
+        },
+        {
+          "location": "South Mistwood",
+          "coordinates": {
+            "x": 1148,
+            "y": 1131
+          }
+        },
+        {
+          "location": "Stormhill North of Gate",
+          "coordinates": {
+            "x": 438,
+            "y": 683
+          }
+        },
+        {
+          "location": "Summonwater",
+          "coordinates": {
+            "x": 617,
+            "y": 272
+          }
+        },
+        {
+          "location": "Summonwater Approach",
+          "coordinates": {
+            "x": 970,
+            "y": 447
+          }
+        },
+        {
+          "location": "Waypoint Ruins",
+          "coordinates": {
+            "x": 942,
+            "y": 1053
+          }
+        },
+        {
+          "location": "West Mistwood",
+          "coordinates": {
+            "x": 972,
+            "y": 904
+          }
+        }
+      ],
+      "minorBase": [
+        {
+          "location": "Above Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 554,
+            "y": 608
+          }
+        },
+        {
+          "location": "Below Summonwater Hawk",
+          "coordinates": {
+            "x": 1066,
+            "y": 559
+          }
+        },
+        {
+          "location": "East of Cavalry Bridge",
+          "coordinates": {
+            "x": 844,
+            "y": 972
+          }
+        },
+        {
+          "location": "Minor Erdtree",
+          "coordinates": {
+            "x": 1238,
+            "y": 892
+          }
+        },
+        {
+          "location": "Northeast of Saintsbridge",
+          "coordinates": {
+            "x": 824,
+            "y": 340
+          }
+        },
+        {
+          "location": "Southeast of Lake",
+          "coordinates": {
+            "x": 874,
+            "y": 1224
+          }
+        },
+        {
+          "location": "Third Church",
+          "coordinates": {
+            "x": 1196,
+            "y": 543
+          }
+        },
+        {
+          "location": "West of Warmaster's Shack",
+          "coordinates": {
+            "x": 336,
+            "y": 542
+          }
+        }
+      ],
+      "evergaol": [
+        {
+          "location": "East of Lake",
+          "coordinates": {
+            "x": 952,
+            "y": 1176
+          }
+        },
+        {
+          "location": "Highroad",
+          "coordinates": {
+            "x": 739,
+            "y": 300
+          }
+        },
+        {
+          "location": "Mistwood",
+          "coordinates": {
+            "x": 1212,
+            "y": 748
+          }
+        },
+        {
+          "location": "Murkwater Terminus",
+          "coordinates": {
+            "x": 684,
+            "y": 585
+          }
+        },
+        {
+          "location": "Northeast Tunnel Entrance",
+          "coordinates": {
+            "x": 968,
+            "y": 556
+          }
+        },
+        {
+          "location": "Stormhill",
+          "coordinates": {
+            "x": 258,
+            "y": 485
+          }
+        }
+      ],
+      "fieldBoss": [
+        {
+          "location": "East of Murkwater Terminus",
+          "coordinates": {
+            "x": 845,
+            "y": 585
+          }
+        },
+        {
+          "location": "Mistwood Spectral Hawk",
+          "coordinates": {
+            "x": 1048,
+            "y": 1198
+          }
+        },
+        {
+          "location": "North Mistwood",
+          "coordinates": {
+            "x": 1173,
+            "y": 778
+          }
+        },
+        {
+          "location": "North of Murkwater Terminus",
+          "coordinates": {
+            "x": 724,
+            "y": 552
+          }
+        },
+        {
+          "location": "North of Stormhill Tunnel Entrance",
+          "coordinates": {
+            "x": 478,
+            "y": 575
+          }
+        },
+        {
+          "location": "Northwest Stormhill Cliffside",
+          "coordinates": {
+            "x": 453,
+            "y": 294
+          }
+        },
+        {
+          "location": "Northwest of Summonwater",
+          "coordinates": {
+            "x": 974,
+            "y": 334
+          }
+        },
+        {
+          "location": "Stormhill Spectral Hawk",
+          "coordinates": {
+            "x": 515,
+            "y": 365
+          }
+        }
+      ],
+      "rottedWoods": []
     }
   }
 }

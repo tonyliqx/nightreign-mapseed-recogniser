@@ -7,6 +7,7 @@ This script processes the nightreignMapPatterns.csv file and creates an efficien
 import csv
 import json
 import os
+from collections import defaultdict
 from datetime import datetime
 from typing import Dict, List, Any, Tuple
 
@@ -123,7 +124,7 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
         # Extract basic seed data from simple keys
         seed_number = int(row[0].strip()) if row[0].strip() else i - 2
         nightlord = row_data.get('Nightlord', 'Unknown')
-        map_type = row_data.get('Map Type', 'Default')
+        map_type = row_data.get('Shifting Earth', 'Default')
         spawn_point = row_data.get('Spawn Point', '')
         special_event = row_data.get('Special Event')
         
@@ -274,6 +275,51 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
     
     return json_data
 
+def generate_poi_lookup_by_map_type(data: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, Dict[str, List[Dict[str, Any]]]]:
+    """Generate POI lookup by map type with coordinates."""
+    
+    # Group seeds by map type
+    map_types = defaultdict(list)
+    for seed_id, seed_data in data['seeds'].items():
+        map_type = seed_data['mapType']
+        map_types[map_type].append(seed_data)
+    
+    # Analyze POI availability for each map type
+    poi_lookup = {}
+    
+    for map_type, seeds in map_types.items():
+        print(f"  📍 Analyzing {map_type} ({len(seeds)} seeds)...")
+        
+        # Track which POI locations have appeared at least once with their data
+        available_pois = {
+            'majorBase': {},
+            'minorBase': {},
+            'evergaol': {},
+            'fieldBoss': {},
+            'rottedWoods': {}
+        }
+        
+        # Check each seed for POI presence and collect data
+        for seed in seeds:
+            for category, available_dict in available_pois.items():
+                for poi in seed['pois'][category]:
+                    location = poi['location']
+                    if location not in available_dict:
+                        # Store only location and coordinates
+                        poi_data = {
+                            'location': location,
+                            'coordinates': poi.get('coordinates', {})
+                        }
+                        available_dict[location] = poi_data
+        
+        # Convert to sorted lists
+        poi_lookup[map_type] = {
+            category: sorted(list(available_dict.values()), key=lambda x: x['location'])
+            for category, available_dict in available_pois.items()
+        }
+    
+    return poi_lookup
+
 def main():
     """Main conversion function."""
     print("🔄 Starting CSV to JSON conversion...")
@@ -295,6 +341,11 @@ def main():
         print(f"📖 CSV file read successfully")
         print(f"🏗️  Created JSON structure with {len(json_data['seeds'])} seeds")
 
+        # Generate POI lookup by map type
+        print("🔍 Generating POI lookup by map type...")
+        poi_lookup = generate_poi_lookup_by_map_type(json_data, location_coords)
+        json_data['poiLookupByMapType'] = poi_lookup
+
         # Write to JSON file
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(json_data, f, indent=2, ensure_ascii=False)
@@ -304,6 +355,10 @@ def main():
         # Display statistics
         print("\n📈 Conversion Statistics:")
         print(f"   • Total Seeds: {len(json_data['seeds'])}")
+        print(f"   • Map Types: {len(poi_lookup)}")
+        for map_type, categories in poi_lookup.items():
+            total_pois = sum(len(pois) for pois in categories.values())
+            print(f"     - {map_type}: {total_pois} POIs")
 
         return json_data
 
