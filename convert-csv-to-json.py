@@ -8,9 +8,85 @@ import csv
 import json
 import os
 from datetime import datetime
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
 
-def parse_csv_file(csv_path: str) -> Dict[str, Any]:
+def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[int, int]]]:
+    """Return hardcoded mapping of POI categories to location coordinates."""
+    return {
+        # Minor Base locations - 11 locations
+        "minor_base": {
+            "Third Church": (1196, 543),
+            "East of Cavalry Bridge": (844, 972),
+            "Northeast of Saintsbridge": (824, 340),
+            "Far Southwest": (310, 1090),
+            "West of Warmaster's Shack": (336, 542),
+            "Southeast of Lake": (874, 1224),
+            "Above Stormhill Tunnel Entrance": (554, 608),
+            "Lake": (697, 1067),
+            "Stormhill South of Gate": (318, 852),
+            "Below Summonwater Hawk": (1066, 559),
+            "Minor Erdtree": (1238, 892)
+        },
+        
+        # Major Base locations - 16 locations
+        "major_base": {
+            "Stormhill North of Gate": (438, 683),
+            "Minor Erdtree": (1157, 963),
+            "Summonwater Approach": (970, 447),
+            "Northwest Mistwood": (1023, 709),
+            "Gatefront": (493, 845),
+            "Waypoint Ruins": (942, 1053),
+            "Northeast Mistwood": (1192, 648),
+            "Groveside": (430, 1002),
+            "Northwest Stormhill": (355, 428),
+            "South Mistwood": (1148, 1131),
+            "West Mistwood": (972, 904),
+            "Northeast Stormhill": (1097, 329),
+            "South Lake": (612, 1200),
+            "Alexander Spot": (641, 460),
+            "Summonwater": (617, 272),
+            "Artist's Shack": (899, 652)
+        },
+        
+        # Evergaol locations - 7 locations
+        "evergaol": {
+            "Northwest of Lake": (532, 968),
+            "East of Lake": (952, 1176),
+            "Murkwater Terminus": (684, 585),
+            "Stormhill": (258, 485),
+            "Northeast Tunnel Entrance": (968, 556),
+            "Highroad": (739, 300),
+            "Mistwood": (1212, 748)
+        },
+        
+        # Field Boss locations - 10 locations
+        "field_boss": {
+            "Far Southwest of Lake": (477, 1263),
+            "Lake": (665, 1097),
+            "North of Stormhill Tunnel Entrance": (478, 575),
+            "North of Murkwater Terminus": (724, 552),
+            "Stormhill Spectral Hawk": (515, 365),
+            "Northwest Stormhill Cliffside": (453, 294),
+            "Mistwood Spectral Hawk": (1048, 1198),
+            "North Mistwood": (1173, 778),
+            "East of Murkwater Terminus": (845, 585),
+            "Northwest of Summonwater": (974, 334)
+        },
+        
+        # Rotted Woods locations - 8 locations
+        "rotted_woods": {
+            "Southwest": (994, 1139),
+            "Southeast": (1204, 1059),
+            "Center West": (929, 954),
+            "Center East": (1110, 979),
+            "Far Northwest": (881, 867),
+            "Northwest": (967, 856),
+            "Northeast": (1176, 921),
+            "Far Northeast": (1200, 849)
+        }
+    }
+
+def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, Any]:
     """Parse the CSV file and return complete JSON structure."""
     with open(csv_path, 'r', encoding='utf-8') as file:
         reader = csv.reader(file)
@@ -79,7 +155,14 @@ def parse_csv_file(csv_path: str) -> Dict[str, Any]:
             if value:
                 # Parse value as '<structure> - <boss>'
                 structure, boss = value.split(' - ', 1)
-                major_base_pois.append({'location': location, 'structure': structure, 'boss': boss})
+                poi_data = {'location': location, 'structure': structure, 'boss': boss}
+                
+                # Add coordinates if available (use major_base category)
+                if location in location_coords['major_base']:
+                    coords = location_coords['major_base'][location]
+                    poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
+                
+                major_base_pois.append(poi_data)
         
         # Minor Base POIs
         minor_base_pois = []
@@ -90,34 +173,67 @@ def parse_csv_file(csv_path: str) -> Dict[str, Any]:
                 
                 # Special handling for certain structures
                 if structure == 'Small Camp':
-                    minor_base_pois.append({'location': location, 'structure': structure, 'enemy': detail})
+                    poi_data = {'location': location, 'structure': structure, 'enemy': detail}
                 elif structure in ['Sorcerer\'s Rise', 'Difficult Sorcerer\'s Rise']:
                     # Parse puzzles as comma-separated list
                     puzzles = [puzzle.strip() for puzzle in detail.split(',')]
-                    minor_base_pois.append({'location': location, 'structure': structure, 'puzzles': puzzles})
+                    poi_data = {'location': location, 'structure': structure, 'puzzles': puzzles}
                 else:
-                    minor_base_pois.append({'location': location, 'structure': structure})
+                    poi_data = {'location': location, 'structure': structure}
+                
+                # Add coordinates if available (use minor_base category)
+                if location in location_coords['minor_base']:
+                    coords = location_coords['minor_base'][location]
+                    poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
+                
+                minor_base_pois.append(poi_data)
         
         # Evergaol POIs
         evergaol_pois = []
         for location, boss in row_data['Evergaol'].items():
-            evergaol_pois.append({'location': location, 'boss': boss})
+            if boss:  # Only process if boss value exists
+                poi_data = {'location': location, 'boss': boss}
+                
+                # Add coordinates if available
+                if location in location_coords['evergaol']:
+                    coords = location_coords['evergaol'][location]
+                    poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
+                
+                evergaol_pois.append(poi_data)
         
         # Field Boss POIs
         field_boss_pois = []
         for location, boss in row_data['Field Boss'].items():
-            # Skip Castle Rooftop location
-            if location == 'Castle Rooftop':
-                continue
-            field_boss_pois.append({'location': location, 'boss': boss})
+            if boss:  # Only process if boss value exists
+                # Skip Castle Rooftop location
+                if location == 'Castle Rooftop':
+                    continue
+                
+                poi_data = {'location': location, 'boss': boss}
+                
+                # Add coordinates if available (use field_boss category)
+                if location in location_coords['field_boss']:
+                    coords = location_coords['field_boss'][location]
+                    poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
+                
+                field_boss_pois.append(poi_data)
         
         # Rotted Woods POIs
         rotted_woods_pois = []
         for location, boss in row_data['Rotted Woods'].items():
-            # Skip Putrid Ancestral Followers
-            if boss == 'Putrid Ancestral Followers':
-                continue
-            rotted_woods_pois.append({'location': location, 'boss': boss})
+            if boss:  # Only process if boss value exists
+                # Skip Putrid Ancestral Followers
+                if boss == 'Putrid Ancestral Followers':
+                    continue
+                
+                poi_data = {'location': location, 'boss': boss}
+                
+                # Add coordinates if available (use rotted_woods category)
+                if location in location_coords['rotted_woods']:
+                    coords = location_coords['rotted_woods'][location]
+                    poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
+                
+                rotted_woods_pois.append(poi_data)
         
         # Castle data from nested structure
         castle_data = {
@@ -168,8 +284,14 @@ def main():
     output_path = os.path.join(script_dir, 'dataset', 'nightreignMapPatterns.json')
 
     try:
+        # Get hardcoded POI coordinates
+        print("📍 Loading POI coordinates...")
+        location_coords = get_poi_coordinates()
+        total_coords = sum(len(coords) for coords in location_coords.values())
+        print(f"📍 Loaded {total_coords} hardcoded location coordinates across {len(location_coords)} categories")
+        
         # Parse CSV file and create JSON structure
-        json_data = parse_csv_file(csv_path)
+        json_data = parse_csv_file(csv_path, location_coords)
         print(f"📖 CSV file read successfully")
         print(f"🏗️  Created JSON structure with {len(json_data['seeds'])} seeds")
 
