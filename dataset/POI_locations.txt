@@ -1,0 +1,161 @@
+Church Detection Results - 11 Unique Locations
+===============================================
+
+Based on comprehensive template matching analysis across all 320 patterns (000-319) with threshold 0.94
+
+The following coordinates represent the 11 unique church locations found across all map patterns:
+
+1. (1196, 543) - 436 occurrences, avg confidence: 0.963 - Third Church
+2. (844, 972) - 392 occurrences, avg confidence: 0.963 - East of Cavalry Bridge
+3. (824, 340) - 368 occurrences, avg confidence: 0.963 - Northeast of Saintsbridge
+4. (310, 1090) - 360 occurrences, avg confidence: 0.963 - Far Southwest
+5. (336, 542) - 335 occurrences, avg confidence: 0.958 - West of Warmaster's Shack
+6. (874, 1224) - 328 occurrences, avg confidence: 0.963 - Southeast of Lake
+7. (554, 608) - 324 occurrences, avg confidence: 0.960 - Above Stormhill Tunnel Entrance
+8. (697, 1067) - 294 occurrences, avg confidence: 0.944 - Lake
+9. (318, 852) - 280 occurrences, avg confidence: 0.962 - Stormhill South of Gate
+10. (1066, 559) - 272 occurrences, avg confidence: 0.963 - Below Summonwater Hawk
+11. (1238, 892) - 228 occurrences, avg confidence: 0.964 - Minor Erdtree
+
+Detection Method: OpenCV Template Matching with TM_CCORR_NORMED
+Template Scale: 0.5x
+Threshold: 0.94
+Total Patterns Analyzed: 320 (000-319)
+Total Processing Time: 114.77 seconds
+Total Detections: 3,777
+
+Note: These coordinates represent the center points of detected church icons
+and have been verified through comprehensive analysis across all 320 map patterns.
+The frequency count indicates how many times each location was detected across
+all patterns, with higher counts indicating more consistent church placement.
+
+================================================================================
+EVERGAOL DETECTION RESULTS - 7 UNIQUE LOCATIONS
+================================================================================
+
+Based on comprehensive template matching analysis across all 320 patterns (000-319) 
+with threshold 0.92 using evergaol label mask (ignoring middle 42 pixels where labels appear)
+
+The following coordinates represent the 7 unique evergaol locations found across all map patterns:
+
+1. (532, 968) - 84 occurrences, avg confidence: 0.927 - Northwest of Lake
+2. (952, 1176) - 82 occurrences, avg confidence: 0.930 - East of Lake
+3. (684, 585) - 73 occurrences, avg confidence: 0.931 - Murkwater Terminus
+4. (258, 485) - 60 occurrences, avg confidence: 0.936 - Stormhill
+5. (968, 556) - 50 occurrences, avg confidence: 0.928 - Northeast Tunnel Entrance
+6. (739, 300) - 50 occurrences, avg confidence: 0.924 - Highroad
+7. (1212, 748) - 6 occurrences, avg confidence: 0.922 - Mistwood
+
+Detection Method: OpenCV Template Matching with TM_CCORR_NORMED using evergaol label mask
+Template Scale: 0.5x
+Threshold: 0.92
+Total Patterns Analyzed: 320 (000-319)
+Total Processing Time: 76.20 seconds
+Total Detections: 405
+
+Note: These coordinates represent the center points of detected evergaol icons
+and have been verified through comprehensive analysis across all 320 map patterns.
+The frequency count indicates how many times each location was detected across
+all patterns, with higher counts indicating more consistent evergaol placement.
+The evergaol label mask approach successfully ignored the middle section where
+labels typically appear, improving detection accuracy.
+
+================================================================================
+ELITE DETECTION RESULTS - 30 UNIQUE LOCATIONS
+================================================================================
+
+Based on comprehensive template matching analysis across all 320 patterns (000-319) 
+with threshold 0.921 using elite mask
+
+The following coordinates represent the 30 unique elite locations found across all map patterns:
+
+FIELD BOSSES:
+1. (477, 1263) - 240 occurrences, avg confidence: 0.946 - Far Southwest of Lake
+2. (665, 1097) - 102 occurrences, avg confidence: 0.963 - Lake
+3. (478, 575) - 119 occurrences, avg confidence: 0.966 - North of Stormhill Tunnel Entrance
+4. (724, 552) - 54 occurrences, avg confidence: 0.944 - North of Murkwater Terminus
+5. (515, 365) - 60 occurrences, avg confidence: 0.968 - Stormhill Spectral Hawk
+6. (453, 294) - 110 occurrences, avg confidence: 0.969 - Northwest Stormhill Cliffside
+7. (1048, 1198) - 116 occurrences, avg confidence: 0.969 - Mistwood Spectral Hawk
+8. (1173, 778) - 85 occurrences, avg confidence: 0.943 - North Mistwood
+9. (845, 585) - 109 occurrences, avg confidence: 0.968 - East of Murkwater Terminus
+10. (974, 334) - 102 occurrences, avg confidence: 0.971 - Northwest of Summonwater
+
+ROTTED WOODS:
+11. (994, 1139) - 28 occurrences, avg confidence: 0.970 - Southwest
+12. (1204, 1059) - 38 occurrences, avg confidence: 0.972 - Southeast
+13. (929, 954) - 30 occurrences, avg confidence: 0.968 - Center West
+14. (1110, 979) - 33 occurrences, avg confidence: 0.968 - Center East
+15. (881, 867) - 62 occurrences, avg confidence: 0.946 - Far Northwest
+16. (967, 856) - 46 occurrences, avg confidence: 0.946 - Northwest
+17. (1176, 921) - 9 occurrences, avg confidence: 0.965 - Northeast
+18. (1200, 849) - 42 occurrences, avg confidence: 0.954 - Far Northeast
+
+UNNAMED LOCATIONS:
+19. (677, 833) - 117 occurrences, avg confidence: 0.955
+20. (297, 384) - 40 occurrences, avg confidence: 0.964
+21. (362, 545) - 40 occurrences, avg confidence: 0.963
+22. (559, 435) - 40 occurrences, avg confidence: 0.963
+23. (787, 663) - 40 occurrences, avg confidence: 0.972
+24. (612, 667) - 40 occurrences, avg confidence: 0.972
+25. (884, 645) - 40 occurrences, avg confidence: 0.971
+26. (465, 1070) - 40 occurrences, avg confidence: 0.970
+27. (753, 1174) - 40 occurrences, avg confidence: 0.969
+28. (316, 1219) - 40 occurrences, avg confidence: 0.969
+29. (522, 811) - 40 occurrences, avg confidence: 0.967
+30. (605, 303) - 40 occurrences, avg confidence: 0.966
+
+Detection Method: OpenCV Template Matching with TM_CCORR_NORMED using elite mask
+Template Scale: 0.5x
+Threshold: 0.921
+Total Patterns Analyzed: 320 (000-319)
+Total Processing Time: 90.34 seconds
+Total Detections: 1,942
+
+Note: These coordinates represent the center points of detected elite icons
+and have been verified through comprehensive analysis across all 320 map patterns.
+The frequency count indicates how many times each location was detected across
+all patterns, with higher counts indicating more consistent elite placement.
+Field Bosses and Rotted Woods locations have been identified and named based on
+their geographical context within the game world.
+
+================================================================================
+CATHEDRAL DETECTION RESULTS - 16 UNIQUE LOCATIONS
+================================================================================
+
+Based on comprehensive template matching analysis across all 320 patterns (000-319) 
+with threshold 0.92 using cathedral label mask (top 90 pixels only to avoid text interference)
+
+The following coordinates represent the 16 unique cathedral locations found across all map patterns:
+
+1. (438, 683) - 136 occurrences, avg confidence: 0.965 - Stormhill North of Gate
+2. (1157, 963) - 128 occurrences, avg confidence: 0.961 - Minor Erdtree
+3. (970, 447) - 126 occurrences, avg confidence: 0.963 - Summonwater Approach
+4. (1023, 709) - 118 occurrences, avg confidence: 0.961 - Northwest Mistwood
+5. (493, 845) - 116 occurrences, avg confidence: 0.964 - Gatefront
+6. (942, 1053) - 114 occurrences, avg confidence: 0.963 - Waypoint Ruins
+7. (1192, 648) - 106 occurrences, avg confidence: 0.956 - Northeast Mistwood
+8. (430, 1002) - 104 occurrences, avg confidence: 0.958 - Groveside
+9. (355, 428) - 96 occurrences, avg confidence: 0.957 - Northwest Stormhill
+10. (1148, 1131) - 96 occurrences, avg confidence: 0.960 - South Mistwood
+11. (972, 904) - 88 occurrences, avg confidence: 0.958 - West Mistwood
+12. (1097, 329) - 80 occurrences, avg confidence: 0.962 - Northeast Stormhill
+13. (612, 1200) - 74 occurrences, avg confidence: 0.962 - South Lake
+14. (641, 460) - 68 occurrences, avg confidence: 0.966 - Alexander Spot
+15. (617, 272) - 60 occurrences, avg confidence: 0.966 - Summonwater
+16. (899, 652) - 57 occurrences, avg confidence: 0.947 - Artist's Shack
+
+Detection Method: OpenCV Template Matching with TM_CCORR_NORMED using cathedral label mask
+Template Scale: 0.7x
+Threshold: 0.92
+Total Patterns Analyzed: 320 (000-319)
+Total Processing Time: 126.44 seconds
+Total Detections: 1,567
+
+Note: These coordinates represent the center points of detected cathedral icons
+and have been verified through comprehensive analysis across all 320 map patterns.
+The frequency count indicates how many times each location was detected across
+all patterns, with higher counts indicating more consistent cathedral placement.
+The cathedral label mask approach successfully used only the top 90 pixels to avoid
+text interference, improving detection accuracy and finding the previously missed
+cathedral at location (355, 428) which appears in 30% of all patterns.
