@@ -40,7 +40,7 @@ def get_poi_icon_mappings() -> Dict[str, Dict[str, str]]:
             "Ruins - Erdtree Burial Watchdogs": "ruin_blank",
             "Ruins - Perfumer": "ruin_poison",
             "Ruins - Runebear": "ruin_sleep",
-            "Ruins - Sanguine Noble": "ruin_bleed",
+            "Ruins - Sanguine Noble": "ruin_blood",
             "Ruins - Wormface": "ruin_death"
         },
         

@@ -25,6 +25,9 @@ class NightreignApp {
         // Result screen setup flag
         this.resultScreenListenersSetup = false;
         
+        // Layer mappings will be loaded from poi-data-new.js
+        this.layerMappings = null;
+        
         this.init();
     }
 
@@ -55,6 +58,9 @@ class NightreignApp {
             // Make POI data globally available for coordinate matching
             window.poiData = this.poiData;
             window.seedData = this.seedData;
+            
+            // Load layer mappings from POI data
+            this.layerMappings = this.poiData.layerMappings;
             
             console.log('✅ Data loaded successfully');
             console.log('POI Data structure:', this.poiData);
@@ -126,9 +132,11 @@ class NightreignApp {
             this.startRecognition();
         });
 
-        // Back button
+        // Back button - reset everything and go to selection screen
         document.getElementById('back-btn').addEventListener('click', () => {
-            this.showScreen('selection');
+            // Hide any open context menu before resetting
+            this.hideContextMenu();
+            this.resetToSelection();
         });
 
         // Clear All button
@@ -149,6 +157,30 @@ class NightreignApp {
         // Language toggle
         document.getElementById('language-toggle').addEventListener('click', () => {
             this.toggleLanguage();
+        });
+
+        // Click outside context menu to close it
+        document.addEventListener('click', (e) => {
+            const contextMenu = document.getElementById('context-menu');
+            const canvas = document.getElementById('map-canvas');
+            
+            // Don't close if clicking on context menu
+            if (contextMenu && contextMenu.contains(e.target)) {
+                return;
+            }
+            
+            // If clicking on canvas, check if it's on a POI or empty space
+            if (canvas && canvas.contains(e.target)) {
+                // Let the canvas handle its own clicks first
+                // The canvas click handler will determine if it's on a POI or empty space
+                // If it's on empty space, the context menu should close
+                return;
+            }
+            
+            // Close context menu for any other clicks (outside canvas and context menu)
+            if (contextMenu && contextMenu.style.display !== 'none') {
+                this.hideContextMenu();
+            }
         });
 
         // Result screen buttons will be added when result screen is first shown
@@ -330,9 +362,9 @@ class NightreignApp {
             }
             console.log(`   ✅ Major base/field boss match successful`);
         } else if (mappedCategory === 'minor_base') {
-            // Single-layer system: Structure
-            if (selectionState.layer1 && poiData.structure !== selectionState.layer1) {
-                console.log(`   ❌ Structure mismatch: expected ${selectionState.layer1}, got ${poiData.structure}`);
+            // Single-layer system: Icon only
+            if (selectionState.layer1 && poiData.icon !== selectionState.layer1) {
+                console.log(`   ❌ Icon mismatch: expected ${selectionState.layer1}, got ${poiData.icon}`);
                 return false;
             }
             console.log(`   ✅ Minor base match successful`);
@@ -449,8 +481,11 @@ class NightreignApp {
     }
 
     setupCanvasEvents(canvas) {
-        // Left click - show context menu or open fullscreen
-        canvas.addEventListener('click', (e) => {
+        // Remove any existing click handlers to prevent duplicates
+        canvas.removeEventListener('click', this.canvasClickHandler);
+        
+        // Create a new click handler
+        this.canvasClickHandler = (e) => {
             // If we're showing a result (pattern image), open fullscreen
             if (this.foundSeed) {
                 this.openFullscreen();
@@ -465,8 +500,14 @@ class NightreignApp {
             const clickedPOI = this.findClickedPOI(x, y);
             if (clickedPOI) {
                 this.showContextMenu(clickedPOI, x, y);
+            } else {
+                // Clicked on empty space - close any open context menu
+                this.hideContextMenu();
             }
-        });
+        };
+        
+        // Add the click handler
+        canvas.addEventListener('click', this.canvasClickHandler);
 
         // Right click - clear selection (back to dot)
         canvas.addEventListener('contextmenu', (e) => {
@@ -664,6 +705,9 @@ class NightreignApp {
         
         // Generate hierarchical menu based on POI category
         this.generateHierarchicalMenu(menu, poi);
+        
+        // Ensure the menu is visible (in case it was hidden)
+        menu.style.display = 'block';
     }
 
     generateHierarchicalMenu(container, poi) {
@@ -673,7 +717,7 @@ class NightreignApp {
             // Two-layer system: Icon → Boss
             this.generateTwoLayerMenu(container, poi);
         } else {
-            // Single-layer system: Structure or Boss
+            // Single-layer system: Icon (minor_base) or Boss (evergaol/rotted_woods)
             this.generateSingleLayerMenu(container, poi);
         }
     }
@@ -683,49 +727,92 @@ class NightreignApp {
         const layer1Options = this.getAvailableOptions(poi, 1);
         const layer2Options = this.getAvailableOptions(poi, 2);
         
-        // Layer 1: Icons
+        // Layer 1: Icons (always show all options)
         const layer1Section = document.createElement('div');
         layer1Section.className = 'context-menu-section';
-        layer1Section.innerHTML = `<div class="context-menu-header">${category === 'major_base' ? 'Structure Type' : 'Boss Type'}</div>`;
+        layer1Section.innerHTML = `<div class="context-menu-header">Structure Type</div>`;
+        
+        const layer1OptionsContainer = document.createElement('div');
+        layer1OptionsContainer.className = 'context-menu-options icon-grid';
         
         layer1Options.forEach(option => {
             const item = document.createElement('div');
             item.className = 'context-menu-item';
+            
+            // Add selected class if this option is selected
             if (poi.selectionState.layer1 === option) {
                 item.classList.add('selected');
             }
-            item.textContent = this.formatOptionName(option);
-            item.addEventListener('click', () => {
+            
+            // Create icon element
+            const iconImg = document.createElement('img');
+            iconImg.src = this.getIconPath(option);
+            iconImg.alt = this.formatOptionName(option);
+            iconImg.className = 'context-menu-icon';
+            iconImg.style.width = '32px';
+            iconImg.style.height = '32px';
+            
+            // Add icon only (no text to save space)
+            item.classList.add('icon-only');
+            item.appendChild(iconImg);
+            
+            item.addEventListener('click', (e) => {
+                console.log('Layer 1 item clicked:', option);
+                e.stopPropagation(); // Prevent event bubbling
                 this.selectLayer1(poi, option);
-                this.hideContextMenu();
+                // Update the context menu to show the change
+                this.updateContextMenuImmediately(poi);
             });
-            layer1Section.appendChild(item);
+            layer1OptionsContainer.appendChild(item);
         });
         
+        layer1Section.appendChild(layer1OptionsContainer);
         container.appendChild(layer1Section);
         
-        // Layer 2: Bosses (if layer1 is selected or if we want to show all)
-        if (layer2Options.length > 0) {
-            const layer2Section = document.createElement('div');
-            layer2Section.className = 'context-menu-section';
-            layer2Section.innerHTML = '<div class="context-menu-header">Specific Boss</div>';
+        // Add separation line
+        const separator = document.createElement('div');
+        separator.className = 'context-menu-separator';
+        separator.innerHTML = '<hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 0.5rem 0;">';
+        container.appendChild(separator);
+        
+        // Layer 2: Bosses (always show, but filter based on layer1 selection)
+        const layer2Section = document.createElement('div');
+        layer2Section.className = 'context-menu-section';
+        layer2Section.innerHTML = `<div class="context-menu-header">Specific Boss</div>`;
+        
+        const layer2OptionsContainer = document.createElement('div');
+        layer2OptionsContainer.className = 'context-menu-options text-grid';
+        
+        // Get filtered layer2 options based on current layer1 selection
+        const filteredLayer2Options = this.getAvailableOptions(poi, 2);
+        
+        filteredLayer2Options.forEach(option => {
+            const item = document.createElement('div');
+            item.className = 'context-menu-item text-only';
             
-            layer2Options.forEach(option => {
-                const item = document.createElement('div');
-                item.className = 'context-menu-item';
-                if (poi.selectionState.layer2 === option) {
-                    item.classList.add('selected');
+            // Add selected class if this option is selected
+            if (poi.selectionState.layer2 === option) {
+                item.classList.add('selected');
+            }
+            
+            item.textContent = option;
+            item.addEventListener('click', () => {
+                // If layer1 is not selected, auto-select it based on the layer2 option
+                if (!poi.selectionState.layer1) {
+                    const autoLayer1 = this.findLayer1ForLayer2(category, option);
+                    if (autoLayer1) {
+                        poi.selectionState.layer1 = autoLayer1;
+                    }
                 }
-                item.textContent = option;
-                item.addEventListener('click', () => {
-                    this.selectLayer2(poi, option);
-                    this.hideContextMenu();
-                });
-                layer2Section.appendChild(item);
+                
+                this.selectLayer2(poi, option);
+                this.hideContextMenu(); // Close menu immediately when layer2 is selected
             });
-            
-            container.appendChild(layer2Section);
-        }
+            layer2OptionsContainer.appendChild(item);
+        });
+        
+        layer2Section.appendChild(layer2OptionsContainer);
+        container.appendChild(layer2Section);
         
         // Clear selection option
         if (poi.selectionState.layer1 || poi.selectionState.layer2) {
@@ -738,6 +825,115 @@ class NightreignApp {
             });
             container.appendChild(clearItem);
         }
+    }
+    
+    
+    updateContextMenuImmediately(poi) {
+        const container = document.getElementById('context-menu');
+        if (!container) {
+            console.log('Context menu container not found');
+            return;
+        }
+        
+        // Store current position before regenerating
+        const currentLeft = container.style.left;
+        const currentTop = container.style.top;
+        
+        console.log('Updating context menu immediately, current position:', currentLeft, currentTop);
+        
+        // Regenerate the entire context menu to show immediate changes
+        this.generateContextMenu(poi);
+        
+        // Restore the original position
+        container.style.left = currentLeft;
+        container.style.top = currentTop;
+        
+        console.log('Context menu updated, final position:', container.style.left, container.style.top);
+    }
+
+    updateContextMenuAfterLayer1Selection(poi) {
+        const container = document.getElementById('context-menu');
+        if (!container) return;
+        
+        // Update layer 1 selection highlights
+        this.updateLayer1Highlights(poi);
+        
+        // Update layer 2 options based on new layer 1 selection
+        this.updateLayer2Options(poi);
+    }
+
+    updateLayer1Highlights(poi) {
+        const container = document.getElementById('context-menu');
+        if (!container) return;
+        
+        // Update layer 1 item highlights
+        const layer1Items = container.querySelectorAll('.context-menu-item');
+        layer1Items.forEach(item => {
+            item.classList.remove('selected');
+            // Check if this item corresponds to the selected layer 1
+            const img = item.querySelector('img');
+            if (img) {
+                const option = this.getOptionFromIconPath(img.src);
+                if (option === poi.selectionState.layer1) {
+                    item.classList.add('selected');
+                }
+            }
+        });
+    }
+
+    updateLayer2Options(poi) {
+        const container = document.getElementById('context-menu');
+        if (!container) return;
+        
+        // Find the layer 2 section
+        const layer2Section = container.querySelector('.context-menu-section:last-of-type');
+        if (!layer2Section) return;
+        
+        // Get the layer 2 options container
+        const layer2OptionsContainer = layer2Section.querySelector('.context-menu-options');
+        if (!layer2OptionsContainer) return;
+        
+        // Ensure it has the text grid class
+        layer2OptionsContainer.className = 'context-menu-options text-grid';
+        
+        // Clear existing layer 2 options
+        layer2OptionsContainer.innerHTML = '';
+        
+        // Get filtered layer 2 options based on current layer 1 selection
+        const filteredLayer2Options = this.getAvailableOptions(poi, 2);
+        
+        // Add new layer 2 options
+        filteredLayer2Options.forEach(option => {
+            const item = document.createElement('div');
+            item.className = 'context-menu-item text-only';
+            
+            // Add selected class if this option is selected
+            if (poi.selectionState.layer2 === option) {
+                item.classList.add('selected');
+            }
+            
+            item.textContent = option;
+            item.addEventListener('click', () => {
+                // If layer1 is not selected, auto-select it based on the layer2 option
+                if (!poi.selectionState.layer1) {
+                    const autoLayer1 = this.findLayer1ForLayer2(poi.category, option);
+                    if (autoLayer1) {
+                        poi.selectionState.layer1 = autoLayer1;
+                    }
+                }
+                
+                this.selectLayer2(poi, option);
+                this.hideContextMenu(); // Close menu immediately when layer2 is selected
+            });
+            layer2OptionsContainer.appendChild(item);
+        });
+    }
+
+    getOptionFromIconPath(iconSrc) {
+        // Extract option name from icon path
+        const pathParts = iconSrc.split('/');
+        const fileName = pathParts[pathParts.length - 1];
+        return fileName.replace('.png', '');
     }
 
     generateSingleLayerMenu(container, poi) {
@@ -752,8 +948,13 @@ class NightreignApp {
         const section = document.createElement('div');
         section.className = 'context-menu-section';
         
-        const headerText = category === 'minor_base' ? 'Structure' : 'Boss';
+        const headerText = category === 'minor_base' ? 'Structure Type' : 'Boss';
         section.innerHTML = `<div class="context-menu-header">${headerText}</div>`;
+        
+        const optionsContainer = document.createElement('div');
+        // Use icon grid for minor_base (has icons), text grid for others
+        const gridClass = category === 'minor_base' ? 'icon-grid' : 'text-grid';
+        optionsContainer.className = `context-menu-options ${gridClass}`;
         
         options.forEach(option => {
             const item = document.createElement('div');
@@ -761,14 +962,34 @@ class NightreignApp {
             if (poi.selectionState.layer1 === option) {
                 item.classList.add('selected');
             }
-            item.textContent = option;
+            
+            // For minor base, show icon + text; for others, just text
+            if (category === 'minor_base') {
+                // Create icon element
+                const iconImg = document.createElement('img');
+                iconImg.src = this.getIconPath(option);
+                iconImg.alt = this.formatOptionName(option);
+                iconImg.className = 'context-menu-icon';
+                iconImg.style.width = '32px';
+                iconImg.style.height = '32px';
+                
+                // Add icon only (no text to save space)
+                item.classList.add('icon-only');
+                item.appendChild(iconImg);
+            } else {
+                // For evergaol/rotted_woods, just show text
+                item.classList.add('text-only');
+                item.textContent = option;
+            }
+            
             item.addEventListener('click', () => {
                 this.selectLayer1(poi, option);
                 this.hideContextMenu();
             });
-            section.appendChild(item);
+            optionsContainer.appendChild(item);
         });
         
+        section.appendChild(optionsContainer);
         container.appendChild(section);
         
         // Clear selection option
@@ -785,6 +1006,7 @@ class NightreignApp {
     }
 
     hideContextMenu() {
+        console.log('hideContextMenu called - stack trace:', new Error().stack);
         const menu = document.getElementById('context-menu');
         menu.style.display = 'none';
         this.currentRightClickedPOI = null;
@@ -819,6 +1041,15 @@ class NightreignApp {
     selectLayer2(poi, value) {
         console.log(`🎯 Selecting layer2: ${value} for POI ${poi.name} (${poi.category})`);
         
+        // If layer1 is not set, try to auto-set it based on the layer2 value
+        if (!poi.selectionState.layer1) {
+            const autoLayer1 = this.findLayer1ForLayer2(poi.category, value);
+            if (autoLayer1) {
+                console.log(`🔄 Auto-setting layer1 to: ${autoLayer1} for layer2: ${value}`);
+                poi.selectionState.layer1 = autoLayer1;
+            }
+        }
+        
         // Update POI selection state
         poi.selectionState.layer2 = value;
         
@@ -839,6 +1070,28 @@ class NightreignApp {
         
         console.log(`📍 Selected ${poi.category} layer2: ${value} for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
+    }
+    
+    findLayer1ForLayer2(category, layer2Value) {
+        // Map internal category names to mapping keys
+        const mappingKey = this.mapCategoryToMappingKey(category);
+        if (!this.layerMappings[mappingKey]) return null;
+        
+        // Find which layer1 options can produce this layer2 value
+        for (const [layer1Option, possibleLayer2Values] of Object.entries(this.layerMappings[mappingKey])) {
+            if (possibleLayer2Values.includes(layer2Value)) {
+                return layer1Option;
+            }
+        }
+        return null;
+    }
+    
+    mapCategoryToMappingKey(category) {
+        const mapping = {
+            'major_base': 'major_base',
+            'field_boss': 'field_boss',
+        };
+        return mapping[category] || category;
     }
 
     clearPOISelection(poi) {
@@ -886,6 +1139,15 @@ class NightreignApp {
     formatOptionName(option) {
         // Convert icon names to readable format
         return option.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    getIconPath(iconName) {
+        // Get icon path from POI data, fallback to default path
+        if (this.poiData && this.poiData.iconPaths && this.poiData.iconPaths[iconName]) {
+            return this.poiData.iconPaths[iconName];
+        }
+        // Fallback to default path
+        return `assets/icons/${iconName}.png`;
     }
 
     getCategoryDisplayName(category) {
@@ -947,6 +1209,18 @@ class NightreignApp {
         // Clear POI states object
         this.poiStates = {};
         
+        // Clear found seed and reset canvas state
+        this.foundSeed = null;
+        
+        // Hide any open context menu
+        this.hideContextMenu();
+        
+        // Reset canvas cursor and redraw
+        const canvas = document.getElementById('map-canvas');
+        if (canvas) {
+            canvas.style.cursor = 'crosshair';
+        }
+        
         // Redraw the canvas
         this.setupCanvas();
         
@@ -966,8 +1240,12 @@ class NightreignApp {
         const category = poi.category;
         console.log(`🔍 Getting options for ${poi.name} (${category}) at (${poi.x}, ${poi.y})`);
         
-        // Get all seeds that have this POI at these coordinates
-        const seedsWithLocation = Object.values(this.seedData).filter(seed => {
+        // Use filtered seeds instead of all seeds
+        const seedsToCheck = this.filteredSeeds && this.filteredSeeds.length > 0 ? this.filteredSeeds : Object.values(this.seedData);
+        console.log(`🔍 Using ${seedsToCheck.length} seeds for filtering (${this.filteredSeeds ? 'filtered' : 'all'})`);
+        
+        // Get seeds that have this POI at these coordinates AND match current filters
+        const seedsWithLocation = seedsToCheck.filter(seed => {
             if (!seed.pois) return false;
             
             // Find POI in seed by coordinate matching (now flattened structure)
@@ -1028,12 +1306,13 @@ class NightreignApp {
                 }
             } else if (category === 'minor_base') {
                 if (layer === 1) {
-                    // Layer 1: Structure
-                    if (matchingPOI.structure) {
-                        uniqueValues.add(matchingPOI.structure);
-                        console.log(`➕ Added structure: ${matchingPOI.structure}`);
+                    // Layer 1: Icon only (single-layer system)
+                    if (matchingPOI.icon) {
+                        uniqueValues.add(matchingPOI.icon);
+                        console.log(`➕ Added icon: ${matchingPOI.icon}`);
                     }
                 }
+                // No layer 2 for minor base - single layer only
             } else if (category === 'evergaol' || category === 'rotted_woods') {
                 if (layer === 1) {
                     // Layer 1: Boss
@@ -1083,8 +1362,7 @@ class NightreignApp {
         // Update the info panel with seed details
         this.updateInfoPanel(seed);
         
-        // Add a "New Search" button to the controls
-        this.addNewSearchButton();
+        // No need to add a new search button - the back button handles this
     }
 
     showPatternImageOnCanvas(seed) {
@@ -1198,25 +1476,6 @@ class NightreignApp {
         }
     }
 
-    addNewSearchButton() {
-        // Check if button already exists
-        if (document.getElementById('new-search-btn')) return;
-        
-        const newSearchBtn = document.createElement('button');
-        newSearchBtn.id = 'new-search-btn';
-        newSearchBtn.className = 'control-btn primary';
-        newSearchBtn.innerHTML = '<i class="fas fa-search"></i> New Search';
-        
-        newSearchBtn.addEventListener('click', () => {
-            this.resetToSelection();
-        });
-        
-        // Add to the recognition controls
-        const controlsContainer = document.querySelector('.recognition-controls');
-        if (controlsContainer) {
-            controlsContainer.appendChild(newSearchBtn);
-        }
-    }
 
     updateResultDetails(seed, retryCount = 0) {
         console.log(`🔍 Updating result details (attempt ${retryCount + 1})`);
@@ -1306,6 +1565,8 @@ class NightreignApp {
         const newSearchBtn = document.getElementById('new-search');
         if (newSearchBtn && !newSearchBtn.hasAttribute('data-listener-added')) {
             newSearchBtn.addEventListener('click', () => {
+                // Hide any open context menu before resetting
+                this.hideContextMenu();
                 this.resetToSelection();
             });
             newSearchBtn.setAttribute('data-listener-added', 'true');
@@ -1350,16 +1611,14 @@ class NightreignApp {
         this.filteredSeeds = [];
         this.foundSeed = null;
         
+        // Hide any open context menu
+        this.hideContextMenu();
+        
         // Reset UI
         document.querySelectorAll('.nightlord-btn, .map-btn').forEach(btn => {
             btn.classList.remove('selected');
         });
         
-        // Remove the new search button if it exists
-        const newSearchBtn = document.getElementById('new-search-btn');
-        if (newSearchBtn) {
-            newSearchBtn.remove();
-        }
         
         // Remove seed details if they exist
         const seedDetails = document.getElementById('seed-details');
