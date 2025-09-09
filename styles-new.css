@@ -301,14 +301,36 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    min-width: 200px;
-    max-height: 400px;
+    min-width: 400px;
+    max-width: 600px;
+    max-height: 500px;
     overflow-y: auto;
     transform-origin: top left;
 }
 
 .context-menu-section {
     padding: 0.5rem 0;
+}
+
+.context-menu-options {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+    justify-content: center;
+}
+
+/* Grid layout for icon options (compact) */
+.context-menu-options.icon-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.5rem;
+}
+
+/* Grid layout for text options (wider) */
+.context-menu-options.text-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
 }
 
 .context-menu-header {
@@ -322,14 +344,42 @@ body {
 }
 
 .context-menu-item {
-    padding: 0.75rem 1rem;
+    padding: 0.25rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
     color: #ffffff;
     transition: all 0.2s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    min-height: 48px;
+    text-align: center;
+    font-size: 0.85rem;
+    word-wrap: break-word;
+}
+
+/* Icon-only items (for layer1 icons) */
+.context-menu-item.icon-only {
+    width: 48px;
+    height: 48px;
+    padding: 0.25rem;
+    justify-self: center;
+}
+
+/* Text-only items (for layer2 boss names) */
+.context-menu-item.text-only {
+    min-width: 120px;
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.context-menu-icon {
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .context-menu-item:hover {
@@ -368,6 +418,16 @@ body {
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+.context-menu-separator {
+    margin: 0.5rem 0;
+}
+
+.context-menu-separator hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0;
 }
 
 /* Recognition Controls */
@@ -530,20 +590,24 @@ body {
 }
 
 /* Scrollbar Styling */
-.context-menu::-webkit-scrollbar {
+.context-menu::-webkit-scrollbar,
+.context-menu-options::-webkit-scrollbar {
     width: 8px;
 }
 
-.context-menu::-webkit-scrollbar-track {
+.context-menu::-webkit-scrollbar-track,
+.context-menu-options::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.context-menu::-webkit-scrollbar-thumb {
+.context-menu::-webkit-scrollbar-thumb,
+.context-menu-options::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 4px;
 }
 
-.context-menu::-webkit-scrollbar-thumb:hover {
+.context-menu::-webkit-scrollbar-thumb:hover,
+.context-menu-options::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.5);
 }
 
