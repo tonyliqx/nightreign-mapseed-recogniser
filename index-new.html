@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightreign Map Seed Recognizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles-new.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <i class="fas fa-map"></i>
+                    Nightreign Map Seed Recognizer
+                </h1>
+                <div class="header-controls">
+                    <button id="language-toggle" class="lang-toggle">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">English</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Loading Screen -->
+            <div id="loading-screen" class="loading-screen">
+                <div class="loading-content">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading map data...</p>
+                </div>
+            </div>
+
+            <!-- Selection Screen -->
+            <div id="selection-screen" class="selection-screen" style="display: none;">
+                <div class="selection-container">
+                    <h2>Select Parameters</h2>
+                    
+                    <!-- Map Type Selection -->
+                    <div class="selection-group">
+                        <h3>Map Type <span class="required">*</span></h3>
+                        <div class="map-grid">
+                            <button class="map-btn" data-map="Default">
+                                <i class="fas fa-map"></i>
+                                Default
+                            </button>
+                            <button class="map-btn" data-map="Crater">
+                                <i class="fas fa-circle"></i>
+                                Crater
+                            </button>
+                            <button class="map-btn" data-map="Mountaintop">
+                                <i class="fas fa-mountain"></i>
+                                Mountaintop
+                            </button>
+                            <button class="map-btn" data-map="Noklateo">
+                                <i class="fas fa-city"></i>
+                                Noklateo
+                            </button>
+                            <button class="map-btn" data-map="Rotted Woods">
+                                <i class="fas fa-tree"></i>
+                                Rotted Woods
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Nightlord Selection -->
+                    <div class="selection-group">
+                        <h3>Nightlord <span class="optional">(Optional)</span></h3>
+                        <div class="nightlord-grid">
+                            <button class="nightlord-btn" data-nightlord="Adel">
+                                <i class="fas fa-crown"></i>
+                                Adel
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Caligo">
+                                <i class="fas fa-snowflake"></i>
+                                Caligo
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Fulghor">
+                                <i class="fas fa-fire"></i>
+                                Fulghor
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Gladius">
+                                <i class="fas fa-sword"></i>
+                                Gladius
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Gnoster">
+                                <i class="fas fa-skull"></i>
+                                Gnoster
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Heolstor">
+                                <i class="fas fa-moon"></i>
+                                Heolstor
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Libra">
+                                <i class="fas fa-balance-scale"></i>
+                                Libra
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Maris">
+                                <i class="fas fa-water"></i>
+                                Maris
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="start-recognition" class="start-btn" disabled>
+                        <i class="fas fa-play"></i>
+                        Select Map Type to Continue
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recognition Screen -->
+            <div id="recognition-screen" class="recognition-screen" style="display: none;">
+                <div class="recognition-header">
+                    <div class="current-selection">
+                        <span class="selection-label">Map:</span>
+                        <span id="current-map" class="selection-value">-</span>
+                        <span class="selection-label">Nightlord:</span>
+                        <span id="current-nightlord" class="selection-value">-</span>
+                    </div>
+                    <div class="seed-count">
+                        <span class="count-label">Matching Seeds:</span>
+                        <span id="seed-count" class="count-value">0</span>
+                    </div>
+                </div>
+
+                <div class="recognition-controls">
+                    <button id="back-btn" class="control-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                    <button id="clear-all-btn" class="control-btn clear-btn">
+                        <i class="fas fa-eraser"></i>
+                        Clear All POIs
+                    </button>
+                    <button id="help-btn" class="control-btn">
+                        <i class="fas fa-question-circle"></i>
+                        Help
+                    </button>
+                </div>
+
+                <div class="map-container">
+                    <canvas id="map-canvas" width="768" height="768"></canvas>
+                    
+                    <!-- Context Menu -->
+                    <div id="context-menu" class="context-menu" style="display: none;">
+                        <!-- Dynamic content will be generated here -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="result-screen" style="display: none;">
+                <div class="result-header">
+                    <h2><i class="fas fa-check-circle"></i> Seed Found!</h2>
+                    <div class="result-info">
+                        <div class="result-details">
+                            <span class="detail-label">Seed Number:</span>
+                            <span id="result-seed-number" class="detail-value">-</span>
+                        </div>
+                        <div class="result-details">
+                            <span class="detail-label">Nightlord:</span>
+                            <span id="result-nightlord" class="detail-value">-</span>
+                        </div>
+                        <div class="result-details">
+                            <span class="detail-label">Map Type:</span>
+                            <span id="result-map-type" class="detail-value">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-image-container">
+                    <img id="result-pattern-image" class="result-pattern-image" alt="Map Pattern" />
+                    <div class="result-image-overlay">
+                        <button id="open-fullscreen" class="fullscreen-btn">
+                            <i class="fas fa-expand"></i>
+                            Open in New Tab
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-controls">
+                    <button id="back-to-recognition" class="control-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Recognition
+                    </button>
+                    <button id="new-search" class="control-btn primary">
+                        <i class="fas fa-search"></i>
+                        New Search
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Help Modal -->
+        <div id="help-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-question-circle"></i> Help</h3>
+                    <button class="close-btn" id="close-help">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="help-section">
+                        <h4>How to Use:</h4>
+                        <ul>
+                            <li><strong>Left Click:</strong> Cycle through possible POI types</li>
+                            <li><strong>Right Click:</strong> Show context menu with all options</li>
+                            <li><strong>Middle Click:</strong> Reset POI to dot state</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="poi-data-new.js"></script>
+    <script src="app-new.js"></script>
+</body>
+</html>

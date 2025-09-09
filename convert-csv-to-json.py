@@ -265,9 +265,12 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
         scale_bearing_merchant = row_data.get('Scale-Bearing Merchant')
         
         
+        # All POIs in a single dictionary
+        all_pois = {}
+        start_index = 0
+        
         # Major Base POIs
-        major_base_pois = []
-        for location, value in row_data['Major Base'].items():
+        for index, (location, value) in enumerate(row_data['Major Base'].items()):
             if value:
                 # Parse value as '<structure> - <boss>'
                 structure, boss = value.split(' - ', 1)
@@ -276,7 +279,7 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 if structure == 'Map Event':
                     boss = None
                 
-                poi_data = {'location': location, 'structure': structure, 'boss': boss}
+                poi_data = {'location': location, 'structure': structure, 'boss': boss, 'index': start_index + index, 'category': 'majorBase'}
                 
                 # Add coordinates if available (use major_base category)
                 if location in location_coords['major_base']:
@@ -287,24 +290,25 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 icon = get_poi_icon('major_base', structure, boss, icon_mappings)
                 poi_data['icon'] = icon
                 
-                major_base_pois.append(poi_data)
+                all_pois[f"{start_index + index}"] = poi_data
+        
+        start_index += len(row_data['Major Base'])
         
         # Minor Base POIs
-        minor_base_pois = []
-        for location, value in row_data['Minor Base'].items():
+        for index, (location, value) in enumerate(row_data['Minor Base'].items()):
             if value:
                 # Parse value as '<structure> - <detail>'
                 structure, detail = value.split(' - ', 1)
                 
                 # Special handling for certain structures
                 if structure == 'Small Camp':
-                    poi_data = {'location': location, 'structure': structure, 'enemy': detail}
+                    poi_data = {'location': location, 'structure': structure, 'enemy': detail, 'index': start_index + index, 'category': 'minorBase'}
                 elif structure in ['Sorcerer\'s Rise', 'Difficult Sorcerer\'s Rise']:
                     # Parse puzzles as comma-separated list
                     puzzles = [puzzle.strip() for puzzle in detail.split(',')]
-                    poi_data = {'location': location, 'structure': structure, 'puzzles': puzzles}
+                    poi_data = {'location': location, 'structure': structure, 'puzzles': puzzles, 'index': start_index + index, 'category': 'minorBase'}
                 else:
-                    poi_data = {'location': location, 'structure': structure}
+                    poi_data = {'location': location, 'structure': structure, 'index': start_index + index, 'category': 'minorBase'}
                 
                 # Add coordinates if available (use minor_base category)
                 if location in location_coords['minor_base']:
@@ -315,13 +319,14 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 icon = get_poi_icon('minor_base', structure, None, icon_mappings)
                 poi_data['icon'] = icon
                 
-                minor_base_pois.append(poi_data)
+                all_pois[f"{start_index + index}"] = poi_data
+        
+        start_index += len(row_data['Minor Base'])
         
         # Evergaol POIs
-        evergaol_pois = []
-        for location, boss in row_data['Evergaol'].items():
+        for index, (location, boss) in enumerate(row_data['Evergaol'].items()):
             if boss:  # Only process if boss value exists
-                poi_data = {'location': location, 'boss': boss}
+                poi_data = {'location': location, 'boss': boss, 'index': start_index + index, 'category': 'evergaol'}
                 
                 # Add coordinates if available
                 if location in location_coords['evergaol']:
@@ -332,17 +337,18 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 icon = get_poi_icon('evergaol', None, boss, icon_mappings)
                 poi_data['icon'] = icon
                 
-                evergaol_pois.append(poi_data)
+                all_pois[f"{start_index + index}"] = poi_data
+        
+        start_index += len(row_data['Evergaol'])
         
         # Field Boss POIs
-        field_boss_pois = []
-        for location, boss in row_data['Field Boss'].items():
+        for index, (location, boss) in enumerate(row_data['Field Boss'].items()):
             if boss:  # Only process if boss value exists
                 # Skip Castle Rooftop location
                 if location == 'Castle Rooftop':
                     continue
                 
-                poi_data = {'location': location, 'boss': boss}
+                poi_data = {'location': location, 'boss': boss, 'index': start_index + index, 'category': 'fieldBoss'}
                 
                 # Add coordinates if available (use field_boss category)
                 if location in location_coords['field_boss']:
@@ -353,17 +359,18 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 icon = get_poi_icon('field_boss', None, boss, icon_mappings)
                 poi_data['icon'] = icon
                 
-                field_boss_pois.append(poi_data)
+                all_pois[f"{start_index + index}"] = poi_data
+        
+        start_index += len(row_data['Field Boss'])
         
         # Rotted Woods POIs
-        rotted_woods_pois = []
-        for location, boss in row_data['Rotted Woods'].items():
+        for index, (location, boss) in enumerate(row_data['Rotted Woods'].items()):
             if boss:  # Only process if boss value exists
                 # Skip Putrid Ancestral Followers
                 if boss == 'Putrid Ancestral Followers':
                     continue
                 
-                poi_data = {'location': location, 'boss': boss}
+                poi_data = {'location': location, 'boss': boss, 'index': start_index + index, 'category': 'rottedWoods'}
                 
                 # Add coordinates if available (use rotted_woods category)
                 if location in location_coords['rotted_woods']:
@@ -374,7 +381,7 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 icon = get_poi_icon('rotted_woods', None, boss, icon_mappings)
                 poi_data['icon'] = icon
                 
-                rotted_woods_pois.append(poi_data)
+                all_pois[f"{start_index + index}"] = poi_data
         
         # Castle data from nested structure
         castle_data = {
@@ -401,13 +408,7 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
                 "extraBoss": night_2_extra_boss
             },
             "castle": castle_data,
-            "pois": {
-                "majorBase": major_base_pois,
-                "minorBase": minor_base_pois,
-                "evergaol": evergaol_pois,
-                "fieldBoss": field_boss_pois,
-                "rottedWoods": rotted_woods_pois
-            },
+            "pois": all_pois,
             "rotBlessing": rot_blessing,
             "frenzyTower": frenzy_tower,
             "scaleBearingMerchant": scale_bearing_merchant
@@ -415,8 +416,8 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
     
     return json_data
 
-def generate_poi_lookup_by_map_type(data: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, Dict[str, List[Dict[str, Any]]]]:
-    """Generate POI lookup by map type with coordinates."""
+def generate_poi_lookup_by_map_type(data: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, List[Dict[str, Any]]]:
+    """Generate POI lookup by map type with coordinates - flattened structure."""
     
     # Group seeds by map type
     map_types = defaultdict(list)
@@ -431,32 +432,38 @@ def generate_poi_lookup_by_map_type(data: Dict[str, Any], location_coords: Dict[
         print(f"  📍 Analyzing {map_type} ({len(seeds)} seeds)...")
         
         # Track which POI locations have appeared at least once with their data
-        available_pois = {
-            'majorBase': {},
-            'minorBase': {},
-            'evergaol': {},
-            'fieldBoss': {},
-            'rottedWoods': {}
-        }
+        available_pois = {}
         
         # Check each seed for POI presence and collect data
         for seed in seeds:
-            for category, available_dict in available_pois.items():
-                for poi in seed['pois'][category]:
-                    location = poi['location']
-                    if location not in available_dict:
-                        # Store only location and coordinates
-                        poi_data = {
-                            'location': location,
-                            'coordinates': poi.get('coordinates', {})
-                        }
-                        available_dict[location] = poi_data
+            # Handle both dictionary and list formats
+            if isinstance(seed['pois'], dict):
+                pois_iter = seed['pois'].items()
+            else:
+                # If it's still the old format, skip for now
+                continue
+                
+            for poi_id, poi in pois_iter:
+                location = poi['location']
+                category = poi['category']
+                index = poi['index']
+                
+                # Create unique key for this POI (location + category)
+                key = f"{location}_{category}"
+                
+                if key not in available_pois:
+                    # Store POI data with category and index
+                    poi_data = {
+                        'id': poi_id,
+                        'location': location,
+                        'category': category,
+                        'index': index,
+                        'coordinates': poi.get('coordinates', {})
+                    }
+                    available_pois[key] = poi_data
         
-        # Convert to sorted lists
-        poi_lookup[map_type] = {
-            category: sorted(list(available_dict.values()), key=lambda x: x['location'])
-            for category, available_dict in available_pois.items()
-        }
+        # Convert to sorted list by index
+        poi_lookup[map_type] = sorted(list(available_pois.values()), key=lambda x: x['index'])
     
     return poi_lookup
 
@@ -502,9 +509,8 @@ def main():
         print("\n📈 Conversion Statistics:")
         print(f"   • Total Seeds: {len(json_data['seeds'])}")
         print(f"   • Map Types: {len(poi_lookup)}")
-        for map_type, categories in poi_lookup.items():
-            total_pois = sum(len(pois) for pois in categories.values())
-            print(f"     - {map_type}: {total_pois} POIs")
+        for map_type, pois in poi_lookup.items():
+            print(f"     - {map_type}: {len(pois)} POIs")
 
         return json_data
 
