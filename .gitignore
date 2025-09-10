@@ -1,3 +1,7 @@
 ~$*.xlsx
 .DS_Store
 */.DS_Store
+.idea/.gitignore
+.idea/modules.xml
+.idea/nightreign-mapseed-recogniser-master.iml
+.idea/vcs.xml
