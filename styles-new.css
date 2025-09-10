@@ -150,6 +150,11 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Special grid for nightlord buttons - wider to accommodate horizontal layout */
+.nightlord-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 .nightlord-btn, .map-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid transparent;
@@ -166,6 +171,16 @@ body {
     font-weight: 500;
 }
 
+/* Special layout for nightlord buttons - horizontal with larger icons */
+.nightlord-btn {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    min-height: 80px;
+}
+
 .nightlord-btn:hover, .map-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
@@ -179,6 +194,18 @@ body {
 
 .nightlord-btn i, .map-btn i {
     font-size: 1.5rem;
+}
+
+.nightlord-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.nightlord-btn:hover .nightlord-icon {
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
 .start-btn {
@@ -284,6 +311,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
 
 #map-canvas {
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -852,4 +880,5 @@ body {
         align-items: flex-start;
         gap: 0.5rem;
     }
+    
 }

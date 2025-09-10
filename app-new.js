@@ -183,6 +183,7 @@ class NightreignApp {
             }
         });
 
+
         // Result screen buttons will be added when result screen is first shown
     }
 
@@ -509,6 +510,7 @@ class NightreignApp {
         // Add the click handler
         canvas.addEventListener('click', this.canvasClickHandler);
 
+
         // Right click - clear selection (back to dot)
         canvas.addEventListener('contextmenu', (e) => {
             e.preventDefault();
@@ -556,6 +558,7 @@ class NightreignApp {
             return distance <= tolerance;
         });
     }
+
 
 
     getPossibleValuesForPOI(poi) {
