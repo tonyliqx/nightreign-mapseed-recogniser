@@ -137,8 +137,15 @@ function buildIconPaths() {
         // Evergaol Icons
         'evergaol': 'assets/icons/evergaol.png',
         
-        // Rotted Woods Icons
-        'rotted_woods': 'assets/icons/rotted_woods.png'
+        // Nightlord Icons
+        'Adel': 'assets/icons/Adel.png',
+        'Caligo': 'assets/icons/Caligo.png',
+        'Fulghor': 'assets/icons/Fulghor.png',
+        'Gladius': 'assets/icons/Gladius.png',
+        'Gnoster': 'assets/icons/Gnoster.png',
+        'Heolstor': 'assets/icons/Heolstor.png',
+        'Libra': 'assets/icons/Libra.png',
+        'Maris': 'assets/icons/Maris.png'
     };
 }
 
