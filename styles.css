@@ -21,7 +21,6 @@ body {
 
 /* Header styles */
 .header {
-    text-align: center;
     margin-bottom: 40px;
     padding: 30px;
     background: rgba(255, 255, 255, 0.05);
@@ -29,16 +28,121 @@ body {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Header controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    order: 1;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.control-btn i {
+    font-size: 0.8rem;
+}
+
+/* Language toggle */
+.language-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: 10;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn i {
+    font-size: 1rem;
+    color: #4fc3f7;
+}
+
+.lang-btn span {
+    white-space: nowrap;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .header-controls {
+        gap: 0.8rem;
+    }
+    
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .control-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
 }
 
 .title {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin: 0;
     background: linear-gradient(45deg, #ffd700, #ffed4e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: center;
+    order: 2;
 }
 
 .title i {
@@ -48,8 +152,10 @@ body {
 }
 
 .subtitle {
-    margin-bottom: 20px;
+    margin: 0;
     opacity: 0.9;
+    text-align: center;
+    order: 3;
 }
 
 .subtitle p {
@@ -1078,8 +1184,23 @@ body {
     }
 
     .header {
-        padding: 20px 15px;
+        padding: 15px 10px;
         margin-bottom: 20px;
+        gap: 12px;
+    }
+    
+    .header-controls {
+        gap: 0.6rem;
+    }
+    
+    .control-btn {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .lang-btn {
+        padding: 5px 8px;
+        font-size: 0.75rem;
     }
 
     .subtitle {
