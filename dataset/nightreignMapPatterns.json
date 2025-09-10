@@ -1,11 +1,18 @@
 {
-  "extractedTime": "2025-09-09T02:44:39.667513",
+  "extractedTime": "2025-09-10T00:24:29.211205",
   "seeds": {
     "0": {
       "seedNumber": 0,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -544,7 +551,14 @@
       "seedNumber": 1,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -1083,7 +1097,14 @@
       "seedNumber": 2,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -1620,7 +1641,14 @@
       "seedNumber": 3,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -2158,7 +2186,14 @@
       "seedNumber": 4,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -2696,7 +2731,14 @@
       "seedNumber": 5,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 1 Night Horde",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -3237,7 +3279,14 @@
       "seedNumber": 6,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -3774,7 +3823,14 @@
       "seedNumber": 7,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -4312,7 +4368,14 @@
       "seedNumber": 8,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -4849,7 +4912,14 @@
       "seedNumber": 9,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -5385,7 +5455,14 @@
       "seedNumber": 10,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -5920,7 +5997,14 @@
       "seedNumber": 11,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -6461,7 +6545,14 @@
       "seedNumber": 12,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -7002,7 +7093,14 @@
       "seedNumber": 13,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -7538,7 +7636,14 @@
       "seedNumber": 14,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -8075,7 +8180,14 @@
       "seedNumber": 15,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -8616,7 +8728,14 @@
       "seedNumber": 16,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -9155,7 +9274,14 @@
       "seedNumber": 17,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -9694,7 +9820,14 @@
       "seedNumber": 18,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -10231,7 +10364,14 @@
       "seedNumber": 19,
       "nightlord": "Gladius",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -10770,7 +10910,14 @@
       "seedNumber": 20,
       "nightlord": "Gladius",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -11157,7 +11304,14 @@
       "seedNumber": 21,
       "nightlord": "Gladius",
       "mapType": "Mountaintop",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -11547,7 +11701,14 @@
       "seedNumber": 22,
       "nightlord": "Gladius",
       "mapType": "Mountaintop",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -11937,7 +12098,14 @@
       "seedNumber": 23,
       "nightlord": "Gladius",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -12324,7 +12492,14 @@
       "seedNumber": 24,
       "nightlord": "Gladius",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -12711,7 +12886,14 @@
       "seedNumber": 25,
       "nightlord": "Gladius",
       "mapType": "Crater",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -13086,7 +13268,14 @@
       "seedNumber": 26,
       "nightlord": "Gladius",
       "mapType": "Crater",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -13462,7 +13651,14 @@
       "seedNumber": 27,
       "nightlord": "Gladius",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -13839,7 +14035,14 @@
       "seedNumber": 28,
       "nightlord": "Gladius",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -14214,7 +14417,14 @@
       "seedNumber": 29,
       "nightlord": "Gladius",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -14590,7 +14800,14 @@
       "seedNumber": 30,
       "nightlord": "Gladius",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -15078,7 +15295,14 @@
       "seedNumber": 31,
       "nightlord": "Gladius",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -15562,7 +15786,14 @@
       "seedNumber": 32,
       "nightlord": "Gladius",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -16048,7 +16279,14 @@
       "seedNumber": 33,
       "nightlord": "Gladius",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -16536,7 +16774,14 @@
       "seedNumber": 34,
       "nightlord": "Gladius",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -17023,7 +17268,14 @@
       "seedNumber": 35,
       "nightlord": "Gladius",
       "mapType": "Noklateo",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 1 Night Horde",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -17454,7 +17706,14 @@
       "seedNumber": 36,
       "nightlord": "Gladius",
       "mapType": "Noklateo",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -17885,7 +18144,14 @@
       "seedNumber": 37,
       "nightlord": "Gladius",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -18317,7 +18583,14 @@
       "seedNumber": 38,
       "nightlord": "Gladius",
       "mapType": "Noklateo",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -18750,7 +19023,14 @@
       "seedNumber": 39,
       "nightlord": "Gladius",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -19181,7 +19461,14 @@
       "seedNumber": 40,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -19722,7 +20009,14 @@
       "seedNumber": 41,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -20263,7 +20557,14 @@
       "seedNumber": 42,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -20804,7 +21105,14 @@
       "seedNumber": 43,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Wormface",
@@ -21341,7 +21649,14 @@
       "seedNumber": 44,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -21878,7 +22193,14 @@
       "seedNumber": 45,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -22417,7 +22739,14 @@
       "seedNumber": 46,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -22953,7 +23282,14 @@
       "seedNumber": 47,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
         "boss": "Gaping Dragon",
@@ -23489,7 +23825,14 @@
       "seedNumber": 48,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -24028,7 +24371,14 @@
       "seedNumber": 49,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -24567,7 +24917,14 @@
       "seedNumber": 50,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -25105,7 +25462,14 @@
       "seedNumber": 51,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -25643,7 +26007,14 @@
       "seedNumber": 52,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -26182,7 +26553,14 @@
       "seedNumber": 53,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -26718,7 +27096,14 @@
       "seedNumber": 54,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -27253,7 +27638,14 @@
       "seedNumber": 55,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -27793,7 +28185,14 @@
       "seedNumber": 56,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -28331,7 +28730,14 @@
       "seedNumber": 57,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -28871,7 +29277,14 @@
       "seedNumber": 58,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Wormface",
@@ -29407,7 +29820,14 @@
       "seedNumber": 59,
       "nightlord": "Adel",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -29944,7 +30364,14 @@
       "seedNumber": 60,
       "nightlord": "Adel",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -30332,7 +30759,14 @@
       "seedNumber": 61,
       "nightlord": "Adel",
       "mapType": "Mountaintop",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
         "boss": "Gaping Dragon",
@@ -30719,7 +31153,14 @@
       "seedNumber": 62,
       "nightlord": "Adel",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -31106,7 +31547,14 @@
       "seedNumber": 63,
       "nightlord": "Adel",
       "mapType": "Mountaintop",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -31496,7 +31944,14 @@
       "seedNumber": 64,
       "nightlord": "Adel",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -31883,7 +32338,14 @@
       "seedNumber": 65,
       "nightlord": "Adel",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -32258,7 +32720,14 @@
       "seedNumber": 66,
       "nightlord": "Adel",
       "mapType": "Crater",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -32634,7 +33103,14 @@
       "seedNumber": 67,
       "nightlord": "Adel",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -33012,7 +33488,14 @@
       "seedNumber": 68,
       "nightlord": "Adel",
       "mapType": "Crater",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -33387,7 +33870,14 @@
       "seedNumber": 69,
       "nightlord": "Adel",
       "mapType": "Crater",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -33765,7 +34255,14 @@
       "seedNumber": 70,
       "nightlord": "Adel",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Extra Night Boss",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -34251,7 +34748,14 @@
       "seedNumber": 71,
       "nightlord": "Adel",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -34737,7 +35241,14 @@
       "seedNumber": 72,
       "nightlord": "Adel",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
         "boss": "Wormface",
@@ -35222,7 +35733,14 @@
       "seedNumber": 73,
       "nightlord": "Adel",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -35708,7 +36226,14 @@
       "seedNumber": 74,
       "nightlord": "Adel",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -36196,7 +36721,14 @@
       "seedNumber": 75,
       "nightlord": "Adel",
       "mapType": "Noklateo",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -36628,7 +37160,14 @@
       "seedNumber": 76,
       "nightlord": "Adel",
       "mapType": "Noklateo",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -37060,7 +37599,14 @@
       "seedNumber": 77,
       "nightlord": "Adel",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -37491,7 +38037,14 @@
       "seedNumber": 78,
       "nightlord": "Adel",
       "mapType": "Noklateo",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Wormface",
@@ -37923,7 +38476,14 @@
       "seedNumber": 79,
       "nightlord": "Adel",
       "mapType": "Noklateo",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -38355,7 +38915,14 @@
       "seedNumber": 80,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -38895,7 +39462,14 @@
       "seedNumber": 81,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -39431,7 +40005,14 @@
       "seedNumber": 82,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Smelter Demon",
@@ -39966,7 +40547,14 @@
       "seedNumber": 83,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Frenzy Tower",
       "night1": {
         "boss": "Battlefield Commander",
@@ -40506,7 +41094,14 @@
       "seedNumber": 84,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -41044,7 +41639,14 @@
       "seedNumber": 85,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Tibia Mariner",
@@ -41583,7 +42185,14 @@
       "seedNumber": 86,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -42119,7 +42728,14 @@
       "seedNumber": 87,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -42659,7 +43275,14 @@
       "seedNumber": 88,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -43197,7 +43820,14 @@
       "seedNumber": 89,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -43735,7 +44365,14 @@
       "seedNumber": 90,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
         "boss": "Centipede Demon",
@@ -44278,7 +44915,14 @@
       "seedNumber": 91,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -44816,7 +45460,14 @@
       "seedNumber": 92,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -45355,7 +46006,14 @@
       "seedNumber": 93,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -45895,7 +46553,14 @@
       "seedNumber": 94,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "Battlefield Commander",
@@ -46432,7 +47097,14 @@
       "seedNumber": 95,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -46971,7 +47643,14 @@
       "seedNumber": 96,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -47508,7 +48187,14 @@
       "seedNumber": 97,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -48048,7 +48734,14 @@
       "seedNumber": 98,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -48585,7 +49278,14 @@
       "seedNumber": 99,
       "nightlord": "Gnoster",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "Centipede Demon",
@@ -49124,7 +49824,14 @@
       "seedNumber": 100,
       "nightlord": "Gnoster",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -49511,7 +50218,14 @@
       "seedNumber": 101,
       "nightlord": "Gnoster",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -49900,7 +50614,14 @@
       "seedNumber": 102,
       "nightlord": "Gnoster",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Tibia Mariner",
@@ -50288,7 +51009,14 @@
       "seedNumber": 103,
       "nightlord": "Gnoster",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -50676,7 +51404,14 @@
       "seedNumber": 104,
       "nightlord": "Gnoster",
       "mapType": "Mountaintop",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -51065,7 +51800,14 @@
       "seedNumber": 105,
       "nightlord": "Gnoster",
       "mapType": "Crater",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -51441,7 +52183,14 @@
       "seedNumber": 106,
       "nightlord": "Gnoster",
       "mapType": "Crater",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "Tibia Mariner",
@@ -51816,7 +52565,14 @@
       "seedNumber": 107,
       "nightlord": "Gnoster",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -52194,7 +52950,14 @@
       "seedNumber": 108,
       "nightlord": "Gnoster",
       "mapType": "Crater",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -52571,7 +53334,14 @@
       "seedNumber": 109,
       "nightlord": "Gnoster",
       "mapType": "Crater",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Frenzy Tower",
       "night1": {
         "boss": "Battlefield Commander",
@@ -52946,7 +53716,14 @@
       "seedNumber": 110,
       "nightlord": "Gnoster",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -53434,7 +54211,14 @@
       "seedNumber": 111,
       "nightlord": "Gnoster",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -53921,7 +54705,14 @@
       "seedNumber": 112,
       "nightlord": "Gnoster",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -54413,7 +55204,14 @@
       "seedNumber": 113,
       "nightlord": "Gnoster",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Tibia Mariner",
@@ -54900,7 +55698,14 @@
       "seedNumber": 114,
       "nightlord": "Gnoster",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -55385,7 +56190,14 @@
       "seedNumber": 115,
       "nightlord": "Gnoster",
       "mapType": "Noklateo",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -55816,7 +56628,14 @@
       "seedNumber": 116,
       "nightlord": "Gnoster",
       "mapType": "Noklateo",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -56247,7 +57066,14 @@
       "seedNumber": 117,
       "nightlord": "Gnoster",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Battlefield Commander",
@@ -56680,7 +57506,14 @@
       "seedNumber": 118,
       "nightlord": "Gnoster",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -57114,7 +57947,14 @@
       "seedNumber": 119,
       "nightlord": "Gnoster",
       "mapType": "Noklateo",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -57548,7 +58388,14 @@
       "seedNumber": 120,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -58087,7 +58934,14 @@
       "seedNumber": 121,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -58627,7 +59481,14 @@
       "seedNumber": 122,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Wormface",
@@ -59165,7 +60026,14 @@
       "seedNumber": 123,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -59702,7 +60570,14 @@
       "seedNumber": 124,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -60242,7 +61117,14 @@
       "seedNumber": 125,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -60781,7 +61663,14 @@
       "seedNumber": 126,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -61320,7 +62209,14 @@
       "seedNumber": 127,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -61858,7 +62754,14 @@
       "seedNumber": 128,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Smelter Demon",
@@ -62397,7 +63300,14 @@
       "seedNumber": 129,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -62938,7 +63848,14 @@
       "seedNumber": 130,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -63474,7 +64391,14 @@
       "seedNumber": 131,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -64013,7 +64937,14 @@
       "seedNumber": 132,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -64554,7 +65485,14 @@
       "seedNumber": 133,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -65093,7 +66031,14 @@
       "seedNumber": 134,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Wormface",
@@ -65629,7 +66574,14 @@
       "seedNumber": 135,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 1 Night Horde",
       "night1": {
         "boss": "Gaping Dragon",
@@ -66168,7 +67120,14 @@
       "seedNumber": 136,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Wormface",
@@ -66705,7 +67664,14 @@
       "seedNumber": 137,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -67244,7 +68210,14 @@
       "seedNumber": 138,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -67781,7 +68754,14 @@
       "seedNumber": 139,
       "nightlord": "Maris",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Grafted Monarch",
@@ -68320,7 +69300,14 @@
       "seedNumber": 140,
       "nightlord": "Maris",
       "mapType": "Mountaintop",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Night Horde",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -68710,7 +69697,14 @@
       "seedNumber": 141,
       "nightlord": "Maris",
       "mapType": "Mountaintop",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -69100,7 +70094,14 @@
       "seedNumber": 142,
       "nightlord": "Maris",
       "mapType": "Mountaintop",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -69489,7 +70490,14 @@
       "seedNumber": 143,
       "nightlord": "Maris",
       "mapType": "Mountaintop",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Wormface",
@@ -69877,7 +70885,14 @@
       "seedNumber": 144,
       "nightlord": "Maris",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -70265,7 +71280,14 @@
       "seedNumber": 145,
       "nightlord": "Maris",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -70641,7 +71663,14 @@
       "seedNumber": 146,
       "nightlord": "Maris",
       "mapType": "Crater",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -71007,7 +72036,14 @@
       "seedNumber": 147,
       "nightlord": "Maris",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Grafted Monarch",
@@ -71382,7 +72418,14 @@
       "seedNumber": 148,
       "nightlord": "Maris",
       "mapType": "Crater",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Gaping Dragon",
@@ -71758,7 +72801,14 @@
       "seedNumber": 149,
       "nightlord": "Maris",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -72135,7 +73185,14 @@
       "seedNumber": 150,
       "nightlord": "Maris",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Wormface",
@@ -72620,7 +73677,14 @@
       "seedNumber": 151,
       "nightlord": "Maris",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -73106,7 +74170,14 @@
       "seedNumber": 152,
       "nightlord": "Maris",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Grafted Monarch",
@@ -73593,7 +74664,14 @@
       "seedNumber": 153,
       "nightlord": "Maris",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -74079,7 +75157,14 @@
       "seedNumber": 154,
       "nightlord": "Maris",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -74564,7 +75649,14 @@
       "seedNumber": 155,
       "nightlord": "Maris",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -74998,7 +76090,14 @@
       "seedNumber": 156,
       "nightlord": "Maris",
       "mapType": "Noklateo",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Gaping Dragon",
@@ -75432,7 +76531,14 @@
       "seedNumber": 157,
       "nightlord": "Maris",
       "mapType": "Noklateo",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -75863,7 +76969,14 @@
       "seedNumber": 158,
       "nightlord": "Maris",
       "mapType": "Noklateo",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Smelter Demon",
@@ -76296,7 +77409,14 @@
       "seedNumber": 159,
       "nightlord": "Maris",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -76727,7 +77847,14 @@
       "seedNumber": 160,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
         "boss": "Battlefield Commander",
@@ -77268,7 +78395,14 @@
       "seedNumber": 161,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Tibia Mariner",
@@ -77809,7 +78943,14 @@
       "seedNumber": 162,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -78346,7 +79487,14 @@
       "seedNumber": 163,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -78885,7 +80033,14 @@
       "seedNumber": 164,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -79424,7 +80579,14 @@
       "seedNumber": 165,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -79965,7 +81127,14 @@
       "seedNumber": 166,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -80500,7 +81669,14 @@
       "seedNumber": 167,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -81040,7 +82216,14 @@
       "seedNumber": 168,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Royal Revenant",
@@ -81581,7 +82764,14 @@
       "seedNumber": 169,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -82119,7 +83309,14 @@
       "seedNumber": 170,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -82658,7 +83855,14 @@
       "seedNumber": 171,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -83198,7 +84402,14 @@
       "seedNumber": 172,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -83739,7 +84950,14 @@
       "seedNumber": 173,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -84277,7 +85495,14 @@
       "seedNumber": 174,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
         "boss": "Centipede Demon",
@@ -84817,7 +86042,14 @@
       "seedNumber": 175,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Tibia Mariner",
@@ -85354,7 +86586,14 @@
       "seedNumber": 176,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -85892,7 +87131,14 @@
       "seedNumber": 177,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Frenzy Tower",
       "night1": {
         "boss": "Battlefield Commander",
@@ -86432,7 +87678,14 @@
       "seedNumber": 178,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -86972,7 +88225,14 @@
       "seedNumber": 179,
       "nightlord": "Libra",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Frenzy Tower",
       "night1": {
         "boss": "Royal Revenant",
@@ -87513,7 +88773,14 @@
       "seedNumber": 180,
       "nightlord": "Libra",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Frenzy Tower",
       "night1": {
         "boss": "Royal Revenant",
@@ -87903,7 +89170,14 @@
       "seedNumber": 181,
       "nightlord": "Libra",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Centipede Demon",
@@ -88292,7 +89566,14 @@
       "seedNumber": 182,
       "nightlord": "Libra",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -88680,7 +89961,14 @@
       "seedNumber": 183,
       "nightlord": "Libra",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -89070,7 +90358,14 @@
       "seedNumber": 184,
       "nightlord": "Libra",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -89458,7 +90753,14 @@
       "seedNumber": 185,
       "nightlord": "Libra",
       "mapType": "Crater",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -89833,7 +91135,14 @@
       "seedNumber": 186,
       "nightlord": "Libra",
       "mapType": "Crater",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -90210,7 +91519,14 @@
       "seedNumber": 187,
       "nightlord": "Libra",
       "mapType": "Crater",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -90585,7 +91901,14 @@
       "seedNumber": 188,
       "nightlord": "Libra",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
         "boss": "Tibia Mariner",
@@ -90964,7 +92287,14 @@
       "seedNumber": 189,
       "nightlord": "Libra",
       "mapType": "Crater",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -91342,7 +92672,14 @@
       "seedNumber": 190,
       "nightlord": "Libra",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -91827,7 +93164,14 @@
       "seedNumber": 191,
       "nightlord": "Libra",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Difficult Sorcerer's Rise",
       "night1": {
         "boss": "Battlefield Commander",
@@ -92316,7 +93660,14 @@
       "seedNumber": 192,
       "nightlord": "Libra",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -92802,7 +94153,14 @@
       "seedNumber": 193,
       "nightlord": "Libra",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -93287,7 +94645,14 @@
       "seedNumber": 194,
       "nightlord": "Libra",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Tibia Mariner",
@@ -93775,7 +95140,14 @@
       "seedNumber": 195,
       "nightlord": "Libra",
       "mapType": "Noklateo",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Frenzy Tower",
       "night1": {
         "boss": "Battlefield Commander",
@@ -94206,7 +95578,14 @@
       "seedNumber": 196,
       "nightlord": "Libra",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -94638,7 +96017,14 @@
       "seedNumber": 197,
       "nightlord": "Libra",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -95071,7 +96457,14 @@
       "seedNumber": 198,
       "nightlord": "Libra",
       "mapType": "Noklateo",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -95502,7 +96895,14 @@
       "seedNumber": 199,
       "nightlord": "Libra",
       "mapType": "Noklateo",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -95932,7 +97332,14 @@
       "seedNumber": 200,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -96468,7 +97875,14 @@
       "seedNumber": 201,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Royal Revenant",
@@ -97009,7 +98423,14 @@
       "seedNumber": 202,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Centipede Demon",
@@ -97550,7 +98971,14 @@
       "seedNumber": 203,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -98090,7 +99518,14 @@
       "seedNumber": 204,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 1 Night Horde",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -98626,7 +100061,14 @@
       "seedNumber": 205,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -99164,7 +100606,14 @@
       "seedNumber": 206,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -99700,7 +101149,14 @@
       "seedNumber": 207,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -100241,7 +101697,14 @@
       "seedNumber": 208,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -100780,7 +102243,14 @@
       "seedNumber": 209,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
         "boss": "Centipede Demon",
@@ -101317,7 +102787,14 @@
       "seedNumber": 210,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -101853,7 +103330,14 @@
       "seedNumber": 211,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 1 Extra Night Boss",
       "night1": {
         "boss": "Gaping Dragon",
@@ -102392,7 +103876,14 @@
       "seedNumber": 212,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -102930,7 +104421,14 @@
       "seedNumber": 213,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -103467,7 +104965,14 @@
       "seedNumber": 214,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -104006,7 +105511,14 @@
       "seedNumber": 215,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -104542,7 +106054,14 @@
       "seedNumber": 216,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -105079,7 +106598,14 @@
       "seedNumber": 217,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -105620,7 +107146,14 @@
       "seedNumber": 218,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -106160,7 +107693,14 @@
       "seedNumber": 219,
       "nightlord": "Fulghor",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -106698,7 +108238,14 @@
       "seedNumber": 220,
       "nightlord": "Fulghor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Extra Night Boss",
       "night1": {
         "boss": "Wormface",
@@ -107088,7 +108635,14 @@
       "seedNumber": 221,
       "nightlord": "Fulghor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -107475,7 +109029,14 @@
       "seedNumber": 222,
       "nightlord": "Fulghor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -107863,7 +109424,14 @@
       "seedNumber": 223,
       "nightlord": "Fulghor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -108241,7 +109809,14 @@
       "seedNumber": 224,
       "nightlord": "Fulghor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -108630,7 +110205,14 @@
       "seedNumber": 225,
       "nightlord": "Fulghor",
       "mapType": "Crater",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Centipede Demon",
@@ -109006,7 +110588,14 @@
       "seedNumber": 226,
       "nightlord": "Fulghor",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -109381,7 +110970,14 @@
       "seedNumber": 227,
       "nightlord": "Fulghor",
       "mapType": "Crater",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Night Horde",
       "night1": {
         "boss": "Gaping Dragon",
@@ -109755,7 +111351,14 @@
       "seedNumber": 228,
       "nightlord": "Fulghor",
       "mapType": "Crater",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -110131,7 +111734,14 @@
       "seedNumber": 229,
       "nightlord": "Fulghor",
       "mapType": "Crater",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -110509,7 +112119,14 @@
       "seedNumber": 230,
       "nightlord": "Fulghor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -110996,7 +112613,14 @@
       "seedNumber": 231,
       "nightlord": "Fulghor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Wormface",
@@ -111484,7 +113108,14 @@
       "seedNumber": 232,
       "nightlord": "Fulghor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -111969,7 +113600,14 @@
       "seedNumber": 233,
       "nightlord": "Fulghor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -112457,7 +114095,14 @@
       "seedNumber": 234,
       "nightlord": "Fulghor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 2 Extra Night Boss",
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -112942,7 +114587,14 @@
       "seedNumber": 235,
       "nightlord": "Fulghor",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Night Horde",
       "night1": {
         "boss": "Wormface",
@@ -113373,7 +115025,14 @@
       "seedNumber": 236,
       "nightlord": "Fulghor",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -113806,7 +115465,14 @@
       "seedNumber": 237,
       "nightlord": "Fulghor",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -114238,7 +115904,14 @@
       "seedNumber": 238,
       "nightlord": "Fulghor",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -114669,7 +116342,14 @@
       "seedNumber": 239,
       "nightlord": "Fulghor",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Centipede Demon",
@@ -115100,7 +116780,14 @@
       "seedNumber": 240,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -115636,7 +117323,14 @@
       "seedNumber": 241,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -116174,7 +117868,14 @@
       "seedNumber": 242,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Meteor Strike",
       "night1": {
         "boss": "Smelter Demon",
@@ -116712,7 +118413,14 @@
       "seedNumber": 243,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -117251,7 +118959,14 @@
       "seedNumber": 244,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -117788,7 +119503,14 @@
       "seedNumber": 245,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -118328,7 +120050,14 @@
       "seedNumber": 246,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -118864,7 +120593,14 @@
       "seedNumber": 247,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -119403,7 +121139,14 @@
       "seedNumber": 248,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -119940,7 +121683,14 @@
       "seedNumber": 249,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Smelter Demon",
@@ -120479,7 +122229,14 @@
       "seedNumber": 250,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -121017,7 +122774,14 @@
       "seedNumber": 251,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -121554,7 +123318,14 @@
       "seedNumber": 252,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Grafted Monarch",
@@ -122092,7 +123863,14 @@
       "seedNumber": 253,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -122630,7 +124408,14 @@
       "seedNumber": 254,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -123171,7 +124956,14 @@
       "seedNumber": 255,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -123710,7 +125502,14 @@
       "seedNumber": 256,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -124246,7 +126045,14 @@
       "seedNumber": 257,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -124783,7 +126589,14 @@
       "seedNumber": 258,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -125322,7 +127135,14 @@
       "seedNumber": 259,
       "nightlord": "Caligo",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Tibia Mariner",
@@ -125858,7 +127678,14 @@
       "seedNumber": 260,
       "nightlord": "Caligo",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -126246,7 +128073,14 @@
       "seedNumber": 261,
       "nightlord": "Caligo",
       "mapType": "Mountaintop",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -126635,7 +128469,14 @@
       "seedNumber": 262,
       "nightlord": "Caligo",
       "mapType": "Mountaintop",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Grafted Monarch",
@@ -127023,7 +128864,14 @@
       "seedNumber": 263,
       "nightlord": "Caligo",
       "mapType": "Mountaintop",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -127410,7 +129258,14 @@
       "seedNumber": 264,
       "nightlord": "Caligo",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -127798,7 +129653,14 @@
       "seedNumber": 265,
       "nightlord": "Caligo",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -128176,7 +130038,14 @@
       "seedNumber": 266,
       "nightlord": "Caligo",
       "mapType": "Crater",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -128551,7 +130420,14 @@
       "seedNumber": 267,
       "nightlord": "Caligo",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Smelter Demon",
@@ -128928,7 +130804,14 @@
       "seedNumber": 268,
       "nightlord": "Caligo",
       "mapType": "Crater",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -129302,7 +131185,14 @@
       "seedNumber": 269,
       "nightlord": "Caligo",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -129679,7 +131569,14 @@
       "seedNumber": 270,
       "nightlord": "Caligo",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -130164,7 +132061,14 @@
       "seedNumber": 271,
       "nightlord": "Caligo",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -130652,7 +132556,14 @@
       "seedNumber": 272,
       "nightlord": "Caligo",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Tibia Mariner",
@@ -131140,7 +133051,14 @@
       "seedNumber": 273,
       "nightlord": "Caligo",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Walking Mausoleum",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -131628,7 +133546,14 @@
       "seedNumber": 274,
       "nightlord": "Caligo",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -132114,7 +134039,14 @@
       "seedNumber": 275,
       "nightlord": "Caligo",
       "mapType": "Noklateo",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Grafted Monarch",
@@ -132545,7 +134477,14 @@
       "seedNumber": 276,
       "nightlord": "Caligo",
       "mapType": "Noklateo",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -132977,7 +134916,14 @@
       "seedNumber": 277,
       "nightlord": "Caligo",
       "mapType": "Noklateo",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Tibia Mariner",
@@ -133407,7 +135353,14 @@
       "seedNumber": 278,
       "nightlord": "Caligo",
       "mapType": "Noklateo",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Meteor Strike",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -133841,7 +135794,14 @@
       "seedNumber": 279,
       "nightlord": "Caligo",
       "mapType": "Noklateo",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -134272,7 +136232,14 @@
       "seedNumber": 280,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -134810,7 +136777,14 @@
       "seedNumber": 281,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Smelter Demon",
@@ -135351,7 +137325,14 @@
       "seedNumber": 282,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -135890,7 +137871,14 @@
       "seedNumber": 283,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -136426,7 +138414,14 @@
       "seedNumber": 284,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -136967,7 +138962,14 @@
       "seedNumber": 285,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Wormface",
@@ -137508,7 +139510,14 @@
       "seedNumber": 286,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -138044,7 +140053,14 @@
       "seedNumber": 287,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Royal Revenant",
@@ -138580,7 +140596,14 @@
       "seedNumber": 288,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -139120,7 +141143,14 @@
       "seedNumber": 289,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -139658,7 +141688,14 @@
       "seedNumber": 290,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -140194,7 +142231,14 @@
       "seedNumber": 291,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -140730,7 +142774,14 @@
       "seedNumber": 292,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "Centipede Demon",
@@ -141269,7 +143320,14 @@
       "seedNumber": 293,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": "Day 1 Maris Bubbles",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -141808,7 +143866,14 @@
       "seedNumber": 294,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -142345,7 +144410,14 @@
       "seedNumber": 295,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Grafted Monarch",
@@ -142882,7 +144954,14 @@
       "seedNumber": 296,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Gnoster Plague",
       "night1": {
         "boss": "Tibia Mariner",
@@ -143418,7 +145497,14 @@
       "seedNumber": 297,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -143959,7 +146045,14 @@
       "seedNumber": 298,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Above Stormhill Tunnel Entrance",
+      "spawnPoint": {
+        "location": "Above Stormhill Tunnel Entrance",
+        "coordinate": {
+          "x": 554,
+          "y": 608
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": "Day 1 Libra Curse",
       "night1": {
         "boss": "Battlefield Commander",
@@ -144495,7 +146588,14 @@
       "seedNumber": 299,
       "nightlord": "Heolstor",
       "mapType": "Default",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -145032,7 +147132,14 @@
       "seedNumber": 300,
       "nightlord": "Heolstor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -145422,7 +147529,14 @@
       "seedNumber": 301,
       "nightlord": "Heolstor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Night's Cavalry Duo",
@@ -145812,7 +147926,14 @@
       "seedNumber": 302,
       "nightlord": "Heolstor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Tibia Mariner",
@@ -146202,7 +148323,14 @@
       "seedNumber": 303,
       "nightlord": "Heolstor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Battlefield Commander",
@@ -146590,7 +148718,14 @@
       "seedNumber": 304,
       "nightlord": "Heolstor",
       "mapType": "Mountaintop",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Wormface",
@@ -146978,7 +149113,14 @@
       "seedNumber": 305,
       "nightlord": "Heolstor",
       "mapType": "Crater",
-      "spawnPoint": "Far Southwest",
+      "spawnPoint": {
+        "location": "Far Southwest",
+        "coordinate": {
+          "x": 310,
+          "y": 1090
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Grafted Monarch",
@@ -147355,7 +149497,14 @@
       "seedNumber": 306,
       "nightlord": "Heolstor",
       "mapType": "Crater",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": "Day 1 Gnoster Plague",
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -147733,7 +149882,14 @@
       "seedNumber": 307,
       "nightlord": "Heolstor",
       "mapType": "Crater",
-      "spawnPoint": "Southeast of Lake",
+      "spawnPoint": {
+        "location": "Southeast of Lake",
+        "coordinate": {
+          "x": 874,
+          "y": 1224
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Royal Revenant",
@@ -148109,7 +150265,14 @@
       "seedNumber": 308,
       "nightlord": "Heolstor",
       "mapType": "Crater",
-      "spawnPoint": "East of Cavalry Bridge",
+      "spawnPoint": {
+        "location": "East of Cavalry Bridge",
+        "coordinate": {
+          "x": 844,
+          "y": 972
+        },
+        "enemy": "Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -148485,7 +150648,14 @@
       "seedNumber": 309,
       "nightlord": "Heolstor",
       "mapType": "Crater",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": "Day 2 Morgott Invasion",
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -148859,7 +151029,14 @@
       "seedNumber": 310,
       "nightlord": "Heolstor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Gaping Dragon",
@@ -149347,7 +151524,14 @@
       "seedNumber": 311,
       "nightlord": "Heolstor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Rats"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Demi-Human Queen and Swordmaster",
@@ -149834,7 +152018,14 @@
       "seedNumber": 312,
       "nightlord": "Heolstor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "West of Warmaster's Shack",
+      "spawnPoint": {
+        "location": "West of Warmaster's Shack",
+        "coordinate": {
+          "x": 336,
+          "y": 542
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "The Duke's Dear Freja",
@@ -150322,7 +152513,14 @@
       "seedNumber": 313,
       "nightlord": "Heolstor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Shack"
+      },
       "specialEvent": "Day 1 Morgott Invasion",
       "night1": {
         "boss": "Smelter Demon",
@@ -150810,7 +153008,14 @@
       "seedNumber": 314,
       "nightlord": "Heolstor",
       "mapType": "Rotted Woods",
-      "spawnPoint": "Stormhill South of Gate",
+      "spawnPoint": {
+        "location": "Stormhill South of Gate",
+        "coordinate": {
+          "x": 318,
+          "y": 852
+        },
+        "enemy": "Foot Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Centipede Demon",
@@ -151295,7 +153500,14 @@
       "seedNumber": 315,
       "nightlord": "Heolstor",
       "mapType": "Noklateo",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Nobles and Soldiers"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Valiant Gargoyle",
@@ -151729,7 +153941,14 @@
       "seedNumber": 316,
       "nightlord": "Heolstor",
       "mapType": "Noklateo",
-      "spawnPoint": "Minor Erdtree",
+      "spawnPoint": {
+        "location": "Minor Erdtree",
+        "coordinate": {
+          "x": 1238,
+          "y": 892
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 2 Maris Bubbles",
       "night1": {
         "boss": "Royal Revenant",
@@ -152163,7 +154382,14 @@
       "seedNumber": 317,
       "nightlord": "Heolstor",
       "mapType": "Noklateo",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Wandering Nobles"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Bell Bearing Hunter",
@@ -152594,7 +154820,14 @@
       "seedNumber": 318,
       "nightlord": "Heolstor",
       "mapType": "Noklateo",
-      "spawnPoint": "Northeast of Saintsbridge",
+      "spawnPoint": {
+        "location": "Northeast of Saintsbridge",
+        "coordinate": {
+          "x": 824,
+          "y": 340
+        },
+        "enemy": "Rats and Demi-Humans"
+      },
       "specialEvent": null,
       "night1": {
         "boss": "Ulcerated Tree Spirit",
@@ -153027,7 +155260,14 @@
       "seedNumber": 319,
       "nightlord": "Heolstor",
       "mapType": "Noklateo",
-      "spawnPoint": "Below Summonwater Hawk",
+      "spawnPoint": {
+        "location": "Below Summonwater Hawk",
+        "coordinate": {
+          "x": 1066,
+          "y": 559
+        },
+        "enemy": "Caravans and Nobles"
+      },
       "specialEvent": "Day 2 Libra Curse",
       "night1": {
         "boss": "Grafted Monarch",

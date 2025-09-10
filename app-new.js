@@ -28,6 +28,18 @@ class NightreignApp {
         // Layer mappings will be loaded from poi-data-new.js
         this.layerMappings = null;
         
+        // Spawn point selection state
+        this.selectedSpawnPoint = null;
+        this.selectedSpawnEnemy = null;
+        this.availableSpawnPoints = [];
+        this.spawnContextMenu = null;
+        this.currentRightClickedSpawn = null;
+        
+        // Layered filtering system
+        this.baseFilteredSeeds = []; // Seeds after nightlord/map filtering
+        this.spawnFilteredSeeds = []; // Seeds after spawn point filtering
+        this.poiFilteredSeeds = []; // Seeds after POI filtering
+        
         this.init();
     }
 
@@ -183,6 +195,21 @@ class NightreignApp {
             }
         });
 
+        // Spawn screen buttons
+        document.getElementById('spawn-back-btn').addEventListener('click', () => {
+            this.hideSpawnContextMenu();
+            this.showScreen('selection');
+        });
+
+        document.getElementById('spawn-skip-btn').addEventListener('click', () => {
+            this.hideSpawnContextMenu();
+            this.startPOIRecognition();
+        });
+
+        document.getElementById('spawn-help-btn').addEventListener('click', () => {
+            // TODO: Add help functionality for spawn selection
+            console.log('Spawn help clicked');
+        });
 
         // Result screen buttons will be added when result screen is first shown
     }
@@ -226,18 +253,38 @@ class NightreignApp {
     startRecognition() {
         if (!this.selectedMap) return;
 
-        // Update display
-        document.getElementById('current-map').textContent = this.selectedMap;
-        document.getElementById('current-nightlord').textContent = this.selectedNightlord || 'Any';
+        // Update display for spawn screen
+        document.getElementById('spawn-current-map').textContent = this.selectedMap;
+        document.getElementById('spawn-current-nightlord').textContent = this.selectedNightlord || 'Any';
 
         // Set current map image
         this.currentMapImage = this.mapImages[this.selectedMap];
 
+        // Filter seeds based on current selections
+        this.filterSeeds();
+
+        // Load available spawn points for this map/nightlord combination
+        this.loadAvailableSpawnPoints();
+
+        // Show spawn point selection screen
+        this.showScreen('spawn');
+
+        // Setup spawn canvas
+        this.setupSpawnCanvas();
+    }
+
+    startPOIRecognition() {
+        // Update display for recognition screen
+        document.getElementById('current-map').textContent = this.selectedMap;
+        document.getElementById('current-nightlord').textContent = this.selectedNightlord || 'Any';
+
+        // Update seed count with current filtered seeds
+        document.getElementById('seed-count').textContent = this.filteredSeeds.length;
+        
+        console.log(`🎯 Starting POI recognition with ${this.filteredSeeds.length} pre-filtered seeds`);
+
         // Load POIs for selected map
         this.loadPOIsForMap(this.selectedMap);
-
-        // Filter seeds
-        this.filterSeeds();
 
         // Show recognition screen
         this.showScreen('recognition');
@@ -272,34 +319,308 @@ class NightreignApp {
         console.log(`📍 Sample POI:`, this.currentPOIs[0]);
     }
 
+    loadAvailableSpawnPoints() {
+        // Get all unique spawn points from filtered seeds
+        const spawnPoints = new Map();
+        
+        this.filteredSeeds.forEach(seed => {
+            const spawnPoint = seed.spawnPoint;
+            if (spawnPoint && spawnPoint.location) {
+                const key = spawnPoint.location;
+                if (!spawnPoints.has(key)) {
+                    spawnPoints.set(key, {
+                        location: spawnPoint.location,
+                        coordinate: spawnPoint.coordinate,
+                        enemies: new Set()
+                    });
+                }
+                // Add enemy to the set for this spawn point
+                if (spawnPoint.enemy) {
+                    spawnPoints.get(key).enemies.add(spawnPoint.enemy);
+                }
+            }
+        });
+        
+        // Convert to array and sort enemies
+        this.availableSpawnPoints = Array.from(spawnPoints.values()).map(spawn => ({
+            location: spawn.location,
+            coordinate: spawn.coordinate,
+            enemies: Array.from(spawn.enemies).sort()
+        }));
+        
+        console.log(`📍 Available spawn points:`, this.availableSpawnPoints);
+    }
+
+    setupSpawnCanvas() {
+        const canvas = document.getElementById('spawn-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw map background
+        this.drawMapBackground(ctx);
+        
+        // Draw spawn points
+        this.drawSpawnPoints(ctx);
+        
+        // Setup event listeners
+        this.setupSpawnCanvasEvents(canvas);
+    }
+
+    drawSpawnPoints(ctx) {
+        this.availableSpawnPoints.forEach(spawnPoint => {
+            // Scale coordinates by 0.5 to match POI scaling
+            const x = spawnPoint.coordinate.x * 0.5;
+            const y = spawnPoint.coordinate.y * 0.5;
+            
+            // Draw spawn point dot
+            ctx.fillStyle = '#ffd700';
+            ctx.beginPath();
+            ctx.arc(x, y, 8, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Draw border
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        });
+    }
+
+    setupSpawnCanvasEvents(canvas) {
+        // Click handler for spawn points
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const clickedSpawn = this.findClickedSpawnPoint(x, y);
+            if (clickedSpawn) {
+                this.showSpawnContextMenu(clickedSpawn, x, y);
+            } else {
+                this.hideSpawnContextMenu();
+            }
+        });
+
+        // Right click - clear selection
+        canvas.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            this.hideSpawnContextMenu();
+        });
+    }
+
+    findClickedSpawnPoint(x, y) {
+        const tolerance = 20;
+        
+        return this.availableSpawnPoints.find(spawnPoint => {
+            // Scale coordinates by 0.5 to match drawing coordinates
+            const scaledX = spawnPoint.coordinate.x * 0.5;
+            const scaledY = spawnPoint.coordinate.y * 0.5;
+            const dx = x - scaledX;
+            const dy = y - scaledY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= tolerance;
+        });
+    }
+
+    showSpawnContextMenu(spawnPoint, x, y) {
+        this.currentRightClickedSpawn = spawnPoint;
+        
+        // Check if there's only 1 enemy option - auto-select it
+        if (spawnPoint.enemies.length === 1) {
+            console.log(`🎯 Only 1 enemy option for ${spawnPoint.location} - auto-selecting: ${spawnPoint.enemies[0]}`);
+            this.selectSpawnEnemy(spawnPoint, spawnPoint.enemies[0]);
+            return;
+        }
+        
+        // Generate context menu content
+        this.generateSpawnContextMenu(spawnPoint);
+        
+        // Position and show context menu
+        const contextMenu = document.getElementById('spawn-context-menu');
+        contextMenu.style.left = `${x + 10}px`;
+        contextMenu.style.top = `${y - 10}px`;
+        contextMenu.style.display = 'block';
+        
+        this.spawnContextMenu = contextMenu;
+    }
+
+    generateSpawnContextMenu(spawnPoint) {
+        const contextMenu = document.getElementById('spawn-context-menu');
+        
+        // Clear existing content
+        contextMenu.innerHTML = '';
+        
+        // Add header
+        const header = document.createElement('div');
+        header.className = 'context-menu-header';
+        header.textContent = `Select Enemy for ${spawnPoint.location}`;
+        contextMenu.appendChild(header);
+        
+        // Add enemy options
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'context-menu-options text-grid';
+        
+        spawnPoint.enemies.forEach(enemy => {
+            const option = document.createElement('div');
+            option.className = 'context-menu-item text-only';
+            option.textContent = enemy;
+            option.addEventListener('click', () => {
+                this.selectSpawnEnemy(spawnPoint, enemy);
+                this.hideSpawnContextMenu();
+            });
+            optionsContainer.appendChild(option);
+        });
+        
+        // Add "I don't know" option
+        const unknownOption = document.createElement('div');
+        unknownOption.className = 'context-menu-item text-only';
+        unknownOption.textContent = "I don't know";
+        unknownOption.addEventListener('click', () => {
+            this.selectSpawnEnemy(spawnPoint, "I don't know");
+            this.hideSpawnContextMenu();
+        });
+        optionsContainer.appendChild(unknownOption);
+        
+        contextMenu.appendChild(optionsContainer);
+    }
+
+    selectSpawnEnemy(spawnPoint, enemy) {
+        this.selectedSpawnPoint = spawnPoint;
+        this.selectedSpawnEnemy = enemy;
+        
+        console.log(`📍 Selected spawn point: ${spawnPoint.location} with enemy: ${enemy}`);
+        
+        // Filter seeds based on spawn point selection
+        this.filterSeedsBySpawnPoint();
+        
+        // Check if we have exactly 1 seed - go directly to result
+        if (this.filteredSeeds.length === 1) {
+            console.log(`🎯 Only 1 seed remaining after spawn point selection - showing result directly`);
+            // First transition to recognition screen, then show result
+            this.startPOIRecognition();
+            this.showResult(this.filteredSeeds[0]);
+            return;
+        }
+        
+        // Update seed count display
+        this.updateSpawnSeedCount();
+        
+        // Transition to POI recognition
+        this.startPOIRecognition();
+    }
+
+    filterSeedsBySpawnPoint() {
+        if (!this.selectedSpawnPoint || !this.selectedSpawnEnemy) return;
+        
+        console.log(`🔍 Filtering seeds by spawn point...`);
+        console.log(`   Spawn location: ${this.selectedSpawnPoint.location}`);
+        console.log(`   Spawn enemy: ${this.selectedSpawnEnemy}`);
+        
+        // Filter from base seeds
+        this.spawnFilteredSeeds = this.baseFilteredSeeds.filter(seed => {
+            const spawnPoint = seed.spawnPoint;
+            if (!spawnPoint || spawnPoint.location !== this.selectedSpawnPoint.location) {
+                return false;
+            }
+            
+            // If enemy is "I don't know", only filter by location
+            if (this.selectedSpawnEnemy === "I don't know") {
+                return true;
+            }
+            
+            // Otherwise filter by both location and enemy
+            return spawnPoint.enemy === this.selectedSpawnEnemy;
+        });
+        
+        // Set current filtered seeds to spawn filtered
+        this.filteredSeeds = [...this.spawnFilteredSeeds];
+        
+        // Reset POI filtering
+        this.poiFilteredSeeds = [];
+        
+        this.updateSeedCounts();
+        
+        console.log(`🔍 Spawn filtered to ${this.filteredSeeds.length} seeds`);
+    }
+
+    updateSeedCounts() {
+        // Update main seed count
+        document.getElementById('seed-count').textContent = this.filteredSeeds.length;
+        
+        // Update spawn seed count if on spawn screen
+        this.updateSpawnSeedCount();
+    }
+
+    updateSpawnSeedCount() {
+        const countElement = document.getElementById('spawn-seed-count');
+        if (countElement) {
+            countElement.textContent = this.filteredSeeds.length;
+        }
+    }
+
+    hideSpawnContextMenu() {
+        const contextMenu = document.getElementById('spawn-context-menu');
+        if (contextMenu) {
+            contextMenu.style.display = 'none';
+        }
+        this.spawnContextMenu = null;
+        this.currentRightClickedSpawn = null;
+    }
+
     filterSeeds() {
         if (!this.seedData) return;
 
-        console.log(`🔍 Starting seed filtering...`);
+        console.log(`🔍 Starting base seed filtering...`);
         console.log(`   Selected nightlord: ${this.selectedNightlord || 'Any'}`);
         console.log(`   Selected map: ${this.selectedMap}`);
-        console.log(`   Current POI states:`, Object.keys(this.poiStates).length, 'POIs with selections');
 
         const allSeeds = Object.values(this.seedData);
         console.log(`   Total seeds to check: ${allSeeds.length}`);
 
-        this.filteredSeeds = allSeeds.filter(seed => {
+        // Base filtering: nightlord and map only
+        this.baseFilteredSeeds = allSeeds.filter(seed => {
             const nightlordMatch = !this.selectedNightlord || seed.nightlord === this.selectedNightlord;
             const mapMatch = seed.mapType === this.selectedMap;
-            
-            // Check POI selections
-            const poiMatch = this.checkPOIMatches(seed);
-            
-            const matches = nightlordMatch && mapMatch && poiMatch;
-            if (matches) {
-                console.log(`✅ Seed ${seed.seedNumber} matches all criteria`);
-            }
-            
-            return matches;
+            return nightlordMatch && mapMatch;
         });
 
-        document.getElementById('seed-count').textContent = this.filteredSeeds.length;
-        console.log(`🔍 Filtered to ${this.filteredSeeds.length} seeds`);
+        // Reset other filter layers
+        this.spawnFilteredSeeds = [];
+        this.poiFilteredSeeds = [];
+        
+        // Set current filtered seeds to base
+        this.filteredSeeds = [...this.baseFilteredSeeds];
+
+        this.updateSeedCounts();
+        
+        console.log(`🔍 Base filtered to ${this.filteredSeeds.length} seeds`);
+    }
+
+    filterSeedsByPOI() {
+        if (!this.seedData) return;
+
+        console.log(`🔍 Filtering seeds by POI selections...`);
+        console.log(`   Current POI states:`, Object.keys(this.poiStates).length, 'POIs with selections');
+        
+        // Determine source seeds for POI filtering
+        const sourceSeeds = this.spawnFilteredSeeds.length > 0 ? this.spawnFilteredSeeds : this.baseFilteredSeeds;
+        console.log(`   Starting with ${sourceSeeds.length} seeds`);
+
+        this.poiFilteredSeeds = sourceSeeds.filter(seed => {
+            const poiMatch = this.checkPOIMatches(seed);
+            if (poiMatch) {
+                console.log(`✅ Seed ${seed.seedNumber} matches POI criteria`);
+            }
+            return poiMatch;
+        });
+
+        // Set current filtered seeds to POI filtered
+        this.filteredSeeds = [...this.poiFilteredSeeds];
+
+        this.updateSeedCounts();
+        
+        console.log(`🔍 POI filtered to ${this.filteredSeeds.length} seeds`);
 
         // Check if we have exactly 1 seed - show result screen
         if (this.filteredSeeds.length === 1) {
@@ -1035,7 +1356,7 @@ class NightreignApp {
         
         // Redraw canvas and filter seeds
         this.setupCanvas();
-        this.filterSeeds();
+        this.filterSeedsByPOI();
         
         console.log(`📍 Selected ${poi.category} layer1: ${value} for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
@@ -1069,7 +1390,7 @@ class NightreignApp {
         
         // Redraw canvas and filter seeds
         this.setupCanvas();
-        this.filterSeeds();
+        this.filterSeedsByPOI();
         
         console.log(`📍 Selected ${poi.category} layer2: ${value} for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
@@ -1108,7 +1429,7 @@ class NightreignApp {
         
         // Redraw canvas and filter seeds
         this.setupCanvas();
-        this.filterSeeds();
+        this.filterSeedsByPOI();
         
         console.log(`📍 Cleared selection for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
@@ -1227,8 +1548,15 @@ class NightreignApp {
         // Redraw the canvas
         this.setupCanvas();
         
-        // Re-filter seeds based on current selections
-        this.filterSeeds();
+        // Restore to spawn filtering (or base if no spawn selection)
+        if (this.spawnFilteredSeeds.length > 0) {
+            this.filteredSeeds = [...this.spawnFilteredSeeds];
+        } else {
+            this.filteredSeeds = [...this.baseFilteredSeeds];
+        }
+        this.poiFilteredSeeds = [];
+        
+        this.updateSeedCounts();
         
         console.log('🧹 Cleared all POI selections');
         console.log(`🔍 Current POI states:`, this.poiStates);
@@ -1344,6 +1672,8 @@ class NightreignApp {
 
     showResult(seed) {
         console.log(`🎉 Showing result for seed ${seed.seedNumber}`);
+        console.log(`🎉 Current screen: ${this.currentScreen}`);
+        console.log(`🎉 Seed data:`, seed);
         
         // Store the found seed for reference
         this.foundSeed = seed;
@@ -1398,6 +1728,7 @@ class NightreignApp {
         };
         
         const imagePath = `assets/pattern/en/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+        console.log(`🖼️ Loading pattern image: ${imagePath} for seed ${seed.seedNumber}`);
         patternImage.src = imagePath;
     }
 
