@@ -12,6 +12,9 @@ const translations = {
     'lang.current': '中文',
     'lang.switch': '切换语言',
     
+    // Navigation
+    'nav.advanced': '高级模式',
+    
     // Loading
     'loading.init': '正在初始化地图数据，请稍候...',
     'loading.seeds': '已加载 {count} 个种子',
@@ -121,6 +124,9 @@ const translations = {
     // Language toggle
     'lang.current': 'English',
     'lang.switch': 'Switch Language',
+    
+    // Navigation
+    'nav.advanced': 'Advanced Mode',
     
     // Loading
     'loading.init': 'Initializing map data, please wait...',

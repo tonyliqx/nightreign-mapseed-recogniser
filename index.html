@@ -16,11 +16,17 @@
 <body ontouchstart="">
     <div class="container">
         <header class="header">
-            <div class="language-toggle">
-                <button id="lang-toggle" class="lang-btn" title="Switch Language">
-                    <i class="fas fa-globe"></i>
-                    <span id="current-lang" data-i18n="lang.current">中文</span>
+            <div class="header-controls">
+                <button id="switch-to-advanced-btn" class="control-btn">
+                    <i class="fas fa-arrow-right"></i>
+                    <span data-i18n="nav.advanced">Advanced Mode</span>
                 </button>
+                <div class="language-toggle">
+                    <button id="lang-toggle" class="lang-btn" title="Switch Language">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang" data-i18n="lang.current">中文</span>
+                    </button>
+                </div>
             </div>
             <h1 class="title">
                 <i class="fas fa-map"></i>
@@ -200,8 +206,8 @@
         </p>
     </footer>
 
-    <script src="i18n/translations.js"></script>
-    <script src="i18n/language-manager.js"></script>
+    <script src="i18n/translations.js?v=2"></script>
+    <script src="i18n/language-manager.js?v=2"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
