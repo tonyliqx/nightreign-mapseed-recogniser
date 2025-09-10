@@ -114,6 +114,49 @@
                 </div>
             </div>
 
+            <!-- Spawn Point Selection Screen -->
+            <div id="spawn-screen" class="spawn-screen" style="display: none;">
+                <div class="screen-header">
+                    <h2><i class="fas fa-map-marker-alt"></i> Select Spawn Point</h2>
+                    <p>Click on a spawn point location to select it, then choose the enemy type.</p>
+                </div>
+
+                <div class="current-selection">
+                    <span class="selection-label">Map:</span>
+                    <span id="spawn-current-map" class="selection-value">-</span>
+                    <span class="selection-label">Nightlord:</span>
+                    <span id="spawn-current-nightlord" class="selection-value">-</span>
+                </div>
+                <div class="seed-count">
+                    <span class="count-label">Matching Seeds:</span>
+                    <span id="spawn-seed-count" class="count-value">0</span>
+                </div>
+
+                <div class="spawn-controls">
+                    <button id="spawn-back-btn" class="control-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                    <button id="spawn-skip-btn" class="control-btn">
+                        <i class="fas fa-forward"></i>
+                        Skip Spawn Selection
+                    </button>
+                    <button id="spawn-help-btn" class="control-btn">
+                        <i class="fas fa-question-circle"></i>
+                        Help
+                    </button>
+                </div>
+
+                <div class="map-container">
+                    <canvas id="spawn-canvas" width="768" height="768"></canvas>
+                    
+                    <!-- Spawn Context Menu -->
+                    <div id="spawn-context-menu" class="context-menu" style="display: none;">
+                        <!-- Dynamic content will be generated here -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Recognition Screen -->
             <div id="recognition-screen" class="recognition-screen" style="display: none;">
                 <div class="recognition-header">

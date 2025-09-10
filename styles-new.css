@@ -234,6 +234,27 @@ body {
     cursor: not-allowed;
 }
 
+/* Spawn Point Selection Screen */
+.spawn-screen {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.spawn-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#spawn-canvas {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: crosshair;
+    background: #000;
+}
+
 /* Recognition Screen */
 .recognition-screen {
     width: 100%;

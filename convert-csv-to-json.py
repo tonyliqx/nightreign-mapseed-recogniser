@@ -202,6 +202,39 @@ def get_poi_icon(category: str, structure: str, boss: str, icon_mappings: Dict[s
     
     return None
 
+def find_minor_base_data_for_spawn_point(spawn_point_location: str, all_pois: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, Any]:
+    """Find the corresponding minor base data for a spawn point location."""
+    
+    # Look through all POIs to find a minor base with matching location
+    for poi_id, poi in all_pois.items():
+        if poi.get('category') == 'minorBase' and poi.get('location') == spawn_point_location:
+            # Found matching minor base, extract coordinate and enemy
+            coordinates = poi.get('coordinates', {})
+            enemy = poi.get('enemy', 'Rats')  # Default to "Rats" if no enemy field
+            
+            return {
+                'location': spawn_point_location,
+                'coordinate': coordinates,
+                'enemy': enemy
+            }
+    
+    # If no matching minor base found, try to get coordinates from hardcoded data
+    # and default enemy to "Rats" (for church spawn points)
+    if spawn_point_location in location_coords['minor_base']:
+        coords = location_coords['minor_base'][spawn_point_location]
+        return {
+            'location': spawn_point_location,
+            'coordinate': {'x': coords[0], 'y': coords[1]},
+            'enemy': 'Rats (Church Only)'  # Default for church spawn points
+        }
+    
+    # Fallback if location not found
+    return {
+        'location': spawn_point_location,
+        'coordinate': {},
+        'enemy': 'Rats (Church Only)'
+    }
+
 def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int, int]]], icon_mappings: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
     """Parse the CSV file and return complete JSON structure."""
     with open(csv_path, 'r', encoding='utf-8') as file:
@@ -240,7 +273,7 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
         seed_number = int(row[0].strip()) if row[0].strip() else i - 2
         nightlord = row_data.get('Nightlord', 'Unknown')
         map_type = row_data.get('Shifting Earth', 'Default')
-        spawn_point = row_data.get('Spawn Point', '')
+        spawn_point_location = row_data.get('Spawn Point', '')
         special_event = row_data.get('Special Event')
         
         # Night 1 and Night 2 data
@@ -390,12 +423,15 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
             'rooftop': row_data['Field Boss']['Castle Rooftop']
         }
         
+        # Create spawn point object with location, coordinate, and enemy
+        spawn_point_object = find_minor_base_data_for_spawn_point(spawn_point_location, all_pois, location_coords)
+        
         # Add seed to JSON
         json_data["seeds"][str(seed_number)] = {
             "seedNumber": seed_number,
             "nightlord": nightlord,
             "mapType": map_type,
-            "spawnPoint": spawn_point,
+            "spawnPoint": spawn_point_object,
             "specialEvent": special_event,
             "night1": {
                 "boss": night_1_boss,
