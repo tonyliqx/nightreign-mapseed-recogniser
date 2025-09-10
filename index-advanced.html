@@ -246,16 +246,64 @@
         <div id="help-modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3><i class="fas fa-question-circle"></i> Help</h3>
+                    <h3><i class="fas fa-question-circle"></i> <span data-i18n="help.title">Help</span></h3>
                     <button class="close-btn" id="close-help">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="help-section">
-                        <h4>How to Use:</h4>
+                        <h4 data-i18n="help.overview.title">Overview</h4>
+                        <p data-i18n="help.overview.description">This advanced map seed recognizer helps you identify the exact map pattern by marking Points of Interest (POIs) and spawn points. The process involves three main steps: spawn point selection, POI marking, and result identification.</p>
+                    </div>
+
+                    <div class="help-section">
+                        <h4 data-i18n="help.step1.title">Step 1: Select Nightlord & Map Type</h4>
+                        <p data-i18n="help.step1.description">Choose your nightlord character and the map type you're exploring. This initial selection helps narrow down the possible seed patterns.</p>
+                    </div>
+
+                    <div class="help-section">
+                        <h4 data-i18n="help.step2.title">Step 2: Mark Spawn Point</h4>
+                        <p data-i18n="help.step2.description">Click on the spawn point dot on the map, then select the enemy type from the context menu. If you're unsure about the enemy, select "I don't know" to proceed with just the coordinate information.</p>
                         <ul>
-                            <li><strong>Left Click:</strong> Cycle through possible POI types</li>
-                            <li><strong>Right Click:</strong> Show context menu with all options</li>
-                            <li><strong>Middle Click:</strong> Reset POI to dot state</li>
+                            <li data-i18n="help.step2.tip1">The spawn point helps significantly narrow down possible seeds</li>
+                            <li data-i18n="help.step2.tip2">If only one enemy type is possible, it will be auto-selected</li>
+                            <li data-i18n="help.step2.tip3">If only one seed remains after spawn selection, you'll go directly to results</li>
+                        </ul>
+                    </div>
+
+                    <div class="help-section">
+                        <h4 data-i18n="help.step3.title">Step 3: Mark POIs (Points of Interest)</h4>
+                        <p data-i18n="help.step3.description">Right-click on POI dots to open context menus and select the correct structure type and enemy. The system will automatically filter seeds based on your selections.</p>
+                        <ul>
+                            <li data-i18n="help.step3.tip1">Two-layer POIs: Select structure type first, then enemy type</li>
+                            <li data-i18n="help.step3.tip2">Single-layer POIs: Select enemy type directly</li>
+                            <li data-i18n="help.step3.tip3">If only one option remains in layer 2, it will be auto-selected</li>
+                            <li data-i18n="help.step3.tip4">Use "Clear Selection" to reset a POI if you made a mistake</li>
+                        </ul>
+                    </div>
+
+                    <div class="help-section">
+                        <h4 data-i18n="help.step4.title">Step 4: View Results</h4>
+                        <p data-i18n="help.step4.description">Once enough POIs are marked to identify a unique seed, the result screen will show the exact map pattern with seed number, nightlord, and map type details.</p>
+                    </div>
+
+                    <div class="help-section">
+                        <h4 data-i18n="help.tips.title">Tips & Tricks</h4>
+                        <ul>
+                            <li data-i18n="help.tips.tip1">Start with spawn point selection for maximum seed filtering</li>
+                            <li data-i18n="help.tips.tip2">Mark POIs that are most distinctive or unique to your map</li>
+                            <li data-i18n="help.tips.tip3">Use the "Clear All POIs" button to start over if needed</li>
+                            <li data-i18n="help.tips.tip4">The "Back" button returns you to the selection screen</li>
+                            <li data-i18n="help.tips.tip5">Toggle between English and Chinese using the language button</li>
+                        </ul>
+                    </div>
+
+                    <div class="help-section">
+                        <h4 data-i18n="help.controls.title">Controls</h4>
+                        <ul>
+                            <li data-i18n="help.controls.click">Click: Select options from context menus</li>
+                            <li data-i18n="help.controls.right_click">Right-click: Open context menu for POIs</li>
+                            <li data-i18n="help.controls.clear">Clear All POIs: Reset all POI selections</li>
+                            <li data-i18n="help.controls.back">Back: Return to nightlord/map selection</li>
                         </ul>
                     </div>
                 </div>

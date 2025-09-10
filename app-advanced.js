@@ -1171,9 +1171,11 @@ class NightreignApp {
             item.addEventListener('click', (e) => {
                 console.log('Layer 1 item clicked:', option);
                 e.stopPropagation(); // Prevent event bubbling
-                this.selectLayer1(poi, option);
-                // Update the context menu to show the change
-                this.updateContextMenuImmediately(poi);
+                const autoSkipped = this.selectLayer1(poi, option);
+                // Only update the context menu if auto-skip didn't happen
+                if (!autoSkipped) {
+                    this.updateContextMenuImmediately(poi);
+                }
             });
             layer1OptionsContainer.appendChild(item);
         });
@@ -1468,8 +1470,18 @@ class NightreignApp {
         this.setupCanvas();
         this.filterSeedsByPOI();
         
+        // Check if there's only one layer 2 option available after layer 1 selection
+        const availableLayer2Options = this.getAvailableOptions(poi, 2);
+        if (availableLayer2Options.length === 1) {
+            console.log(`🎯 Auto-selecting layer2: ${availableLayer2Options[0]} (only option available)`);
+            this.selectLayer2(poi, availableLayer2Options[0]);
+            this.hideContextMenu(); // Close the context menu since we auto-selected
+            return true; // Return true to indicate auto-skip happened
+        }
+        
         console.log(`📍 Selected ${poi.category} layer1: ${value} for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
+        return false; // Return false to indicate no auto-skip
     }
 
     selectLayer2(poi, value) {
@@ -1871,6 +1883,11 @@ class NightreignApp {
         
         // Store the found seed for reference
         this.foundSeed = seed;
+        
+        // Hide any open context menus
+        console.log('🎉 Hiding all context menus...');
+        this.hideContextMenu();
+        this.hideSpawnContextMenu();
         
         // Update the recognition screen to show the result
         this.updateRecognitionScreenForResult(seed);
