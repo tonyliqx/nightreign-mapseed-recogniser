@@ -171,6 +171,11 @@ class NightreignApp {
             this.toggleLanguage();
         });
 
+        // Switch to basic mode
+        document.getElementById('switch-to-basic-btn').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
         // Click outside context menu to close it
         document.addEventListener('click', (e) => {
             const contextMenu = document.getElementById('context-menu');

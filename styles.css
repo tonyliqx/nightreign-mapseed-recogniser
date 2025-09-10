@@ -32,11 +32,47 @@ body {
     position: relative;
 }
 
-/* Language toggle */
-.language-toggle {
+/* Header controls */
+.header-controls {
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.control-btn i {
+    font-size: 0.8rem;
+}
+
+/* Language toggle */
+.language-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
     z-index: 10;
 }
 

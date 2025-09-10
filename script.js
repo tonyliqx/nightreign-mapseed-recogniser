@@ -195,6 +195,11 @@ class NightreignMapRecogniser {
             }
         });
 
+        // Switch to advanced mode
+        document.getElementById('switch-to-advanced-btn').addEventListener('click', () => {
+            window.location.href = 'index-advanced.html';
+        });
+
         // Context menu setup
         this.setupContextMenu();
 
