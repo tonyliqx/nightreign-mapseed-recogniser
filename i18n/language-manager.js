@@ -5,6 +5,7 @@ class LanguageManager {
     this.currentLang = this.detectLanguage();
     this.translations = translations;
     this.initialized = false;
+    this.languageChangeListeners = [];
     
     // Wait for DOM to be ready before initializing
     if (document.readyState === 'loading') {
@@ -99,10 +100,23 @@ class LanguageManager {
     this.updateUI();
     this.updateAssets();
     
+    // Notify custom listeners
+    this.languageChangeListeners.forEach(listener => {
+      try {
+        listener(lang);
+      } catch (error) {
+        console.warn('Error in language change listener:', error);
+      }
+    });
+    
     // Trigger custom event for other components
     window.dispatchEvent(new CustomEvent('languageChanged', { 
       detail: { language: lang } 
     }));
+  }
+
+  addLanguageChangeListener(callback) {
+    this.languageChangeListeners.push(callback);
   }
 
   updateURL(lang) {
