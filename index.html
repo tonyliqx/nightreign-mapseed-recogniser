@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" data-lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>艾尔登法环 黑夜君临：地图种子识别器</title>
+    <title data-i18n="app.title">艾尔登法环 黑夜君临：地图种子识别器</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a2e">
-    <meta name="description" content="交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子">
-    <meta name="keywords" content="艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具">
+    <meta name="description" data-i18n="app.description" content="交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子">
+    <meta name="keywords" data-i18n="app.keywords" content="艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具">
     <link rel="icon" href="favicon.ico">
 </head>
 <body ontouchstart="">
     <div class="container">
         <header class="header">
+            <div class="language-toggle">
+                <button id="lang-toggle" class="lang-btn" title="Switch Language">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-lang" data-i18n="lang.current">中文</span>
+                </button>
+            </div>
             <h1 class="title">
                 <i class="fas fa-map"></i>
-                艾尔登法环 黑夜君临：地图种子识别器
+                <span data-i18n="app.title">艾尔登法环 黑夜君临：地图种子识别器</span>
             </h1>
             <div class="subtitle">
-                <p class="version">版本 1.1 | 黑夜君临 版本 1.01.3（汉化）</p>
+                <p class="version" data-i18n="app.version">版本 1.1 | 黑夜君临 版本 1.01.3（汉化）</p>
                 <span id="cv-status" style="font-size: 11px; color: #6c757d; margin-left: 15px;"></span>
             </div>
         </header>
@@ -31,36 +37,36 @@
             <div id="loading-section" class="section" style="display: block;">
                 <div class="loading-indicator">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p>正在初始化地图数据，请稍候...</p>
+                    <p data-i18n="loading.init">正在初始化地图数据，请稍候...</p>
                 </div>
             </div>
 
             <div id="selection-section" class="section" style="display: none;">
                 <div class="selection-grid">
                     <div class="selection-card">
-                        <h3>选择你的夜王</h3>
-                        <p class="current-selection">当前选择：<span id="chosen-nightlord">无</span></p>
+                        <h3 data-i18n="selection.nightlord">选择你的夜王</h3>
+                        <p class="current-selection"><span data-i18n="selection.current">当前选择：</span><span id="chosen-nightlord" data-i18n="nightlord.none">无</span></p>
                         <div class="button-grid">
-                            <button class="nightlord-btn" data-nightlord="Gladius">三狼</button>
-                            <button class="nightlord-btn" data-nightlord="Adel">大嘴</button>
-                            <button class="nightlord-btn" data-nightlord="Gnoster">慧心虫</button>
-                            <button class="nightlord-btn" data-nightlord="Maris">水皮蛋</button>
-                            <button class="nightlord-btn" data-nightlord="Libra">山羊</button>
-                            <button class="nightlord-btn" data-nightlord="Fulghor">人马</button>
-                            <button class="nightlord-btn" data-nightlord="Caligo">冰龙</button>
-                            <button class="nightlord-btn" data-nightlord="Heolstor">黑夜王</button>
+                            <button class="nightlord-btn" data-nightlord="Gladius" data-i18n="nightlord.gladius">三狼</button>
+                            <button class="nightlord-btn" data-nightlord="Adel" data-i18n="nightlord.adel">大嘴</button>
+                            <button class="nightlord-btn" data-nightlord="Gnoster" data-i18n="nightlord.gnoster">慧心虫</button>
+                            <button class="nightlord-btn" data-nightlord="Maris" data-i18n="nightlord.maris">水皮蛋</button>
+                            <button class="nightlord-btn" data-nightlord="Libra" data-i18n="nightlord.libra">山羊</button>
+                            <button class="nightlord-btn" data-nightlord="Fulghor" data-i18n="nightlord.fulghor">人马</button>
+                            <button class="nightlord-btn" data-nightlord="Caligo" data-i18n="nightlord.caligo">冰龙</button>
+                            <button class="nightlord-btn" data-nightlord="Heolstor" data-i18n="nightlord.heolstor">黑夜王</button>
                         </div>
                     </div>
 
                     <div class="selection-card">
-                        <h3>选择你的地图 / 特殊地形</h3>
-                        <p class="current-selection">当前选择：<span id="chosen-map">无</span></p>
+                        <h3 data-i18n="selection.map">选择你的地图 / 特殊地形</h3>
+                        <p class="current-selection"><span data-i18n="selection.current">当前选择：</span><span id="chosen-map" data-i18n="map.none">无</span></p>
                         <div class="button-grid">
-                            <button class="map-btn" data-map="Default">默认</button>
-                            <button class="map-btn" data-map="Mountaintop">山顶</button>
-                            <button class="map-btn" data-map="Crater">火山</button>
-                            <button class="map-btn" data-map="Rotted Woods">腐败森林</button>
-                            <button class="map-btn" data-map="Noklateo">隐城</button>
+                            <button class="map-btn" data-map="Default" data-i18n="map.default">默认</button>
+                            <button class="map-btn" data-map="Mountaintop" data-i18n="map.mountaintop">山顶</button>
+                            <button class="map-btn" data-map="Crater" data-i18n="map.crater">火山</button>
+                            <button class="map-btn" data-map="Rotted Woods" data-i18n="map.rotted_woods">腐败森林</button>
+                            <button class="map-btn" data-map="Noklateo" data-i18n="map.noklateo">隐城</button>
                         </div>
                     </div>
                 </div>
@@ -71,12 +77,12 @@
                 <div class="compact-button-row">
                     <button id="reset-map-btn" class="reset-btn">
                         <i class="fas fa-undo"></i>
-                        重置所有标记
+                        <span data-i18n="action.reset">重置所有标记</span>
                     </button>
                     
                     <button id="help-btn" class="help-btn">
                         <i class="fas fa-question-circle"></i>
-                        帮助与提示
+                        <span data-i18n="action.help">帮助与提示</span>
                     </button>
                 </div>
             </div>
@@ -86,12 +92,12 @@
                 <div class="results-grid">
                     <div class="results-header">
                         <div class="seed-counter">
-                            <span class="nightlord-label">已匹配地图: </span>
+                            <span class="nightlord-label" data-i18n="results.matched">已匹配地图: </span>
                             <div class="seed-count" id="seed-count">0</div>
                         </div>
                         
                         <div class="nightlord-info" id="nightlord-info" style="display: none;">
-                            <span class="nightlord-label">夜王: </span>
+                            <span class="nightlord-label" data-i18n="results.nightlord">夜王: </span>
                             <span class="nightlord-name" id="nightlord-name"></span>
                         </div>
                     </div>
@@ -102,8 +108,8 @@
                         <div id="selection-overlay" class="selection-overlay">
                             <div class="overlay-message">
                                 <i class="fas fa-map-marked-alt"></i>
-                                <p>请选择特殊地形</p>
-                                <small>选择参数后开始识别地图种子</small>
+                                <p data-i18n="map.select_terrain">请选择特殊地形</p>
+                                <small data-i18n="map.select_terrain_hint">选择参数后开始识别地图种子</small>
                             </div>
                         </div>
                     </div>
@@ -119,37 +125,37 @@
     <div id="help-modal" class="modal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-question-circle"></i> 帮助与提示</h3>
+                <h3><i class="fas fa-question-circle"></i> <span data-i18n="help.title">帮助与提示</span></h3>
                 <button class="close-btn" id="close-help">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="help-section">
-                    <h4><i class="fas fa-gamepad"></i> 使用方法</h4>
-                    <p>通过对比地图上的教堂和法师塔位置，识别器会帮助你识别 黑夜君临 地图种子。</p>
+                    <h4><i class="fas fa-gamepad"></i> <span data-i18n="help.usage">使用方法</span></h4>
+                    <p data-i18n="help.usage_desc">通过对比地图上的教堂和法师塔位置，识别器会帮助你识别 黑夜君临 地图种子。</p>
                     
-                    <h4><i class="fas fa-list-ol"></i> 使用步骤</h4>
+                    <h4><i class="fas fa-list-ol"></i> <span data-i18n="help.steps">使用步骤</span></h4>
                     <ol>
-                        <li>从列表中选择<strong>夜王</strong>（非必选）</li>
-                        <li>选择<strong>地图/特殊地形</strong>类型</li>
-                        <li>查看地图上高亮的橙色圆点 —— 这些是可能标注的兴趣点位置</li>
-                        <li>点击橙色圆点，标记你在游戏中看到的内容：
+                        <li data-i18n="help.step1">从列表中选择<strong>夜王</strong>（非必选）</li>
+                        <li data-i18n="help.step2">选择<strong>地图/特殊地形</strong>类型</li>
+                        <li data-i18n="help.step3">查看地图上高亮的橙色圆点 —— 这些是可能标注的兴趣点位置</li>
+                        <li data-i18n="help.step4">点击橙色圆点，标记你在游戏中看到的内容：
                             <ul>
-                                <li><strong>左键点击/屏幕轻触</strong> = 教堂</li>
-                                <li><strong>右键点击/屏幕长按</strong> = 选择法师塔或其他兴趣点</li>
-                                <li><strong>再次点击</strong>已标记的标点，可以取消标记</li>
+                                <li data-i18n="help.step4_left"><strong>左键点击/屏幕轻触</strong> = 教堂</li>
+                                <li data-i18n="help.step4_right"><strong>右键点击/屏幕长按</strong> = 选择法师塔或其他兴趣点</li>
+                                <li data-i18n="help.step4_clear"><strong>再次点击</strong>已标记的标点，可以取消标记</li>
                             </ul>
                         </li>
-                        <li>随着标记增加，可能的种子会被逐步筛选</li>
-                        <li>当仅剩一个结果时，会显示最终完整的种子详情和地图图像</li>
+                        <li data-i18n="help.step5">随着标记增加，可能的种子会被逐步筛选</li>
+                        <li data-i18n="help.step6">当仅剩一个结果时，会显示最终完整的种子详情和地图图像</li>
                     </ol>
 
-                    <h4><i class="fas fa-lightbulb"></i> 提示</h4>
+                    <h4><i class="fas fa-lightbulb"></i> <span data-i18n="help.tips">提示</span></h4>
                     <ul>
-                        <li>尽量多标记你在游戏中能确认的兴趣点</li>
-                        <li>使用右键菜单或者长按选择法师塔、村庄或其他兴趣点</li>
-                        <li>如果没有结果，请重置，并重新标注兴趣点，请确保兴趣点标注准确</li>
-                        <li>最终种子会显示详细布局，以便核对</li>
-                        <li>在标记兴趣点前请选择夜王（非必选）和特殊地形</li>
+                        <li data-i18n="help.tip1">尽量多标记你在游戏中能确认的兴趣点</li>
+                        <li data-i18n="help.tip2">使用右键菜单或者长按选择法师塔、村庄或其他兴趣点</li>
+                        <li data-i18n="help.tip3">如果没有结果，请重置，并重新标注兴趣点，请确保兴趣点标注准确</li>
+                        <li data-i18n="help.tip4">最终种子会显示详细布局，以便核对</li>
+                        <li data-i18n="help.tip5">在标记兴趣点前请选择夜王（非必选）和特殊地形</li>
                     </ul>
                 </div>
             </div>
@@ -160,40 +166,42 @@
     <div id="poi-context-menu" class="context-menu" style="display: none;">
         <div class="context-menu-item" data-type="mage">
             <img src="assets/images/mage-tower.png" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
-            法师塔
+            <span data-i18n="poi.mage">法师塔</span>
         </div>
         <div class="context-menu-item" data-type="village">
             <img src="assets/images/village.png" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
-            村庄
+            <span data-i18n="poi.village">村庄</span>
         </div>
         <div class="context-menu-item" data-type="other">
             <img src="assets/images/empty.png" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
-            空白
+            <span data-i18n="poi.empty">空白</span>
         </div>
     </div>
 
     <footer style="text-align: center; padding: 20px; color: #6c757d; font-size: 14px; border-top: 1px solid #e0e0e0; margin-top: 40px;">
         <p>
-            开源项目 
+            <span data-i18n="footer.opensource">开源项目</span> 
             <!-- GitHub -->
             <i class="fab fa-github" style="margin-left:6px; margin-right:4px;"></i>
             <a href="https://github.com/liqixian19970305/nightreign-mapseed-recogniser" target="_blank" style="color: #007bff; text-decoration: none; margin-right:12px;">
-                在 GitHub 查看源代码
+                <span data-i18n="footer.github">在 GitHub 查看源代码</span>
             </a>
             <!-- Gitee -->
             <img src="assets/images/gitee.png" alt="Gitee" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;">
             <a href="https://gitee.com/lixiangzj/nightreign-mapseed-recogniser-master" target="_blank" style="color: #007bff; text-decoration: none;">
-                在 Gitee 查看源代码
+                <span data-i18n="footer.gitee">在 Gitee 查看源代码</span>
             </a>
         </p>
         <p>
-            特别鸣谢：
-            <a href="https://github.com/thefifthmatt" target="_blank" style="color: #007bff; text-decoration: none;">thefifthmatt</a> 提供地图数据，
-            <a href="https://github.com/thanosapollo" target="_blank" style="color: #007bff; text-decoration: none;">thanosapollo</a> 提供识别器基础代码，
-            <a href="https://space.bilibili.com/46397427" target="_blank" style="color: #007bff; text-decoration: none;">Fuwish</a> 提供汉化版地图种子
+            <span data-i18n="footer.credits">特别鸣谢：</span>
+            <a href="https://github.com/thefifthmatt" target="_blank" style="color: #007bff; text-decoration: none;">thefifthmatt</a> <span data-i18n="footer.credit1">提供地图数据</span>，
+            <a href="https://github.com/thanosapollo" target="_blank" style="color: #007bff; text-decoration: none;">thanosapollo</a> <span data-i18n="footer.credit2">提供识别器基础代码</span>，
+            <a href="https://space.bilibili.com/46397427" target="_blank" style="color: #007bff; text-decoration: none;">Fuwish</a> <span data-i18n="footer.credit3">提供汉化版地图种子</span>
         </p>
     </footer>
 
+    <script src="i18n/translations.js"></script>
+    <script src="i18n/language-manager.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>

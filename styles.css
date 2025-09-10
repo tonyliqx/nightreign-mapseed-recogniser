@@ -29,6 +29,64 @@ body {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Language toggle */
+.language-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn i {
+    font-size: 1rem;
+    color: #4fc3f7;
+}
+
+.lang-btn span {
+    white-space: nowrap;
+}
+
+/* Mobile language toggle */
+@media (max-width: 768px) {
+    .language-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .lang-btn i {
+        font-size: 0.9rem;
+    }
 }
 
 .title {

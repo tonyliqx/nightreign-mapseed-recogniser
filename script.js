@@ -23,6 +23,7 @@ async function loadClassificationResults() {
 
 class NightreignMapRecogniser {
     constructor() {
+        this.languageManager = new LanguageManager();
         this.chosenNightlord = null;
         this.chosenMap = null;
         this.currentPOIs = [];
@@ -47,10 +48,18 @@ class NightreignMapRecogniser {
     }
 
     async init() {
+        // Wait for language manager to initialize
+        await this.languageManager.init();
+        
         this.setupImages();
         this.setupEventListeners();
         await this.loadInitialData();
         this.showSelectionSection();
+        
+        // Listen for language changes
+        window.addEventListener('languageChanged', (e) => {
+            this.onLanguageChanged(e.detail.language);
+        });
     }
 
 
@@ -96,6 +105,45 @@ class NightreignMapRecogniser {
 
             this.images.maps[mapName] = img;
         });
+    }
+
+    onLanguageChanged(language) {
+        console.log('Language changed to:', language);
+        
+        // Update pattern image paths
+        this.updatePatternImagePaths();
+        
+        // Update any dynamic text that's not handled by data-i18n
+        this.updateDynamicText();
+        
+        // Redraw the map if it's currently displayed
+        if (this.canvas && this.ctx) {
+            if (this.showingSeedImage) {
+                // If showing seed image, refresh it with new language
+                this.refreshSeedImage();
+            } else if (this.chosenMap) {
+                this.drawMap(this.images.maps[this.chosenMap]);
+            } else {
+                this.drawDefaultMapWithImage();
+            }
+        }
+    }
+
+    updatePatternImagePaths() {
+        // This will be called when language changes to update pattern image paths
+        // The actual pattern loading happens in showSeedImage method
+    }
+
+    updateDynamicText() {
+        // Update any dynamic text that's not handled by data-i18n attributes
+        // This includes status messages, error messages, etc.
+    }
+
+    refreshSeedImage() {
+        // Refresh the currently displayed seed image with new language
+        if (this.showingSeedImage && this.lastSeedRow) {
+            this.showSeedImage(this.lastSeedRow);
+        }
     }
 
 
@@ -169,16 +217,16 @@ class NightreignMapRecogniser {
             if (statusElement) {
                 if (hasClassifications) {
                     const classCount = Object.keys(CV_CLASSIFICATION_DATA).length;
-                    statusElement.innerHTML = `<span style="color: #28a745;">✅ Loaded ${seedCount} seeds (${classCount} classified)</span>`;
+                    statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.classified', { count: seedCount, classified: classCount })}</span>`;
                 } else {
-                    statusElement.innerHTML = `<span style="color: #28a745;">✅ Loaded ${seedCount} seeds</span>`;
+                    statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.seeds', { count: seedCount })}</span>`;
                 }
             }
 
             this.hideLoadingSection();
         } catch (error) {
             console.error('Error loading initial data:', error);
-            this.showError('Failed to load data. Please refresh the page.');
+            this.showError(this.getText('error.load_failed'));
         }
     }
 
@@ -261,11 +309,11 @@ class NightreignMapRecogniser {
 
         this.ctx.fillStyle = '#4fc3f7';
         this.ctx.font = 'bold 18px Inter, sans-serif';
-        this.ctx.fillText('Click orange dots to mark POI locations', CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 20);
+        this.ctx.fillText(this.getText('map.click_dots'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 20);
 
         this.ctx.fillStyle = '#ffffff';
         this.ctx.font = '14px Inter, sans-serif';
-        this.ctx.fillText('Select Nightlord and Map above for accurate seed detection', CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 20);
+        this.ctx.fillText(this.getText('map.select_parameters'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 20);
 
         // Draw POIs for Default map
         this.currentPOIs.forEach(poi => {
@@ -326,7 +374,7 @@ class NightreignMapRecogniser {
             this.chosenNightlord = null;
 
             // Update UI
-            document.getElementById('chosen-nightlord').textContent = 'None';
+            document.getElementById('chosen-nightlord').textContent = this.getText('nightlord.none');
 
             // Clear all button states
             document.querySelectorAll('.nightlord-btn').forEach(btn => {
@@ -339,7 +387,7 @@ class NightreignMapRecogniser {
             this.chosenNightlord = nightlord;
 
             // Update UI
-            document.getElementById('chosen-nightlord').textContent = nightlord;
+            document.getElementById('chosen-nightlord').textContent = this.getNightlordTranslatedName(nightlord);
 
             // Update button states
             document.querySelectorAll('.nightlord-btn').forEach(btn => {
@@ -360,7 +408,7 @@ class NightreignMapRecogniser {
             this.poiStates = this.initializePOIStates();
 
             // Update UI
-            document.getElementById('chosen-map').textContent = 'None';
+            document.getElementById('chosen-map').textContent = this.getText('map.none');
 
             // Clear all button states
             document.querySelectorAll('.map-btn').forEach(btn => {
@@ -377,7 +425,7 @@ class NightreignMapRecogniser {
             console.log(`Selected map: ${map}, POIs: ${this.currentPOIs.length}`);
 
             // Update UI
-            document.getElementById('chosen-map').textContent = map;
+            document.getElementById('chosen-map').textContent = this.getMapTranslatedName(map);
 
             // Update button states
             document.querySelectorAll('.map-btn').forEach(btn => {
@@ -695,7 +743,7 @@ class NightreignMapRecogniser {
                 this.ctx.textBaseline = 'middle';
                 this.ctx.fillText(`${this.chosenMap} Map`, CANVAS_SIZE / 2, CANVAS_SIZE / 2);
                 this.ctx.font = '14px Inter, sans-serif';
-                this.ctx.fillText('Click on orange dots to mark POIs', CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 30);
+                this.ctx.fillText(this.getText('map.click_dots'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 30);
             }
         }
 
@@ -1039,7 +1087,7 @@ class NightreignMapRecogniser {
         this.hideNightlordInfo();
 
         // Update UI for nightlord selection
-        document.getElementById('chosen-nightlord').textContent = 'None';
+        document.getElementById('chosen-nightlord').textContent = this.getText('nightlord.none');
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
             btn.classList.remove('active');
         });
@@ -1271,7 +1319,7 @@ class NightreignMapRecogniser {
 
     showNoSeedsFound() {
         const seedCountElement = document.getElementById('seed-count');
-        seedCountElement.innerHTML = '<span style="color: #e74c3c; font-weight: 600;">未找到种子<br>请重置地图</span>';
+        seedCountElement.innerHTML = `<span style="color: #e74c3c; font-weight: 600;">${this.getText('results.no_seeds')}</span>`;
     }
 
     showSingleSeed(seedRow) {
@@ -1458,13 +1506,13 @@ class NightreignMapRecogniser {
 
             // Add icon and label
             if (type === 'church') {
-                button.innerHTML = '<img src="assets/images/church.png" class="suggestion-icon" alt="教堂"><span>教堂</span>';
+                button.innerHTML = `<img src="assets/images/church.png" class="suggestion-icon" alt="${this.getText('poi.church')}"><span>${this.getText('poi.church')}</span>`;
             } else if (type === 'mage') {
-                button.innerHTML = '<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="法师塔"><span>法师塔</span>';
+                button.innerHTML = `<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="${this.getText('poi.mage')}"><span>${this.getText('poi.mage')}</span>`;
             } else if (type === 'village') {
-                button.innerHTML = '<img src="assets/images/village.png" class="suggestion-icon" alt="村庄"><span>村庄</span>';
+                button.innerHTML = `<img src="assets/images/village.png" class="suggestion-icon" alt="${this.getText('poi.village')}"><span>${this.getText('poi.village')}</span>`;
             } else if (type === 'other') {
-                button.innerHTML = '<img src="assets/images/empty.png" class="suggestion-icon" alt="空白"><span>空白</span>';
+                button.innerHTML = `<img src="assets/images/empty.png" class="suggestion-icon" alt="${this.getText('poi.empty')}"><span>${this.getText('poi.empty')}</span>`;
             }
 
             // Add click handler
@@ -1590,14 +1638,17 @@ class NightreignMapRecogniser {
 
     showSeedImage(seedRow) {
         const mapSeed = seedRow[0];
-        const nightlord = seedRow[1] || '未知夜王';
-        const mapType = seedRow[2] || '默认地图';
+        const nightlord = seedRow[1] || this.getText('nightlord.unknown');
+        const mapType = seedRow[2] || this.getText('map.default');
 
-        // 将英文夜王名称转换为中文
-        const nightlordChinese = this.getNightlordChineseName(nightlord);
+        // Store the seed row for refresh purposes
+        this.lastSeedRow = seedRow;
+
+        // Get translated nightlord name
+        const nightlordTranslated = this.getNightlordTranslatedName(nightlord);
 
         // 在种子计数器区域显示夜王信息
-        this.updateNightlordInfo(nightlordChinese);
+        this.updateNightlordInfo(nightlordTranslated);
 
         const canvas = document.getElementById('map-canvas');
         const seedImageContainer = document.getElementById('seed-image-container');
@@ -1606,7 +1657,9 @@ class NightreignMapRecogniser {
         seedImageContainer.style.display = 'block';
 
         const seedStr = mapSeed.toString().padStart(3, '0');
-        const seedImageUrl = "assets/pattern/" + seedStr + ".jpg";
+        // Use language-specific pattern folder
+        const currentLang = this.languageManager.getCurrentLanguage();
+        const seedImageUrl = `assets/pattern/${currentLang}/${seedStr}.jpg`;
 
         // 检查是否为移动设备
         const isMobile = window.innerWidth <= 768;
@@ -1618,9 +1671,9 @@ class NightreignMapRecogniser {
                     <img src="${seedImageUrl}" alt="Seed ${mapSeed}" class="seed-image">
                 </a>
                 <div class="seed-info">
-                    <span class="seed-number">地图种子: ${mapSeed}</span>
-                    ${isMobile && nightlordChinese ? `<span class="seed-info-separator">|</span><span class="seed-nightlord">夜王: ${nightlordChinese}</span>` : ''}
-                    <small class="seed-hint">${isMobile ? '点击图片查看大图' : '点击图片在新标签页中查看'}</small>
+                    <span class="seed-number">${this.getText('results.seed')} ${mapSeed}</span>
+                    ${isMobile && nightlordTranslated ? `<span class="seed-info-separator">|</span><span class="seed-nightlord">${this.getText('results.nightlord')} ${nightlordTranslated}</span>` : ''}
+                    <small class="seed-hint">${isMobile ? this.getText('seed.click_mobile') : this.getText('seed.click_large')}</small>
                 </div>
             </div>
         `;
@@ -1646,6 +1699,36 @@ class NightreignMapRecogniser {
             nightlordName.textContent = nightlordChinese;
             nightlordInfo.style.display = 'block';
         }
+    }
+
+    getText(key, params = {}) {
+        return this.languageManager.getText(key, params);
+    }
+
+    getNightlordTranslatedName(englishName) {
+        const nightlordMap = {
+            'Gladius': this.getText('nightlord.gladius'),
+            'Adel': this.getText('nightlord.adel'),
+            'Gnoster': this.getText('nightlord.gnoster'),
+            'Maris': this.getText('nightlord.maris'),
+            'Libra': this.getText('nightlord.libra'),
+            'Fulghor': this.getText('nightlord.fulghor'),
+            'Caligo': this.getText('nightlord.caligo'),
+            'Heolstor': this.getText('nightlord.heolstor'),
+            '未知夜王': this.getText('nightlord.unknown')
+        };
+        return nightlordMap[englishName] || englishName;
+    }
+
+    getMapTranslatedName(englishName) {
+        const mapMap = {
+            'Default': this.getText('map.default'),
+            'Mountaintop': this.getText('map.mountaintop'),
+            'Crater': this.getText('map.crater'),
+            'Rotted Woods': this.getText('map.rotted_woods'),
+            'Noklateo': this.getText('map.noklateo')
+        };
+        return mapMap[englishName] || englishName;
     }
 
     getNightlordChineseName(englishName) {
