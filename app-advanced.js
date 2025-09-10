@@ -255,10 +255,12 @@ class NightreignApp {
             this.startPOIRecognition();
         });
 
-        document.getElementById('spawn-help-btn').addEventListener('click', () => {
-            // TODO: Add help functionality for spawn selection
-            console.log('Spawn help clicked');
-        });
+        const spawnHelpBtn = document.getElementById('spawn-help-btn');
+        if (spawnHelpBtn) {
+            spawnHelpBtn.addEventListener('click', () => {
+                this.showHelp();
+            });
+        }
 
         // Result screen buttons will be added when result screen is first shown
     }
