@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles-advanced.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="i18n/translations-advanced.js?v=12"></script>
+    <script src="i18n/language-manager.js?v=8"></script>
 </head>
 <body>
     <div class="app-container">
@@ -15,16 +17,16 @@
             <div class="header-content">
                 <h1 class="app-title">
                     <i class="fas fa-map"></i>
-                    Nightreign Map Seed Recognizer
+                    <span data-i18n="app.title">Nightreign Map Seed Recognizer</span>
                 </h1>
                 <div class="header-controls">
                     <button id="switch-to-basic-btn" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        Switch to Basic Mode
+                        <span data-i18n="nav.basic">Switch to Basic Mode</span>
                     </button>
-                    <button id="language-toggle" class="lang-toggle">
+                    <button id="lang-toggle" class="lang-btn" title="Switch Language">
                         <i class="fas fa-globe"></i>
-                        <span id="current-lang">English</span>
+                        <span id="current-lang" data-i18n="lang.current">English</span>
                     </button>
                 </div>
             </div>
@@ -47,73 +49,68 @@
                     
                     <!-- Map Type Selection -->
                     <div class="selection-group">
-                        <h3>Map Type <span class="required">*</span></h3>
+                        <h3><span data-i18n="selection.map">Map Type</span> <span class="required">*</span></h3>
                         <div class="map-grid">
                             <button class="map-btn" data-map="Default">
-                                <i class="fas fa-map"></i>
-                                Default
+                                <span data-i18n="map.default">Default</span>
                             </button>
                             <button class="map-btn" data-map="Crater">
-                                <i class="fas fa-circle"></i>
-                                Crater
+                                <span data-i18n="map.crater">Crater</span>
                             </button>
                             <button class="map-btn" data-map="Mountaintop">
-                                <i class="fas fa-mountain"></i>
-                                Mountaintop
+                                <span data-i18n="map.mountaintop">Mountaintop</span>
                             </button>
                             <button class="map-btn" data-map="Noklateo">
-                                <i class="fas fa-city"></i>
-                                Noklateo
+                                <span data-i18n="map.noklateo">Noklateo</span>
                             </button>
                             <button class="map-btn" data-map="Rotted Woods">
-                                <i class="fas fa-tree"></i>
-                                Rotted Woods
+                                <span data-i18n="map.rotted_woods">Rotted Woods</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- Nightlord Selection -->
                     <div class="selection-group">
-                        <h3>Nightlord <span class="optional">(Optional)</span></h3>
+                        <h3><span data-i18n="selection.nightlord">Nightlord</span> <span class="optional" data-i18n="selection.optional">(Optional)</span></h3>
                         <div class="nightlord-grid">
                             <button class="nightlord-btn" data-nightlord="Adel">
                                 <img src="assets/icons/Adel.png" alt="Adel" class="nightlord-icon">
-                                Adel
+                                <span data-i18n="nightlord.adel">Adel</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Caligo">
                                 <img src="assets/icons/Caligo.png" alt="Caligo" class="nightlord-icon">
-                                Caligo
+                                <span data-i18n="nightlord.caligo">Caligo</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Fulghor">
                                 <img src="assets/icons/Fulghor.png" alt="Fulghor" class="nightlord-icon">
-                                Fulghor
+                                <span data-i18n="nightlord.fulghor">Fulghor</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Gladius">
                                 <img src="assets/icons/Gladius.png" alt="Gladius" class="nightlord-icon">
-                                Gladius
+                                <span data-i18n="nightlord.gladius">Gladius</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Gnoster">
                                 <img src="assets/icons/Gnoster.png" alt="Gnoster" class="nightlord-icon">
-                                Gnoster
+                                <span data-i18n="nightlord.gnoster">Gnoster</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Heolstor">
                                 <img src="assets/icons/Heolstor.png" alt="Heolstor" class="nightlord-icon">
-                                Heolstor
+                                <span data-i18n="nightlord.heolstor">Heolstor</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Libra">
                                 <img src="assets/icons/Libra.png" alt="Libra" class="nightlord-icon">
-                                Libra
+                                <span data-i18n="nightlord.libra">Libra</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Maris">
                                 <img src="assets/icons/Maris.png" alt="Maris" class="nightlord-icon">
-                                Maris
+                                <span data-i18n="nightlord.maris">Maris</span>
                             </button>
                         </div>
                     </div>
 
                     <button id="start-recognition" class="start-btn" disabled>
                         <i class="fas fa-play"></i>
-                        Select Map Type to Continue
+                        <span data-i18n="actions.start">Select Map Type to Continue</span>
                     </button>
                 </div>
             </div>
@@ -121,33 +118,33 @@
             <!-- Spawn Point Selection Screen -->
             <div id="spawn-screen" class="spawn-screen" style="display: none;">
                 <div class="screen-header">
-                    <h2><i class="fas fa-map-marker-alt"></i> Select Spawn Point</h2>
-                    <p>Click on a spawn point location to select it, then choose the enemy type.</p>
+                    <h2><i class="fas fa-map-marker-alt"></i> <span data-i18n="spawn.title">Select Spawn Point</span></h2>
+                    <p data-i18n="spawn.description">Click on a spawn point location to select it, then choose the enemy type.</p>
                 </div>
 
                 <div class="current-selection">
-                    <span class="selection-label">Map:</span>
+                    <span class="selection-label" data-i18n="spawn.map">Map:</span>
                     <span id="spawn-current-map" class="selection-value">-</span>
-                    <span class="selection-label">Nightlord:</span>
+                    <span class="selection-label" data-i18n="spawn.nightlord">Nightlord:</span>
                     <span id="spawn-current-nightlord" class="selection-value">-</span>
                 </div>
                 <div class="seed-count">
-                    <span class="count-label">Matching Seeds:</span>
+                    <span class="count-label" data-i18n="spawn.seeds">Matching Seeds:</span>
                     <span id="spawn-seed-count" class="count-value">0</span>
                 </div>
 
                 <div class="spawn-controls">
                     <button id="spawn-back-btn" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        Back
+                        <span data-i18n="spawn.back">Back</span>
                     </button>
                     <button id="spawn-skip-btn" class="control-btn">
                         <i class="fas fa-forward"></i>
-                        Skip Spawn Selection
+                        <span data-i18n="spawn.skip">Skip Spawn Selection</span>
                     </button>
                     <button id="spawn-help-btn" class="control-btn">
                         <i class="fas fa-question-circle"></i>
-                        Help
+                        <span data-i18n="spawn.help">Help</span>
                     </button>
                 </div>
 

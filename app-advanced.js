@@ -46,17 +46,48 @@ class NightreignApp {
     async init() {
         console.log('🚀 Initializing Nightreign App...');
         
-        // Load data
-        await this.loadData();
-        
-        // Load map images
-        await this.loadMapImages();
-        
-        // Setup event listeners
+        // Setup event listeners IMMEDIATELY - don't wait for data loading
+        console.log('🔗 Setting up event listeners...');
         this.setupEventListeners();
+        console.log('✅ Event listeners set up successfully');
         
-        // Show selection screen
+        // Show selection screen immediately
+        console.log('🖥️ Showing selection screen...');
         this.showScreen('selection');
+        
+        // Load data in the background
+        console.log('📊 Loading data...');
+        await this.loadData();
+        console.log('✅ Data loaded successfully');
+        
+        // Load map images in the background
+        console.log('🖼️ Loading map images...');
+        await this.loadMapImages();
+        console.log('✅ Map images loaded successfully');
+        
+        // Initialize language manager with advanced translations
+        try {
+            // Override the global translations before creating the language manager
+            const originalTranslations = window.translations;
+            window.translations = translations_advanced;
+            
+            this.languageManager = new LanguageManager();
+            
+            // Listen for language changes using the same approach as basic page
+            window.addEventListener('languageChanged', (e) => {
+                this.refreshContextMenus();
+                this.refreshResultImage();
+            });
+            
+            // Restore original translations for other pages
+            window.translations = originalTranslations;
+            
+            console.log('✅ Language manager initialized successfully');
+        } catch (error) {
+            console.warn('⚠️ Language manager initialization failed:', error);
+            // Continue without language manager
+            this.languageManager = null;
+        }
         
         console.log('✅ App initialized successfully');
     }
@@ -128,53 +159,66 @@ class NightreignApp {
         // Nightlord selection
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                this.selectNightlord(e.target.dataset.nightlord);
+                this.selectNightlord(e.currentTarget.dataset.nightlord);
             });
         });
 
         // Map selection
         document.querySelectorAll('.map-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                this.selectMap(e.target.dataset.map);
+                this.selectMap(e.currentTarget.dataset.map);
             });
         });
 
         // Start recognition
-        document.getElementById('start-recognition').addEventListener('click', () => {
-            this.startRecognition();
-        });
+        const startBtn = document.getElementById('start-recognition');
+        if (startBtn) {
+            startBtn.addEventListener('click', () => {
+                this.startRecognition();
+            });
+        }
 
         // Back button - reset everything and go to selection screen
-        document.getElementById('back-btn').addEventListener('click', () => {
-            // Hide any open context menu before resetting
-            this.hideContextMenu();
-            this.resetToSelection();
-        });
+        const backBtn = document.getElementById('back-btn');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                // Hide any open context menu before resetting
+                this.hideContextMenu();
+                this.resetToSelection();
+            });
+        }
 
         // Clear All button
-        document.getElementById('clear-all-btn').addEventListener('click', () => {
-            this.clearAllPOIs();
-        });
+        const clearAllBtn = document.getElementById('clear-all-btn');
+        if (clearAllBtn) {
+            clearAllBtn.addEventListener('click', () => {
+                this.clearAllPOIs();
+            });
+        }
 
         // Help button
-        document.getElementById('help-btn').addEventListener('click', () => {
-            this.showHelp();
-        });
+        const helpBtn = document.getElementById('help-btn');
+        if (helpBtn) {
+            helpBtn.addEventListener('click', () => {
+                this.showHelp();
+            });
+        }
 
         // Close help modal
-        document.getElementById('close-help').addEventListener('click', () => {
-            this.hideHelp();
-        });
-
-        // Language toggle
-        document.getElementById('language-toggle').addEventListener('click', () => {
-            this.toggleLanguage();
-        });
+        const closeHelpBtn = document.getElementById('close-help');
+        if (closeHelpBtn) {
+            closeHelpBtn.addEventListener('click', () => {
+                this.hideHelp();
+            });
+        }
 
         // Switch to basic mode
-        document.getElementById('switch-to-basic-btn').addEventListener('click', () => {
-            window.location.href = 'index.html';
-        });
+        const switchToBasicBtn = document.getElementById('switch-to-basic-btn');
+        if (switchToBasicBtn) {
+            switchToBasicBtn.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        }
 
         // Click outside context menu to close it
         document.addEventListener('click', (e) => {
@@ -226,7 +270,11 @@ class NightreignApp {
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
             btn.classList.remove('selected');
         });
-        document.querySelector(`[data-nightlord="${nightlord}"]`).classList.add('selected');
+        
+        const selectedNightlordBtn = document.querySelector(`[data-nightlord="${nightlord}"]`);
+        if (selectedNightlordBtn) {
+            selectedNightlordBtn.classList.add('selected');
+        }
         
         this.updateStartButton();
     }
@@ -238,13 +286,19 @@ class NightreignApp {
         document.querySelectorAll('.map-btn').forEach(btn => {
             btn.classList.remove('selected');
         });
-        document.querySelector(`[data-map="${mapType}"]`).classList.add('selected');
+        
+        const selectedMapBtn = document.querySelector(`[data-map="${mapType}"]`);
+        if (selectedMapBtn) {
+            selectedMapBtn.classList.add('selected');
+        }
         
         this.updateStartButton();
     }
 
     updateStartButton() {
         const startBtn = document.getElementById('start-recognition');
+        if (!startBtn) return;
+        
         startBtn.disabled = !this.selectedMap;
         
         // Update button text to show what's required
@@ -257,6 +311,23 @@ class NightreignApp {
 
     startRecognition() {
         if (!this.selectedMap) return;
+        
+        // Check if data is loaded
+        if (!this.seedData || !this.poiData) {
+            console.log('⏳ Data still loading, please wait...');
+            // Show a loading message or disable the button
+            const startBtn = document.getElementById('start-recognition');
+            if (startBtn) {
+                startBtn.disabled = true;
+                startBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                // Re-enable after a short delay
+                setTimeout(() => {
+                    startBtn.disabled = false;
+                    startBtn.innerHTML = '<i class="fas fa-play"></i> Start Recognition';
+                }, 1000);
+            }
+            return;
+        }
 
         // Update display for spawn screen
         document.getElementById('spawn-current-map').textContent = this.selectedMap;
@@ -459,7 +530,7 @@ class NightreignApp {
         // Add header
         const header = document.createElement('div');
         header.className = 'context-menu-header';
-        header.textContent = `Select Enemy for ${spawnPoint.location}`;
+        header.innerHTML = '<span data-i18n="context.select_enemy">Select Enemy</span>';
         contextMenu.appendChild(header);
         
         // Add enemy options
@@ -469,7 +540,14 @@ class NightreignApp {
         spawnPoint.enemies.forEach(enemy => {
             const option = document.createElement('div');
             option.className = 'context-menu-item text-only';
-            option.textContent = enemy;
+            
+            // Use translated enemy name
+            const displayName = this.getEnemyDisplayName(enemy);
+            option.textContent = displayName;
+            
+            // Store original enemy name as data attribute for selection
+            option.setAttribute('data-enemy', enemy);
+            
             option.addEventListener('click', () => {
                 this.selectSpawnEnemy(spawnPoint, enemy);
                 this.hideSpawnContextMenu();
@@ -480,7 +558,7 @@ class NightreignApp {
         // Add "I don't know" option
         const unknownOption = document.createElement('div');
         unknownOption.className = 'context-menu-item text-only';
-        unknownOption.textContent = "I don't know";
+        unknownOption.innerHTML = '<span data-i18n="context.i_dont_know">I don\'t know</span>';
         unknownOption.addEventListener('click', () => {
             this.selectSpawnEnemy(spawnPoint, "I don't know");
             this.hideSpawnContextMenu();
@@ -488,6 +566,11 @@ class NightreignApp {
         optionsContainer.appendChild(unknownOption);
         
         contextMenu.appendChild(optionsContainer);
+        
+        // Translate the "I don't know" option immediately
+        if (this.languageManager) {
+            this.languageManager.updateUI();
+        }
     }
 
     selectSpawnEnemy(spawnPoint, enemy) {
@@ -1059,7 +1142,7 @@ class NightreignApp {
         // Layer 1: Icons (always show all options)
         const layer1Section = document.createElement('div');
         layer1Section.className = 'context-menu-section';
-        layer1Section.innerHTML = `<div class="context-menu-header">Structure Type</div>`;
+        layer1Section.innerHTML = `<div class="context-menu-header" data-i18n="context.select_icon">Select Icon</div>`;
         
         const layer1OptionsContainer = document.createElement('div');
         layer1OptionsContainer.className = 'context-menu-options icon-grid';
@@ -1107,7 +1190,7 @@ class NightreignApp {
         // Layer 2: Bosses (always show, but filter based on layer1 selection)
         const layer2Section = document.createElement('div');
         layer2Section.className = 'context-menu-section';
-        layer2Section.innerHTML = `<div class="context-menu-header">Specific Boss</div>`;
+        layer2Section.innerHTML = `<div class="context-menu-header" data-i18n="context.select_enemy">Select Enemy</div>`;
         
         const layer2OptionsContainer = document.createElement('div');
         layer2OptionsContainer.className = 'context-menu-options text-grid';
@@ -1124,7 +1207,9 @@ class NightreignApp {
                 item.classList.add('selected');
             }
             
-            item.textContent = option;
+            // Use translated boss name
+            const displayName = this.getBossDisplayName(option);
+            item.textContent = displayName;
             item.addEventListener('click', () => {
                 // If layer1 is not selected, auto-select it based on the layer2 option
                 if (!poi.selectionState.layer1) {
@@ -1147,12 +1232,17 @@ class NightreignApp {
         if (poi.selectionState.layer1 || poi.selectionState.layer2) {
             const clearItem = document.createElement('div');
             clearItem.className = 'context-menu-item clear-option';
-            clearItem.textContent = 'Clear Selection';
+            clearItem.innerHTML = '<span data-i18n="context.clear_selection">Clear Selection</span>';
             clearItem.addEventListener('click', () => {
                 this.clearPOISelection(poi);
                 this.hideContextMenu();
             });
             container.appendChild(clearItem);
+        }
+        
+        // Translate all newly created elements at the end
+        if (this.languageManager) {
+            this.languageManager.updateUI();
         }
     }
     
@@ -1241,7 +1331,9 @@ class NightreignApp {
                 item.classList.add('selected');
             }
             
-            item.textContent = option;
+            // Use translated boss name
+            const displayName = this.getBossDisplayName(option);
+            item.textContent = displayName;
             item.addEventListener('click', () => {
                 // If layer1 is not selected, auto-select it based on the layer2 option
                 if (!poi.selectionState.layer1) {
@@ -1256,6 +1348,11 @@ class NightreignApp {
             });
             layer2OptionsContainer.appendChild(item);
         });
+        
+        // Translate all newly created elements at the end
+        if (this.languageManager) {
+            this.languageManager.updateUI();
+        }
     }
 
     getOptionFromIconPath(iconSrc) {
@@ -1277,8 +1374,9 @@ class NightreignApp {
         const section = document.createElement('div');
         section.className = 'context-menu-section';
         
-        const headerText = category === 'minor_base' ? 'Structure Type' : 'Boss';
-        section.innerHTML = `<div class="context-menu-header">${headerText}</div>`;
+        const headerText = category === 'minor_base' ? 'Select Icon' : 'Boss';
+        const i18nKey = category === 'minor_base' ? 'context.select_icon' : 'context.select_enemy';
+        section.innerHTML = `<div class="context-menu-header" data-i18n="${i18nKey}">${headerText}</div>`;
         
         const optionsContainer = document.createElement('div');
         // Use icon grid for minor_base (has icons), text grid for others
@@ -1308,7 +1406,9 @@ class NightreignApp {
             } else {
                 // For evergaol/rotted_woods, just show text
                 item.classList.add('text-only');
-                item.textContent = option;
+                // Use translated boss name
+            const displayName = this.getBossDisplayName(option);
+            item.textContent = displayName;
             }
             
             item.addEventListener('click', () => {
@@ -1331,6 +1431,11 @@ class NightreignApp {
                 this.hideContextMenu();
             });
             container.appendChild(clearItem);
+        }
+        
+        // Translate all newly created elements at the end
+        if (this.languageManager) {
+            this.languageManager.updateUI();
         }
     }
 
@@ -1466,7 +1571,12 @@ class NightreignApp {
     }
 
     formatOptionName(option) {
-        // Convert icon names to readable format
+        // Get translated structure name, fallback to formatted original
+        const translatedName = this.getStructureDisplayName(option);
+        if (translatedName !== option) {
+            return translatedName;
+        }
+        // Convert icon names to readable format if no translation found
         return option.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
 
@@ -1496,10 +1606,16 @@ class NightreignApp {
     }
 
     showScreen(screenName) {
-        // Hide all screens
+        // Hide all screens including loading screen
         document.querySelectorAll('[id$="-screen"]').forEach(screen => {
             screen.style.display = 'none';
         });
+        
+        // Also hide loading screen specifically
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
         
         // Show selected screen
         let targetScreen = document.getElementById(`${screenName}-screen`);
@@ -1512,9 +1628,82 @@ class NightreignApp {
         if (targetScreen) {
             targetScreen.style.display = 'block';
             this.currentScreen = screenName;
+            console.log(`📺 Switched to ${screenName} screen`);
         } else {
             console.error(`Screen not found: ${screenName}-screen`);
         }
+    }
+
+    refreshContextMenus() {
+        // Refresh POI context menu if it's open
+        const poiContextMenu = document.getElementById('context-menu');
+        if (poiContextMenu && poiContextMenu.style.display !== 'none' && this.currentRightClickedPOI) {
+            this.generateContextMenu(this.currentRightClickedPOI);
+        }
+        
+        // Refresh spawn context menu if it's open
+        const spawnContextMenu = document.getElementById('spawn-context-menu');
+        if (spawnContextMenu && spawnContextMenu.style.display !== 'none' && this.currentRightClickedSpawn) {
+            this.generateSpawnContextMenu(this.currentRightClickedSpawn);
+        }
+        
+        // Update the newly generated context menus with current language
+        if (this.languageManager) {
+            this.languageManager.updateUI();
+        }
+    }
+
+    refreshResultImage() {
+        // Check if we have a found seed and the result screen exists
+        if (this.foundSeed) {
+            // Use the same approach as basic page - completely regenerate the result screen
+            this.updateRecognitionScreenForResult(this.foundSeed);
+        }
+    }
+
+    getEnemyI18nKey(enemyName) {
+        // Convert enemy name to i18n key format
+        return `enemy.${enemyName.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+    }
+
+    getEnemyDisplayName(enemyName) {
+        // Get translated enemy name, fallback to original if translation not found
+        if (this.languageManager && this.languageManager.translations) {
+            const i18nKey = this.getEnemyI18nKey(enemyName);
+            const translation = this.languageManager.translations[this.languageManager.currentLang]?.[i18nKey];
+            return translation || enemyName;
+        }
+        return enemyName;
+    }
+
+    getStructureI18nKey(structureName) {
+        // Convert structure name to i18n key format
+        return `structure.${structureName.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+    }
+
+    getStructureDisplayName(structureName) {
+        // Get translated structure name, fallback to original if translation not found
+        if (this.languageManager && this.languageManager.translations) {
+            const i18nKey = this.getStructureI18nKey(structureName);
+            const translation = this.languageManager.translations[this.languageManager.currentLang]?.[i18nKey];
+            return translation || structureName;
+        }
+        return structureName;
+    }
+
+    getBossI18nKey(bossName) {
+        // Convert boss name to i18n key format
+        return `boss.${bossName.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+    }
+
+    getBossDisplayName(bossName) {
+        // Get translated boss name, fallback to original if translation not found
+        if (this.languageManager && this.languageManager.translations) {
+            const i18nKey = this.getBossI18nKey(bossName);
+            const translation = this.languageManager.translations[this.languageManager.currentLang]?.[i18nKey];
+            return translation || bossName;
+        }
+        return bossName;
     }
 
     showHelp() {
@@ -1732,7 +1921,8 @@ class NightreignApp {
             ctx.fillText(`Pattern for Seed ${seed.seedNumber}`, 384, 384);
         };
         
-        const imagePath = `assets/pattern/en/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+        const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
+        const imagePath = `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
         console.log(`🖼️ Loading pattern image: ${imagePath} for seed ${seed.seedNumber}`);
         patternImage.src = imagePath;
     }
@@ -1816,76 +2006,6 @@ class NightreignApp {
     }
 
 
-    updateResultDetails(seed, retryCount = 0) {
-        console.log(`🔍 Updating result details (attempt ${retryCount + 1})`);
-        
-        // Check if result screen is actually visible
-        const resultScreen = document.getElementById('result-screen');
-        if (!resultScreen || resultScreen.style.display === 'none') {
-            console.log('⚠️ Result screen not visible, retrying...');
-            if (retryCount < 3) {
-                setTimeout(() => this.updateResultDetails(seed, retryCount + 1), 50);
-            } else {
-                console.error('❌ Result screen not visible after 3 attempts');
-            }
-            return;
-        }
-        
-        // Update result details with null checks
-        const seedNumberEl = document.getElementById('result-seed-number');
-        console.log('🔍 Looking for result-seed-number element:', seedNumberEl);
-        if (seedNumberEl) {
-            seedNumberEl.textContent = seed.seedNumber;
-        } else {
-            console.error('❌ result-seed-number element not found');
-            if (retryCount < 3) {
-                setTimeout(() => this.updateResultDetails(seed, retryCount + 1), 50);
-                return;
-            }
-        }
-        
-        const nightlordEl = document.getElementById('result-nightlord');
-        console.log('🔍 Looking for result-nightlord element:', nightlordEl);
-        if (nightlordEl) {
-            nightlordEl.textContent = seed.nightlord || 'Any';
-        } else {
-            console.error('❌ result-nightlord element not found');
-            if (retryCount < 3) {
-                setTimeout(() => this.updateResultDetails(seed, retryCount + 1), 50);
-                return;
-            }
-        }
-        
-        const mapTypeEl = document.getElementById('result-map-type');
-        console.log('🔍 Looking for result-map-type element:', mapTypeEl);
-        if (mapTypeEl) {
-            mapTypeEl.textContent = seed.mapType;
-        } else {
-            console.error('❌ result-map-type element not found');
-            if (retryCount < 3) {
-                setTimeout(() => this.updateResultDetails(seed, retryCount + 1), 50);
-                return;
-            }
-        }
-        
-        // Load and display the pattern image
-        const patternImage = document.getElementById('result-pattern-image');
-        console.log('🔍 Looking for result-pattern-image element:', patternImage);
-        if (patternImage) {
-            const imagePath = `assets/pattern/en/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
-            patternImage.src = imagePath;
-            patternImage.alt = `Map Pattern for Seed ${seed.seedNumber}`;
-            console.log(`📸 Loaded pattern image: ${imagePath}`);
-        } else {
-            console.error('❌ Result pattern image element not found');
-            if (retryCount < 3) {
-                setTimeout(() => this.updateResultDetails(seed, retryCount + 1), 50);
-                return;
-            }
-        }
-        
-        console.log('✅ Result details updated successfully');
-    }
 
     setupResultScreenEventListeners() {
         // Only setup once
@@ -1936,7 +2056,8 @@ class NightreignApp {
         const seed = this.foundSeed || this.filteredSeeds[0];
         if (!seed) return;
         
-        const imagePath = `assets/pattern/en/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+        const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
+        const imagePath = `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
         window.open(imagePath, '_blank');
         
         console.log(`🔗 Opened fullscreen image: ${imagePath}`);
