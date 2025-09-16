@@ -13,48 +13,9 @@ async function loadPOIData() {
         const response = await fetch('dataset/nightreignMapPatterns.json');
         const jsonData = await response.json();
         
-        // Structure the data
+        // Initialize POI_DATA
         POI_DATA = {
-            categories: {
-                major_base: {
-                    pois: [],
-                    possibleValues: [
-                        'camp_blank', 'camp_fire', 'camp_frenzy',
-                        'fort_blank', 'fort_magic',
-                        'cathedral_blank', 'cathedral_fire',
-                        'ruin_blank', 'ruin_frost', 'ruin_poison'
-                    ],
-                    defaultState: 'dot'
-                },
-                minor_base: {
-                    pois: [],
-                    possibleValues: ['church', 'rise', 'ancient_rise'],
-                    defaultState: 'dot'
-                },
-                field_boss: {
-                    pois: [],
-                    possibleValues: ['field_boss', 'elite'],
-                    defaultState: 'dot'
-                },
-                evergaol: {
-                    pois: [],
-                    possibleValues: ['evergaol'],
-                    defaultState: 'dot'
-                },
-                rotted_woods: {
-                    pois: [],
-                    possibleValues: ['rotted_woods'],
-                    defaultState: 'dot'
-                }
-            },
-            mapTypes: {
-                'Default': { pois: [] },
-                'Crater': { pois: [] },
-                'Mountaintop': { pois: [] },
-                'Noklateo': { pois: [] },
-                'Rotted Woods': { pois: [] }
-            },
-            iconPaths: {}
+            mapTypes: {}
         };
         
         // Process POI lookup data (now flattened structure)
@@ -87,7 +48,6 @@ async function loadPOIData() {
         POI_DATA.iconPaths = buildIconPaths();
         
         console.log('✅ POI data loaded successfully');
-        console.log('Categories:', Object.keys(POI_DATA.categories));
         console.log('Map types:', Object.keys(POI_DATA.mapTypes));
         console.log('Sample map data:', POI_DATA.mapTypes['Default']);
         console.log('Layer mappings:', POI_DATA.layerMappings);
@@ -106,7 +66,7 @@ function buildIconPaths() {
         // Major Base Icons
         'camp_blank': 'assets/icons/camp_blank.png',
         'camp_fire': 'assets/icons/camp_fire.png',
-        'camp_frenzy': 'assets/icons/camp_frenzy.png',
+        'camp_madness': 'assets/icons/camp_madness.png',
         'camp_lightning': 'assets/icons/camp_lightning.png',
         'fort_blank': 'assets/icons/fort_blank.png',
         'fort_magic': 'assets/icons/fort_magic.png',

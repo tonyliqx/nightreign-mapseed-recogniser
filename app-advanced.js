@@ -970,30 +970,6 @@ class NightreignApp {
         });
     }
 
-
-
-    getPossibleValuesForPOI(poi) {
-        // Get possible values from filtered seeds
-        const possibleValues = new Set();
-        
-        this.filteredSeeds.forEach(seed => {
-            const poiData = this.getPOIDataFromSeed(seed, poi.id);
-            if (poiData) {
-                possibleValues.add(poiData.value);
-            }
-        });
-        
-        // Fallback to all possible values for category
-        if (possibleValues.size === 0) {
-            const categoryData = this.poiData.categories[poi.category];
-            if (categoryData) {
-                return categoryData.possibleValues;
-            }
-        }
-        
-        return Array.from(possibleValues);
-    }
-
     getPOIDataFromSeed(seed, poiId) {
         if (!seed || !seed.pois) return null;
         
