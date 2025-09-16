@@ -265,16 +265,26 @@ class NightreignApp {
     }
 
     selectNightlord(nightlord) {
-        this.selectedNightlord = nightlord;
-        
-        // Update UI
-        document.querySelectorAll('.nightlord-btn').forEach(btn => {
-            btn.classList.remove('selected');
-        });
-        
-        const selectedNightlordBtn = document.querySelector(`[data-nightlord="${nightlord}"]`);
-        if (selectedNightlordBtn) {
-            selectedNightlordBtn.classList.add('selected');
+        // Toggle selection: if clicking the same nightlord, unselect it
+        if (this.selectedNightlord === nightlord) {
+            this.selectedNightlord = null;
+            
+            // Update UI - remove all selections
+            document.querySelectorAll('.nightlord-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+        } else {
+            this.selectedNightlord = nightlord;
+            
+            // Update UI
+            document.querySelectorAll('.nightlord-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            const selectedNightlordBtn = document.querySelector(`[data-nightlord="${nightlord}"]`);
+            if (selectedNightlordBtn) {
+                selectedNightlordBtn.classList.add('selected');
+            }
         }
         
         this.updateStartButton();
