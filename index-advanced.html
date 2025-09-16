@@ -38,14 +38,14 @@
             <div id="loading-screen" class="loading-screen">
                 <div class="loading-content">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading map data...</p>
+                    <p data-i18n="ui.loading_map_data">Loading map data...</p>
                 </div>
             </div>
 
             <!-- Selection Screen -->
             <div id="selection-screen" class="selection-screen" style="display: none;">
                 <div class="selection-container">
-                    <h2>Select Parameters</h2>
+                    <h2 data-i18n="ui.select_parameters">Select Parameters</h2>
                     
                     <!-- Map Type Selection -->
                     <div class="selection-group">
@@ -162,13 +162,13 @@
             <div id="recognition-screen" class="recognition-screen" style="display: none;">
                 <div class="recognition-header">
                     <div class="current-selection">
-                        <span class="selection-label">Map:</span>
+                        <span class="selection-label" data-i18n="ui.map">Map:</span>
                         <span id="current-map" class="selection-value">-</span>
-                        <span class="selection-label">Nightlord:</span>
+                        <span class="selection-label" data-i18n="ui.nightlord">Nightlord:</span>
                         <span id="current-nightlord" class="selection-value">-</span>
                     </div>
                     <div class="seed-count">
-                        <span class="count-label">Matching Seeds:</span>
+                        <span class="count-label" data-i18n="ui.matching_seeds">Matching Seeds:</span>
                         <span id="seed-count" class="count-value">0</span>
                     </div>
                 </div>
@@ -176,15 +176,15 @@
                 <div class="recognition-controls">
                     <button id="back-btn" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        Back
+                        <span data-i18n="actions.back">Back</span>
                     </button>
                     <button id="clear-all-btn" class="control-btn clear-btn">
                         <i class="fas fa-eraser"></i>
-                        Clear All POIs
+                        <span data-i18n="actions.clear_all">Clear All POIs</span>
                     </button>
                     <button id="help-btn" class="control-btn">
                         <i class="fas fa-question-circle"></i>
-                        Help
+                        <span data-i18n="actions.help">Help</span>
                     </button>
                 </div>
 
@@ -202,29 +202,29 @@
             <!-- Result Screen -->
             <div id="result-screen" class="result-screen" style="display: none;">
                 <div class="result-header">
-                    <h2><i class="fas fa-check-circle"></i> Seed Found!</h2>
+                    <h2><i class="fas fa-check-circle"></i> <span data-i18n="ui.seed_found">Seed Found!</span></h2>
                     <div class="result-info">
                         <div class="result-details">
-                            <span class="detail-label">Seed Number:</span>
+                            <span class="detail-label" data-i18n="ui.seed_number">Seed Number:</span>
                             <span id="result-seed-number" class="detail-value">-</span>
                         </div>
                         <div class="result-details">
-                            <span class="detail-label">Nightlord:</span>
+                            <span class="detail-label" data-i18n="ui.nightlord">Nightlord:</span>
                             <span id="result-nightlord" class="detail-value">-</span>
                         </div>
                         <div class="result-details">
-                            <span class="detail-label">Map Type:</span>
+                            <span class="detail-label" data-i18n="ui.map_type">Map Type:</span>
                             <span id="result-map-type" class="detail-value">-</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="result-image-container">
-                    <img id="result-pattern-image" class="result-pattern-image" alt="Map Pattern" />
+                    <img id="result-pattern-image" class="result-pattern-image" alt="Map Pattern" data-i18n="ui.map_pattern" />
                     <div class="result-image-overlay">
                         <button id="open-fullscreen" class="fullscreen-btn">
                             <i class="fas fa-expand"></i>
-                            Open in New Tab
+                            <span data-i18n="actions.open_new_tab">Open in New Tab</span>
                         </button>
                     </div>
                 </div>
@@ -232,11 +232,11 @@
                 <div class="result-controls">
                     <button id="back-to-recognition" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        Back to Recognition
+                        <span data-i18n="actions.back_to_recognition">Back to Recognition</span>
                     </button>
                     <button id="new-search" class="control-btn primary">
                         <i class="fas fa-search"></i>
-                        New Search
+                        <span data-i18n="actions.new_search">New Search</span>
                     </button>
                 </div>
             </div>

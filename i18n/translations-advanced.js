@@ -12,6 +12,7 @@ const translations_advanced = {
     
     // Selection
     'selection.optional': '(可选)',
+    'selection.any': '任意',
     'selection.nightlord': '选择你的夜王',
     'selection.map': '选择你的地图 / 特殊地形',
 
@@ -44,6 +45,26 @@ const translations_advanced = {
 
     // Actions
     'actions.start': '开始识别',
+    'actions.start_disabled': '选择地图类型以继续',
+    'actions.back': '返回',
+    'actions.clear_all': '清除所有POI',
+    'actions.help': '帮助',
+    'actions.new_search': '新搜索',
+    'actions.back_to_recognition': '返回识别',
+    'actions.open_new_tab': '在新标签页中打开',
+    
+    // UI Labels
+    'ui.select_parameters': '选择参数',
+    'ui.loading_map_data': '正在加载地图数据...',
+    'ui.map': '地图:',
+    'ui.nightlord': '夜王:',
+    'ui.matching_seeds': '匹配种子:',
+    'ui.seed_found': '找到种子！',
+    'ui.seed_number': '种子编号:',
+    'ui.map_type': '地图类型:',
+    'ui.map_pattern': '地图模式',
+    'ui.no_options_available': '没有可用选项',
+    'ui.loading': '加载中...',
     
     // Context menu
     'context.clear_selection': '清除选择',
@@ -205,6 +226,7 @@ const translations_advanced = {
     
     // Selection
     'selection.optional': '(Optional)',
+    'selection.any': 'Any',
     'selection.nightlord': 'Select your Nightlord',
     'selection.map': 'Select your Map / Special Terrain',
 
@@ -237,6 +259,26 @@ const translations_advanced = {
 
     // Actions
     'actions.start': 'Start Recognition',
+    'actions.start_disabled': 'Select Map Type to Continue',
+    'actions.back': 'Back',
+    'actions.clear_all': 'Clear All POIs',
+    'actions.help': 'Help',
+    'actions.new_search': 'New Search',
+    'actions.back_to_recognition': 'Back to Recognition',
+    'actions.open_new_tab': 'Open in New Tab',
+    
+    // UI Labels
+    'ui.select_parameters': 'Select Parameters',
+    'ui.loading_map_data': 'Loading map data...',
+    'ui.map': 'Map:',
+    'ui.nightlord': 'Nightlord:',
+    'ui.matching_seeds': 'Matching Seeds:',
+    'ui.seed_found': 'Seed Found!',
+    'ui.seed_number': 'Seed Number:',
+    'ui.map_type': 'Map Type:',
+    'ui.map_pattern': 'Map Pattern',
+    'ui.no_options_available': 'No options available',
+    'ui.loading': 'Loading...',
     
     // Context menu
     'context.clear_selection': 'Clear Selection',
