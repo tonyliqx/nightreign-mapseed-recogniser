@@ -78,6 +78,12 @@ class NightreignApp {
                 this.refreshOnLanguageChange();
             });
             
+            // Handle window resize to reposition context menus
+            window.addEventListener('resize', () => {
+                this.repositionContextMenu();
+                this.repositionSpawnContextMenu();
+            });
+            
             // Restore original translations for other pages
             window.translations = originalTranslations;
             
@@ -1452,6 +1458,84 @@ class NightreignApp {
         const menu = document.getElementById('context-menu');
         menu.style.display = 'none';
         this.currentRightClickedPOI = null;
+    }
+
+    repositionContextMenu() {
+        const menu = document.getElementById('context-menu');
+        if (!menu || menu.style.display === 'none') {
+            return; // No context menu visible
+        }
+
+        const canvas = document.getElementById('map-canvas');
+        const rect = canvas.getBoundingClientRect();
+        const menuRect = menu.getBoundingClientRect();
+        
+        // Get current position
+        let left = parseInt(menu.style.left) || 0;
+        let top = parseInt(menu.style.top) || 0;
+        
+        // Check if menu goes off screen and adjust
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        // Adjust horizontal position
+        if (left + menuRect.width > viewportWidth) {
+            left = viewportWidth - menuRect.width - 10;
+        }
+        if (left < 10) {
+            left = 10;
+        }
+        
+        // Adjust vertical position
+        if (top + menuRect.height > viewportHeight) {
+            top = viewportHeight - menuRect.height - 10;
+        }
+        if (top < 10) {
+            top = 10;
+        }
+        
+        // Apply new position
+        menu.style.left = `${left}px`;
+        menu.style.top = `${top}px`;
+    }
+
+    repositionSpawnContextMenu() {
+        const menu = document.getElementById('spawn-context-menu');
+        if (!menu || menu.style.display === 'none') {
+            return; // No spawn context menu visible
+        }
+
+        const canvas = document.getElementById('map-canvas');
+        const rect = canvas.getBoundingClientRect();
+        const menuRect = menu.getBoundingClientRect();
+        
+        // Get current position
+        let left = parseInt(menu.style.left) || 0;
+        let top = parseInt(menu.style.top) || 0;
+        
+        // Check if menu goes off screen and adjust
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        // Adjust horizontal position
+        if (left + menuRect.width > viewportWidth) {
+            left = viewportWidth - menuRect.width - 10;
+        }
+        if (left < 10) {
+            left = 10;
+        }
+        
+        // Adjust vertical position
+        if (top + menuRect.height > viewportHeight) {
+            top = viewportHeight - menuRect.height - 10;
+        }
+        if (top < 10) {
+            top = 10;
+        }
+        
+        // Apply new position
+        menu.style.left = `${left}px`;
+        menu.style.top = `${top}px`;
     }
 
     selectLayer1(poi, value) {

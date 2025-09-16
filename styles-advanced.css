@@ -408,9 +408,9 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    min-width: 400px;
-    max-width: 600px;
-    max-height: 500px;
+    min-width: 300px;
+    max-width: min(600px, 90vw);
+    max-height: min(500px, 80vh);
     overflow-y: auto;
     transform-origin: top left;
 }
@@ -430,14 +430,44 @@ body {
 
 /* Grid layout for icon options (compact) */
 .context-menu-options.icon-grid {
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 0.25rem;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+    .context-menu-options.icon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+        gap: 0.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .context-menu-options.icon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 0.15rem;
+    }
 }
 
 /* Grid layout for text options (wider) */
 .context-menu-options.text-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+}
+
+/* Responsive text grid adjustments */
+@media (max-width: 768px) {
+    .context-menu-options.text-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .context-menu-options.text-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 0.3rem;
+    }
 }
 
 .context-menu-header {
@@ -451,17 +481,17 @@ body {
 }
 
 .context-menu-item {
-    padding: 0.25rem;
+    padding: 0.125rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.05);
-    min-height: 48px;
+    min-height: 60px;
     text-align: center;
     font-size: 0.85rem;
     word-wrap: break-word;
@@ -469,24 +499,41 @@ body {
 
 /* Icon-only items (for layer1 icons) */
 .context-menu-item.icon-only {
-    width: 48px;
-    height: 48px;
-    padding: 0.25rem;
+    width: 60px;
+    height: 60px;
+    padding: 0.125rem;
     justify-self: center;
+    overflow: hidden;
 }
 
 /* Text-only items (for layer2 boss names) */
 .context-menu-item.text-only {
-    min-width: 120px;
-    padding: 0.75rem 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 90px;
+    padding: 0.5rem 0.75rem;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.2;
+}
+
+/* Ensure text-only items don't get icon scaling */
+.context-menu-item.text-only img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transform: none;
+    image-rendering: auto;
 }
 
 .context-menu-icon {
     flex-shrink: 0;
     object-fit: contain;
+    width: 40px;
+    height: 40px;
+    transform: scale(1.8);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .context-menu-item:hover {
@@ -522,9 +569,12 @@ body {
 }
 
 .context-menu-item img {
-    width: 20px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
+    transform: scale(1.8);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .context-menu-separator {
