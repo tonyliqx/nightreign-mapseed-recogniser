@@ -75,8 +75,7 @@ class NightreignApp {
             
             // Listen for language changes using the same approach as basic page
             window.addEventListener('languageChanged', (e) => {
-                this.refreshContextMenus();
-                this.refreshResultImage();
+                this.refreshOnLanguageChange();
             });
             
             // Restore original translations for other pages
@@ -305,9 +304,9 @@ class NightreignApp {
         
         // Update button text to show what's required
         if (!this.selectedMap) {
-            startBtn.innerHTML = '<i class="fas fa-play"></i> Select Map Type to Continue';
+            startBtn.innerHTML = `<i class="fas fa-play"></i> ${this.languageManager.getText('actions.start_disabled')}`;
         } else {
-            startBtn.innerHTML = '<i class="fas fa-play"></i> Start Recognition';
+            startBtn.innerHTML = `<i class="fas fa-play"></i> ${this.languageManager.getText('actions.start')}`;
         }
     }
 
@@ -321,19 +320,20 @@ class NightreignApp {
             const startBtn = document.getElementById('start-recognition');
             if (startBtn) {
                 startBtn.disabled = true;
-                startBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                const loadingText = this.languageManager ? this.languageManager.getText('ui.loading') : 'Loading...';
+                startBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${loadingText}`;
                 // Re-enable after a short delay
                 setTimeout(() => {
                     startBtn.disabled = false;
-                    startBtn.innerHTML = '<i class="fas fa-play"></i> Start Recognition';
+                    startBtn.innerHTML = `<i class="fas fa-play"></i> ${this.languageManager.getText('actions.start')}`;
                 }, 1000);
             }
             return;
         }
 
         // Update display for spawn screen
-        document.getElementById('spawn-current-map').textContent = this.selectedMap;
-        document.getElementById('spawn-current-nightlord').textContent = this.selectedNightlord || 'Any';
+        document.getElementById('spawn-current-map').textContent = this.getMapDisplayName(this.selectedMap);
+        document.getElementById('spawn-current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
 
         // Set current map image
         this.currentMapImage = this.mapImages[this.selectedMap];
@@ -353,8 +353,8 @@ class NightreignApp {
 
     startPOIRecognition() {
         // Update display for recognition screen
-        document.getElementById('current-map').textContent = this.selectedMap;
-        document.getElementById('current-nightlord').textContent = this.selectedNightlord || 'Any';
+        document.getElementById('current-map').textContent = this.getMapDisplayName(this.selectedMap);
+        document.getElementById('current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
 
         // Update seed count with current filtered seeds
         document.getElementById('seed-count').textContent = this.filteredSeeds.length;
@@ -1347,7 +1347,8 @@ class NightreignApp {
         const options = this.getAvailableOptions(poi, 1);
         
         if (options.length === 0) {
-            container.innerHTML = '<div class="context-menu-item">No options available</div>';
+            const noOptionsText = this.languageManager ? this.languageManager.getText('ui.no_options_available') : 'No options available';
+            container.innerHTML = `<div class="context-menu-item">${noOptionsText}</div>`;
             return;
         }
         
@@ -1624,7 +1625,7 @@ class NightreignApp {
         }
     }
 
-    refreshContextMenus() {
+    refreshOnLanguageChange() {
         // Refresh POI context menu if it's open
         const poiContextMenu = document.getElementById('context-menu');
         if (poiContextMenu && poiContextMenu.style.display !== 'none' && this.currentRightClickedPOI) {
@@ -1641,12 +1642,49 @@ class NightreignApp {
         if (this.languageManager) {
             this.languageManager.updateUI();
         }
+        
+        // Check if we have a found seed and refresh result content
+        if (this.foundSeed) {
+            this.updateRecognitionScreenForResult(this.foundSeed);
+        }
+        
+        // Always refresh the start button text
+        this.updateStartButton();
+        
+        // Refresh dynamic content based on current screen
+        if (this.currentScreen === 'spawn') {
+            this.refreshSpawnScreenContent();
+        } else if (this.currentScreen === 'recognition') {
+            this.refreshRecognitionScreenContent();
+        }
     }
 
-    refreshResultImage() {
-        // Check if we have a found seed and the result screen exists
+    refreshSpawnScreenContent() {
+        // Refresh spawn screen dynamic content
+        if (this.selectedMap) {
+            document.getElementById('spawn-current-map').textContent = this.getMapDisplayName(this.selectedMap);
+        }
+        if (this.selectedNightlord !== undefined) {
+            document.getElementById('spawn-current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
+        }
+    }
+
+    refreshRecognitionScreenContent() {
+        // Refresh recognition screen dynamic content
+        if (this.selectedMap) {
+            document.getElementById('current-map').textContent = this.getMapDisplayName(this.selectedMap);
+        }
+        if (this.selectedNightlord !== undefined) {
+            document.getElementById('current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
+        }
+        
+        // Refresh seed count if we have filtered seeds
+        if (this.filteredSeeds) {
+            document.getElementById('seed-count').textContent = this.filteredSeeds.length;
+        }
+        
+        // If we're showing a result, refresh the result content
         if (this.foundSeed) {
-            // Use the same approach as basic page - completely regenerate the result screen
             this.updateRecognitionScreenForResult(this.foundSeed);
         }
     }
@@ -1654,6 +1692,20 @@ class NightreignApp {
     getEnemyI18nKey(enemyName) {
         // Convert enemy name to i18n key format
         return `enemy.${enemyName.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+    }
+
+    getMapDisplayName(mapType) {
+        // Get translated map name
+        const mapKey = `map.${mapType.toLowerCase().replace(/\s+/g, '_')}`;
+        return this.languageManager ? this.languageManager.getText(mapKey) : mapType;
+    }
+
+    getNightlordDisplayName(nightlord) {
+        if (!nightlord || nightlord === 'Any') {
+            return this.languageManager ? this.languageManager.getText('selection.any') : 'Any';
+        }
+        const nightlordKey = `nightlord.${nightlord.toLowerCase()}`;
+        return this.languageManager ? this.languageManager.getText(nightlordKey) : nightlord;
     }
 
     getEnemyDisplayName(enemyName) {
@@ -1875,7 +1927,8 @@ class NightreignApp {
         // Update the seed count display to show success
         const seedCountEl = document.getElementById('seed-count');
         if (seedCountEl) {
-            seedCountEl.innerHTML = `<i class="fas fa-check-circle" style="color: #4CAF50;"></i> Seed Found!`;
+            const seedFoundText = this.languageManager ? this.languageManager.getText('ui.seed_found') : 'Seed Found!';
+            seedCountEl.innerHTML = `<i class="fas fa-check-circle" style="color: #4CAF50;"></i> ${seedFoundText}`;
         }
         
         // Update the map canvas to show the pattern image
@@ -1913,7 +1966,9 @@ class NightreignApp {
             ctx.fillStyle = '#ffffff';
             ctx.font = '24px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText(`Pattern for Seed ${seed.seedNumber}`, 384, 384);
+            const patternText = this.languageManager ? this.languageManager.getText('ui.map_pattern') : 'Pattern';
+            const seedNumberText = this.languageManager ? this.languageManager.getText('ui.seed_number') : 'Seed';
+            ctx.fillText(`${patternText} for ${seedNumberText} ${seed.seedNumber}`, 384, 384);
         };
         
         const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
@@ -1934,20 +1989,23 @@ class NightreignApp {
         ctx.fillStyle = '#ffffff';
         ctx.font = '14px Arial';
         ctx.textAlign = 'left';
-        ctx.fillText('Click to open full image', 15, 28);
+        const clickText = this.languageManager ? this.languageManager.getText('actions.open_new_tab') : 'Click to open full image';
+        ctx.fillText(clickText, 15, 28);
     }
 
     updateInfoPanel(seed) {
         // Update the current map display
         const currentMapEl = document.getElementById('current-map');
         if (currentMapEl) {
-            currentMapEl.innerHTML = `Seed ${seed.seedNumber} - ${seed.mapType}`;
+            const seedNumberText = this.languageManager ? this.languageManager.getText('ui.seed_number') : 'Seed';
+            const mapDisplayName = this.getMapDisplayName(seed.mapType);
+            currentMapEl.innerHTML = `${seedNumberText} ${seed.seedNumber} - ${mapDisplayName}`;
         }
         
         // Update the current nightlord display
         const currentNightlordEl = document.getElementById('current-nightlord');
         if (currentNightlordEl) {
-            currentNightlordEl.textContent = seed.nightlord || 'Any';
+            currentNightlordEl.textContent = this.getNightlordDisplayName(seed.nightlord);
         }
         
         // Add seed details to the info panel
