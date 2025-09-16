@@ -13,7 +13,7 @@ const translations = {
     'lang.switch': '切换语言',
     
     // Navigation
-    'nav.advanced': '高级模式',
+    'nav.advanced': '地图缺失模式',
     
     // Loading
     'loading.init': '正在初始化地图数据，请稍候...',
