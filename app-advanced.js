@@ -1906,6 +1906,9 @@ class NightreignApp {
         
         this.updateSeedCounts();
         
+        // Re-run POI auto-fill logic after clearing
+        this.updatePOIStatesFromSeeds();
+        
         console.log('🧹 Cleared all POI selections');
         console.log(`🔍 Current POI states:`, this.poiStates);
     }
