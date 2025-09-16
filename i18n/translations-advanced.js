@@ -13,7 +13,7 @@ const translations_advanced = {
     'lang.switch': '切换语言',
     
     // Navigation
-    'nav.advanced': '高级模式',
+    'nav.advanced': '地图缺失模式',
     'nav.basic': '切换到基础模式',
     
     // Selection
