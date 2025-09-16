@@ -3,6 +3,8 @@ const translations_advanced = {
   'zh': {
     // App metadata
     'app.title': '艾尔登法环 黑夜君临：地图种子识别器',
+    'app.description': '交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子',
+    'app.keywords': '艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具',
     
     // Language toggle
     'lang.current': '中文',
@@ -120,6 +122,7 @@ const translations_advanced = {
     'enemy.wandering_nobles': '流浪贵族',
     
     // Structure names
+    'structure.empty': '空白',
     'structure.camp': '营地',
     'structure.church': '教堂',
     'structure.difficult_sorcerers_rise': '古老魔法师塔',
@@ -132,6 +135,7 @@ const translations_advanced = {
     'structure.township': '城镇',
     
     // Boss names
+    'boss.empty': '空白',
     'boss.tree_sentinel': '大树守卫',
     'boss.erdtree_avatar': '黄金树的化身',
     'boss.crucible_knight_with_sword': '熔炉骑士（剑）',
@@ -214,6 +218,8 @@ const translations_advanced = {
   'en': {
     // App metadata
     'app.title': 'Elden Ring: Nightreign Map Seed Recognizer',
+    'app.description': 'Interactive tool: Identify Elden Ring Nightreign map seeds through POI locations',
+    'app.keywords': 'Elden Ring, Nightreign, map, seed, recognizer, POI, tool',
     
     // Language toggle
     'lang.current': 'English',
@@ -331,6 +337,7 @@ const translations_advanced = {
     'enemy.wandering_nobles': 'Wandering Nobles',
     
     // Structure names
+    'structure.empty': 'Empty',
     'structure.camp': 'Camp',
     'structure.church': 'Church',
     'structure.difficult_sorcerers_rise': 'Difficult Sorcerer\'s Rise',
@@ -343,6 +350,7 @@ const translations_advanced = {
     'structure.township': 'Township',
     
     // Boss names (commonly used ones)
+    'boss.empty': 'Empty',
     'boss.tree_sentinel': 'Tree Sentinel',
     'boss.erdtree_avatar': 'Erdtree Avatar',
     'boss.crucible_knight_with_sword': 'Crucible Knight with Sword',

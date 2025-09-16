@@ -1731,7 +1731,7 @@ class NightreignMapRecogniser {
         const loadingSection = document.getElementById('loading-section');
         loadingSection.innerHTML = `
             <div class="loading-indicator">
-                <i class="fas fa-exclamation-triangle" style="color: #e74c3c;"></i>
+                <i class="fas fa-exclamation-triangle"></i>
                 <p style="color: #e74c3c;" data-i18n="error.load_failed">${message}</p>
             </div>
         `;

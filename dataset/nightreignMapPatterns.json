@@ -1,5 +1,5 @@
 {
-  "extractedTime": "2025-09-10T00:24:29.211205",
+  "extractedTime": "2025-09-16T01:22:31.968106",
   "seeds": {
     "0": {
       "seedNumber": 0,
@@ -109,8 +109,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -217,8 +217,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -655,8 +655,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -763,8 +763,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -1201,8 +1201,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -1309,8 +1309,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -1745,8 +1745,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -1853,8 +1853,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -2290,8 +2290,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -2398,8 +2398,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -2835,8 +2835,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -2943,8 +2943,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -3383,8 +3383,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -3491,8 +3491,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -3927,8 +3927,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -4035,8 +4035,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -4472,8 +4472,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -4580,8 +4580,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -5016,8 +5016,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -5124,8 +5124,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -5559,8 +5559,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -5667,8 +5667,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -6101,8 +6101,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -6209,8 +6209,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -6649,8 +6649,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_magic"
         },
@@ -6757,8 +6757,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -7197,8 +7197,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -7305,8 +7305,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -7740,8 +7740,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -7848,8 +7848,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -8284,8 +8284,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -8392,8 +8392,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -8832,8 +8832,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -8940,8 +8940,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -9378,8 +9378,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -9486,8 +9486,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -9924,8 +9924,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": null
         },
@@ -10032,8 +10032,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -10468,8 +10468,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -10576,8 +10576,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -11074,8 +11074,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -11468,8 +11468,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -11865,8 +11865,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -12262,8 +12262,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -12656,8 +12656,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -13038,8 +13038,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -13420,8 +13420,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -13803,8 +13803,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -14187,8 +14187,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -14569,8 +14569,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_holy"
         },
@@ -14904,8 +14904,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -14964,8 +14964,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -15399,8 +15399,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -15459,8 +15459,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -15890,8 +15890,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -15950,8 +15950,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": null
         },
@@ -16383,8 +16383,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -16443,8 +16443,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -16878,8 +16878,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -16938,8 +16938,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -17336,8 +17336,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -17444,8 +17444,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -17774,8 +17774,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -17882,8 +17882,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -18212,8 +18212,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -18320,8 +18320,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -18651,8 +18651,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -18759,8 +18759,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -19091,8 +19091,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -19199,8 +19199,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -19565,8 +19565,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -19673,8 +19673,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -20113,8 +20113,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -20221,8 +20221,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -20661,8 +20661,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -20769,8 +20769,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -21209,8 +21209,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -21317,8 +21317,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -21753,8 +21753,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -21861,8 +21861,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -22297,8 +22297,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_magic"
         },
@@ -22405,8 +22405,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -22843,8 +22843,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -22951,8 +22951,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -23386,8 +23386,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -23494,8 +23494,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -23929,8 +23929,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -24037,8 +24037,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -24475,8 +24475,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blood"
         },
@@ -24583,8 +24583,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -25021,8 +25021,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -25129,8 +25129,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -25566,8 +25566,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -25674,8 +25674,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -26111,8 +26111,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -26219,8 +26219,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -26657,8 +26657,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -26765,8 +26765,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -27200,8 +27200,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -27308,8 +27308,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -27742,8 +27742,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -27850,8 +27850,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -28289,8 +28289,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -28397,8 +28397,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -28834,8 +28834,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -28942,8 +28942,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -29381,8 +29381,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -29489,8 +29489,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -29924,8 +29924,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -30032,8 +30032,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -30528,8 +30528,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -30923,8 +30923,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -31317,8 +31317,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -31711,8 +31711,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -32108,8 +32108,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -32490,8 +32490,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -32872,8 +32872,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -33255,8 +33255,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -33640,8 +33640,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -34022,8 +34022,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -34359,8 +34359,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -34419,8 +34419,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -34852,8 +34852,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -34912,8 +34912,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -35345,8 +35345,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -35405,8 +35405,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -35837,8 +35837,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -35897,8 +35897,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -36330,8 +36330,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -36390,8 +36390,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -36789,8 +36789,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -36897,8 +36897,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -37228,8 +37228,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -37336,8 +37336,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -37667,8 +37667,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -37775,8 +37775,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -38105,8 +38105,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -38213,8 +38213,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -38544,8 +38544,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -38652,8 +38652,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -39019,8 +39019,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -39127,8 +39127,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -39566,8 +39566,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -39674,8 +39674,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -40109,8 +40109,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -40217,8 +40217,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -40651,8 +40651,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -40759,8 +40759,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -41198,8 +41198,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -41306,8 +41306,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -41743,8 +41743,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -41851,8 +41851,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -42289,8 +42289,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -42397,8 +42397,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -42832,8 +42832,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -42940,8 +42940,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -43379,8 +43379,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -43487,8 +43487,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -43924,8 +43924,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -44032,8 +44032,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -44469,8 +44469,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -44577,8 +44577,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -45019,8 +45019,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -45127,8 +45127,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -45564,8 +45564,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -45672,8 +45672,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -46110,8 +46110,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -46218,8 +46218,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -46657,8 +46657,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -46765,8 +46765,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -47201,8 +47201,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -47309,8 +47309,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -47747,8 +47747,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -47855,8 +47855,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -48291,8 +48291,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -48399,8 +48399,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -48838,8 +48838,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -48946,8 +48946,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -49382,8 +49382,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -49490,8 +49490,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -49988,8 +49988,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -50382,8 +50382,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -50778,8 +50778,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -51173,8 +51173,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -51568,8 +51568,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -51952,8 +51952,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -52335,8 +52335,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -52717,8 +52717,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -53102,8 +53102,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -53486,8 +53486,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -53820,8 +53820,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -53880,8 +53880,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -54315,8 +54315,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -54375,8 +54375,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -54809,8 +54809,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -54869,8 +54869,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -55308,8 +55308,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -55368,8 +55368,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -55802,8 +55802,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -55862,8 +55862,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -56258,8 +56258,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -56366,8 +56366,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -56696,8 +56696,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -56804,8 +56804,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -57134,8 +57134,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -57242,8 +57242,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -57574,8 +57574,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -57682,8 +57682,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -58015,8 +58015,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -58123,8 +58123,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -58492,8 +58492,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -58600,8 +58600,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -59038,8 +59038,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -59146,8 +59146,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -59585,8 +59585,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -59693,8 +59693,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_holy"
         },
@@ -60130,8 +60130,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -60238,8 +60238,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -60674,8 +60674,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -60782,8 +60782,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -61221,8 +61221,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -61329,8 +61329,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -61767,8 +61767,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -61875,8 +61875,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -62313,8 +62313,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -62421,8 +62421,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -62858,8 +62858,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_magic"
         },
@@ -62966,8 +62966,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -63404,8 +63404,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -63512,8 +63512,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -63952,8 +63952,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -64060,8 +64060,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -64495,8 +64495,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -64603,8 +64603,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -65041,8 +65041,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -65149,8 +65149,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -65589,8 +65589,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -65697,8 +65697,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -66135,8 +66135,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -66243,8 +66243,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": null
         },
@@ -66678,8 +66678,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -66786,8 +66786,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -67224,8 +67224,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -67332,8 +67332,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -67768,8 +67768,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -67876,8 +67876,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -68314,8 +68314,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -68422,8 +68422,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -68858,8 +68858,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -68966,8 +68966,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -69464,8 +69464,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -69861,8 +69861,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -70258,8 +70258,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -70654,8 +70654,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -71049,8 +71049,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -71432,8 +71432,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -71815,8 +71815,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -72188,8 +72188,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -72570,8 +72570,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -72953,8 +72953,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -73289,8 +73289,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -73349,8 +73349,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -73781,8 +73781,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -73841,8 +73841,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -74274,8 +74274,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": null
         },
@@ -74334,8 +74334,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -74768,8 +74768,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -74828,8 +74828,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -75261,8 +75261,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -75321,8 +75321,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -75717,8 +75717,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -75825,8 +75825,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -76158,8 +76158,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -76266,8 +76266,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -76599,8 +76599,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -76707,8 +76707,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -77037,8 +77037,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -77145,8 +77145,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -77477,8 +77477,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -77585,8 +77585,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -77951,8 +77951,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -78059,8 +78059,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -78499,8 +78499,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -78607,8 +78607,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -79047,8 +79047,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -79155,8 +79155,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -79591,8 +79591,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -79699,8 +79699,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -80137,8 +80137,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -80245,8 +80245,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -80683,8 +80683,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blood"
         },
@@ -80791,8 +80791,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -81231,8 +81231,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -81339,8 +81339,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -81773,8 +81773,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -81881,8 +81881,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -82320,8 +82320,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -82428,8 +82428,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -82868,8 +82868,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -82976,8 +82976,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -83413,8 +83413,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_magic"
         },
@@ -83521,8 +83521,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -83959,8 +83959,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -84067,8 +84067,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": null
         },
@@ -84506,8 +84506,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -84614,8 +84614,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -85054,8 +85054,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -85162,8 +85162,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -85599,8 +85599,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -85707,8 +85707,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": null
         },
@@ -86146,8 +86146,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -86254,8 +86254,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -86690,8 +86690,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blood"
         },
@@ -86798,8 +86798,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -87235,8 +87235,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -87343,8 +87343,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -87782,8 +87782,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -87890,8 +87890,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -88329,8 +88329,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -88437,8 +88437,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_holy"
         },
@@ -88937,8 +88937,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -89334,8 +89334,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -89730,8 +89730,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -90125,8 +90125,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -90522,8 +90522,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -90905,8 +90905,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -91287,8 +91287,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -91671,8 +91671,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -92053,8 +92053,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -92439,8 +92439,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -92776,8 +92776,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -92836,8 +92836,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -93268,8 +93268,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -93328,8 +93328,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -93764,8 +93764,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -93824,8 +93824,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -94257,8 +94257,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -94317,8 +94317,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -94749,8 +94749,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -94809,8 +94809,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -95208,8 +95208,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -95316,8 +95316,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -95646,8 +95646,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -95754,8 +95754,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -96085,8 +96085,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -96193,8 +96193,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -96525,8 +96525,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -96633,8 +96633,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -96963,8 +96963,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -97071,8 +97071,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -97436,8 +97436,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -97544,8 +97544,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -97979,8 +97979,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -98087,8 +98087,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -98527,8 +98527,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -98635,8 +98635,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -99075,8 +99075,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -99183,8 +99183,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -99622,8 +99622,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -99730,8 +99730,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -100165,8 +100165,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -100273,8 +100273,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -100710,8 +100710,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -100818,8 +100818,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -101253,8 +101253,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -101361,8 +101361,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -101801,8 +101801,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -101909,8 +101909,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -102347,8 +102347,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -102455,8 +102455,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -102891,8 +102891,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -102999,8 +102999,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -103434,8 +103434,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -103542,8 +103542,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -103980,8 +103980,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -104088,8 +104088,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -104525,8 +104525,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -104633,8 +104633,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -105069,8 +105069,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -105177,8 +105177,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -105615,8 +105615,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -105723,8 +105723,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -106158,8 +106158,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -106266,8 +106266,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -106702,8 +106702,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -106810,8 +106810,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -107250,8 +107250,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -107358,8 +107358,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -107797,8 +107797,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -107905,8 +107905,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -108402,8 +108402,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -108799,8 +108799,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -109193,8 +109193,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -109588,8 +109588,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -109973,8 +109973,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -110357,8 +110357,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -110740,8 +110740,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -111122,8 +111122,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -111503,8 +111503,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -111886,8 +111886,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -112223,8 +112223,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -112283,8 +112283,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -112717,8 +112717,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -112777,8 +112777,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -113212,8 +113212,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -113272,8 +113272,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -113704,8 +113704,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -113764,8 +113764,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -114199,8 +114199,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -114259,8 +114259,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -114655,8 +114655,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -114763,8 +114763,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -115093,8 +115093,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -115201,8 +115201,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -115533,8 +115533,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -115641,8 +115641,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -115972,8 +115972,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -116080,8 +116080,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -116410,8 +116410,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -116518,8 +116518,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -116884,8 +116884,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -116992,8 +116992,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -117427,8 +117427,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_madness"
         },
@@ -117535,8 +117535,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -117972,8 +117972,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -118080,8 +118080,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -118517,8 +118517,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -118625,8 +118625,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -119063,8 +119063,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -119171,8 +119171,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -119607,8 +119607,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -119715,8 +119715,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -120154,8 +120154,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -120262,8 +120262,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -120697,8 +120697,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -120805,8 +120805,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -121243,8 +121243,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -121351,8 +121351,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -121787,8 +121787,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -121895,8 +121895,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -122333,8 +122333,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -122441,8 +122441,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -122878,8 +122878,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -122986,8 +122986,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -123422,8 +123422,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_magic"
         },
@@ -123530,8 +123530,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": null
         },
@@ -123967,8 +123967,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -124075,8 +124075,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -124512,8 +124512,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -124620,8 +124620,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -125060,8 +125060,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -125168,8 +125168,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -125606,8 +125606,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -125714,8 +125714,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -126149,8 +126149,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -126257,8 +126257,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_magic"
         },
@@ -126693,8 +126693,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -126801,8 +126801,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -127239,8 +127239,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_magic"
         },
@@ -127347,8 +127347,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -127842,8 +127842,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_holy"
         },
@@ -128237,8 +128237,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -128633,8 +128633,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -129028,8 +129028,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blood"
         },
@@ -129422,8 +129422,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -129805,8 +129805,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -130190,8 +130190,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -130572,8 +130572,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -130956,8 +130956,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -131337,8 +131337,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -131673,8 +131673,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -131733,8 +131733,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -132165,8 +132165,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -132225,8 +132225,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -132660,8 +132660,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -132720,8 +132720,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -133155,8 +133155,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -133215,8 +133215,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -133650,8 +133650,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -133710,8 +133710,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_lightning"
         },
@@ -134107,8 +134107,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -134215,8 +134215,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -134545,8 +134545,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_frost"
         },
@@ -134653,8 +134653,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -134984,8 +134984,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -135092,8 +135092,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -135421,8 +135421,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -135529,8 +135529,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -135862,8 +135862,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blank"
         },
@@ -135970,8 +135970,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -136336,8 +136336,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blood"
         },
@@ -136444,8 +136444,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_holy"
         },
@@ -136881,8 +136881,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -136989,8 +136989,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -137429,8 +137429,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -137537,8 +137537,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -137975,8 +137975,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -138083,8 +138083,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -138518,8 +138518,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -138626,8 +138626,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -139066,8 +139066,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -139174,8 +139174,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -139614,8 +139614,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -139722,8 +139722,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -140157,8 +140157,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_blank"
         },
@@ -140265,8 +140265,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -140700,8 +140700,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -140808,8 +140808,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -141247,8 +141247,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_blood"
         },
@@ -141355,8 +141355,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -141792,8 +141792,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -141900,8 +141900,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_fire"
         },
@@ -142335,8 +142335,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -142443,8 +142443,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -142878,8 +142878,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -142986,8 +142986,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_sleep"
         },
@@ -143424,8 +143424,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_holy"
         },
@@ -143532,8 +143532,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -143970,8 +143970,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_sleep"
         },
@@ -144078,8 +144078,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -144514,8 +144514,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -144622,8 +144622,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -145058,8 +145058,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_poison"
         },
@@ -145166,8 +145166,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_poison"
         },
@@ -145601,8 +145601,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_holy"
         },
@@ -145709,8 +145709,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -146149,8 +146149,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -146257,8 +146257,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -146692,8 +146692,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "fort_blank"
         },
@@ -146800,8 +146800,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_holy"
         },
@@ -147296,8 +147296,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -147693,8 +147693,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_madness"
         },
@@ -148090,8 +148090,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -148487,8 +148487,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -148882,8 +148882,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_blank"
         },
@@ -149265,8 +149265,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -149649,8 +149649,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -150034,8 +150034,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -150417,8 +150417,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_frost"
         },
@@ -150800,8 +150800,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -151133,8 +151133,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "cathedral_fire"
         },
@@ -151193,8 +151193,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -151628,8 +151628,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -151688,8 +151688,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_death"
         },
@@ -152122,8 +152122,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_blank"
         },
@@ -152182,8 +152182,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -152617,8 +152617,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_lightning"
         },
@@ -152677,8 +152677,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -153112,8 +153112,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -153172,8 +153172,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_lightning"
         },
@@ -153568,8 +153568,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -153676,8 +153676,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "camp_blank"
         },
@@ -154009,8 +154009,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_lightning"
         },
@@ -154117,8 +154117,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_magic"
         },
@@ -154450,8 +154450,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "ruin_death"
         },
@@ -154558,8 +154558,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "fort_blank"
         },
@@ -154888,8 +154888,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -154996,8 +154996,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "ruin_blank"
         },
@@ -155328,8 +155328,8 @@
           "index": 6,
           "category": "majorBase",
           "coordinates": {
-            "x": 1097,
-            "y": 329
+            "x": 617,
+            "y": 272
           },
           "icon": "camp_fire"
         },
@@ -155436,8 +155436,8 @@
           "index": 15,
           "category": "majorBase",
           "coordinates": {
-            "x": 617,
-            "y": 272
+            "x": 1097,
+            "y": 329
           },
           "icon": "cathedral_fire"
         },
@@ -155763,8 +155763,8 @@
         "category": "majorBase",
         "index": 6,
         "coordinates": {
-          "x": 1097,
-          "y": 329
+          "x": 617,
+          "y": 272
         }
       },
       {
@@ -155853,8 +155853,8 @@
         "category": "majorBase",
         "index": 15,
         "coordinates": {
-          "x": 617,
-          "y": 272
+          "x": 1097,
+          "y": 329
         }
       },
       {
@@ -156255,8 +156255,8 @@
         "category": "majorBase",
         "index": 15,
         "coordinates": {
-          "x": 617,
-          "y": 272
+          "x": 1097,
+          "y": 329
         }
       },
       {
@@ -156557,8 +156557,8 @@
         "category": "majorBase",
         "index": 15,
         "coordinates": {
-          "x": 617,
-          "y": 272
+          "x": 1097,
+          "y": 329
         }
       },
       {
@@ -156819,8 +156819,8 @@
         "category": "majorBase",
         "index": 6,
         "coordinates": {
-          "x": 1097,
-          "y": 329
+          "x": 617,
+          "y": 272
         }
       },
       {
@@ -156869,8 +156869,8 @@
         "category": "majorBase",
         "index": 15,
         "coordinates": {
-          "x": 617,
-          "y": 272
+          "x": 1097,
+          "y": 329
         }
       },
       {
@@ -157211,8 +157211,8 @@
         "category": "majorBase",
         "index": 6,
         "coordinates": {
-          "x": 1097,
-          "y": 329
+          "x": 617,
+          "y": 272
         }
       },
       {
@@ -157301,8 +157301,8 @@
         "category": "majorBase",
         "index": 15,
         "coordinates": {
-          "x": 617,
-          "y": 272
+          "x": 1097,
+          "y": 329
         }
       },
       {
