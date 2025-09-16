@@ -19,7 +19,7 @@ def get_poi_icon_mappings() -> Dict[str, Dict[str, str]]:
             "Camp - Banished Knights": "camp_blank",
             "Camp - Elder Lion": "camp_blank",
             "Camp - Flame Chariots": "camp_fire",
-            "Camp - Frenzied Flame Troll": "camp_frenzy",
+            "Camp - Frenzied Flame Troll": "camp_madness",
             "Camp - Leonine Misbegotten": "camp_blank",
             "Camp - Redmane Knights": "camp_fire",
             "Camp - Royal Army Knights": "camp_lightning",

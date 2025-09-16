@@ -3,22 +3,18 @@ const translations_advanced = {
   'zh': {
     // App metadata
     'app.title': '艾尔登法环 黑夜君临：地图种子识别器',
-    'app.version': '版本 1.1',
-    'app.subtitle': '黑夜君临 版本 1.01.3（汉化）',
-    'app.description': '交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子',
-    'app.keywords': '艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具',
     
     // Language toggle
     'lang.current': '中文',
-    'lang.switch': '切换语言',
     
     // Navigation
-    'nav.advanced': '地图缺失模式',
     'nav.basic': '切换到基础模式',
     
     // Selection
     'selection.optional': '(可选)',
-    
+    'selection.nightlord': '选择你的夜王',
+    'selection.map': '选择你的地图 / 特殊地形',
+
     // Spawn Point Selection
     'spawn.title': '选择出生点',
     'spawn.description': '点击出生点位置进行选择，然后选择敌人类型。',
@@ -28,19 +24,8 @@ const translations_advanced = {
     'spawn.back': '返回',
     'spawn.skip': '跳过出生点选择',
     'spawn.help': '帮助',
-    
-    // Loading
-    'loading.init': '正在初始化地图数据，请稍候...',
-    'loading.seeds': '已加载 {count} 个种子',
-    'loading.classified': '已加载 {count} 个种子（{classified} 个已分类）',
-    
-    // Seed display
-    'seed.alt_text': '种子 {seed}',
-    'seed.number': '种子 {seed}',
-    'seed.nightlord': '夜王 {nightlord}',
-    
+
     // Nightlords
-    'nightlord.none': '无',
     'nightlord.gladius': '三狼',
     'nightlord.adel': '大嘴',
     'nightlord.gnoster': '慧心虫',
@@ -49,64 +34,22 @@ const translations_advanced = {
     'nightlord.fulghor': '人马',
     'nightlord.caligo': '冰龙',
     'nightlord.heolstor': '黑夜王',
-    'nightlord.unknown': '未知夜王',
     
     // Maps
-    'map.none': '无',
     'map.default': '默认',
     'map.mountaintop': '山顶',
     'map.crater': '火山',
     'map.rotted_woods': '腐败森林',
     'map.noklateo': '隐城',
-    
-    // Selection
-    'selection.nightlord': '选择你的夜王',
-    'selection.map': '选择你的地图 / 特殊地形',
-    'selection.current': '当前选择：',
-    
+
     // Actions
     'actions.start': '开始识别',
-    'actions.reset': '重置地图',
-    'actions.clear': '清除所有',
-    'actions.back': '返回',
-    'actions.help': '帮助',
-    'actions.close': '关闭',
-    'actions.open_fullscreen': '全屏查看',
-    'actions.new_search': '新搜索',
-    
-    // Results
-    'result.title': '识别结果',
-    'result.seed': '种子',
-    'result.confidence': '置信度',
-    'result.pattern': '地图模式',
-    'result.nightlord': '夜王',
-    'result.map_type': '地图类型',
-    'result.pois': '兴趣点',
-    'result.spawn_point': '出生点',
-    'result.no_results': '未找到匹配的种子',
-    'result.multiple_results': '找到 {count} 个匹配的种子',
-    
-    // Help
-    'help.title': '使用帮助',
-    'help.content': '这是一个交互式地图种子识别工具...',
-    
-    // Footer
-    'footer.credit1': '由',
-    'footer.credit2': '提供识别器基础代码',
-    'footer.credit3': '提供汉化版地图种子',
-    'footer.credit4': '提供地图种子数据',
     
     // Context menu
-    'context.select_poi': '选择兴趣点',
     'context.clear_selection': '清除选择',
     'context.select_enemy': '选择敌人',
     'context.i_dont_know': '我不知道',
     'context.select_icon': '选择图标',
-    'context.church': '教堂',
-    'context.mage_tower': '法师塔',
-    'context.village': '村庄',
-    'context.empty': '空白',
-    'context.other': '其他',
 
     // Help section translations
     'help.title': '帮助',
@@ -139,7 +82,7 @@ const translations_advanced = {
     'help.controls.clear': '清除所有POI：重置所有POI选择',
     'help.controls.back': '返回：回到夜王/地图选择',
     
-    // Enemy names
+    // Enemy names (commonly used ones)
     'enemy.caravans_and_nobles': '商队和贵族',
     'enemy.caravans': '商队',
     'enemy.demi_humans': '半人',
@@ -167,7 +110,7 @@ const translations_advanced = {
     'structure.sorcerers_rise': '法师塔',
     'structure.township': '城镇',
     
-    // Boss names (sample of key bosses)
+    // Boss names
     'boss.tree_sentinel': '树守卫',
     'boss.erdtree_avatar': '黄金树化身',
     'boss.crucible_knight_with_sword': '熔炉骑士（剑）',
@@ -196,8 +139,6 @@ const translations_advanced = {
     'boss.bloodhound_knight': '血指骑士',
     'boss.centipede_demon': '蜈蚣恶魔',
     'boss.crucible_knight_and_golden_hippopotamus': '熔炉骑士与黄金河马',
-    'boss.crucible_knight_with_spear': '熔炉骑士（矛）',
-    'boss.crucible_knight_with_sword': '熔炉骑士（剑）',
     'boss.crystalians': '结晶人',
     'boss.dancer_of_the_boreal_valley': '冷冽谷舞娘',
     'boss.death_rite_bird': '死之鸟',
@@ -220,11 +161,9 @@ const translations_advanced = {
     'boss.godskin_noble': '神皮贵族',
     'boss.golden_hippopotamus': '黄金河马',
     'boss.grafted_monarch': '接肢君主',
-    'boss.grafted_scion': '接肢贵族',
     'boss.grave_warden_duelist': '守墓斗士',
     'boss.great_wyrm': '大古龙',
     'boss.guardian_golem': '守护者傀儡',
-    'boss.leonine_misbegotten': '混种狮子',
     'boss.lordsworn_captain': '王城骑士队长',
     'boss.magma_wyrm': '熔岩土龙',
     'boss.mausoleum_knight': '灵庙骑士',
@@ -238,7 +177,6 @@ const translations_advanced = {
     'boss.oracle_envoy': '神谕使者',
     'boss.outland_commander': '外域指挥官',
     'boss.perfumer': '调香师',
-    'boss.red_wolf': '红狼',
     'boss.redmane_knights': '红狮子骑士',
     'boss.royal_army_knights': '王室军队骑士',
     'boss.royal_carian_knight': '王室卡利亚骑士',
@@ -249,43 +187,27 @@ const translations_advanced = {
     'boss.stoneskin_lords': '石肤领主',
     'boss.the_dukes_dear_freja': '公爵的挚爱芙蕾雅',
     'boss.tibia_mariner': '提比亚船夫',
-    'boss.tree_sentinel': '树守卫',
     'boss.tree_sentinel_and_royal_cavalrymen': '树守卫与王室骑兵',
     'boss.ulcerated_tree_spirit': '腐败树灵',
     'boss.valiant_gargoyle': '勇者石像鬼',
-    'boss.wormface': '虫脸',
-    
-    // Error messages
-    'error.loading_data': '加载数据时出错',
-    'error.no_seeds': '没有可用的种子数据',
-    'error.invalid_selection': '无效的选择',
-    
-    // Status messages
-    'status.loading': '加载中...',
-    'status.ready': '准备就绪',
-    'status.processing': '处理中...',
-    'status.complete': '完成'
+    'boss.wormface': '虫脸'
   },
   
   'en': {
     // App metadata
     'app.title': 'Elden Ring: Nightreign Map Seed Recognizer',
-    'app.version': 'Version 1.1',
-    'app.subtitle': 'Nightreign Version 1.01.3 (Localized)',
-    'app.description': 'Interactive tool to identify Nightreign map seeds based on point-of-interest locations',
-    'app.keywords': 'Elden Ring, Nightreign, map, seed, recognizer, POI, tool',
     
     // Language toggle
     'lang.current': 'English',
-    'lang.switch': 'Switch Language',
     
     // Navigation
-    'nav.advanced': 'Advanced Mode',
     'nav.basic': 'Switch to Basic Mode',
     
     // Selection
     'selection.optional': '(Optional)',
-    
+    'selection.nightlord': 'Select your Nightlord',
+    'selection.map': 'Select your Map / Special Terrain',
+
     // Spawn Point Selection
     'spawn.title': 'Select Spawn Point',
     'spawn.description': 'Click on a spawn point location to select it, then choose the enemy type.',
@@ -295,19 +217,8 @@ const translations_advanced = {
     'spawn.back': 'Back',
     'spawn.skip': 'Skip Spawn Selection',
     'spawn.help': 'Help',
-    
-    // Loading
-    'loading.init': 'Initializing map data, please wait...',
-    'loading.seeds': 'Loaded {count} seeds',
-    'loading.classified': 'Loaded {count} seeds ({classified} classified)',
-    
-    // Seed display
-    'seed.alt_text': 'Seed {seed}',
-    'seed.number': 'Seed {seed}',
-    'seed.nightlord': 'Nightlord {nightlord}',
-    
+
     // Nightlords
-    'nightlord.none': 'None',
     'nightlord.gladius': 'Gladius',
     'nightlord.adel': 'Adel',
     'nightlord.gnoster': 'Gnoster',
@@ -316,42 +227,22 @@ const translations_advanced = {
     'nightlord.fulghor': 'Fulghor',
     'nightlord.caligo': 'Caligo',
     'nightlord.heolstor': 'Heolstor',
-    'nightlord.unknown': 'Unknown Nightlord',
     
     // Maps
-    'map.none': 'None',
     'map.default': 'Default',
     'map.mountaintop': 'Mountaintop',
     'map.crater': 'Crater',
     'map.rotted_woods': 'Rotted Woods',
     'map.noklateo': 'Noklateo',
-    
-    // Selection
-    'selection.nightlord': 'Select your Nightlord',
-    'selection.map': 'Select your Map / Special Terrain',
-    'selection.current': 'Current Selection:',
-    
+
     // Actions
     'actions.start': 'Start Recognition',
-    'actions.reset': 'Reset Map',
-    'actions.clear': 'Clear All',
-    'actions.back': 'Back',
-    'actions.help': 'Help',
-    'actions.close': 'Close',
-    'actions.open_fullscreen': 'Open Fullscreen',
-    'actions.new_search': 'New Search',
     
-    // Results
-    'result.title': 'Recognition Result',
-    'result.seed': 'Seed',
-    'result.confidence': 'Confidence',
-    'result.pattern': 'Map Pattern',
-    'result.nightlord': 'Nightlord',
-    'result.map_type': 'Map Type',
-    'result.pois': 'Points of Interest',
-    'result.spawn_point': 'Spawn Point',
-    'result.no_results': 'No matching seeds found',
-    'result.multiple_results': 'Found {count} matching seeds',
+    // Context menu
+    'context.clear_selection': 'Clear Selection',
+    'context.select_enemy': 'Select Enemy',
+    'context.i_dont_know': 'I don\'t know',
+    'context.select_icon': 'Select Icon',
     
     // Help section translations
     'help.title': 'Help',
@@ -384,25 +275,7 @@ const translations_advanced = {
     'help.controls.clear': 'Clear All POIs: Reset all POI selections',
     'help.controls.back': 'Back: Return to nightlord/map selection',
     
-    // Footer
-    'footer.credit1': 'by',
-    'footer.credit2': 'provides recognizer base code',
-    'footer.credit3': 'provides localized map seeds',
-    'footer.credit4': 'provides map seed data',
-    
-    // Context menu
-    'context.select_poi': 'Select Point of Interest',
-    'context.clear_selection': 'Clear Selection',
-    'context.select_enemy': 'Select Enemy',
-    'context.i_dont_know': 'I don\'t know',
-    'context.select_icon': 'Select Icon',
-    'context.church': 'Church',
-    'context.mage_tower': 'Mage Tower',
-    'context.village': 'Village',
-    'context.empty': 'Empty',
-    'context.other': 'Other',
-    
-    // Enemy names
+    // Enemy names (commonly used ones)
     'enemy.caravans_and_nobles': 'Caravans and Nobles',
     'enemy.caravans': 'Caravans',
     'enemy.demi_humans': 'Demi-Humans',
@@ -430,7 +303,7 @@ const translations_advanced = {
     'structure.sorcerers_rise': 'Sorcerer\'s Rise',
     'structure.township': 'Township',
     
-    // Boss names (sample of key bosses)
+    // Boss names (commonly used ones)
     'boss.tree_sentinel': 'Tree Sentinel',
     'boss.erdtree_avatar': 'Erdtree Avatar',
     'boss.crucible_knight_with_sword': 'Crucible Knight with Sword',
@@ -459,8 +332,6 @@ const translations_advanced = {
     'boss.bloodhound_knight': 'Bloodhound Knight',
     'boss.centipede_demon': 'Centipede Demon',
     'boss.crucible_knight_and_golden_hippopotamus': 'Crucible Knight and Golden Hippopotamus',
-    'boss.crucible_knight_with_spear': 'Crucible Knight with Spear',
-    'boss.crucible_knight_with_sword': 'Crucible Knight with Sword',
     'boss.crystalians': 'Crystalians',
     'boss.dancer_of_the_boreal_valley': 'Dancer of the Boreal Valley',
     'boss.death_rite_bird': 'Death Rite Bird',
@@ -483,11 +354,9 @@ const translations_advanced = {
     'boss.godskin_noble': 'Godskin Noble',
     'boss.golden_hippopotamus': 'Golden Hippopotamus',
     'boss.grafted_monarch': 'Grafted Monarch',
-    'boss.grafted_scion': 'Grafted Scion',
     'boss.grave_warden_duelist': 'Grave Warden Duelist',
     'boss.great_wyrm': 'Great Wyrm',
     'boss.guardian_golem': 'Guardian Golem',
-    'boss.leonine_misbegotten': 'Leonine Misbegotten',
     'boss.lordsworn_captain': 'Lordsworn Captain',
     'boss.magma_wyrm': 'Magma Wyrm',
     'boss.mausoleum_knight': 'Mausoleum Knight',
@@ -501,7 +370,6 @@ const translations_advanced = {
     'boss.oracle_envoy': 'Oracle Envoys',
     'boss.outland_commander': 'Outland Commander',
     'boss.perfumer': 'Perfumer',
-    'boss.red_wolf': 'Red Wolf',
     'boss.redmane_knights': 'Redmane Knights',
     'boss.royal_army_knights': 'Royal Army Knights',
     'boss.royal_carian_knight': 'Royal Carian Knight',
@@ -512,22 +380,10 @@ const translations_advanced = {
     'boss.stoneskin_lords': 'Stoneskin Lords',
     'boss.the_dukes_dear_freja': 'The Duke\'s Dear Freja',
     'boss.tibia_mariner': 'Tibia Mariner',
-    'boss.tree_sentinel': 'Tree Sentinel',
     'boss.tree_sentinel_and_royal_cavalrymen': 'Tree Sentinel and Royal Cavalrymen',
     'boss.ulcerated_tree_spirit': 'Ulcerated Tree Spirit',
     'boss.valiant_gargoyle': 'Valiant Gargoyle',
-    'boss.wormface': 'Wormface',
-    
-    // Error messages
-    'error.loading_data': 'Error loading data',
-    'error.no_seeds': 'No seed data available',
-    'error.invalid_selection': 'Invalid selection',
-    
-    // Status messages
-    'status.loading': 'Loading...',
-    'status.ready': 'Ready',
-    'status.processing': 'Processing...',
-    'status.complete': 'Complete'
+    'boss.wormface': 'Wormface'
   }
 };
 
