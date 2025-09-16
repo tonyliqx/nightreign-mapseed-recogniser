@@ -374,6 +374,9 @@ class NightreignApp {
         // Load POIs for selected map
         this.loadPOIsForMap(this.selectedMap);
 
+        // Update POI states based on remaining seeds
+        this.updatePOIStatesFromSeeds();
+
         // Show recognition screen
         this.showScreen('recognition');
 
@@ -718,6 +721,9 @@ class NightreignApp {
         // Set current filtered seeds to POI filtered
         this.filteredSeeds = [...this.poiFilteredSeeds];
 
+        // Update POI states based on remaining seeds
+        this.updatePOIStatesFromSeeds();
+
         this.updateSeedCounts();
         
         console.log(`🔍 POI filtered to ${this.filteredSeeds.length} seeds`);
@@ -774,27 +780,39 @@ class NightreignApp {
         
         if (mappedCategory === 'major_base' || mappedCategory === 'field_boss') {
             // Two-layer system: Icon → Boss
-            if (selectionState.layer1 && poiData.icon !== selectionState.layer1) {
-                console.log(`   ❌ Icon mismatch: expected ${selectionState.layer1}, got ${poiData.icon}`);
-                return false;
+            if (selectionState.layer1) {
+                const expectedIcon = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
+                if (poiData.icon !== expectedIcon) {
+                    console.log(`   ❌ Icon mismatch: expected ${expectedIcon}, got ${poiData.icon}`);
+                    return false;
+                }
             }
-            if (selectionState.layer2 && poiData.boss !== selectionState.layer2) {
-                console.log(`   ❌ Boss mismatch: expected ${selectionState.layer2}, got ${poiData.boss}`);
-                return false;
+            if (selectionState.layer2) {
+                const expectedBoss = selectionState.layer2 === 'Empty' ? null : selectionState.layer2;
+                if (poiData.boss !== expectedBoss) {
+                    console.log(`   ❌ Boss mismatch: expected ${expectedBoss}, got ${poiData.boss}`);
+                    return false;
+                }
             }
             console.log(`   ✅ Major base/field boss match successful`);
         } else if (mappedCategory === 'minor_base') {
             // Single-layer system: Icon only
-            if (selectionState.layer1 && poiData.icon !== selectionState.layer1) {
-                console.log(`   ❌ Icon mismatch: expected ${selectionState.layer1}, got ${poiData.icon}`);
-                return false;
+            if (selectionState.layer1) {
+                const expectedIcon = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
+                if (poiData.icon !== expectedIcon) {
+                    console.log(`   ❌ Icon mismatch: expected ${expectedIcon}, got ${poiData.icon}`);
+                    return false;
+                }
             }
             console.log(`   ✅ Minor base match successful`);
         } else if (mappedCategory === 'evergaol' || mappedCategory === 'rotted_woods') {
             // Single-layer system: Boss
-            if (selectionState.layer1 && poiData.boss !== selectionState.layer1) {
-                console.log(`   ❌ Boss mismatch: expected ${selectionState.layer1}, got ${poiData.boss}`);
-                return false;
+            if (selectionState.layer1) {
+                const expectedBoss = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
+                if (poiData.boss !== expectedBoss) {
+                    console.log(`   ❌ Boss mismatch: expected ${expectedBoss}, got ${poiData.boss}`);
+                    return false;
+                }
             }
             console.log(`   ✅ Evergaol/rotted woods match successful`);
         }
@@ -1144,7 +1162,7 @@ class NightreignApp {
                 item.classList.add('selected');
             }
             
-            // Create icon element
+            // Create icon element for all options (including Empty)
             const iconImg = document.createElement('img');
             iconImg.src = this.getIconPath(option);
             iconImg.alt = this.formatOptionName(option);
@@ -1383,7 +1401,7 @@ class NightreignApp {
             
             // For minor base, show icon + text; for others, just text
             if (category === 'minor_base') {
-                // Create icon element
+                // Create icon element for all options (including Empty)
                 const iconImg = document.createElement('img');
                 iconImg.src = this.getIconPath(option);
                 iconImg.alt = this.formatOptionName(option);
@@ -1416,7 +1434,7 @@ class NightreignApp {
         if (poi.selectionState.layer1) {
             const clearItem = document.createElement('div');
             clearItem.className = 'context-menu-item clear-option';
-            clearItem.textContent = 'Clear Selection';
+            clearItem.textContent = this.languageManager.getText('context.clear_selection');
             clearItem.addEventListener('click', () => {
                 this.clearPOISelection(poi);
                 this.hideContextMenu();
@@ -1431,7 +1449,6 @@ class NightreignApp {
     }
 
     hideContextMenu() {
-        console.log('hideContextMenu called - stack trace:', new Error().stack);
         const menu = document.getElementById('context-menu');
         menu.style.display = 'none';
         this.currentRightClickedPOI = null;
@@ -1542,8 +1559,88 @@ class NightreignApp {
         this.setupCanvas();
         this.filterSeedsByPOI();
         
+        // Update POI states based on remaining seeds
+        this.updatePOIStatesFromSeeds();
+        
         console.log(`📍 Cleared selection for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
+    }
+
+    updatePOIStatesFromSeeds() {
+        if (!this.currentPOIs || this.currentPOIs.length === 0) return;
+        
+        console.log(`🔍 Updating POI states based on remaining ${this.filteredSeeds.length} seeds`);
+        
+        this.currentPOIs.forEach(poi => {
+            // Skip if POI already has a selection
+            if (this.poiStates[poi.id] && this.poiStates[poi.id].selectionState) {
+                const selectionState = this.poiStates[poi.id].selectionState;
+                if (selectionState.layer1 || selectionState.layer2) {
+                    console.log(`⏭️ Skipping ${poi.name} - already has selection`);
+                    return;
+                }
+            }
+            
+            // Check if this POI has definite values in remaining seeds
+            this.updatePOIStateFromSeeds(poi);
+        });
+        
+        // Redraw canvas to show updated states
+        this.setupCanvas();
+    }
+
+    updatePOIStateFromSeeds(poi) {
+        const category = poi.category;
+        const mappedCategory = this.mapCategoryToInternal(category);
+        
+        console.log(`🔍 Checking definite values for ${poi.name} (${mappedCategory})`);
+        
+        if (mappedCategory === 'major_base' || mappedCategory === 'field_boss') {
+            // Two-layer system: check for definite icon and boss
+            const iconOptions = this.getAvailableOptions(poi, 1);
+            const bossOptions = this.getAvailableOptions(poi, 2);
+            
+            if (iconOptions.length === 1 && bossOptions.length === 1) {
+                // Both layers have definite values
+                console.log(`🎯 ${poi.name} has definite values: icon=${iconOptions[0]}, boss=${bossOptions[0]}`);
+                this.autoSelectPOI(poi, iconOptions[0], bossOptions[0]);
+            } else if (iconOptions.length === 1) {
+                // Only icon is definite
+                console.log(`🎯 ${poi.name} has definite icon: ${iconOptions[0]}`);
+                this.autoSelectPOI(poi, iconOptions[0], null);
+            }
+        } else if (mappedCategory === 'minor_base' || mappedCategory === 'evergaol' || mappedCategory === 'rotted_woods') {
+            // Single-layer system: check for definite boss
+            const bossOptions = this.getAvailableOptions(poi, 1);
+            
+            if (bossOptions.length === 1) {
+                // Boss is definite
+                console.log(`🎯 ${poi.name} has definite boss: ${bossOptions[0]}`);
+                this.autoSelectPOI(poi, bossOptions[0], null);
+            }
+        }
+    }
+
+    autoSelectPOI(poi, layer1Value, layer2Value) {
+        const category = poi.category;
+        const mappedCategory = this.mapCategoryToInternal(category);
+        
+        // Set up selection state
+        poi.selectionState = {
+            layer1: layer1Value,
+            layer2: layer2Value
+        };
+        
+        // Update display state
+        this.updatePOIDisplayState(poi);
+        
+        // Store in persistent state
+        this.poiStates[poi.id] = {
+            state: poi.currentState,
+            selectionState: poi.selectionState
+        };
+        
+        console.log(`✅ Auto-selected ${poi.name}: layer1=${layer1Value}, layer2=${layer2Value}, state=${poi.currentState}`);
     }
 
     updatePOIDisplayState(poi) {
@@ -1582,6 +1679,11 @@ class NightreignApp {
     }
 
     getIconPath(iconName) {
+        // Handle "Empty" option
+        if (iconName === 'Empty') {
+            return 'assets/icons/empty.png'; // Use empty icon for null values
+        }
+        
         // Get icon path from POI data, fallback to default path
         if (this.poiData && this.poiData.iconPaths && this.poiData.iconPaths[iconName]) {
             return this.poiData.iconPaths[iconName];
@@ -1842,7 +1944,7 @@ class NightreignApp {
             return hasMatchingPOI;
         });
 
-        console.log(`📍 Found ${seedsWithLocation.length} seeds with matching POI`);
+        console.log(`📍 Found ${seedsWithLocation.length} seeds with matching POI:`, seedsWithLocation.map(seed => seed.seedNumber));
 
         if (seedsWithLocation.length === 0) {
             console.log('❌ No seeds found with matching POI coordinates');
@@ -1873,12 +1975,22 @@ class NightreignApp {
                     if (matchingPOI.icon) {
                         uniqueValues.add(matchingPOI.icon);
                         console.log(`➕ Added icon: ${matchingPOI.icon}`);
+                    } else {
+                        // Add "Empty" option for null icon
+                        uniqueValues.add('Empty');
+                        console.log(`➕ Added Empty icon option`);
                     }
                 } else if (layer === 2) {
                     // Layer 2: Boss (filtered by current layer1 selection)
-                    if (matchingPOI.boss && (!poi.selectionState.layer1 || matchingPOI.icon === poi.selectionState.layer1)) {
-                        uniqueValues.add(matchingPOI.boss);
-                        console.log(`➕ Added boss: ${matchingPOI.boss}`);
+                    if (!poi.selectionState.layer1 || matchingPOI.icon === poi.selectionState.layer1) {
+                        if (matchingPOI.boss) {
+                            uniqueValues.add(matchingPOI.boss);
+                            console.log(`➕ Added boss: ${matchingPOI.boss}`);
+                        } else {
+                            // Add "Empty" option for null boss
+                            uniqueValues.add('Empty');
+                            console.log(`➕ Added Empty boss option`);
+                        }
                     }
                 }
             } else if (category === 'minor_base') {
@@ -1887,6 +1999,10 @@ class NightreignApp {
                     if (matchingPOI.icon) {
                         uniqueValues.add(matchingPOI.icon);
                         console.log(`➕ Added icon: ${matchingPOI.icon}`);
+                    } else {
+                        // Add "Empty" option for null icon
+                        uniqueValues.add('Empty');
+                        console.log(`➕ Added Empty icon option`);
                     }
                 }
                 // No layer 2 for minor base - single layer only
@@ -1896,12 +2012,22 @@ class NightreignApp {
                     if (matchingPOI.boss) {
                         uniqueValues.add(matchingPOI.boss);
                         console.log(`➕ Added boss: ${matchingPOI.boss}`);
+                    } else {
+                        // Add "Empty" option for null boss
+                        uniqueValues.add('Empty');
+                        console.log(`➕ Added Empty boss option`);
                     }
                 }
             }
         });
 
-        const result = Array.from(uniqueValues).sort();
+        const result = Array.from(uniqueValues).sort((a, b) => {
+            // Put "Empty" at the end
+            if (a === 'Empty') return 1;
+            if (b === 'Empty') return -1;
+            // Sort everything else alphabetically
+            return a.localeCompare(b);
+        });
         console.log(`🎯 Final options for layer ${layer}:`, result);
         return result;
     }
@@ -1938,7 +2064,7 @@ class NightreignApp {
         const seedCountEl = document.getElementById('seed-count');
         if (seedCountEl) {
             const seedFoundText = this.languageManager ? this.languageManager.getText('ui.seed_found') : 'Seed Found!';
-            seedCountEl.innerHTML = `<i class="fas fa-check-circle" style="color: #4CAF50;"></i> ${seedFoundText}`;
+            seedCountEl.innerHTML = `<i class="fas fa-check-circle"></i> ${seedFoundText}`;
         }
         
         // Update the map canvas to show the pattern image

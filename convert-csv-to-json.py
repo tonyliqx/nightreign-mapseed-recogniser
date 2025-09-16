@@ -130,10 +130,10 @@ def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[int, int]]]:
             "Northwest Stormhill": (355, 428),
             "South Mistwood": (1148, 1131),
             "West Mistwood": (972, 904),
-            "Northeast Stormhill": (1097, 329),
+            "Northeast Stormhill": (617, 272),
             "South Lake": (612, 1200),
             "Alexander Spot": (641, 460),
-            "Summonwater": (617, 272),
+            "Summonwater": (1097, 329),
             "Artist's Shack": (899, 652)
         },
         
