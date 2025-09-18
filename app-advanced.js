@@ -18,11 +18,9 @@ class NightreignApp {
         this.poiData = null;
         this.seedData = null;
         
-        // Map images - 改为按需加载模式
+        // Map images
         this.mapImages = {};
         this.currentMapImage = null;
-        this.loadingMapImage = false;
-        this.mapLoadErrors = {};
         
         // Result screen setup flag
         this.resultScreenListenersSetup = false;
@@ -62,7 +60,10 @@ class NightreignApp {
         await this.loadData();
         console.log('✅ Data loaded successfully');
         
-        // 不再预加载所有地图图片，改为按需加载
+        // Load map images in the background
+        console.log('🖼️ Loading map images...');
+        await this.loadMapImages();
+        console.log('✅ Map images loaded successfully');
         
         // Initialize language manager with advanced translations
         try {
@@ -119,161 +120,44 @@ class NightreignApp {
         }
     }
 
-    // 按需加载单个地图图片
-    async loadMapImage(mapType) {
-        // 如果已经加载过该地图，直接返回
-        if (this.mapImages[mapType]) {
-            console.log(`🖼️ Map image for ${mapType} already loaded`);
-            return this.mapImages[mapType];
-        }
-        
-        // 如果之前加载失败过，显示错误信息
-        if (this.mapLoadErrors[mapType]) {
-            console.warn(`⚠️ Previously failed to load map image for ${mapType}`);
-            return null;
-        }
-        
-        console.log(`🖼️ Loading map image for ${mapType}...`);
-        this.loadingMapImage = true;
-        
-        // 显示加载指示器
-        this.showMapLoadingIndicator();
-        
+    async loadMapImages() {
         try {
-            const img = await new Promise((resolve, reject) => {
-                const image = new Image();
-                
-                image.onload = () => {
-                    console.log(`✅ Map image for ${mapType} loaded successfully`);
-                    this.mapImages[mapType] = image;
-                    resolve(image);
-                };
-                
-                image.onerror = () => {
-                    console.warn(`⚠️ Failed to load map image for ${mapType}`);
-                    this.mapLoadErrors[mapType] = true;
-                    reject(new Error(`Failed to load map image for ${mapType}`));
-                };
-                
-                // 设置图片源
-                const fileName = this.getMapFileName(mapType);
-                image.src = `assets/map/${fileName}`;
+            const mapTypes = ['Default', 'Crater', 'Mountaintop', 'Noklateo', 'Rotted Woods'];
+            const imagePromises = mapTypes.map(mapType => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.mapImages[mapType] = img;
+                        resolve();
+                    };
+                    img.onerror = () => {
+                        console.warn(`⚠️ Failed to load map image for ${mapType}`);
+                        resolve(); // Continue even if one image fails
+                    };
+                    
+                    // Map type names to file names
+                    const fileName = this.getMapFileName(mapType);
+                    img.src = `assets/map/${fileName}`;
+                });
             });
             
-            // 隐藏加载指示器
-            this.hideMapLoadingIndicator();
-            this.loadingMapImage = false;
+            await Promise.all(imagePromises);
+            console.log('✅ Map images loaded successfully');
             
-            return img;
         } catch (error) {
-            // 隐藏加载指示器，显示错误信息
-            this.hideMapLoadingIndicator();
-            this.loadingMapImage = false;
-            this.showMapLoadError(mapType);
-            return null;
-        }
-    }
-    
-    // 显示地图加载指示器
-    showMapLoadingIndicator() {
-        // 在地图容器中添加加载指示器
-        const mapContainer = document.querySelector('.map-container');
-        if (!mapContainer) return;
-        
-        // 检查是否已存在加载指示器
-        let loadingIndicator = document.getElementById('map-loading-indicator');
-        if (!loadingIndicator) {
-            loadingIndicator = document.createElement('div');
-            loadingIndicator.id = 'map-loading-indicator';
-            loadingIndicator.className = 'map-loading-indicator';
-            loadingIndicator.innerHTML = `
-                <div class="loading-spinner">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
-                <p data-i18n="ui.loading_map">加载地图中...</p>
-            `;
-            mapContainer.appendChild(loadingIndicator);
-        } else {
-            loadingIndicator.style.display = 'flex';
-        }
-        
-        // 翻译加载文本
-        if (this.languageManager) {
-            this.languageManager.updateUI();
-        }
-    }
-    
-    // 隐藏地图加载指示器
-    hideMapLoadingIndicator() {
-        const loadingIndicator = document.getElementById('map-loading-indicator');
-        if (loadingIndicator) {
-            loadingIndicator.style.display = 'none';
-        }
-    }
-    
-    // 显示地图加载错误
-    showMapLoadError(mapType) {
-        const mapContainer = document.querySelector('.map-container');
-        if (!mapContainer) return;
-        
-        // 检查是否已存在错误提示
-        let errorMessage = document.getElementById('map-load-error');
-        if (!errorMessage) {
-            errorMessage = document.createElement('div');
-            errorMessage.id = 'map-load-error';
-            errorMessage.className = 'map-load-error';
-            
-            const mapDisplayName = this.getMapDisplayName(mapType);
-            const errorText = this.languageManager ? 
-                this.languageManager.getText('ui.map_load_error').replace('{mapType}', mapDisplayName) : 
-                `无法加载 ${mapDisplayName} 地图。请检查网络连接并重试。`;
-            
-            errorMessage.innerHTML = `
-                <div class="error-icon">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <p>${errorText}</p>
-                <button id="retry-map-load" class="retry-btn">
-                    <i class="fas fa-redo"></i>
-                    <span data-i18n="ui.retry">重试</span>
-                </button>
-            `;
-            mapContainer.appendChild(errorMessage);
-            
-            // 添加重试按钮事件
-            const retryBtn = errorMessage.querySelector('#retry-map-load');
-            if (retryBtn) {
-                retryBtn.addEventListener('click', () => {
-                    // 移除错误记录并重试加载
-                    delete this.mapLoadErrors[mapType];
-                    errorMessage.style.display = 'none';
-                    this.loadMapImage(mapType).then(img => {
-                        if (img) {
-                            this.currentMapImage = img;
-                            this.setupCanvas();
-                        }
-                    });
-                });
-            }
-        } else {
-            errorMessage.style.display = 'flex';
-        }
-        
-        // 翻译错误文本
-        if (this.languageManager) {
-            this.languageManager.updateUI();
+            console.error('❌ Failed to load map images:', error);
         }
     }
 
     getMapFileName(mapType) {
         const fileNameMap = {
-            'Default': 'default.png',
-            'Crater': 'crater.png',
-            'Mountaintop': 'mountaintop.png',
-            'Noklateo': 'noklateo.png',
-            'Rotted Woods': 'rotted_wood.png'
+             'Default': 'default.jpg',
+             'Crater': 'crater.jpg',
+             'Mountaintop': 'mountaintop.jpg',
+             'Noklateo': 'noklateo.jpg',
+             'Rotted Woods': 'rotted_wood.jpg'
         };
-        return fileNameMap[mapType] || 'default.png';
+         return fileNameMap[mapType] || 'default.jpg';
     }
 
     setupEventListeners() {
@@ -442,7 +326,7 @@ class NightreignApp {
         }
     }
 
-    async startRecognition() {
+    startRecognition() {
         if (!this.selectedMap) return;
         
         // Check if data is loaded
@@ -467,15 +351,8 @@ class NightreignApp {
         document.getElementById('spawn-current-map').textContent = this.getMapDisplayName(this.selectedMap);
         document.getElementById('spawn-current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
 
-        // 按需加载当前选择的地图图片
-        try {
-            this.currentMapImage = await this.loadMapImage(this.selectedMap);
-            if (!this.currentMapImage) {
-                console.warn(`⚠️ Failed to load map image for ${this.selectedMap}, but continuing...`);
-            }
-        } catch (error) {
-            console.error(`❌ Error loading map image for ${this.selectedMap}:`, error);
-        }
+        // Set current map image
+        this.currentMapImage = this.mapImages[this.selectedMap];
 
         // Filter seeds based on current selections
         this.filterSeeds();
@@ -490,7 +367,7 @@ class NightreignApp {
         this.setupSpawnCanvas();
     }
 
-    async startPOIRecognition() {
+    startPOIRecognition() {
         // Update display for recognition screen
         document.getElementById('current-map').textContent = this.getMapDisplayName(this.selectedMap);
         document.getElementById('current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
@@ -499,15 +376,6 @@ class NightreignApp {
         document.getElementById('seed-count').textContent = this.filteredSeeds.length;
         
         console.log(`🎯 Starting POI recognition with ${this.filteredSeeds.length} pre-filtered seeds`);
-
-        // 确保地图图片已加载
-        if (!this.currentMapImage) {
-            try {
-                this.currentMapImage = await this.loadMapImage(this.selectedMap);
-            } catch (error) {
-                console.error(`❌ Error loading map image for ${this.selectedMap}:`, error);
-            }
-        }
 
         // Load POIs for selected map
         this.loadPOIsForMap(this.selectedMap);
@@ -580,21 +448,12 @@ class NightreignApp {
         console.log(`📍 Available spawn points:`, this.availableSpawnPoints);
     }
 
-    async setupSpawnCanvas() {
+    setupSpawnCanvas() {
         const canvas = document.getElementById('spawn-canvas');
         const ctx = canvas.getContext('2d');
         
         // Clear canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // 确保地图图片已加载
-        if (!this.currentMapImage && !this.loadingMapImage) {
-            try {
-                this.currentMapImage = await this.loadMapImage(this.selectedMap);
-            } catch (error) {
-                console.error(`❌ Error loading map image for ${this.selectedMap}:`, error);
-            }
-        }
         
         // Draw map background
         this.drawMapBackground(ctx);
@@ -631,24 +490,6 @@ class NightreignApp {
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
-            // 如果地图图片加载失败，点击重试加载
-            if (!this.currentMapImage && !this.loadingMapImage) {
-                // 重试加载地图图片
-                delete this.mapLoadErrors[this.selectedMap];
-                this.loadMapImage(this.selectedMap).then(img => {
-                    if (img) {
-                        this.currentMapImage = img;
-                        this.setupSpawnCanvas();
-                    }
-                });
-                return;
-            }
-            
-            // 如果正在加载地图，不处理点击事件
-            if (this.loadingMapImage) {
-                return;
-            }
             
             const clickedSpawn = this.findClickedSpawnPoint(x, y);
             if (clickedSpawn) {
@@ -997,21 +838,12 @@ class NightreignApp {
         return mapping[jsonCategory] || 'minor_base';
     }
 
-    async setupCanvas() {
+    setupCanvas() {
         const canvas = document.getElementById('map-canvas');
         const ctx = canvas.getContext('2d');
         
         // Clear canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // 确保地图图片已加载
-        if (!this.currentMapImage && !this.loadingMapImage) {
-            try {
-                this.currentMapImage = await this.loadMapImage(this.selectedMap);
-            } catch (error) {
-                console.error(`❌ Error loading map image for ${this.selectedMap}:`, error);
-            }
-        }
         
         // Draw map background
         this.drawMapBackground(ctx);
@@ -1029,38 +861,9 @@ class NightreignApp {
             ctx.drawImage(this.currentMapImage, 0, 0, 768, 768);
             console.log(`🗺️ Drew map background: ${this.selectedMap}`);
         } else {
-            // Fallback: draw a dark background with提示文本
+            // Fallback: draw a dark background
             ctx.fillStyle = '#1a1a2e';
             ctx.fillRect(0, 0, 768, 768);
-            
-            // 如果正在加载，显示加载中文本
-            if (this.loadingMapImage) {
-                ctx.fillStyle = '#ffffff';
-                ctx.font = '20px Arial';
-                ctx.textAlign = 'center';
-                const loadingText = this.languageManager ? 
-                    this.languageManager.getText('ui.loading_map') : 
-                    '加载地图中...';
-                ctx.fillText(loadingText, 384, 384);
-            } else {
-                // 如果加载失败，显示错误文本
-                ctx.fillStyle = '#ff6b6b';
-                ctx.font = '20px Arial';
-                ctx.textAlign = 'center';
-                const errorText = this.languageManager ? 
-                    this.languageManager.getText('ui.map_load_error_simple') : 
-                    '无法加载地图图片';
-                ctx.fillText(errorText, 384, 384);
-                
-                // 显示重试提示
-                ctx.fillStyle = '#ffffff';
-                ctx.font = '16px Arial';
-                const retryText = this.languageManager ? 
-                    this.languageManager.getText('ui.click_to_retry') : 
-                    '点击重试';
-                ctx.fillText(retryText, 384, 420);
-            }
-            
             console.log('⚠️ No map image available, using fallback background');
         }
     }
@@ -1135,24 +938,6 @@ class NightreignApp {
                 return;
             }
             
-            // 如果地图图片加载失败，点击重试加载
-            if (!this.currentMapImage && !this.loadingMapImage) {
-                // 重试加载地图图片
-                delete this.mapLoadErrors[this.selectedMap];
-                this.loadMapImage(this.selectedMap).then(img => {
-                    if (img) {
-                        this.currentMapImage = img;
-                        this.setupCanvas();
-                    }
-                });
-                return;
-            }
-            
-            // 如果正在加载地图，不处理点击事件
-            if (this.loadingMapImage) {
-                return;
-            }
-            
             // Otherwise, handle POI selection
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -1178,11 +963,6 @@ class NightreignApp {
             // If we're showing a result, don't handle right click
             if (this.foundSeed) return;
             
-            // 如果正在加载地图，不处理点击事件
-            if (this.loadingMapImage) {
-                return;
-            }
-            
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -1200,11 +980,6 @@ class NightreignApp {
                 
                 // If we're showing a result, don't handle middle click
                 if (this.foundSeed) return;
-                
-                // 如果正在加载地图，不处理点击事件
-                if (this.loadingMapImage) {
-                    return;
-                }
                 
                 const rect = canvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
