@@ -4,7 +4,7 @@ Nightreign Map Recogniser is an application designed for identifying and interac
 
 You can access this tool from one of these sites:
 - **Beta version** [here](https://liqixian19970305.github.io/nightreign-mapseed-recogniser/)
-- **Stable version** [here](https://dsm.lixiangzj.xyz:7443/nightreign-mapseed-recogniser-master/index.html/)
+- **Stable version** [here](https://dsm.lixiangzj.xyz:7443/)
 
 ## Acknowledgements
 
