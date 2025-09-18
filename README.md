@@ -63,4 +63,4 @@ Nightreign Map Recogniser 是一个用于识别和交互式探索游戏地图的
 
 ## 许可证
 
-本项目使用 MIT 许可证。详情请查看 LICENSE 文件。
+本项目使用 GNU 通用公共许可证第3版（GPL-3.0）。详情请查看 LICENSE 文件。

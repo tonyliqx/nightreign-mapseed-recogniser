@@ -6,6 +6,12 @@ You can access this tool from one of these sites:
 - **Beta version** [here](https://liqixian19970305.github.io/nightreign-mapseed-recogniser/)
 - **Stable version** [here](https://dsm.lixiangzj.xyz:7443/nightreign-mapseed-recogniser-master/index.html/)
 
+## Acknowledgements
+
+- [thefifthmatt](https://github.com/thefifthmatt): Provided map data
+- [thanosapollo](https://github.com/thanosapollo): Provided the base recognizer code
+- [Fuwish](https://space.bilibili.com/46397427): Provided the Chinese localized map seeds
+
 ## Features
 
 - **Map Recognition**: Identify Points of Interest (POI) on maps using predefined patterns.
@@ -53,4 +59,4 @@ Code contributions and project improvements are welcome. Please follow the steps
 
 ## License
 
-This project is licensed under the MIT License. For details, please refer to the LICENSE file.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). For details, please refer to the LICENSE file.
