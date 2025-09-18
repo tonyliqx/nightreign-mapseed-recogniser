@@ -58,6 +58,11 @@ const translations_advanced = {
     // UI Labels
     'ui.select_parameters': '选择参数',
     'ui.loading_map_data': '正在加载地图数据...',
+    'ui.loading_map': '加载地图中...',
+    'ui.map_load_error': '无法加载地图图片',
+    'ui.map_load_error_simple': '地图加载失败',
+    'ui.click_to_retry': '点击重试',
+    'ui.retry': '重试',
     'ui.map': '地图:',
     'ui.nightlord': '夜王:',
     'ui.matching_seeds': '匹配种子:',
@@ -273,6 +278,11 @@ const translations_advanced = {
     // UI Labels
     'ui.select_parameters': 'Select Parameters',
     'ui.loading_map_data': 'Loading map data...',
+    'ui.loading_map': 'Loading map...',
+    'ui.map_load_error': 'Failed to load map image',
+    'ui.map_load_error_simple': 'Map load failed',
+    'ui.click_to_retry': 'Click to retry',
+    'ui.retry': 'Retry',
     'ui.map': 'Map:',
     'ui.nightlord': 'Nightlord:',
     'ui.matching_seeds': 'Matching Seeds:',
