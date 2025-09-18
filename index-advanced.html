@@ -153,6 +153,22 @@
                 <div class="map-container">
                     <canvas id="spawn-canvas" width="768" height="768"></canvas>
                     
+                    <!-- 地图加载状态指示器 -->
+                    <div id="spawn-loading-indicator" class="map-loading-indicator" style="display: none;">
+                        <div class="map-loading-spinner"></div>
+                        <div class="map-loading-text" data-i18n="ui.loading_map">加载地图中...</div>
+                    </div>
+                    
+                    <!-- 地图加载错误提示 -->
+                    <div id="spawn-error-message" class="map-error-message" style="display: none;">
+                        <i class="fas fa-exclamation-triangle map-error-icon"></i>
+                        <div class="map-error-text" data-i18n="ui.map_load_error">无法加载地图图片</div>
+                        <button id="spawn-retry-button" class="map-retry-button">
+                            <i class="fas fa-redo"></i>
+                            <span data-i18n="ui.retry">重试</span>
+                        </button>
+                    </div>
+                    
                     <!-- Spawn Context Menu -->
                     <div id="spawn-context-menu" class="context-menu" style="display: none;">
                         <!-- Dynamic content will be generated here -->
@@ -192,6 +208,22 @@
 
                 <div class="map-container">
                     <canvas id="map-canvas" width="768" height="768"></canvas>
+                    
+                    <!-- 地图加载状态指示器 -->
+                    <div id="map-loading-indicator" class="map-loading-indicator" style="display: none;">
+                        <div class="map-loading-spinner"></div>
+                        <div class="map-loading-text" data-i18n="ui.loading_map">加载地图中...</div>
+                    </div>
+                    
+                    <!-- 地图加载错误提示 -->
+                    <div id="map-error-message" class="map-error-message" style="display: none;">
+                        <i class="fas fa-exclamation-triangle map-error-icon"></i>
+                        <div class="map-error-text" data-i18n="ui.map_load_error">无法加载地图图片</div>
+                        <button id="map-retry-button" class="map-retry-button">
+                            <i class="fas fa-redo"></i>
+                            <span data-i18n="ui.retry">重试</span>
+                        </button>
+                    </div>
                     
                     <!-- Context Menu -->
                     <div id="context-menu" class="context-menu" style="display: none;">
