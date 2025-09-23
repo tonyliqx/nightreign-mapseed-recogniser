@@ -99,7 +99,7 @@ def get_poi_icon_mappings() -> Dict[str, Dict[str, str]]:
         }
     }
 
-def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[int, int]]]:
+def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[float, float]]]:
     """Return hardcoded mapping of POI categories to location coordinates."""
     return {
         # Minor Base locations - 11 locations
@@ -108,7 +108,7 @@ def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[int, int]]]:
             "East of Cavalry Bridge": (844, 972),
             "Northeast of Saintsbridge": (824, 340),
             "Far Southwest": (310, 1090),
-            "West of Warmaster's Shack": (336, 542),
+            "West of Warmaster's Shack": (336, 541.54),
             "Southeast of Lake": (874, 1224),
             "Above Stormhill Tunnel Entrance": (554, 608),
             "Lake": (697, 1067),
@@ -119,59 +119,59 @@ def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[int, int]]]:
         
         # Major Base locations - 16 locations
         "major_base": {
-            "Stormhill North of Gate": (438, 683),
-            "Minor Erdtree": (1157, 963),
-            "Summonwater Approach": (970, 447),
-            "Northwest Mistwood": (1023, 709),
-            "Gatefront": (493, 845),
-            "Waypoint Ruins": (942, 1053),
-            "Northeast Mistwood": (1192, 648),
-            "Groveside": (430, 1002),
-            "Northwest Stormhill": (355, 428),
-            "South Mistwood": (1148, 1131),
-            "West Mistwood": (972, 904),
-            "Northeast Stormhill": (617, 272),
-            "South Lake": (612, 1200),
-            "Alexander Spot": (641, 460),
-            "Summonwater": (1097, 329),
-            "Artist's Shack": (899, 652)
+            "Stormhill North of Gate": (437, 684),
+            "Minor Erdtree": (1156, 964),
+            "Summonwater Approach": (969, 448),
+            "Northwest Mistwood": (1022, 710),
+            "Gatefront": (492, 846),
+            "Waypoint Ruins": (941, 1054),
+            "Northeast Mistwood": (1191, 649),
+            "Groveside": (429, 1003),
+            "Northwest Stormhill": (354, 429),
+            "South Mistwood": (1147, 1132),
+            "West Mistwood": (971, 905),
+            "Northeast Stormhill": (616, 273),
+            "South Lake": (611, 1201),
+            "Alexander Spot": (640, 461),
+            "Summonwater": (1096, 330),
+            "Artist's Shack": (898, 653)
         },
         
         # Evergaol locations - 7 locations
         "evergaol": {
-            "Northwest of Lake": (532, 968),
-            "East of Lake": (952, 1176),
-            "Murkwater Terminus": (684, 585),
-            "Stormhill": (258, 485),
-            "Northeast Tunnel Entrance": (968, 556),
-            "Highroad": (739, 300),
-            "Mistwood": (1212, 748)
+            "Northwest of Lake": (532.65, 970.35),
+            "East of Lake": (953.3, 1178.55),
+            "Murkwater Terminus": (684.37, 586.82),
+            "Stormhill": (258.6, 486.97),
+            "Northeast Tunnel Entrance": (969.22, 557.85),
+            "Highroad": (739.79, 301.91),
+            "Mistwood": (1213.87, 749.62)
         },
         
         # Field Boss locations - 10 locations
         "field_boss": {
-            "Far Southwest of Lake": (477, 1263),
-            "Lake": (665, 1097),
-            "North of Stormhill Tunnel Entrance": (478, 575),
-            "North of Murkwater Terminus": (724, 552),
-            "Stormhill Spectral Hawk": (515, 365),
-            "Northwest Stormhill Cliffside": (453, 294),
-            "Mistwood Spectral Hawk": (1048, 1198),
-            "North Mistwood": (1173, 778),
-            "East of Murkwater Terminus": (845, 585),
-            "Northwest of Summonwater": (974, 334)
+            "Far Southwest of Lake": (477.28, 1263.43),
+            "Lake": (665, 1097), # CV recognition coordinate.
+            "North of Stormhill Tunnel Entrance": (478.25, 574.2),
+            "North of Murkwater Terminus": (724.86, 551.25),
+            "Stormhill Spectral Hawk": (515.19, 364.85),
+            "Northwest Stormhill Cliffside": (453, 294), # CV recognition coordinate.
+            "Mistwood Spectral Hawk": (1049.07, 1198.38),
+            "North Mistwood": (1174.18, 778.31),
+            "East of Murkwater Terminus": (846.46, 584.37),
+            "Northwest of Summonwater": (975.16, 333.17)
         },
         
         # Rotted Woods locations - 8 locations
         "rotted_woods": {
-            "Southwest": (994, 1139),
-            "Southeast": (1204, 1059),
-            "Center West": (929, 954),
-            "Center East": (1110, 979),
-            "Far Northwest": (881, 867),
-            "Northwest": (967, 856),
-            "Northeast": (1176, 921),
-            "Far Northeast": (1200, 849)
+            "Southwest": (995.06, 1139.42),
+            "Southeast": (1205.98, 1059.54),
+            "Center West": (930.3, 955.0),
+            "Center East": (1111.23, 979.51),
+            "Far Northwest": (882.42, 867.61),
+            "Northwest": (968.97, 856.12),
+            "Northeast": (1177.51, 921.69),
+            "Far Northeast": (1201.5, 849.72)
         }
     }
 
@@ -202,7 +202,7 @@ def get_poi_icon(category: str, structure: str, boss: str, icon_mappings: Dict[s
     
     return None
 
-def find_minor_base_data_for_spawn_point(spawn_point_location: str, all_pois: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, Any]:
+def find_minor_base_data_for_spawn_point(spawn_point_location: str, all_pois: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[float, float]]]) -> Dict[str, Any]:
     """Find the corresponding minor base data for a spawn point location."""
     
     # Look through all POIs to find a minor base with matching location
@@ -235,7 +235,7 @@ def find_minor_base_data_for_spawn_point(spawn_point_location: str, all_pois: Di
         'enemy': 'Rats (Church Only)'
     }
 
-def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int, int]]], icon_mappings: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
+def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[float, float]]], icon_mappings: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
     """Parse the CSV file and return complete JSON structure."""
     with open(csv_path, 'r', encoding='utf-8') as file:
         reader = csv.reader(file)
@@ -452,7 +452,7 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[int
     
     return json_data
 
-def generate_poi_lookup_by_map_type(data: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[int, int]]]) -> Dict[str, List[Dict[str, Any]]]:
+def generate_poi_lookup_by_map_type(data: Dict[str, Any], location_coords: Dict[str, Dict[str, Tuple[float, float]]]) -> Dict[str, List[Dict[str, Any]]]:
     """Generate POI lookup by map type with coordinates - flattened structure."""
     
     # Group seeds by map type
