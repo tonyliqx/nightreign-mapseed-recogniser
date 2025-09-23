@@ -1569,6 +1569,14 @@ class NightreignApp {
             return true; // Return true to indicate auto-skip happened
         }
         
+        // Special case: if "Empty" is selected as layer1, auto-select "Empty" as layer2
+        if (value === 'Empty') {
+            console.log(`🎯 Auto-selecting layer2: Empty (Empty icon selected)`);
+            this.selectLayer2(poi, 'Empty');
+            this.hideContextMenu(); // Close the context menu since we auto-selected
+            return true; // Return true to indicate auto-skip happened
+        }
+        
         console.log(`📍 Selected ${poi.category} layer1: ${value} for ${poi.name}`);
         console.log(`🔍 Current POI states:`, this.poiStates);
         return false; // Return false to indicate no auto-skip
@@ -1584,6 +1592,12 @@ class NightreignApp {
                 console.log(`🔄 Auto-setting layer1 to: ${autoLayer1} for layer2: ${value}`);
                 poi.selectionState.layer1 = autoLayer1;
             }
+        }
+        
+        // Special case: if "Empty" is selected as layer2, auto-select "Empty" as layer1
+        if (value === 'Empty' && poi.selectionState.layer1 !== 'Empty') {
+            console.log(`🎯 Auto-selecting layer1: Empty (Empty boss selected)`);
+            poi.selectionState.layer1 = 'Empty';
         }
         
         // Update POI selection state
@@ -2069,7 +2083,11 @@ class NightreignApp {
                     }
                 } else if (layer === 2) {
                     // Layer 2: Boss (filtered by current layer1 selection)
-                    if (!poi.selectionState.layer1 || matchingPOI.icon === poi.selectionState.layer1) {
+                    const iconMatches = !poi.selectionState.layer1 || 
+                        matchingPOI.icon === poi.selectionState.layer1 ||
+                        (poi.selectionState.layer1 === 'Empty' && !matchingPOI.icon);
+                    
+                    if (iconMatches) {
                         if (matchingPOI.boss) {
                             uniqueValues.add(matchingPOI.boss);
                             console.log(`➕ Added boss: ${matchingPOI.boss}`);
