@@ -27,8 +27,8 @@ async function loadPOIData() {
                 const allPOIs = mapPOIs.map(poi => ({
                     id: poi.id,
                     name: poi.location,
-                    x: Math.round(poi.coordinates.x * 0.5), // Scale from 1536x1536 to 768x768
-                    y: Math.round(poi.coordinates.y * 0.5),
+                    x: poi.coordinates.x * 0.5, // Scale from 1536x1536 to 768x768, preserve decimals
+                    y: poi.coordinates.y * 0.5,
                     category: mapCategoryToInternal(poi.category)
                 }));
                 
