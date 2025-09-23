@@ -1623,25 +1623,16 @@ class NightreignApp {
     }
     
     findLayer1ForLayer2(category, layer2Value) {
-        // Map internal category names to mapping keys
-        const mappingKey = this.mapCategoryToMappingKey(category);
-        if (!this.layerMappings[mappingKey]) return null;
+        // Check if layer mappings exist for this category
+        if (!this.layerMappings[category]) return null;
         
         // Find which layer1 options can produce this layer2 value
-        for (const [layer1Option, possibleLayer2Values] of Object.entries(this.layerMappings[mappingKey])) {
+        for (const [layer1Option, possibleLayer2Values] of Object.entries(this.layerMappings[category])) {
             if (possibleLayer2Values.includes(layer2Value)) {
                 return layer1Option;
             }
         }
         return null;
-    }
-    
-    mapCategoryToMappingKey(category) {
-        const mapping = {
-            'major_base': 'major_base',
-            'field_boss': 'field_boss',
-        };
-        return mapping[category] || category;
     }
 
     clearPOISelection(poi) {
@@ -1966,6 +1957,7 @@ class NightreignApp {
         document.getElementById('help-modal').style.display = 'none';
     }
 
+
     clearAllPOIs() {
         // Reset all POI states to 'dot'
         this.currentPOIs.forEach(poi => {
@@ -2006,6 +1998,10 @@ class NightreignApp {
         
         // Re-run POI auto-fill logic after clearing
         this.updatePOIStatesFromSeeds();
+        
+        // Refresh the display to show current map and nightlord selections
+        this.refreshSpawnScreenContent();
+        this.refreshRecognitionScreenContent();
         
         console.log('🧹 Cleared all POI selections');
         console.log(`🔍 Current POI states:`, this.poiStates);
@@ -2137,10 +2133,6 @@ class NightreignApp {
         return result;
     }
 
-    toggleLanguage() {
-        // Placeholder for language toggle
-        console.log('Language toggle clicked');
-    }
 
     showError(message) {
         // Simple error display
