@@ -399,11 +399,10 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[flo
         # Rotted Woods POIs
         for index, (location, boss) in enumerate(row_data['Rotted Woods'].items()):
             if boss:  # Only process if boss value exists
-                # Skip Putrid Ancestral Followers
-                if boss == 'Putrid Ancestral Followers':
-                    continue
+                # Set Putrid Ancestral Followers to null since it does not show as a boss icon on the map.
+                processed_boss = None if boss == 'Putrid Ancestral Followers' else boss
                 
-                poi_data = {'location': location, 'boss': boss, 'index': start_index + index, 'category': 'rottedWoods'}
+                poi_data = {'location': location, 'boss': processed_boss, 'index': start_index + index, 'category': 'rottedWoods'}
                 
                 # Add coordinates if available (use rotted_woods category)
                 if location in location_coords['rotted_woods']:
