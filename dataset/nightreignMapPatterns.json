@@ -1,5 +1,5 @@
 {
-  "extractedTime": "2025-09-23T01:33:14.323371",
+  "extractedTime": "2025-09-23T01:45:16.043182",
   "seeds": {
     "0": {
       "seedNumber": 0,
@@ -15275,6 +15275,17 @@
           },
           "icon": "elite"
         },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
         "51": {
           "location": "Northeast",
           "boss": "Erdtree Avatar",
@@ -15285,6 +15296,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "Southwest",
@@ -15711,6 +15733,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Erdtree Avatar",
@@ -15776,6 +15809,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "Northeast",
@@ -16204,6 +16248,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Tree Sentinel",
@@ -16269,6 +16324,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "West",
@@ -16710,6 +16776,17 @@
           },
           "icon": "elite"
         },
+        "46": {
+          "location": "Southeast",
+          "boss": null,
+          "index": 46,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1205.98,
+            "y": 1059.54
+          },
+          "icon": null
+        },
         "47": {
           "location": "Center West",
           "boss": "Black Blade Kindred",
@@ -16731,6 +16808,17 @@
             "y": 979.51
           },
           "icon": "elite"
+        },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
         },
         "50": {
           "location": "Northwest",
@@ -17193,6 +17281,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Ulcerated Tree Spirit",
@@ -17247,6 +17346,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -34728,6 +34838,28 @@
           },
           "icon": "elite"
         },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
+        },
         "52": {
           "location": "Far Northeast",
           "boss": "Ancestor Spirit",
@@ -35199,6 +35331,17 @@
           },
           "icon": "elite"
         },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
+        },
         "49": {
           "location": "Far Northwest",
           "boss": "Erdtree Avatar",
@@ -35209,6 +35352,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -35702,6 +35856,17 @@
           },
           "icon": "elite"
         },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
+        },
         "50": {
           "location": "Northwest",
           "boss": "Erdtree Avatar",
@@ -35723,6 +35888,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "West",
@@ -36206,6 +36382,28 @@
           },
           "icon": "elite"
         },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
+        },
         "52": {
           "location": "Far Northeast",
           "boss": "Death Rite Bird",
@@ -36668,6 +36866,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Ancestor Spirit",
@@ -36700,6 +36909,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -54136,6 +54356,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Tree Sentinel",
@@ -54190,6 +54421,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -54630,6 +54872,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Draconic Tree Sentinel",
@@ -54673,6 +54926,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -55129,6 +55393,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Bell Bearing Hunter",
@@ -55194,6 +55469,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "Southwest",
@@ -55677,6 +55963,28 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -56170,6 +56478,17 @@
           },
           "icon": "elite"
         },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
         "51": {
           "location": "Northeast",
           "boss": "Erdtree Avatar",
@@ -56180,6 +56499,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "West",
@@ -73602,6 +73932,17 @@
           },
           "icon": "elite"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Magma Wyrm",
@@ -73612,6 +73953,17 @@
             "y": 1059.54
           },
           "icon": "elite"
+        },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
         },
         "48": {
           "location": "Center East",
@@ -74117,6 +74469,28 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
+        },
         "49": {
           "location": "Far Northwest",
           "boss": "Bell Bearing Hunter",
@@ -74611,6 +74985,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Erdtree Avatar",
@@ -74632,6 +75017,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -75093,6 +75489,17 @@
           },
           "icon": "elite"
         },
+        "46": {
+          "location": "Southeast",
+          "boss": null,
+          "index": 46,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1205.98,
+            "y": 1059.54
+          },
+          "icon": null
+        },
         "47": {
           "location": "Center West",
           "boss": "Tree Sentinel",
@@ -75114,6 +75521,17 @@
             "y": 979.51
           },
           "icon": "elite"
+        },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
         },
         "50": {
           "location": "Northwest",
@@ -75628,6 +76046,28 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -93133,6 +93573,17 @@
           },
           "icon": "elite"
         },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
+        },
         "50": {
           "location": "Northwest",
           "boss": "Black Blade Kindred",
@@ -93143,6 +93594,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -93618,6 +94080,17 @@
           },
           "icon": "elite"
         },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
+        },
         "49": {
           "location": "Far Northwest",
           "boss": "Ancestor Spirit",
@@ -93639,6 +94112,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -94078,6 +94562,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Bell Bearing Hunter",
@@ -94121,6 +94616,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -94592,6 +95098,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Black Blade Kindred",
@@ -94635,6 +95152,17 @@
             "y": 921.69
           },
           "icon": "elite"
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "Northeast",
@@ -95065,6 +95593,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Bell Bearing Hunter",
@@ -95097,6 +95636,17 @@
             "y": 979.51
           },
           "icon": "elite"
+        },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
         },
         "50": {
           "location": "Northwest",
@@ -112560,6 +113110,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Magma Wyrm",
@@ -112581,6 +113142,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -113033,6 +113605,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Bell Bearing Hunter",
@@ -113065,6 +113648,17 @@
             "y": 979.51
           },
           "icon": "elite"
+        },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
         },
         "50": {
           "location": "Northwest",
@@ -113590,6 +114184,28 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "West",
@@ -114042,6 +114658,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Ulcerated Tree Spirit",
@@ -114052,6 +114679,17 @@
             "y": 979.51
           },
           "icon": "elite"
+        },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
         },
         "50": {
           "location": "Northwest",
@@ -114545,6 +115183,17 @@
           },
           "icon": "elite"
         },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
+        },
         "49": {
           "location": "Far Northwest",
           "boss": "Magma Wyrm",
@@ -114555,6 +115204,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -132019,6 +132679,17 @@
           },
           "icon": "elite"
         },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
+        },
         "49": {
           "location": "Far Northwest",
           "boss": "Ancestor Spirit",
@@ -132029,6 +132700,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -132525,6 +133207,17 @@
           },
           "icon": "elite"
         },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
+        },
         "50": {
           "location": "Northwest",
           "boss": "Black Blade Kindred",
@@ -132535,6 +133228,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -133031,6 +133735,28 @@
           },
           "icon": "elite"
         },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
+        },
         "52": {
           "location": "Far Northeast",
           "boss": "Magma Wyrm",
@@ -133492,6 +134218,28 @@
             "y": 1059.54
           },
           "icon": "elite"
+        },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
         },
         "49": {
           "location": "Far Northwest",
@@ -133964,6 +134712,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Tree Sentinel",
@@ -134007,6 +134766,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -151482,6 +152252,17 @@
           },
           "icon": "elite"
         },
+        "48": {
+          "location": "Center East",
+          "boss": null,
+          "index": 48,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1111.23,
+            "y": 979.51
+          },
+          "icon": null
+        },
         "49": {
           "location": "Far Northwest",
           "boss": "Death Rite Bird",
@@ -151492,6 +152273,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
@@ -151943,6 +152735,17 @@
           },
           "icon": "field_boss"
         },
+        "45": {
+          "location": "Southwest",
+          "boss": null,
+          "index": 45,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 995.06,
+            "y": 1139.42
+          },
+          "icon": null
+        },
         "46": {
           "location": "Southeast",
           "boss": "Magma Wyrm",
@@ -151997,6 +152800,17 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
         },
         "52": {
           "location": "Far Northeast",
@@ -152460,6 +153274,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Royal Carian Knight",
@@ -152470,6 +153295,17 @@
             "y": 979.51
           },
           "icon": "elite"
+        },
+        "49": {
+          "location": "Far Northwest",
+          "boss": null,
+          "index": 49,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 882.42,
+            "y": 867.61
+          },
+          "icon": null
         },
         "50": {
           "location": "Northwest",
@@ -152998,6 +153834,28 @@
             "y": 856.12
           },
           "icon": "elite"
+        },
+        "51": {
+          "location": "Northeast",
+          "boss": null,
+          "index": 51,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1177.51,
+            "y": 921.69
+          },
+          "icon": null
+        },
+        "52": {
+          "location": "Far Northeast",
+          "boss": null,
+          "index": 52,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 1201.5,
+            "y": 849.72
+          },
+          "icon": null
         }
       },
       "rotBlessing": "Northeast",
@@ -153447,6 +154305,17 @@
           },
           "icon": "elite"
         },
+        "47": {
+          "location": "Center West",
+          "boss": null,
+          "index": 47,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 930.3,
+            "y": 955.0
+          },
+          "icon": null
+        },
         "48": {
           "location": "Center East",
           "boss": "Bell Bearing Hunter",
@@ -153468,6 +154337,17 @@
             "y": 867.61
           },
           "icon": "elite"
+        },
+        "50": {
+          "location": "Northwest",
+          "boss": null,
+          "index": 50,
+          "category": "rottedWoods",
+          "coordinates": {
+            "x": 968.97,
+            "y": 856.12
+          },
+          "icon": null
         },
         "51": {
           "location": "Northeast",
