@@ -139,10 +139,10 @@ The following coordinates represent the 16 unique cathedral locations found acro
 9. (355, 428) - 96 occurrences, avg confidence: 0.957 - Northwest Stormhill
 10. (1148, 1131) - 96 occurrences, avg confidence: 0.960 - South Mistwood
 11. (972, 904) - 88 occurrences, avg confidence: 0.958 - West Mistwood
-12. (1097, 329) - 80 occurrences, avg confidence: 0.962 - Northeast Stormhill
+12. (617, 272) - 80 occurrences, avg confidence: 0.962 - Northeast Stormhill
 13. (612, 1200) - 74 occurrences, avg confidence: 0.962 - South Lake
 14. (641, 460) - 68 occurrences, avg confidence: 0.966 - Alexander Spot
-15. (617, 272) - 60 occurrences, avg confidence: 0.966 - Summonwater
+15. (1097, 329) - 60 occurrences, avg confidence: 0.966 - Summonwater
 16. (899, 652) - 57 occurrences, avg confidence: 0.947 - Artist's Shack
 
 Detection Method: OpenCV Template Matching with TM_CCORR_NORMED using cathedral label mask
