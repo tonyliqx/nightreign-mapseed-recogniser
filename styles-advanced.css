@@ -237,6 +237,15 @@ body {
     gap: 1rem;
     padding: 1rem 1.5rem;
     min-height: 80px;
+    overflow: hidden;
+}
+
+.nightlord-btn span {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    min-width: 0;
 }
 
 .nightlord-btn:hover, .map-btn:hover {
@@ -401,7 +410,7 @@ body {
 
 /* Context Menu */
 .context-menu {
-    position: absolute;
+    position: fixed;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -425,49 +434,18 @@ body {
     padding: 0.5rem 1rem;
     max-height: 300px;
     overflow-y: auto;
-    justify-content: center;
 }
 
 /* Grid layout for icon options (compact) */
 .context-menu-options.icon-grid {
-    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 0.25rem;
-}
-
-/* Responsive grid adjustments */
-@media (max-width: 768px) {
-    .context-menu-options.icon-grid {
-        grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
-        gap: 0.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .context-menu-options.icon-grid {
-        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-        gap: 0.15rem;
-    }
 }
 
 /* Grid layout for text options (wider) */
 .context-menu-options.text-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 0.5rem;
-}
-
-/* Responsive text grid adjustments */
-@media (max-width: 768px) {
-    .context-menu-options.text-grid {
-        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-        gap: 0.4rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .context-menu-options.text-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-        gap: 0.3rem;
-    }
 }
 
 .context-menu-header {
@@ -499,11 +477,13 @@ body {
 
 /* Icon-only items (for layer1 icons) */
 .context-menu-item.icon-only {
-    width: 60px;
-    height: 60px;
-    padding: 0.125rem;
-    justify-self: center;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0.25rem;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Text-only items (for layer2 boss names) */
@@ -529,9 +509,10 @@ body {
 .context-menu-icon {
     flex-shrink: 0;
     object-fit: contain;
-    width: 40px;
-    height: 40px;
-    transform: scale(1.8);
+    width: 90%;
+    height: 90%;
+    max-width: 100px;
+    max-height: 100px;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }
@@ -568,11 +549,20 @@ body {
     border-bottom: none;
 }
 
-.context-menu-item img {
+.context-menu-item.icon-only img {
+    width: 90%;
+    height: 90%;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.context-menu-item:not(.icon-only) img {
     width: 36px;
     height: 36px;
     object-fit: contain;
-    transform: scale(1.8);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }
@@ -740,7 +730,8 @@ body {
         justify-content: center;
     }
     
-    #map-canvas {
+    #map-canvas,
+    #spawn-canvas {
         width: 100%;
         height: auto;
         max-width: 768px;

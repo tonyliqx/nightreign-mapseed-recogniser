@@ -69,14 +69,33 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(PORT, 'localhost', () => {
-    console.log(`🚀 HTTP Server running at http://localhost:${PORT}/`);
+server.listen(PORT, '0.0.0.0', () => {
+    const os = require('os');
+    const networkInterfaces = os.networkInterfaces();
+    let localIP = 'localhost';
+    
+    // Find local network IP address
+    for (const interfaceName in networkInterfaces) {
+        for (const iface of networkInterfaces[interfaceName]) {
+            // Skip internal (i.e. 127.0.0.1) and non-IPv4 addresses
+            if (iface.family === 'IPv4' && !iface.internal) {
+                localIP = iface.address;
+                break;
+            }
+        }
+    }
+    
+    console.log(`🚀 HTTP Server running on port ${PORT}`);
     console.log(`📁 Serving files from: ${__dirname}`);
     console.log('');
+    console.log('Access the server from:');
+    console.log(`  💻 This computer: http://localhost:${PORT}/`);
+    console.log(`  📱 Mobile/Network: http://${localIP}:${PORT}/`);
+    console.log('');
     console.log('Available pages:');
-    console.log(`  📊 Main app: http://localhost:${PORT}/index.html`);
-    console.log(`  🔧 POI extraction: http://localhost:${PORT}/extraction.html`);
-    console.log(`  🤖 Supervised learning: http://localhost:${PORT}/poi-supervised-learning.html`);
+    console.log(`  📊 Main app: http://${localIP}:${PORT}/index.html`);
+    console.log(`  📊 Advanced app: http://${localIP}:${PORT}/index-advanced.html`);
+    console.log(`  🔧 POI extraction: http://${localIP}:${PORT}/extraction.html`);
     console.log('');
     console.log('Press Ctrl+C to stop the server');
 });
