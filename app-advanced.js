@@ -488,12 +488,17 @@ class NightreignApp {
         // Click handler for spawn points
         canvas.addEventListener('click', (e) => {
             const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
             
-            const clickedSpawn = this.findClickedSpawnPoint(x, y);
+            // Calculate canvas coordinates for hit detection
+            const canvasX = (e.clientX - rect.left) * scaleX;
+            const canvasY = (e.clientY - rect.top) * scaleY;
+            
+            const clickedSpawn = this.findClickedSpawnPoint(canvasX, canvasY);
             if (clickedSpawn) {
-                this.showSpawnContextMenu(clickedSpawn, x, y);
+                // Use click position - menu uses position: fixed (viewport-relative)
+                this.showSpawnContextMenu(clickedSpawn, e.clientX, e.clientY);
             } else {
                 this.hideSpawnContextMenu();
             }
@@ -533,11 +538,37 @@ class NightreignApp {
         // Generate context menu content
         this.generateSpawnContextMenu(spawnPoint);
         
-        // Position and show context menu
         const contextMenu = document.getElementById('spawn-context-menu');
-        contextMenu.style.left = `${x + 10}px`;
-        contextMenu.style.top = `${y - 10}px`;
+        
+        // Render off-screen to measure
         contextMenu.style.display = 'block';
+        contextMenu.style.left = '-9999px';
+        contextMenu.style.top = '-9999px';
+        
+        // Measure actual dimensions
+        const menuRect = contextMenu.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        const margin = 10;
+        let finalX = x + margin;
+        let finalY = y + margin;
+        
+        // Adjust if going off right edge
+        if (finalX + menuRect.width > viewportWidth - margin) {
+            finalX = x - menuRect.width - margin;
+        }
+        finalX = Math.max(margin, Math.min(finalX, viewportWidth - menuRect.width - margin));
+        
+        // Adjust if going off bottom edge
+        if (finalY + menuRect.height > viewportHeight - margin) {
+            finalY = y - menuRect.height - margin;
+        }
+        finalY = Math.max(margin, Math.min(finalY, viewportHeight - menuRect.height - margin));
+        
+        // Apply final position
+        contextMenu.style.left = `${finalX}px`;
+        contextMenu.style.top = `${finalY}px`;
         
         this.spawnContextMenu = contextMenu;
     }
@@ -940,12 +971,17 @@ class NightreignApp {
             
             // Otherwise, handle POI selection
             const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
             
-            const clickedPOI = this.findClickedPOI(x, y);
+            // Calculate canvas coordinates for hit detection
+            const canvasX = (e.clientX - rect.left) * scaleX;
+            const canvasY = (e.clientY - rect.top) * scaleY;
+            
+            const clickedPOI = this.findClickedPOI(canvasX, canvasY);
             if (clickedPOI) {
-                this.showContextMenu(clickedPOI, x, y);
+                // Use click position - menu uses position: fixed (viewport-relative)
+                this.showContextMenu(clickedPOI, e.clientX, e.clientY);
             } else {
                 // Clicked on empty space - close any open context menu
                 this.hideContextMenu();
@@ -964,8 +1000,10 @@ class NightreignApp {
             if (this.foundSeed) return;
             
             const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const x = (e.clientX - rect.left) * scaleX;
+            const y = (e.clientY - rect.top) * scaleY;
             
             const clickedPOI = this.findClickedPOI(x, y);
             if (clickedPOI) {
@@ -982,8 +1020,10 @@ class NightreignApp {
                 if (this.foundSeed) return;
                 
                 const rect = canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const x = (e.clientX - rect.left) * scaleX;
+                const y = (e.clientY - rect.top) * scaleY;
                 
                 const clickedPOI = this.findClickedPOI(x, y);
                 if (clickedPOI) {
@@ -1111,14 +1151,37 @@ class NightreignApp {
         // Generate context menu
         this.generateContextMenu(poi);
         
-        // Position and show
-        const canvas = document.getElementById('map-canvas');
-        const rect = canvas.getBoundingClientRect();
         const menu = document.getElementById('context-menu');
         
-        menu.style.left = `${x}px`;
-        menu.style.top = `${y}px`;
+        // Render off-screen to measure
         menu.style.display = 'block';
+        menu.style.left = '-9999px';
+        menu.style.top = '-9999px';
+        
+        // Measure actual dimensions
+        const menuRect = menu.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        const margin = 10;
+        let finalX = x + margin;
+        let finalY = y + margin;
+        
+        // Adjust if going off right edge
+        if (finalX + menuRect.width > viewportWidth - margin) {
+            finalX = x - menuRect.width - margin;
+        }
+        finalX = Math.max(margin, Math.min(finalX, viewportWidth - menuRect.width - margin));
+        
+        // Adjust if going off bottom edge
+        if (finalY + menuRect.height > viewportHeight - margin) {
+            finalY = y - menuRect.height - margin;
+        }
+        finalY = Math.max(margin, Math.min(finalY, viewportHeight - menuRect.height - margin));
+        
+        // Apply final position
+        menu.style.left = `${finalX}px`;
+        menu.style.top = `${finalY}px`;
     }
 
     generateContextMenu(poi) {
@@ -1173,8 +1236,6 @@ class NightreignApp {
             iconImg.src = this.getIconPath(option);
             iconImg.alt = this.formatOptionName(option);
             iconImg.className = 'context-menu-icon';
-            iconImg.style.width = '32px';
-            iconImg.style.height = '32px';
             
             // Add icon only (no text to save space)
             item.classList.add('icon-only');
@@ -1412,8 +1473,6 @@ class NightreignApp {
                 iconImg.src = this.getIconPath(option);
                 iconImg.alt = this.formatOptionName(option);
                 iconImg.className = 'context-menu-icon';
-                iconImg.style.width = '32px';
-                iconImg.style.height = '32px';
                 
                 // Add icon only (no text to save space)
                 item.classList.add('icon-only');
@@ -2390,3 +2449,5 @@ class NightreignApp {
 document.addEventListener('DOMContentLoaded', () => {
     new NightreignApp();
 });
+
+
