@@ -127,19 +127,33 @@ class LanguageManager {
 
   updateUI() {
     // Update all elements with data-i18n attributes
-    document.querySelectorAll('[data-i18n]').forEach(element => {
+    // Use querySelectorAll to get a static snapshot, then process in order
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
       const key = element.getAttribute('data-i18n');
       const text = this.getText(key);
       if (text) {
         if (element.tagName === 'INPUT' && element.type === 'text') {
           element.value = text;
-        } else if (element.hasAttribute('data-i18n-html')) {
+        } else if (element.hasAttribute('data-i18n-html') || element.getAttribute('data-i18n-html') === 'true') {
           element.innerHTML = text;
         } else {
           element.textContent = text;
         }
       }
     });
+
+    // Second pass: handle nested elements that might have been added via innerHTML
+    setTimeout(() => {
+      const nestedElements = document.querySelectorAll('[data-i18n]');
+      nestedElements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const text = this.getText(key);
+        if (text && (element.hasAttribute('data-i18n-html') || element.getAttribute('data-i18n-html') === 'true')) {
+          element.innerHTML = text;
+        }
+      });
+    }, 50);
 
     // Update title and meta tags
     document.title = this.getText('app.title');

@@ -5,6 +5,18 @@
     box-sizing: border-box;
 }
 
+/* Ensure strong tags have proper bold styling */
+strong, b {
+    font-weight: 700 !important;
+}
+
+/* Specifically target strong tags in modal and help sections */
+.modal-body strong,
+.help-section strong {
+    font-weight: 700 !important;
+    color: #ffd700 !important;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -1420,7 +1432,7 @@ body {
 
 .help-section strong {
     color: #ffd700;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Custom scrollbar for modal */
