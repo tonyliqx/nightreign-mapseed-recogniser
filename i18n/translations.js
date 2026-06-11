@@ -35,6 +35,8 @@ const translations = {
     'nightlord.fulghor': '人马',
     'nightlord.caligo': '冰龙',
     'nightlord.heolstor': '黑夜王',
+    'nightlord.harmonia': '七仙女',
+    'nightlord.straghess': '垃圾王',
     'nightlord.unknown': '未知夜王',
     
     // Maps
@@ -44,6 +46,7 @@ const translations = {
     'map.crater': '火山',
     'map.rotted_woods': '腐败森林',
     'map.noklateo': '隐城',
+    'map.great_hollow': '大空洞',
     
     // Selection
     'selection.nightlord': '选择你的夜王',
@@ -148,6 +151,8 @@ const translations = {
     'nightlord.fulghor': 'Fulghor',
     'nightlord.caligo': 'Caligo',
     'nightlord.heolstor': 'Heolstor',
+    'nightlord.harmonia': 'Harmonia',
+    'nightlord.straghess': 'Straghess',
     'nightlord.unknown': 'Unknown Nightlord',
     
     // Maps
@@ -157,8 +162,7 @@ const translations = {
     'map.crater': 'Crater',
     'map.rotted_woods': 'Rotted Woods',
     'map.noklateo': 'Noklateo',
-    
-    // Selection
+    'map.great_hollow': 'Great Hollow',
     'selection.nightlord': 'Select Your Nightlord',
     'selection.map': 'Select Your Map / Special Terrain',
     'selection.current': 'Current Selection: ',

@@ -172,6 +172,11 @@ def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[float, float]]]:
             "Northwest": (968.97, 856.12),
             "Northeast": (1177.51, 921.69),
             "Far Northeast": (1201.5, 849.72)
+        },
+
+        # Great Hollow locations - DLC: The Forsaken Hollows
+        # POI coordinates TBD - placeholder for when data becomes available
+        "great_hollow": {
         }
     }
 
