@@ -122,7 +122,7 @@ class NightreignApp {
 
     async loadMapImages() {
         try {
-            const mapTypes = ['Default', 'Crater', 'Mountaintop', 'Noklateo', 'Rotted Woods'];
+            const mapTypes = ['Default', 'Crater', 'Mountaintop', 'Noklateo', 'Rotted Woods', 'Great Hollow'];
             const imagePromises = mapTypes.map(mapType => {
                 return new Promise((resolve, reject) => {
                     const img = new Image();
@@ -155,7 +155,8 @@ class NightreignApp {
              'Crater': 'crater.jpg',
              'Mountaintop': 'mountaintop.jpg',
              'Noklateo': 'noklateo.jpg',
-             'Rotted Woods': 'rotted_wood.jpg'
+             'Rotted Woods': 'rotted_wood.jpg',
+             'Great Hollow': 'great_hollow.jpg'
         };
          return fileNameMap[mapType] || 'default.jpg';
     }
@@ -467,6 +468,10 @@ class NightreignApp {
 
     drawSpawnPoints(ctx) {
         this.availableSpawnPoints.forEach(spawnPoint => {
+            // Skip spawn points without coordinates (e.g., DLC Great Hollow seeds with placeholder data)
+            if (!spawnPoint.coordinate || spawnPoint.coordinate.x === undefined || spawnPoint.coordinate.y === undefined) {
+                return;
+            }
             // Scale coordinates by 0.5 to match POI scaling
             const x = spawnPoint.coordinate.x * 0.5;
             const y = spawnPoint.coordinate.y * 0.5;
@@ -513,8 +518,12 @@ class NightreignApp {
 
     findClickedSpawnPoint(x, y) {
         const tolerance = 20;
-        
+
         return this.availableSpawnPoints.find(spawnPoint => {
+            // Skip spawn points without valid coordinates
+            if (!spawnPoint.coordinate || spawnPoint.coordinate.x === undefined) {
+                return false;
+            }
             // Scale coordinates by 0.5 to match drawing coordinates
             const scaledX = spawnPoint.coordinate.x * 0.5;
             const scaledY = spawnPoint.coordinate.y * 0.5;

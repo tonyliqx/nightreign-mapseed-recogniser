@@ -1157,7 +1157,7 @@ class NightreignMapRecogniser {
 
     updateSeedCount() {
         if (!this.chosenNightlord && !this.chosenMap) {
-            document.getElementById('seed-count').textContent = '320';
+            document.getElementById('seed-count').textContent = seedDataMatrix.length;
             return;
         }
 

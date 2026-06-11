@@ -37,6 +37,8 @@ const translations_advanced = {
     'nightlord.fulghor': '人马',
     'nightlord.caligo': '冰龙',
     'nightlord.heolstor': '黑夜王',
+    'nightlord.harmonia': '七仙女',
+    'nightlord.straghess': '垃圾王',
     
     // Maps
     'map.default': '默认',
@@ -44,6 +46,7 @@ const translations_advanced = {
     'map.crater': '火山',
     'map.rotted_woods': '腐败森林',
     'map.noklateo': '隐城',
+    'map.great_hollow': '大空洞',
 
     // Actions
     'actions.start': '开始识别',
@@ -252,6 +255,8 @@ const translations_advanced = {
     'nightlord.fulghor': 'Fulghor',
     'nightlord.caligo': 'Caligo',
     'nightlord.heolstor': 'Heolstor',
+    'nightlord.harmonia': 'Harmonia',
+    'nightlord.straghess': 'Straghess',
     
     // Maps
     'map.default': 'Default',
@@ -259,6 +264,7 @@ const translations_advanced = {
     'map.crater': 'Crater',
     'map.rotted_woods': 'Rotted Woods',
     'map.noklateo': 'Noklateo',
+    'map.great_hollow': 'Great Hollow',
 
     // Actions
     'actions.start': 'Start Recognition',
