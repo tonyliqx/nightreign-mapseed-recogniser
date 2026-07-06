@@ -164,6 +164,18 @@ class TestAdvancedRows(unittest.TestCase):
         rows = build_advanced_csv_rows(self.source, self.icon)
         self.assertEqual(rows["1005"]["mapType"], "Great Hollow")
 
+    def test_basic_map_seeds_have_no_pois(self):
+        """基础地图 DLC 种子不填 POI（用户决策：建筑布局不对齐现有候选点，
+        实测严格公差 0% 命中）。POI 字典保持空，避免 convert 崩溃与坐标缺失。"""
+        rows = build_advanced_csv_rows(self.source, self.icon)
+        basic = [r for r in rows.values() if r["mapType"] != "Great Hollow"]
+        self.assertGreater(len(basic), 0, "应存在基础地图 DLC 种子")
+        for r in basic:
+            total = sum(len(r[c]) for c in
+                        ["major_base", "minor_base", "evergaol", "field_boss"])
+            self.assertEqual(total, 0,
+                             f"基础地图种子 {r['mapType']} 应无 POI，但有 {total} 个")
+
 
 from integrate_dlc import build_basic_classifications
 
