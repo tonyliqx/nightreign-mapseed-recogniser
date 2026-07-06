@@ -246,8 +246,10 @@ def get_poi_icon(category: str, structure: str, boss: str, icon_mappings: Dict[s
         return icon_mappings["minor_base"].get(structure)
     
     elif category == "field_boss":
-        # Field boss uses boss only
-        return icon_mappings["field_boss"].get(boss)
+        # Field boss uses boss only.
+        # 未知 boss（如 DLC 中文 boss 名无英文映射）退回通用 field_boss 图标。
+        # 现有英文 boss 的精确映射不退化（.get 优先返回精确值）。
+        return icon_mappings["field_boss"].get(boss) or "field_boss"
     
     elif category == "rotted_woods":
         # Rotted woods uses boss only

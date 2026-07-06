@@ -366,9 +366,9 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
                 loc = _nearest_gh_location(coord, gh_pois_1536, calib)
                 if loc is None:
                     continue
-                structure = source["names"].get(con["type"], con["type"])
-                boss = source["names"].get(con["type"], "") if cls["adv"] == "fieldBoss" else ""
-                value = f"{structure} - {boss}" if boss else structure
+                # Great Hollow POI value：boss 中文名（fieldBoss）或裸 5xxxx type 编号（结构）。
+                # fieldBoss 不再用 "structure - boss" 重复格式——现有 CSV field_boss 就是纯 boss 名。
+                value = source["names"].get(con["type"], con["type"])
                 row[cat_key][loc] = value
         rows[sid] = row
     return rows

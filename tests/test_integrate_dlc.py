@@ -176,6 +176,24 @@ class TestAdvancedRows(unittest.TestCase):
             self.assertEqual(total, 0,
                              f"基础地图种子 {r['mapType']} 应无 POI，但有 {total} 个")
 
+    def test_field_boss_value_no_duplicate(self):
+        """Great Hollow fieldBoss value 必须是纯 boss 名，不含 " - " 重复格式。
+
+        回归对象：Batch C 出现 "罗蕾塔 - 罗蕾塔" 重复 value，导致 convert
+        按组合查找 icon 失败。修复后 value = names[type] 纯名。
+        """
+        rows = build_advanced_csv_rows(self.source, self.icon)
+        gh_rows = [r for r in rows.values() if r["mapType"] == "Great Hollow"]
+        self.assertGreater(len(gh_rows), 0)
+        checked = 0
+        for r in gh_rows:
+            for value in r["field_boss"].values():
+                self.assertNotIn(" - ", value,
+                                 f"field_boss value 含重复格式: {value!r}")
+                checked += 1
+        # 至少检查到 1 个 field_boss value（确保测试真正执行了断言）
+        self.assertGreater(checked, 0, "未检查到任何 field_boss value")
+
 
 from integrate_dlc import build_basic_classifications
 
