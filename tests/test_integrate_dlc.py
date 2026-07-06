@@ -70,5 +70,29 @@ class TestTransformCoord(unittest.TestCase):
         calib = load_great_hollow_calib()
         self.assertIn("scale_x", calib)
 
+
+from integrate_dlc import build_maptype_fix, SPECIAL_TO_MAP
+
+class TestMapTypeFix(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+
+    def test_seed_1005_is_great_hollow(self):
+        fix = build_maptype_fix(self.source)
+        # 源 Special=4 → Great Hollow（目标当前标 Default，应在纠正表里）
+        self.assertEqual(fix.get("1005"), "Great Hollow")
+
+    def test_seed_1000_not_in_fix_if_default(self):
+        fix = build_maptype_fix(self.source)
+        # 种子1000 源 Special=0(Default)，目标也是 Default → 不在纠正表
+        # （仅当目标当前值与源一致才排除；此处目标1000=Default，故排除）
+        self.assertNotIn("1000", fix)
+
+    def test_all_fix_values_valid(self):
+        fix = build_maptype_fix(self.source)
+        for sid, mt in fix.items():
+            self.assertTrue(1000 <= int(sid) <= 1199)
+            self.assertIn(mt, SPECIAL_TO_MAP.values())
+
 if __name__ == "__main__":
     unittest.main()

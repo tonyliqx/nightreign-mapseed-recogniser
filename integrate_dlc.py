@@ -110,6 +110,33 @@ def transform_coord_great_hollow(pic_x: float, pic_y: float, coord_id: str,
     return (x, y)
 
 
+def _load_target_maptypes() -> Dict[str, str]:
+    """从现有 data.js 的 seedDataMatrix 读 DLC 行当前 mapType（[2]列）。
+    解析 JS 数组的子集，仅取 1000-1199 行。"""
+    import re
+    path = os.path.join(PROJ_DIR, "data.js")
+    txt = open(path, encoding="utf-8").read()
+    out = {}
+    for m in re.finditer(r"\[(\d{4}),\s*\"([^\"]*)\",\s*\"([^\"]*)\"", txt):
+        sid, _nightlord, maptype = m.group(1), m.group(2), m.group(3)
+        if 1000 <= int(sid) <= 1199:
+            out[sid] = maptype
+    return out
+
+
+def build_maptype_fix(source: Dict[str, Any]) -> Dict[str, str]:
+    """对比源 Special 与目标当前 mapType，返回需纠正的 {seed_id: correct_mapType}。"""
+    target = _load_target_maptypes()
+    fix = {}
+    for sid, pat in source["patterns"].items():
+        if not (1000 <= int(sid) <= 1199):
+            continue
+        correct = SPECIAL_TO_MAP.get(pat["special"], "Default")
+        if target.get(sid) != correct:
+            fix[sid] = correct
+    return fix
+
+
 def main():
     pass  # 后续任务补全
 
