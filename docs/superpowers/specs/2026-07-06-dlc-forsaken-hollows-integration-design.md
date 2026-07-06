@@ -47,9 +47,9 @@
 | 文件 | 用途 | 关键列 |
 |------|------|--------|
 | `MAP_PATTERN.csv` | 主种子表，520 行 | `ID, NightLord(0-9), Special(0-5), Start_190, Treasure_800, ..., Day1Boss, Day1Loc, Day2Boss, Day2Loc` |
-| `CONSTRUCT.csv` | 每地图的建筑清单 | `ID, MAP, type, is_display, _, coord_index, ...`（`MAP==1115` 为 Great Hollow） |
-| `坐标.csv` | 坐标索引→图片像素 | `ID, Name, areaNo, gridXNo, gridZNo, posX, posZ, picX, picY`（picX/picY 在 4775 空间） |
-| `NAME.csv` | 数值 ID→中文名 | 仅覆盖 boss/事件（45xx/46xx/47xx/48xx/49xx/52xx），**不覆盖结构类型** |
+| `CONSTRUCT.csv` | **每种子的建筑清单**（非地图模板） | `ID, MAP(=种子ID), type, is_display, _, coord_index, ...`；MAP 列与 MAP_PATTERN 的 ID **一一对应**（已验证 520=520 零差异），每种子几十个建筑、布局独立可变 |
+| `坐标.csv` | 坐标索引→图片像素 | `ID, Name, areaNo, gridXNo, gridZNo, posX, posZ, picX, picY`（picX/picY 在 4775 空间，603 行**全有效**）。`CONSTRUCT.coord_index` 与 `MAP_PATTERN.Day1Loc/Day2Loc/Start` 均指向本表 ID |
+| `NAME.csv` | 数值 ID→中文名 | 覆盖 boss/事件（45xx/46xx/47xx/48xx/49xx/52xx）；**4xxxx boss 有中文名**，但 5xxxx DLC 结构与 30xxx-43xxx 基础结构**均无中文名** |
 | `素材/background_4.png` | Great Hollow 背景 | 4775×4775 RGBA |
 | `素材/Construct_*.png` | 175 个建筑图标 | 文件名 = `Construct_{type}.png` |
 | `输出/大空洞/map_1115_*.jpg` | Great Hollow 种子渲染图 | 视觉验证用 |
@@ -70,7 +70,7 @@ integrate-dlc.py
 │
 ├─ 2. 共享变换层
 │   ├─ 坐标缩放：源 picXY(4775) → 目标空间
-│   ├─ construct→类目映射（Rosetta 推导，见 §6）
+│   ├─ construct→类目映射（图标视觉识别 + NAME.csv，见 §6）
 │   └─ mapType 纠正（Special==4 → Great Hollow，见 §7）
 │
 ├─ 3.【高级版产出】
@@ -116,27 +116,43 @@ target_coord = source_picXY × (1536 / 4775) = source_picXY × 0.32168
 
 **回退**：若无法精确标定，按「background_4.png 直接 ×0.32168 缩放至 1536」假设处理，并在已知局限中声明 Great Hollow 坐标可能存在系统性偏差。
 
-## 六、construct→类目映射（Rosetta）
+## 六、construct→类目映射（图标驱动 + NAME.csv）
 
-源建筑只有数值 `type`，本项目两端都需要语义类目。用 **Rosetta（罗塞塔石碑）法**从基础种子反向学习映射：
+源建筑只有数值 `type`，本项目两端都需要语义类目。验证发现 **type 空间分层**——DLC 独有结构（5xxxx）在基础地图从未出现，Rosetta 对其**不可行**（无基础对照）。故按 type 来源分三种方法：
 
-### 6.1 学习阶段
-对基础种子 0-319：
-- 源端：每种子的建筑（`type`, 坐标）来自 `CONSTRUCT.csv` + `坐标.csv`。
-- 目标端：
-  - 高级版：`nightreignMapPatterns.json` 里该种子的 `pois`（含 `category`）+ `poiLookupByMapType` 坐标。
-  - 基础版：`dataset.json["<种子>"]["POI"+id]`（4 类）+ `POIS_BY_MAP[map][id]` 坐标。
-- 按坐标对齐（源建筑坐标缩放后最近邻匹配目标 POI），学到两张映射表：
-  - `type → advanced_category`（majorBase/minorBase/fieldBoss/evergaol/rottedWoods）
-  - `type → basic_class`（church/mage/village/other）
+| type 类别 | 数值范围 | 出现位置 | 分类方法 |
+|-----------|----------|----------|----------|
+| DLC 独有结构 | 5xxxx（约 18 种，如 52420/52570） | 仅 Great Hollow | **图标视觉识别**：视觉模型分析源 `素材/Construct_5xxxx.png` 图像内容判定 |
+| boss | 4xxxx（如 46540/49172） | 基础 + DLC | **NAME.csv 识别**（4xxxx boss 有中文名）→ 高级版 `fieldBoss`；基础版 `other` |
+| 基础结构 | 30xxx-43xxx | 基础地图（DLC 一般不含，若出现则同图标识别） | 图标视觉识别 |
 
-### 6.2 应用阶段（DLC）
-对每条 DLC 种子的每个 Great Hollow 建筑：
-- 高级版：`type` 查表得 `category`；查不到（DLC 独有类型）→ 按图标启发式归类，仍无法判定 → 归入最接近的兜底类目（结构归 `minorBase`，boss 归 `fieldBoss`）。
-- 基础版：`type` 查表得 `class`；查不到 → 归 `other`（基础版兜底类）。
+### 6.1 图标视觉识别（核心，路线 A 本意）
+- 对 DLC 涉及的全部结构 type（5xxxx 约 18 种 + 若干基础结构），逐个查看源 `素材/Construct_{type}.png` 图标。
+- 视觉判定其在高级版分类法中的类目（majorBase/minorBase/fieldBoss/evergaol/rottedWoods）与基础版 5 值类（church/mage/village/other/nothing）。
+- 产出**硬编码映射表**（Python 字典），存入 `integrate-dlc.py`：
+  ```python
+  TYPE_CATEGORY = {
+      52420: {"adv": "majorBase", "basic": "village"},   # 示例，实际由视觉判定
+      # ...约 18 条 5xxxx + 若干基础结构
+  }
+  ```
+- 视觉判断依据：教堂尖顶→church/majorBase、法师塔造型→mage/minorBase、聚落房屋群→village、野外 boss→fieldBoss、永恒牢狱 cage→evergaol。无法明确判定 → 结构兜底 `minorBase`/`other`，boss 兜底 `fieldBoss`/`other`。
 
-### 6.3 图标驱动（高级版）
-高级版 POI 的 `icon` 字段由 `convert-csv-to-json.py` 的 `get_poi_icon_mappings()` 决定。需扩展该字典，为 DLC 出现的 `type` 补对应图标名（从源 `素材/Construct_{type}.png` 文件名取）。图标缺失时打印警告并跳过（不阻塞），符合现有容错约定。
+### 6.2 boss 处理（NAME.csv）
+Great Hollow 种子的 boss（`Day1Boss`/`Day2Boss` + CONSTRUCT 中的 4xxxx）：
+- NAME.csv 提供中文名 → 高级版归 `fieldBoss`（带 boss 名/图标）。
+- 基础版归 `other`（基础版不区分 boss 类型，boss 非 church/mage/village）。
+
+### 6.3 应用阶段（DLC，每种子每建筑）
+- 结构 type → 查 `TYPE_CATEGORY` 映射表得双版类目。
+- boss type（4xxxx）→ NAME.csv 识别，归 fieldBoss / other。
+- 候选点该种子无建筑 → `nothing`。
+
+### 6.4 图标资源（高级版）
+高级版 POI 的 `icon` 字段由 `convert-csv-to-json.py` 的 `get_poi_icon_mappings()` 决定。需扩展该字典，为 DLC `type` 补图标名（从源 `素材/Construct_{type}.png` 文件名取，拷贝到 `assets/icons/`）。缺失时警告并跳过（不阻塞），符合现有容错约定。
+
+### 6.5 可选：Rosetta 交叉验证
+对 4xxxx boss（基础与 DLC 共有、NAME.csv 有名、坐标两端均有效），可用 Rosetta（基础种子源建筑坐标 ↔ 目标分类坐标对齐）交叉验证 boss 归类。非主路径，仅增强可信度，失败不影响交付。
 
 ## 七、mapType 纠正
 
@@ -169,9 +185,9 @@ target_coord = source_picXY × (1536 / 4775) = source_picXY × 0.32168
 ## 九、基础版产出详述
 
 ### 9.1 POIS_BY_MAP["Great Hollow"]（data.js）
-- 从源 Great Hollow 建筑（`CONSTRUCT.csv` 中 `MAP==1115` 的记录 + `坐标.csv`）取所有坐标。
-- **聚类去重**：物理上相同的候选点（坐标相近）合并为一个 slot，分配 `id`（复用现有 1-N 命名空间，与其它地图 id 并行，因分类按种子键查，不会冲突）。
-- 坐标缩放到 768 空间（§5）。
+- 从源 Great Hollow 建筑取所有坐标：源 `MAP_PATTERN.csv` 中 `Special==4` 的 80 条种子，每条在 `CONSTRUCT.csv`（MAP 列 = 种子 ID）有几十个建筑，每个建筑的 `coord_index` → `坐标.csv` 的 picX/picY（4775 空间）。
+- **聚类去重**：80 条种子的全部建筑坐标做近邻聚类（阈值见实施），物理上相同的候选点合并为一个 slot，分配 `id`（复用现有 1-N 命名空间，与其它地图 id 并行，因分类按种子键查，不会冲突）。
+- 坐标经 Great Hollow 标定（§5.2）后缩放到 768 空间。
 - 写入 `data.js` 的 `POIS_BY_MAP["Great Hollow"]`（替换当前 `[]` 存根）。
 
 ### 9.2 dataset.json 追加 DLC 分类
