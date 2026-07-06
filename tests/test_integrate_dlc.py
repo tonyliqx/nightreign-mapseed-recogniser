@@ -118,5 +118,27 @@ class TestRosetta(unittest.TestCase):
             self.assertIn("basic", v)
             self.assertIn("count", v)
 
+
+from integrate_dlc import cluster_great_hollow_pois
+
+class TestCluster(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+        self.calib = load_great_hollow_calib()
+
+    def test_returns_clustered_pois(self):
+        pois = cluster_great_hollow_pois(self.source, self.calib, 768)
+        self.assertGreater(len(pois), 10)   # Great Hollow 至少十几个候选点
+        self.assertLess(len(pois), 100)      # 不应爆炸
+        # id 连续从 1 开始
+        self.assertEqual(pois[0]["id"], 1)
+        self.assertEqual([p["id"] for p in pois], list(range(1, len(pois) + 1)))
+
+    def test_all_coords_in_canvas(self):
+        pois = cluster_great_hollow_pois(self.source, self.calib, 768)
+        for p in pois:
+            self.assertTrue(0 <= p["x"] <= 768)
+            self.assertTrue(0 <= p["y"] <= 768)
+
 if __name__ == "__main__":
     unittest.main()
