@@ -5,3 +5,10 @@
 .idea/modules.xml
 .idea/nightreign-mapseed-recogniser-master.iml
 .idea/vcs.xml
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 本地构建/打包残留
+distnr/
