@@ -280,8 +280,8 @@ def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
 
 # 夜王编号→名称（与 data.js NIGHTLORDS / CSV 一致）
 NIGHTLORD_NAMES = {
-    0: "Gladius", 1: "Gaping Maw", 2: "Augur", 3: "Sentient Pest",
-    4: "Caligo", 5: "Centipede Demon", 6: "Ice Dragon", 7: "Night Lord",
+    0: "Gladius", 1: "Adel", 2: "Gnoster", 3: "Maris",
+    4: "Libra", 5: "Fulghor", 6: "Caligo", 7: "Heolstor",
     8: "Harmonia", 9: "Straghess",
 }
 

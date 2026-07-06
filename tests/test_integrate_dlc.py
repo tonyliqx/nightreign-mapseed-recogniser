@@ -95,6 +95,25 @@ class TestMapTypeFix(unittest.TestCase):
             self.assertIn(mt, SPECIAL_TO_MAP.values())
 
 
+from integrate_dlc import NIGHTLORD_NAMES
+
+class TestNightlordNames(unittest.TestCase):
+    # 前端筛选按钮（index.html / index-advanced.html 的 data-nightlord）的权威代号集。
+    # 与 data.js const NIGHTLORDS 数组一致——这是 nightlord 命名的单一事实来源。
+    EXPECTED = {"Gladius", "Adel", "Gnoster", "Maris", "Libra",
+                "Fulghor", "Caligo", "Heolstor", "Harmonia", "Straghess"}
+
+    def test_values_match_frontend_codenames(self):
+        """NIGHTLORD_NAMES 的值必须等于前端按钮代号集，否则筛选失效。"""
+        self.assertEqual(set(NIGHTLORD_NAMES.values()), self.EXPECTED)
+
+    def test_no_duplicate_values(self):
+        """不同编号不得映射到同名（曾因 4/6 都映射 Caligo 导致 Caligo 筛选污染）。"""
+        values = list(NIGHTLORD_NAMES.values())
+        self.assertEqual(len(values), len(set(values)),
+                         f"nightlord 名称有重复: {values}")
+
+
 from integrate_dlc import build_base_type_category
 
 class TestRosetta(unittest.TestCase):

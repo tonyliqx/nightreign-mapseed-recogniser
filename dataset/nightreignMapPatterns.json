@@ -1,5 +1,5 @@
 {
-  "extractedTime": "2026-07-06T19:42:10.342641",
+  "extractedTime": "2026-07-06T20:48:22.281749",
   "seeds": {
     "0": {
       "seedNumber": 0,
@@ -158417,7 +158417,7 @@
     },
     "1010": {
       "seedNumber": 1010,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -158447,7 +158447,7 @@
     },
     "1011": {
       "seedNumber": 1011,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -158477,7 +158477,7 @@
     },
     "1012": {
       "seedNumber": 1012,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -158507,7 +158507,7 @@
     },
     "1013": {
       "seedNumber": 1013,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -158537,7 +158537,7 @@
     },
     "1014": {
       "seedNumber": 1014,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -158567,7 +158567,7 @@
     },
     "1015": {
       "seedNumber": 1015,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -158918,7 +158918,7 @@
     },
     "1016": {
       "seedNumber": 1016,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -159270,7 +159270,7 @@
     },
     "1017": {
       "seedNumber": 1017,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -159622,7 +159622,7 @@
     },
     "1018": {
       "seedNumber": 1018,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -159962,7 +159962,7 @@
     },
     "1019": {
       "seedNumber": 1019,
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -160301,7 +160301,7 @@
     },
     "1020": {
       "seedNumber": 1020,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -160331,7 +160331,7 @@
     },
     "1021": {
       "seedNumber": 1021,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -160361,7 +160361,7 @@
     },
     "1022": {
       "seedNumber": 1022,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -160391,7 +160391,7 @@
     },
     "1023": {
       "seedNumber": 1023,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -160421,7 +160421,7 @@
     },
     "1024": {
       "seedNumber": 1024,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -160451,7 +160451,7 @@
     },
     "1025": {
       "seedNumber": 1025,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -160802,7 +160802,7 @@
     },
     "1026": {
       "seedNumber": 1026,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -161143,7 +161143,7 @@
     },
     "1027": {
       "seedNumber": 1027,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -161484,7 +161484,7 @@
     },
     "1028": {
       "seedNumber": 1028,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -161836,7 +161836,7 @@
     },
     "1029": {
       "seedNumber": 1029,
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -162177,7 +162177,7 @@
     },
     "1030": {
       "seedNumber": 1030,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -162207,7 +162207,7 @@
     },
     "1031": {
       "seedNumber": 1031,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -162237,7 +162237,7 @@
     },
     "1032": {
       "seedNumber": 1032,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -162267,7 +162267,7 @@
     },
     "1033": {
       "seedNumber": 1033,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -162297,7 +162297,7 @@
     },
     "1034": {
       "seedNumber": 1034,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -162327,7 +162327,7 @@
     },
     "1035": {
       "seedNumber": 1035,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -162690,7 +162690,7 @@
     },
     "1036": {
       "seedNumber": 1036,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -163031,7 +163031,7 @@
     },
     "1037": {
       "seedNumber": 1037,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -163383,7 +163383,7 @@
     },
     "1038": {
       "seedNumber": 1038,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -163722,7 +163722,7 @@
     },
     "1039": {
       "seedNumber": 1039,
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -164072,7 +164072,7 @@
     },
     "1040": {
       "seedNumber": 1040,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -164102,7 +164102,7 @@
     },
     "1041": {
       "seedNumber": 1041,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -164132,7 +164132,7 @@
     },
     "1042": {
       "seedNumber": 1042,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -164162,7 +164162,7 @@
     },
     "1043": {
       "seedNumber": 1043,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -164192,7 +164192,7 @@
     },
     "1044": {
       "seedNumber": 1044,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -164222,7 +164222,7 @@
     },
     "1045": {
       "seedNumber": 1045,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -164564,7 +164564,7 @@
     },
     "1046": {
       "seedNumber": 1046,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -164905,7 +164905,7 @@
     },
     "1047": {
       "seedNumber": 1047,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -165244,7 +165244,7 @@
     },
     "1048": {
       "seedNumber": 1048,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -165585,7 +165585,7 @@
     },
     "1049": {
       "seedNumber": 1049,
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -165927,7 +165927,7 @@
     },
     "1050": {
       "seedNumber": 1050,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -165957,7 +165957,7 @@
     },
     "1051": {
       "seedNumber": 1051,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -165987,7 +165987,7 @@
     },
     "1052": {
       "seedNumber": 1052,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -166017,7 +166017,7 @@
     },
     "1053": {
       "seedNumber": 1053,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -166047,7 +166047,7 @@
     },
     "1054": {
       "seedNumber": 1054,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -166077,7 +166077,7 @@
     },
     "1055": {
       "seedNumber": 1055,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -166407,7 +166407,7 @@
     },
     "1056": {
       "seedNumber": 1056,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -166769,7 +166769,7 @@
     },
     "1057": {
       "seedNumber": 1057,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -167097,7 +167097,7 @@
     },
     "1058": {
       "seedNumber": 1058,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -167449,7 +167449,7 @@
     },
     "1059": {
       "seedNumber": 1059,
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -167777,7 +167777,7 @@
     },
     "1060": {
       "seedNumber": 1060,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -167807,7 +167807,7 @@
     },
     "1061": {
       "seedNumber": 1061,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -167837,7 +167837,7 @@
     },
     "1062": {
       "seedNumber": 1062,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -167867,7 +167867,7 @@
     },
     "1063": {
       "seedNumber": 1063,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -167897,7 +167897,7 @@
     },
     "1064": {
       "seedNumber": 1064,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -167927,7 +167927,7 @@
     },
     "1065": {
       "seedNumber": 1065,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -168280,7 +168280,7 @@
     },
     "1066": {
       "seedNumber": 1066,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -168609,7 +168609,7 @@
     },
     "1067": {
       "seedNumber": 1067,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -168961,7 +168961,7 @@
     },
     "1068": {
       "seedNumber": 1068,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -169290,7 +169290,7 @@
     },
     "1069": {
       "seedNumber": 1069,
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -169630,7 +169630,7 @@
     },
     "1070": {
       "seedNumber": 1070,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -169660,7 +169660,7 @@
     },
     "1071": {
       "seedNumber": 1071,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -169690,7 +169690,7 @@
     },
     "1072": {
       "seedNumber": 1072,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -169720,7 +169720,7 @@
     },
     "1073": {
       "seedNumber": 1073,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -169750,7 +169750,7 @@
     },
     "1074": {
       "seedNumber": 1074,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Default",
       "spawnPoint": {
         "location": null,
@@ -169780,7 +169780,7 @@
     },
     "1075": {
       "seedNumber": 1075,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -170120,7 +170120,7 @@
     },
     "1076": {
       "seedNumber": 1076,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -170450,7 +170450,7 @@
     },
     "1077": {
       "seedNumber": 1077,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -170790,7 +170790,7 @@
     },
     "1078": {
       "seedNumber": 1078,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
@@ -171130,7 +171130,7 @@
     },
     "1079": {
       "seedNumber": 1079,
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "mapType": "Great Hollow",
       "spawnPoint": {
         "location": null,
