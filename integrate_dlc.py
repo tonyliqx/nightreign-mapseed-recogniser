@@ -230,6 +230,51 @@ def build_base_type_category(source: Dict[str, Any]) -> Dict[str, Dict]:
     return out
 
 
+def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
+                              target_space: int, merge_threshold: float = 25.0) -> List[Dict]:
+    """收集 80 条 Great Hollow 种子的全部建筑坐标（目标空间），近邻聚类去重。
+    merge_threshold 单位=目标空间像素（768 空间下 25px ≈ 源 155px）。"""
+    # 收集所有 Great Hollow 种子的建筑目标坐标
+    points = []  # [(tx, ty, coord_id, pic_x, pic_y, type)]
+    for sid, pat in source["patterns"].items():
+        if not (1000 <= int(sid) <= 1199) or pat["special"] != 4:
+            continue
+        for con in source["constructs"].get(sid, []):
+            # 执行期补丁：跳过 is_display=False 的背景装饰建筑，避免误成 POI 候选
+            if not con.get("is_display"):
+                continue
+            coord = source["coords"].get(con["coord_index"])
+            if not coord:
+                continue
+            tx, ty = transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, target_space)
+            points.append((tx, ty, con["coord_index"], coord[0], coord[1], con["type"]))
+
+    # 贪心聚类：按 x 排序，距离 < threshold 合并
+    points.sort()
+    clusters = []  # 每个: {"coords": [...], "cx": , "cy": }
+    for tx, ty, ci, px, py, t in points:
+        merged = False
+        for cl in clusters:
+            if (cl["cx"] - tx) ** 2 + (cl["cy"] - ty) ** 2 <= merge_threshold ** 2:
+                cl["coords"].append((px, py, ci, t))
+                # 更新质心
+                n = len(cl["coords"])
+                cl["cx"] = ((n - 1) * cl["cx"] + tx) / n
+                cl["cy"] = ((n - 1) * cl["cy"] + ty) / n
+                merged = True
+                break
+        if not merged:
+            clusters.append({"coords": [(px, py, ci, t)], "cx": tx, "cy": ty})
+
+    # 按 (cx, cy) 排序后分配 id
+    clusters.sort(key=lambda c: (c["cy"], c["cx"]))
+    out = []
+    for i, cl in enumerate(clusters, 1):
+        out.append({"id": i, "x": round(cl["cx"], 1), "y": round(cl["cy"], 1),
+                    "source_coords": cl["coords"]})
+    return out
+
+
 def main():
     pass  # 后续任务补全
 
