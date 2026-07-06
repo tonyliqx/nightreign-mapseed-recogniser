@@ -75,6 +75,41 @@ def read_source_data(src_dir: str = SRC_DEFAULT) -> Dict[str, Any]:
             "coords": coords, "names": names}
 
 
+def transform_coord_basic(pic_x: float, pic_y: float, target_space: int) -> Tuple[float, float]:
+    """基础地图（Special 0/1/2/3/5）：源 picXY(4775) → 目标空间，纯线性缩放，无偏移。
+    设计文档 §5.1 已用基础种子 0 验证。"""
+    scale = SCALE_1536 if target_space == 1536 else SCALE_768
+    return (pic_x * scale, pic_y * scale)
+
+
+def load_great_hollow_calib() -> Dict[str, Any]:
+    """加载 Great Hollow 标定参数；缺失则回退到纯缩放假设。"""
+    path = os.path.join(PARAMS_DIR, "great_hollow_calib.json")
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"scale_x": 0.32168, "scale_y": 0.32168,
+            "offset_x": 0.0, "offset_y": 0.0,
+            "underground_offset": [0.0, 0.0], "underground_coord_ids": [],
+            "residual_max": -1, "method": "fallback_missing",
+            "note": "calib.json 不存在，回退纯缩放。"}
+
+
+def transform_coord_great_hollow(pic_x: float, pic_y: float, coord_id: str,
+                                  calib: Dict[str, Any], target_space: int) -> Tuple[float, float]:
+    """Great Hollow：应用标定参数（已含源 transform_coord 的影响）。
+    calib 的 scale 是「源 picXY 经 transform_coord 后 → 1536」的系数；
+    若 target_space==768 再 ×0.5。地底建筑额外加 underground_offset。"""
+    half = 0.5 if target_space == 768 else 1.0
+    x = pic_x * calib["scale_x"] * half + calib["offset_x"] * half
+    y = pic_y * calib["scale_y"] * half + calib["offset_y"] * half
+    if coord_id in set(calib.get("underground_coord_ids", [])):
+        uo = calib.get("underground_offset", [0.0, 0.0])
+        x += uo[0] * half
+        y += uo[1] * half
+    return (x, y)
+
+
 def main():
     pass  # 后续任务补全
 
