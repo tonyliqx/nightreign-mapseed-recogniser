@@ -239,7 +239,7 @@
     },
     "1010": {
       "mapType": "Default",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -247,7 +247,7 @@
     },
     "1011": {
       "mapType": "Default",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -255,7 +255,7 @@
     },
     "1012": {
       "mapType": "Default",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -263,7 +263,7 @@
     },
     "1013": {
       "mapType": "Default",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -271,7 +271,7 @@
     },
     "1014": {
       "mapType": "Default",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -279,7 +279,7 @@
     },
     "1015": {
       "mapType": "Great Hollow",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {
         "greatHollow_31": "52420"
       },
@@ -320,7 +320,7 @@
     },
     "1016": {
       "mapType": "Great Hollow",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {
         "greatHollow_8": "52450",
         "greatHollow_2": "53590"
@@ -361,7 +361,7 @@
     },
     "1017": {
       "mapType": "Great Hollow",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {
         "greatHollow_8": "52450",
         "greatHollow_2": "53590"
@@ -402,7 +402,7 @@
     },
     "1018": {
       "mapType": "Great Hollow",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {
         "greatHollow_31": "52420"
       },
@@ -442,7 +442,7 @@
     },
     "1019": {
       "mapType": "Great Hollow",
-      "nightlord": "Gaping Maw",
+      "nightlord": "Adel",
       "major_base": {},
       "minor_base": {
         "greatHollow_31": "52400",
@@ -481,7 +481,7 @@
     },
     "1020": {
       "mapType": "Default",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -489,7 +489,7 @@
     },
     "1021": {
       "mapType": "Default",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -497,7 +497,7 @@
     },
     "1022": {
       "mapType": "Default",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -505,7 +505,7 @@
     },
     "1023": {
       "mapType": "Default",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -513,7 +513,7 @@
     },
     "1024": {
       "mapType": "Default",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -521,7 +521,7 @@
     },
     "1025": {
       "mapType": "Great Hollow",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {
         "greatHollow_2": "53590"
       },
@@ -562,7 +562,7 @@
     },
     "1026": {
       "mapType": "Great Hollow",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_2": "53590"
@@ -601,7 +601,7 @@
     },
     "1027": {
       "mapType": "Great Hollow",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450"
@@ -641,7 +641,7 @@
     },
     "1028": {
       "mapType": "Great Hollow",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {
         "greatHollow_8": "52450",
         "greatHollow_2": "53590"
@@ -681,7 +681,7 @@
     },
     "1029": {
       "mapType": "Great Hollow",
-      "nightlord": "Augur",
+      "nightlord": "Gnoster",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450"
@@ -721,7 +721,7 @@
     },
     "1030": {
       "mapType": "Default",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -729,7 +729,7 @@
     },
     "1031": {
       "mapType": "Default",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -737,7 +737,7 @@
     },
     "1032": {
       "mapType": "Default",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -745,7 +745,7 @@
     },
     "1033": {
       "mapType": "Default",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -753,7 +753,7 @@
     },
     "1034": {
       "mapType": "Default",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -761,7 +761,7 @@
     },
     "1035": {
       "mapType": "Great Hollow",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_2": "53590"
@@ -803,7 +803,7 @@
     },
     "1036": {
       "mapType": "Great Hollow",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450"
@@ -843,7 +843,7 @@
     },
     "1037": {
       "mapType": "Great Hollow",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_2": "53590"
@@ -884,7 +884,7 @@
     },
     "1038": {
       "mapType": "Great Hollow",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {
         "greatHollow_31": "52400",
@@ -922,7 +922,7 @@
     },
     "1039": {
       "mapType": "Great Hollow",
-      "nightlord": "Sentient Pest",
+      "nightlord": "Maris",
       "major_base": {},
       "minor_base": {
         "greatHollow_31": "52400",
@@ -962,7 +962,7 @@
     },
     "1040": {
       "mapType": "Default",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -970,7 +970,7 @@
     },
     "1041": {
       "mapType": "Default",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -978,7 +978,7 @@
     },
     "1042": {
       "mapType": "Default",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -986,7 +986,7 @@
     },
     "1043": {
       "mapType": "Default",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -994,7 +994,7 @@
     },
     "1044": {
       "mapType": "Default",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1002,7 +1002,7 @@
     },
     "1045": {
       "mapType": "Great Hollow",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450",
@@ -1042,7 +1042,7 @@
     },
     "1046": {
       "mapType": "Great Hollow",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450"
@@ -1081,7 +1081,7 @@
     },
     "1047": {
       "mapType": "Great Hollow",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {},
       "minor_base": {
         "greatHollow_31": "52400",
@@ -1120,7 +1120,7 @@
     },
     "1048": {
       "mapType": "Great Hollow",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_2": "53590"
@@ -1160,7 +1160,7 @@
     },
     "1049": {
       "mapType": "Great Hollow",
-      "nightlord": "Caligo",
+      "nightlord": "Libra",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450",
@@ -1200,7 +1200,7 @@
     },
     "1050": {
       "mapType": "Default",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1208,7 +1208,7 @@
     },
     "1051": {
       "mapType": "Default",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1216,7 +1216,7 @@
     },
     "1052": {
       "mapType": "Default",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1224,7 +1224,7 @@
     },
     "1053": {
       "mapType": "Default",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1232,7 +1232,7 @@
     },
     "1054": {
       "mapType": "Default",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1240,7 +1240,7 @@
     },
     "1055": {
       "mapType": "Great Hollow",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {
         "greatHollow_8": "52450",
         "greatHollow_2": "53590"
@@ -1279,7 +1279,7 @@
     },
     "1056": {
       "mapType": "Great Hollow",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {
         "greatHollow_2": "53590"
       },
@@ -1321,7 +1321,7 @@
     },
     "1057": {
       "mapType": "Great Hollow",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {
         "greatHollow_31": "52400",
@@ -1359,7 +1359,7 @@
     },
     "1058": {
       "mapType": "Great Hollow",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450"
@@ -1400,7 +1400,7 @@
     },
     "1059": {
       "mapType": "Great Hollow",
-      "nightlord": "Centipede Demon",
+      "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {
         "greatHollow_31": "52400",
@@ -1438,7 +1438,7 @@
     },
     "1060": {
       "mapType": "Default",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1446,7 +1446,7 @@
     },
     "1061": {
       "mapType": "Default",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1454,7 +1454,7 @@
     },
     "1062": {
       "mapType": "Default",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1462,7 +1462,7 @@
     },
     "1063": {
       "mapType": "Default",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1470,7 +1470,7 @@
     },
     "1064": {
       "mapType": "Default",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1478,7 +1478,7 @@
     },
     "1065": {
       "mapType": "Great Hollow",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450",
@@ -1519,7 +1519,7 @@
     },
     "1066": {
       "mapType": "Great Hollow",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {
         "greatHollow_2": "53590"
       },
@@ -1557,7 +1557,7 @@
     },
     "1067": {
       "mapType": "Great Hollow",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_2": "53590"
@@ -1598,7 +1598,7 @@
     },
     "1068": {
       "mapType": "Great Hollow",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {
         "greatHollow_31": "52420"
       },
@@ -1637,7 +1637,7 @@
     },
     "1069": {
       "mapType": "Great Hollow",
-      "nightlord": "Ice Dragon",
+      "nightlord": "Caligo",
       "major_base": {
         "greatHollow_31": "52420"
       },
@@ -1677,7 +1677,7 @@
     },
     "1070": {
       "mapType": "Default",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1685,7 +1685,7 @@
     },
     "1071": {
       "mapType": "Default",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1693,7 +1693,7 @@
     },
     "1072": {
       "mapType": "Default",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1701,7 +1701,7 @@
     },
     "1073": {
       "mapType": "Default",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1709,7 +1709,7 @@
     },
     "1074": {
       "mapType": "Default",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {},
       "minor_base": {},
       "evergaol": {},
@@ -1717,7 +1717,7 @@
     },
     "1075": {
       "mapType": "Great Hollow",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {
         "greatHollow_31": "52420"
       },
@@ -1757,7 +1757,7 @@
     },
     "1076": {
       "mapType": "Great Hollow",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450"
@@ -1796,7 +1796,7 @@
     },
     "1077": {
       "mapType": "Great Hollow",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {
         "greatHollow_2": "53590"
       },
@@ -1836,7 +1836,7 @@
     },
     "1078": {
       "mapType": "Great Hollow",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {
         "greatHollow_8": "52450"
       },
@@ -1876,7 +1876,7 @@
     },
     "1079": {
       "mapType": "Great Hollow",
-      "nightlord": "Night Lord",
+      "nightlord": "Heolstor",
       "major_base": {
         "greatHollow_31": "52420",
         "greatHollow_8": "52450",
