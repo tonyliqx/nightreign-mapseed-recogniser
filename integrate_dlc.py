@@ -124,9 +124,12 @@ def _load_target_maptypes() -> Dict[str, str]:
     return out
 
 
-def build_maptype_fix(source: Dict[str, Any]) -> Dict[str, str]:
-    """对比源 Special 与目标当前 mapType，返回需纠正的 {seed_id: correct_mapType}。"""
-    target = _load_target_maptypes()
+def build_maptype_fix(source: Dict[str, Any], target_override: Dict[str, str] = None) -> Dict[str, str]:
+    """对比源 Special 与目标当前 mapType，返回需纠正的 {seed_id: correct_mapType}。
+
+    target_override 用于测试注入合成目标状态，脱离 data.js 文件当前内容耦合；
+    生产路径（main）留空，自动从 data.js 读真实当前值。"""
+    target = target_override if target_override is not None else _load_target_maptypes()
     fix = {}
     for sid, pat in source["patterns"].items():
         if not (1000 <= int(sid) <= 1199):
@@ -430,10 +433,13 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
 
 
 def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
-                                gh_pois_768: List[Dict] = None) -> Dict[str, Any]:
+                                gh_pois_768: List[Dict] = None,
+                                target_override: Dict[str, str] = None) -> Dict[str, Any]:
     """生成基础版 data.js 需要的两类片段：
     - pois_by_map_gh: POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量（768 空间候选点）
-    - seed_matrix_fixes: seedDataMatrix 的 mapType 纠正表 {seed_id: maptype}"""
+    - seed_matrix_fixes: seedDataMatrix 的 mapType 纠正表 {seed_id: maptype}
+
+    target_override 透传给 build_maptype_fix（测试注入用，生产留空读 data.js）。"""
     if calib is None:
         calib = load_great_hollow_calib()
     if gh_pois_768 is None:
@@ -447,7 +453,7 @@ def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
 
     return {
         "pois_by_map_gh": pois_js,
-        "seed_matrix_fixes": build_maptype_fix(source),
+        "seed_matrix_fixes": build_maptype_fix(source, target_override),
     }
 
 
