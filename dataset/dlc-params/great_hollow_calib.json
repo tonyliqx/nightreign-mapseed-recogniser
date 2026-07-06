@@ -1,0 +1,11 @@
+{
+  "scale_x": 0.327666,
+  "scale_y": 0.327666,
+  "offset_x": -98.433,
+  "offset_y": -83.636,
+  "underground_offset": [277.284, 114.195],
+  "underground_coord_ids": ["1160", "1159", "1107", "1110", "1153", "1175", "1174", "1213"],
+  "residual_max": 0.0,
+  "method": "source_known_constants_background4_scaled_to_1536",
+  "note": "great_hollow.jpg = background_4.png LANCZOS 缩放到1536（与源同源）。变换 = 源 汉化地图导出.py:51 transform_coord (x*1.0186-306, y*1.0186-260, 地底 +862/+355) 复合 ×(1536/4775)。常量确定性，无需拟合。scale/offset/underground_offset 均为目标1536空间值；768空间由 transform_coord_great_hollow 内 half=0.5 折算。underground_coord_ids 来自源 underground_coords={1160,1159,1107,1110,1153,1175,1174,1213}。"
+}

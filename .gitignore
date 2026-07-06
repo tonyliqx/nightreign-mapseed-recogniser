@@ -12,3 +12,9 @@ __pycache__/
 
 # 本地构建/打包残留
 distnr/
+
+# superpowers SDD 进度账本（本地 scratch）
+.superpowers/
+
+# 资源替换前的备份
+*.bak
