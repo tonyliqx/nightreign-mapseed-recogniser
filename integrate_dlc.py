@@ -371,6 +371,61 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
     return rows
 
 
+def build_basic_classifications(source: Dict, icon_map: Dict = None,
+                                 base_map: Dict = None, gh_pois_768: List[Dict] = None,
+                                 calib: Dict = None, existing_pois_by_map: Dict = None) -> Dict[str, Dict[str, str]]:
+    """生成 200 条 DLC 种子的基础版 4 类（church/mage/village/other/nothing）分类。
+    返回 {seed_id(零填充4位): {"POI<n>": <class>, ...}}。"""
+    if icon_map is None:
+        icon_map = load_type_category_icon()
+    if base_map is None:
+        base_map = build_base_type_category(source)
+    if calib is None:
+        calib = load_great_hollow_calib()
+    if gh_pois_768 is None:
+        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768)
+    if existing_pois_by_map is None:
+        existing_pois_by_map = _load_basic_pois_by_map()
+
+    out = {}
+    for sid, pat in source["patterns"].items():
+        if not (1000 <= int(sid) <= 1199):
+            continue
+        maptype = SPECIAL_TO_MAP.get(pat["special"], "Default")
+
+        if maptype == "Great Hollow":
+            pois = gh_pois_768
+        else:
+            pois = existing_pois_by_map.get(maptype, [])
+
+        # 初始化全部候选点为 nothing
+        cls = {f"POI{p['id']}": "nothing" for p in pois}
+
+        # 遍历该种子建筑，匹配候选点，填类目
+        for con in source["constructs"].get(sid, []):
+            # 执行期补丁：跳过 is_display=False 的背景装饰建筑，非 POI
+            if not con.get("is_display"):
+                continue
+            coord = source["coords"].get(con["coord_index"])
+            if not coord:
+                continue
+            if maptype == "Great Hollow":
+                bx, by = transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 768)
+            else:
+                bx, by = transform_coord_basic(coord[0], coord[1], 768)
+            best, best_d = None, 1e9
+            for p in pois:
+                d = (p["x"] - bx) ** 2 + (p["y"] - by) ** 2
+                if d < best_d:
+                    best_d, best = d, p
+            if best is None or best_d > 40 * 40:  # 基础版查询容差 40px
+                continue
+            c = _classify_type(con["type"], source, icon_map, base_map)
+            cls[f"POI{best['id']}"] = c["basic"]
+        out[sid.zfill(4)] = cls
+    return out
+
+
 def main():
     pass  # 后续任务补全
 
