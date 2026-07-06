@@ -426,8 +426,83 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
     return out
 
 
+def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
+                                gh_pois_768: List[Dict] = None) -> Dict[str, Any]:
+    """生成基础版 data.js 需要的两类片段：
+    - pois_by_map_gh: POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量（768 空间候选点）
+    - seed_matrix_fixes: seedDataMatrix 的 mapType 纠正表 {seed_id: maptype}"""
+    if calib is None:
+        calib = load_great_hollow_calib()
+    if gh_pois_768 is None:
+        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768)
+
+    # POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量
+    lines = []
+    for p in gh_pois_768:
+        lines.append(f"    {{ id: {p['id']}, x: {p['x']}, y: {p['y']} }}")
+    pois_js = ",\n".join(lines)
+
+    return {
+        "pois_by_map_gh": pois_js,
+        "seed_matrix_fixes": build_maptype_fix(source),
+    }
+
+
 def main():
-    pass  # 后续任务补全
+    """主流程：读源 → 算各产出 → 写文件。幂等可重跑。"""
+    print("🔄 DLC 集成生成器启动...")
+    source = read_source_data()
+    calib = load_great_hollow_calib()
+    icon_map = load_type_category_icon()
+    base_map = build_base_type_category(source)
+
+    gh_1536 = cluster_great_hollow_pois(source, calib, 1536)
+    gh_768 = cluster_great_hollow_pois(source, calib, 768)
+
+    # 高级版 CSV 行
+    adv_rows = build_advanced_csv_rows(source, icon_map, base_map, gh_1536, calib)
+    _write_advanced_csv_patch(adv_rows, gh_1536)
+    print(f"✅ 高级版 CSV 补丁写出（{len(adv_rows)} 种子）")
+
+    # 基础版
+    basic_cls = build_basic_classifications(source, icon_map, base_map, gh_768, calib)
+    _append_basic_dataset_json(basic_cls)
+    print(f"✅ dataset.json 追加 {len(basic_cls)} DLC 种子分类")
+
+    snip = build_basic_datajs_snippets(source, calib, gh_768)
+    _write_datajs_snippet_file(snip)
+    print("✅ data.js 片段写出（见 dataset/dlc-params/datajs_snippet.txt，Task 3.1 人工应用）")
+
+    print("🎉 集成生成完成。后续：Task 2.2 重跑 convert-csv-to-json.py；Task 3.1/3.2 应用基础版改动。")
+
+
+# 以下为写文件辅助函数（main 的依赖，一并实现）
+def _write_advanced_csv_patch(adv_rows, gh_1536):
+    """把 adv_rows 序列化为 CSV 补丁指令文件，供 Task 2.2 合并。
+    同时写出 Great Hollow 地名坐标表，供 Task 2.1 补 get_poi_coordinates()。"""
+    patch = {"rows": adv_rows,
+             "great_hollow_coords": {f"greatHollow_{p['id']}": [p["x"], p["y"]] for p in gh_1536}}
+    with open(os.path.join(PARAMS_DIR, "advanced_csv_patch.json"), "w", encoding="utf-8") as f:
+        json.dump(patch, f, ensure_ascii=False, indent=2)
+
+
+def _append_basic_dataset_json(basic_cls):
+    """读现有 dataset.json，追加 DLC 键，写回。不动 0-319。"""
+    path = os.path.join(PROJ_DIR, "dataset", "dataset.json")
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    data.setdefault("classifications", {}).update(basic_cls)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def _write_datajs_snippet_file(snip):
+    """把 data.js 片段写到文本文件，供 Task 3.1 人工应用（避免脚本误改 17k 行 JS）。"""
+    txt = (f"// === POIS_BY_MAP[\"Great Hollow\"] 替换 [] 存根 ===\n{snip['pois_by_map_gh']}\n\n"
+           f"// === seedDataMatrix mapType 纠正（{len(snip['seed_matrix_fixes'])} 条）===\n"
+           + "\n".join(f"{sid}: \"{mt}\"" for sid, mt in snip["seed_matrix_fixes"].items()))
+    with open(os.path.join(PARAMS_DIR, "datajs_snippet.txt"), "w", encoding="utf-8") as f:
+        f.write(txt)
 
 
 if __name__ == "__main__":

@@ -190,5 +190,21 @@ class TestBasicClassifications(unittest.TestCase):
                 self.assertIn(v, valid)
 
 
+from integrate_dlc import build_basic_datajs_snippets
+
+class TestDataJsSnippets(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+
+    def test_pois_by_map_gh_nonempty(self):
+        snip = build_basic_datajs_snippets(self.source)
+        self.assertIn("pois_by_map_gh", snip)
+        self.assertIn("{ id: 1", snip["pois_by_map_gh"])
+
+    def test_seed_matrix_fixes_great_hollow(self):
+        snip = build_basic_datajs_snippets(self.source)
+        self.assertEqual(snip["seed_matrix_fixes"].get("1005"), "Great Hollow")
+
+
 if __name__ == "__main__":
     unittest.main()
