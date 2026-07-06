@@ -345,15 +345,20 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
         row = {"mapType": maptype, "nightlord": NIGHTLORD_NAMES.get(pat["nightlord"], "Gladius"),
                "major_base": {}, "minor_base": {}, "evergaol": {}, "field_boss": {}}
 
-        for con in source["constructs"].get(sid, []):
-            # 执行期补丁：跳过 is_display=False 的背景装饰建筑，非 POI
-            if not con.get("is_display"):
-                continue
-            cls = _classify_type(con["type"], source, icon_map, base_map)
-            cat_key = {"majorBase": "major_base", "minorBase": "minor_base",
-                       "fieldBoss": "field_boss", "evergaol": "evergaol",
-                       "rottedWoods": "field_boss"}[cls["adv"]]
-            if maptype == "Great Hollow":
+        # 仅 Great Hollow 填 POI（用户决策 2026-07-06）：基础地图 DLC 种子的建筑布局
+        # 与现有候选点不对齐——实测严格公差 0% 命中、30px 才 57%——故基础地图 DLC 种子
+        # 只保留 mapType/nightlord，POI 字典留空。原 else 分支用 coord_index 当地名 +
+        # 裸 type 编号当 value，会导致 convert-csv-to-json.py 崩溃（major_base value
+        # 无 ' - ' 分隔符）且坐标缺失。基础地图 DLC 种子走 mapType/夜王筛选即可。
+        if maptype == "Great Hollow":
+            for con in source["constructs"].get(sid, []):
+                # 执行期补丁：跳过 is_display=False 的背景装饰建筑，非 POI
+                if not con.get("is_display"):
+                    continue
+                cls = _classify_type(con["type"], source, icon_map, base_map)
+                cat_key = {"majorBase": "major_base", "minorBase": "minor_base",
+                           "fieldBoss": "field_boss", "evergaol": "evergaol",
+                           "rottedWoods": "field_boss"}[cls["adv"]]
                 # 匹配到最近的 Great Hollow 候选点地名
                 coord = source["coords"].get(con["coord_index"])
                 if not coord:
@@ -361,12 +366,10 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
                 loc = _nearest_gh_location(coord, gh_pois_1536, calib)
                 if loc is None:
                     continue
-            else:
-                loc = f"dlc_{maptype}_{con['coord_index']}"  # 基础地图：坐标索引标识
-            structure = source["names"].get(con["type"], con["type"])
-            boss = source["names"].get(con["type"], "") if cls["adv"] == "fieldBoss" else ""
-            value = f"{structure} - {boss}" if boss else structure
-            row[cat_key][loc] = value
+                structure = source["names"].get(con["type"], con["type"])
+                boss = source["names"].get(con["type"], "") if cls["adv"] == "fieldBoss" else ""
+                value = f"{structure} - {boss}" if boss else structure
+                row[cat_key][loc] = value
         rows[sid] = row
     return rows
 
