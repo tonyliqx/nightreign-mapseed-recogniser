@@ -78,14 +78,14 @@ class TestMapTypeFix(unittest.TestCase):
         self.source = read_source_data()
 
     def test_seed_1005_is_great_hollow(self):
-        fix = build_maptype_fix(self.source)
-        # 源 Special=4 → Great Hollow（目标当前标 Default，应在纠正表里）
+        # 注入合成目标（1005 误标 Default），脱离 data.js 当前状态耦合：
+        # 源 Special=4 → Great Hollow，与目标 Default 不一致 → 应在纠正表里。
+        fix = build_maptype_fix(self.source, target_override={"1005": "Default"})
         self.assertEqual(fix.get("1005"), "Great Hollow")
 
     def test_seed_1000_not_in_fix_if_default(self):
-        fix = build_maptype_fix(self.source)
-        # 种子1000 源 Special=0(Default)，目标也是 Default → 不在纠正表
-        # （仅当目标当前值与源一致才排除；此处目标1000=Default，故排除）
+        # 注入合成目标（1000 当前已正确 = Default），与源一致 → 不在纠正表。
+        fix = build_maptype_fix(self.source, target_override={"1000": "Default"})
         self.assertNotIn("1000", fix)
 
     def test_all_fix_values_valid(self):
@@ -232,7 +232,8 @@ class TestDataJsSnippets(unittest.TestCase):
         self.assertIn("{ id: 1", snip["pois_by_map_gh"])
 
     def test_seed_matrix_fixes_great_hollow(self):
-        snip = build_basic_datajs_snippets(self.source)
+        # 注入合成目标（1005 误标 Default），验证片段纳入该纠正，脱离 data.js 当前状态。
+        snip = build_basic_datajs_snippets(self.source, target_override={"1005": "Default"})
         self.assertEqual(snip["seed_matrix_fixes"].get("1005"), "Great Hollow")
 
 
