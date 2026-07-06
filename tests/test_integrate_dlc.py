@@ -165,5 +165,30 @@ class TestAdvancedRows(unittest.TestCase):
         self.assertEqual(rows["1005"]["mapType"], "Great Hollow")
 
 
+from integrate_dlc import build_basic_classifications
+
+class TestBasicClassifications(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+
+    def test_200_dlc_seeds(self):
+        cls = build_basic_classifications(self.source)
+        self.assertEqual(len(cls), 200)
+        for sid in cls:
+            self.assertTrue(1000 <= int(sid) <= 1199)
+
+    def test_great_hollow_has_pois(self):
+        cls = build_basic_classifications(self.source)
+        # 种子1005(Great Hollow) 应有候选点分类
+        self.assertGreater(len(cls["1005"]), 0)
+
+    def test_values_in_taxonomy(self):
+        cls = build_basic_classifications(self.source)
+        valid = {"church", "mage", "village", "other", "nothing"}
+        for sid, pois in cls.items():
+            for v in pois.values():
+                self.assertIn(v, valid)
+
+
 if __name__ == "__main__":
     unittest.main()
