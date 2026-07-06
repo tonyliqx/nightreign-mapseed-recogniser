@@ -140,5 +140,30 @@ class TestCluster(unittest.TestCase):
             self.assertTrue(0 <= p["x"] <= 768)
             self.assertTrue(0 <= p["y"] <= 768)
 
+from integrate_dlc import build_advanced_csv_rows, load_type_category_icon
+
+class TestAdvancedRows(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+        self.icon = load_type_category_icon()
+
+    def test_dlc_seed_count(self):
+        rows = build_advanced_csv_rows(self.source, self.icon)
+        self.assertEqual(len(rows), 200)
+
+    def test_great_hollow_seed_has_pois(self):
+        rows = build_advanced_csv_rows(self.source, self.icon)
+        gh = [r for r in rows.values() if r["mapType"] == "Great Hollow"]
+        self.assertGreater(len(gh), 0)
+        # Great Hollow 种子应有非空 POI
+        total = sum(len(r["major_base"]) + len(r["minor_base"]) +
+                    len(r["evergaol"]) + len(r["field_boss"]) for r in gh)
+        self.assertGreater(total, 0)
+
+    def test_maptype_corrected(self):
+        rows = build_advanced_csv_rows(self.source, self.icon)
+        self.assertEqual(rows["1005"]["mapType"], "Great Hollow")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -275,6 +275,102 @@ def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
     return out
 
 
+# 夜王编号→名称（与 data.js NIGHTLORDS / CSV 一致）
+NIGHTLORD_NAMES = {
+    0: "Gladius", 1: "Gaping Maw", 2: "Augur", 3: "Sentient Pest",
+    4: "Caligo", 5: "Centipede Demon", 6: "Ice Dragon", 7: "Night Lord",
+    8: "Harmonia", 9: "Straghess",
+}
+
+
+def load_type_category_icon() -> Dict[str, Dict]:
+    """加载 Task 0.2 产出的 5xxxx type → 类目/图标映射表；缺失则返回空 dict。"""
+    path = os.path.join(PARAMS_DIR, "type_category_icon.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def _adv_default_icon(adv: str) -> str:
+    """高级版类目 → 兜底图标名（无显式图标表时的回退）。"""
+    return {"majorBase": "ruin_blank", "minorBase": "church",
+            "fieldBoss": "field_boss", "evergaol": "evergaol",
+            "rottedWoods": "elite"}.get(adv, "ruin_blank")
+
+
+def _classify_type(type_str: str, source: Dict, icon_map: Dict, base_map: Dict) -> Dict:
+    """单个 type → {adv, basic, icon}。优先级：图标识别表(5xxxx) > Rosetta基础 > NAME(boss) > 兜底。"""
+    t = type_str.strip()
+    if t in icon_map:                       # 5xxxx DLC 结构
+        return icon_map[t]
+    if t in base_map:                       # 基础结构/boss（Rosetta）
+        bm = base_map[t]
+        return {"adv": bm["adv"], "basic": bm["basic"],
+                "icon": _adv_default_icon(bm["adv"])}
+    ti = int(t) if t.isdigit() else 0
+    if 40000 <= ti < 50000 and t in source["names"]:  # 4xxxx boss 有 NAME
+        return {"adv": "fieldBoss", "basic": "other", "icon": "field_boss"}
+    return {"adv": "minorBase", "basic": "other", "icon": "ruin_blank"}  # 兜底
+
+
+def _nearest_gh_location(coord, gh_pois_1536, calib) -> str:
+    """把源建筑坐标映射到最近的 Great Hollow 候选点程序化地名。"""
+    tx, ty = transform_coord_great_hollow(coord[0], coord[1], "", calib, 1536)
+    best, best_d = None, 1e9
+    for p in gh_pois_1536:
+        d = (p["x"] - tx) ** 2 + (p["y"] - ty) ** 2
+        if d < best_d:
+            best_d, best = d, f"greatHollow_{p['id']}"
+    return best
+
+
+def build_advanced_csv_rows(source: Dict, icon_map: Dict,
+                             base_map: Dict = None, gh_pois_1536: List[Dict] = None,
+                             calib: Dict = None) -> Dict[str, Dict]:
+    """生成 200 条 DLC 种子的高级版 CSV 行数据。
+    返回 {seed_id: {"mapType", "nightlord", "major_base", "minor_base", "evergaol", "field_boss"}}。"""
+    if base_map is None:
+        base_map = build_base_type_category(source)
+    if calib is None:
+        calib = load_great_hollow_calib()
+    if gh_pois_1536 is None:
+        gh_pois_1536 = cluster_great_hollow_pois(source, calib, 1536)
+
+    rows = {}
+    for sid, pat in source["patterns"].items():
+        if not (1000 <= int(sid) <= 1199):
+            continue
+        maptype = SPECIAL_TO_MAP.get(pat["special"], "Default")
+        row = {"mapType": maptype, "nightlord": NIGHTLORD_NAMES.get(pat["nightlord"], "Gladius"),
+               "major_base": {}, "minor_base": {}, "evergaol": {}, "field_boss": {}}
+
+        for con in source["constructs"].get(sid, []):
+            # 执行期补丁：跳过 is_display=False 的背景装饰建筑，非 POI
+            if not con.get("is_display"):
+                continue
+            cls = _classify_type(con["type"], source, icon_map, base_map)
+            cat_key = {"majorBase": "major_base", "minorBase": "minor_base",
+                       "fieldBoss": "field_boss", "evergaol": "evergaol",
+                       "rottedWoods": "field_boss"}[cls["adv"]]
+            if maptype == "Great Hollow":
+                # 匹配到最近的 Great Hollow 候选点地名
+                coord = source["coords"].get(con["coord_index"])
+                if not coord:
+                    continue
+                loc = _nearest_gh_location(coord, gh_pois_1536, calib)
+                if loc is None:
+                    continue
+            else:
+                loc = f"dlc_{maptype}_{con['coord_index']}"  # 基础地图：坐标索引标识
+            structure = source["names"].get(con["type"], con["type"])
+            boss = source["names"].get(con["type"], "") if cls["adv"] == "fieldBoss" else ""
+            value = f"{structure} - {boss}" if boss else structure
+            row[cat_key][loc] = value
+        rows[sid] = row
+    return rows
+
+
 def main():
     pass  # 后续任务补全
 
