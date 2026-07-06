@@ -137,6 +137,99 @@ def build_maptype_fix(source: Dict[str, Any]) -> Dict[str, str]:
     return fix
 
 
+import re
+
+def _load_basic_pois_by_map() -> Dict[str, List[Dict]]:
+    """从 data.js 读 POIS_BY_MAP：{map: [{id,x,y}, ...]}（768 空间）。"""
+    txt = open(os.path.join(PROJ_DIR, "data.js"), encoding="utf-8").read()
+    out = {}
+    for m in re.finditer(r"(\w[\w ]*):\s*\[(.*?)\]", txt, re.S):
+        name, body = m.group(1), m.group(2)
+        if name not in SPECIAL_TO_MAP.values():
+            continue
+        pois = []
+        for pm in re.finditer(r"\{\s*id:\s*(\d+),\s*x:\s*([\d.]+),\s*y:\s*([\d.]+)\s*\}", body):
+            pois.append({"id": int(pm.group(1)), "x": float(pm.group(2)), "y": float(pm.group(3))})
+        if pois:
+            out[name] = pois
+    return out
+
+
+def _load_basic_classifications() -> Dict[str, Dict[str, str]]:
+    """读 dataset.json 的 classifications（仅基础 0-319）。"""
+    with open(os.path.join(PROJ_DIR, "dataset", "dataset.json"), encoding="utf-8") as f:
+        return json.load(f).get("classifications", {})
+
+
+# 基础结构 type 数值范围 → 高级版 category 启发式
+_STRUCTURE_ADV_HEURISTIC = [
+    (38000, 39000, "majorBase"),   # 38xxx 教堂/要塞
+    (41000, 44000, "majorBase"),   # 41xxx-43xxx 大型遗迹
+    (32000, 33000, "minorBase"),   # 32xxx 村庄/营地的法师塔
+    (34000, 35000, "minorBase"),   # 34xxx
+    (30000, 32000, "minorBase"),   # 30xxx 小建筑
+]
+
+
+def _structure_adv(type_int: int) -> str:
+    for lo, hi, cat in _STRUCTURE_ADV_HEURISTIC:
+        if lo <= type_int < hi:
+            return cat
+    return "minorBase"  # 兜底
+
+
+def build_base_type_category(source: Dict[str, Any]) -> Dict[str, Dict]:
+    """Rosetta：基础种子源建筑坐标对齐目标 POI，学 type→basic 类目（投票）。
+    adv 类目由启发式/NAME 推导。"""
+    pois_by_map = _load_basic_pois_by_map()
+    classifications = _load_basic_classifications()
+    tally: Dict[str, Dict[str, int]] = {}  # type -> {class: count}
+
+    for sid, pat in source["patterns"].items():
+        if not (0 <= int(sid) <= 319):
+            continue
+        seed_key = sid.zfill(3)
+        cls = classifications.get(seed_key)
+        if not cls:
+            continue
+        maptype = SPECIAL_TO_MAP.get(pat["special"], "Default")
+        pois = pois_by_map.get(maptype, [])
+        if not pois:
+            continue
+        for con in source["constructs"].get(sid, []):
+            coord = source["coords"].get(con["coord_index"])
+            if not coord:
+                continue
+            bx, by = transform_coord_basic(coord[0], coord[1], 768)
+            # 最近邻匹配 POI
+            best, best_d = None, 1e9
+            for p in pois:
+                d = (p["x"] - bx) ** 2 + (p["y"] - by) ** 2
+                if d < best_d:
+                    best_d, best = d, p
+            if best is None or best_d > 30 * 30:
+                continue
+            basic = cls.get(f"POI{best['id']}")
+            if not basic:
+                continue
+            t = con["type"]
+            tally.setdefault(t, {})
+            tally[t][basic] = tally[t].get(basic, 0) + 1
+
+    out = {}
+    for t, votes in tally.items():
+        t_int = int(t) if t.isdigit() else 0
+        if 40000 <= t_int < 50000:
+            adv = "fieldBoss"          # 4xxxx boss
+        elif t_int >= 50000:
+            continue                    # 5xxxx 由图标识别表处理
+        else:
+            adv = _structure_adv(t_int)
+        basic = max(votes, key=votes.get)
+        out[t] = {"adv": adv, "basic": basic, "count": sum(votes.values())}
+    return out
+
+
 def main():
     pass  # 后续任务补全
 

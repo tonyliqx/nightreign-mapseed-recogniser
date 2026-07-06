@@ -94,5 +94,29 @@ class TestMapTypeFix(unittest.TestCase):
             self.assertTrue(1000 <= int(sid) <= 1199)
             self.assertIn(mt, SPECIAL_TO_MAP.values())
 
+
+from integrate_dlc import build_base_type_category
+
+class TestRosetta(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+
+    def test_returns_nonempty_mapping(self):
+        cat = build_base_type_category(self.source)
+        self.assertGreater(len(cat), 20)  # 基础结构 type 至少几十种
+
+    def test_boss_type_fieldboss(self):
+        cat = build_base_type_category(self.source)
+        # 任一 4xxxx boss 应归 fieldBoss
+        boss_types = [t for t in cat if t.startswith("4") and len(t) == 5]
+        self.assertTrue(all(cat[t]["adv"] == "fieldBoss" for t in boss_types[:5]))
+
+    def test_each_entry_has_required_keys(self):
+        cat = build_base_type_category(self.source)
+        for t, v in cat.items():
+            self.assertIn("adv", v)
+            self.assertIn("basic", v)
+            self.assertIn("count", v)
+
 if __name__ == "__main__":
     unittest.main()
