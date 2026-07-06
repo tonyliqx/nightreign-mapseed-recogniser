@@ -4,27 +4,27 @@
 
 **Goal:** 把 Fuwish v0.3.3 源数据（含 DLC 全量 POI）集成到本项目，使基础版与高级版都能筛选全部 200 条 DLC 种子（ID 1000-1199）并支持新地图 Great Hollow。
 
-**Architecture:** 单一生成器 `integrate-dlc.py` 读源 4 张 CSV，经坐标变换 + 类目映射 + mapType 纠正，分两条产出：高级版（填 CSV + 扩展 `convert-csv-to-json.py` 重生成 JSON）、基础版（追加 `dataset.json` + 改 `data.js`）。类目映射混合三种方法：5xxxx DLC 结构图标视觉识别、4xxxx boss 用 NAME.csv、30xxx-43xxx 基础结构用 Rosetta（基础种子坐标自动对齐）。
+**Architecture:** 单一生成器 `integrate_dlc.py` 读源 4 张 CSV，经坐标变换 + 类目映射 + mapType 纠正，分两条产出：高级版（填 CSV + 扩展 `convert-csv-to-json.py` 重生成 JSON）、基础版（追加 `dataset.json` + 改 `data.js`）。类目映射混合三种方法：5xxxx DLC 结构图标视觉识别、4xxxx boss 用 NAME.csv、30xxx-43xxx 基础结构用 Rosetta（基础种子坐标自动对齐）。
 
 **Tech Stack:** Python 3 标准库（csv/json/unittest，零依赖）、纯静态前端（无构建/打包器/框架）、浏览器手动验证。
 
 ## Global Constraints
 
 - **CSV 是高级版种子数据的单一事实来源**：`dataset/nightreignMapPatterns.csv` → `convert-csv-to-json.py` → `dataset/nightreignMapPatterns.json`。不得手改 JSON。
-- **基础版 `dataset/dataset.json` 无 CSV 中间源**：由 `integrate-dlc.py` 直接追加 DLC 键，脚本即事实来源；**仅追加 1000-1199，不动 0-319**。
+- **基础版 `dataset/dataset.json` 无 CSV 中间源**：由 `integrate_dlc.py` 直接追加 DLC 键，脚本即事实来源；**仅追加 1000-1199，不动 0-319**。
 - **POI→图标映射硬编码在 `convert-csv-to-json.py`**：新增 POI 类型必须同步该脚本的 `get_poi_icon_mappings()`。
 - **坐标空间**：源 picXY 在 4775；高级版 1536（×0.32168）；基础版 768（×0.16084）。
 - **mapType 权威**：源 `MAP_PATTERN.csv` 的 `Special` 列（0=Default,1=Mountaintop,2=Crater,3=Rotted Woods,4=Great Hollow,5=Noklateo）。
 - **项目语言**：简体中文（代码注释、commit、文档）。
 - **不发布 `extraction.html`**（数据收集工具，约定不变）。
-- **测试**：`integrate-dlc.py` 的纯函数用 `unittest`（标准库，零安装）测；前端浏览器手动验证。
+- **测试**：`integrate_dlc.py` 的纯函数用 `unittest`（标准库，零安装）测；前端浏览器手动验证。
 - **源数据路径**：`/Users/lixiang/Documents/AI_code/Nightreign-maps-including-dlc-v0.3.3-main`（下文记作 `$SRC`）。
 - **不提交/推送除非用户明确要求**；commit 消息以 `Co-Authored-By: Claude <noreply@anthropic.com>` 结尾。
 
 ## File Structure
 
 **新建文件**：
-- `integrate-dlc.py` — 统一 DLC 集成生成器（主交付，模块化）
+- `integrate_dlc.py` — 统一 DLC 集成生成器（主交付，模块化）
 - `tests/__init__.py` — 空包标识
 - `tests/test_integrate_dlc.py` — `unittest` 测试（纯函数）
 - `dataset/dlc-params/great_hollow_calib.json` — Great Hollow 坐标标定参数（Task 0.1 产出）
@@ -39,7 +39,7 @@
 - `assets/icons/` — 新增 DLC 建筑图标（Task 4.1）
 - `README.md` — 致谢/说明（Task 4.2，如需）
 
-**模块职责**（`integrate-dlc.py` 内）：每函数单一职责、可独立测试。
+**模块职责**（`integrate_dlc.py` 内）：每函数单一职责、可独立测试。
 - `read_source_data()` — 读 4 张源 CSV → 结构化 dict
 - `transform_coord_*()` — 坐标变换（基础/Great Hollow）
 - `build_maptype_fix()` — 源 Special vs 目标 mapType 对比 → 纠正表
@@ -54,7 +54,7 @@
 
 ## Phase 0 — 参数发现（人工/交互式，产出参数文件）
 
-这两个任务产出 `integrate-dlc.py` 运行所需的、无法自动推导的参数（坐标标定系数、5xxxx 图标类目）。
+这两个任务产出 `integrate_dlc.py` 运行所需的、无法自动推导的参数（坐标标定系数、5xxxx 图标类目）。
 
 ### Task 0.1: Great Hollow 坐标标定
 
@@ -63,7 +63,7 @@
 - Create: `tools/calibrate_great_hollow.py`（一次性标定辅助脚本）
 
 **Interfaces:**
-- Produces: `great_hollow_calib.json` schema：`{"scale_x": float, "scale_y": float, "offset_x": float, "offset_y": float, "underground_offset": [dx, dy], "underground_coord_ids": [int...], "residual_max": float, "method": "str", "note": "str"}`。`integrate-dlc.py` 的 `transform_coord_great_hollow(pic_x, pic_y, coord_id, calib)` 读取此文件。
+- Produces: `great_hollow_calib.json` schema：`{"scale_x": float, "scale_y": float, "offset_x": float, "offset_y": float, "underground_offset": [dx, dy], "underground_coord_ids": [int...], "residual_max": float, "method": "str", "note": "str"}`。`integrate_dlc.py` 的 `transform_coord_great_hollow(pic_x, pic_y, coord_id, calib)` 读取此文件。
 
 **📍 修订（执行期发现）**：原计划假设 `great_hollow.jpg` 是真实地图需标定。执行期核实发现它是**占位图**（121KB，写有 "Great Hollow / DLC - Data Coming Soon"，commit 530d938 引入）。已确认用户选择「用 background_4.png 生成真图」。新方案（已取代下方原 Step 1-4 的标定流程）：
 1. 用源 `素材/background_4.png`（4775²，GH 真实数据挖掘背景）LANCZOS 缩放到 1536×1536 JPEG（quality=90）替换占位图 → 与源坐标空间同源。
@@ -175,7 +175,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 - Reference: `$SRC/素材/Construct_5*.png`（47 个 DLC 结构图标）
 
 **Interfaces:**
-- Produces: `type_category_icon.json` schema：`{"<type_int>": {"icon": "<icon_name>", "adv": "<majorBase|minorBase|fieldBoss|evergaol|rottedWoods>", "basic": "<church|mage|village|other>", "note": "<视觉依据>"}}`。覆盖 DLC 种子（1000-1199）实际出现的全部 5xxxx type。`integrate-dlc.py` 的 `build_advanced_csv_rows` / `build_basic_classifications` 读取此表。
+- Produces: `type_category_icon.json` schema：`{"<type_int>": {"icon": "<icon_name>", "adv": "<majorBase|minorBase|fieldBoss|evergaol|rottedWoods>", "basic": "<church|mage|village|other>", "note": "<视觉依据>"}}`。覆盖 DLC 种子（1000-1199）实际出现的全部 5xxxx type。`integrate_dlc.py` 的 `build_advanced_csv_rows` / `build_basic_classifications` 读取此表。
 
 **视觉判断规则**（写进每个条目的 `note`）：
 - 教堂（有高耸尖顶/钟楼/彩窗）→ `adv=majorBase, basic=church, icon=cathedral_blank`
@@ -226,12 +226,12 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 
 ---
 
-## Phase 1 — integrate-dlc.py 核心（TDD，每模块可独立测试）
+## Phase 1 — integrate_dlc.py 核心（TDD，每模块可独立测试）
 
 ### Task 1.1: 脚手架 + 源数据读取模块
 
 **Files:**
-- Create: `integrate-dlc.py`
+- Create: `integrate_dlc.py`
 - Create: `tests/__init__.py`（空文件）
 - Create: `tests/test_integrate_dlc.py`
 - Test: `tests/test_integrate_dlc.py::TestReadSourceData`
@@ -289,7 +289,7 @@ Expected: FAIL（`ModuleNotFoundError: No module named 'integrate_dlc'`）。
 
 - [ ] **Step 3: 写最小实现**
 
-Create `integrate-dlc.py`（首版只含 `read_source_data` + 模块常量）：
+Create `integrate_dlc.py`（首版只含 `read_source_data` + 模块常量）：
 ```python
 #!/usr/bin/env python3
 """DLC「被遗忘的空洞」统一集成生成器。
@@ -382,8 +382,8 @@ Expected: 5 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/__init__.py tests/test_integrate_dlc.py
-git commit -m "feat(dlc): integrate-dlc.py 脚手架与源数据读取模块
+git add integrate_dlc.py tests/__init__.py tests/test_integrate_dlc.py
+git commit -m "feat(dlc): integrate_dlc.py 脚手架与源数据读取模块
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
@@ -393,7 +393,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.2: 坐标变换模块
 
 **Files:**
-- Modify: `integrate-dlc.py`（在 `read_source_data` 后追加）
+- Modify: `integrate_dlc.py`（在 `read_source_data` 后追加）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestTransformCoord`）
 
 **Interfaces:**
@@ -448,7 +448,7 @@ Expected: FAIL（`ImportError: cannot import name transform_coord_basic`）。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`（`read_source_data` 之后、`if __name__` 之前）：
+追加到 `integrate_dlc.py`（`read_source_data` 之后、`if __name__` 之前）：
 ```python
 def transform_coord_basic(pic_x: float, pic_y: float, target_space: int) -> Tuple[float, float]:
     """基础地图（Special 0/1/2/3/5）：源 picXY(4775) → 目标空间，纯线性缩放，无偏移。
@@ -493,7 +493,7 @@ Expected: 5 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): 坐标变换模块（基础地图 + Great Hollow 标定）
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -504,7 +504,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.3: mapType 纠正表生成
 
 **Files:**
-- Modify: `integrate-dlc.py`（追加 `build_maptype_fix`）
+- Modify: `integrate_dlc.py`（追加 `build_maptype_fix`）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestMapTypeFix`）
 
 **Interfaces:**
@@ -544,7 +544,7 @@ Expected: FAIL（`ImportError: cannot import name build_maptype_fix`）。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`：
+追加到 `integrate_dlc.py`：
 ```python
 def _load_target_maptypes() -> Dict[str, str]:
     """从现有 data.js 的 seedDataMatrix 读 DLC 行当前 mapType（[2]列）。
@@ -581,7 +581,7 @@ Expected: 3 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): mapType 纠正表生成（源 Special 权威）
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -592,7 +592,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.4: Rosetta 自动类目映射（基础 type）
 
 **Files:**
-- Modify: `integrate-dlc.py`（追加 `build_base_type_category`）
+- Modify: `integrate_dlc.py`（追加 `build_base_type_category`）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestRosetta`）
 
 **Interfaces:**
@@ -635,7 +635,7 @@ Expected: FAIL（`ImportError`）。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`：
+追加到 `integrate_dlc.py`：
 ```python
 import re
 
@@ -738,7 +738,7 @@ Expected: 3 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): Rosetta 基础 type→类目自动映射
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -749,7 +749,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.5: Great Hollow 候选点聚类
 
 **Files:**
-- Modify: `integrate-dlc.py`（追加 `cluster_great_hollow_pois`）
+- Modify: `integrate_dlc.py`（追加 `cluster_great_hollow_pois`）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestCluster`）
 
 **Interfaces:**
@@ -788,7 +788,7 @@ Expected: FAIL（`ImportError`）。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`：
+追加到 `integrate_dlc.py`：
 ```python
 def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
                               target_space: int, merge_threshold: float = 25.0) -> List[Dict]:
@@ -840,7 +840,7 @@ Expected: 2 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): Great Hollow 候选点聚类去重
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -851,7 +851,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.6: 高级版 CSV DLC 行生成
 
 **Files:**
-- Modify: `integrate-dlc.py`（追加 `build_advanced_csv_rows`）
+- Modify: `integrate_dlc.py`（追加 `build_advanced_csv_rows`）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestAdvancedRows`）
 
 **Interfaces:**
@@ -895,7 +895,7 @@ Expected: FAIL（`ImportError`）。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`：
+追加到 `integrate_dlc.py`：
 ```python
 # 夜王编号→名称（与 data.js NIGHTLORDS / CSV 一致）
 NIGHTLORD_NAMES = {
@@ -997,7 +997,7 @@ Expected: 3 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): 高级版 CSV DLC 行生成（图标+Rosetta+NAME 混合分类）
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -1008,7 +1008,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.7: 基础版 dataset.json 分类生成
 
 **Files:**
-- Modify: `integrate-dlc.py`（追加 `build_basic_classifications`）
+- Modify: `integrate_dlc.py`（追加 `build_basic_classifications`）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestBasicClassifications`）
 
 **Interfaces:**
@@ -1049,7 +1049,7 @@ Expected: FAIL。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`：
+追加到 `integrate_dlc.py`：
 ```python
 def build_basic_classifications(source: Dict, icon_map: Dict = None,
                                  base_map: Dict = None, gh_pois_768: List[Dict] = None,
@@ -1112,7 +1112,7 @@ Expected: 3 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): 基础版 dataset.json 分类生成
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -1123,7 +1123,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 ### Task 1.8: 基础版 data.js 片段生成 + main 胶水
 
 **Files:**
-- Modify: `integrate-dlc.py`（追加 `build_basic_datajs_snippets` + `main`）
+- Modify: `integrate_dlc.py`（追加 `build_basic_datajs_snippets` + `main`）
 - Modify: `tests/test_integrate_dlc.py`（追加 `TestDataJsSnippets`）
 
 **Interfaces:**
@@ -1155,7 +1155,7 @@ Expected: FAIL。
 
 - [ ] **Step 3: 写实现**
 
-追加到 `integrate-dlc.py`：
+追加到 `integrate_dlc.py`：
 ```python
 def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
                                 gh_pois_768: List[Dict] = None) -> Dict[str, Any]:
@@ -1241,7 +1241,7 @@ Expected: 2 个测试 PASS。
 - [ ] **Step 5: Commit**
 
 ```bash
-git add integrate-dlc.py tests/test_integrate_dlc.py
+git add integrate_dlc.py tests/test_integrate_dlc.py
 git commit -m "feat(dlc): 基础版 data.js 片段生成与 main 胶水
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
@@ -1415,9 +1415,9 @@ if __name__ == "__main__":
     main()
 ```
 
-- [ ] **Step 2: 运行 integrate-dlc.py 生成 patch**
+- [ ] **Step 2: 运行 integrate_dlc.py 生成 patch**
 
-Run: `python3 integrate-dlc.py`
+Run: `python3 integrate_dlc.py`
 Expected: 打印各产出完成；`dataset/dlc-params/advanced_csv_patch.json` 生成。
 
 - [ ] **Step 3: 应用 CSV 补丁**
@@ -1559,7 +1559,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 **Files:**
 - Modify: `dataset/dataset.json`（已在 Task 1.8 main 里由 `_append_basic_dataset_json` 追加）
 
-**说明**：Task 1.8 运行 `integrate-dlc.py` 时已追加 DLC 分类到 `dataset.json`。本任务验证。
+**说明**：Task 1.8 运行 `integrate_dlc.py` 时已追加 DLC 分类到 `dataset.json`。本任务验证。
 
 - [ ] **Step 1: 验证 script.js 兼容 4 位种子键**
 
@@ -1583,7 +1583,7 @@ print('1005 POI数:', len(c.get('1005',{})))
 ```
 Expected: 总键数 = 320 + 200 = 520；含 1005/1115；1005 有候选点分类。
 
-- [ ] **Step 3: Commit（若 integrate-dlc.py 已写则 dataset.json 已改，此步确认）**
+- [ ] **Step 3: Commit（若 integrate_dlc.py 已写则 dataset.json 已改，此步确认）**
 
 ```bash
 git add dataset/dataset.json
@@ -1620,7 +1620,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 
 - [ ] **Step 5: 修复并 commit**
 
-发现问题 → 回相应 Task 修复。重跑 `integrate-dlc.py` + Task 3.1。
+发现问题 → 回相应 Task 修复。重跑 `integrate_dlc.py` + Task 3.1。
 
 ```bash
 git add -A && git commit -m "fix(dlc): 基础版验证修复
