@@ -9,11 +9,53 @@ import json
 import os
 from collections import defaultdict
 from datetime import datetime
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any, Tuple, Optional
+
+# DLC 5xxxx type→{adv,icon} 映射表与 Great Hollow 候选点坐标的权威来源文件
+_DLC_PARAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "dataset", "dlc-params")
+_ADV_CSV_PATCH_PATH = os.path.join(_DLC_PARAMS_DIR, "advanced_csv_patch.json")
+_TYPE_CATEGORY_ICON_PATH = os.path.join(_DLC_PARAMS_DIR, "type_category_icon.json")
+
+
+def _load_great_hollow_coords() -> Dict[str, Tuple[float, float]]:
+    """从 advanced_csv_patch.json 读取 Great Hollow 候选点坐标（1536 空间，41 个）。
+
+    保持单一事实来源：坐标由 integrate_dlc.py 聚类产出，此处动态读取避免硬编码抄错。
+    """
+    try:
+        with open(_ADV_CSV_PATCH_PATH, encoding="utf-8") as f:
+            gh = json.load(f).get("great_hollow_coords", {})
+        return {k: tuple(v) for k, v in gh.items()}
+    except (FileNotFoundError, KeyError):
+        return {}
+
+
+def _load_dlc_type_icons() -> Dict[str, Dict[str, Optional[str]]]:
+    """从 type_category_icon.json 动态生成 DLC type → icon 映射。
+
+    按 adv 类目归类（majorBase→major_base，minorBase→minor_base 等），
+    键为 5xxxx type 字符串（如 "52420"），值为 icon 名（如 cathedral_blank）。
+    覆盖 46 条 type，避免手抄。
+    """
+    adv_to_cat = {"majorBase": "major_base", "minorBase": "minor_base",
+                  "evergaol": "evergaol", "fieldBoss": "field_boss"}
+    result: Dict[str, Dict[str, Optional[str]]] = {cat: {} for cat in adv_to_cat.values()}
+    try:
+        with open(_TYPE_CATEGORY_ICON_PATH, encoding="utf-8") as f:
+            table = json.load(f)
+    except FileNotFoundError:
+        return result
+    for type_str, info in table.items():
+        cat = adv_to_cat.get(info.get("adv"))
+        if cat:
+            result[cat][type_str] = info.get("icon")
+    return result
+
 
 def get_poi_icon_mappings() -> Dict[str, Dict[str, str]]:
     """Return hardcoded mapping of POI categories to icon names."""
-    return {
+    mappings = {
         # Major Base - Structure & Boss combinations
         "major_base": {
             "Camp - Banished Knights": "camp_blank",
@@ -98,6 +140,13 @@ def get_poi_icon_mappings() -> Dict[str, Dict[str, str]]:
             "all": "evergaol"
         }
     }
+    # 合并 DLC 5xxxx type → icon 映射（动态从 type_category_icon.json 读取）
+    # major_base 补 3 条 cathedral_blank；minor_base 补 35 条 rise/ruin_blank；
+    # evergaol 补 7 条（保留 "all" 兜底）；field_boss 补 53990。
+    dlc_icons = _load_dlc_type_icons()
+    for cat, items in dlc_icons.items():
+        mappings.setdefault(cat, {}).update(items)
+    return mappings
 
 def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[float, float]]]:
     """Return hardcoded mapping of POI categories to location coordinates."""
@@ -175,14 +224,17 @@ def get_poi_coordinates() -> Dict[str, Dict[str, Tuple[float, float]]]:
         },
 
         # Great Hollow locations - DLC: The Forsaken Hollows
-        # POI coordinates TBD - placeholder for when data becomes available
-        "great_hollow": {
-        }
+        # 动态从 advanced_csv_patch.json 读取 41 个候选点坐标（1536 聚类空间）
+        "great_hollow": _load_great_hollow_coords()
     }
 
 def get_poi_icon(category: str, structure: str, boss: str, icon_mappings: Dict[str, Dict[str, str]]) -> str:
     """Determine the icon for a POI based on its category, structure, and boss."""
-    
+    # DLC 5xxxx type 编号（纯数字）：直接按 type 查 DLC 图标映射，跳过常规组合查找。
+    # Great Hollow 的 POI value 是裸 type 编号（不含 ' - ' 分隔符）。
+    if structure and structure.isdigit():
+        return icon_mappings.get(category, {}).get(structure)
+
     if category == "major_base":
         # Major base uses structure-boss combination
         # If boss is None (e.g., Map Events), the combo will be "Map Event - None" which won't match any mapping
@@ -310,18 +362,20 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[flo
         # Major Base POIs
         for index, (location, value) in enumerate(row_data['Major Base'].items()):
             if value:
-                # Parse value as '<structure> - <boss>'
-                structure, boss = value.split(' - ', 1)
-                
+                # Parse value as '<structure> - <boss>'；DLC Great Hollow 的 value 是裸 5xxxx type 编号，无分隔符
+                parts = value.split(' - ', 1)
+                structure = parts[0]
+                boss = parts[1] if len(parts) > 1 else None
+
                 # For Map Events, set boss to null since the "boss" is actually just a location name
                 if structure == 'Map Event':
                     boss = None
-                
+
                 poi_data = {'location': location, 'structure': structure, 'boss': boss, 'index': start_index + index, 'category': 'majorBase'}
-                
-                # Add coordinates if available (use major_base category)
-                if location in location_coords['major_base']:
-                    coords = location_coords['major_base'][location]
+
+                # Add coordinates if available（先查 major_base，未命中回退到 great_hollow 候选点）
+                coords = location_coords['major_base'].get(location) or location_coords['great_hollow'].get(location)
+                if coords:
                     poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
                 
                 # Add icon
@@ -335,22 +389,24 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[flo
         # Minor Base POIs
         for index, (location, value) in enumerate(row_data['Minor Base'].items()):
             if value:
-                # Parse value as '<structure> - <detail>'
-                structure, detail = value.split(' - ', 1)
-                
+                # Parse value as '<structure> - <detail>'；DLC Great Hollow 的 value 是裸 5xxxx type 编号，无分隔符
+                parts = value.split(' - ', 1)
+                structure = parts[0]
+                detail = parts[1] if len(parts) > 1 else None
+
                 # Special handling for certain structures
                 if structure == 'Small Camp':
                     poi_data = {'location': location, 'structure': structure, 'enemy': detail, 'index': start_index + index, 'category': 'minorBase'}
-                elif structure in ['Sorcerer\'s Rise', 'Difficult Sorcerer\'s Rise']:
+                elif structure in ['Sorcerer\'s Rise', 'Difficult Sorcerer\'s Rise'] and detail:
                     # Parse puzzles as comma-separated list
                     puzzles = [puzzle.strip() for puzzle in detail.split(',')]
                     poi_data = {'location': location, 'structure': structure, 'puzzles': puzzles, 'index': start_index + index, 'category': 'minorBase'}
                 else:
                     poi_data = {'location': location, 'structure': structure, 'index': start_index + index, 'category': 'minorBase'}
-                
-                # Add coordinates if available (use minor_base category)
-                if location in location_coords['minor_base']:
-                    coords = location_coords['minor_base'][location]
+
+                # Add coordinates if available（先查 minor_base，未命中回退到 great_hollow 候选点）
+                coords = location_coords['minor_base'].get(location) or location_coords['great_hollow'].get(location)
+                if coords:
                     poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
                 
                 # Add icon
@@ -365,10 +421,10 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[flo
         for index, (location, boss) in enumerate(row_data['Evergaol'].items()):
             if boss:  # Only process if boss value exists
                 poi_data = {'location': location, 'boss': boss, 'index': start_index + index, 'category': 'evergaol'}
-                
-                # Add coordinates if available
-                if location in location_coords['evergaol']:
-                    coords = location_coords['evergaol'][location]
+
+                # Add coordinates if available（先查 evergaol，未命中回退到 great_hollow 候选点）
+                coords = location_coords['evergaol'].get(location) or location_coords['great_hollow'].get(location)
+                if coords:
                     poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
                 
                 # Add icon
@@ -387,10 +443,10 @@ def parse_csv_file(csv_path: str, location_coords: Dict[str, Dict[str, Tuple[flo
                     continue
                 
                 poi_data = {'location': location, 'boss': boss, 'index': start_index + index, 'category': 'fieldBoss'}
-                
-                # Add coordinates if available (use field_boss category)
-                if location in location_coords['field_boss']:
-                    coords = location_coords['field_boss'][location]
+
+                # Add coordinates if available（先查 field_boss，未命中回退到 great_hollow 候选点）
+                coords = location_coords['field_boss'].get(location) or location_coords['great_hollow'].get(location)
+                if coords:
                     poi_data['coordinates'] = {'x': coords[0], 'y': coords[1]}
                 
                 # Add icon
