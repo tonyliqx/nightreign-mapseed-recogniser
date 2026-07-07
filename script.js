@@ -416,6 +416,16 @@ class NightreignMapRecogniser {
             console.log(`Selected nightlord: ${nightlord}`);
         }
 
+        // 切换夜王后，已选出生点可能在新夜王下不存在（该夜王的该地形从无此出生点）→ 清除并回出生点阶段，POI 标记保留
+        if (this.selectedSpawn && this.chosenMap) {
+            const validSpawns = this.getValidSpawns();
+            if (!validSpawns.some(sp => sp.value === this.selectedSpawn)) {
+                this.selectedSpawn = null;
+                this.spawnPhase = true;
+                console.log('Cleared spawn: not valid under new nightlord');
+            }
+        }
+
         this.updateGameState();
     }
 
@@ -768,8 +778,8 @@ class NightreignMapRecogniser {
             }
         }
 
-        // 出生点候选（提前计算，用于决定地标是否展示）
-        const spawns = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
+        // 出生点候选（提前计算，用于决定地标是否展示）：按当前夜王+地形过滤掉不可能出现的出生点
+        const spawns = this.getValidSpawns();
 
         // 画地标 POI：出生点阶段且有出生点数据时隐藏（选完出生点后再展示，避免地标圆点遮挡出生点）
         if (!(this.spawnPhase && spawns.length > 0)) {
@@ -1199,13 +1209,26 @@ class NightreignMapRecogniser {
     }
 
     findClickedSpawn(x, y) {
-        const spawns = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
+        const spawns = this.getValidSpawns();
         return spawns.find(sp => {
             const dx = x - sp.x;
             const dy = y - sp.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             return distance <= ICON_SIZE / 2 * 1.5;  // 与 findClickedPOI 同触控半径
         });
+    }
+
+    getValidSpawns() {
+        const candidates = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
+        // 未选夜王：该地形的每个出生点在「某些夜王下」都可能出现，全部显示
+        if (!this.chosenNightlord) return candidates;
+        // 已选夜王：只保留该夜王 + 该地形下实际有种子使用的出生点，其余永不出现 → 不显示
+        const possibleValues = new Set(
+            seedDataMatrix
+                .filter(row => row[1] === this.chosenNightlord && row[2] === this.chosenMap)
+                .map(row => SEED_SPAWN[row[0]])
+        );
+        return candidates.filter(sp => possibleValues.has(sp.value));
     }
 
     resetMap() {
