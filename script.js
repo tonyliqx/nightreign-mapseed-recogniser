@@ -1669,9 +1669,11 @@ class NightreignMapRecogniser {
         seedImageContainer.style.display = 'block';
 
         const seedStr = mapSeed.toString().padStart(3, '0');
-        // Use language-specific pattern folder
         const currentLang = this.languageManager.getCurrentLanguage();
-        const seedImageUrl = `assets/pattern/${currentLang}/${seedStr}.jpg`;
+        // DLC 种子(≥1000) 用 Fuwish 汉化版 pattern 图（assets/pattern/dlc/，语言无关，DLC 图仅中文版）
+        const seedImageUrl = mapSeed >= 1000
+            ? `assets/pattern/dlc/${seedStr}.jpg`
+            : `assets/pattern/${currentLang}/${seedStr}.jpg`;
 
         // 检查是否为移动设备
         const isMobile = window.innerWidth <= 768;
