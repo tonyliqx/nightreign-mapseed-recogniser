@@ -892,23 +892,22 @@ class NightreignMapRecogniser {
             }
             const pos = this.getMousePos(e);
 
-            // 出生点标记优先（任何阶段都可改选/取消出生点）
-            const spawn = this.findClickedSpawn(pos.x, pos.y);
-            if (spawn) {
-                this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
-                if (this.selectedSpawn) this.spawnPhase = false;  // 选定出生点 → 进地标阶段
-                this.drawMap(this.images.maps[this.chosenMap]);
-                this.updateSeedFiltering();
-                console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
-                return;
-            }
-
-            // 出生点阶段：地标点击无效（强制先选出生点）
+            // spawn 阶段：spawn 优先，地标锁定
             if (this.spawnPhase) {
-                console.log('Spawn phase active - landmark clicks ignored (select spawn or skip)');
+                const spawn = this.findClickedSpawn(pos.x, pos.y);
+                if (spawn) {
+                    this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
+                    if (this.selectedSpawn) this.spawnPhase = false;  // 选定出生点 → 进地标阶段
+                    this.drawMap(this.images.maps[this.chosenMap]);
+                    this.updateSeedFiltering();
+                    console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                } else {
+                    console.log('Spawn phase active - landmark clicks ignored (select spawn or skip)');
+                }
                 return;
             }
 
+            // 地标阶段：POI 优先
             const poi = this.findClickedPOI(pos.x, pos.y);
             if (poi) {
                 // If POI is already marked (not a dot), clear it back to dot
@@ -927,6 +926,16 @@ class NightreignMapRecogniser {
 
                 // Reset the flag after processing
                 this.userIsClearing = false;
+                return;   // ← 关键：POI 命中后 return，不再查 spawn
+            }
+
+            // 地标阶段、POI 未命中：允许改选/取消出生点（不改变 spawnPhase）
+            const spawn = this.findClickedSpawn(pos.x, pos.y);
+            if (spawn) {
+                this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
+                this.drawMap(this.images.maps[this.chosenMap]);
+                this.updateSeedFiltering();
+                console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
             }
         });
 
@@ -991,24 +1000,22 @@ class NightreignMapRecogniser {
             const pos = this.getMousePos(touch);
             lastTouchPos = pos;
 
-            // 出生点标记优先（任何阶段都可改选/取消出生点）
-            const spawn = this.findClickedSpawn(pos.x, pos.y);
-            if (spawn) {
-                this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
-                if (this.selectedSpawn) this.spawnPhase = false;  // 选定出生点 → 进地标阶段
-                this.drawMap(this.images.maps[this.chosenMap]);
-                this.updateSeedFiltering();
-                console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
-                return;
-            }
-
-            // 出生点阶段：地标长按/短按均无效（强制先选出生点）
+            // spawn 阶段：spawn 优先，地标锁定（不设 lastTouchedPoi → touchend 短按与长按都不触发）
             if (this.spawnPhase) {
-                console.log('Spawn phase active - landmark touch ignored (select spawn or skip)');
+                const spawn = this.findClickedSpawn(pos.x, pos.y);
+                if (spawn) {
+                    this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
+                    if (this.selectedSpawn) this.spawnPhase = false;
+                    this.drawMap(this.images.maps[this.chosenMap]);
+                    this.updateSeedFiltering();
+                    console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                } else {
+                    console.log('Spawn phase active - landmark touch ignored (select spawn or skip)');
+                }
                 return;
             }
 
-            // 查找是否触摸了POI
+            // 地标阶段：POI 优先（保持既有长按/短按逻辑完全不变）
             const poi = this.findClickedPOI(pos.x, pos.y);
             lastTouchedPoi = poi;
 
@@ -1027,6 +1034,7 @@ class NightreignMapRecogniser {
                     longPressHandler(e);
                 }, 500);
             }
+            // POI 未命中时不启动长按计时；spawn 改选在 touchend 短按分支处理（见 Step 3）
         }, { passive: false });
 
         this.canvas.addEventListener('touchend', (e) => {
@@ -1039,25 +1047,36 @@ class NightreignMapRecogniser {
             const touchDuration = Date.now() - touchStartTime;
             console.log(`Touch duration: ${touchDuration}ms, moved: ${touchMoved}`);
 
-            if (touchDuration < 500 && !touchMoved && lastTouchedPoi) {
-                console.log(`Short tap on POI ${lastTouchedPoi.id}`);
+            if (touchDuration < 500 && !touchMoved) {
+                if (lastTouchedPoi) {
+                    console.log(`Short tap on POI ${lastTouchedPoi.id}`);
 
-                // If POI is already marked (not a dot), clear it back to dot
-                if (this.poiStates[lastTouchedPoi.id] !== 'dot') {
-                    console.log(`Clearing POI ${lastTouchedPoi.id} - was ${this.poiStates[lastTouchedPoi.id]}`);
-                    this.poiStates[lastTouchedPoi.id] = 'dot';
-                    this.userIsClearing = true; // Set flag before clearing
-                } else {
-                    // If it's a dot, mark as church
-                    console.log(`Marking POI ${lastTouchedPoi.id} as church`);
-                    this.poiStates[lastTouchedPoi.id] = 'church';
+                    // If POI is already marked (not a dot), clear it back to dot
+                    if (this.poiStates[lastTouchedPoi.id] !== 'dot') {
+                        console.log(`Clearing POI ${lastTouchedPoi.id} - was ${this.poiStates[lastTouchedPoi.id]}`);
+                        this.poiStates[lastTouchedPoi.id] = 'dot';
+                        this.userIsClearing = true; // Set flag before clearing
+                    } else {
+                        // If it's a dot, mark as church
+                        console.log(`Marking POI ${lastTouchedPoi.id} as church`);
+                        this.poiStates[lastTouchedPoi.id] = 'church';
+                    }
+
+                    this.drawMap(this.images.maps[this.chosenMap]);
+                    this.updateSeedFiltering();
+
+                    // Reset the flag after processing
+                    this.userIsClearing = false;
+                } else if (!this.spawnPhase) {
+                    // 地标阶段、POI 未命中的短按：允许改选/取消出生点
+                    const spawn = this.findClickedSpawn(lastTouchPos.x, lastTouchPos.y);
+                    if (spawn) {
+                        this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
+                        this.drawMap(this.images.maps[this.chosenMap]);
+                        this.updateSeedFiltering();
+                        console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                    }
                 }
-
-                this.drawMap(this.images.maps[this.chosenMap]);
-                this.updateSeedFiltering();
-
-                // Reset the flag after processing
-                this.userIsClearing = false;
             }
 
             // 清理状态
