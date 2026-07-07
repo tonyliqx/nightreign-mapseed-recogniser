@@ -56,6 +56,7 @@ const translations = {
     // Actions
     'action.reset': '重置所有标记',
     'action.help': '帮助与提示',
+    'action.skip_spawn': '跳过出生点',
     'action.close': '关闭',
     
     // Results
@@ -68,6 +69,7 @@ const translations = {
     'map.select_terrain': '请选择特殊地形',
     'map.select_terrain_hint': '选择参数后开始识别地图种子',
     'map.click_dots': '点击橙色圆点标记兴趣点位置',
+    'map.spawn_hint': '请先选择你的出生点（蓝色三角），再标记地标',
     'map.select_parameters': '选择夜王和地图上方进行准确的种子检测',
     
     // POI types
@@ -170,6 +172,7 @@ const translations = {
     // Actions
     'action.reset': 'Reset All Markers',
     'action.help': 'Help & Tips',
+    'action.skip_spawn': 'Skip Spawn Point',
     'action.close': 'Close',
     
     // Results
@@ -182,6 +185,7 @@ const translations = {
     'map.select_terrain': 'Please select special terrain',
     'map.select_terrain_hint': 'Select parameters to start seed detection',
     'map.click_dots': 'Click orange dots to mark POI locations',
+    'map.spawn_hint': 'Select your spawn point (blue triangle) first, then mark landmarks',
     'map.select_parameters': 'Select Nightlord and Map above for accurate seed detection',
     
     // POI types
