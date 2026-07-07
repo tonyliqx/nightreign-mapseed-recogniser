@@ -95,6 +95,16 @@ def load_great_hollow_calib() -> Dict[str, Any]:
             "note": "calib.json 不存在，回退纯缩放。"}
 
 
+def load_spawn_calib() -> Dict[str, List[float]]:
+    """加载 dataset/dlc-params/spawn_calib.json：{出生点值: [x768, y768]}（12 键）。
+
+    由 dev 时 calibrate_spawn.py（Pillow）从源素材 Start_*.png 标定产出；
+    生产端纯 json.load，无第三方依赖。与 load_great_hollow_calib 同模式。"""
+    path = os.path.join(PARAMS_DIR, "spawn_calib.json")
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def transform_coord_great_hollow(pic_x: float, pic_y: float, coord_id: str,
                                   calib: Dict[str, Any], target_space: int) -> Tuple[float, float]:
     """Great Hollow：应用标定参数（已含源 transform_coord 的影响）。
