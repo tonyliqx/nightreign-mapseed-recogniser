@@ -763,13 +763,30 @@ class NightreignMapRecogniser {
             }
         }
 
-        // Always draw POIs (they should be visible even without background image)
+        // 画地标 POI（出生点阶段时半透明，提示先选出生点）
+        if (this.spawnPhase) this.ctx.globalAlpha = 0.3;
         this.currentPOIs.forEach(poi => {
             const state = this.poiStates[poi.id];
             this.drawPOI(poi, state);
         });
+        this.ctx.globalAlpha = 1.0;
 
-        console.log(`Drew map with ${this.currentPOIs.length} POIs for ${this.chosenMap}`);
+        // 画出生点标记（蓝色三角，不受 spawnPhase 透明度影响）
+        const spawns = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
+        spawns.forEach(sp => this.drawSpawnMarker(sp));
+
+        // 出生点阶段顶部提示
+        if (this.spawnPhase && spawns.length > 0) {
+            this.ctx.fillStyle = 'rgba(0,0,0,0.7)';
+            this.ctx.fillRect(0, 0, CANVAS_SIZE, 40);
+            this.ctx.fillStyle = '#00e5ff';
+            this.ctx.font = 'bold 16px Inter, sans-serif';
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText(this.getText('map.spawn_hint'), CANVAS_SIZE / 2, 20);
+        }
+
+        console.log(`Drew map with ${this.currentPOIs.length} POIs and ${spawns.length} spawn points for ${this.chosenMap}`);
     }
 
     drawPOI(poi, state) {
@@ -825,6 +842,29 @@ class NightreignMapRecogniser {
         }
     }
 
+    drawSpawnMarker(sp) {
+        const { x, y, value, label } = sp;
+        const selected = this.selectedSpawn === value;
+        const r = ICON_SIZE / 2;
+        // 蓝色实心三角（选中时青色高亮）
+        this.ctx.beginPath();
+        this.ctx.moveTo(x, y - r);
+        this.ctx.lineTo(x + r, y + r);
+        this.ctx.lineTo(x - r, y + r);
+        this.ctx.closePath();
+        this.ctx.fillStyle = selected ? '#00e5ff' : '#2196f3';
+        this.ctx.fill();
+        this.ctx.strokeStyle = '#000000';
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+        // 序号 label
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.font = 'bold 11px Inter, sans-serif';
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+        this.ctx.fillText(label, x, y + r * 0.3);
+    }
+
     setupCanvasEventListeners() {
         // 如果监听器已经设置过，直接返回
         if (this.canvasEventListenersSetup) {
@@ -846,6 +886,24 @@ class NightreignMapRecogniser {
                 return;
             }
             const pos = this.getMousePos(e);
+
+            // 出生点标记优先（任何阶段都可改选/取消出生点）
+            const spawn = this.findClickedSpawn(pos.x, pos.y);
+            if (spawn) {
+                this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
+                if (this.selectedSpawn) this.spawnPhase = false;  // 选定出生点 → 进地标阶段
+                this.drawMap(this.images.maps[this.chosenMap]);
+                this.updateSeedFiltering();
+                console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                return;
+            }
+
+            // 出生点阶段：地标点击无效（强制先选出生点）
+            if (this.spawnPhase) {
+                console.log('Spawn phase active - landmark clicks ignored (select spawn or skip)');
+                return;
+            }
+
             const poi = this.findClickedPOI(pos.x, pos.y);
             if (poi) {
                 // If POI is already marked (not a dot), clear it back to dot
@@ -927,6 +985,23 @@ class NightreignMapRecogniser {
             const touch = e.touches[0];
             const pos = this.getMousePos(touch);
             lastTouchPos = pos;
+
+            // 出生点标记优先（任何阶段都可改选/取消出生点）
+            const spawn = this.findClickedSpawn(pos.x, pos.y);
+            if (spawn) {
+                this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
+                if (this.selectedSpawn) this.spawnPhase = false;  // 选定出生点 → 进地标阶段
+                this.drawMap(this.images.maps[this.chosenMap]);
+                this.updateSeedFiltering();
+                console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                return;
+            }
+
+            // 出生点阶段：地标长按/短按均无效（强制先选出生点）
+            if (this.spawnPhase) {
+                console.log('Spawn phase active - landmark touch ignored (select spawn or skip)');
+                return;
+            }
 
             // 查找是否触摸了POI
             const poi = this.findClickedPOI(pos.x, pos.y);
@@ -1089,6 +1164,16 @@ class NightreignMapRecogniser {
             // 增加移动端触控判定面积，使用1.5倍图标半径
             const touchRadius = ICON_SIZE / 2 * 1.5;
             return distance <= touchRadius;
+        });
+    }
+
+    findClickedSpawn(x, y) {
+        const spawns = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
+        return spawns.find(sp => {
+            const dx = x - sp.x;
+            const dy = y - sp.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            return distance <= ICON_SIZE / 2 * 1.5;  // 与 findClickedPOI 同触控半径
         });
     }
 
