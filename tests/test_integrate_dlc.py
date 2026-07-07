@@ -159,6 +159,33 @@ class TestCluster(unittest.TestCase):
             self.assertTrue(0 <= p["x"] <= 768)
             self.assertTrue(0 <= p["y"] <= 768)
 
+    def test_exclude_bosses_reduces_points(self):
+        """基础版排除 boss 后候选点应显著减少——boss 占源坐标 ~60%，混合聚类致
+        17/25 候选点被 boss 主导，挤掉教堂/法师塔地标。排除后回归地标位置。"""
+        with_bosses = cluster_great_hollow_pois(self.source, self.calib, 768)
+        without_bosses = cluster_great_hollow_pois(self.source, self.calib, 768, exclude_bosses=True)
+        self.assertLess(len(without_bosses), len(with_bosses),
+                        "排除 boss 后候选点应更少")
+        self.assertGreater(len(without_bosses), 0)
+        # id 仍从 1 连续
+        self.assertEqual([p["id"] for p in without_bosses],
+                         list(range(1, len(without_bosses) + 1)))
+
+    def test_exclude_bosses_has_no_field_boss(self):
+        """exclude_bosses=True 的候选点 source_coords 不得含 4xxxx boss 或 field_boss 图标 type。"""
+        from integrate_dlc import load_type_category_icon
+        icon = load_type_category_icon()
+        pois = cluster_great_hollow_pois(self.source, self.calib, 768, exclude_bosses=True)
+        self.assertGreater(len(pois), 0)
+        for p in pois:
+            for _px, _py, _ci, t in p["source_coords"]:
+                ts = str(t).strip()
+                self.assertFalse(ts.isdigit() and 40000 <= int(ts) < 50000,
+                                 f"排除后仍含 4xxxx boss: {ts}")
+                if ts in icon:
+                    self.assertNotEqual(icon[ts].get("icon"), "field_boss",
+                                        f"排除后仍含 field_boss 图标 type: {ts}")
+
 from integrate_dlc import build_advanced_csv_rows, load_type_category_icon
 
 class TestAdvancedRows(unittest.TestCase):

@@ -234,10 +234,26 @@ def build_base_type_category(source: Dict[str, Any]) -> Dict[str, Dict]:
 
 
 def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
-                              target_space: int, merge_threshold: float = 45.0) -> List[Dict]:
+                              target_space: int, merge_threshold: float = 45.0,
+                              exclude_bosses: bool = False) -> List[Dict]:
     """收集 80 条 Great Hollow 种子的全部建筑坐标（目标空间），近邻聚类去重。
     merge_threshold 以 768 空间像素为基准，按 target_space 线性缩放——保证基础版(768)
-    与高级版(1536)聚类等价、候选点 id 一一对应。45px(768)≈源 280px。"""
+    与高级版(1536)聚类等价、候选点 id 一一对应。45px(768)≈源 280px。
+
+    exclude_bosses=True 时剔除 boss 坐标（field_boss 图标 + 4xxxx boss type）。
+    背景：boss 坐标占源数据 ~60%（每种子带 DAY1/2 Boss），混合聚类会令 17/25 候选点
+    被 boss 主导，挤掉教堂/法师塔地标。基础版 POI 语义为教堂/法师塔/村庄（无 boss），
+    排除后候选点回归地标（25→10）；高级版有 field boss 类别，保留 boss 候选点（默认 False）。"""
+    icon_map = load_type_category_icon() if exclude_bosses else None
+
+    def _is_boss(t) -> bool:
+        t = str(t).strip()
+        if icon_map and t in icon_map and icon_map[t].get("icon") == "field_boss":
+            return True
+        if t.isdigit() and 40000 <= int(t) < 50000:  # 4xxxx boss（DAY1/2 Boss 等，源数据主力）
+            return True
+        return False
+
     # 收集所有 Great Hollow 种子的建筑目标坐标
     points = []  # [(tx, ty, coord_id, pic_x, pic_y, type)]
     for sid, pat in source["patterns"].items():
@@ -246,6 +262,9 @@ def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
         for con in source["constructs"].get(sid, []):
             # 执行期补丁：跳过 is_display=False 的背景装饰建筑，避免误成 POI 候选
             if not con.get("is_display"):
+                continue
+            # 基础版补丁：排除 boss 坐标，候选点回归教堂/法师塔/废墟地标（非 boss 主导）
+            if exclude_bosses and _is_boss(con["type"]):
                 continue
             coord = source["coords"].get(con["coord_index"])
             if not coord:
@@ -413,7 +432,8 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
     if calib is None:
         calib = load_great_hollow_calib()
     if gh_pois_768 is None:
-        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768)
+        # 基础版候选点排除 boss（语义为教堂/法师塔/村庄），见 cluster_great_hollow_pois 文档
+        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)
     if existing_pois_by_map is None:
         existing_pois_by_map = _load_basic_pois_by_map()
 
@@ -467,7 +487,8 @@ def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
     if calib is None:
         calib = load_great_hollow_calib()
     if gh_pois_768 is None:
-        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768)
+        # 基础版候选点排除 boss（语义为教堂/法师塔/村庄），见 cluster_great_hollow_pois 文档
+        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)
 
     # POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量
     lines = []
@@ -490,7 +511,7 @@ def main():
     base_map = build_base_type_category(source)
 
     gh_1536 = cluster_great_hollow_pois(source, calib, 1536)
-    gh_768 = cluster_great_hollow_pois(source, calib, 768)
+    gh_768 = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)  # 基础版排除 boss
 
     # 高级版 CSV 行
     adv_rows = build_advanced_csv_rows(source, icon_map, base_map, gh_1536, calib)
