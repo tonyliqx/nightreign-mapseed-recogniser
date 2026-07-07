@@ -26,6 +26,8 @@ class NightreignMapRecogniser {
         this.languageManager = new LanguageManager();
         this.chosenNightlord = null;
         this.chosenMap = null;
+        this.selectedSpawn = null;   // 选中的出生点值（如 "13000"），null=未选/跳过
+        this.spawnPhase = true;      // true=出生点阶段（锁地标），false=地标阶段
         this.currentPOIs = [];
         this.poiStates = {};
         this.images = {
@@ -433,6 +435,8 @@ class NightreignMapRecogniser {
             this.chosenMap = map;
             this.currentPOIs = POIS_BY_MAP[map] || [];
             this.poiStates = this.initializePOIStates();
+            this.selectedSpawn = null;   // 切地图重置出生点
+            this.spawnPhase = true;      // 新地图默认回到出生点阶段
 
             console.log(`Selected map: ${map}, POIs: ${this.currentPOIs.length}`);
 
@@ -1109,6 +1113,8 @@ class NightreignMapRecogniser {
             // Reinitialize POI states for current map
             this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
             this.poiStates = this.initializePOIStates();
+            this.selectedSpawn = null;
+            this.spawnPhase = true;
 
             // Redraw current map with reset POIs
             if (this.canvas && this.ctx) {
@@ -1132,6 +1138,17 @@ class NightreignMapRecogniser {
         }
 
         console.log('Reset completed - cleared nightlord selection and POI states, kept map selection');
+    }
+
+    skipSpawn() {
+        // 跳过出生点：不设筛选条件，直接进入地标阶段
+        this.selectedSpawn = null;
+        this.spawnPhase = false;
+        if (this.canvas && this.ctx && this.chosenMap) {
+            this.drawMap(this.images.maps[this.chosenMap]);
+        }
+        this.updateSeedFiltering();
+        console.log('Skipped spawn selection, entered landmark phase');
     }
 
     hideNightlordInfo() {
@@ -1192,9 +1209,9 @@ class NightreignMapRecogniser {
 
         // Filter seeds by nightlord and map
         const possibleSeeds = seedDataMatrix.filter(row => {
-            //return row[1] === this.chosenNightlord && row[2] === this.chosenMap;
             const allNightlords = !this.chosenNightlord || row[1] === this.chosenNightlord;
-            return allNightlords && row[2] === this.chosenMap;
+            const spawnOk = !this.selectedSpawn || SEED_SPAWN[row[0]] === this.selectedSpawn;
+            return allNightlords && row[2] === this.chosenMap && spawnOk;
         });
 
         console.log(`Found ${possibleSeeds.length} seeds for ${this.chosenNightlord} + ${this.chosenMap}`);
