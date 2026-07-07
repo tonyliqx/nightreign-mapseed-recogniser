@@ -234,9 +234,10 @@ def build_base_type_category(source: Dict[str, Any]) -> Dict[str, Dict]:
 
 
 def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
-                              target_space: int, merge_threshold: float = 25.0) -> List[Dict]:
+                              target_space: int, merge_threshold: float = 45.0) -> List[Dict]:
     """收集 80 条 Great Hollow 种子的全部建筑坐标（目标空间），近邻聚类去重。
-    merge_threshold 单位=目标空间像素（768 空间下 25px ≈ 源 155px）。"""
+    merge_threshold 以 768 空间像素为基准，按 target_space 线性缩放——保证基础版(768)
+    与高级版(1536)聚类等价、候选点 id 一一对应。45px(768)≈源 280px。"""
     # 收集所有 Great Hollow 种子的建筑目标坐标
     points = []  # [(tx, ty, coord_id, pic_x, pic_y, type)]
     for sid, pat in source["patterns"].items():
@@ -252,13 +253,15 @@ def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
             tx, ty = transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, target_space)
             points.append((tx, ty, con["coord_index"], coord[0], coord[1], con["type"]))
 
+    # 阈值按目标空间缩放：768 基准，1536→2 倍，两版聚类等价（坐标 768=1536×0.5 严格线性）
+    effective_threshold = merge_threshold * target_space / 768
     # 贪心聚类：按 x 排序，距离 < threshold 合并
     points.sort()
     clusters = []  # 每个: {"coords": [...], "cx": , "cy": }
     for tx, ty, ci, px, py, t in points:
         merged = False
         for cl in clusters:
-            if (cl["cx"] - tx) ** 2 + (cl["cy"] - ty) ** 2 <= merge_threshold ** 2:
+            if (cl["cx"] - tx) ** 2 + (cl["cy"] - ty) ** 2 <= effective_threshold ** 2:
                 cl["coords"].append((px, py, ci, t))
                 # 更新质心
                 n = len(cl["coords"])
@@ -268,6 +271,27 @@ def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
                 break
         if not merged:
             clusters.append({"coords": [(px, py, ci, t)], "cx": tx, "cy": ty})
+
+    # 后处理：贪心按 x 排序只向后合并，质心漂移后可能残留近邻簇对（实测 36.9px < 45）。
+    # 反复合并质心距 ≤ threshold 的最近簇对，直到所有簇心间距 > threshold——
+    # 这才是 merge_threshold 的真正不变量：输出候选点（质心）的图标不会重叠。
+    while len(clusters) > 1:
+        bi = bj = -1
+        best_d2 = float("inf")
+        for i in range(len(clusters)):
+            for j in range(i + 1, len(clusters)):
+                d2 = (clusters[i]["cx"] - clusters[j]["cx"]) ** 2 + \
+                     (clusters[i]["cy"] - clusters[j]["cy"]) ** 2
+                if d2 < best_d2:
+                    best_d2 = d2; bi, bj = i, j
+        if best_d2 > effective_threshold ** 2:
+            break
+        a, b = clusters[bi], clusters[bj]
+        na, nb = len(a["coords"]), len(b["coords"])
+        a["cx"] = (na * a["cx"] + nb * b["cx"]) / (na + nb)
+        a["cy"] = (na * a["cy"] + nb * b["cy"]) / (na + nb)
+        a["coords"] = a["coords"] + b["coords"]
+        clusters.pop(bj)  # bj > bi，pop 安全
 
     # 按 (cx, cy) 排序后分配 id
     clusters.sort(key=lambda c: (c["cy"], c["cx"]))

@@ -44,40 +44,33 @@
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_15": "51101"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_8": "51101"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "贪食魔龙",
-        "greatHollow_30": "土龙",
-        "greatHollow_21": "萨米尔",
-        "greatHollow_14": "黑夜骑兵",
-        "greatHollow_17": "亚人女王",
-        "greatHollow_12": "接肢",
-        "greatHollow_23": "老狮子",
-        "greatHollow_26": "米兰达花",
-        "greatHollow_19": "化身",
-        "greatHollow_3": "祖灵",
-        "greatHollow_18": "树灵",
+        "greatHollow_20": "王室幽魂",
+        "greatHollow_12": "化身",
+        "greatHollow_11": "树灵",
+        "greatHollow_10": "土龙",
+        "greatHollow_8": "接肢",
+        "greatHollow_13": "老狮子",
+        "greatHollow_15": "米兰达花",
+        "greatHollow_2": "祖灵",
         "greatHollow_1": "罗蕾塔",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1006": {
@@ -85,38 +78,31 @@
       "nightlord": "Gladius",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_38": "51108"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_22": "51108"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "铃珠猎人",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "黑夜骑兵",
-        "greatHollow_30": "化身",
-        "greatHollow_17": "接肢",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_14": "河马",
-        "greatHollow_12": "红狼",
-        "greatHollow_21": "老狮子",
-        "greatHollow_18": "萨米尔",
-        "greatHollow_3": "祖灵",
-        "greatHollow_19": "树灵",
-        "greatHollow_23": "黑剑眷属",
+        "greatHollow_20": "米兰达花",
+        "greatHollow_10": "化身",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_11": "萨米尔",
+        "greatHollow_8": "红狼",
+        "greatHollow_12": "树灵",
+        "greatHollow_2": "祖灵",
+        "greatHollow_13": "黑剑眷属",
         "greatHollow_1": "罗蕾塔",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1007": {
@@ -124,36 +110,30 @@
       "nightlord": "Gladius",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51100",
-        "greatHollow_32": "53720"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51100",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "双神皮",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "大树骑兵",
-        "greatHollow_30": "树灵",
-        "greatHollow_17": "河马",
-        "greatHollow_14": "接肢",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_19": "黑刀刺客",
-        "greatHollow_26": "亚人女王",
-        "greatHollow_21": "土龙",
-        "greatHollow_18": "黑剑眷属",
-        "greatHollow_23": "罗蕾塔",
+        "greatHollow_20": "红狼",
+        "greatHollow_10": "树灵",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_12": "土龙",
+        "greatHollow_15": "亚人女王",
+        "greatHollow_13": "罗蕾塔",
         "greatHollow_1": "化身"
       }
     },
@@ -161,79 +141,66 @@
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51101",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51101",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "树灵",
-        "greatHollow_30": "龙装",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_12": "亚人女王",
-        "greatHollow_21": "萨米尔",
-        "greatHollow_17": "接肢",
-        "greatHollow_19": "老狮子",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_3": "罗蕾塔",
-        "greatHollow_18": "祖灵",
-        "greatHollow_23": "化身",
+        "greatHollow_20": "王室幽魂",
+        "greatHollow_11": "祖灵",
+        "greatHollow_8": "亚人女王",
+        "greatHollow_12": "老狮子",
+        "greatHollow_10": "龙装",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_2": "罗蕾塔",
+        "greatHollow_13": "化身",
         "greatHollow_1": "死鸟",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1009": {
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_15": "51109"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_8": "51109"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "恶兆妖鬼",
         "greatHollow_4": "大土龙",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "双神皮",
-        "greatHollow_30": "河马",
-        "greatHollow_17": "王室幽魂",
-        "greatHollow_23": "萨米尔",
-        "greatHollow_12": "接肢",
-        "greatHollow_18": "黑刀刺客",
-        "greatHollow_14": "狮子混种",
-        "greatHollow_3": "树灵",
-        "greatHollow_19": "龙装",
-        "greatHollow_26": "罗蕾塔",
-        "greatHollow_21": "化身",
+        "greatHollow_20": "老狮子",
+        "greatHollow_10": "河马",
+        "greatHollow_13": "萨米尔",
+        "greatHollow_8": "接肢",
+        "greatHollow_11": "狮子混种",
+        "greatHollow_2": "树灵",
+        "greatHollow_12": "化身",
+        "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "铃珠猎人"
       }
     },
@@ -281,163 +248,134 @@
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51104"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51104"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "龙人士兵",
         "greatHollow_4": "大土龙",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "老狮子",
-        "greatHollow_21": "黑刀刺客",
-        "greatHollow_12": "米兰达花",
-        "greatHollow_18": "河马",
-        "greatHollow_19": "红狼",
-        "greatHollow_17": "狮子混种",
-        "greatHollow_14": "罗蕾塔",
-        "greatHollow_3": "铃珠猎人",
-        "greatHollow_23": "龙装",
-        "greatHollow_26": "祖灵",
+        "greatHollow_20": "老狮子",
+        "greatHollow_10": "狮子混种",
+        "greatHollow_12": "红狼",
+        "greatHollow_8": "53990",
+        "greatHollow_11": "罗蕾塔",
+        "greatHollow_2": "铃珠猎人",
+        "greatHollow_13": "龙装",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "大树守卫",
-        "greatHollow_32": "49400",
-        "greatHollow_13": "53990"
+        "greatHollow_17": "49400"
       }
     },
     "1016": {
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_17": "51107",
-        "greatHollow_16": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_10": "51107",
+        "greatHollow_9": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "偏地老将",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "化身",
-        "greatHollow_17": "河马",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_12": "老狮子",
-        "greatHollow_3": "接肢",
-        "greatHollow_21": "黑夜骑兵",
-        "greatHollow_23": "土龙",
-        "greatHollow_18": "铃珠猎人",
-        "greatHollow_26": "树灵",
-        "greatHollow_1": "大树守卫",
-        "greatHollow_13": "53990"
+        "greatHollow_20": "萨米尔",
+        "greatHollow_10": "化身",
+        "greatHollow_12": "黑夜骑兵",
+        "greatHollow_11": "铃珠猎人",
+        "greatHollow_8": "53990",
+        "greatHollow_2": "接肢",
+        "greatHollow_13": "土龙",
+        "greatHollow_15": "树灵",
+        "greatHollow_1": "大树守卫"
       }
     },
     "1017": {
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51102",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51102",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "战地老将",
         "greatHollow_4": "铃珠猎人",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "萨米尔",
-        "greatHollow_3": "亚人女王",
-        "greatHollow_18": "米兰达花",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_23": "接肢",
-        "greatHollow_26": "化身",
-        "greatHollow_17": "罗蕾塔",
-        "greatHollow_14": "土龙",
-        "greatHollow_21": "龙装",
+        "greatHollow_20": "萨米尔",
+        "greatHollow_2": "亚人女王",
+        "greatHollow_11": "土龙",
+        "greatHollow_12": "龙装",
+        "greatHollow_10": "罗蕾塔",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_13": "接肢",
+        "greatHollow_15": "化身",
         "greatHollow_1": "死鸟",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1018": {
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51107"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51107"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "双神皮",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "黑夜骑兵",
-        "greatHollow_30": "老狮子",
-        "greatHollow_14": "萨米尔",
-        "greatHollow_26": "亚人女王",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_17": "河马",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_3": "大树守卫",
-        "greatHollow_18": "龙装",
-        "greatHollow_23": "化身",
-        "greatHollow_21": "祖灵",
-        "greatHollow_1": "罗蕾塔",
-        "greatHollow_13": "53990"
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_11": "龙装",
+        "greatHollow_15": "亚人女王",
+        "greatHollow_8": "53990",
+        "greatHollow_10": "老狮子",
+        "greatHollow_12": "祖灵",
+        "greatHollow_2": "大树守卫",
+        "greatHollow_13": "化身",
+        "greatHollow_1": "罗蕾塔"
       }
     },
     "1019": {
@@ -445,37 +383,31 @@
       "nightlord": "Adel",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53710",
-        "greatHollow_15": "51106",
-        "greatHollow_38": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_8": "51106",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "双神皮",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "龙装骑兵",
-        "greatHollow_30": "铃珠猎人",
-        "greatHollow_14": "亚人女王",
-        "greatHollow_19": "王室幽魂",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_21": "红狼",
-        "greatHollow_17": "萨米尔",
-        "greatHollow_26": "土龙",
-        "greatHollow_18": "死鸟",
-        "greatHollow_23": "树灵",
+        "greatHollow_20": "铃珠猎人",
+        "greatHollow_11": "死鸟",
+        "greatHollow_12": "红狼",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_10": "萨米尔",
+        "greatHollow_15": "土龙",
+        "greatHollow_13": "树灵",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -523,79 +455,64 @@
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51103",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720",
-        "greatHollow_15": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51103",
+        "greatHollow_17": "53720",
+        "greatHollow_8": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "双神皮",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "舞娘",
-        "greatHollow_30": "祖灵",
-        "greatHollow_19": "红狼",
-        "greatHollow_18": "米兰达花",
-        "greatHollow_3": "黑夜骑兵",
-        "greatHollow_17": "河马",
-        "greatHollow_12": "老狮子",
-        "greatHollow_21": "萨米尔",
-        "greatHollow_23": "罗蕾塔",
-        "greatHollow_26": "大树守卫",
-        "greatHollow_14": "铃珠猎人",
-        "greatHollow_1": "树灵",
-        "greatHollow_13": "53990"
+        "greatHollow_20": "接肢",
+        "greatHollow_12": "萨米尔",
+        "greatHollow_11": "铃珠猎人",
+        "greatHollow_2": "黑夜骑兵",
+        "greatHollow_10": "祖灵",
+        "greatHollow_8": "53990",
+        "greatHollow_13": "罗蕾塔",
+        "greatHollow_15": "大树守卫",
+        "greatHollow_1": "树灵"
       }
     },
     "1026": {
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_15": "51107",
-        "greatHollow_16": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_8": "51107",
+        "greatHollow_9": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "龙人士兵",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "坠星成兽",
-        "greatHollow_30": "罗蕾塔",
-        "greatHollow_3": "红狼",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_19": "亚人女王",
-        "greatHollow_17": "河马",
-        "greatHollow_14": "王室幽魂",
-        "greatHollow_23": "接肢",
-        "greatHollow_21": "树灵",
-        "greatHollow_18": "化身",
-        "greatHollow_26": "黑剑眷属",
+        "greatHollow_20": "老狮子",
+        "greatHollow_2": "红狼",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_12": "树灵",
+        "greatHollow_10": "罗蕾塔",
+        "greatHollow_11": "化身",
+        "greatHollow_13": "接肢",
+        "greatHollow_15": "黑剑眷属",
         "greatHollow_1": "死鸟"
       }
     },
@@ -603,120 +520,100 @@
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51104",
-        "greatHollow_32": "53720"
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51104",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "熔炉&河马",
-        "greatHollow_30": "死鸟",
-        "greatHollow_21": "王室幽魂",
-        "greatHollow_18": "接肢",
-        "greatHollow_12": "老狮子",
-        "greatHollow_19": "黑夜骑兵",
-        "greatHollow_23": "狮子混种",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_26": "化身",
-        "greatHollow_14": "黑剑眷属",
-        "greatHollow_17": "53990",
+        "greatHollow_20": "死鸟",
+        "greatHollow_12": "黑夜骑兵",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_10": "53990",
+        "greatHollow_8": "老狮子",
+        "greatHollow_13": "狮子混种",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_15": "化身",
         "greatHollow_1": "大树守卫",
-        "greatHollow_10": "49400"
+        "greatHollow_6": "49400"
       }
     },
     "1028": {
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_38": "51106",
-        "greatHollow_15": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_22": "51106",
+        "greatHollow_8": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "大树骑兵",
         "greatHollow_4": "死鸟",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "熔铁恶魔",
-        "greatHollow_30": "化身",
-        "greatHollow_19": "红狼",
-        "greatHollow_17": "53990",
-        "greatHollow_18": "河马",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_14": "狮子混种",
-        "greatHollow_26": "树灵",
-        "greatHollow_21": "祖灵",
-        "greatHollow_23": "黑剑眷属",
-        "greatHollow_1": "龙装",
-        "greatHollow_20": "49400"
+        "greatHollow_20": "老狮子",
+        "greatHollow_12": "49400",
+        "greatHollow_10": "53990",
+        "greatHollow_11": "狮子混种",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_15": "树灵",
+        "greatHollow_13": "黑剑眷属",
+        "greatHollow_1": "龙装"
       }
     },
     "1029": {
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_32": "53710",
-        "greatHollow_16": "51105"
+        "greatHollow_20": "52550",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_9": "51105"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "铃珠猎人",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "黑刀刺客",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_12": "米兰达花",
-        "greatHollow_14": "接肢",
-        "greatHollow_26": "红狼",
-        "greatHollow_18": "祖灵",
-        "greatHollow_23": "黑剑眷属",
-        "greatHollow_17": "龙装",
-        "greatHollow_21": "罗蕾塔",
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_10": "龙装",
+        "greatHollow_8": "米兰达花",
+        "greatHollow_11": "祖灵",
+        "greatHollow_15": "红狼",
+        "greatHollow_13": "黑剑眷属",
         "greatHollow_1": "大树守卫",
-        "greatHollow_6": "49400"
+        "greatHollow_3": "49400"
       }
     },
     "1030": {
@@ -763,81 +660,66 @@
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51108",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51108",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "女王&剑圣",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "死鸟",
-        "greatHollow_30": "龙装",
-        "greatHollow_18": "接肢",
-        "greatHollow_21": "河马",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_26": "黑刀刺客",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_17": "老狮子",
-        "greatHollow_19": "大树守卫",
-        "greatHollow_14": "黑剑眷属",
-        "greatHollow_23": "化身",
-        "greatHollow_1": "祖灵",
-        "greatHollow_20": "49400",
-        "greatHollow_13": "53990"
+        "greatHollow_20": "龙装",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_10": "老狮子",
+        "greatHollow_12": "49400",
+        "greatHollow_8": "53990",
+        "greatHollow_15": "黑刀刺客",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_13": "化身",
+        "greatHollow_1": "祖灵"
       }
     },
     "1036": {
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51106",
-        "greatHollow_38": "51107",
-        "greatHollow_32": "53700"
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51106",
+        "greatHollow_22": "51107",
+        "greatHollow_17": "53700"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "大树骑兵",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "弗雷迪亚",
-        "greatHollow_34": "接肢君王",
-        "greatHollow_30": "死鸟",
-        "greatHollow_19": "萨米尔",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_18": "河马",
-        "greatHollow_3": "红狼",
-        "greatHollow_17": "老狮子",
-        "greatHollow_26": "黑刀刺客",
-        "greatHollow_23": "罗蕾塔",
-        "greatHollow_14": "铃珠猎人",
-        "greatHollow_21": "祖灵",
+        "greatHollow_20": "王室幽魂",
+        "greatHollow_12": "祖灵",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_11": "铃珠猎人",
+        "greatHollow_2": "红狼",
+        "greatHollow_10": "死鸟",
+        "greatHollow_15": "黑刀刺客",
+        "greatHollow_13": "罗蕾塔",
         "greatHollow_1": "化身"
       }
     },
@@ -845,41 +727,34 @@
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51108",
-        "greatHollow_16": "51109",
-        "greatHollow_32": "53710"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51108",
+        "greatHollow_9": "51109",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "铃珠猎人",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "舞娘",
-        "greatHollow_30": "黑剑眷属",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_14": "红狼",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_17": "亚人女王",
-        "greatHollow_21": "米兰达花",
-        "greatHollow_19": "河马",
-        "greatHollow_23": "龙装",
-        "greatHollow_18": "树灵",
-        "greatHollow_3": "罗蕾塔",
-        "greatHollow_1": "祖灵",
-        "greatHollow_20": "49400"
+        "greatHollow_20": "黑剑眷属",
+        "greatHollow_10": "亚人女王",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_11": "树灵",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_12": "49400",
+        "greatHollow_13": "龙装",
+        "greatHollow_2": "罗蕾塔",
+        "greatHollow_1": "祖灵"
       }
     },
     "1038": {
@@ -887,36 +762,29 @@
       "nightlord": "Maris",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51100",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_16": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51100",
+        "greatHollow_17": "53700",
+        "greatHollow_9": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "黑夜骑兵",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "贪食魔龙",
-        "greatHollow_34": "恶兆妖鬼",
-        "greatHollow_30": "铃珠猎人",
-        "greatHollow_3": "王室幽魂",
-        "greatHollow_17": "老狮子",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_18": "黑刀刺客",
-        "greatHollow_21": "罗蕾塔",
-        "greatHollow_23": "土龙",
-        "greatHollow_26": "死鸟",
+        "greatHollow_20": "红狼",
+        "greatHollow_2": "王室幽魂",
+        "greatHollow_10": "铃珠猎人",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_11": "黑刀刺客",
+        "greatHollow_13": "土龙",
+        "greatHollow_15": "死鸟",
         "greatHollow_1": "树灵"
       }
     },
@@ -925,39 +793,33 @@
       "nightlord": "Maris",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51150",
-        "greatHollow_32": "53720",
-        "greatHollow_15": "51103"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51150",
+        "greatHollow_17": "53720",
+        "greatHollow_8": "51103"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "大土龙",
-        "greatHollow_30": "树灵",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_14": "王室幽魂",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_3": "红狼",
-        "greatHollow_17": "河马",
-        "greatHollow_23": "老狮子",
-        "greatHollow_21": "大树守卫",
-        "greatHollow_18": "死鸟",
-        "greatHollow_19": "化身",
+        "greatHollow_20": "树灵",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_11": "死鸟",
+        "greatHollow_10": "河马",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_2": "红狼",
+        "greatHollow_13": "老狮子",
+        "greatHollow_12": "化身",
         "greatHollow_1": "黑剑眷属",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1040": {
@@ -1004,39 +866,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_15": "51101",
-        "greatHollow_16": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_8": "51101",
+        "greatHollow_9": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "战地老将",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "偏地老将",
-        "greatHollow_30": "龙装",
-        "greatHollow_18": "萨米尔",
-        "greatHollow_23": "老狮子",
-        "greatHollow_17": "河马",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_3": "王室幽魂",
-        "greatHollow_19": "红狼",
-        "greatHollow_21": "黑剑眷属",
-        "greatHollow_14": "土龙",
-        "greatHollow_26": "罗蕾塔",
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_11": "土龙",
+        "greatHollow_13": "老狮子",
+        "greatHollow_10": "龙装",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_2": "王室幽魂",
+        "greatHollow_12": "黑剑眷属",
+        "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "祖灵"
       }
     },
@@ -1044,38 +899,31 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_38": "51101",
-        "greatHollow_17": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_22": "51101",
+        "greatHollow_10": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "恶兆妖鬼",
         "greatHollow_4": "龙装骑兵",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "祖灵",
-        "greatHollow_26": "河马",
-        "greatHollow_18": "红狼",
-        "greatHollow_17": "老狮子",
-        "greatHollow_12": "黑夜骑兵",
-        "greatHollow_21": "米兰达花",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_14": "死鸟",
-        "greatHollow_19": "铃珠猎人",
-        "greatHollow_23": "化身",
+        "greatHollow_20": "王室幽魂",
+        "greatHollow_15": "河马",
+        "greatHollow_11": "死鸟",
+        "greatHollow_10": "祖灵",
+        "greatHollow_8": "黑夜骑兵",
+        "greatHollow_12": "铃珠猎人",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_13": "化身",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -1084,37 +932,31 @@
       "nightlord": "Libra",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_38": "51102",
-        "greatHollow_15": "51103",
-        "greatHollow_32": "53700"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_22": "51102",
+        "greatHollow_8": "51103",
+        "greatHollow_17": "53700"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "战地老将",
-        "greatHollow_30": "化身",
-        "greatHollow_14": "红狼",
-        "greatHollow_26": "米兰达花",
-        "greatHollow_12": "接肢",
-        "greatHollow_17": "53990",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_19": "老狮子",
-        "greatHollow_21": "铃珠猎人",
-        "greatHollow_18": "土龙",
-        "greatHollow_23": "黑剑眷属",
+        "greatHollow_20": "萨米尔",
+        "greatHollow_11": "土龙",
+        "greatHollow_15": "米兰达花",
+        "greatHollow_8": "接肢",
+        "greatHollow_10": "53990",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_12": "铃珠猎人",
+        "greatHollow_13": "黑剑眷属",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -1122,79 +964,66 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51102"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51102"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "舞娘",
-        "greatHollow_30": "亚人女王",
-        "greatHollow_19": "老狮子",
-        "greatHollow_14": "狮子混种",
-        "greatHollow_12": "河马",
-        "greatHollow_3": "米兰达花",
-        "greatHollow_26": "黑夜骑兵",
-        "greatHollow_17": "化身",
-        "greatHollow_23": "铃珠猎人",
-        "greatHollow_18": "罗蕾塔",
-        "greatHollow_21": "黑剑眷属",
+        "greatHollow_20": "亚人女王",
+        "greatHollow_12": "黑剑眷属",
+        "greatHollow_10": "化身",
+        "greatHollow_11": "罗蕾塔",
+        "greatHollow_8": "河马",
+        "greatHollow_2": "米兰达花",
+        "greatHollow_15": "黑夜骑兵",
+        "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "祖灵",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1049": {
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_17": "51103",
-        "greatHollow_16": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_10": "51103",
+        "greatHollow_9": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "战地老将",
         "greatHollow_4": "铃珠猎人",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "双神皮",
-        "greatHollow_30": "大树守卫",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_14": "老狮子",
-        "greatHollow_3": "红狼",
-        "greatHollow_23": "黑刀刺客",
-        "greatHollow_18": "化身",
-        "greatHollow_21": "祖灵",
-        "greatHollow_26": "死鸟",
+        "greatHollow_20": "河马",
+        "greatHollow_10": "大树守卫",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_12": "祖灵",
+        "greatHollow_11": "化身",
+        "greatHollow_2": "红狼",
+        "greatHollow_13": "黑刀刺客",
+        "greatHollow_15": "死鸟",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -1242,38 +1071,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53600",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51104",
-        "greatHollow_32": "53710"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53600",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51104",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "铃珠猎人",
         "greatHollow_4": "恶兆妖鬼",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "舞娘",
-        "greatHollow_30": "树灵",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_3": "河马",
-        "greatHollow_14": "王室幽魂",
-        "greatHollow_17": "53990",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_23": "萨米尔",
-        "greatHollow_21": "祖灵",
-        "greatHollow_18": "大树守卫",
-        "greatHollow_26": "死鸟",
+        "greatHollow_20": "米兰达花",
+        "greatHollow_12": "祖灵",
+        "greatHollow_2": "河马",
+        "greatHollow_11": "大树守卫",
+        "greatHollow_10": "53990",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_13": "萨米尔",
+        "greatHollow_15": "死鸟",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -1281,42 +1104,36 @@
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51150",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_38": "51107"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51150",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_22": "51107"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "弗雷迪亚",
-        "greatHollow_34": "龙人士兵",
-        "greatHollow_30": "河马",
-        "greatHollow_14": "王室幽魂",
-        "greatHollow_17": "接肢",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_3": "米兰达花",
-        "greatHollow_12": "亚人女王",
-        "greatHollow_26": "铃珠猎人",
-        "greatHollow_18": "黑剑眷属",
-        "greatHollow_23": "化身",
-        "greatHollow_21": "罗蕾塔",
+        "greatHollow_20": "红狼",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_10": "河马",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_2": "米兰达花",
+        "greatHollow_8": "亚人女王",
+        "greatHollow_15": "铃珠猎人",
+        "greatHollow_13": "化身",
         "greatHollow_1": "龙装",
-        "greatHollow_24": "49400",
-        "greatHollow_31": "53990"
+        "greatHollow_14": "49400",
+        "greatHollow_18": "53990"
       }
     },
     "1057": {
@@ -1324,36 +1141,30 @@
       "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_32": "53700",
-        "greatHollow_17": "51104"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_10": "51104"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "铃珠猎人",
-        "greatHollow_12": "河马",
-        "greatHollow_3": "接肢",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_18": "王室幽魂",
-        "greatHollow_19": "黑刀刺客",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_21": "死鸟",
-        "greatHollow_14": "树灵",
-        "greatHollow_23": "祖灵",
+        "greatHollow_20": "红狼",
+        "greatHollow_8": "河马",
+        "greatHollow_2": "接肢",
+        "greatHollow_10": "铃珠猎人",
+        "greatHollow_11": "树灵",
+        "greatHollow_12": "死鸟",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_13": "祖灵",
         "greatHollow_1": "化身"
       }
     },
@@ -1361,41 +1172,34 @@
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51105",
-        "greatHollow_38": "51106",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720"
+        "greatHollow_20": "52550",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51105",
+        "greatHollow_22": "51106",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "龙装骑兵",
-        "greatHollow_30": "老狮子",
-        "greatHollow_23": "狮子混种",
-        "greatHollow_18": "接肢",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_19": "萨米尔",
-        "greatHollow_3": "红狼",
-        "greatHollow_26": "大树守卫",
-        "greatHollow_17": "祖灵",
-        "greatHollow_14": "龙装",
-        "greatHollow_21": "罗蕾塔",
+        "greatHollow_20": "老狮子",
+        "greatHollow_13": "狮子混种",
+        "greatHollow_11": "龙装",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_10": "祖灵",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_2": "红狼",
+        "greatHollow_15": "大树守卫",
         "greatHollow_1": "土龙",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1059": {
@@ -1403,36 +1207,29 @@
       "nightlord": "Fulghor",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_38": "51107",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_22": "51107",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "黑夜骑兵",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "舞娘",
-        "greatHollow_30": "化身",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_12": "河马",
-        "greatHollow_19": "接肢",
-        "greatHollow_3": "老狮子",
-        "greatHollow_26": "红狼",
-        "greatHollow_23": "黑刀刺客",
-        "greatHollow_18": "罗蕾塔",
-        "greatHollow_17": "死鸟",
-        "greatHollow_21": "黑剑眷属",
+        "greatHollow_20": "化身",
+        "greatHollow_10": "死鸟",
+        "greatHollow_11": "罗蕾塔",
+        "greatHollow_8": "河马",
+        "greatHollow_12": "黑剑眷属",
+        "greatHollow_2": "老狮子",
+        "greatHollow_15": "红狼",
+        "greatHollow_13": "黑刀刺客",
         "greatHollow_1": "铃珠猎人"
       }
     },
@@ -1480,78 +1277,63 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_5": "53610",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51108",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_15": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_3": "53610",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51108",
+        "greatHollow_17": "53710",
+        "greatHollow_8": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "龙人士兵",
-        "greatHollow_30": "罗蕾塔",
-        "greatHollow_12": "红狼",
-        "greatHollow_19": "黑刀刺客",
-        "greatHollow_18": "王室幽魂",
-        "greatHollow_3": "老狮子",
-        "greatHollow_26": "接肢",
-        "greatHollow_21": "米兰达花",
-        "greatHollow_23": "祖灵",
-        "greatHollow_17": "化身",
-        "greatHollow_14": "死鸟",
-        "greatHollow_1": "龙装",
-        "greatHollow_13": "53990"
+        "greatHollow_20": "罗蕾塔",
+        "greatHollow_8": "53990",
+        "greatHollow_12": "米兰达花",
+        "greatHollow_10": "化身",
+        "greatHollow_11": "死鸟",
+        "greatHollow_2": "老狮子",
+        "greatHollow_15": "接肢",
+        "greatHollow_13": "祖灵",
+        "greatHollow_1": "龙装"
       }
     },
     "1066": {
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_16": "51109",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_9": "51109",
+        "greatHollow_17": "53700"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "大树骑兵",
         "greatHollow_4": "死鸟",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "偏地老将",
-        "greatHollow_30": "黑剑眷属",
-        "greatHollow_26": "红狼",
-        "greatHollow_17": "53990",
-        "greatHollow_14": "黑刀刺客",
-        "greatHollow_12": "老狮子",
-        "greatHollow_21": "河马",
-        "greatHollow_18": "黑夜骑兵",
-        "greatHollow_19": "祖灵",
-        "greatHollow_3": "铃珠猎人",
-        "greatHollow_23": "罗蕾塔",
+        "greatHollow_20": "亚人女王",
+        "greatHollow_15": "红狼",
+        "greatHollow_10": "53990",
+        "greatHollow_11": "黑夜骑兵",
+        "greatHollow_8": "老狮子",
+        "greatHollow_12": "祖灵",
+        "greatHollow_2": "铃珠猎人",
+        "greatHollow_13": "罗蕾塔",
         "greatHollow_1": "土龙"
       }
     },
@@ -1559,79 +1341,66 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_38": "51100",
-        "greatHollow_17": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_22": "51100",
+        "greatHollow_10": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "战地老将",
-        "greatHollow_30": "狮子混种",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_12": "接肢",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_19": "河马",
-        "greatHollow_18": "黑刀刺客",
-        "greatHollow_21": "罗蕾塔",
-        "greatHollow_17": "铃珠猎人",
-        "greatHollow_23": "树灵",
-        "greatHollow_26": "大树守卫",
+        "greatHollow_20": "狮子混种",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_10": "铃珠猎人",
+        "greatHollow_8": "接肢",
+        "greatHollow_11": "黑刀刺客",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_13": "树灵",
+        "greatHollow_15": "大树守卫",
         "greatHollow_1": "死鸟",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1068": {
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720",
-        "greatHollow_17": "51100"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_10": "51100"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "女王&剑圣",
         "greatHollow_4": "恶兆妖鬼",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "树灵",
-        "greatHollow_18": "老狮子",
-        "greatHollow_12": "河马",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_3": "红狼",
-        "greatHollow_17": "萨米尔",
-        "greatHollow_23": "王室幽魂",
-        "greatHollow_14": "死鸟",
-        "greatHollow_21": "化身",
-        "greatHollow_26": "祖灵",
+        "greatHollow_20": "树灵",
+        "greatHollow_11": "死鸟",
+        "greatHollow_8": "河马",
+        "greatHollow_10": "萨米尔",
+        "greatHollow_12": "化身",
+        "greatHollow_2": "红狼",
+        "greatHollow_13": "王室幽魂",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -1639,39 +1408,33 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51101",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51101",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "树灵",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "龙人士兵",
-        "greatHollow_30": "死鸟",
-        "greatHollow_14": "萨米尔",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_17": "接肢",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_23": "亚人女王",
-        "greatHollow_18": "铃珠猎人",
-        "greatHollow_26": "大树守卫",
-        "greatHollow_21": "土龙",
+        "greatHollow_20": "红狼",
+        "greatHollow_11": "铃珠猎人",
+        "greatHollow_12": "土龙",
+        "greatHollow_10": "死鸟",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_13": "亚人女王",
+        "greatHollow_15": "大树守卫",
         "greatHollow_1": "化身"
       }
     },
@@ -1719,39 +1482,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51150",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_16": "51105"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51150",
+        "greatHollow_17": "53700",
+        "greatHollow_9": "51105"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "接肢君王",
-        "greatHollow_30": "化身",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_26": "老狮子",
-        "greatHollow_14": "黑刀刺客",
-        "greatHollow_18": "河马",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_21": "米兰达花",
-        "greatHollow_23": "铃珠猎人",
-        "greatHollow_17": "祖灵",
-        "greatHollow_3": "大树守卫",
+        "greatHollow_20": "化身",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_10": "祖灵",
+        "greatHollow_15": "老狮子",
+        "greatHollow_11": "河马",
+        "greatHollow_12": "米兰达花",
+        "greatHollow_13": "铃珠猎人",
+        "greatHollow_2": "大树守卫",
         "greatHollow_1": "树灵"
       }
     },
@@ -1759,38 +1515,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51102",
-        "greatHollow_32": "53710"
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51102",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "黑夜骑兵",
-        "greatHollow_30": "大树守卫",
-        "greatHollow_14": "接肢",
-        "greatHollow_3": "河马",
-        "greatHollow_17": "黑刀刺客",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_21": "亚人女王",
-        "greatHollow_26": "铃珠猎人",
-        "greatHollow_18": "龙装",
-        "greatHollow_23": "化身",
+        "greatHollow_20": "红狼",
+        "greatHollow_11": "龙装",
+        "greatHollow_2": "河马",
+        "greatHollow_10": "大树守卫",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_12": "亚人女王",
+        "greatHollow_15": "铃珠猎人",
+        "greatHollow_13": "化身",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -1798,39 +1548,33 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51103",
-        "greatHollow_17": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51103",
+        "greatHollow_10": "51150"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "恶兆妖鬼",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "铃珠猎人",
-        "greatHollow_30": "化身",
-        "greatHollow_23": "河马",
-        "greatHollow_18": "亚人女王",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_14": "黑刀刺客",
-        "greatHollow_21": "红狼",
-        "greatHollow_17": "接肢",
-        "greatHollow_19": "死鸟",
-        "greatHollow_3": "祖灵",
-        "greatHollow_26": "罗蕾塔",
+        "greatHollow_20": "化身",
+        "greatHollow_13": "河马",
+        "greatHollow_10": "接肢",
+        "greatHollow_11": "黑刀刺客",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_12": "死鸟",
+        "greatHollow_2": "祖灵",
+        "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "土龙"
       }
     },
@@ -1838,80 +1582,67 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_8": "52450"
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_32": "53700",
-        "greatHollow_16": "51109"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_9": "51109"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "接肢君王",
         "greatHollow_4": "死鸟",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "河马",
-        "greatHollow_17": "接肢",
-        "greatHollow_18": "米兰达花",
-        "greatHollow_23": "老狮子",
-        "greatHollow_12": "黑夜骑兵",
-        "greatHollow_14": "萨米尔",
-        "greatHollow_19": "罗蕾塔",
-        "greatHollow_3": "树灵",
-        "greatHollow_21": "化身",
-        "greatHollow_26": "祖灵",
+        "greatHollow_20": "狮子混种",
+        "greatHollow_10": "河马",
+        "greatHollow_11": "萨米尔",
+        "greatHollow_13": "老狮子",
+        "greatHollow_8": "黑夜骑兵",
+        "greatHollow_12": "化身",
+        "greatHollow_2": "树灵",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "大树守卫",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1079": {
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51104",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51104",
+        "greatHollow_17": "53710",
+        "greatHollow_22": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "王室幽魂",
-        "greatHollow_30": "土龙",
-        "greatHollow_17": "红狼",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_14": "河马",
-        "greatHollow_3": "接肢",
-        "greatHollow_21": "萨米尔",
-        "greatHollow_26": "龙装",
-        "greatHollow_18": "树灵",
-        "greatHollow_23": "大树守卫",
+        "greatHollow_20": "黑夜骑兵",
+        "greatHollow_10": "土龙",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_12": "萨米尔",
+        "greatHollow_11": "树灵",
+        "greatHollow_2": "接肢",
+        "greatHollow_15": "龙装",
+        "greatHollow_13": "大树守卫",
         "greatHollow_1": "化身",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1080": {
@@ -2199,78 +1930,66 @@
       "nightlord": "Harmonia",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51105",
-        "greatHollow_15": "51106",
-        "greatHollow_32": "53710"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51105",
+        "greatHollow_8": "51106",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "弗雷迪亚",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "树灵",
-        "greatHollow_26": "黑刀刺客",
-        "greatHollow_17": "49400",
-        "greatHollow_18": "接肢",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_3": "亚人女王",
-        "greatHollow_19": "狮子混种",
-        "greatHollow_21": "祖灵",
-        "greatHollow_14": "罗蕾塔",
-        "greatHollow_23": "大树守卫",
+        "greatHollow_20": "老狮子",
+        "greatHollow_15": "黑刀刺客",
+        "greatHollow_10": "49400",
+        "greatHollow_11": "罗蕾塔",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_2": "亚人女王",
+        "greatHollow_12": "祖灵",
+        "greatHollow_13": "大树守卫",
         "greatHollow_1": "龙装",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1116": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53710",
-        "greatHollow_16": "51100",
-        "greatHollow_15": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_9": "51100",
+        "greatHollow_8": "51150"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "坠星成兽",
-        "greatHollow_30": "化身",
-        "greatHollow_18": "米兰达花",
-        "greatHollow_19": "萨米尔",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_17": "53990",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_26": "接肢",
-        "greatHollow_21": "祖灵",
-        "greatHollow_14": "龙装",
-        "greatHollow_23": "铃珠猎人",
+        "greatHollow_20": "老狮子",
+        "greatHollow_11": "龙装",
+        "greatHollow_12": "祖灵",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_10": "53990",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_15": "接肢",
+        "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -2278,199 +1997,167 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53710",
-        "greatHollow_16": "51108"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_9": "51108"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "王室幽魂",
         "greatHollow_4": "龙装骑兵",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "熔炉&河马",
-        "greatHollow_30": "树灵",
-        "greatHollow_14": "红狼",
-        "greatHollow_12": "接肢",
-        "greatHollow_26": "黑刀刺客",
-        "greatHollow_17": "亚人女王",
-        "greatHollow_19": "河马",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_18": "铃珠猎人",
-        "greatHollow_23": "祖灵",
-        "greatHollow_21": "化身",
+        "greatHollow_20": "老狮子",
+        "greatHollow_11": "铃珠猎人",
+        "greatHollow_8": "接肢",
+        "greatHollow_15": "黑刀刺客",
+        "greatHollow_10": "树灵",
+        "greatHollow_12": "化身",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_13": "祖灵",
         "greatHollow_1": "黑剑眷属",
-        "greatHollow_36": "49400",
-        "greatHollow_31": "53990"
+        "greatHollow_22": "49400",
+        "greatHollow_18": "53990"
       }
     },
     "1118": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_32": "53710",
-        "greatHollow_17": "51107"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_10": "51107"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "铃珠猎人",
         "greatHollow_4": "双神皮",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "贪食魔龙",
-        "greatHollow_30": "祖灵",
-        "greatHollow_3": "红狼",
-        "greatHollow_14": "黑夜骑兵",
-        "greatHollow_17": "亚人女王",
-        "greatHollow_12": "老狮子",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_21": "接肢",
-        "greatHollow_26": "化身",
-        "greatHollow_18": "大树守卫",
-        "greatHollow_23": "树灵",
+        "greatHollow_20": "河马",
+        "greatHollow_2": "红狼",
+        "greatHollow_11": "大树守卫",
+        "greatHollow_10": "祖灵",
+        "greatHollow_8": "老狮子",
+        "greatHollow_12": "接肢",
+        "greatHollow_15": "化身",
+        "greatHollow_13": "树灵",
         "greatHollow_1": "龙装",
-        "greatHollow_6": "49400"
+        "greatHollow_3": "49400"
       }
     },
     "1119": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51108"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51108"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "铃珠猎人",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "熔铁恶魔",
-        "greatHollow_30": "土龙",
-        "greatHollow_21": "萨米尔",
-        "greatHollow_14": "黑刀刺客",
-        "greatHollow_17": "接肢",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_26": "黑夜骑兵",
-        "greatHollow_23": "狮子混种",
-        "greatHollow_18": "树灵",
-        "greatHollow_3": "祖灵",
-        "greatHollow_19": "龙装",
+        "greatHollow_20": "米兰达花",
+        "greatHollow_12": "龙装",
+        "greatHollow_11": "树灵",
+        "greatHollow_10": "土龙",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_15": "黑夜骑兵",
+        "greatHollow_13": "狮子混种",
+        "greatHollow_2": "祖灵",
         "greatHollow_1": "化身",
-        "greatHollow_10": "49400"
+        "greatHollow_6": "49400"
       }
     },
     "1120": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_17": "51101"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_10": "51101"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "双神皮",
-        "greatHollow_30": "化身",
-        "greatHollow_17": "河马",
-        "greatHollow_21": "狮子混种",
-        "greatHollow_14": "接肢",
-        "greatHollow_12": "红狼",
-        "greatHollow_26": "黑刀刺客",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_23": "土龙",
-        "greatHollow_18": "黑剑眷属",
-        "greatHollow_19": "祖灵",
+        "greatHollow_20": "老狮子",
+        "greatHollow_10": "化身",
+        "greatHollow_12": "祖灵",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_8": "红狼",
+        "greatHollow_15": "黑刀刺客",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_13": "土龙",
         "greatHollow_1": "铃珠猎人",
-        "greatHollow_24": "49400",
-        "greatHollow_31": "53990"
+        "greatHollow_14": "49400",
+        "greatHollow_18": "53990"
       }
     },
     "1121": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51108",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51108",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "罗蕾塔",
-        "greatHollow_18": "萨米尔",
-        "greatHollow_3": "老狮子",
-        "greatHollow_19": "王室幽魂",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_26": "红狼",
-        "greatHollow_23": "死鸟",
-        "greatHollow_21": "化身",
-        "greatHollow_14": "龙装",
+        "greatHollow_20": "狮子混种",
+        "greatHollow_11": "龙装",
+        "greatHollow_2": "老狮子",
+        "greatHollow_12": "化身",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_10": "罗蕾塔",
+        "greatHollow_15": "红狼",
+        "greatHollow_13": "死鸟",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -2478,39 +2165,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_16": "51109",
-        "greatHollow_17": "51150",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_9": "51109",
+        "greatHollow_10": "51150",
+        "greatHollow_17": "53700"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "战地老将",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "树灵",
-        "greatHollow_30": "祖灵",
-        "greatHollow_3": "米兰达花",
-        "greatHollow_18": "黑刀刺客",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_12": "河马",
-        "greatHollow_19": "王室幽魂",
-        "greatHollow_14": "萨米尔",
-        "greatHollow_21": "土龙",
-        "greatHollow_26": "铃珠猎人",
-        "greatHollow_23": "死鸟",
+        "greatHollow_20": "接肢",
+        "greatHollow_2": "米兰达花",
+        "greatHollow_11": "萨米尔",
+        "greatHollow_10": "祖灵",
+        "greatHollow_8": "河马",
+        "greatHollow_12": "土龙",
+        "greatHollow_15": "铃珠猎人",
+        "greatHollow_13": "死鸟",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -2518,38 +2198,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53600",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_15": "51102"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53600",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_8": "51102"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "双神皮",
-        "greatHollow_30": "死鸟",
-        "greatHollow_26": "老狮子",
-        "greatHollow_18": "接肢",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_23": "米兰达花",
-        "greatHollow_19": "黑刀刺客",
-        "greatHollow_17": "红狼",
-        "greatHollow_3": "龙装",
-        "greatHollow_14": "罗蕾塔",
-        "greatHollow_21": "化身",
+        "greatHollow_20": "死鸟",
+        "greatHollow_10": "红狼",
+        "greatHollow_15": "老狮子",
+        "greatHollow_11": "罗蕾塔",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_13": "米兰达花",
+        "greatHollow_12": "化身",
+        "greatHollow_2": "龙装",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -2557,120 +2231,101 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51109",
-        "greatHollow_17": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51109",
+        "greatHollow_10": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "恶兆妖鬼",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "死鸟",
-        "greatHollow_30": "王室幽魂",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_14": "黑刀刺客",
-        "greatHollow_12": "亚人女王",
-        "greatHollow_18": "河马",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_17": "铃珠猎人",
-        "greatHollow_21": "树灵",
-        "greatHollow_23": "罗蕾塔",
-        "greatHollow_3": "大树守卫",
+        "greatHollow_20": "王室幽魂",
+        "greatHollow_10": "铃珠猎人",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_11": "河马",
+        "greatHollow_8": "亚人女王",
+        "greatHollow_12": "树灵",
+        "greatHollow_13": "罗蕾塔",
+        "greatHollow_2": "大树守卫",
         "greatHollow_1": "化身",
-        "greatHollow_24": "49400"
+        "greatHollow_14": "49400"
       }
     },
     "1125": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_17": "51105"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_10": "51105"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "恶兆妖鬼",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "大土龙",
-        "greatHollow_30": "死鸟",
-        "greatHollow_23": "黑夜骑兵",
-        "greatHollow_18": "王室幽魂",
-        "greatHollow_12": "接肢",
-        "greatHollow_17": "49400",
-        "greatHollow_21": "黑刀刺客",
-        "greatHollow_19": "萨米尔",
-        "greatHollow_14": "祖灵",
-        "greatHollow_3": "大树守卫",
-        "greatHollow_26": "树灵",
+        "greatHollow_20": "米兰达花",
+        "greatHollow_13": "黑夜骑兵",
+        "greatHollow_11": "祖灵",
+        "greatHollow_8": "接肢",
+        "greatHollow_10": "49400",
+        "greatHollow_12": "萨米尔",
+        "greatHollow_2": "大树守卫",
+        "greatHollow_15": "树灵",
         "greatHollow_1": "铃珠猎人",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1126": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_32": "53710",
-        "greatHollow_16": "51100",
-        "greatHollow_38": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_9": "51100",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "贪食魔龙",
-        "greatHollow_30": "树灵",
-        "greatHollow_21": "王室幽魂",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_17": "狮子混种",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_3": "亚人女王",
-        "greatHollow_18": "红狼",
-        "greatHollow_23": "黑剑眷属",
-        "greatHollow_19": "龙装",
-        "greatHollow_26": "死鸟",
+        "greatHollow_20": "萨米尔",
+        "greatHollow_12": "龙装",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_10": "树灵",
+        "greatHollow_11": "红狼",
+        "greatHollow_2": "亚人女王",
+        "greatHollow_13": "黑剑眷属",
+        "greatHollow_15": "死鸟",
         "greatHollow_1": "铃珠猎人"
       }
     },
@@ -2678,118 +2333,97 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "52450"
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51101",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51101",
+        "greatHollow_17": "53700"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "黑夜骑兵",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "坠星成兽",
-        "greatHollow_30": "祖灵",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_18": "河马",
-        "greatHollow_12": "米兰达花",
-        "greatHollow_19": "黑刀刺客",
-        "greatHollow_17": "老狮子",
-        "greatHollow_23": "接肢",
-        "greatHollow_21": "土龙",
-        "greatHollow_14": "铃珠猎人",
-        "greatHollow_26": "树灵",
+        "greatHollow_20": "亚人女王",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_11": "铃珠猎人",
+        "greatHollow_8": "米兰达花",
+        "greatHollow_12": "土龙",
+        "greatHollow_10": "祖灵",
+        "greatHollow_13": "接肢",
+        "greatHollow_15": "树灵",
         "greatHollow_1": "死鸟",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1128": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51150",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_38": "51109"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51150",
+        "greatHollow_17": "53710",
+        "greatHollow_22": "51109"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "战地老将",
         "greatHollow_4": "铃珠猎人",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "坠星成兽",
-        "greatHollow_30": "罗蕾塔",
-        "greatHollow_18": "萨米尔",
-        "greatHollow_23": "米兰达花",
-        "greatHollow_12": "河马",
-        "greatHollow_14": "接肢",
-        "greatHollow_17": "王室幽魂",
-        "greatHollow_19": "亚人女王",
-        "greatHollow_26": "化身",
-        "greatHollow_3": "大树守卫",
-        "greatHollow_21": "黑剑眷属",
+        "greatHollow_20": "罗蕾塔",
+        "greatHollow_11": "接肢",
+        "greatHollow_10": "王室幽魂",
+        "greatHollow_13": "米兰达花",
+        "greatHollow_8": "河马",
+        "greatHollow_12": "黑剑眷属",
+        "greatHollow_15": "化身",
+        "greatHollow_2": "大树守卫",
         "greatHollow_1": "树灵",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1129": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_38": "51102",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710"
+        "greatHollow_20": "52570",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_22": "51102",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "恶兆妖鬼",
-        "greatHollow_37": "贪食魔龙",
-        "greatHollow_34": "龙人士兵",
-        "greatHollow_30": "接肢",
-        "greatHollow_23": "黑刀刺客",
-        "greatHollow_18": "王室幽魂",
-        "greatHollow_12": "河马",
-        "greatHollow_21": "狮子混种",
-        "greatHollow_17": "亚人女王",
-        "greatHollow_26": "祖灵",
-        "greatHollow_14": "死鸟",
-        "greatHollow_3": "罗蕾塔",
-        "greatHollow_19": "铃珠猎人",
+        "greatHollow_20": "接肢",
+        "greatHollow_13": "黑刀刺客",
+        "greatHollow_11": "死鸟",
+        "greatHollow_10": "亚人女王",
+        "greatHollow_8": "河马",
+        "greatHollow_12": "铃珠猎人",
+        "greatHollow_15": "祖灵",
+        "greatHollow_2": "罗蕾塔",
         "greatHollow_1": "土龙"
       }
     },
@@ -2797,82 +2431,68 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51150",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51103"
+        "greatHollow_20": "52570",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51150",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51103"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "龙人士兵",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "熔铁恶魔",
-        "greatHollow_30": "黑夜骑兵",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_12": "河马",
-        "greatHollow_21": "狮子混种",
-        "greatHollow_17": "老狮子",
-        "greatHollow_3": "亚人女王",
-        "greatHollow_19": "土龙",
-        "greatHollow_18": "大树守卫",
-        "greatHollow_23": "化身",
-        "greatHollow_26": "树灵",
+        "greatHollow_20": "黑夜骑兵",
+        "greatHollow_10": "老狮子",
+        "greatHollow_11": "大树守卫",
+        "greatHollow_8": "河马",
+        "greatHollow_12": "土龙",
+        "greatHollow_2": "亚人女王",
+        "greatHollow_13": "化身",
+        "greatHollow_15": "树灵",
         "greatHollow_1": "龙装",
-        "greatHollow_36": "49400"
+        "greatHollow_22": "49400"
       }
     },
     "1131": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_38": "51100",
-        "greatHollow_16": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_22": "51100",
+        "greatHollow_9": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "石像鬼",
         "greatHollow_4": "龙人士兵",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "战地老将",
-        "greatHollow_30": "罗蕾塔",
-        "greatHollow_3": "狮子混种",
-        "greatHollow_14": "亚人女王",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_17": "王室幽魂",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_23": "河马",
-        "greatHollow_21": "祖灵",
-        "greatHollow_18": "化身",
-        "greatHollow_26": "死鸟",
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_2": "狮子混种",
+        "greatHollow_11": "化身",
+        "greatHollow_12": "祖灵",
+        "greatHollow_10": "罗蕾塔",
+        "greatHollow_8": "53990",
+        "greatHollow_13": "河马",
+        "greatHollow_15": "死鸟",
         "greatHollow_1": "大树守卫",
-        "greatHollow_32": "49400",
-        "greatHollow_13": "53990"
+        "greatHollow_17": "49400"
       }
     },
     "1132": {
@@ -2880,35 +2500,28 @@
       "nightlord": "Harmonia",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51103",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51103",
+        "greatHollow_17": "53720"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "树灵",
         "greatHollow_4": "双神皮",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "熔炉&河马",
-        "greatHollow_30": "老狮子",
-        "greatHollow_14": "河马",
-        "greatHollow_12": "红狼",
-        "greatHollow_17": "53990",
-        "greatHollow_3": "亚人女王",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_26": "黑剑眷属",
-        "greatHollow_18": "化身",
-        "greatHollow_23": "死鸟",
-        "greatHollow_21": "祖灵",
+        "greatHollow_20": "萨米尔",
+        "greatHollow_11": "化身",
+        "greatHollow_8": "红狼",
+        "greatHollow_10": "53990",
+        "greatHollow_2": "亚人女王",
+        "greatHollow_12": "祖灵",
+        "greatHollow_15": "黑剑眷属",
+        "greatHollow_13": "死鸟",
         "greatHollow_1": "土龙"
       }
     },
@@ -2916,81 +2529,68 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51104",
-        "greatHollow_32": "53720"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51104",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "铃珠猎人",
         "greatHollow_4": "大土龙",
-        "greatHollow_37": "树灵",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "祖灵",
-        "greatHollow_17": "53990",
-        "greatHollow_19": "黑夜骑兵",
-        "greatHollow_3": "狮子混种",
-        "greatHollow_14": "接肢",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_23": "黑刀刺客",
-        "greatHollow_21": "死鸟",
-        "greatHollow_18": "龙装",
-        "greatHollow_26": "大树守卫",
+        "greatHollow_20": "红狼",
+        "greatHollow_10": "53990",
+        "greatHollow_12": "死鸟",
+        "greatHollow_2": "狮子混种",
+        "greatHollow_11": "龙装",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_13": "黑刀刺客",
+        "greatHollow_15": "大树守卫",
         "greatHollow_1": "化身",
-        "greatHollow_6": "49400"
+        "greatHollow_3": "49400"
       }
     },
     "1134": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_17": "51101"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_10": "51101"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "接肢君王",
         "greatHollow_4": "死鸟",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "坠星成兽",
-        "greatHollow_30": "祖灵",
-        "greatHollow_19": "黑刀刺客",
-        "greatHollow_18": "狮子混种",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_17": "萨米尔",
-        "greatHollow_3": "接肢",
-        "greatHollow_23": "河马",
-        "greatHollow_21": "罗蕾塔",
-        "greatHollow_14": "大树守卫",
-        "greatHollow_26": "龙装",
+        "greatHollow_20": "米兰达花",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_11": "大树守卫",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_10": "祖灵",
+        "greatHollow_2": "接肢",
+        "greatHollow_13": "河马",
+        "greatHollow_15": "龙装",
         "greatHollow_1": "土龙",
-        "greatHollow_36": "49400",
-        "greatHollow_31": "53990"
+        "greatHollow_22": "49400",
+        "greatHollow_18": "53990"
       }
     },
     "1135": {
@@ -3317,80 +2917,67 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51108",
-        "greatHollow_15": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51108",
+        "greatHollow_8": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "恶兆妖鬼",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "坠星成兽",
-        "greatHollow_30": "树灵",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_3": "河马",
-        "greatHollow_18": "萨米尔",
-        "greatHollow_19": "亚人女王",
-        "greatHollow_12": "米兰达花",
-        "greatHollow_26": "黑刀刺客",
-        "greatHollow_23": "铃珠猎人",
-        "greatHollow_21": "化身",
-        "greatHollow_14": "死鸟",
+        "greatHollow_20": "老狮子",
+        "greatHollow_10": "树灵",
+        "greatHollow_2": "河马",
+        "greatHollow_11": "死鸟",
+        "greatHollow_12": "化身",
+        "greatHollow_8": "米兰达花",
+        "greatHollow_15": "黑刀刺客",
+        "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "土龙",
-        "greatHollow_36": "49400"
+        "greatHollow_22": "49400"
       }
     },
     "1176": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_5": "53600",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51105",
-        "greatHollow_32": "53710",
-        "greatHollow_38": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_3": "53600",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51105",
+        "greatHollow_17": "53710",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "黑夜骑兵",
-        "greatHollow_30": "黑剑眷属",
-        "greatHollow_3": "王室幽魂",
-        "greatHollow_18": "老狮子",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_17": "萨米尔",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_14": "黑刀刺客",
-        "greatHollow_21": "罗蕾塔",
-        "greatHollow_26": "铃珠猎人",
-        "greatHollow_23": "死鸟",
+        "greatHollow_20": "接肢",
+        "greatHollow_2": "王室幽魂",
+        "greatHollow_11": "黑刀刺客",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_10": "黑剑眷属",
+        "greatHollow_12": "罗蕾塔",
+        "greatHollow_15": "铃珠猎人",
+        "greatHollow_13": "死鸟",
         "greatHollow_1": "龙装"
       }
     },
@@ -3398,39 +2985,33 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51101",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51101",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "偏地老将",
         "greatHollow_4": "铃珠猎人",
-        "greatHollow_37": "黑夜骑兵",
-        "greatHollow_34": "大土龙",
-        "greatHollow_30": "黑刀刺客",
-        "greatHollow_17": "王室幽魂",
-        "greatHollow_12": "米兰达花",
-        "greatHollow_14": "河马",
-        "greatHollow_19": "红狼",
-        "greatHollow_3": "老狮子",
-        "greatHollow_18": "树灵",
-        "greatHollow_21": "死鸟",
-        "greatHollow_23": "黑剑眷属",
-        "greatHollow_26": "祖灵",
+        "greatHollow_20": "接肢",
+        "greatHollow_10": "黑刀刺客",
+        "greatHollow_8": "米兰达花",
+        "greatHollow_11": "树灵",
+        "greatHollow_12": "死鸟",
+        "greatHollow_2": "老狮子",
+        "greatHollow_13": "黑剑眷属",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "龙装"
       }
     },
@@ -3438,38 +3019,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_32": "53700",
-        "greatHollow_17": "51109"
+        "greatHollow_20": "52550",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_17": "53700",
+        "greatHollow_10": "51109"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "女王&剑圣",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "罗蕾塔",
-        "greatHollow_19": "河马",
-        "greatHollow_3": "萨米尔",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_18": "王室幽魂",
-        "greatHollow_23": "老狮子",
-        "greatHollow_21": "死鸟",
-        "greatHollow_14": "祖灵",
-        "greatHollow_26": "龙装",
+        "greatHollow_20": "红狼",
+        "greatHollow_12": "死鸟",
+        "greatHollow_2": "萨米尔",
+        "greatHollow_10": "罗蕾塔",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_11": "祖灵",
+        "greatHollow_13": "老狮子",
+        "greatHollow_15": "龙装",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -3477,79 +3052,65 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51106",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_17": "51150"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51106",
+        "greatHollow_17": "53710",
+        "greatHollow_10": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "坠星成兽",
         "greatHollow_4": "大土龙",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "接肢君王",
-        "greatHollow_30": "死鸟",
-        "greatHollow_23": "老狮子",
-        "greatHollow_17": "黑夜骑兵",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_18": "狮子混种",
-        "greatHollow_26": "河马",
-        "greatHollow_21": "米兰达花",
-        "greatHollow_19": "祖灵",
-        "greatHollow_14": "树灵",
-        "greatHollow_3": "大树守卫",
+        "greatHollow_20": "红狼",
+        "greatHollow_13": "老狮子",
+        "greatHollow_10": "死鸟",
+        "greatHollow_8": "王室幽魂",
+        "greatHollow_11": "树灵",
+        "greatHollow_15": "河马",
+        "greatHollow_12": "祖灵",
+        "greatHollow_2": "大树守卫",
         "greatHollow_1": "铃珠猎人",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1180": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_8": "52450"
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51107",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51107",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "王室幽魂",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "贪食魔龙",
-        "greatHollow_34": "女王&剑圣",
-        "greatHollow_30": "萨米尔",
-        "greatHollow_14": "狮子混种",
-        "greatHollow_21": "河马",
-        "greatHollow_12": "老狮子",
-        "greatHollow_17": "53990",
-        "greatHollow_3": "黑夜骑兵",
-        "greatHollow_26": "罗蕾塔",
-        "greatHollow_18": "化身",
-        "greatHollow_23": "铃珠猎人",
-        "greatHollow_19": "大树守卫",
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_11": "化身",
+        "greatHollow_12": "大树守卫",
+        "greatHollow_8": "老狮子",
+        "greatHollow_10": "53990",
+        "greatHollow_2": "黑夜骑兵",
+        "greatHollow_15": "罗蕾塔",
+        "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "黑剑眷属"
       }
     },
@@ -3557,38 +3118,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_8": "52450"
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51109"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51109"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "女王&剑圣",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "树灵",
-        "greatHollow_30": "黑剑眷属",
-        "greatHollow_17": "53990",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_18": "黑夜骑兵",
-        "greatHollow_19": "接肢",
-        "greatHollow_12": "老狮子",
-        "greatHollow_14": "米兰达花",
-        "greatHollow_21": "土龙",
-        "greatHollow_23": "化身",
-        "greatHollow_26": "祖灵",
+        "greatHollow_20": "河马",
+        "greatHollow_10": "53990",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_11": "米兰达花",
+        "greatHollow_12": "土龙",
+        "greatHollow_8": "老狮子",
+        "greatHollow_13": "化身",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "死鸟"
       }
     },
@@ -3596,39 +3151,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_2": "53590"
+        "greatHollow_18": "52420",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_16": "51150",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720",
-        "greatHollow_38": "51102"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_9": "51150",
+        "greatHollow_17": "53720",
+        "greatHollow_22": "51102"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "大土龙",
         "greatHollow_4": "坠星成兽",
-        "greatHollow_37": "弗雷迪亚",
-        "greatHollow_34": "石像鬼",
-        "greatHollow_30": "黑剑眷属",
-        "greatHollow_18": "王室幽魂",
-        "greatHollow_3": "狮子混种",
-        "greatHollow_12": "红狼",
-        "greatHollow_17": "萨米尔",
-        "greatHollow_19": "河马",
-        "greatHollow_14": "亚人女王",
-        "greatHollow_23": "罗蕾塔",
-        "greatHollow_21": "铃珠猎人",
-        "greatHollow_26": "祖灵",
+        "greatHollow_20": "接肢",
+        "greatHollow_11": "亚人女王",
+        "greatHollow_2": "狮子混种",
+        "greatHollow_8": "红狼",
+        "greatHollow_10": "黑剑眷属",
+        "greatHollow_12": "铃珠猎人",
+        "greatHollow_13": "罗蕾塔",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "龙装"
       }
     },
@@ -3637,37 +3185,31 @@
       "nightlord": "Straghess",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51108",
-        "greatHollow_32": "53710",
-        "greatHollow_16": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51108",
+        "greatHollow_17": "53710",
+        "greatHollow_9": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "树灵",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "弗雷迪亚",
-        "greatHollow_34": "死鸟",
-        "greatHollow_30": "老狮子",
-        "greatHollow_21": "亚人女王",
-        "greatHollow_18": "黑夜骑兵",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_19": "河马",
-        "greatHollow_26": "米兰达花",
-        "greatHollow_14": "化身",
-        "greatHollow_3": "罗蕾塔",
-        "greatHollow_17": "祖灵",
-        "greatHollow_23": "铃珠猎人",
+        "greatHollow_20": "老狮子",
+        "greatHollow_12": "河马",
+        "greatHollow_11": "化身",
+        "greatHollow_10": "祖灵",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_15": "米兰达花",
+        "greatHollow_2": "罗蕾塔",
+        "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "黑剑眷属"
       }
     },
@@ -3675,41 +3217,33 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53710",
-        "greatHollow_15": "51108",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51000",
+        "greatHollow_17": "53710",
+        "greatHollow_8": "51108",
+        "greatHollow_22": "51150"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "偏地老将",
         "greatHollow_4": "死鸟",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "双神皮",
-        "greatHollow_30": "黑刀刺客",
-        "greatHollow_21": "黑夜骑兵",
-        "greatHollow_14": "河马",
-        "greatHollow_12": "米兰达花",
-        "greatHollow_19": "萨米尔",
-        "greatHollow_23": "红狼",
-        "greatHollow_26": "铃珠猎人",
-        "greatHollow_18": "黑剑眷属",
-        "greatHollow_17": "土龙",
-        "greatHollow_3": "大树守卫",
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_12": "49400",
+        "greatHollow_10": "土龙",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_8": "米兰达花",
+        "greatHollow_13": "红狼",
+        "greatHollow_15": "铃珠猎人",
+        "greatHollow_2": "大树守卫",
         "greatHollow_1": "祖灵",
-        "greatHollow_20": "49400",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1185": {
@@ -3717,116 +3251,96 @@
       "nightlord": "Straghess",
       "major_base": {},
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51109"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51109"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "龙人士兵",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "百足恶魔",
-        "greatHollow_30": "化身",
-        "greatHollow_3": "王室幽魂",
-        "greatHollow_17": "亚人女王",
-        "greatHollow_14": "萨米尔",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_19": "接肢",
-        "greatHollow_18": "黑夜骑兵",
-        "greatHollow_23": "土龙",
-        "greatHollow_21": "铃珠猎人",
-        "greatHollow_26": "龙装",
+        "greatHollow_20": "老狮子",
+        "greatHollow_2": "王室幽魂",
+        "greatHollow_10": "化身",
+        "greatHollow_11": "黑夜骑兵",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_12": "铃珠猎人",
+        "greatHollow_13": "土龙",
+        "greatHollow_15": "龙装",
         "greatHollow_1": "祖灵",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1186": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720",
-        "greatHollow_16": "51109"
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_17": "53720",
+        "greatHollow_9": "51109"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_9": "树灵",
-        "greatHollow_7": "偏地老将",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "接肢君王",
-        "greatHollow_34": "大土龙",
-        "greatHollow_30": "祖灵",
-        "greatHollow_18": "萨米尔",
-        "greatHollow_21": "红狼",
-        "greatHollow_12": "黑刀刺客",
-        "greatHollow_23": "亚人女王",
-        "greatHollow_14": "黑夜骑兵",
-        "greatHollow_19": "米兰达花",
-        "greatHollow_26": "死鸟",
-        "greatHollow_17": "黑剑眷属",
-        "greatHollow_3": "罗蕾塔",
+        "greatHollow_20": "祖灵",
+        "greatHollow_11": "黑夜骑兵",
+        "greatHollow_12": "米兰达花",
+        "greatHollow_10": "黑剑眷属",
+        "greatHollow_8": "黑刀刺客",
+        "greatHollow_13": "亚人女王",
+        "greatHollow_15": "死鸟",
+        "greatHollow_2": "罗蕾塔",
         "greatHollow_1": "铃珠猎人",
-        "greatHollow_31": "53990"
+        "greatHollow_18": "53990"
       }
     },
     "1187": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420",
-        "greatHollow_8": "52450"
+        "greatHollow_18": "52420",
+        "greatHollow_5": "52450"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53610",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_15": "51109",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_38": "51150"
+        "greatHollow_20": "52550",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53610",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_8": "51109",
+        "greatHollow_17": "53700",
+        "greatHollow_22": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "黑夜骑兵",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "龙装骑兵",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "树灵",
-        "greatHollow_30": "米兰达花",
-        "greatHollow_3": "黑刀刺客",
-        "greatHollow_14": "老狮子",
-        "greatHollow_12": "接肢",
-        "greatHollow_17": "53990",
-        "greatHollow_19": "王室幽魂",
-        "greatHollow_23": "铃珠猎人",
-        "greatHollow_18": "黑剑眷属",
-        "greatHollow_26": "祖灵",
-        "greatHollow_21": "土龙",
+        "greatHollow_20": "红狼",
+        "greatHollow_2": "黑刀刺客",
+        "greatHollow_11": "黑剑眷属",
+        "greatHollow_8": "接肢",
+        "greatHollow_10": "53990",
+        "greatHollow_12": "土龙",
+        "greatHollow_13": "铃珠猎人",
+        "greatHollow_15": "祖灵",
         "greatHollow_1": "化身"
       }
     },
@@ -3834,80 +3348,66 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51100",
-        "greatHollow_17": "51101",
-        "greatHollow_32": "53710"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51100",
+        "greatHollow_10": "51101",
+        "greatHollow_17": "53710"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "女王&剑圣",
-        "greatHollow_34": "龙装骑兵",
-        "greatHollow_30": "化身",
-        "greatHollow_12": "接肢",
-        "greatHollow_21": "萨米尔",
-        "greatHollow_14": "河马",
-        "greatHollow_18": "老狮子",
-        "greatHollow_17": "49400",
-        "greatHollow_26": "狮子混种",
-        "greatHollow_23": "土龙",
-        "greatHollow_19": "铃珠猎人",
-        "greatHollow_3": "树灵",
-        "greatHollow_1": "罗蕾塔",
-        "greatHollow_13": "53990"
+        "greatHollow_20": "化身",
+        "greatHollow_8": "53990",
+        "greatHollow_10": "49400",
+        "greatHollow_12": "铃珠猎人",
+        "greatHollow_11": "老狮子",
+        "greatHollow_15": "狮子混种",
+        "greatHollow_13": "土龙",
+        "greatHollow_2": "树灵",
+        "greatHollow_1": "罗蕾塔"
       }
     },
     "1189": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53600",
-        "greatHollow_16": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51102",
-        "greatHollow_17": "51103",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53720"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53600",
+        "greatHollow_9": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51102",
+        "greatHollow_10": "51103",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "女王&剑圣",
-        "greatHollow_7": "龙装骑兵",
         "greatHollow_4": "双神皮",
-        "greatHollow_37": "王室幽魂",
-        "greatHollow_34": "接肢君王",
-        "greatHollow_30": "接肢",
-        "greatHollow_23": "黑刀刺客",
-        "greatHollow_12": "萨米尔",
-        "greatHollow_17": "狮子混种",
-        "greatHollow_18": "米兰达花",
-        "greatHollow_3": "黑夜骑兵",
-        "greatHollow_21": "罗蕾塔",
-        "greatHollow_14": "土龙",
-        "greatHollow_19": "化身",
-        "greatHollow_26": "死鸟",
+        "greatHollow_20": "河马",
+        "greatHollow_13": "黑刀刺客",
+        "greatHollow_8": "萨米尔",
+        "greatHollow_10": "接肢",
+        "greatHollow_11": "土龙",
+        "greatHollow_2": "黑夜骑兵",
+        "greatHollow_12": "化身",
+        "greatHollow_15": "死鸟",
         "greatHollow_1": "铃珠猎人"
       }
     },
@@ -3915,79 +3415,66 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_15": "51000",
-        "greatHollow_38": "51000",
-        "greatHollow_16": "51104",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_8": "51000",
+        "greatHollow_22": "51000",
+        "greatHollow_9": "51104",
+        "greatHollow_17": "53700"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "石像鬼",
-        "greatHollow_7": "双神皮",
         "greatHollow_4": "大树骑兵",
-        "greatHollow_37": "战地老将",
-        "greatHollow_34": "铃珠猎人",
-        "greatHollow_30": "龙装",
-        "greatHollow_12": "老狮子",
-        "greatHollow_17": "米兰达花",
-        "greatHollow_18": "接肢",
-        "greatHollow_23": "河马",
-        "greatHollow_21": "狮子混种",
-        "greatHollow_14": "红狼",
-        "greatHollow_19": "祖灵",
-        "greatHollow_3": "树灵",
-        "greatHollow_26": "罗蕾塔",
+        "greatHollow_20": "王室幽魂",
+        "greatHollow_8": "老狮子",
+        "greatHollow_10": "龙装",
+        "greatHollow_11": "红狼",
+        "greatHollow_13": "河马",
+        "greatHollow_12": "祖灵",
+        "greatHollow_2": "树灵",
+        "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "土龙",
-        "greatHollow_10": "49400",
-        "greatHollow_31": "53990"
+        "greatHollow_6": "49400",
+        "greatHollow_18": "53990"
       }
     },
     "1191": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_31": "52420"
+        "greatHollow_18": "52420"
       },
       "minor_base": {
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_2": "53580",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_15": "51000",
-        "greatHollow_17": "51105",
-        "greatHollow_32": "53720"
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_1": "53580",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_8": "51000",
+        "greatHollow_10": "51105",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "恶兆妖鬼",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "王室幽魂",
-        "greatHollow_30": "河马",
-        "greatHollow_19": "亚人女王",
-        "greatHollow_14": "老狮子",
-        "greatHollow_3": "米兰达花",
-        "greatHollow_12": "狮子混种",
-        "greatHollow_17": "黑刀刺客",
-        "greatHollow_26": "化身",
-        "greatHollow_18": "死鸟",
-        "greatHollow_23": "罗蕾塔",
-        "greatHollow_21": "祖灵",
+        "greatHollow_20": "黑夜骑兵",
+        "greatHollow_12": "祖灵",
+        "greatHollow_11": "死鸟",
+        "greatHollow_2": "米兰达花",
+        "greatHollow_8": "狮子混种",
+        "greatHollow_10": "河马",
+        "greatHollow_15": "化身",
+        "greatHollow_13": "罗蕾塔",
         "greatHollow_1": "树灵"
       }
     },
@@ -3995,121 +3482,101 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52570",
-        "greatHollow_8": "52460",
-        "greatHollow_22": "52500",
-        "greatHollow_5": "53600",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51106",
-        "greatHollow_32": "53700",
-        "greatHollow_15": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52570",
+        "greatHollow_5": "52460",
+        "greatHollow_11": "52500",
+        "greatHollow_3": "53600",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51106",
+        "greatHollow_17": "53700",
+        "greatHollow_8": "51150"
       },
       "evergaol": {
-        "greatHollow_25": "53670"
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "王室幽魂",
-        "greatHollow_7": "女王&剑圣",
         "greatHollow_4": "偏地老将",
-        "greatHollow_37": "石像鬼",
-        "greatHollow_34": "舞娘",
-        "greatHollow_30": "米兰达花",
-        "greatHollow_19": "黑夜骑兵",
-        "greatHollow_17": "狮子混种",
-        "greatHollow_12": "接肢",
-        "greatHollow_18": "老狮子",
-        "greatHollow_3": "红狼",
-        "greatHollow_14": "大树守卫",
-        "greatHollow_21": "祖灵",
-        "greatHollow_23": "土龙",
-        "greatHollow_26": "铃珠猎人",
+        "greatHollow_20": "黑刀刺客",
+        "greatHollow_12": "祖灵",
+        "greatHollow_10": "米兰达花",
+        "greatHollow_8": "接肢",
+        "greatHollow_11": "大树守卫",
+        "greatHollow_2": "红狼",
+        "greatHollow_13": "土龙",
+        "greatHollow_15": "铃珠猎人",
         "greatHollow_1": "罗蕾塔",
-        "greatHollow_11": "53990"
+        "greatHollow_7": "53990"
       }
     },
     "1193": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_2": "53590"
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_8": "52460",
-        "greatHollow_5": "53610",
-        "greatHollow_38": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_16": "51107",
-        "greatHollow_25": "53680",
-        "greatHollow_32": "53700",
-        "greatHollow_15": "51150"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_5": "52460",
+        "greatHollow_3": "53610",
+        "greatHollow_22": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_9": "51107",
+        "greatHollow_17": "53700",
+        "greatHollow_8": "51150"
       },
       "evergaol": {
-        "greatHollow_22": "52520"
+        "greatHollow_11": "52520"
       },
       "field_boss": {
-        "greatHollow_9": "接肢君王",
-        "greatHollow_7": "树灵",
         "greatHollow_4": "舞娘",
-        "greatHollow_37": "熔铁恶魔",
-        "greatHollow_34": "铃珠猎人",
-        "greatHollow_30": "接肢",
-        "greatHollow_21": "米兰达花",
-        "greatHollow_18": "红狼",
-        "greatHollow_17": "老狮子",
-        "greatHollow_12": "王室幽魂",
-        "greatHollow_14": "河马",
-        "greatHollow_3": "祖灵",
-        "greatHollow_19": "龙装",
-        "greatHollow_26": "化身",
-        "greatHollow_23": "罗蕾塔",
+        "greatHollow_20": "萨米尔",
+        "greatHollow_12": "龙装",
+        "greatHollow_11": "河马",
+        "greatHollow_10": "接肢",
+        "greatHollow_8": "53990",
+        "greatHollow_2": "祖灵",
+        "greatHollow_15": "化身",
+        "greatHollow_13": "罗蕾塔",
         "greatHollow_1": "土龙",
-        "greatHollow_32": "49400",
-        "greatHollow_13": "53990"
+        "greatHollow_17": "49400"
       }
     },
     "1194": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_8": "52450",
-        "greatHollow_2": "53590"
+        "greatHollow_5": "52450",
+        "greatHollow_1": "53590"
       },
       "minor_base": {
-        "greatHollow_31": "52400",
-        "greatHollow_30": "52550",
-        "greatHollow_5": "53610",
-        "greatHollow_16": "51000",
-        "greatHollow_17": "51000",
-        "greatHollow_38": "51108",
-        "greatHollow_32": "53720"
+        "greatHollow_18": "52400",
+        "greatHollow_20": "52550",
+        "greatHollow_3": "53610",
+        "greatHollow_9": "51000",
+        "greatHollow_10": "51000",
+        "greatHollow_22": "51108",
+        "greatHollow_17": "53720"
       },
       "evergaol": {
-        "greatHollow_22": "52520",
-        "greatHollow_25": "53670"
+        "greatHollow_11": "52520",
+        "greatHollow_17": "53670"
       },
       "field_boss": {
-        "greatHollow_9": "战地老将",
-        "greatHollow_7": "死鸟",
         "greatHollow_4": "熔炉&河马",
-        "greatHollow_37": "百足恶魔",
-        "greatHollow_34": "恶兆妖鬼",
-        "greatHollow_30": "亚人女王",
-        "greatHollow_12": "老狮子",
-        "greatHollow_26": "萨米尔",
-        "greatHollow_18": "狮子混种",
-        "greatHollow_17": "王室幽魂",
-        "greatHollow_23": "接肢",
-        "greatHollow_3": "大树守卫",
-        "greatHollow_14": "化身",
-        "greatHollow_19": "罗蕾塔",
-        "greatHollow_21": "祖灵",
+        "greatHollow_20": "米兰达花",
+        "greatHollow_8": "老狮子",
+        "greatHollow_15": "萨米尔",
+        "greatHollow_11": "化身",
+        "greatHollow_10": "亚人女王",
+        "greatHollow_13": "接肢",
+        "greatHollow_2": "大树守卫",
+        "greatHollow_12": "祖灵",
         "greatHollow_1": "树灵"
       }
     },
@@ -4156,166 +3623,102 @@
   },
   "great_hollow_coords": {
     "greatHollow_1": [
-      436.7,
-      377.9
+      447.7,
+      409.3
     ],
     "greatHollow_2": [
-      458.6,
-      440.6
-    ],
-    "greatHollow_3": [
       629.6,
       474.4
     ],
+    "greatHollow_3": [
+      461.3,
+      507.4
+    ],
     "greatHollow_4": [
-      262.0,
-      506.2
-    ],
-    "greatHollow_5": [
-      458.6,
-      506.2
-    ],
-    "greatHollow_6": [
-      534.3,
-      541.2
-    ],
-    "greatHollow_7": [
       262.0,
       555.3
     ],
-    "greatHollow_8": [
+    "greatHollow_5": [
       1085.1,
       571.7
     ],
-    "greatHollow_9": [
-      262.0,
-      604.5
-    ],
-    "greatHollow_10": [
+    "greatHollow_6": [
       1020.2,
       640.0
     ],
-    "greatHollow_11": [
+    "greatHollow_7": [
       563.7,
       668.5
     ],
-    "greatHollow_12": [
-      816.8,
-      679.1
+    "greatHollow_8": [
+      832.0,
+      702.1
     ],
-    "greatHollow_13": [
-      781.5,
-      701.3
-    ],
-    "greatHollow_14": [
-      379.0,
-      721.1
-    ],
-    "greatHollow_15": [
-      855.2,
-      727.8
-    ],
-    "greatHollow_16": [
+    "greatHollow_9": [
       470.6,
       731.0
     ],
-    "greatHollow_17": [
+    "greatHollow_10": [
       966.3,
       743.4
     ],
-    "greatHollow_18": [
-      310.7,
-      754.9
+    "greatHollow_11": [
+      339.2,
+      762.7
     ],
-    "greatHollow_19": [
-      613.1,
-      765.4
+    "greatHollow_12": [
+      606.7,
+      786.3
     ],
-    "greatHollow_20": [
-      583.1,
-      769.5
-    ],
-    "greatHollow_21": [
-      601.5,
-      808.1
-    ],
-    "greatHollow_22": [
-      328.1,
-      812.3
-    ],
-    "greatHollow_23": [
+    "greatHollow_13": [
       497.0,
       851.0
     ],
-    "greatHollow_24": [
+    "greatHollow_14": [
       409.5,
       873.5
     ],
-    "greatHollow_25": [
-      851.8,
-      915.7
-    ],
-    "greatHollow_26": [
+    "greatHollow_15": [
       636.4,
       919.3
     ],
-    "greatHollow_27": [
-      1262.0,
-      924.9
-    ],
-    "greatHollow_28": [
+    "greatHollow_16": [
       1353.4,
       925.2
     ],
-    "greatHollow_29": [
-      1300.2,
-      960.7
+    "greatHollow_17": [
+      851.8,
+      948.5
     ],
-    "greatHollow_30": [
-      1003.8,
-      964.9
-    ],
-    "greatHollow_31": [
+    "greatHollow_18": [
       749.2,
       967.6
     ],
-    "greatHollow_32": [
-      851.8,
-      981.3
+    "greatHollow_19": [
+      1256.4,
+      975.9
     ],
-    "greatHollow_33": [
-      1253.4,
-      983.6
-    ],
-    "greatHollow_34": [
+    "greatHollow_20": [
       1003.8,
       1014.0
     ],
-    "greatHollow_35": [
+    "greatHollow_21": [
       1360.7,
       1018.2
     ],
-    "greatHollow_36": [
-      474.8,
-      1039.5
+    "greatHollow_22": [
+      481.7,
+      1090.0
     ],
-    "greatHollow_37": [
-      1003.7,
-      1063.2
-    ],
-    "greatHollow_38": [
-      482.1,
-      1092.8
-    ],
-    "greatHollow_39": [
+    "greatHollow_23": [
       1256.0,
       1100.9
     ],
-    "greatHollow_40": [
+    "greatHollow_24": [
       1157.3,
       1141.9
     ],
-    "greatHollow_41": [
+    "greatHollow_25": [
       921.9,
       1195.1
     ]
