@@ -1435,9 +1435,13 @@ class NightreignMapRecogniser {
         const desktopThreshold = 10;
         const mobileThreshold = 4;
         
-        const shouldShowSuggestions = filteredSeeds.length > 0 && 
+        // spawn 阶段（出生点未选定）不显示建筑类别建议：建议是叠在 canvas 上的 DOM，
+        // 不受 drawMap 的 spawnPhase 守卫控制，会在出生点阶段同时冒出并遮挡出生点。
+        // 选完出生点（spawnPhase=false）后由下方逻辑正常展示。
+        const shouldShowSuggestions = !this.spawnPhase &&
+                                    filteredSeeds.length > 0 &&
                                     filteredSeeds.length > 1 &&
-                                    (isMobile ? filteredSeeds.length <= mobileThreshold : 
+                                    (isMobile ? filteredSeeds.length <= mobileThreshold :
                                                filteredSeeds.length <= desktopThreshold);
         
         if (shouldShowSuggestions) {
