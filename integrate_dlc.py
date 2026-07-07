@@ -512,6 +512,55 @@ def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
     }
 
 
+def _circled(n: int) -> str:
+    """1→①, 2→②, …（U+2460 起，覆盖 1-20）；超出范围回退普通数字。"""
+    return chr(0x2460 + n - 1) if 1 <= n <= 20 else str(n)
+
+
+def build_basic_spawn_snippets(source: Dict) -> Dict[str, Any]:
+    """生成基础版 data.js 的出生点片段：
+    - seed_spawn: `const SEED_SPAWN = {seedNum: "value", ...}`（全 520 种子）
+    - spawn_points_by_map: `const SPAWN_POINTS_BY_MAP = {map: [{value,x,y,label}, ...]}`
+
+    坐标来自 load_spawn_calib()（dev 标定产物，{value: [x768,y768]}）。
+    每地图出生点子集由该地图种子的 Start_190（source["patterns"][sid]["start"]）去重得出，
+    避免 canvas 上出现永远不会命中的死标记。label 用"出生点①/②/③"序号（GH 无地名，统一序号）。"""
+    calib = load_spawn_calib()
+
+    # 1. SEED_SPAWN：全种子 → 出生点值
+    seed_spawn = {}
+    for sid, pat in source["patterns"].items():
+        start = pat.get("start", "").strip()
+        if start:
+            seed_spawn[int(sid)] = start
+    seed_spawn_js = "const SEED_SPAWN = {\n" + ",\n".join(
+        f'  {sid}: "{v}"' for sid, v in sorted(seed_spawn.items())
+    ) + "\n};"
+
+    # 2. SPAWN_POINTS_BY_MAP：每地图出生点子集（按 SPECIAL_TO_MAP 固定顺序）
+    map_spawns = {}  # {maptype: set(values)}
+    for sid, pat in source["patterns"].items():
+        mt = SPECIAL_TO_MAP.get(pat["special"], "Default")
+        start = pat.get("start", "").strip()
+        if start:
+            map_spawns.setdefault(mt, set()).add(start)
+    spm_lines = []
+    for mt in SPECIAL_TO_MAP.values():
+        vals = sorted(map_spawns.get(mt, set()), key=lambda v: int(v))
+        if not vals:
+            continue
+        entries = []
+        for i, v in enumerate(vals, 1):
+            x, y = calib[v]
+            entries.append(f'    {{ value: "{v}", x: {x}, y: {y}, label: "出生点{_circled(i)}" }}')
+        spm_lines.append(f'  "{mt}": [\n' + ",\n".join(entries) + "\n  ]")
+    spm_js = "const SPAWN_POINTS_BY_MAP = {\n" + ",\n".join(spm_lines) + "\n};"
+
+    return {"seed_spawn": seed_spawn_js,
+            "spawn_points_by_map": spm_js,
+            "spawn_seed_count": len(seed_spawn)}
+
+
 def main():
     """主流程：读源 → 算各产出 → 写文件。幂等可重跑。"""
     print("🔄 DLC 集成生成器启动...")
@@ -534,8 +583,9 @@ def main():
     print(f"✅ dataset.json 追加 {len(basic_cls)} DLC 种子分类")
 
     snip = build_basic_datajs_snippets(source, calib, gh_768)
+    snip.update(build_basic_spawn_snippets(source))  # 注入 SEED_SPAWN / SPAWN_POINTS_BY_MAP
     _write_datajs_snippet_file(snip)
-    print("✅ data.js 片段写出（见 dataset/dlc-params/datajs_snippet.txt，Task 3.1 人工应用）")
+    print("✅ data.js 片段写出（含基础版出生点，见 dataset/dlc-params/datajs_snippet.txt，人工应用）")
 
     print("🎉 集成生成完成。后续：Task 2.2 重跑 convert-csv-to-json.py；Task 3.1/3.2 应用基础版改动。")
 
@@ -561,10 +611,17 @@ def _append_basic_dataset_json(basic_cls):
 
 
 def _write_datajs_snippet_file(snip):
-    """把 data.js 片段写到文本文件，供 Task 3.1 人工应用（避免脚本误改 17k 行 JS）。"""
-    txt = (f"// === POIS_BY_MAP[\"Great Hollow\"] 替换 [] 存根 ===\n{snip['pois_by_map_gh']}\n\n"
-           f"// === seedDataMatrix mapType 纠正（{len(snip['seed_matrix_fixes'])} 条）===\n"
-           + "\n".join(f"{sid}: \"{mt}\"" for sid, mt in snip["seed_matrix_fixes"].items()))
+    """把 data.js 片段写到文本文件，供 Task 3.1 人工应用（避免脚本误改 17k 行 JS）。
+
+    含三组片段：POIS_BY_MAP["Great Hollow"]、seedDataMatrix mapType 纠正、
+    基础版出生点（SEED_SPAWN + SPAWN_POINTS_BY_MAP，后者由 build_basic_spawn_snippets 注入）。"""
+    txt = (f'// === POIS_BY_MAP["Great Hollow"] 替换 [] 存根 ===\n{snip["pois_by_map_gh"]}\n\n'
+           f'// === seedDataMatrix mapType 纠正（{len(snip["seed_matrix_fixes"])} 条）===\n'
+           + "\n".join(f'{sid}: "{mt}"' for sid, mt in snip["seed_matrix_fixes"].items()))
+    if "seed_spawn" in snip:
+        txt += (f'\n\n// === 基础版出生点：SEED_SPAWN（{snip.get("spawn_seed_count", 0)} 种子）'
+                f' ===\n{snip["seed_spawn"]}\n\n'
+                f'// === 基础版出生点：SPAWN_POINTS_BY_MAP ===\n{snip["spawn_points_by_map"]}\n')
     with open(os.path.join(PARAMS_DIR, "datajs_snippet.txt"), "w", encoding="utf-8") as f:
         f.write(txt)
 

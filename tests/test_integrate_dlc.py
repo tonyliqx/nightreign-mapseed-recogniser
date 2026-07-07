@@ -302,5 +302,50 @@ class TestSpawnCalib(unittest.TestCase):
             self.assertTrue(0 <= y <= 768, f"{v} y={y} 越界")
 
 
+from integrate_dlc import build_basic_spawn_snippets, SPECIAL_TO_MAP
+import re as _re
+
+class TestSpawnSnippets(unittest.TestCase):
+    def setUp(self):
+        self.source = read_source_data()
+
+    def test_seed_spawn_covers_520_seeds(self):
+        snip = build_basic_spawn_snippets(self.source)
+        self.assertEqual(snip["spawn_seed_count"], 520)
+
+    def test_seed_spawn_values_valid(self):
+        snip = build_basic_spawn_snippets(self.source)
+        valid = {str(v) for v in range(700, 709)} | {"13000", "13001", "13002"}
+        for m in _re.finditer(r'\d+: "([^"]+)"', snip["seed_spawn"]):
+            self.assertIn(m.group(1), valid, f"非法出生点值 {m.group(1)}")
+
+    def test_great_hollow_has_3_spawn_points(self):
+        snip = build_basic_spawn_snippets(self.source)
+        gh_section = snip["spawn_points_by_map"].split('"Great Hollow"')[1].split("]")[0]
+        self.assertEqual(gh_section.count("label:"), 3)
+
+    def test_spawn_points_coords_in_canvas(self):
+        snip = build_basic_spawn_snippets(self.source)
+        for m in _re.finditer(r'x: ([\d.]+), y: ([\d.]+)', snip["spawn_points_by_map"]):
+            x, y = float(m.group(1)), float(m.group(2))
+            self.assertTrue(0 <= x <= 768 and 0 <= y <= 768, f"({x},{y}) 越界")
+
+    def test_spawn_points_subset_per_map(self):
+        """每地图的出生点必须是该地图种子实际出现的 Start_190 子集（无死标记）。"""
+        snip = build_basic_spawn_snippets(self.source)
+        actual = {}
+        for sid, pat in self.source["patterns"].items():
+            mt = SPECIAL_TO_MAP.get(pat["special"], "Default")
+            s = pat.get("start", "").strip()
+            if s:
+                actual.setdefault(mt, set()).add(s)
+        for mt, vals in actual.items():
+            if f'"{mt}"' not in snip["spawn_points_by_map"]:
+                continue
+            section = snip["spawn_points_by_map"].split(f'"{mt}"')[1].split("]")[0]
+            in_snippet = set(_re.findall(r'value: "([^"]+)"', section))
+            self.assertTrue(in_snippet <= vals, f"{mt} 含死标记 {in_snippet - vals}")
+
+
 if __name__ == "__main__":
     unittest.main()
