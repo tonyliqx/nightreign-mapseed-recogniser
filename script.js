@@ -171,6 +171,11 @@ class NightreignMapRecogniser {
             this.resetMap();
         });
 
+        // Skip spawn point button
+        document.getElementById('skip-spawn-btn').addEventListener('click', () => {
+            this.skipSpawn();
+        });
+
         // CV Classification data loader
 
         // Help button and modal
