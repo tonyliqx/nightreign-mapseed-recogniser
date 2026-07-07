@@ -2273,8 +2273,11 @@ class NightreignApp {
         };
         
         const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
-        const imagePath = `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
-        console.log(`🖼️ Loading pattern image: ${imagePath} for seed ${seed.seedNumber}`);
+        // DLC 种子(≥1000) 用 Fuwish 汉化版 pattern 图（assets/pattern/dlc/，语言无关，DLC 图仅中文版）
+        const imagePath = seed.seedNumber >= 1000
+            ? `assets/pattern/dlc/${seed.seedNumber}.jpg`
+            : `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+        console.log(`🖼️ Loading image: ${imagePath} for seed ${seed.seedNumber}`);
         patternImage.src = imagePath;
     }
 
