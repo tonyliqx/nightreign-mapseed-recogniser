@@ -768,16 +768,20 @@ class NightreignMapRecogniser {
             }
         }
 
-        // 画地标 POI（出生点阶段时半透明，提示先选出生点）
-        if (this.spawnPhase) this.ctx.globalAlpha = 0.3;
-        this.currentPOIs.forEach(poi => {
-            const state = this.poiStates[poi.id];
-            this.drawPOI(poi, state);
-        });
-        this.ctx.globalAlpha = 1.0;
+        // 出生点候选（提前计算，用于决定地标是否展示）
+        const spawns = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
+
+        // 画地标 POI：出生点阶段且有出生点数据时隐藏（选完出生点后再展示，避免地标圆点遮挡出生点）
+        if (!(this.spawnPhase && spawns.length > 0)) {
+            if (this.spawnPhase) this.ctx.globalAlpha = 0.3;
+            this.currentPOIs.forEach(poi => {
+                const state = this.poiStates[poi.id];
+                this.drawPOI(poi, state);
+            });
+            this.ctx.globalAlpha = 1.0;
+        }
 
         // 画出生点标记（蓝色三角，不受 spawnPhase 透明度影响）
-        const spawns = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
         spawns.forEach(sp => this.drawSpawnMarker(sp));
 
         // 出生点阶段顶部提示
