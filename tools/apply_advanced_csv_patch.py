@@ -35,6 +35,19 @@ def main():
         while len(r) < width:
             r.append("")
 
+    # 预清理：删除所有旧 Great Hollow 槽位列，幂等重建。
+    # 候选点数变化时（如 41→26），旧列与旧值若残留会被 convert 解析成无效 POI。
+    gh_cols = [c for c in range(min(len(header2), width))
+               if header2[c].strip().startswith("greatHollow_")]
+    for c in reversed(gh_cols):
+        for r in rows:
+            if c < len(r):
+                del r[c]
+    if gh_cols:
+        print(f"清理旧 GH 槽位列：{len(gh_cols)}")
+    header1, header2 = rows[0], rows[1]
+    width = len(header1)
+
     # 建 (header1, header2_location) → col_index 索引
     col_idx = {}
     for c in range(width):
