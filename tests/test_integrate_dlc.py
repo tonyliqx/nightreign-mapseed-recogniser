@@ -283,5 +283,24 @@ class TestDataJsSnippets(unittest.TestCase):
         self.assertEqual(snip["seed_matrix_fixes"].get("1005"), "Great Hollow")
 
 
+from integrate_dlc import load_spawn_calib
+
+class TestSpawnCalib(unittest.TestCase):
+    def test_has_12_spawn_points(self):
+        calib = load_spawn_calib()
+        self.assertEqual(len(calib), 12)
+
+    def test_values_are_expected_set(self):
+        calib = load_spawn_calib()
+        expected = {str(v) for v in range(700, 709)} | {"13000", "13001", "13002"}
+        self.assertEqual(set(calib.keys()), expected)
+
+    def test_coords_in_768_canvas(self):
+        calib = load_spawn_calib()
+        for v, (x, y) in calib.items():
+            self.assertTrue(0 <= x <= 768, f"{v} x={x} 越界")
+            self.assertTrue(0 <= y <= 768, f"{v} y={y} 越界")
+
+
 if __name__ == "__main__":
     unittest.main()
