@@ -883,6 +883,7 @@ class NightreignMapRecogniser {
         let touchStarted = false;
         let touchMoved = false;
         let lastTouchedPoi = null;
+        let spawnToggledInTouchstart = false;  // 防止 touchend 对 spawn 阶段 touchstart 已处理的 spawn 二次切换
 
         // Left click - place church
         this.canvas.addEventListener('click', (e) => {
@@ -999,6 +1000,7 @@ class NightreignMapRecogniser {
             const touch = e.touches[0];
             const pos = this.getMousePos(touch);
             lastTouchPos = pos;
+            spawnToggledInTouchstart = false;  // 每次触摸重置
 
             // spawn 阶段：spawn 优先，地标锁定（不设 lastTouchedPoi → touchend 短按与长按都不触发）
             if (this.spawnPhase) {
@@ -1009,6 +1011,7 @@ class NightreignMapRecogniser {
                     this.drawMap(this.images.maps[this.chosenMap]);
                     this.updateSeedFiltering();
                     console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                    spawnToggledInTouchstart = true;  // 标记本次触摸已处理 spawn，touchend 不再二次切换
                 } else {
                     console.log('Spawn phase active - landmark touch ignored (select spawn or skip)');
                 }
@@ -1067,8 +1070,8 @@ class NightreignMapRecogniser {
 
                     // Reset the flag after processing
                     this.userIsClearing = false;
-                } else if (!this.spawnPhase) {
-                    // 地标阶段、POI 未命中的短按：允许改选/取消出生点
+                } else if (!this.spawnPhase && !spawnToggledInTouchstart) {
+                    // 地标阶段、POI 未命中的短按：允许改选/取消出生点（排除 spawn 阶段 touchstart 已处理的触摸）
                     const spawn = this.findClickedSpawn(lastTouchPos.x, lastTouchPos.y);
                     if (spawn) {
                         this.selectedSpawn = (this.selectedSpawn === spawn.value) ? null : spawn.value;
