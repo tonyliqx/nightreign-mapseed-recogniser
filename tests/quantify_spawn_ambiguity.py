@@ -7,16 +7,16 @@
   - 基础地图前端分类多数已唯一，spawn 在多数基础地图无边际改善
     （Rotted Woods 例外：仅地标最大共享 10 → 加 spawn 3）
 
-签名定义：前端分类签名 = tuple(sorted(classifications[str(sid)].items()))，
+签名定义：前端分类签名 = tuple(sorted(classifications[str(int(sid)).zfill(3)].items()))，
 分类值取自 dataset.json classifications（church/mage/village/other/nothing，
 即前端 CV_CLASSIFICATION_DATA 的真实数据源）。两个种子签名相同 = 在前端所有
 POI 标记下都无法区分（地标歧义）。种子的地图归属与出生点值仍从
 integrate_dlc.read_source_data() 取（patterns[sid].special / .start）。
 
-注意：dataset.json classifications 对种子 0-99 用零填充 3 位键（"000".."099"），
-而 patterns 用普通数字键（"0".."99"），二者不匹配——这 100 个种子在前端按
-str(sid) 查询 classification 时同样查不到，本脚本如实跳过并报告跳过数（与
-前端数据视图一致）。
+查询键：dataset.json classifications 对种子 0-999 用零填充 3 位键（"000".."099"、
+"100".."319"），种子 1000+ 用自然 4 位键（"1000".."1199"）。本脚本用
+str(int(sid)).zfill(3) 查询，与前端 script.js:1864 `seedNum.toString().padStart(3,'0')`
+完全一致（对 0-999 补零到 3 位、对 1000+ 是 no-op），覆盖全部 520 种子、0 跳过。
 
 运行：python3 tests/quantify_spawn_ambiguity.py
 """
@@ -41,9 +41,12 @@ def load_classifications():
 def landmark_signature(sid, classifications):
     """前端分类签名：该种子各 POI 槽位→分类的排序元组。
 
+    查询键对齐前端 script.js:1864 `seedNum.toString().padStart(3,'0')`：
+    对 0-999 补零到 3 位（"000".."319"），对 1000+ 是 no-op（"1000".."1199"）。
     无分类数据返回 None（调用方跳过并统计）。
     """
-    cls = classifications.get(str(sid))
+    key = str(int(sid)).zfill(3)
+    cls = classifications.get(key)
     if cls is None:
         return None
     return tuple(sorted(cls.items()))
@@ -64,8 +67,9 @@ def main():
         start = pat.get("start", "").strip()
         by_map[mt].append((sid, sig, start))
 
-    print(f"（跳过 {skipped} 个无前端分类数据的种子：dataset.json classifications 对 "
-          f"种子 0-99 用零填充 3 位键，patterns 用普通数字键，二者不匹配）")
+    print(f"（覆盖全部 {sum(len(v) for v in by_map.values())} 个种子，跳过 {skipped} 个"
+          f"无前端分类数据的种子；查询键 str(int(sid)).zfill(3) 对齐前端 "
+          f"script.js:1864 padStart(3,'0')）")
     print()
     print(f"{'地图':<14}{'种子数':>6}{'仅地标最大共享':>14}{'加spawn最大共享':>16}{'唯一性%':>10}")
     for mt in MAP_ORDER:
