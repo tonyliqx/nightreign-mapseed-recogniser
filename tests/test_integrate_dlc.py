@@ -289,15 +289,15 @@ class TestFilterLandmarkPois(unittest.TestCase):
                         if SPECIAL_TO_MAP.get(pat["special"]) == "Great Hollow"
                         and 1000 <= int(sid) <= 1199}
 
-    def test_filters_to_five_landmark_pois(self):
+    def test_filters_to_four_landmark_pois(self):
         kept = _filter_landmark_pois(self.gh_all, self.probe, self.gh_sids)
-        self.assertEqual(len(kept), 5)
-        self.assertEqual([p["id"] for p in kept], [1, 2, 3, 4, 5])
+        self.assertEqual(len(kept), 4)
+        self.assertEqual([p["id"] for p in kept], [1, 2, 3, 4])
         for p in kept:
             self.assertTrue(0 <= p["x"] <= 768 and 0 <= p["y"] <= 768)
 
     def test_kept_pois_match_landmark_coords(self):
-        """保留的 5 个点坐标 == 旧候选点中至少一个大空洞种子为地标的点坐标。
+        """保留的 4 个点坐标 == 旧候选点中至少一个大空洞种子为地标的点坐标。
 
         用坐标匹配避开 id 重映射：probe 键是旧 id，过滤后 id 已重编，直接比 id 会对错位。
         landmark 用 4 类（含 carriage），与 _filter_landmark_pois 的 landmark 集合一致。"""
@@ -310,22 +310,23 @@ class TestFilterLandmarkPois(unittest.TestCase):
         kept = _filter_landmark_pois([dict(p) for p in gh_fresh], self.probe, self.gh_sids)
         kept_coords = {(round(p["x"], 1), round(p["y"], 1)) for p in kept}
         self.assertEqual(kept_coords, landmark_coords)
-        self.assertEqual(len(kept_coords), 5)
+        self.assertEqual(len(kept_coords), 4)
 
-    def test_removes_two_non_landmark_pois(self):
-        """7 个候选点中恰好旧 POI4/6 在所有大空洞种子非地标（nothing），被移除；其余 5 点保留。
+    def test_removes_three_non_landmark_pois(self):
+        """7 个候选点中旧 POI1/4/6 被移除，其余 4 点保留。
 
-        旧 POI1(229.3,236.7) 是 40/80 种子的教堂地标，曾因 boss 污染 probe 被误判为
-        '永远非地标'而移除（旧版只保留 4 点）；修复 build_basic_classifications（只让
-        地标标注候选点）后露出真容，予以保留。"""
+        旧 POI4(164,406)/POI6(426,474) 在所有大空洞种子非地标（nothing），被移除。
+        旧 POI1(229.3,236.7) 是上半部分主城固定结构（含主城大教堂 53590，每局固定刷新
+        在主城位置）。用户决策 2026-07-08：主城信息不可定位，53590 basic 改为 other 后，
+        主城点在所有种子非地标（other/nothing），被移除。最终保留 4 个可变地标。"""
         landmark = {"church", "mage", "village", "carriage"}
         calib = load_great_hollow_calib()
         gh_fresh = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
         non_landmark = sorted(p["id"] for p in gh_fresh
                               if not any(self.probe.get(sid, {}).get(f"POI{p['id']}") in landmark
                                          for sid in self.gh_sids))
-        self.assertEqual(non_landmark, [4, 6])
-        self.assertEqual(len(gh_fresh) - len(non_landmark), 5)
+        self.assertEqual(non_landmark, [1, 4, 6])
+        self.assertEqual(len(gh_fresh) - len(non_landmark), 4)
 
 
 from integrate_dlc import build_basic_datajs_snippets
