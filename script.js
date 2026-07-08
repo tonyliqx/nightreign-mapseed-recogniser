@@ -1451,6 +1451,11 @@ class NightreignMapRecogniser {
                             console.log(`✅ Auto-clearing POI ${poi.id} (determined to be empty)`);
                             // Set to 'other', which will now be drawn as empty
                             this.poiStates[poi.id] = 'other';
+                        } else if (!determinedType) {
+                            // 所有剩余种子该坐标都无建筑（dataset 'nothing'→null）：标 unknown（渲染不可见），
+                            // 避免用户去点一个"选任何类型都会被拒、必然 0 种子"的空位点。
+                            console.log(`✅ Auto-hiding POI ${poi.id} (no building in any remaining seed)`);
+                            this.poiStates[poi.id] = 'unknown';
                         }
                     }
                 }
