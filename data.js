@@ -60,19 +60,16 @@ const POIS_BY_MAP = {
     { id: 11, x: 410, y: 182 }
   ],
 
-  // DLC: The Forsaken Hollows - Great Hollow POI 候选点，由 integrate_dlc.py 聚类生成
-  // （768 空间，45px 阈值，排除 boss → 7 个地标候选点：教堂/废墟/evergaol；
-  //   boss（4xxxx DAY1/2 + 5xxxx DLC field boss 52400-52599）占源坐标 ~60%，混合聚类会令
-  //   候选点被 boss 主导，挤掉地标。type 表修正后 52400/52420/52550/52570 等标 field_boss，
-  //   _is_boss 据此排除 → 候选点从 10（仅排 4xxxx）降至 7（排 4xxxx+5xxxx field boss））
+  // DLC: The Forsaken Hollows - Great Hollow POI 候选点，由 integrate_dlc.py 聚类 + 过滤生成
+  // （768 空间。先聚类排除 boss 得 7 候选点，再用探针 basic 过滤掉在所有大空洞种子都非地标
+  //   （other/nothing）的点——主城 boss 群（53xxx 城堡废墟/汉字标识）、固定 evergaol 等
+  //   永远不是教堂/法师塔/村庄，不参与选点。过滤后剩 4 个可变地标候选点，重新编号 1..4。
+  //   用户决策 2026-07-08：大空洞 POI 只保留可变地标，固定 BOSS/主城 BOSS 不参与选点。）
   "Great Hollow": [
-    { id: 1, x: 229.3, y: 236.7 },
-    { id: 2, x: 427.6, y: 363.9 },
-    { id: 3, x: 235.3, y: 365.5 },
-    { id: 4, x: 164.0, y: 406.1 },
-    { id: 5, x: 676.7, y: 462.6 },
-    { id: 6, x: 425.9, y: 474.3 },
-    { id: 7, x: 241.0, y: 546.4 }
+    { id: 1, x: 427.6, y: 363.9 },
+    { id: 2, x: 235.3, y: 365.5 },
+    { id: 3, x: 676.7, y: 462.6 },
+    { id: 4, x: 241.0, y: 546.4 }
   ]
 };
 

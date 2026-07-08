@@ -266,6 +266,64 @@ class TestBasicClassifications(unittest.TestCase):
                 self.assertIn(v, valid)
 
 
+from integrate_dlc import (_filter_landmark_pois, cluster_great_hollow_pois,
+                           load_great_hollow_calib, load_type_category_icon,
+                           build_base_type_category, SPECIAL_TO_MAP)
+
+
+class TestFilterLandmarkPois(unittest.TestCase):
+    """大空洞候选点过滤：移除在所有大空洞种子都非地标的点（主城 boss 群/固定 evergaol）。
+
+    回归锁定：必须传入 gh_seed_ids 限定大空洞种子范围——basic_cls 含全地图种子，
+    非大空洞种子的 POI1/4/6 是基础地图的点（教堂等），不限定范围会全部误判为地标，
+    导致一个候选点都过滤不掉。"""
+
+    def setUp(self):
+        self.source = read_source_data()
+        calib = load_great_hollow_calib()
+        icon = load_type_category_icon()
+        base = build_base_type_category(self.source)
+        self.gh_all = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
+        self.probe = build_basic_classifications(self.source, icon, base, self.gh_all, calib)
+        self.gh_sids = {sid for sid, pat in self.source["patterns"].items()
+                        if SPECIAL_TO_MAP.get(pat["special"]) == "Great Hollow"
+                        and 1000 <= int(sid) <= 1199}
+
+    def test_filters_to_four_landmark_pois(self):
+        kept = _filter_landmark_pois(self.gh_all, self.probe, self.gh_sids)
+        self.assertEqual(len(kept), 4)
+        self.assertEqual([p["id"] for p in kept], [1, 2, 3, 4])
+        for p in kept:
+            self.assertTrue(0 <= p["x"] <= 768 and 0 <= p["y"] <= 768)
+
+    def test_kept_pois_match_landmark_coords(self):
+        """保留的 4 个点坐标 == 旧候选点中至少一个大空洞种子为地标的点坐标。
+
+        用坐标匹配避开 id 重映射（旧 POI2/3/5/7 → 新 1/2/3/4）：probe 键是旧 id，
+        过滤后 id 已重编，直接比 id 会对错位。"""
+        landmark = {"church", "mage", "village"}
+        calib = load_great_hollow_calib()
+        gh_fresh = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
+        landmark_coords = {(round(p["x"], 1), round(p["y"], 1)) for p in gh_fresh
+                           if any(self.probe.get(sid, {}).get(f"POI{p['id']}") in landmark
+                                  for sid in self.gh_sids)}
+        kept = _filter_landmark_pois([dict(p) for p in gh_fresh], self.probe, self.gh_sids)
+        kept_coords = {(round(p["x"], 1), round(p["y"], 1)) for p in kept}
+        self.assertEqual(kept_coords, landmark_coords)
+        self.assertEqual(len(kept_coords), 4)
+
+    def test_removes_three_non_landmark_pois(self):
+        """7 个候选点中恰好旧 POI1/4/6 在所有大空洞种子非地标，被移除；其余 4 点保留。"""
+        landmark = {"church", "mage", "village"}
+        calib = load_great_hollow_calib()
+        gh_fresh = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
+        non_landmark = sorted(p["id"] for p in gh_fresh
+                              if not any(self.probe.get(sid, {}).get(f"POI{p['id']}") in landmark
+                                         for sid in self.gh_sids))
+        self.assertEqual(non_landmark, [1, 4, 6])
+        self.assertEqual(len(gh_fresh) - len(non_landmark), 4)
+
+
 from integrate_dlc import build_basic_datajs_snippets
 
 class TestDataJsSnippets(unittest.TestCase):

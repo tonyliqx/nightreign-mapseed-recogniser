@@ -491,6 +491,34 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
     return out
 
 
+def _filter_landmark_pois(gh_pois: List[Dict], basic_cls: Dict[str, Dict[str, str]],
+                          gh_seed_ids: set = None) -> List[Dict]:
+    """过滤大空洞候选点：移除在所有大空洞种子都非地标（other/nothing）的点，剩余重新编号 1..N。
+
+    主城 boss 群（城堡废墟/汉字标识 53xxx）、固定 evergaol/boss（52520）等永远不是
+    教堂/法师塔/村庄，不参与基础版选点（用户决策 2026-07-08：大空洞 POI 只保留可变地标）。
+
+    Args:
+        gh_pois: cluster_great_hollow_pois 的候选点（含 id）。
+        basic_cls: 用全候选点跑的 build_basic_classifications 探针结果（键 POI<旧id>）。
+        gh_seed_ids: 大空洞 DLC 种子 id 集合。必须限定此范围——basic_cls 含全地图种子，
+            非大空洞种子的 POI1/4/6 是基础地图的点（教堂等），会误命中地标集合。
+    Returns: 过滤后并重新编号 1..N 的候选点列表（原地改 id，原 id 丢弃）。
+    """
+    landmark = {"church", "mage", "village"}
+    sids = gh_seed_ids if gh_seed_ids is not None else basic_cls.keys()
+    is_landmark = {p["id"]: any(basic_cls.get(sid, {}).get(f"POI{p['id']}") in landmark
+                                for sid in sids) for p in gh_pois}
+    kept = [p for p in gh_pois if is_landmark[p["id"]]]
+    removed = [p["id"] for p in gh_pois if not is_landmark[p["id"]]]
+    old_to_new = {}
+    for i, p in enumerate(kept, 1):
+        old_to_new[p["id"]] = i
+        p["id"] = i
+    print(f"  📍 大空洞候选点过滤: 移除旧 POI{removed} → 重新编号 {old_to_new}")
+    return kept
+
+
 def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
                                 gh_pois_768: List[Dict] = None,
                                 target_override: Dict[str, str] = None) -> Dict[str, Any]:
@@ -575,17 +603,26 @@ def main():
     base_map = build_base_type_category(source)
 
     gh_1536 = cluster_great_hollow_pois(source, calib, 1536)
-    gh_768 = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)  # 基础版排除 boss
+    gh_768_all = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)  # 基础版排除 boss
 
-    # 高级版 CSV 行
+    # 基础版候选点：先跑探针 basic，再过滤"永远非地标"的候选点（主城boss群/固定evergaol），
+    # 重新编号 1..N。这些点永远 other，不参与选点，留着只会增加噪音与误标。
+    basic_probe = build_basic_classifications(source, icon_map, base_map, gh_768_all, calib)
+    # 仅在大空洞种子范围内判断——basic_probe 含全地图种子，非大空洞种子的 POI1/4/6
+    # 是基础地图的点（教堂等），会误命中地标集合，导致一个候选点都过滤不掉。
+    gh_seed_ids = {sid for sid, pat in source["patterns"].items()
+                   if SPECIAL_TO_MAP.get(pat["special"]) == "Great Hollow" and 1000 <= int(sid) <= 1199}
+    gh_768 = _filter_landmark_pois(gh_768_all, basic_probe, gh_seed_ids)
+
+    # 高级版 CSV 行（用 1536 全候选点，不过滤——高级版 boss/evergaol 是有效分类）
     adv_rows = build_advanced_csv_rows(source, icon_map, base_map, gh_1536, calib)
     _write_advanced_csv_patch(adv_rows, gh_1536)
     print(f"✅ 高级版 CSV 补丁写出（{len(adv_rows)} 种子）")
 
-    # 基础版
+    # 基础版（用过滤后的 gh_768）
     basic_cls = build_basic_classifications(source, icon_map, base_map, gh_768, calib)
     _append_basic_dataset_json(basic_cls)
-    print(f"✅ dataset.json 追加 {len(basic_cls)} DLC 种子分类")
+    print(f"✅ dataset.json 更新 {len(basic_cls)} DLC 种子分类")
 
     snip = build_basic_datajs_snippets(source, calib, gh_768)
     snip.update(build_basic_spawn_snippets(source))  # 注入 SEED_SPAWN / SPAWN_POINTS_BY_MAP
@@ -606,11 +643,16 @@ def _write_advanced_csv_patch(adv_rows, gh_1536):
 
 
 def _append_basic_dataset_json(basic_cls):
-    """读现有 dataset.json，追加 DLC 键，写回。不动 0-319。"""
+    """读现有 dataset.json，整体替换每个 DLC 种子的 classification，写回。不动 0-319。
+
+    用整体替换（而非 update 个别 POI 键）是为了清除候选点减少后的残留键——
+    例如大空洞候选点从 7 个精简到 4 个后，旧 POI 键需随每个 DLC 种子一并清除。"""
     path = os.path.join(PROJ_DIR, "dataset", "dataset.json")
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
-    data.setdefault("classifications", {}).update(basic_cls)
+    cls = data.setdefault("classifications", {})
+    for sid, pois in basic_cls.items():
+        cls[sid] = pois  # 整体替换该 DLC 种子的 POI 分类
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
