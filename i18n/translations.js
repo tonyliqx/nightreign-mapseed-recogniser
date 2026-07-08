@@ -78,8 +78,7 @@ const translations = {
     'poi.village': '村庄',
     'poi.empty': '空白',
     'poi.carriage': '马车',
-    'poi.other': '其他',
-    
+
     // Help modal
     'help.title': '帮助与提示',
     'help.usage': '使用方法',
@@ -195,7 +194,6 @@ const translations = {
     'poi.village': 'Village',
     'poi.empty': 'Empty',
     'poi.carriage': 'Carriage',
-    'poi.other': 'Other',
     
     // Help modal
     'help.title': 'Help & Tips',

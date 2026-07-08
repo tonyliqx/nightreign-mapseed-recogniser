@@ -69,7 +69,8 @@ const POIS_BY_MAP = {
     { id: 1, x: 427.6, y: 363.9 },
     { id: 2, x: 235.3, y: 365.5 },
     { id: 3, x: 676.7, y: 462.6 },
-    { id: 4, x: 241.0, y: 546.4 }
+    { id: 4, x: 241.0, y: 546.4 },
+    { id: 5, x: 229.3, y: 236.7 }
   ]
 };
 
@@ -91,7 +92,6 @@ const ICON_ASSETS = {
   village: "assets/images/village.png",
   empty: "assets/images/empty.png",
   carriage: "assets/images/carriage.png",
-  ruin: "assets/images/ruin.png",
 };
 
 // Constants
