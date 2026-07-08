@@ -438,7 +438,7 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
 def build_basic_classifications(source: Dict, icon_map: Dict = None,
                                  base_map: Dict = None, gh_pois_768: List[Dict] = None,
                                  calib: Dict = None, existing_pois_by_map: Dict = None) -> Dict[str, Dict[str, str]]:
-    """生成 200 条 DLC 种子的基础版 5 类（church/mage/village/carriage/other/nothing）分类。
+    """生成 200 条 DLC 种子的基础版 5 类（church/mage/village/carriage/nothing）分类。
     返回 {seed_id(零填充4位): {"POI<n>": <class>, ...}}。"""
     if icon_map is None:
         icon_map = load_type_category_icon()
@@ -486,7 +486,12 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
             if best is None or best_d > 40 * 40:  # 基础版查询容差 40px
                 continue
             c = _classify_type(con["type"], source, icon_map, base_map)
-            cls[f"POI{best['id']}"] = c["basic"]
+            # 只让地标（教堂/法师塔/村庄/马车）标注候选点。候选点本身是地标点，附近的
+            # field boss（4xxxx）和未识别建筑（_classify_type 兜底为 other）不参与——否则
+            # boss 会覆盖真正的地标（如 1015 POI1 教堂被 46710 等 boss 盖成 other）。
+            # 非地标 construct 跳过，候选点保持初始 nothing。
+            if c["basic"] in ("church", "mage", "village", "carriage"):
+                cls[f"POI{best['id']}"] = c["basic"]
         out[sid.zfill(4)] = cls
     return out
 
