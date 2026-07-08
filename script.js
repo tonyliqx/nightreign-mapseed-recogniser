@@ -36,6 +36,7 @@ class NightreignMapRecogniser {
             mage: new Image(),
             village: new Image(),
             empty: new Image(),
+            carriage: new Image(),
             favicon: new Image()
         };
         this.showingSeedImage = false;
@@ -71,6 +72,7 @@ class NightreignMapRecogniser {
         this.images.mage.src = ICON_ASSETS.mage;
         this.images.village.src = ICON_ASSETS.village;
         this.images.empty.src = ICON_ASSETS.empty;
+        this.images.carriage.src = ICON_ASSETS.carriage;
         this.images.favicon.src = 'assets/images/church.png';
 
         // Add error handling for images
@@ -88,6 +90,9 @@ class NightreignMapRecogniser {
         };
         this.images.empty.onerror = () => {
             console.warn('Failed to load empty icon');
+        };
+        this.images.carriage.onerror = () => {
+            console.warn('Failed to load carriage icon');
         };
 
         // Load map images with error handling
@@ -607,7 +612,7 @@ class NightreignMapRecogniser {
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
             const menuWidth = 240; // 更新的菜单宽度
-            const menuHeight = 180; // 更新的菜单高度
+            const menuHeight = 220; // 4 项（mage/village/carriage/other）
 
             // 调整位置以确保菜单完全可见
             let adjustedX = x;
@@ -837,6 +842,10 @@ class NightreignMapRecogniser {
                 break;
             case 'other':
                 this.drawIcon(this.images.empty, x, y);
+                break;
+            case 'carriage':
+                this.drawIcon(this.images.carriage, x, y);
+                break;
             case 'unknown':
                 // Per user request, these are now invisible, removing the dot.
                 break;
@@ -1411,11 +1420,17 @@ class NightreignMapRecogniser {
                     }
                     console.log(`    ✅ MATCH: User said village and real data has village`);
                 } else if (userState === 'other') {
-                    if (realPOIType === 'church' || realPOIType === 'mage' || realPOIType === 'village' || !realPOIType) {
+                    if (realPOIType === 'church' || realPOIType === 'mage' || realPOIType === 'village' || realPOIType === 'carriage' || !realPOIType) {
                         console.log(`    ❌ REJECTED: User said other POI but real data has ${realPOIType || 'nothing'}`);
                         return false;
                     }
                     console.log(`    ✅ MATCH: User said other POI and real data has ${realPOIType}`);
+                } else if (userState === 'carriage') {
+                    if (realPOIType !== 'carriage') {
+                        console.log(`    ❌ REJECTED: User said carriage but real data has ${realPOIType || 'nothing'}`);
+                        return false;
+                    }
+                    console.log(`    ✅ MATCH: User said carriage and real data has carriage`);
                 }
             }
             console.log(`  ✅ Seed ${seedNum} PASSED all POI checks`);
@@ -1447,6 +1462,9 @@ class NightreignMapRecogniser {
                         if (determinedType === 'church' || determinedType === 'mage' || determinedType === 'village') {
                             console.log(`✅ Auto-setting POI ${poi.id} to ${determinedType}`);
                             this.poiStates[poi.id] = determinedType;
+                        } else if (determinedType === 'carriage') {
+                            console.log(`✅ Auto-setting POI ${poi.id} to carriage`);
+                            this.poiStates[poi.id] = 'carriage';
                         } else if (determinedType === 'other') {
                             console.log(`✅ Auto-clearing POI ${poi.id} (determined to be empty)`);
                             // Set to 'other', which will now be drawn as empty
@@ -1554,6 +1572,8 @@ class NightreignMapRecogniser {
                         possibleTypes.add('village');
                     } else if (realType === 'other') {
                         possibleTypes.add('other');
+                    } else if (realType === 'carriage') {
+                        possibleTypes.add('carriage');
                     }
                 });
 
@@ -1694,6 +1714,8 @@ class NightreignMapRecogniser {
                 button.innerHTML = `<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="${this.getText('poi.mage')}"><span data-i18n="poi.mage">${this.getText('poi.mage')}</span>`;
             } else if (type === 'village') {
                 button.innerHTML = `<img src="assets/images/village.png" class="suggestion-icon" alt="${this.getText('poi.village')}"><span data-i18n="poi.village">${this.getText('poi.village')}</span>`;
+            } else if (type === 'carriage') {
+                button.innerHTML = `<img src="assets/images/carriage.png" class="suggestion-icon" alt="${this.getText('poi.carriage')}"><span data-i18n="poi.carriage">${this.getText('poi.carriage')}</span>`;
             } else if (type === 'other') {
                 button.innerHTML = `<img src="assets/images/empty.png" class="suggestion-icon" alt="${this.getText('poi.empty')}"><span data-i18n="poi.empty">${this.getText('poi.empty')}</span>`;
             }

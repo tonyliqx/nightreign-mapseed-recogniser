@@ -438,7 +438,7 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
 def build_basic_classifications(source: Dict, icon_map: Dict = None,
                                  base_map: Dict = None, gh_pois_768: List[Dict] = None,
                                  calib: Dict = None, existing_pois_by_map: Dict = None) -> Dict[str, Dict[str, str]]:
-    """生成 200 条 DLC 种子的基础版 4 类（church/mage/village/other/nothing）分类。
+    """生成 200 条 DLC 种子的基础版 5 类（church/mage/village/carriage/other/nothing）分类。
     返回 {seed_id(零填充4位): {"POI<n>": <class>, ...}}。"""
     if icon_map is None:
         icon_map = load_type_category_icon()
@@ -496,7 +496,7 @@ def _filter_landmark_pois(gh_pois: List[Dict], basic_cls: Dict[str, Dict[str, st
     """过滤大空洞候选点：移除在所有大空洞种子都非地标（other/nothing）的点，剩余重新编号 1..N。
 
     主城 boss 群（城堡废墟/汉字标识 53xxx）、固定 evergaol/boss（52520）等永远不是
-    教堂/法师塔/村庄，不参与基础版选点（用户决策 2026-07-08：大空洞 POI 只保留可变地标）。
+    教堂/法师塔/村庄/马车，不参与基础版选点（用户决策 2026-07-08：大空洞 POI 只保留可变地标）。
 
     Args:
         gh_pois: cluster_great_hollow_pois 的候选点（含 id）。
@@ -505,7 +505,7 @@ def _filter_landmark_pois(gh_pois: List[Dict], basic_cls: Dict[str, Dict[str, st
             非大空洞种子的 POI1/4/6 是基础地图的点（教堂等），会误命中地标集合。
     Returns: 过滤后并重新编号 1..N 的候选点列表（原地改 id，原 id 丢弃）。
     """
-    landmark = {"church", "mage", "village"}
+    landmark = {"church", "mage", "village", "carriage"}
     sids = gh_seed_ids if gh_seed_ids is not None else basic_cls.keys()
     is_landmark = {p["id"]: any(basic_cls.get(sid, {}).get(f"POI{p['id']}") in landmark
                                 for sid in sids) for p in gh_pois}
