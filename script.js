@@ -623,6 +623,12 @@ class NightreignMapRecogniser {
 
             console.log(`Adjusted position: (${adjustedX}, ${adjustedY})`);
 
+            // 大空洞地形无村庄候选点（数据层已确认全 0），隐藏 village 菜单项避免误导选点
+            const villageItem = this.contextMenu.querySelector('.context-menu-item[data-type="village"]');
+            if (villageItem) {
+                villageItem.style.display = (this.chosenMap === 'Great Hollow') ? 'none' : '';
+            }
+
             // 设置菜单位置并显示
             this.contextMenu.style.left = `${adjustedX}px`;
             this.contextMenu.style.top = `${adjustedY}px`;
