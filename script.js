@@ -37,6 +37,7 @@ class NightreignMapRecogniser {
             village: new Image(),
             empty: new Image(),
             carriage: new Image(),
+            ruin: new Image(),
             favicon: new Image()
         };
         this.showingSeedImage = false;
@@ -73,6 +74,7 @@ class NightreignMapRecogniser {
         this.images.village.src = ICON_ASSETS.village;
         this.images.empty.src = ICON_ASSETS.empty;
         this.images.carriage.src = ICON_ASSETS.carriage;
+        this.images.ruin.src = ICON_ASSETS.ruin;
         this.images.favicon.src = 'assets/images/church.png';
 
         // Add error handling for images
@@ -93,6 +95,9 @@ class NightreignMapRecogniser {
         };
         this.images.carriage.onerror = () => {
             console.warn('Failed to load carriage icon');
+        };
+        this.images.ruin.onerror = () => {
+            console.warn('Failed to load ruin icon');
         };
 
         // Load map images with error handling
@@ -612,7 +617,7 @@ class NightreignMapRecogniser {
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
             const menuWidth = 240; // 更新的菜单宽度
-            const menuHeight = 220; // 4 项（mage/village/carriage/other）
+            const menuHeight = 275; // 至多 5 项（mage/village/carriage/其他/空白；大空洞隐藏 village）
 
             // 调整位置以确保菜单完全可见
             let adjustedX = x;
@@ -841,6 +846,11 @@ class NightreignMapRecogniser {
                 this.drawIcon(this.images.village, x, y);
                 break;
             case 'other':
+                // 城堡废墟等"非地标但有建筑"的点（dataset 'other'）
+                this.drawIcon(this.images.ruin, x, y);
+                break;
+            case 'empty':
+                // 该坐标无建筑（dataset 'nothing'→null），用户主动标记为"空"
                 this.drawIcon(this.images.empty, x, y);
                 break;
             case 'carriage':
@@ -1431,6 +1441,13 @@ class NightreignMapRecogniser {
                         return false;
                     }
                     console.log(`    ✅ MATCH: User said carriage and real data has carriage`);
+                } else if (userState === 'empty') {
+                    // 用户标记为"无建筑"：仅当真实数据也是 nothing（null）时通过
+                    if (realPOIType !== null) {
+                        console.log(`    ❌ REJECTED: User said empty but real data has ${realPOIType || 'nothing'}`);
+                        return false;
+                    }
+                    console.log(`    ✅ MATCH: User said empty and real data has nothing`);
                 }
             }
             console.log(`  ✅ Seed ${seedNum} PASSED all POI checks`);
@@ -1466,8 +1483,8 @@ class NightreignMapRecogniser {
                             console.log(`✅ Auto-setting POI ${poi.id} to carriage`);
                             this.poiStates[poi.id] = 'carriage';
                         } else if (determinedType === 'other') {
-                            console.log(`✅ Auto-clearing POI ${poi.id} (determined to be empty)`);
-                            // Set to 'other', which will now be drawn as empty
+                            // 所有剩余种子该坐标都是城堡废墟等非地标建筑（dataset 'other'）
+                            console.log(`✅ Auto-setting POI ${poi.id} to other (castle ruins)`);
                             this.poiStates[poi.id] = 'other';
                         } else if (!determinedType) {
                             // 所有剩余种子该坐标都无建筑（dataset 'nothing'→null）：标 unknown（渲染不可见），
@@ -1563,7 +1580,7 @@ class NightreignMapRecogniser {
                     const seedNum = seedRow[0];
                     const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
 
-                    // Only consider church, mage and village in the POI suggestions
+                    // 汇总该 POI 在剩余种子中可能出现的建筑类型，供用户区分种子
                     if (realType === 'church') {
                         possibleTypes.add('church');
                     } else if (realType === 'mage') {
@@ -1574,6 +1591,10 @@ class NightreignMapRecogniser {
                         possibleTypes.add('other');
                     } else if (realType === 'carriage') {
                         possibleTypes.add('carriage');
+                    } else if (!realType) {
+                        // 真实数据为 nothing（无建筑）：作为"空白"选项出现，
+                        // 让用户能主动区分"有建筑 vs 无建筑"的种子（如 POI4 马车 vs 空地）
+                        possibleTypes.add('empty');
                     }
                 });
 
@@ -1717,6 +1738,8 @@ class NightreignMapRecogniser {
             } else if (type === 'carriage') {
                 button.innerHTML = `<img src="assets/images/carriage.png" class="suggestion-icon" alt="${this.getText('poi.carriage')}"><span data-i18n="poi.carriage">${this.getText('poi.carriage')}</span>`;
             } else if (type === 'other') {
+                button.innerHTML = `<img src="assets/images/ruin.png" class="suggestion-icon" alt="${this.getText('poi.other')}"><span data-i18n="poi.other">${this.getText('poi.other')}</span>`;
+            } else if (type === 'empty') {
                 button.innerHTML = `<img src="assets/images/empty.png" class="suggestion-icon" alt="${this.getText('poi.empty')}"><span data-i18n="poi.empty">${this.getText('poi.empty')}</span>`;
             }
 

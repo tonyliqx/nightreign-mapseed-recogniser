@@ -91,6 +91,7 @@ const ICON_ASSETS = {
   village: "assets/images/village.png",
   empty: "assets/images/empty.png",
   carriage: "assets/images/carriage.png",
+  ruin: "assets/images/ruin.png",
 };
 
 // Constants
