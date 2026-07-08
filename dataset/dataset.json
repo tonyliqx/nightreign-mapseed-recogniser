@@ -19598,7 +19598,7 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1009": {
       "POI1": "church",
@@ -19679,13 +19679,13 @@
     },
     "1016": {
       "POI1": "other",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "mage",
       "POI4": "church"
     },
     "1017": {
       "POI1": "church",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
@@ -19699,7 +19699,7 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1020": {
       "POI1": "other",
@@ -19774,7 +19774,7 @@
     },
     "1026": {
       "POI1": "mage",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
@@ -19785,7 +19785,7 @@
       "POI4": "church"
     },
     "1028": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "church"
@@ -19865,7 +19865,7 @@
       "POI1": "other",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1036": {
       "POI1": "church",
@@ -19881,13 +19881,13 @@
     },
     "1038": {
       "POI1": "mage",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
     "1039": {
       "POI1": "church",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
@@ -19958,14 +19958,14 @@
     },
     "1045": {
       "POI1": "church",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
     "1046": {
       "POI1": "church",
       "POI2": "church",
-      "POI3": "other",
+      "POI3": "carriage",
       "POI4": "church"
     },
     "1047": {
@@ -19982,7 +19982,7 @@
     },
     "1049": {
       "POI1": "church",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
@@ -20058,7 +20058,7 @@
       "POI4": "nothing"
     },
     "1056": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "mage"
@@ -20161,7 +20161,7 @@
     "1067": {
       "POI1": "church",
       "POI2": "church",
-      "POI3": "other",
+      "POI3": "carriage",
       "POI4": "mage"
     },
     "1068": {
@@ -20174,7 +20174,7 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1070": {
       "POI1": "other",
@@ -20242,7 +20242,7 @@
       "POI11": "other"
     },
     "1075": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "church"
@@ -20256,7 +20256,7 @@
     "1077": {
       "POI1": "church",
       "POI2": "church",
-      "POI3": "other",
+      "POI3": "carriage",
       "POI4": "church"
     },
     "1078": {
@@ -20269,7 +20269,7 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1080": {
       "POI1": "nothing",
@@ -20653,7 +20653,7 @@
       "POI4": "church"
     },
     "1116": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "mage",
       "POI3": "church",
       "POI4": "church"
@@ -20686,12 +20686,12 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1122": {
       "POI1": "church",
       "POI2": "church",
-      "POI3": "other",
+      "POI3": "carriage",
       "POI4": "church"
     },
     "1123": {
@@ -20703,7 +20703,7 @@
     "1124": {
       "POI1": "church",
       "POI2": "church",
-      "POI3": "other",
+      "POI3": "carriage",
       "POI4": "church"
     },
     "1125": {
@@ -20716,7 +20716,7 @@
       "POI1": "church",
       "POI2": "mage",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1127": {
       "POI1": "church",
@@ -20725,7 +20725,7 @@
       "POI4": "church"
     },
     "1128": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "church"
@@ -20737,14 +20737,14 @@
       "POI4": "church"
     },
     "1130": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "other"
     },
     "1131": {
       "POI1": "other",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "mage"
     },
@@ -21192,7 +21192,7 @@
     "1173": {},
     "1174": {},
     "1175": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "church"
@@ -21201,13 +21201,13 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1177": {
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1178": {
       "POI1": "church",
@@ -21218,7 +21218,7 @@
     "1179": {
       "POI1": "church",
       "POI2": "church",
-      "POI3": "other",
+      "POI3": "carriage",
       "POI4": "church"
     },
     "1180": {
@@ -21235,13 +21235,13 @@
     },
     "1182": {
       "POI1": "church",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
     "1183": {
       "POI1": "church",
-      "POI2": "other",
+      "POI2": "carriage",
       "POI3": "church",
       "POI4": "church"
     },
@@ -21249,7 +21249,7 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1185": {
       "POI1": "church",
@@ -21267,7 +21267,7 @@
       "POI1": "church",
       "POI2": "church",
       "POI3": "church",
-      "POI4": "other"
+      "POI4": "carriage"
     },
     "1188": {
       "POI1": "other",
@@ -21294,7 +21294,7 @@
       "POI4": "church"
     },
     "1192": {
-      "POI1": "other",
+      "POI1": "carriage",
       "POI2": "church",
       "POI3": "church",
       "POI4": "church"

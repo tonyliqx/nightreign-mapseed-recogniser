@@ -77,6 +77,7 @@ const translations = {
     'poi.mage': '法师塔',
     'poi.village': '村庄',
     'poi.empty': '空白',
+    'poi.carriage': '马车',
     'poi.other': '其他',
     
     // Help modal
@@ -193,6 +194,7 @@ const translations = {
     'poi.mage': 'Mage Tower',
     'poi.village': 'Village',
     'poi.empty': 'Empty',
+    'poi.carriage': 'Carriage',
     'poi.other': 'Other',
     
     // Help modal

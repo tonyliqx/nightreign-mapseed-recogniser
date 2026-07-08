@@ -90,6 +90,7 @@ const ICON_ASSETS = {
   mage: "assets/images/mage-tower.png",
   village: "assets/images/village.png",
   empty: "assets/images/empty.png",
+  carriage: "assets/images/carriage.png",
 };
 
 // Constants

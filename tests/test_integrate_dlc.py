@@ -260,7 +260,7 @@ class TestBasicClassifications(unittest.TestCase):
 
     def test_values_in_taxonomy(self):
         cls = build_basic_classifications(self.source)
-        valid = {"church", "mage", "village", "other", "nothing"}
+        valid = {"church", "mage", "village", "carriage", "other", "nothing"}
         for sid, pois in cls.items():
             for v in pois.values():
                 self.assertIn(v, valid)
