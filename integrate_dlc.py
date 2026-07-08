@@ -234,11 +234,16 @@ def build_base_type_category(source: Dict[str, Any]) -> Dict[str, Dict]:
         t_int = int(t) if t.isdigit() else 0
         if 40000 <= t_int < 50000:
             adv = "fieldBoss"          # 4xxxx boss
+            # boss 在基础版语义恒为 other：boss 不是地标（church/mage/village），
+            # 投票会把"刷新在教堂/聚落旁的 boss"经坐标最近邻误投成 church（系统性
+            # 噪声，如 41000 count=665 被投成 church）。基础版只用地标 POI 消除种子，
+            # boss 不参与，故恒为 other。
+            basic = "other"
         elif t_int >= 50000:
             continue                    # 5xxxx 由图标识别表处理
         else:
             adv = _structure_adv(t_int)
-        basic = max(votes, key=votes.get)
+            basic = max(votes, key=votes.get)
         out[t] = {"adv": adv, "basic": basic, "count": sum(votes.values())}
     return out
 
