@@ -16,7 +16,7 @@
   "51000": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判：坐标分布验证 51000/51050/51051/51100-51109/51150 仅出现在 coord 1150-1153 四个教堂位置，且用户确认 1006.jpg 右下角该位置为教堂"},
   "51050": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判，依据同 51000（coord 1150-1153 教堂位置）"},
   "51051": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判，依据同 51000（coord 1150-1153 教堂位置）"},
-  "51100": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判，依据同 51000（coord 1150-1153 教堂位置）"},
+  "51100": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1007/1038(coord1152,POI1)、1116/1126(coord1151,POI2)、1068(coord1153,POI3)、1067/1131/1188(coord1150,POI4) 均为法师塔；与 51107 共享 coord 1150-1153 四点位，任务 A 漏改。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
   "51101": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判，依据同 51000（coord 1150-1153 教堂位置）"},
   "51102": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判，依据同 51000（coord 1150-1153 教堂位置）"},
   "51103": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判，依据同 51000（coord 1150-1153 教堂位置）"},
