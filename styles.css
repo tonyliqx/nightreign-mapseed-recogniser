@@ -1240,6 +1240,18 @@ body {
         min-height: 36px;
         line-height: 1.2;
     }
+
+    /* 移动端按钮区：调小外部方框(#interaction-section)与容器内边距/按钮间距，
+       挤出横向宽度，让三按钮文字尽量收敛到两行（用户方案）。
+       仅作用于按钮所在区块，不影响地图/夜王选择等其它 section。 */
+    #interaction-section {
+        padding: 10px;
+    }
+
+    .compact-button-row {
+        padding: 6px;
+        gap: 8px;
+    }
 }
 
 /* Animations */
