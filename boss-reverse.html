@@ -20,6 +20,8 @@ body{background:var(--bg);color:var(--text);
 header{display:flex;align-items:center;justify-content:space-between;margin:6px 0 10px;}
 header h1{font-size:1.2rem;margin:0;color:var(--gold-bright);letter-spacing:.5px;}
 header .sub{font-size:.76rem;color:var(--dim);margin:2px 0 0;}
+header h1 .h1-avatar{width:1.5em;height:1.5em;border-radius:50%;vertical-align:-.22em;margin-right:7px;
+  border:1px solid var(--gold);object-fit:cover;box-shadow:0 0 6px rgba(201,162,75,.35);}
 section{margin:14px 0;}
 .label{font-size:.78rem;color:var(--dim);margin:0 0 7px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .muted{color:var(--dim);}
@@ -78,7 +80,7 @@ footer{font-size:.7rem;color:var(--dim);text-align:center;margin-top:22px;line-h
 <div class="wrap">
   <header>
     <div>
-      <h1>🐺 夜王反推</h1>
+      <h1><img src="assets/icons/boss-reverse.png" class="h1-avatar" alt="">夜王反推</h1>
       <p class="sub">看第一夜 Boss，反推可能的夜王</p>
     </div>
     <div style="display:flex;gap:8px">
