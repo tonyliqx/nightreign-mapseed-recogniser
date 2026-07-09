@@ -1234,6 +1234,11 @@ body {
     .help-btn {
         padding: 10px 15px;
         font-size: 0.9rem;
+        /* 解除固定高度：窄屏文字换行成两行时让背景随内容撑高，
+           避免第二行溢出按钮背景（min-height 保持单行时的紧凑外观） */
+        height: auto;
+        min-height: 36px;
+        line-height: 1.2;
     }
 }
 
