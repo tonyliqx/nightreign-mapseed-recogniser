@@ -1,48 +1,590 @@
 {
-  "50001": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "城堡载体+右侧球形囚笼结构标识，永恒牢狱"},
-  "50011": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "多塔建筑+球形囚笼结构标识，永恒牢狱"},
-  "50020": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双塔平顶城门结构，城堡式建筑，非五类典型形态"},
-  "50030": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "多塔建筑+球形囚笼结构标识，永恒牢狱"},
-  "50040": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "多塔建筑+球形囚笼结构标识，永恒牢狱"},
-  "50050": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "多座细高塔楼+岩石地形，城堡废墟群，非单一独塔"},
-  "50100": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "多塔平顶依托岩石，城堡废墟，非五类典型形态"},
-  "50102": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双塔平顶城门结构，城堡式建筑"},
-  "50103": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双座带垛口城堡塔楼+城门结构"},
-  "50104": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双塔垛口城堡+城门+火盆，城堡式建筑"},
-  "50112": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双带垛口城堡塔楼+城门结构"},
-  "50113": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双座城堡式塔楼，防御性建筑"},
-  "50114": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "多座方形城堡塔+球形囚笼结构标识，永恒牢狱"},
-  "50116": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "双带垛口城堡塔楼，城堡式建筑"},
-  "51000": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "church", "note": "教堂。修正早先 vision 误判：坐标分布验证 51000/51050/51051/51100-51109/51150 仅出现在 coord 1150-1153 四个教堂位置，且用户确认 1006.jpg 右下角该位置为教堂"},
-  "51050": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "nothing", "note": "空白（基础版 nothing）。用户确认 1005(coord1151,POI2) 该位置无地标建筑（空）；coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51051": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "nothing", "note": "空白（基础版 nothing）。用户确认 1048(coord1152,POI1) 该位置无地标建筑（空）；coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51100": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1007/1038(coord1152,POI1)、1116/1126(coord1151,POI2)、1068(coord1153,POI3)、1067/1131/1188(coord1150,POI4) 均为法师塔；与 51107 共享 coord 1150-1153 四点位，任务 A 漏改。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51101": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1005(coord1152,POI1) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51102": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1048(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51103": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1025(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51104": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1055(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51105": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1029(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51106": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1019/1115(coord1152,POI1)、1036/1179/1192(coord1151,POI2)、1028/1058(coord1150,POI4) 均为法师塔，覆盖 3 个地标位；与 51100/51107/51109 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51107": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1018.jpg coord 1150 该点位为法师塔，非教堂；21ea070 据 coord 1150-1153 反推全族为教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51108": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1035(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51109": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "mage", "note": "法师塔（基础版 mage）。用户确认 1037/1066/1078/1122/1181/1185/1186(coord1151,POI2)、1009/1187(coord1152,POI1)、1124/1128(coord1150,POI4)、1178(coord1153,POI3) 均为法师塔，覆盖 4 个地标位；与 51100/51107 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"},
-  "51150": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "carriage", "note": "马车。基础版独立可标记类型 carriage（2026-07-08 从 other 拆出，让基础版能区分马车 vs 空白；用户确认 1019.jpg coord 1150 该点位为马车）。38 处全在大空洞 4 个 majorBase 槽位（index17-20）。高级版 adv/icon 暂保留 majorBase/cathedral_blank 待后续"},
-  "52400": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss（米兰达花/黄金化身等，coord 1107/1110 boss位置）。修正早先 vision 误判的法师塔"},
-  "52420": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss。修正早先 vision 误判的教堂——图标虽为教堂建筑形态，实为 boss 所在场景，coord 1107 是 boss 位置（用户确认为黄金化身）"},
-  "52450": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss。修正同 52420（图标为 boss 场景的教堂建筑，非地标教堂）"},
-  "52460": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss。修正早先 vision 误判的法师塔"},
-  "52500": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss（coord 1107/1110 boss位置）"},
-  "52520": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "废墟状建筑+球形囚笼结构标识，永恒牢狱"},
-  "52550": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss（coord 1107/1110 boss位置）"},
-  "52570": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "DLC田野Boss。修正早先 vision 误判的法师塔（coord 1110 是米兰达花 boss 位置）"},
-  "53580": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "多塔平顶垛口城堡废墟，无彩窗拱门等宗教特征"},
-  "53590": {"icon": "cathedral_blank", "adv": "majorBase", "basic": "other", "note": "主城固定大教堂（多座尖顶塔+拱门）。坐标分布验证：40 次出现 100% 集中在主城位置 (229.3, 220.3)，每局固定刷新，非野外可变教堂。basic=other 不参与基础版选点（用户决策 2026-07-08：上半部分主城信息不可定位）；adv=majorBase 保留供高级版识别主城位置"},
-  "53600": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "图标为汉字文字标识，无建筑/生物形态，归兜底"},
-  "53610": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "图标为汉字文字标识，无建筑/生物形态，归兜底"},
-  "53670": {"icon": "evergaol", "adv": "evergaol", "basic": "other", "note": "方形城堡塔+球形囚笼结构标识，永恒牢狱"},
-  "53680": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "多座方形城堡塔，防御性建筑，非五类典型形态"},
-  "53700": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "图标为汉字'失乡'文字标识，无建筑/生物形态，归兜底"},
-  "53710": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "图标为汉字'咒剑士'文字标识，无建筑/生物形态，归兜底"},
-  "53720": {"icon": "ruin_blank", "adv": "minorBase", "basic": "other", "note": "图标为抽象符号，无建筑/生物形态，归兜底"},
-  "53990": {"icon": "field_boss", "adv": "fieldBoss", "basic": "other", "note": "黄色兜帽长袍法师人物形象，生物/人物形态而非建筑，归野外boss；注：高频出现，可能是法师NPC/敌人而非稀有boss"}
+  "21400": {
+    "icon": "event",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "红点（特殊事件位置标记，非建筑）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "30000": {
+    "icon": "fort_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "小型要塞（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "30001": {
+    "icon": "fort_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "小型要塞（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "30300": {
+    "icon": "fort_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "小型要塞（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "30301": {
+    "icon": "fort_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "小型要塞（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32000": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32001": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32100": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32101": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32102": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32200": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "32201": {
+    "icon": "camp_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型营地（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34000": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34001": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34002": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34003": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34100": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34101": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34102": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34103": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34104": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34200": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "34300": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "大型遗迹（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "37900": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "village",
+    "note": "村庄。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "38000": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "other",
+    "note": "大教堂（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "38001": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "other",
+    "note": "大教堂（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "38100": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "other",
+    "note": "大教堂（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "38101": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "other",
+    "note": "大教堂（野外BOSS点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40000": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40001": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40002": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40003": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40004": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40005": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40006": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40007": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40008": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40009": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "法师塔。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40900": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40901": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40902": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40903": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40904": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40905": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40906": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40907": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40908": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "40909": {
+    "icon": "rise",
+    "adv": "minorBase",
+    "basic": "mage",
+    "note": "高级法师塔（与法师塔共享点位）。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "41000": {
+    "icon": "church",
+    "adv": "minorBase",
+    "basic": "church",
+    "note": "教堂。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "41001": {
+    "icon": "church",
+    "adv": "minorBase",
+    "basic": "church",
+    "note": "教堂。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "41010": {
+    "icon": "church",
+    "adv": "minorBase",
+    "basic": "church",
+    "note": "教堂。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "41011": {
+    "icon": "church",
+    "adv": "minorBase",
+    "basic": "church",
+    "note": "教堂。用户权威分类 2026-07-09：普通模式 POI 仅村庄/法师塔(含高级)/教堂，其余野外BOSS点位=other（覆盖投票与4xxxx boss规则）"
+  },
+  "50001": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "城堡载体+右侧球形囚笼结构标识，永恒牢狱"
+  },
+  "50011": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "多塔建筑+球形囚笼结构标识，永恒牢狱"
+  },
+  "50020": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双塔平顶城门结构，城堡式建筑，非五类典型形态"
+  },
+  "50030": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "多塔建筑+球形囚笼结构标识，永恒牢狱"
+  },
+  "50040": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "多塔建筑+球形囚笼结构标识，永恒牢狱"
+  },
+  "50050": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "多座细高塔楼+岩石地形，城堡废墟群，非单一独塔"
+  },
+  "50100": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "多塔平顶依托岩石，城堡废墟，非五类典型形态"
+  },
+  "50102": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双塔平顶城门结构，城堡式建筑"
+  },
+  "50103": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双座带垛口城堡塔楼+城门结构"
+  },
+  "50104": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双塔垛口城堡+城门+火盆，城堡式建筑"
+  },
+  "50112": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双带垛口城堡塔楼+城门结构"
+  },
+  "50113": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双座城堡式塔楼，防御性建筑"
+  },
+  "50114": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "多座方形城堡塔+球形囚笼结构标识，永恒牢狱"
+  },
+  "50116": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "双带垛口城堡塔楼，城堡式建筑"
+  },
+  "51000": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "church",
+    "note": "教堂。修正早先 vision 误判：坐标分布验证 51000/51050/51051/51100-51109/51150 仅出现在 coord 1150-1153 四个教堂位置，且用户确认 1006.jpg 右下角该位置为教堂"
+  },
+  "51050": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "nothing",
+    "note": "空白（基础版 nothing）。用户确认 1005(coord1151,POI2) 该位置无地标建筑（空）；coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51051": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "nothing",
+    "note": "空白（基础版 nothing）。用户确认 1048(coord1152,POI1) 该位置无地标建筑（空）；coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51100": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1007/1038(coord1152,POI1)、1116/1126(coord1151,POI2)、1068(coord1153,POI3)、1067/1131/1188(coord1150,POI4) 均为法师塔；与 51107 共享 coord 1150-1153 四点位，任务 A 漏改。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51101": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1005(coord1152,POI1) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51102": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1048(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51103": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1025(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51104": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1055(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51105": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1029(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51106": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1019/1115(coord1152,POI1)、1036/1179/1192(coord1151,POI2)、1028/1058(coord1150,POI4) 均为法师塔，覆盖 3 个地标位；与 51100/51107/51109 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51107": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1018.jpg coord 1150 该点位为法师塔，非教堂；21ea070 据 coord 1150-1153 反推全族为教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51108": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1035(coord1151,POI2) 为法师塔；与 51100/51107/51109/51106 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51109": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "mage",
+    "note": "法师塔（基础版 mage）。用户确认 1037/1066/1078/1122/1181/1185/1186(coord1151,POI2)、1009/1187(coord1152,POI1)、1124/1128(coord1150,POI4)、1178(coord1153,POI3) 均为法师塔，覆盖 4 个地标位；与 51100/51107 同族，coord 1150-1153 反推全族教堂有误。高级版 icon/adv 暂保留 majorBase（用户仅报告基础版）"
+  },
+  "51150": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "carriage",
+    "note": "马车。基础版独立可标记类型 carriage（2026-07-08 从 other 拆出，让基础版能区分马车 vs 空白；用户确认 1019.jpg coord 1150 该点位为马车）。38 处全在大空洞 4 个 majorBase 槽位（index17-20）。高级版 adv/icon 暂保留 majorBase/cathedral_blank 待后续"
+  },
+  "52400": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss（米兰达花/黄金化身等，coord 1107/1110 boss位置）。修正早先 vision 误判的法师塔"
+  },
+  "52420": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss。修正早先 vision 误判的教堂——图标虽为教堂建筑形态，实为 boss 所在场景，coord 1107 是 boss 位置（用户确认为黄金化身）"
+  },
+  "52450": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss。修正同 52420（图标为 boss 场景的教堂建筑，非地标教堂）"
+  },
+  "52460": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss。修正早先 vision 误判的法师塔"
+  },
+  "52500": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss（coord 1107/1110 boss位置）"
+  },
+  "52520": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "废墟状建筑+球形囚笼结构标识，永恒牢狱"
+  },
+  "52550": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss（coord 1107/1110 boss位置）"
+  },
+  "52570": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "DLC田野Boss。修正早先 vision 误判的法师塔（coord 1110 是米兰达花 boss 位置）"
+  },
+  "53580": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "多塔平顶垛口城堡废墟，无彩窗拱门等宗教特征"
+  },
+  "53590": {
+    "icon": "cathedral_blank",
+    "adv": "majorBase",
+    "basic": "other",
+    "note": "主城固定大教堂（多座尖顶塔+拱门）。坐标分布验证：40 次出现 100% 集中在主城位置 (229.3, 220.3)，每局固定刷新，非野外可变教堂。basic=other 不参与基础版选点（用户决策 2026-07-08：上半部分主城信息不可定位）；adv=majorBase 保留供高级版识别主城位置"
+  },
+  "53600": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "图标为汉字文字标识，无建筑/生物形态，归兜底"
+  },
+  "53610": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "图标为汉字文字标识，无建筑/生物形态，归兜底"
+  },
+  "53670": {
+    "icon": "evergaol",
+    "adv": "evergaol",
+    "basic": "other",
+    "note": "方形城堡塔+球形囚笼结构标识，永恒牢狱"
+  },
+  "53680": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "多座方形城堡塔，防御性建筑，非五类典型形态"
+  },
+  "53700": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "图标为汉字'失乡'文字标识，无建筑/生物形态，归兜底"
+  },
+  "53710": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "图标为汉字'咒剑士'文字标识，无建筑/生物形态，归兜底"
+  },
+  "53720": {
+    "icon": "ruin_blank",
+    "adv": "minorBase",
+    "basic": "other",
+    "note": "图标为抽象符号，无建筑/生物形态，归兜底"
+  },
+  "53990": {
+    "icon": "field_boss",
+    "adv": "fieldBoss",
+    "basic": "other",
+    "note": "黄色兜帽长袍法师人物形象，生物/人物形态而非建筑，归野外boss；注：高频出现，可能是法师NPC/敌人而非稀有boss"
+  }
 }
