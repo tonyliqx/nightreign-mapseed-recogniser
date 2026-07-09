@@ -18,7 +18,7 @@ const translations = {
     // Loading
     'loading.init': '正在初始化地图数据，请稍候...',
     'loading.seeds': '已加载 {count} 个种子',
-    'loading.classified': '已加载 {count} 个种子（{classified} 个已分类）',
+    'loading.classified': '已加载 {count} 个种子（320 本体+200DLC）',
     
     // Seed display
     'seed.alt_text': '种子 {seed}',
@@ -141,7 +141,7 @@ const translations = {
     // Loading
     'loading.init': 'Initializing map data, please wait...',
     'loading.seeds': 'Loaded {count} seeds',
-    'loading.classified': 'Loaded {count} seeds ({classified} classified)',
+    'loading.classified': 'Loaded {count} seeds (320 base + 200 DLC)',
     
     // Seed display
     'seed.alt_text': 'Seed {seed}',
