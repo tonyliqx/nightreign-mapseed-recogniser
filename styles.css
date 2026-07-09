@@ -209,7 +209,7 @@ body {
     background: linear-gradient(135deg, rgba(74, 144, 226, 0.20), rgba(74, 144, 226, 0.07));
     transform: translateY(-1px);
 }
-.boss-reverse-card .brc-icon { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.boss-reverse-card .brc-icon { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .boss-reverse-card .brc-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .boss-reverse-card .brc-title { font-size: 1.05rem; font-weight: 600; color: #7eb8ff; }
 .boss-reverse-card .brc-desc { font-size: 0.82rem; opacity: 0.75; }
