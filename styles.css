@@ -211,7 +211,7 @@ body {
 }
 .boss-reverse-card .brc-icon { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .boss-reverse-card .brc-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
-.boss-reverse-card .brc-title { font-size: 1.05rem; font-weight: 600; color: #7eb8ff; }
+.boss-reverse-card .brc-title { font-size: 1.05rem; font-weight: 600; color: #ffd700; }
 .boss-reverse-card .brc-desc { font-size: 0.82rem; opacity: 0.75; }
 .boss-reverse-card .brc-enter { font-size: 0.85rem; color: #4a90e2; white-space: nowrap; }
 
