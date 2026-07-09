@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0d0b0a">
+<title>夜王反推 · 黑夜君临</title>
+<style>
+:root{
+  --bg:#0d0b0a; --panel:#1a1614; --panel2:#241e1a; --border:#3a2f26;
+  --gold:#c9a24b; --gold-bright:#e8c878; --text:#ece2d0; --dim:#9a8b78;
+  --danger:#d36a64; --green:#7cb86a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.55;font-size:16px;padding-bottom:64px;}
+.wrap{max-width:560px;margin:0 auto;padding:12px 14px;}
+header{display:flex;align-items:center;justify-content:space-between;margin:6px 0 10px;}
+header h1{font-size:1.2rem;margin:0;color:var(--gold-bright);letter-spacing:.5px;}
+header .sub{font-size:.76rem;color:var(--dim);margin:2px 0 0;}
+section{margin:14px 0;}
+.label{font-size:.78rem;color:var(--dim);margin:0 0 7px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.muted{color:var(--dim);}
+.search{position:relative;}
+.search input{width:100%;padding:13px 14px;border-radius:11px;border:1px solid var(--border);
+  background:var(--panel);color:var(--text);font-size:1rem;outline:none;}
+.search input::placeholder{color:#6b5d4d;}
+.search input:focus{border-color:var(--gold);}
+.dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--panel2);
+  border:1px solid var(--border);border-radius:11px;overflow:hidden;z-index:20;max-height:300px;overflow-y:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.dropdown .item{padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;}
+.dropdown .item:last-child{border-bottom:none;}
+.dropdown .item:active{background:var(--panel);}
+.dropdown .item b{font-size:.96rem;font-weight:600;}
+.dropdown .item .meta{font-size:.72rem;color:var(--dim);margin-top:2px;}
+.dropdown .item .meta .ok{color:var(--green);}
+.dropdown .empty{padding:16px;color:var(--dim);font-size:.85rem;text-align:center;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;}
+.tag{padding:8px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--border);
+  color:var(--text);font-size:.84rem;cursor:pointer;font-family:inherit;line-height:1;}
+.tag:active{transform:scale(.96);}
+.tag.sel{background:var(--gold);color:#1a1206;border-color:var(--gold);font-weight:600;}
+.tag.lock{border-color:var(--green);color:var(--green);}
+.tag.static{cursor:default;background:var(--bg);}
+.tag.static:active{transform:none;}
+.result{margin-top:6px;}
+.lock-card{background:linear-gradient(135deg,#2a2018,#171311);border:1px solid var(--gold);
+  border-radius:14px;padding:18px 16px 16px;text-align:center;box-shadow:0 0 0 1px rgba(201,162,75,.15) inset;}
+.lock-card .k{font-size:.78rem;color:var(--dim);letter-spacing:1px;}
+.lock-card .v{font-size:1.55rem;color:var(--gold-bright);font-weight:700;margin:7px 0 4px;}
+.lock-card .v .id{font-size:.9rem;color:var(--dim);font-weight:400;}
+.lock-card .why{font-size:.74rem;color:var(--dim);line-height:1.6;}
+.cand{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.cand .top{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.cand .nm{font-size:1.05rem;font-weight:600;color:var(--gold-bright);}
+.cand .id{font-size:.72rem;color:var(--dim);margin-left:3px;}
+.badge{font-size:.66rem;padding:2px 8px;border-radius:999px;border:1px solid var(--border);color:var(--dim);white-space:nowrap;}
+.badge.joker{color:var(--danger);border-color:var(--danger);}
+.bar{height:8px;background:var(--bg);border-radius:99px;overflow:hidden;margin:9px 0 5px;}
+.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));border-radius:99px;}
+.cand .pct{font-size:.76rem;color:var(--dim);}
+.cand .pool{font-size:.75rem;color:var(--dim);margin-top:9px;padding-top:9px;border-top:1px dashed var(--border);line-height:1.7;}
+.cand .pool b{color:var(--text);font-weight:500;}
+.hint{text-align:center;color:var(--dim);font-size:.86rem;padding:34px 12px;line-height:1.8;}
+.note{font-size:.74rem;color:var(--dim);margin-top:8px;line-height:1.7;}
+.note.warn{color:var(--danger);}
+footer{font-size:.7rem;color:var(--dim);text-align:center;margin-top:22px;line-height:1.7;border-top:1px solid var(--border);padding-top:14px;}
+.btn-clear{font-size:.74rem;color:var(--dim);background:none;border:none;cursor:pointer;text-decoration:underline;padding:2px 4px;font-family:inherit;}
+.btn-reset{font-size:.74rem;color:var(--gold);background:var(--panel);border:1px solid var(--border);
+  padding:6px 11px;border-radius:8px;cursor:pointer;font-family:inherit;}
+@media(max-width:360px){body{font-size:15px;}.lock-card .v{font-size:1.35rem;}.cand .nm{font-size:1rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>🐺 夜王反推</h1>
+      <p class="sub">看第一夜 Boss，反推可能的夜王</p>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="index.html" class="btn-reset" style="text-decoration:none">← 返回</a>
+      <button id="reset" class="btn-reset">重置</button>
+    </div>
+  </header>
+
+  <section>
+    <p class="label">① 第一夜 Boss</p>
+    <div class="search">
+      <input id="q1" type="text" placeholder="搜索：中文名 / 别名 / 拼音首字母（如 jz）" autocomplete="off" autocapitalize="off">
+      <div id="dd1" class="dropdown" style="display:none"></div>
+    </div>
+    <div id="tags1" class="tags"></div>
+  </section>
+
+  <section id="sec2" style="display:none">
+    <p class="label">② 第二夜 Boss <span class="muted">（可选 → 精确锁定）</span>
+      <button id="clr2" class="btn-clear">清除选择</button></p>
+    <div id="tags2" class="tags"></div>
+  </section>
+
+  <section>
+    <p class="label">③ 结果</p>
+    <div id="result" class="result"></div>
+  </section>
+
+  <footer>
+    数据来源：夜王Boss统计与反推.xlsx · 共 520 个种子<br>
+    别名基于玩家社区俗称，如有出入可在代码 <b>DATA</b> 区自行增补
+  </footer>
+</div>
+
+<script>
+// ====== 数据（由 Excel 自动生成；别名/拼音首字母在此修改）======
+const DATA = {"nightlords":[{"id":0,"name":"三狼","aliases":[],"pinyin":"sl","seeds":50,"day1Pool":[{"id":"4929","name":"女王&剑圣","count":25},{"id":"4924","name":"铃珠猎人","count":25}],"day2Pool":[{"id":"4840","name":"恶兆妖鬼","count":28},{"id":"4860","name":"大树骑兵","count":22}]},{"id":1,"name":"大嘴","aliases":[],"pinyin":"dz","seeds":50,"day1Pool":[{"id":"4917","name":"石像鬼","count":13},{"id":"4928","name":"黑夜骑兵","count":12},{"id":"4890","name":"蚯蚓脸","count":9},{"id":"4780","name":"贪食魔龙","count":8},{"id":"4800","name":"弗雷迪亚","count":8}],"day2Pool":[{"id":"4919","name":"古龙","count":22},{"id":"4925","name":"熔炉&河马","count":15},{"id":"4926","name":"偏地老将","count":13}]},{"id":2,"name":"慧心虫","aliases":[],"pinyin":"hxc","seeds":50,"day1Pool":[{"id":"4990","name":"树灵","count":12},{"id":"4927","name":"战地老将","count":11},{"id":"4770","name":"唤声船","count":9},{"id":"4810","name":"熔铁恶魔","count":9},{"id":"4790","name":"百足恶魔","count":9}],"day2Pool":[{"id":"4918","name":"大土龙","count":18},{"id":"4850","name":"龙装骑兵","count":17},{"id":"4923","name":"龙人士兵","count":15}]},{"id":3,"name":"征兆","aliases":[],"pinyin":"zz","seeds":50,"day1Pool":[{"id":"4910","name":"接肢君王","count":12},{"id":"4917","name":"石像鬼","count":11},{"id":"4780","name":"贪食魔龙","count":9},{"id":"4890","name":"蚯蚓脸","count":9},{"id":"4810","name":"熔铁恶魔","count":9}],"day2Pool":[{"id":"4920","name":"坠星成兽","count":20},{"id":"4880","name":"双神皮","count":18},{"id":"4860","name":"大树骑兵","count":12}]},{"id":4,"name":"山羊","aliases":[],"pinyin":"sy","seeds":50,"day1Pool":[{"id":"4930","name":"王室幽魂","count":12},{"id":"4927","name":"战地老将","count":11},{"id":"4770","name":"唤声船","count":9},{"id":"4790","name":"百足恶魔","count":9},{"id":"4800","name":"弗雷迪亚","count":9}],"day2Pool":[{"id":"4921","name":"死鸟","count":22},{"id":"4925","name":"熔炉&河马","count":19},{"id":"4880","name":"双神皮","count":9}]},{"id":5,"name":"人马","aliases":[],"pinyin":"rm","seeds":50,"day1Pool":[{"id":"4930","name":"王室幽魂","count":12},{"id":"4928","name":"黑夜骑兵","count":11},{"id":"4780","name":"贪食魔龙","count":9},{"id":"4790","name":"百足恶魔","count":9},{"id":"4890","name":"蚯蚓脸","count":9}],"day2Pool":[{"id":"4820","name":"无名王者","count":22},{"id":"4926","name":"偏地老将","count":15},{"id":"4923","name":"龙人士兵","count":13}]},{"id":6,"name":"冰龙","aliases":[],"pinyin":"bl","seeds":50,"day1Pool":[{"id":"4910","name":"接肢君王","count":12},{"id":"4990","name":"树灵","count":11},{"id":"4810","name":"熔铁恶魔","count":9},{"id":"4800","name":"弗雷迪亚","count":9},{"id":"4770","name":"唤声船","count":9}],"day2Pool":[{"id":"4830","name":"舞娘","count":22},{"id":"4850","name":"龙装骑兵","count":19},{"id":"4880","name":"双神皮","count":9}]},{"id":7,"name":"黑夜王","aliases":[],"pinyin":"hyw","seeds":50,"day1Pool":[{"id":"4917","name":"石像鬼","count":6},{"id":"4928","name":"黑夜骑兵","count":6},{"id":"4927","name":"战地老将","count":5},{"id":"4990","name":"树灵","count":4},{"id":"4930","name":"王室幽魂","count":4},{"id":"4910","name":"接肢君王","count":4},{"id":"4890","name":"蚯蚓脸","count":3},{"id":"4929","name":"女王&剑圣","count":3},{"id":"4924","name":"铃珠猎人","count":3},{"id":"4780","name":"贪食魔龙","count":3},{"id":"4770","name":"唤声船","count":3},{"id":"4810","name":"熔铁恶魔","count":2},{"id":"4800","name":"弗雷迪亚","count":2},{"id":"4790","name":"百足恶魔","count":2}],"day2Pool":[{"id":"4918","name":"大土龙","count":5},{"id":"4925","name":"熔炉&河马","count":5},{"id":"4921","name":"死鸟","count":4},{"id":"4919","name":"古龙","count":4},{"id":"4830","name":"舞娘","count":4},{"id":"4820","name":"无名王者","count":4},{"id":"4850","name":"龙装骑兵","count":4},{"id":"4920","name":"坠星成兽","count":4},{"id":"4926","name":"偏地老将","count":4},{"id":"4860","name":"大树骑兵","count":4},{"id":"4840","name":"恶兆妖鬼","count":3},{"id":"4923","name":"龙人士兵","count":3},{"id":"4880","name":"双神皮","count":2}]},{"id":8,"name":"七仙女","aliases":[],"pinyin":"qxn","seeds":60,"day1Pool":[{"id":"5200","name":"咒剑士","count":30},{"id":"5203","name":"洞底恶魔","count":30}],"day2Pool":[{"id":"5210","name":"鲜血君王","count":30},{"id":"5213","name":"恶魔王子","count":30}]},{"id":9,"name":"垃圾王","aliases":[],"pinyin":"ljw","seeds":60,"day1Pool":[{"id":"5201","name":"大红熊","count":30},{"id":"5202","name":"死骑士","count":30}],"day2Pool":[{"id":"5211","name":"神兽舞狮","count":30},{"id":"5212","name":"亚尔特留斯","count":30}]}],"day1Bosses":[{"id":"5200","name":"咒剑士","candidates":[8],"locked":true,"aliases":["咒","curseblade"],"pinyin":"zjs"},{"id":"5201","name":"大红熊","candidates":[9],"locked":true,"aliases":["红熊","熊","rugalea"],"pinyin":"dhx"},{"id":"5202","name":"死骑士","candidates":[9],"locked":true,"aliases":["死骑","death knight"],"pinyin":"sqs"},{"id":"5203","name":"洞底恶魔","candidates":[8],"locked":true,"aliases":["洞底","深渊兽"],"pinyin":"ddem"},{"id":"4924","name":"铃珠猎人","candidates":[0,7],"locked":false,"aliases":["铃珠","铃铛","bell bearing"],"pinyin":"lzlr"},{"id":"4929","name":"女王&剑圣","candidates":[0,7],"locked":false,"aliases":["亚人女王","亚人剑圣","亚人女王&亚人剑圣","女王","剑圣"],"pinyin":"nwjs"},{"id":"4910","name":"接肢君王","candidates":[3,6,7],"locked":false,"aliases":["葛瑞克","接肢","接肢王","godrick"],"pinyin":"jzjw"},{"id":"4917","name":"石像鬼","candidates":[1,3,7],"locked":false,"aliases":["双石像鬼","石像","gargoyle"],"pinyin":"sxg"},{"id":"4927","name":"战地老将","candidates":[2,4,7],"locked":false,"aliases":["老将","战将","commander","老将尼奥"],"pinyin":"zdlj"},{"id":"4928","name":"黑夜骑兵","candidates":[1,5,7],"locked":false,"aliases":["夜骑","黑夜骑士","黑骑","night cavalry"],"pinyin":"hyqb"},{"id":"4930","name":"王室幽魂","candidates":[4,5,7],"locked":false,"aliases":["幽魂","王室鬼","revenant"],"pinyin":"wsyh"},{"id":"4990","name":"树灵","candidates":[2,6,7],"locked":false,"aliases":["树卫","黄金树化身","erdtree avatar"],"pinyin":"sl"},{"id":"4770","name":"唤声船","candidates":[2,4,6,7],"locked":false,"aliases":["死灵船","骨船","船","tibia mariner"],"pinyin":"hsc"},{"id":"4780","name":"贪食魔龙","candidates":[1,3,5,7],"locked":false,"aliases":["魔龙","贪食","飞龙"],"pinyin":"tsml"},{"id":"4790","name":"百足恶魔","candidates":[2,4,5,7],"locked":false,"aliases":["蜈蚣","百足"],"pinyin":"bzem"},{"id":"4800","name":"弗雷迪亚","candidates":[1,4,6,7],"locked":false,"aliases":["弗雷"],"pinyin":"fldy"},{"id":"4810","name":"熔铁恶魔","candidates":[2,3,6,7],"locked":false,"aliases":["熔铁"],"pinyin":"rtem"},{"id":"4890","name":"蚯蚓脸","candidates":[1,3,5,7],"locked":false,"aliases":["蚯蚓","溃疡树灵","ulcerated","肉虫"],"pinyin":"qyl"}],"day2Bosses":[{"id":"5210","name":"鲜血君王","candidates":[8],"locked":true,"aliases":["鲜血","blood lord"],"pinyin":"xxjw"},{"id":"5211","name":"神兽舞狮","candidates":[9],"locked":true,"aliases":["舞狮","神兽","divine beast"],"pinyin":"ssws"},{"id":"5212","name":"亚尔特留斯","candidates":[9],"locked":true,"aliases":["亚爷","artorius","阿尔特留斯"],"pinyin":"yetls"},{"id":"5213","name":"恶魔王子","candidates":[8],"locked":true,"aliases":["恶魔王子","demon prince"],"pinyin":"emwz"},{"id":"4820","name":"无名王者","candidates":[5,7],"locked":false,"aliases":["无名","nameless king"],"pinyin":"wmwz"},{"id":"4830","name":"舞娘","candidates":[6,7],"locked":false,"aliases":["dancer"],"pinyin":"wn"},{"id":"4840","name":"恶兆妖鬼","candidates":[0,7],"locked":false,"aliases":["恶兆","妖鬼","margit","玛尔基特"],"pinyin":"emyg"},{"id":"4918","name":"大土龙","candidates":[2,7],"locked":false,"aliases":["土龙"],"pinyin":"dtl"},{"id":"4919","name":"古龙","candidates":[1,7],"locked":false,"aliases":["龙","ancient dragon"],"pinyin":"gl"},{"id":"4920","name":"坠星成兽","candidates":[3,7],"locked":false,"aliases":["坠星","成兽","星兽","fallstar beast"],"pinyin":"zxcs"},{"id":"4921","name":"死鸟","candidates":[4,7],"locked":false,"aliases":["死之鸟","死亡鸟","deathbird","鸟"],"pinyin":"sn"},{"id":"4850","name":"龙装骑兵","candidates":[2,6,7],"locked":false,"aliases":["龙装","龙骑兵","dragonkin"],"pinyin":"lzqb"},{"id":"4860","name":"大树骑兵","candidates":[0,3,7],"locked":false,"aliases":["大树守卫","树守卫","tree sentinel","大树"],"pinyin":"dsqb"},{"id":"4923","name":"龙人士兵","candidates":[2,5,7],"locked":false,"aliases":["龙人","dragonkin soldier"],"pinyin":"lrjb"},{"id":"4925","name":"熔炉&河马","candidates":[1,4,7],"locked":false,"aliases":["熔炉","河马","crucible"],"pinyin":"rlhp"},{"id":"4926","name":"偏地老将","candidates":[1,5,7],"locked":false,"aliases":["偏地","niall"],"pinyin":"pdlj"},{"id":"4880","name":"双神皮","candidates":[3,4,6,7],"locked":false,"aliases":["神皮","godskin"],"pinyin":"ssp"}],"combos":{"4770_4830":{"lord":6,"seeds":2},"4770_4860":{"lord":7,"seeds":1},"4770_4918":{"lord":2,"seeds":4},"4770_4920":{"lord":7,"seeds":1},"4770_4921":{"lord":4,"seeds":6},"4770_4925":{"lord":4,"seeds":2},"4780_4860":{"lord":3,"seeds":3},"4780_4880":{"lord":3,"seeds":1},"4780_4920":{"lord":3,"seeds":5},"4780_4923":{"lord":5,"seeds":2},"4780_4925":{"lord":1,"seeds":2},"4790_4840":{"lord":7,"seeds":1},"4790_4850":{"lord":2,"seeds":1},"4790_4880":{"lord":4,"seeds":3},"4790_4918":{"lord":2,"seeds":5},"4790_4921":{"lord":4,"seeds":4},"4790_4925":{"lord":4,"seeds":2},"4790_4926":{"lord":5,"seeds":3},"4800_4850":{"lord":6,"seeds":3},"4800_4880":{"lord":6,"seeds":1},"4800_4921":{"lord":4,"seeds":3},"4800_4926":{"lord":1,"seeds":1},"4810_4830":{"lord":6,"seeds":5},"4810_4860":{"lord":3,"seeds":1},"4810_4920":{"lord":3,"seeds":5},"4810_4923":{"lord":2,"seeds":4},"4890_4820":{"lord":5,"seeds":4},"4890_4840":{"lord":7,"seeds":1},"4890_4850":{"lord":7,"seeds":1},"4890_4860":{"lord":3,"seeds":3},"4890_4880":{"lord":3,"seeds":5},"4890_4919":{"lord":1,"seeds":2},"4890_4920":{"lord":3,"seeds":1},"4890_4921":{"lord":7,"seeds":1},"4890_4923":{"lord":5,"seeds":4},"4890_4925":{"lord":1,"seeds":2},"4910_4820":{"lord":7,"seeds":1},"4910_4850":{"lord":6,"seeds":6},"4910_4860":{"lord":3,"seeds":1},"4910_4920":{"lord":3,"seeds":7},"4910_4925":{"lord":7,"seeds":1},"4917_4830":{"lord":7,"seeds":2},"4917_4850":{"lord":7,"seeds":1},"4917_4860":{"lord":3,"seeds":4},"4917_4880":{"lord":3,"seeds":5},"4917_4918":{"lord":7,"seeds":1},"4917_4919":{"lord":1,"seeds":6},"4917_4920":{"lord":3,"seeds":2},"4917_4921":{"lord":7,"seeds":1},"4917_4926":{"lord":1,"seeds":3},"4924_4860":{"lord":0,"seeds":11},"4924_4920":{"lord":7,"seeds":1},"4924_4923":{"lord":7,"seeds":1},"4927_4850":{"lord":2,"seeds":5},"4927_4860":{"lord":7,"seeds":1},"4927_4880":{"lord":4,"seeds":2},"4927_4920":{"lord":7,"seeds":1},"4927_4921":{"lord":4,"seeds":4},"4927_4923":{"lord":2,"seeds":3},"4928_4820":{"lord":5,"seeds":4},"4928_4860":{"lord":7,"seeds":1},"4928_4880":{"lord":7,"seeds":1},"4928_4919":{"lord":1,"seeds":5},"4928_4920":{"lord":7,"seeds":1},"4929_4840":{"lord":0,"seeds":14},"4929_4850":{"lord":7,"seeds":1},"4929_4860":{"lord":0,"seeds":11},"4929_4919":{"lord":7,"seeds":1},"4929_4926":{"lord":7,"seeds":1},"4930_4850":{"lord":7,"seeds":1},"4930_4880":{"lord":4,"seeds":3},"4930_4918":{"lord":7,"seeds":1},"4930_4919":{"lord":7,"seeds":1},"4930_4921":{"lord":4,"seeds":5},"4930_4923":{"lord":5,"seeds":2},"4930_4925":{"lord":4,"seeds":4},"4930_4926":{"lord":5,"seeds":5},"4990_4830":{"lord":6,"seeds":6},"4990_4860":{"lord":7,"seeds":1},"4990_4880":{"lord":6,"seeds":2},"4990_4918":{"lord":2,"seeds":5},"4990_4921":{"lord":7,"seeds":2},"4990_4923":{"lord":2,"seeds":3},"4990_4926":{"lord":7,"seeds":1},"5200_5210":{"lord":8,"seeds":30},"5201_5211":{"lord":9,"seeds":20},"5201_5212":{"lord":9,"seeds":10},"5202_5211":{"lord":9,"seeds":10},"5202_5212":{"lord":9,"seeds":20},"5203_5213":{"lord":8,"seeds":30}}};
+
+const NL = Object.fromEntries(DATA.nightlords.map(n=>[n.id,n]));
+const D1 = DATA.day1Bosses, D2 = DATA.day2Bosses, COMBOS = DATA.combos;
+const JOKER = 7;
+
+let sel1 = null, sel2 = null;
+
+const $ = id => document.getElementById(id);
+const norm = s => String(s||'').toLowerCase().replace(/[\s&·\-_,，。·]/g,'');
+
+function matchBoss(b,q){
+  const qq=norm(q); if(!qq) return false;
+  if(norm(b.name).includes(qq)) return true;
+  if(String(b.id)===qq) return true;
+  if((b.pinyin||'').toLowerCase().includes(qq)) return true;
+  return (b.aliases||[]).some(a=>norm(a).includes(qq));
+}
+function getCount(lid){ const h=NL[lid].day1Pool.find(p=>p.id===(sel1&&sel1.id)); return h?h.count:0; }
+
+// ---- 第一夜搜索 ----
+const q1=$('q1'), dd1=$('dd1'), tags1=$('tags1');
+function renderDd1(){
+  const q=q1.value.trim();
+  if(!q){ dd1.style.display='none'; return; }
+  let list=D1.filter(b=>matchBoss(b,q))
+    .sort((a,b)=>(a.locked?-1:0)-(b.locked?-1:0) || a.candidates.length-b.candidates.length)
+    .slice(0,8);
+  if(!list.length){ dd1.innerHTML='<div class="empty">没找到，试试拼音首字母（如 jz = 接肢）</div>'; dd1.style.display='block'; return; }
+  dd1.innerHTML=list.map(b=>{
+    const m=b.locked?`<span class="ok">✓ 独占 → ${NL[b.candidates[0]].name}</span>`
+                    : `候选 ${b.candidates.length} 个夜王`;
+    return `<div class="item" data-id="${b.id}"><b>${b.name}</b><div class="meta">${m}</div></div>`;
+  }).join('');
+  dd1.style.display='block';
+}
+q1.addEventListener('input',renderDd1);
+q1.addEventListener('focus',function(){this.select();renderDd1();});
+dd1.addEventListener('click',e=>{const it=e.target.closest('.item');if(!it)return;const b=D1.find(x=>x.id===it.dataset.id);if(b)select1(b);});
+document.addEventListener('click',e=>{if(!e.target.closest('.search'))dd1.style.display='none';});
+
+function renderTags1(){
+  tags1.innerHTML=D1.map(b=>{
+    const sel=sel1&&sel1.id===b.id;
+    return `<button class="tag${sel?' sel':''}${b.locked?' lock':''}" data-id="${b.id}">${b.name}</button>`;
+  }).join('');
+}
+tags1.addEventListener('click',e=>{const t=e.target.closest('.tag');if(!t)return;const b=D1.find(x=>x.id===t.dataset.id);if(b)select1(b);});
+
+function select1(b){
+  sel1=b; sel2=null;
+  q1.value=b.name; dd1.style.display='none';
+  renderTags1(); renderSec2(); renderResult();
+  document.querySelector('section:nth-of-type(2)').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ---- 第二夜 ----
+function renderSec2(){
+  const sec2=$('sec2'), tags2=$('tags2');
+  if(!sel1){sec2.style.display='none';return;}
+  sec2.style.display='block';
+  const d2ids=new Set();
+  Object.keys(COMBOS).forEach(k=>{const[a,c]=k.split('_');if(a===sel1.id)d2ids.add(c);});
+  const list=D2.filter(b=>d2ids.has(b.id));
+  tags2.innerHTML=list.map(b=>{
+    const sel=sel2&&sel2.id===b.id;
+    return `<button class="tag${sel?' sel':''}" data-id="${b.id}">${b.name}</button>`;
+  }).join('') || '<span class="muted" style="font-size:.8rem">该 Boss 无锁定组合（独占或池过广）</span>';
+}
+$('tags2').addEventListener('click',e=>{
+  const t=e.target.closest('.tag');if(!t)return;
+  const b=D2.find(x=>x.id===t.dataset.id); if(!b)return;
+  sel2=(sel2&&sel2.id===b.id)?null:b;
+  renderSec2();renderResult();
+});
+$('clr2').addEventListener('click',()=>{sel2=null;renderSec2();renderResult();});
+$('result').addEventListener('click',e=>{
+  const t=e.target.closest('[data-d2]');if(!t)return;
+  const b=D2.find(x=>x.id===t.dataset.d2);if(!b)return;
+  sel2=(sel2&&sel2.id===b.id)?null:b;
+  renderSec2();renderResult();
+  document.querySelector('section:nth-of-type(3)').scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+
+// ---- 结果 ----
+function pairsFor(day1id,lid){
+  const out=[];
+  for(const k in COMBOS){const p=k.split('_');if(p[0]===day1id&&COMBOS[k].lord===lid)out.push([p[1],COMBOS[k].seeds]);}
+  out.sort((x,y)=>y[1]-x[1]); return out;
+}
+function lordCard(lid){
+  const nl=NL[lid], joker=lid===JOKER;
+  const pairs=pairsFor(sel1.id,lid);
+  const tags=pairs.length
+    ? pairs.map(([d2id])=>`<button class="tag" data-d2="${d2id}">${(D2.find(x=>x.id===d2id)||{}).name||d2id}</button>`).join('')
+    : `<span class="muted">未唯一锁定</span>`;
+  return `<div class="cand">
+    <div class="top"><div><span class="nm">${nl.name}</span><span class="id">#${nl.id}</span></div>
+      ${joker?'<span class="badge joker">⚠ 万金油</span>':''}</div>
+    <div class="pool"><b>配对第二夜：</b>${tags}</div>
+  </div>`;
+}
+function lockHTML(k,title,name,lid,why){
+  return `<div class="lock-card"><div class="k">${title}</div>
+    <div class="v">${name} <span class="id">#${lid}</span></div>
+    <div class="why">${why}</div></div>`;
+}
+function renderResult(){
+  const R=$('result');
+  if(!sel1){R.innerHTML='<div class="hint">👆 先选择或搜索<br>第一夜 Boss</div>';return;}
+  let html='';
+  if(sel1.locked){
+    const lid=sel1.candidates[0];
+    html=lockHTML('k','🎯 锁定夜王',NL[lid].name,lid,`${sel1.name} 是 <b>${NL[lid].name}</b> 独占的第一夜 Boss，可直接判定`);
+    html+=secondHint(lid);
+    R.innerHTML=html;return;
+  }
+  if(sel2){
+    const key=`${sel1.id}_${sel2.id}`;
+    if(COMBOS[key]){
+      const lid=COMBOS[key].lord, seeds=COMBOS[key].seeds;
+      html=lockHTML('k','🎯 组合锁定夜王',NL[lid].name,lid,`${sel1.name} + ${sel2.name} 唯一对应 <b>${NL[lid].name}</b>（共 ${seeds} 个种子）`);
+      html+=secondHint(lid,true);
+      R.innerHTML=html;return;
+    }
+    const inter=sel1.candidates.filter(id=>sel2.candidates.includes(id));
+    if(inter.length){
+      html=`<p class="label" style="margin-top:0">两夜 Boss 交集候选（${inter.length}）</p>`;
+      html+=inter.sort((a,b)=>getCount(b)-getCount(a)).map(id=>lordCard(id)).join('');
+      R.innerHTML=html;return;
+    }
+    R.innerHTML='<div class="hint">该组合无锁定且无交集候选<br>请核对 Boss 选择</div>';return;
+  }
+  const cands=sel1.candidates.slice();
+  cands.sort((a,b)=>getCount(b)-getCount(a));
+  html=`<p class="label" style="margin-top:0">看到「${sel1.name}」时，可能是这些夜王：</p>`;
+  html+=cands.map(id=>lordCard(id)).join('');
+  if(cands.includes(JOKER))
+    html+=`<p class="note warn">⚠ 黑夜王(#7) 是终极夜王，Boss 池最广，几乎总在候选里——单凭第一夜难以排除，建议结合第二夜精确锁定。</p>`;
+  R.innerHTML=html;
+}
+function secondHint(lid,fromCombo){
+  if(fromCombo) return '';
+  const nl=NL[lid];
+  const pairs=pairsFor(sel1.id,lid);
+  const head=pairs.length?`该夜王在「${sel1.name}」下的第二夜（点击可填入第二夜）`:'该夜王第二夜可能遇到的 Boss（全局参考）';
+  const tags=pairs.length
+    ? pairs.map(([d2id])=>`<button class="tag" data-d2="${d2id}">${(D2.find(x=>x.id===d2id)||{}).name||d2id}</button>`).join('')
+    : nl.day2Pool.slice(0,6).map(p=>`<span class="tag static">${p.name}</span>`).join('');
+  return `<div style="margin-top:12px"><div class="label">${head}</div><div class="tags">${tags}</div></div>`;
+}
+
+$('reset').addEventListener('click',()=>{sel1=null;sel2=null;q1.value='';dd1.style.display='none';renderTags1();renderSec2();renderResult();});
+renderTags1();renderResult();
+</script>
+</body>
+</html>
