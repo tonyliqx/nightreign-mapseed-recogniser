@@ -153,10 +153,14 @@ def build_maptype_fix(source: Dict[str, Any], target_override: Dict[str, str] = 
 import re
 
 def _load_basic_pois_by_map() -> Dict[str, List[Dict]]:
-    """从 data.js 读 POIS_BY_MAP：{map: [{id,x,y}, ...]}（768 空间）。"""
+    """从 data.js 读 POIS_BY_MAP：{map: [{id,x,y}, ...]}（768 空间）。
+
+    key 可带引号（"Rotted Woods"、"Great Hollow"）也可不带（Default 等），
+    故正则用可选引号 "?...?"?。旧版只匹配不带引号的裸 key，漏掉了带引号 key，
+    导致 Rotted Woods 候选点解析为空、该地形 DLC 种子分类全空。"""
     txt = open(os.path.join(PROJ_DIR, "data.js"), encoding="utf-8").read()
     out = {}
-    for m in re.finditer(r"(\w[\w ]*):\s*\[(.*?)\]", txt, re.S):
+    for m in re.finditer(r'"?(\w[\w ]*)"?\s*:\s*\[(.*?)\]', txt, re.S):
         name, body = m.group(1), m.group(2)
         if name not in SPECIAL_TO_MAP.values():
             continue
