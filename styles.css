@@ -1234,8 +1234,11 @@ body {
     .help-btn {
         padding: 10px 15px;
         font-size: 0.9rem;
-        /* 解除固定高度：窄屏文字换行成两行时让背景随内容撑高，
-           避免第二行溢出按钮背景（min-height 保持单行时的紧凑外观） */
+        /* 固定等宽：宽度 = 3字+图标+内边距，强制每行≤3字（6字→3+3，5字→3+2），
+           三个方格宽度一致。flex:0 0 auto 防止在 flex 容器里被拉伸/压缩。
+           height:auto 让两行文字撑高背景，min-height 保持单行紧凑。 */
+        width: 7em;
+        flex: 0 0 auto;
         height: auto;
         min-height: 36px;
         line-height: 1.2;
