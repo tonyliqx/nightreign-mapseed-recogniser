@@ -115,7 +115,7 @@ const translations = {
 
     // Boss reverse (夜王反推入口卡片)
     'bossreverse.card_title': '夜王反推',
-    'bossreverse.card_desc': '看第一夜 Boss，反推可能的夜王',
+    'bossreverse.card_desc': '根据第一夜BOSS，反推可能的夜王',
     'bossreverse.card_enter': '进入反推 →',
     
     // Errors
@@ -236,7 +236,7 @@ const translations = {
 
     // Boss reverse entry card
     'bossreverse.card_title': 'Nightlord Reverse',
-    'bossreverse.card_desc': 'See Night 1 Boss, deduce the Nightlord',
+    'bossreverse.card_desc': 'Based on Night 1 Boss, deduce the Nightlord',
     'bossreverse.card_enter': 'Open →',
     
     // Errors
