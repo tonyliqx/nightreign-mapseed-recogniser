@@ -3,7 +3,7 @@ const translations = {
   'zh': {
     // App metadata
     'app.title': '艾尔登法环 黑夜君临：地图种子识别器',
-    'app.version': '版本 1.1',
+    'app.version': '版本 1.2',
     'app.subtitle': '黑夜君临 版本 1.01.3（汉化）',
     'app.description': '交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子',
     'app.keywords': '艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具',
@@ -112,6 +112,11 @@ const translations = {
     'footer.credit1': '提供地图数据',
     'footer.credit2': '提供识别器基础代码',
     'footer.credit3': '提供汉化版地图种子',
+
+    // Boss reverse (夜王反推入口卡片)
+    'bossreverse.card_title': '🐺 夜王反推',
+    'bossreverse.card_desc': '看第一夜 Boss，反推可能的夜王',
+    'bossreverse.card_enter': '进入反推 →',
     
     // Errors
     'error.load_failed': '数据加载失败，请刷新页面。',
@@ -121,7 +126,7 @@ const translations = {
   'en': {
     // App metadata
     'app.title': 'Elden Ring: Nightreign Map Seed Recognizer',
-    'app.version': 'Version 1.1',
+    'app.version': 'Version 1.2',
     'app.subtitle': 'Nightreign Version 1.01.3 (Localized)',
     'app.description': 'Interactive tool to identify Nightreign map seeds based on point-of-interest locations',
     'app.keywords': 'Elden Ring, Nightreign, map, seed, recognizer, POI, tool',
@@ -228,6 +233,11 @@ const translations = {
     'footer.credit1': 'for providing map data',
     'footer.credit2': 'for providing recognizer base code',
     'footer.credit3': 'for providing localized map seeds',
+
+    // Boss reverse entry card
+    'bossreverse.card_title': '🐺 Nightlord Reverse',
+    'bossreverse.card_desc': 'See Night 1 Boss, deduce the Nightlord',
+    'bossreverse.card_enter': 'Open →',
     
     // Errors
     'error.load_failed': 'Failed to load data. Please refresh the page.',

@@ -189,6 +189,32 @@ body {
     opacity: 0.7;
 }
 
+/* 夜王反推入口卡片（主区顶部，点击跳转 boss-reverse.html） */
+.boss-reverse-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(201, 162, 75, 0.12), rgba(201, 162, 75, 0.04));
+    border: 1px solid rgba(201, 162, 75, 0.35);
+    color: #ece2d0;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.boss-reverse-card:hover {
+    border-color: rgba(201, 162, 75, 0.7);
+    background: linear-gradient(135deg, rgba(201, 162, 75, 0.20), rgba(201, 162, 75, 0.07));
+    transform: translateY(-1px);
+}
+.boss-reverse-card .brc-icon { font-size: 1.6rem; line-height: 1; }
+.boss-reverse-card .brc-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.boss-reverse-card .brc-title { font-size: 1.05rem; font-weight: 600; color: #e8c878; }
+.boss-reverse-card .brc-desc { font-size: 0.82rem; opacity: 0.75; }
+.boss-reverse-card .brc-enter { font-size: 0.85rem; color: #c9a24b; white-space: nowrap; }
+
 .attribution {
     font-size: 1.1rem;
     font-weight: 500;
