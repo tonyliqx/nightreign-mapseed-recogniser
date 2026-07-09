@@ -114,7 +114,7 @@ const translations = {
     'footer.credit3': '提供汉化版地图种子',
 
     // Boss reverse (夜王反推入口卡片)
-    'bossreverse.card_title': '🐺 夜王反推',
+    'bossreverse.card_title': '夜王反推',
     'bossreverse.card_desc': '看第一夜 Boss，反推可能的夜王',
     'bossreverse.card_enter': '进入反推 →',
     
@@ -235,7 +235,7 @@ const translations = {
     'footer.credit3': 'for providing localized map seeds',
 
     // Boss reverse entry card
-    'bossreverse.card_title': '🐺 Nightlord Reverse',
+    'bossreverse.card_title': 'Nightlord Reverse',
     'bossreverse.card_desc': 'See Night 1 Boss, deduce the Nightlord',
     'bossreverse.card_enter': 'Open →',
     
