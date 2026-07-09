@@ -30,7 +30,7 @@ const translations = {
     'nightlord.gladius': '三狼',
     'nightlord.adel': '大嘴',
     'nightlord.gnoster': '慧心虫',
-    'nightlord.maris': '水皮蛋',
+    'nightlord.maris': '征兆',
     'nightlord.libra': '山羊',
     'nightlord.fulghor': '人马',
     'nightlord.caligo': '冰龙',
