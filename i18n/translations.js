@@ -78,6 +78,11 @@ const translations = {
     'poi.village': '村庄',
     'poi.empty': '空白',
     'poi.carriage': '马车',
+    'gh.disambig.hint': '已锁定到 2 个种子，标记下方紫色 A/B 两点可进一步区分',
+    'gh.disambig.aLabel': '守教堂BOSS',
+    'gh.disambig.bLabel': 'POI2左下遗迹',
+    'gh.disambig.blood': '血遗迹',
+    'gh.disambig.poison': '毒遗迹',
 
     // Help modal
     'help.title': '帮助与提示',
@@ -199,6 +204,11 @@ const translations = {
     'poi.village': 'Village',
     'poi.empty': 'Empty',
     'poi.carriage': 'Carriage',
+    'gh.disambig.hint': 'Narrowed to 2 seeds — mark the purple A/B points below to distinguish',
+    'gh.disambig.aLabel': 'Church-guarding Boss',
+    'gh.disambig.bLabel': 'Ruin SW of POI2',
+    'gh.disambig.blood': 'Blood Ruin',
+    'gh.disambig.poison': 'Poison Ruin',
     
     // Help modal
     'help.title': 'Help & Tips',
