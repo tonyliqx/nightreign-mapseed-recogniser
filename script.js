@@ -34,6 +34,8 @@ class NightreignMapRecogniser {
         this.disambigStates = { A: null, B: null };
         this.disambigActive = false;        // 当前是否处于消歧模式（GH + 剩 2 碰撞种子）
         this.currentDisambigPair = null;    // 当前碰撞对 [seedNum1, seedNum2]（升序）
+        this.currentDisambigPoint = null;   // 当前正在选择的消歧点（GH_DISAMBIG_POINTS.A/B）
+        this.disambigMenu = null;           // #disambig-menu DOM 引用（setupContextMenu 初始化）
         this.images = {
             maps: {},
             church: new Image(),
@@ -208,6 +210,7 @@ class NightreignMapRecogniser {
             if (e.key === 'Escape') {
                 this.hideHelpModal();
                 this.hideContextMenu();
+                this.hideDisambigMenu();
             }
         });
 
@@ -223,6 +226,10 @@ class NightreignMapRecogniser {
         document.addEventListener('click', (e) => {
             if (!e.target.closest('#poi-context-menu')) {
                 this.hideContextMenu();
+            }
+            if (this.disambigMenu && this.disambigMenu.style.display === 'block' &&
+                !e.target.closest('#disambig-menu')) {
+                this.hideDisambigMenu();
             }
         });
     }
@@ -584,6 +591,7 @@ class NightreignMapRecogniser {
 
     setupContextMenu() {
         this.contextMenu = document.getElementById('poi-context-menu');
+        this.disambigMenu = document.getElementById('disambig-menu');
 
         // 处理上下文菜单项点击
         document.querySelectorAll('.context-menu-item').forEach(item => {
@@ -645,10 +653,16 @@ class NightreignMapRecogniser {
                 !this.contextMenu.contains(e.target)) {
                 this.hideContextMenu();
             }
+            if (this.disambigMenu &&
+                this.disambigMenu.style.display === 'block' &&
+                !this.disambigMenu.contains(e.target)) {
+                this.hideDisambigMenu();
+            }
         }, { passive: true });
     }
 
     showContextMenu(x, y) {
+        this.hideDisambigMenu();  // 与消歧菜单互斥
         if (this.contextMenu) {
             console.log(`Showing context menu at (${x}, ${y})`);
 
@@ -961,6 +975,7 @@ class NightreignMapRecogniser {
         let touchMoved = false;
         let lastTouchedPoi = null;
         let spawnToggledInTouchstart = false;  // 防止 touchend 对 spawn 阶段 touchstart 已处理的 spawn 二次切换
+        let lastTouchedDisambigPoint = null;  // 当前触摸的消歧点（touchstart 命中时记录）
 
         // Left click - place church
         this.canvas.addEventListener('click', (e) => {
@@ -983,6 +998,16 @@ class NightreignMapRecogniser {
                     console.log('Spawn phase active - landmark clicks ignored (select spawn or skip)');
                 }
                 return;
+            }
+
+            // 地标阶段：消歧点优先（点击弹候选菜单；左键/右键行为一致）
+            if (this.disambigActive) {
+                const dp = this.findClickedDisambigPoint(pos.x, pos.y);
+                if (dp) {
+                    this.showDisambigMenu(dp, e.clientX, e.clientY);
+                    e.stopPropagation();  // 阻止冒泡到 document click 自关闭
+                    return;
+                }
             }
 
             // 地标阶段：POI 优先
@@ -1022,7 +1047,23 @@ class NightreignMapRecogniser {
             e.preventDefault();
             e.stopPropagation();
 
-            if (!touchStarted || touchMoved || !lastTouchedPoi) return;
+            if (!touchStarted || touchMoved) return;
+
+            // 消歧点长按 → 弹候选菜单（短按已在 touchend 处理，长按在此兜底）
+            if (lastTouchedDisambigPoint) {
+                const touch = e.changedTouches ? e.changedTouches[0] : e.touches[0];
+                this.showDisambigMenu(lastTouchedDisambigPoint, touch.clientX, touch.clientY);
+                this.hideLongPressIndicator();
+                if (navigator.vibrate) navigator.vibrate(50);
+                touchStarted = false;
+                touchMoved = false;
+                lastTouchedPoi = null;
+                lastTouchedDisambigPoint = null;
+                if (touchTimeout) { clearTimeout(touchTimeout); touchTimeout = null; }
+                return;
+            }
+
+            if (!lastTouchedPoi) return;
 
             console.log("Long press detected!");
 
@@ -1095,6 +1136,19 @@ class NightreignMapRecogniser {
                 return;
             }
 
+            // 地标阶段：消歧点优先（消歧模式下，短按/长按都弹候选菜单）
+            if (this.disambigActive) {
+                const dp = this.findClickedDisambigPoint(pos.x, pos.y);
+                if (dp) {
+                    lastTouchedDisambigPoint = dp;
+                    lastTouchedPoi = null;
+                    this.showLongPressIndicator(dp.x, dp.y);
+                    if (touchTimeout) clearTimeout(touchTimeout);
+                    touchTimeout = setTimeout(() => { longPressHandler(e); }, 500);
+                    return;
+                }
+            }
+
             // 地标阶段：POI 优先（保持既有长按/短按逻辑完全不变）
             const poi = this.findClickedPOI(pos.x, pos.y);
             lastTouchedPoi = poi;
@@ -1128,7 +1182,11 @@ class NightreignMapRecogniser {
             console.log(`Touch duration: ${touchDuration}ms, moved: ${touchMoved}`);
 
             if (touchDuration < 500 && !touchMoved) {
-                if (lastTouchedPoi) {
+                if (lastTouchedDisambigPoint) {
+                    // 消歧点短按 → 弹候选菜单
+                    const touch = e.changedTouches ? e.changedTouches[0] : e.touches[0];
+                    this.showDisambigMenu(lastTouchedDisambigPoint, touch.clientX, touch.clientY);
+                } else if (lastTouchedPoi) {
                     console.log(`Short tap on POI ${lastTouchedPoi.id}`);
 
                     // If POI is already marked (not a dot), clear it back to dot
@@ -1167,6 +1225,7 @@ class NightreignMapRecogniser {
 
             touchStarted = false;
             lastTouchedPoi = null;
+            lastTouchedDisambigPoint = null;
         }, { passive: false });
 
         this.canvas.addEventListener('touchmove', (e) => {
@@ -1203,6 +1262,7 @@ class NightreignMapRecogniser {
             this.hideLongPressIndicator();
             touchStarted = false;
             lastTouchedPoi = null;
+            lastTouchedDisambigPoint = null;
         }, { passive: true });
 
         // Right click - show context menu
@@ -1213,6 +1273,14 @@ class NightreignMapRecogniser {
                 return;
             }
             const pos = this.getMousePos(e);
+            // 消歧点右键 → 弹候选菜单（与 POI 右键一致）
+            if (this.disambigActive) {
+                const dp = this.findClickedDisambigPoint(pos.x, pos.y);
+                if (dp) {
+                    this.showDisambigMenu(dp, e.clientX, e.clientY);
+                    return;
+                }
+            }
             const poi = this.findClickedPOI(pos.x, pos.y);
             if (poi) {
                 this.currentRightClickedPOI = poi;
@@ -1279,6 +1347,103 @@ class NightreignMapRecogniser {
             const distance = Math.sqrt(dx * dx + dy * dy);
             return distance <= ICON_SIZE / 2 * 1.5;  // 与 findClickedPOI 同触控半径
         });
+    }
+
+    // 命中检测：返回点击到的消歧点（GH_DISAMBIG_POINTS.A/B），仅在消歧模式下检测
+    findClickedDisambigPoint(x, y) {
+        if (!this.disambigActive) return null;
+        const points = [GH_DISAMBIG_POINTS.A, GH_DISAMBIG_POINTS.B];
+        for (const pt of points) {
+            const dx = x - pt.x;
+            const dy = y - pt.y;
+            if (Math.sqrt(dx * dx + dy * dy) <= ICON_SIZE / 2 * 1.5) {  // 与 findClickedPOI 同触控半径
+                return pt;
+            }
+        }
+        return null;
+    }
+
+    // 动态生成并显示消歧菜单：A 点列碰撞对的候选 BOSS 名；B 点列碰撞对实际出现的血/毒。
+    showDisambigMenu(point, clientX, clientY) {
+        if (!this.disambigMenu || !this.currentDisambigPair) return;
+        this.hideContextMenu();  // 与 POI 菜单互斥
+        this.currentDisambigPoint = point;
+        const lang = this.languageManager.getCurrentLanguage();
+        const t = (key) => (translations[lang] && translations[lang][key]) || key;
+        const [s1, s2] = this.currentDisambigPair;
+        const vals = [GH_DISAMBIG[s1], GH_DISAMBIG[s2]];
+        const field = (point.kind === 'boss') ? 'bossA' : 'ruinB';
+        // 候选值去重保序
+        const values = [];
+        vals.forEach(d => { if (d[field] && !values.includes(d[field])) values.push(d[field]); });
+        const currentState = (point.kind === 'boss') ? this.disambigStates.A : this.disambigStates.B;
+
+        let html = `<div style="padding:8px 12px;font-weight:bold;font-size:13px;color:#b266ff;border-bottom:1px solid rgba(255,255,255,0.1);">${t(point.labelKey)}</div>`;
+        values.forEach(v => {
+            const label = (point.kind === 'boss')
+                ? v
+                : t(v === '血' ? 'gh.disambig.blood' : 'gh.disambig.poison');
+            const sel = (v === currentState) ? ' style="background:rgba(178,102,255,0.25);"' : '';
+            html += `<div class="context-menu-item" data-value="${v}"${sel}><span>${label}</span></div>`;
+        });
+        if (currentState) {
+            html += `<div class="context-menu-item" data-value="" style="border-top:1px solid rgba(255,255,255,0.1);color:#999;"><span>${t('gh.disambig.clear')}</span></div>`;
+        }
+        this.disambigMenu.innerHTML = html;
+
+        // 绑定候选项点击/触摸（data-value="" 即清除）
+        this.disambigMenu.querySelectorAll('.context-menu-item').forEach(item => {
+            const choose = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.setDisambigState(point, item.dataset.value || null);
+                this.hideDisambigMenu();
+            };
+            item.addEventListener('click', choose);
+            item.addEventListener('touchend', choose);
+        });
+
+        // 定位（与 showContextMenu 同策略，保证视口内可见）
+        const vw = window.innerWidth, vh = window.innerHeight;
+        const menuWidth = 220;
+        const menuHeight = 40 + values.length * 40 + (currentState ? 40 : 0);
+        let x = clientX, y = clientY;
+        if (x + menuWidth > vw) x = vw - menuWidth - 20;
+        if (y + menuHeight > vh) y = vh - menuHeight - 20;
+        this.disambigMenu.style.left = `${x}px`;
+        this.disambigMenu.style.top = `${y}px`;
+        this.disambigMenu.style.display = 'block';
+        this.disambigMenu.style.opacity = '0';
+        this.disambigMenu.style.transform = 'scale(0.95)';
+        this.disambigMenu.style.transition = 'opacity 0.2s, transform 0.2s';
+        setTimeout(() => {
+            if (this.disambigMenu) {
+                this.disambigMenu.style.opacity = '1';
+                this.disambigMenu.style.transform = 'scale(1)';
+            }
+        }, 10);
+    }
+
+    // 设置某个消歧点的选择值（null=清除），然后重绘 + 过滤
+    setDisambigState(point, value) {
+        if (point.kind === 'boss') {
+            this.disambigStates.A = value;
+        } else {
+            this.disambigStates.B = value;
+        }
+        this.drawMap(this.images.maps[this.chosenMap]);
+        this.updateSeedFiltering();
+    }
+
+    hideDisambigMenu() {
+        if (this.disambigMenu && this.disambigMenu.style.display === 'block') {
+            this.disambigMenu.style.opacity = '0';
+            this.disambigMenu.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                if (this.disambigMenu) this.disambigMenu.style.display = 'none';
+            }, 200);
+        }
+        this.currentDisambigPoint = null;
     }
 
     getValidSpawns() {

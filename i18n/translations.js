@@ -83,6 +83,7 @@ const translations = {
     'gh.disambig.bLabel': 'POI2左下遗迹',
     'gh.disambig.blood': '血遗迹',
     'gh.disambig.poison': '毒遗迹',
+    'gh.disambig.clear': '清除',
 
     // Help modal
     'help.title': '帮助与提示',
@@ -209,6 +210,7 @@ const translations = {
     'gh.disambig.bLabel': 'Ruin SW of POI2',
     'gh.disambig.blood': 'Blood Ruin',
     'gh.disambig.poison': 'Poison Ruin',
+    'gh.disambig.clear': 'Clear',
     
     // Help modal
     'help.title': 'Help & Tips',
