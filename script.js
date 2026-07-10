@@ -534,6 +534,7 @@ class NightreignMapRecogniser {
     }
 
     updateGameState() {
+        this.resetDisambig();  // 切换地图时清除上一张图的消歧状态（避免 A/B 坐标错画到新地图）
         if (this.chosenMap) {
             // Map is selected - show full functionality
             this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
@@ -1446,6 +1447,15 @@ class NightreignMapRecogniser {
         this.currentDisambigPoint = null;
     }
 
+    // 重置所有消歧状态（切换地图 / 重置标记时调用）
+    resetDisambig() {
+        this.disambigStates = { A: null, B: null };
+        this.disambigActive = false;
+        this.currentDisambigPair = null;
+        this.currentDisambigPoint = null;
+        this.hideDisambigMenu();
+    }
+
     getValidSpawns() {
         const candidates = (typeof SPAWN_POINTS_BY_MAP !== 'undefined' && SPAWN_POINTS_BY_MAP[this.chosenMap]) || [];
         // 未选夜王：该地形的每个出生点在「某些夜王下」都可能出现，全部显示
@@ -1463,6 +1473,7 @@ class NightreignMapRecogniser {
         // Clear only nightlord selection and POI states, keep map selection
         this.chosenNightlord = null;
         this.poiStates = this.initializePOIStates();
+        this.resetDisambig();  // 清除大空洞碰撞消歧状态
         this.showingSeedImage = false;
 
         // Hide POI suggestions and nightlord info
