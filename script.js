@@ -30,6 +30,10 @@ class NightreignMapRecogniser {
         this.spawnPhase = true;      // true=出生点阶段（锁地标），false=地标阶段
         this.currentPOIs = [];
         this.poiStates = {};
+        // 大空洞碰撞消歧状态：A=守教堂BOSS名, B='血'|'毒'；null=未选
+        this.disambigStates = { A: null, B: null };
+        this.disambigActive = false;        // 当前是否处于消歧模式（GH + 剩 2 碰撞种子）
+        this.currentDisambigPair = null;    // 当前碰撞对 [seedNum1, seedNum2]（升序）
         this.images = {
             maps: {},
             church: new Image(),
@@ -482,6 +486,46 @@ class NightreignMapRecogniser {
         return states;
     }
 
+    // 检测 POI 过滤后的剩余种子是否正好是 GH_DISAMBIG 里的某个碰撞对。
+    // 返回 [seedNum1, seedNum2]（升序）或 null。
+    detectDisambigPair(filteredSeeds) {
+        if (this.chosenMap !== 'Great Hollow') return null;
+        if (!filteredSeeds || filteredSeeds.length !== 2) return null;
+        const nums = filteredSeeds.map(r => r[0]).sort((a, b) => a - b);
+        if (GH_DISAMBIG[nums[0]] && GH_DISAMBIG[nums[1]]) {
+            return nums;
+        }
+        return null;
+    }
+
+    // 渲染碰撞消歧点位（仅消歧模式；由 drawMap 调用）。紫色圆点，与 POI 'dot' 视觉一致。
+    drawDisambigPoints() {
+        if (!this.disambigActive) return;
+        const points = [GH_DISAMBIG_POINTS.A, GH_DISAMBIG_POINTS.B];
+        points.forEach(pt => {
+            const state = (pt.kind === 'boss') ? this.disambigStates.A : this.disambigStates.B;
+            const tag = (pt.kind === 'boss') ? 'A' : 'B';
+            if (!state) {
+                // 未选：紫色圆点 + A/B 标签
+                this.drawDot(pt.x, pt.y, tag, '#b266ff');
+            } else {
+                // 已选：紫色实心圆 + 选中值文字
+                this.ctx.beginPath();
+                this.ctx.arc(pt.x, pt.y, ICON_SIZE / 2, 0, 2 * Math.PI);
+                this.ctx.fillStyle = '#b266ff';
+                this.ctx.fill();
+                this.ctx.strokeStyle = '#ffffff';
+                this.ctx.lineWidth = 2;
+                this.ctx.stroke();
+                this.ctx.fillStyle = '#ffffff';
+                this.ctx.font = 'bold 11px Inter, sans-serif';
+                this.ctx.textAlign = 'center';
+                this.ctx.textBaseline = 'middle';
+                this.ctx.fillText(state, pt.x, pt.y);
+            }
+        });
+    }
+
     updateGameState() {
         if (this.chosenMap) {
             // Map is selected - show full functionality
@@ -801,6 +845,9 @@ class NightreignMapRecogniser {
             });
             this.ctx.globalAlpha = 1.0;
         }
+
+        // 碰撞消歧点位（仅消歧模式：GH 剩 2 碰撞种子时由 updateSeedFiltering 置位）
+        this.drawDisambigPoints();
 
         // 画出生点标记（蓝色三角，不受 spawnPhase 透明度影响）
         spawns.forEach(sp => this.drawSpawnMarker(sp));
@@ -1372,7 +1419,7 @@ class NightreignMapRecogniser {
         console.log(`Found ${possibleSeeds.length} seeds for ${this.chosenNightlord} + ${this.chosenMap}`);
 
         // Filter by POI states using coordinate-based matching
-        const filteredSeeds = possibleSeeds.filter(row => {
+        let filteredSeeds = possibleSeeds.filter(row => {
             const seedNum = row[0];
             console.log(`\n🔍 Checking Seed ${seedNum}:`);
 
@@ -1476,6 +1523,38 @@ class NightreignMapRecogniser {
                     }
                 }
             });
+        }
+
+        // === 大空洞碰撞消歧 ===
+        // 检测 POI 过滤后是否剩 2 个碰撞种子 → 进入消歧模式（显示 A/B 点）
+        const wasActive = this.disambigActive;
+        const prevPair = this.currentDisambigPair;
+        const pair = this.detectDisambigPair(filteredSeeds);
+        this.disambigActive = (pair !== null);
+        if (pair) {
+            // 碰撞对换了（种子号不同）→ 清空旧选择，避免旧 A/B 值把新碰撞对过滤成 0 种子
+            if (!prevPair || prevPair[0] !== pair[0] || prevPair[1] !== pair[1]) {
+                this.disambigStates = { A: null, B: null };
+            }
+            this.currentDisambigPair = pair;
+        } else {
+            // 不再处于碰撞对（用户改了 POI/夜王/出生点选择）→ 清空消歧选择
+            this.currentDisambigPair = null;
+            this.disambigStates = { A: null, B: null };
+        }
+        // 消歧二次过滤：按用户已选的 A/B 值进一步收敛
+        if (this.disambigActive && (this.disambigStates.A || this.disambigStates.B)) {
+            filteredSeeds = filteredSeeds.filter(row => {
+                const d = GH_DISAMBIG[row[0]];
+                if (!d) return true;
+                if (this.disambigStates.A && d.bossA !== this.disambigStates.A) return false;
+                if (this.disambigStates.B && d.ruinB !== this.disambigStates.B) return false;
+                return true;
+            });
+        }
+        // 消歧模式切换（进入/退出）→ 重绘以显示/隐藏 A/B 点
+        if (wasActive !== this.disambigActive) {
+            this.drawMap(this.images.maps[this.chosenMap]);
         }
 
         // Check if we should show POI suggestions
