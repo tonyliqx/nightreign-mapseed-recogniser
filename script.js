@@ -35,7 +35,7 @@ class NightreignMapRecogniser {
         this.disambigActive = false;        // 当前是否处于消歧模式（GH + 剩 2 碰撞种子）
         this.currentDisambigPair = null;    // 当前碰撞对 [seedNum1, seedNum2]（升序）
         this.currentDisambigPoint = null;   // 当前正在选择的消歧点（GH_DISAMBIG_POINTS.A/B）
-        this.disambigMenu = null;           // #disambig-menu DOM 引用（setupContextMenu 初始化）
+        this.disambigMenus = { A: null, B: null };  // #disambig-menu-a/b DOM 引用（setupContextMenu 初始化）
         this.images = {
             maps: {},
             church: new Image(),
@@ -494,9 +494,7 @@ class NightreignMapRecogniser {
         if (this.chosenMap !== 'Great Hollow') return null;
         if (!filteredSeeds || filteredSeeds.length !== 2) return null;
         const nums = filteredSeeds.map(r => r[0]).sort((a, b) => a - b);
-        if (GH_DISAMBIG[nums[0]] && GH_DISAMBIG[nums[1]]) {
-            return nums;
-        }
+        if (GH_DISAMBIG[nums[0]] && GH_DISAMBIG[nums[1]]) return nums;
         return null;
     }
 
@@ -587,7 +585,10 @@ class NightreignMapRecogniser {
 
     setupContextMenu() {
         this.contextMenu = document.getElementById('poi-context-menu');
-        this.disambigMenu = document.getElementById('disambig-menu');
+        this.disambigMenus = {
+            A: document.getElementById('disambig-menu-a'),
+            B: document.getElementById('disambig-menu-b'),
+        };
 
         // 处理上下文菜单项点击
         document.querySelectorAll('.context-menu-item').forEach(item => {
@@ -1286,11 +1287,11 @@ class NightreignMapRecogniser {
         });
     }
 
-    // 动态生成并显示消歧合并面板：A 组列候选 BOSS 名（通用 boss 图标），
-    // B 组列血/毒遗迹（ruin_blood/ruin_poison 图标）。消歧模式下由
-    // updateSeedFiltering 自动调用，常驻显示直到退出消歧模式。
+    // 动态生成 A、B 两个独立小菜单，各自依附在紫色点位右侧（空间不足翻左侧/下方）。
+    // 消歧模式下由 updateSeedFiltering 自动调用，常驻显示直到退出消歧模式。
+    // A 菜单：候选 BOSS 名（boss 图标）；B 菜单：血/毒遗迹（ruin_blood/ruin_poison 图标）。
     showDisambigMenu() {
-        if (!this.disambigMenu || !this.currentDisambigPair) return;
+        if (!this.currentDisambigPair) return;
         const lang = this.languageManager.getCurrentLanguage();
         const t = (key) => (translations[lang] && translations[lang][key]) || key;
         const [s1, s2] = this.currentDisambigPair;
@@ -1303,66 +1304,76 @@ class NightreignMapRecogniser {
         const ruinVals = [];
         vals.forEach(d => { if (d.ruinB && !ruinVals.includes(d.ruinB)) ruinVals.push(d.ruinB); });
 
+        this.renderDisambigMenu(GH_DISAMBIG_POINTS.A, this.disambigMenus.A, 'A',
+            bossVals.map(v => ({ value: v, icon: 'boss.png', label: v })), t);
+        this.renderDisambigMenu(GH_DISAMBIG_POINTS.B, this.disambigMenus.B, 'B',
+            ruinVals.map(v => ({
+                value: v,
+                icon: (v === '血') ? 'ruin_blood.png' : 'ruin_poison.png',
+                label: t(v === '血' ? 'gh.disambig.blood' : 'gh.disambig.poison'),
+            })), t);
+    }
+
+    // 渲染单个消歧菜单并依附到对应点位（常驻：选中后由 updateSeedFiltering 刷新高亮，不关闭）
+    renderDisambigMenu(point, menuEl, key, items, t) {
+        if (!menuEl) return;
         const iconImg = (src) => `<img src="assets/icons/${src}" style="width:16px;height:16px;margin-right:8px;vertical-align:middle;">`;
-        const groupTitle = (text) => `<div style="padding:8px 12px 4px;font-weight:bold;font-size:12px;color:#b266ff;">${text}</div>`;
         const selStyle = (on) => on ? ' style="background:rgba(178,102,255,0.25);"' : '';
-
-        let html = groupTitle(t(GH_DISAMBIG_POINTS.A.labelKey));
-        bossVals.forEach(v => {
-            html += `<div class="context-menu-item" data-point="A" data-value="${v}"${selStyle(v === this.disambigStates.A)}>${iconImg('boss.png')}<span>${v}</span></div>`;
+        let html = `<div style="padding:8px 12px 4px;font-weight:bold;font-size:12px;color:#b266ff;">${t(point.labelKey)}</div>`;
+        items.forEach(it => {
+            html += `<div class="context-menu-item" data-value="${it.value}"${selStyle(it.value === this.disambigStates[key])}>${iconImg(it.icon)}<span>${it.label}</span></div>`;
         });
-        html += groupTitle(t(GH_DISAMBIG_POINTS.B.labelKey));
-        ruinVals.forEach(v => {
-            const icon = (v === '血') ? 'ruin_blood.png' : 'ruin_poison.png';
-            const label = t(v === '血' ? 'gh.disambig.blood' : 'gh.disambig.poison');
-            html += `<div class="context-menu-item" data-point="B" data-value="${v}"${selStyle(v === this.disambigStates.B)}>${iconImg(icon)}<span>${label}</span></div>`;
-        });
-
-        this.disambigMenu.innerHTML = html;
-
-        // 绑定候选项点击/触摸（常驻面板：选中后由 updateSeedFiltering 刷新高亮，不关闭）
-        this.disambigMenu.querySelectorAll('.context-menu-item').forEach(item => {
+        menuEl.innerHTML = html;
+        menuEl.querySelectorAll('.context-menu-item').forEach(item => {
             const choose = (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                const pt = (item.dataset.point === 'A') ? GH_DISAMBIG_POINTS.A : GH_DISAMBIG_POINTS.B;
-                this.setDisambigState(pt, item.dataset.value || null);
+                this.setDisambigState(point, item.dataset.value || null);
             };
             item.addEventListener('click', choose);
             item.addEventListener('touchend', choose);
         });
 
-        // 显示（首次淡入）+ 定位
-        const firstShow = this.disambigMenu.style.display !== 'block';
-        this.disambigMenu.style.display = 'block';
-        this.positionDisambigMenu();
+        const firstShow = menuEl.style.display !== 'block';
+        menuEl.style.display = 'block';
+        this.positionDisambigMenu(point, menuEl);
         if (firstShow) {
-            this.disambigMenu.style.opacity = '0';
-            this.disambigMenu.style.transform = 'scale(0.95)';
-            this.disambigMenu.style.transition = 'opacity 0.2s, transform 0.2s';
+            menuEl.style.opacity = '0';
+            menuEl.style.transform = 'scale(0.95)';
+            menuEl.style.transition = 'opacity 0.2s, transform 0.2s';
             setTimeout(() => {
-                if (this.disambigMenu) {
-                    this.disambigMenu.style.opacity = '1';
-                    this.disambigMenu.style.transform = 'scale(1)';
-                }
+                menuEl.style.opacity = '1';
+                menuEl.style.transform = 'scale(1)';
             }, 10);
         }
     }
 
-    // 常驻面板定位：贴地图画布右侧（放不下则左侧），纵向居中于地图
-    positionDisambigMenu() {
-        if (!this.disambigMenu || !this.canvas) return;
+    // 单个消歧菜单定位：贴在对应紫色点位右侧、纵向居中于该点；
+    // 右侧放不下翻左侧，仍放不下（窄屏）改点位正下方。canvas 坐标(768 空间)→屏幕坐标。
+    positionDisambigMenu(point, menuEl) {
+        if (!menuEl || !this.canvas) return;
         const rect = this.canvas.getBoundingClientRect();
-        const menuWidth = 220;
-        const menuHeight = this.disambigMenu.offsetHeight || 220;
-        let x = rect.right + 8;
-        if (x + menuWidth > window.innerWidth) x = rect.left - menuWidth - 8;
-        if (x < 8) x = 8;
-        let y = rect.top + Math.max(0, (rect.height - menuHeight) / 2);
+        const scaleX = rect.width / CANVAS_SIZE;
+        const scaleY = rect.height / CANVAS_SIZE;
+        const dotX = rect.left + point.x * scaleX;
+        const dotY = rect.top + point.y * scaleY;
+        const menuWidth = menuEl.offsetWidth || 180;
+        const menuHeight = menuEl.offsetHeight || 120;
+        const gap = 18;  // 点边缘到菜单的间距
+
+        let x = dotX + gap;
+        let y = dotY - menuHeight / 2;
+        // 右侧放不下 → 翻左侧
+        if (x + menuWidth > window.innerWidth - 8) x = dotX - gap - menuWidth;
+        // 仍放不下（屏幕过窄）→ 放点位正下方
+        if (x < 8) {
+            x = Math.max(8, Math.min(dotX - menuWidth / 2, window.innerWidth - menuWidth - 8));
+            y = dotY + gap;
+        }
         if (y < 8) y = 8;
-        if (y + menuHeight > window.innerHeight) y = window.innerHeight - menuHeight - 8;
-        this.disambigMenu.style.left = `${x}px`;
-        this.disambigMenu.style.top = `${y}px`;
+        if (y + menuHeight > window.innerHeight - 8) y = window.innerHeight - menuHeight - 8;
+        menuEl.style.left = `${x}px`;
+        menuEl.style.top = `${y}px`;
     }
 
     // 设置某个消歧点的选择值（null=清除），然后重绘 + 过滤
@@ -1377,13 +1388,14 @@ class NightreignMapRecogniser {
     }
 
     hideDisambigMenu() {
-        if (this.disambigMenu && this.disambigMenu.style.display === 'block') {
-            this.disambigMenu.style.opacity = '0';
-            this.disambigMenu.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                if (this.disambigMenu) this.disambigMenu.style.display = 'none';
-            }, 200);
-        }
+        ['A', 'B'].forEach(k => {
+            const m = this.disambigMenus[k];
+            if (m && m.style.display === 'block') {
+                m.style.opacity = '0';
+                m.style.transform = 'scale(0.95)';
+                setTimeout(() => { if (m) m.style.display = 'none'; }, 200);
+            }
+        });
         this.currentDisambigPoint = null;
     }
 
