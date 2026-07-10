@@ -1319,11 +1319,12 @@ class NightreignMapRecogniser {
         if (!menuEl) return;
         const iconImg = (src) => `<img src="assets/icons/${src}" style="width:16px;height:16px;margin-right:8px;vertical-align:middle;">`;
         const selStyle = (on) => on ? ' style="background:rgba(178,102,255,0.25);"' : '';
-        let html = `<div style="padding:8px 12px 4px;font-weight:bold;font-size:12px;color:#b266ff;">${t(point.labelKey)}</div>`;
+        let html = '';
         items.forEach(it => {
-            html += `<div class="context-menu-item" data-value="${it.value}"${selStyle(it.value === this.disambigStates[key])}>${iconImg(it.icon)}<span>${it.label}</span></div>`;
+            html += `<div class="context-menu-item" data-value="${it.value}"${selStyle(it.value === this.disambigStates[key])}>${iconImg(it.icon)}<span style="white-space:nowrap;">${it.label}</span></div>`;
         });
         menuEl.innerHTML = html;
+        menuEl.style.minWidth = '0';  // 覆盖 .context-menu 的 min-width:220px，宽度随内容收缩
         menuEl.querySelectorAll('.context-menu-item').forEach(item => {
             const choose = (e) => {
                 e.preventDefault();
@@ -1654,24 +1655,20 @@ class NightreignMapRecogniser {
         }
 
         // === 大空洞碰撞消歧 ===
-        // 检测 POI 过滤后是否剩 2 个碰撞种子 → 进入消歧模式（显示 A/B 点）
         const wasActive = this.disambigActive;
         const prevPair = this.currentDisambigPair;
-        const pair = this.detectDisambigPair(filteredSeeds);
-        this.disambigActive = (pair !== null);
-        if (pair) {
-            // 碰撞对换了（种子号不同）→ 清空旧选择，避免旧 A/B 值把新碰撞对过滤成 0 种子
-            if (!prevPair || prevPair[0] !== pair[0] || prevPair[1] !== pair[1]) {
-                this.disambigStates = { A: null, B: null };
-            }
-            this.currentDisambigPair = pair;
-        } else {
-            // 不再处于碰撞对（用户改了 POI/夜王/出生点选择）→ 清空消歧选择
-            this.currentDisambigPair = null;
+
+        // 1) POI 过滤后检测碰撞对；碰撞对变了（含退出碰撞）→ 清空旧 A/B 选择，
+        //    避免旧值把新种子集合二次过滤错
+        const candidatePair = this.detectDisambigPair(filteredSeeds);
+        const pairChanged = !candidatePair || !prevPair ||
+            prevPair[0] !== candidatePair[0] || prevPair[1] !== candidatePair[1];
+        if (pairChanged) {
             this.disambigStates = { A: null, B: null };
         }
-        // 消歧二次过滤：按用户已选的 A/B 值进一步收敛
-        if (this.disambigActive && (this.disambigStates.A || this.disambigStates.B)) {
+
+        // 2) 按用户已选的 A/B 值二次过滤
+        if (this.disambigStates.A || this.disambigStates.B) {
             filteredSeeds = filteredSeeds.filter(row => {
                 const d = GH_DISAMBIG[row[0]];
                 if (!d) return true;
@@ -1680,11 +1677,22 @@ class NightreignMapRecogniser {
                 return true;
             });
         }
-        // 消歧模式切换（进入/退出）→ 重绘以显示/隐藏 A/B 点
+
+        // 3) 二次过滤后重新检测：仍在碰撞对 → 消歧继续；否则退出（含选够出唯一答案的情况）
+        const pair = this.detectDisambigPair(filteredSeeds);
+        this.disambigActive = (pair !== null);
+        if (pair) {
+            this.currentDisambigPair = pair;
+        } else {
+            this.currentDisambigPair = null;
+            this.disambigStates = { A: null, B: null };
+        }
+
+        // 4) 消歧模式切换（进入/退出）→ 重绘以显示/隐藏 A/B 紫点
         if (wasActive !== this.disambigActive) {
             this.drawMap(this.images.maps[this.chosenMap]);
         }
-        // 消歧合并面板：进入/仍在消歧模式 → 自动显示并刷新；退出 → 隐藏
+        // 5) 消歧菜单：仍在消歧模式 → 自动显示并刷新；收敛到唯一答案 / 退出 → 隐藏
         if (this.disambigActive) {
             this.showDisambigMenu();
         } else if (wasActive) {
