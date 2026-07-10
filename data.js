@@ -74,6 +74,33 @@ const POIS_BY_MAP = {
   ]
 };
 
+// === Great Hollow 碰撞消歧 ===
+// 当 GH 地形剩余正好 2 个碰撞种子（5 对之一）时，额外显示这两个点选位，
+// 复用 POI「点击→弹菜单→选→过滤」交互，把结果收敛到唯一种子。
+//   A=(416,351) 紧邻 POI1，选「守教堂的野外 BOSS」名 —— 区分全部 5 对
+//   B=(164,406) 在 POI2 左下方，选「血遗迹/毒遗迹」—— 区分 4 对（1182/1183 都毒，靠 A 兜底）
+// 坐标空间 768（与 POIS_BY_MAP 一致）。数据源自源 CSV：
+//   A 点 4xxxx field boss（红狼/王室幽魂/接肢/萨米尔）、B 点 52500(血)/52520(毒) 遗迹，
+//   经 integrate_dlc.py 提取核对。注意：这两个点 basic 分类为 other，不进 dataset.json，
+//   故独立维护于此，不并入 POIS_BY_MAP。
+const GH_DISAMBIG_POINTS = {
+  A: { id: 'ghDisambigA', x: 416, y: 351, kind: 'boss',  labelKey: 'gh.disambig.aLabel' },
+  B: { id: 'ghDisambigB', x: 164, y: 406, kind: 'ruin',  labelKey: 'gh.disambig.bLabel' },
+};
+
+const GH_DISAMBIG = {
+  1120: { bossA: '红狼',     ruinB: '血' },
+  1133: { bossA: '王室幽魂', ruinB: '毒' },
+  1125: { bossA: '接肢',     ruinB: '毒' },
+  1132: { bossA: '红狼',     ruinB: '血' },
+  1182: { bossA: '红狼',     ruinB: '毒' },
+  1183: { bossA: '萨米尔',   ruinB: '毒' },
+  1188: { bossA: '接肢',     ruinB: '血' },
+  1189: { bossA: '萨米尔',   ruinB: '毒' },
+  1192: { bossA: '接肢',     ruinB: '血' },
+  1193: { bossA: '王室幽魂', ruinB: '毒' },
+};
+
 // Map background images (local paths)
 const MAP_IMAGES = {
   Default: "assets/images/Default-POI.png",
