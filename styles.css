@@ -796,8 +796,8 @@ body {
     justify-content: center;
 }
 #disambig-menu-b .context-menu-item img {
-    width: 32px !important;
-    height: 32px !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 /* Mobile-specific context menu styles */

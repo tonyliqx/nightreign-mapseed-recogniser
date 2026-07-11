@@ -227,6 +227,11 @@ class NightreignMapRecogniser {
                 this.hideContextMenu();
             }
         });
+
+        // 消歧菜单为 fixed 定位，页面滚动/缩放后需重算屏幕坐标以继续贴在紫点旁
+        this.repositionHandler = () => this.repositionDisambigMenus();
+        window.addEventListener('scroll', this.repositionHandler, true);  // capture：捕获任意滚动容器
+        window.addEventListener('resize', this.repositionHandler);
     }
 
     async loadInitialData() {
@@ -1376,6 +1381,17 @@ class NightreignMapRecogniser {
         if (y + menuHeight > window.innerHeight - 8) y = window.innerHeight - menuHeight - 8;
         menuEl.style.left = `${x}px`;
         menuEl.style.top = `${y}px`;
+    }
+
+    // 滚动/缩放时重定位显示中的消歧菜单，使其继续贴在紫点旁
+    repositionDisambigMenus() {
+        if (!this.disambigActive) return;
+        ['A', 'B'].forEach(k => {
+            const m = this.disambigMenus[k];
+            if (m && m.style.display === 'block') {
+                this.positionDisambigMenu(GH_DISAMBIG_POINTS[k], m);
+            }
+        });
     }
 
     // 设置某个消歧点的选择值（null=清除），然后重绘 + 过滤
