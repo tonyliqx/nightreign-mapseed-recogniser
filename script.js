@@ -1850,6 +1850,8 @@ class NightreignMapRecogniser {
         // Add mobile class for styling
         if (isMobile) {
             suggestionContainer.classList.add('mobile-suggestion');
+            // POI3 强制竖向单列排列（默认 flex-row 下多按钮会横向）
+            if (poiIdInt === 3) suggestionContainer.classList.add('single-column');
             
             // For mobile, we'll check the layout after buttons are added
             // to determine if it's single column
