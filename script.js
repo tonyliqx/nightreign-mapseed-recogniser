@@ -1368,15 +1368,27 @@ class NightreignMapRecogniser {
         const menuHeight = menuEl.offsetHeight || 120;
         const gap = 18;  // 点边缘到菜单的间距
 
-        let x = dotX + gap;
-        let y = dotY - menuHeight / 2;
-        // 右侧放不下 → 翻左侧
-        if (x + menuWidth > window.innerWidth - 8) x = dotX - gap - menuWidth;
-        // 仍放不下（屏幕过窄）→ 放点位正下方
-        if (x < 8) {
-            x = Math.max(8, Math.min(dotX - menuWidth / 2, window.innerWidth - menuWidth - 8));
+        // 移动端：B 点(血毒遗迹)菜单放点位正下方，避免向右延伸落在 A、B 两点之间造成混淆
+        const preferBelow = window.innerWidth <= 768 && point.kind === 'ruin';
+
+        let x, y;
+        if (preferBelow) {
+            x = dotX - menuWidth / 2;
             y = dotY + gap;
+        } else {
+            x = dotX + gap;
+            y = dotY - menuHeight / 2;
+            // 右侧放不下 → 翻左侧
+            if (x + menuWidth > window.innerWidth - 8) x = dotX - gap - menuWidth;
+            // 仍放不下（屏幕过窄）→ 放点位正下方
+            if (x < 8) {
+                x = Math.max(8, Math.min(dotX - menuWidth / 2, window.innerWidth - menuWidth - 8));
+                y = dotY + gap;
+            }
         }
+        // 水平/垂直边界 clamp
+        if (x < 8) x = 8;
+        if (x + menuWidth > window.innerWidth - 8) x = window.innerWidth - menuWidth - 8;
         if (y < 8) y = 8;
         if (y + menuHeight > window.innerHeight - 8) y = window.innerHeight - menuHeight - 8;
         menuEl.style.left = `${x}px`;
