@@ -43,7 +43,12 @@ class NightreignMapRecogniser {
             village: new Image(),
             empty: new Image(),
             carriage: new Image(),
-            favicon: new Image()
+            favicon: new Image(),
+            // 大空洞消歧点图标（与教堂法师塔同尺寸 ICON_SIZE）
+            boss: new Image(),
+            ruinBlank: new Image(),
+            ruinBlood: new Image(),
+            ruinPoison: new Image()
         };
         this.showingSeedImage = false;
         this.canvas = null;
@@ -80,6 +85,11 @@ class NightreignMapRecogniser {
         this.images.empty.src = ICON_ASSETS.empty;
         this.images.carriage.src = ICON_ASSETS.carriage;
         this.images.favicon.src = 'assets/images/church.png';
+        // 大空洞消歧点图标
+        this.images.boss.src = 'assets/icons/boss.png';
+        this.images.ruinBlank.src = 'assets/icons/ruin_blank.png';
+        this.images.ruinBlood.src = 'assets/icons/ruin_blood.png';
+        this.images.ruinPoison.src = 'assets/icons/ruin_poison.png';
 
         // Add error handling for images
         this.images.church.onerror = () => {
@@ -501,28 +511,27 @@ class NightreignMapRecogniser {
     // 渲染碰撞消歧点位（仅消歧模式；由 drawMap 调用）。紫色圆点，与 POI 'dot' 视觉一致。
     drawDisambigPoints() {
         if (!this.disambigActive) return;
-        const points = [GH_DISAMBIG_POINTS.A, GH_DISAMBIG_POINTS.B];
-        points.forEach(pt => {
+        [GH_DISAMBIG_POINTS.A, GH_DISAMBIG_POINTS.B].forEach(pt => {
             const state = (pt.kind === 'boss') ? this.disambigStates.A : this.disambigStates.B;
-            const tag = (pt.kind === 'boss') ? 'A' : 'B';
-            if (!state) {
-                // 未选：紫色圆点 + A/B 标签
-                this.drawDot(pt.x, pt.y, tag, '#b266ff');
-            } else {
-                // 已选：紫色实心圆 + 选中值文字
+            const { x, y } = pt;
+            // 已选 → 紫色环标识（已确认反馈）；未选 → 纯图标，与教堂法师塔 POI 完全一致
+            if (state) {
                 this.ctx.beginPath();
-                this.ctx.arc(pt.x, pt.y, ICON_SIZE / 2, 0, 2 * Math.PI);
-                this.ctx.fillStyle = '#b266ff';
-                this.ctx.fill();
-                this.ctx.strokeStyle = '#ffffff';
-                this.ctx.lineWidth = 2;
+                this.ctx.arc(x, y, ICON_SIZE / 2 + 3, 0, 2 * Math.PI);
+                this.ctx.strokeStyle = '#b266ff';
+                this.ctx.lineWidth = 3;
                 this.ctx.stroke();
-                this.ctx.fillStyle = '#ffffff';
-                this.ctx.font = 'bold 11px Inter, sans-serif';
-                this.ctx.textAlign = 'center';
-                this.ctx.textBaseline = 'middle';
-                this.ctx.fillText(state, pt.x, pt.y);
             }
+            // 图标（ICON_SIZE，与教堂法师塔同尺寸；不再画 A/B 字样）
+            let img;
+            if (pt.kind === 'boss') {
+                img = this.images.boss;                   // A 点：守教堂 BOSS
+            } else {
+                img = state === '血' ? this.images.ruinBlood
+                    : state === '毒' ? this.images.ruinPoison
+                    : this.images.ruinBlank;              // B 点：未选通用遗迹 / 已选血·毒
+            }
+            this.drawIcon(img, x, y);
         });
     }
 
