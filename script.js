@@ -43,12 +43,7 @@ class NightreignMapRecogniser {
             village: new Image(),
             empty: new Image(),
             carriage: new Image(),
-            favicon: new Image(),
-            // 大空洞消歧点图标（与教堂法师塔同尺寸 ICON_SIZE）
-            boss: new Image(),
-            ruinBlank: new Image(),
-            ruinBlood: new Image(),
-            ruinPoison: new Image()
+            favicon: new Image()
         };
         this.showingSeedImage = false;
         this.canvas = null;
@@ -85,11 +80,6 @@ class NightreignMapRecogniser {
         this.images.empty.src = ICON_ASSETS.empty;
         this.images.carriage.src = ICON_ASSETS.carriage;
         this.images.favicon.src = 'assets/images/church.png';
-        // 大空洞消歧点图标
-        this.images.boss.src = 'assets/icons/boss.png';
-        this.images.ruinBlank.src = 'assets/icons/ruin_blank.png';
-        this.images.ruinBlood.src = 'assets/icons/ruin_blood.png';
-        this.images.ruinPoison.src = 'assets/icons/ruin_poison.png';
 
         // Add error handling for images
         this.images.church.onerror = () => {
@@ -514,24 +504,24 @@ class NightreignMapRecogniser {
         [GH_DISAMBIG_POINTS.A, GH_DISAMBIG_POINTS.B].forEach(pt => {
             const state = (pt.kind === 'boss') ? this.disambigStates.A : this.disambigStates.B;
             const { x, y } = pt;
-            // 已选 → 紫色环标识（已确认反馈）；未选 → 纯图标，与教堂法师塔 POI 完全一致
-            if (state) {
-                this.ctx.beginPath();
-                this.ctx.arc(x, y, ICON_SIZE / 2 + 3, 0, 2 * Math.PI);
-                this.ctx.strokeStyle = '#b266ff';
-                this.ctx.lineWidth = 3;
-                this.ctx.stroke();
-            }
-            // 图标（ICON_SIZE，与教堂法师塔同尺寸；不再画 A/B 字样）
-            let img;
-            if (pt.kind === 'boss') {
-                img = this.images.boss;                   // A 点：守教堂 BOSS
+            if (!state) {
+                // 未选：紫色圆点（不显示 A/B 字样）
+                this.drawDot(x, y, '', '#b266ff');
             } else {
-                img = state === '血' ? this.images.ruinBlood
-                    : state === '毒' ? this.images.ruinPoison
-                    : this.images.ruinBlank;              // B 点：未选通用遗迹 / 已选血·毒
+                // 已选：紫色实心圆 + 选中值文字
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, ICON_SIZE / 2, 0, 2 * Math.PI);
+                this.ctx.fillStyle = '#b266ff';
+                this.ctx.fill();
+                this.ctx.strokeStyle = '#ffffff';
+                this.ctx.lineWidth = 2;
+                this.ctx.stroke();
+                this.ctx.fillStyle = '#ffffff';
+                this.ctx.font = 'bold 11px Inter, sans-serif';
+                this.ctx.textAlign = 'center';
+                this.ctx.textBaseline = 'middle';
+                this.ctx.fillText(state, x, y);
             }
-            this.drawIcon(img, x, y);
         });
     }
 
@@ -1313,24 +1303,26 @@ class NightreignMapRecogniser {
         const ruinVals = [];
         vals.forEach(d => { if (d.ruinB && !ruinVals.includes(d.ruinB)) ruinVals.push(d.ruinB); });
 
+        // A 菜单：只列守教堂 BOSS 名（无图标）
         this.renderDisambigMenu(GH_DISAMBIG_POINTS.A, this.disambigMenus.A, 'A',
-            bossVals.map(v => ({ value: v, icon: 'boss.png', label: v })), t);
+            bossVals.map(v => ({ value: v, label: v })), t);
+        // B 菜单：只显示血/毒遗迹图标（图标本身即辨识，尺寸由 CSS 放大一倍）
         this.renderDisambigMenu(GH_DISAMBIG_POINTS.B, this.disambigMenus.B, 'B',
             ruinVals.map(v => ({
                 value: v,
                 icon: (v === '血') ? 'ruin_blood.png' : 'ruin_poison.png',
-                label: t(v === '血' ? 'gh.disambig.blood' : 'gh.disambig.poison'),
             })), t);
     }
 
     // 渲染单个消歧菜单并依附到对应点位（常驻：选中后由 updateSeedFiltering 刷新高亮，不关闭）
     renderDisambigMenu(point, menuEl, key, items, t) {
         if (!menuEl) return;
-        const iconImg = (src) => `<img src="assets/icons/${src}" style="width:16px;height:16px;margin-right:8px;vertical-align:middle;">`;
+        const iconImg = (src) => src ? `<img src="assets/icons/${src}" style="width:16px;height:16px;">` : '';
         const selStyle = (on) => on ? ' style="background:rgba(178,102,255,0.25);"' : '';
         let html = '';
         items.forEach(it => {
-            html += `<div class="context-menu-item" data-value="${it.value}"${selStyle(it.value === this.disambigStates[key])}>${iconImg(it.icon)}<span style="white-space:nowrap;">${it.label}</span></div>`;
+            const label = it.label ? `<span style="white-space:nowrap;">${it.label}</span>` : '';
+            html += `<div class="context-menu-item" data-value="${it.value}"${selStyle(it.value === this.disambigStates[key])}>${iconImg(it.icon)}${label}</div>`;
         });
         menuEl.innerHTML = html;
         menuEl.style.minWidth = '0';  // 覆盖 .context-menu 的 min-width:220px，宽度随内容收缩

@@ -786,6 +786,20 @@ body {
     text-align: center;
 }
 
+/* 大空洞消歧菜单：紧凑间距 + B 点仅大图标（A 纯文字、B 仅图标，ID 选择器优先级高于通用 class） */
+#disambig-menu-a .context-menu-item,
+#disambig-menu-b .context-menu-item {
+    padding: 8px 14px;
+    gap: 8px;
+}
+#disambig-menu-b .context-menu-item {
+    justify-content: center;
+}
+#disambig-menu-b .context-menu-item img {
+    width: 32px !important;
+    height: 32px !important;
+}
+
 /* Mobile-specific context menu styles */
 @media (max-width: 768px) {
     .context-menu {
