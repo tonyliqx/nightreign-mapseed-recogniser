@@ -1897,8 +1897,8 @@ class NightreignMapRecogniser {
             // Use the same positioning logic as desktop but with smaller offsets
             // to account for the smaller size (50% scale)
             if (poiIdInt === 2) {
-                suggestionContainer.style.left = `${relativeX - 15}px`;
-                suggestionContainer.style.top = `${relativeY + 10}px`;
+                suggestionContainer.style.left = `${relativeX - 20}px`;
+                suggestionContainer.style.top = `${relativeY - 50}px`;
             } else if (poiIdInt === 4) {
                 suggestionContainer.style.left = `${relativeX + 10}px`;
                 suggestionContainer.style.top = `${relativeY - 40}px`;
