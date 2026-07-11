@@ -1738,11 +1738,13 @@ class NightreignMapRecogniser {
         // spawn 阶段（出生点未选定）不显示建筑类别建议：建议是叠在 canvas 上的 DOM，
         // 不受 drawMap 的 spawnPhase 守卫控制，会在出生点阶段同时冒出并遮挡出生点。
         // 选完出生点（spawnPhase=false）后由下方逻辑正常展示。
+        // 大空洞 POI 点位少：选完出生点后直接展示全部推荐，不受种子数阈值限制
+        const isGreatHollow = this.chosenMap === 'Great Hollow';
         const shouldShowSuggestions = !this.spawnPhase &&
-                                    filteredSeeds.length > 0 &&
                                     filteredSeeds.length > 1 &&
-                                    (isMobile ? filteredSeeds.length <= mobileThreshold :
-                                               filteredSeeds.length <= desktopThreshold);
+                                    (isGreatHollow ||
+                                     (isMobile ? filteredSeeds.length <= mobileThreshold :
+                                                filteredSeeds.length <= desktopThreshold));
         
         if (shouldShowSuggestions) {
             this.showPOISuggestions(filteredSeeds, isMobile);
