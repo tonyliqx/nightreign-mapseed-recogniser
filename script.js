@@ -1902,8 +1902,8 @@ class NightreignMapRecogniser {
                 suggestionContainer.style.left = `${relativeX - 20}px`;
                 suggestionContainer.style.top = `${relativeY - 50}px`;
             } else if (poiIdInt === 3) {
-                // POI3：放点位左侧，避免容器盖住点位（translateX(-50%) 下中心左移 60px）
-                suggestionContainer.style.left = `${relativeX - 60}px`;
+                // POI3：贴点位左侧（translateX(-50%) 下中心左移 25px，右缘留约 5px 间隙）
+                suggestionContainer.style.left = `${relativeX - 25}px`;
                 suggestionContainer.style.top = `${relativeY - 20}px`;
             } else if (poiIdInt === 4) {
                 suggestionContainer.style.left = `${relativeX + 10}px`;
