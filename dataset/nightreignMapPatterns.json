@@ -1,5 +1,5 @@
 {
-  "extractedTime": "2026-07-07T16:48:13.343694",
+  "extractedTime": "2026-07-13T11:35:14.070990",
   "seeds": {
     "0": {
       "seedNumber": 0,
@@ -156585,12 +156585,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demi-Human Queen and Swordmaster",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Morgott",
         "location": null,
         "extraBoss": null
       },
@@ -156615,12 +156615,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demi-Human Queen and Swordmaster",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Morgott",
         "location": null,
         "extraBoss": null
       },
@@ -156645,12 +156645,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Bell Bearing Hunter",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -156675,12 +156675,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demi-Human Queen and Swordmaster",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -156705,12 +156705,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Bell Bearing Hunter",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Morgott",
         "location": null,
         "extraBoss": null
       },
@@ -156735,12 +156735,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Bell Bearing Hunter",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Morgott",
         "location": null,
         "extraBoss": null
       },
@@ -156990,12 +156990,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demi-Human Queen and Swordmaster",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Morgott",
         "location": null,
         "extraBoss": null
       },
@@ -157233,12 +157233,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Bell Bearing Hunter",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Morgott",
         "location": null,
         "extraBoss": null
       },
@@ -157487,12 +157487,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Bell Bearing Hunter",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -157754,12 +157754,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demi-Human Queen and Swordmaster",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -158009,12 +158009,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Ancient Dragon",
         "location": null,
         "extraBoss": null
       },
@@ -158039,12 +158039,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -158069,12 +158069,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -158099,12 +158099,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -158129,12 +158129,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Ancient Dragon",
         "location": null,
         "extraBoss": null
       },
@@ -158159,12 +158159,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Ancient Dragon",
         "location": null,
         "extraBoss": null
       },
@@ -158413,12 +158413,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Wormface",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -158669,12 +158669,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -158947,12 +158947,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -159201,12 +159201,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Ancient Dragon",
         "location": null,
         "extraBoss": null
       },
@@ -159467,12 +159467,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -159497,12 +159497,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Great Wyrm",
         "location": null,
         "extraBoss": null
       },
@@ -159527,12 +159527,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Great Wyrm",
         "location": null,
         "extraBoss": null
       },
@@ -159557,12 +159557,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -159587,12 +159587,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -159617,12 +159617,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Smelter Demon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -159873,12 +159873,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Tibia Mariner",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Great Wyrm",
         "location": null,
         "extraBoss": null
       },
@@ -160118,12 +160118,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dragonkin Soldier",
         "location": null,
         "extraBoss": null
       },
@@ -160372,12 +160372,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dragonkin Soldier",
         "location": null,
         "extraBoss": null
       },
@@ -160617,12 +160617,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Centipede Demon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Great Wyrm",
         "location": null,
         "extraBoss": null
       },
@@ -160871,12 +160871,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -160901,12 +160901,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Fallingstar Beast",
         "location": null,
         "extraBoss": null
       },
@@ -160931,12 +160931,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -160961,12 +160961,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -160991,12 +160991,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Fallingstar Beast",
         "location": null,
         "extraBoss": null
       },
@@ -161021,12 +161021,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Wormface",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -161277,12 +161277,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Fallingstar Beast",
         "location": null,
         "extraBoss": null
       },
@@ -161532,12 +161532,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Gaping Dragon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -161799,12 +161799,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Fallingstar Beast",
         "location": null,
         "extraBoss": null
       },
@@ -162043,12 +162043,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Smelter Demon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -162320,12 +162320,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Death Rite Bird",
         "location": null,
         "extraBoss": null
       },
@@ -162350,12 +162350,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -162380,12 +162380,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -162410,12 +162410,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -162440,12 +162440,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Death Rite Bird",
         "location": null,
         "extraBoss": null
       },
@@ -162470,12 +162470,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Centipede Demon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Death Rite Bird",
         "location": null,
         "extraBoss": null
       },
@@ -162726,12 +162726,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -162970,12 +162970,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -163225,12 +163225,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Tibia Mariner",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Death Rite Bird",
         "location": null,
         "extraBoss": null
       },
@@ -163480,12 +163480,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "The Duke's Dear Freja",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -163736,12 +163736,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -163766,12 +163766,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -163796,12 +163796,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Nameless King",
         "location": null,
         "extraBoss": null
       },
@@ -163826,12 +163826,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -163856,12 +163856,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Nameless King",
         "location": null,
         "extraBoss": null
       },
@@ -163886,12 +163886,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dragonkin Soldier",
         "location": null,
         "extraBoss": null
       },
@@ -164141,12 +164141,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Wormface",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Nameless King",
         "location": null,
         "extraBoss": null
       },
@@ -164419,12 +164419,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Gaping Dragon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Nameless King",
         "location": null,
         "extraBoss": null
       },
@@ -164662,12 +164662,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Royal Revenant",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -164917,12 +164917,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Centipede Demon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dragonkin Soldier",
         "location": null,
         "extraBoss": null
       },
@@ -165160,12 +165160,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -165190,12 +165190,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -165220,12 +165220,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dancer of the Boreal Valley",
         "location": null,
         "extraBoss": null
       },
@@ -165250,12 +165250,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dancer of the Boreal Valley",
         "location": null,
         "extraBoss": null
       },
@@ -165280,12 +165280,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -165310,12 +165310,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Ulcerated Tree Spirit",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dancer of the Boreal Valley",
         "location": null,
         "extraBoss": null
       },
@@ -165566,12 +165566,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Tibia Mariner",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -165799,12 +165799,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Grafted Monarch",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -166077,12 +166077,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Smelter Demon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -166320,12 +166320,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "The Duke's Dear Freja",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dancer of the Boreal Valley",
         "location": null,
         "extraBoss": null
       },
@@ -166575,12 +166575,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -166605,12 +166605,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -166635,12 +166635,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -166665,12 +166665,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -166695,12 +166695,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Valiant Gargoyle",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -166725,12 +166725,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Wormface",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Draconic Tree Sentinel and Royal Cavalrymen",
         "location": null,
         "extraBoss": null
       },
@@ -166980,12 +166980,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Battlefield Commander",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Crucible Knight and Golden Hippopotamus",
         "location": null,
         "extraBoss": null
       },
@@ -167223,12 +167223,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Night's Cavalry Duo",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Godskin Duo",
         "location": null,
         "extraBoss": null
       },
@@ -167479,12 +167479,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Tibia Mariner",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Dragonkin Soldier",
         "location": null,
         "extraBoss": null
       },
@@ -167722,12 +167722,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Gaping Dragon",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Outland Commander",
         "location": null,
         "extraBoss": null
       },
@@ -167970,12 +167970,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168003,12 +168003,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168036,12 +168036,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168069,12 +168069,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168102,12 +168102,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168135,12 +168135,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168168,12 +168168,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168201,12 +168201,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168234,12 +168234,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168267,12 +168267,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168300,12 +168300,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168333,12 +168333,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168366,12 +168366,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168399,12 +168399,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168432,12 +168432,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168465,12 +168465,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168498,12 +168498,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168531,12 +168531,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168564,12 +168564,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168597,12 +168597,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168630,12 +168630,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168663,12 +168663,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168696,12 +168696,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168729,12 +168729,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168762,12 +168762,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168795,12 +168795,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168828,12 +168828,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168861,12 +168861,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168894,12 +168894,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -168927,12 +168927,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168960,12 +168960,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -168993,12 +168993,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -169026,12 +169026,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -169059,12 +169059,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -169092,12 +169092,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -169122,12 +169122,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -169399,12 +169399,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -169655,12 +169655,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -169909,12 +169909,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -170164,12 +170164,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -170430,12 +170430,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -170674,12 +170674,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -170919,12 +170919,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -171174,12 +171174,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -171429,12 +171429,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -171707,12 +171707,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -171951,12 +171951,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -172218,12 +172218,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -172450,12 +172450,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -172716,12 +172716,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -172959,12 +172959,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -173214,12 +173214,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -173491,12 +173491,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -173723,12 +173723,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -173989,12 +173989,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -174246,12 +174246,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -174279,12 +174279,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -174312,12 +174312,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -174345,12 +174345,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Curseblade",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Lord of Blood",
         "location": null,
         "extraBoss": null
       },
@@ -174378,12 +174378,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Demon in Pain and Demon from Below",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Demon Prince",
         "location": null,
         "extraBoss": null
       },
@@ -174411,12 +174411,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174444,12 +174444,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174477,12 +174477,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174510,12 +174510,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174543,12 +174543,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174576,12 +174576,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174609,12 +174609,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174642,12 +174642,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174675,12 +174675,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174708,12 +174708,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174741,12 +174741,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174774,12 +174774,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174807,12 +174807,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174840,12 +174840,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174873,12 +174873,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174906,12 +174906,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -174939,12 +174939,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -174972,12 +174972,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175005,12 +175005,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175038,12 +175038,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175071,12 +175071,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175104,12 +175104,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175137,12 +175137,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175170,12 +175170,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175203,12 +175203,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175236,12 +175236,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175269,12 +175269,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175302,12 +175302,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175335,12 +175335,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175368,12 +175368,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175401,12 +175401,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175434,12 +175434,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175467,12 +175467,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -175500,12 +175500,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175533,12 +175533,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175563,12 +175563,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -175830,12 +175830,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -176097,12 +176097,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -176363,12 +176363,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -176617,12 +176617,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -176873,12 +176873,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -177116,12 +177116,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -177370,12 +177370,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -177626,12 +177626,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -177892,12 +177892,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -178147,12 +178147,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -178390,12 +178390,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -178622,12 +178622,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -178877,12 +178877,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -179133,12 +179133,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -179389,12 +179389,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -179644,12 +179644,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -179898,12 +179898,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -180165,12 +180165,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -180432,12 +180432,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -180690,12 +180690,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -180723,12 +180723,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Knight Artorias",
         "location": null,
         "extraBoss": null
       },
@@ -180756,12 +180756,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -180789,12 +180789,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Great Red Bear",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
@@ -180822,12 +180822,12 @@
       },
       "specialEvent": null,
       "night1": {
-        "boss": null,
+        "boss": "Death Knight",
         "location": null,
         "extraBoss": null
       },
       "night2": {
-        "boss": null,
+        "boss": "Divine Beast Dancing Lion",
         "location": null,
         "extraBoss": null
       },
