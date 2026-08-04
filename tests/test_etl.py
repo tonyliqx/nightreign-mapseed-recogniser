@@ -26,3 +26,36 @@ def test_load_source_reads_named_columns(tmp_path):
     assert b.names[38100] == "村庄"
     assert int(b.construct.iloc[0]["MAP"]) == 0
     assert int(b.construct.iloc[0]["coord_index"]) == 705
+
+from nightreign_etl import (apply_void_offset, to768, category_of, basic_class_of,
+                            EVERGAOL_COORDS, VOID_UNDERGROUND_COORDS)
+
+TYPE_MAP = {
+    "38100": {"advCategory":"minorBase","basicClass":"village","icon":"village","name":"村庄"},
+    "41000": {"advCategory":"minorBase","basicClass":"church","icon":"church","name":"教堂"},
+    "4770":  {"advCategory":"fieldBoss","basicClass":"other","icon":"fieldBoss","name":"唤声船"},
+}
+NAMES = {38100:"村庄", 41000:"教堂", 4770:"唤声船"}
+
+def test_to768_halves():
+    assert to768((500.0, 600.0)) == (250.0, 300.0)
+
+def test_void_offset_only_underground():
+    base = (400.0, 400.0)
+    assert apply_void_offset(999, base) == base  # 非地下不动
+    x,y = apply_void_offset(1160, base)          # 地下加偏移
+    assert abs(x - (400.0 + 862*1536/4775)) < 1e-6
+    assert abs(y - (400.0 + 355*1536/4775)) < 1e-6
+
+def test_category_evergaol_by_coord():
+    assert category_of(9999, 601, TYPE_MAP, NAMES) == "evergaol"
+    assert category_of(9999, 2607, TYPE_MAP, NAMES) == "evergaol"
+
+def test_category_from_typemap():
+    assert category_of(4770, 100, TYPE_MAP, NAMES) == "fieldBoss"
+    assert category_of(38100, 100, TYPE_MAP, NAMES) == "minorBase"
+
+def test_basic_class():
+    assert basic_class_of(38100, TYPE_MAP, NAMES) == "village"
+    assert basic_class_of(41000, TYPE_MAP, NAMES) == "church"
+    assert basic_class_of(4770, TYPE_MAP, NAMES) == "other"

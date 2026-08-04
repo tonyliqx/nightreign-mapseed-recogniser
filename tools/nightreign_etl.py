@@ -24,3 +24,41 @@ def load_source(vendor_dir):
             if row and row[0].strip():
                 names[int(row[0])] = row[1]
     return SourceBundle(patterns, coords, construct, names)
+
+EVERGAOL_COORDS = set(range(601,608)) | set(range(2601,2608))
+ROTTED_WOODS_TYPES = set()  # Task 1.1 校对后填入腐败森林独有 boss 的 type 集合
+
+def apply_void_offset(coord_index, pic_xy):
+    x, y = pic_xy
+    if coord_index in VOID_UNDERGROUND_COORDS:
+        dx, dy = VOID_UNDERGROUND_OFFSET
+        return (x + dx, y + dy)
+    return (x, y)
+
+def to768(pic_xy):
+    return (pic_xy[0]/2.0, pic_xy[1]/2.0)
+
+def category_of(type_id, coord_index, type_map, names):
+    if coord_index in EVERGAOL_COORDS:
+        return "evergaol"
+    t = type_map.get(str(type_id))
+    if t:
+        if str(type_id) in {str(x) for x in ROTTED_WOODS_TYPES}:
+            return "rottedWoods"
+        return t["advCategory"]
+    # 兜底规则
+    s = str(type_id)
+    if s in ("49410","49420","49430"): return "majorBase"
+    if s[:2] in ("45","46","47","52","53"): return "fieldBoss"
+    return "minorBase"
+
+def basic_class_of(type_id, type_map, names):
+    t = type_map.get(str(type_id))
+    if t:
+        return t["basicClass"]
+    n = names.get(type_id, "")
+    if "教堂" in n: return "church"
+    if "法师塔" in n: return "mage"
+    if "村庄" in n or "村落" in n: return "village"
+    if "马车" in n: return "carriage"
+    return "other"
