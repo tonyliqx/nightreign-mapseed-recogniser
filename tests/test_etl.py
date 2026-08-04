@@ -18,7 +18,7 @@ def test_load_source_reads_named_columns(tmp_path):
     (tmp_path / "坐标.csv").write_text(
         "ID,Name,areaNo,gridXNo,gridZNo,posX,posZ,picX,picY\n705,,60,1,2,3,4,500.0,600.0\n", encoding="utf-8")
     (tmp_path / "CONSTRUCT.csv").write_text(
-        "ID,MAP,type,is_display,,coord_index,,,,,,\n0,0,38100,1,126,705,0,0,0,0,0,0\n", encoding="utf-8")
+        "ID,MAP,type,is_display,,coord_index,,,,,,\n0,0,38100,1,705,705,0,0,0,0,0,0\n", encoding="utf-8")
     (tmp_path / "NAME.csv").write_text("38100,村庄,\n", encoding="utf-8")
     b = load_source(str(tmp_path))
     assert len(b.patterns) == 1
@@ -26,6 +26,21 @@ def test_load_source_reads_named_columns(tmp_path):
     assert b.names[38100] == "村庄"
     assert int(b.construct.iloc[0]["MAP"]) == 0
     assert int(b.construct.iloc[0]["coord_index"]) == 705
+
+def test_load_source_coord_uses_unnamed4(tmp_path):
+    # 规则①：真实 CONSTRUCT.csv 的 coord_index 与 Unnamed:4 在 4 对上互换，
+    # load_source 必须取 Unnamed:4 作真坐标ID（此处 coord_index=307 错、Unnamed:4=108 对）。
+    (tmp_path / "MAP_PATTERN.csv").write_text(
+        "ID,NightLord,Special,Start_190,Treasure_800,Event_30*0,EventFlag,EvPat_30**,EvPatFlag,RotRew_500,Day1Boss,Day1Loc,Day2Boss,Day2Loc,extra1,extra2\n"
+        "0,0,0,705,8005,3030,7724,3600,1150,0,4929,1001,4860,1011,-1,-1\n", encoding="utf-8")
+    (tmp_path / "坐标.csv").write_text(
+        "ID,Name,areaNo,gridXNo,gridZNo,posX,posZ,picX,picY\n108,,1,1,1,1,1,10.0,20.0\n", encoding="utf-8")
+    # Unnamed:4=108（真）、coord_index=307（互换错值）
+    (tmp_path / "CONSTRUCT.csv").write_text(
+        "ID,MAP,type,is_display,,coord_index,,,,,,\n0,0,38100,1,108,307,0,0,0,0,0,0\n", encoding="utf-8")
+    (tmp_path / "NAME.csv").write_text("38100,村庄,\n", encoding="utf-8")
+    b = load_source(str(tmp_path))
+    assert int(b.construct.iloc[0]["coord_index"]) == 108  # 取 Unnamed:4，非 coord_index 的 307
 
 from nightreign_etl import (apply_void_offset, to768, category_of, basic_class_of,
                             EVERGAOL_COORDS, VOID_UNDERGROUND_COORDS)

@@ -2,6 +2,7 @@
 # 初值来自旧 type_category_icon.json，用 NAME.csv + classify 规则补全未覆盖 type。
 import json, csv, sys
 from pathlib import Path
+import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 VENDOR = ROOT / "vendor" / "nightreign-data"
@@ -78,6 +79,25 @@ for t, adv in CURATION_ADV.items():
 for t, basic in CURATION_BASIC.items():
     if t in out:
         out[t]["basicClass"] = basic
+
+# 5.5) 规则④⑤：NAME.xlsx「类别」列是分类权威。
+#   规则④：夜晚BOSS/野外BOSS/监牢BOSS 三类 → fieldBoss。
+#     修复 classify_rules 只覆盖 45/46/47/52/53 前缀、漏 48/49 前缀夜晚BOSS（50 type 误判 minorBase）的 bug。
+#     （夜晚BOSS 4780-4930 系列是大空洞神授塔守塔 BOSS，其 4 位原型 22/22 出现在 Day1/Day2 夜晚BOSS 池。）
+#   规则⑤：53990「野外商人」类别=大空洞商人 → minorBase（商人设施，覆盖 "53" 前缀误判 fieldBoss）。
+nx = pd.read_excel(VENDOR / "NAME.xlsx", sheet_name="NAME")
+_name_cat = {int(k): ("" if pd.isna(v) else str(v)) for k, v in zip(nx["ID"], nx["类别"])}
+NAME_CAT_ADV = {"夜晚BOSS": "fieldBoss", "野外BOSS": "fieldBoss", "监牢BOSS": "fieldBoss"}
+_boss_fixed = 0
+for t, entry in out.items():
+    nc = _name_cat.get(int(t), "")
+    if nc in NAME_CAT_ADV:
+        if entry["advCategory"] != NAME_CAT_ADV[nc]:
+            _boss_fixed += 1
+        entry["advCategory"] = NAME_CAT_ADV[nc]
+if "53990" in out:
+    out["53990"]["advCategory"] = "minorBase"
+print(f"规则④⑤：三类BOSS→fieldBoss 修正 {_boss_fixed} type；53990→minorBase", file=sys.stderr)
 
 # 6) evergaol 不在此表（按 coord 601-607 判定）；curation 后应 0 条 evergaol 残留
 (ROOT / "tools" / "type_mapping.json").write_text(

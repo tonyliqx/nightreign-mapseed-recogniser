@@ -18,6 +18,11 @@ def load_source(vendor_dir):
     coord_df = pd.read_csv(f"{vendor_dir}/坐标.csv")
     coords = {int(r.ID): (float(r.picX), float(r.picY)) for r in coord_df.itertuples()}
     construct = pd.read_csv(f"{vendor_dir}/CONSTRUCT.csv")
+    # 规则①：Unnamed:4 是真坐标ID。CONSTRUCT.csv 的 coord_index 列在 4 对上与坐标表互换
+    # （108↔307、116↔313，及各自 +2000 变体 2108↔2307、2116↔2313），影响 5.3% 行。
+    # 真实坐标须取 Unnamed:4。测试 fixture 无此列时跳过（保持 coord_index）。
+    if "Unnamed: 4" in construct.columns:
+        construct["coord_index"] = construct["Unnamed: 4"]
     names = {}
     with open(f"{vendor_dir}/NAME.csv", encoding="utf-8") as f:
         for row in csv.reader(f):
