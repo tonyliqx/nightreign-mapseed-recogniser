@@ -18,3 +18,6 @@ distnr/
 
 # 资源替换前的备份
 *.bak
+
+# 新源只读副本（可由 tools 重建）
+vendor/
