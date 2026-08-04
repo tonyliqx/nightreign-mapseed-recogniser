@@ -834,13 +834,13 @@
     "name": "马车"
   },
   "38100": {
-    "advCategory": "majorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "cathedral_blank",
     "name": "火焰修士"
   },
   "38001": {
-    "advCategory": "majorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "cathedral_blank",
     "name": "魔像守卫"
@@ -876,13 +876,13 @@
     "name": "骑士兵长"
   },
   "38000": {
-    "advCategory": "majorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "cathedral_blank",
     "name": "神谕使者"
   },
   "38101": {
-    "advCategory": "majorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "cathedral_blank",
     "name": "灵庙骑士"
@@ -972,7 +972,7 @@
     "name": "白金之子"
   },
   "51000": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "church",
     "icon": "cathedral_blank",
     "name": "教堂"
@@ -1056,7 +1056,7 @@
     "name": "奔逃树桩"
   },
   "50011": {
-    "advCategory": "evergaol",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "蜘蛛蝎"
@@ -1086,7 +1086,7 @@
     "name": "消失雕像"
   },
   "50001": {
-    "advCategory": "evergaol",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "腐败眷属"
@@ -1116,7 +1116,7 @@
     "name": "恶兆之子"
   },
   "50114": {
-    "advCategory": "evergaol",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "厄兆猎人"
@@ -1140,7 +1140,7 @@
     "name": "神鸟战士"
   },
   "50030": {
-    "advCategory": "evergaol",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "杜鹃骑士"
@@ -1164,7 +1164,7 @@
     "name": "冻霜螯虾"
   },
   "52520": {
-    "advCategory": "evergaol",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "咒剑士+蜘蛛蝎"
@@ -1188,7 +1188,7 @@
     "name": "恶魔雕像"
   },
   "50040": {
-    "advCategory": "evergaol",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "尊腐骑士"
@@ -1224,13 +1224,13 @@
     "name": "神皮城"
   },
   "53610": {
-    "advCategory": "minorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "猎犬骑士"
   },
   "53680": {
-    "advCategory": "minorBase",
+    "advCategory": "majorBase",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "神兽城"
@@ -1242,25 +1242,25 @@
     "name": "大审判官"
   },
   "53580": {
-    "advCategory": "minorBase",
+    "advCategory": "majorBase",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "梅瑟莫城"
   },
   "53600": {
-    "advCategory": "minorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "厄兆猎人"
   },
   "53670": {
-    "advCategory": "evergaol",
+    "advCategory": "majorBase",
     "basicClass": "other",
     "icon": "evergaol",
     "name": "尊腐城"
   },
   "51150": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "carriage",
     "icon": "cathedral_blank",
     "name": "马车"
@@ -1278,8 +1278,8 @@
     "name": "巨蟹"
   },
   "51050": {
-    "advCategory": "majorBase",
-    "basicClass": "nothing",
+    "advCategory": "minorBase",
+    "basicClass": "church",
     "icon": "cathedral_blank",
     "name": "教堂"
   },
@@ -1290,79 +1290,79 @@
     "name": "巨鸦+血怪之首"
   },
   "53710": {
-    "advCategory": "minorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "咒剑士"
   },
   "53720": {
-    "advCategory": "minorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "厄兆之子"
   },
   "53700": {
-    "advCategory": "minorBase",
+    "advCategory": "fieldBoss",
     "basicClass": "other",
     "icon": "ruin_blank",
     "name": "失乡"
   },
   "51109": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "消失雕像"
   },
   "51108": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "熄灭烛台"
   },
   "51101": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "恶魔雕像"
   },
   "51107": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "奔逃树桩"
   },
   "51100": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "门上方"
   },
   "51102": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "枯树"
   },
   "51103": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "水池倒影"
   },
   "51104": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "幻影平台"
   },
   "51106": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "雾门"
   },
   "51105": {
-    "advCategory": "majorBase",
+    "advCategory": "minorBase",
     "basicClass": "mage",
     "icon": "cathedral_blank",
     "name": "草丛"
@@ -1374,8 +1374,8 @@
     "name": "红点"
   },
   "51051": {
-    "advCategory": "majorBase",
-    "basicClass": "nothing",
+    "advCategory": "minorBase",
+    "basicClass": "church",
     "icon": "cathedral_blank",
     "name": "教堂"
   },
