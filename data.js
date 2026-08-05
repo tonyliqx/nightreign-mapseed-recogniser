@@ -83,32 +83,35 @@ const POIS_BY_MAP = {
 //   A 点 4xxxx field boss（红狼/王室幽魂/接肢/萨米尔）、B 点 52500(血)/52520(毒) 遗迹，
 //   经 integrate_dlc.py 提取核对。注意：这两个点 basic 分类为 other，不进 dataset.json，
 //   故独立维护于此，不并入 POIS_BY_MAP。
+// 双点消歧：A=A 点 fieldBoss（需走过去确认），B=B 点 stronghold 据点（地图直接可见）。
+// 两点组合区分全部 5 对 GH 碰撞（覆盖率均 80/80）。玩家可选更易确认的点。
 const GH_DISAMBIG_POINTS = {
-  A: { id: 'ghDisambigA', x: 416, y: 351, kind: 'boss',  labelKey: 'gh.disambig.aLabel' },
-  B: { id: 'ghDisambigB', x: 164, y: 406, kind: 'ruin',  labelKey: 'gh.disambig.bLabel' },
+  A: { id: 'ghDisambigA', x: 453, y: 374, kind: 'fieldBoss', labelKey: 'gh.disambig.aLabel' },
+  B: { id: 'ghDisambigB', x: 200, y: 443, kind: 'stronghold', labelKey: 'gh.disambig.bLabel' },
 };
 
+// bossA = A 点(453,374) fieldBoss type；strongholdB = B 点(200,443) stronghold 据点名（中文，源自 nightreignMapPatterns.json）。
 const GH_DISAMBIG = {
-  1120: { bossA: '红狼',     ruinB: '血' },
-  1133: { bossA: '王室幽魂', ruinB: '毒' },
-  1125: { bossA: '接肢',     ruinB: '毒' },
-  1132: { bossA: '红狼',     ruinB: '血' },
-  1182: { bossA: '红狼',     ruinB: '毒' },
-  1183: { bossA: '萨米尔',   ruinB: '毒' },
-  1188: { bossA: '接肢',     ruinB: '血' },
-  1189: { bossA: '萨米尔',   ruinB: '毒' },
-  1192: { bossA: '接肢',     ruinB: '血' },
-  1193: { bossA: '王室幽魂', ruinB: '毒' },
+  1120: { bossA: '红狼',       strongholdB: '巨鸦+血怪之首' },
+  1133: { bossA: '王室幽魂',   strongholdB: '咒剑士+蜘蛛蝎' },
+  1125: { bossA: '接肢贵族',   strongholdB: '咒剑士+蜘蛛蝎' },
+  1132: { bossA: '红狼',       strongholdB: '巨鸦+血怪之首' },
+  1182: { bossA: '红狼',       strongholdB: '咒剑士+蜘蛛蝎' },
+  1183: { bossA: '萨米尔',     strongholdB: '咒剑士+蜘蛛蝎' },
+  1188: { bossA: '接肢贵族',   strongholdB: '巨鸦+血怪之首' },
+  1189: { bossA: '萨米尔',     strongholdB: '咒剑士+蜘蛛蝎' },
+  1192: { bossA: '接肢贵族',   strongholdB: '巨鸦+血怪之首' },
+  1193: { bossA: '王室幽魂',   strongholdB: '咒剑士+蜘蛛蝎' },
 };
 
 // Map background images (local paths)
 const MAP_IMAGES = {
-  Default: "assets/images/Default-POI.png",
-  Mountaintop: "assets/images/Mountaintop-POI.png",
-  Crater: "assets/images/Crater-POI.png",
-  Noklateo: "assets/images/Noklateo-POI.png",
-  "Rotted Woods": "assets/images/RottedWoods-POI.png",
-  "Great Hollow": "assets/images/GreatHollow-POI.png"
+  Default: "assets/images/Default-POI.jpg",
+  Mountaintop: "assets/images/Mountaintop-POI.jpg",
+  Crater: "assets/images/Crater-POI.jpg",
+  Noklateo: "assets/images/Noklateo-POI.jpg",
+  "Rotted Woods": "assets/images/RottedWoods-POI.jpg",
+  "Great Hollow": "assets/images/GreatHollow-POI.jpg"
 };
 
 

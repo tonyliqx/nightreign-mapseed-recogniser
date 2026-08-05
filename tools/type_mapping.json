@@ -1,1514 +1,1514 @@
 {
-  "45510": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "黑刀刺客"
-  },
-  "46510": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "红狼"
-  },
-  "46550": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "狮子混种"
-  },
-  "46570": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "老狮子"
-  },
-  "46590": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "王室幽魂"
-  },
-  "46620": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "黑夜骑兵"
-  },
-  "46650": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "接肢贵族"
-  },
-  "46690": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "萨米尔"
-  },
-  "46710": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "米兰达花"
-  },
-  "46720": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "河马"
-  },
-  "46770": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "亚人女王"
-  },
-  "46810": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "黑刀刺客"
-  },
-  "46820": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "红狼"
-  },
-  "46860": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "狮子混种"
-  },
-  "46880": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "王室幽魂"
-  },
-  "46910": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "接肢贵族"
-  },
-  "46950": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "萨米尔"
-  },
-  "46520": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "龙装"
-  },
-  "46530": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "大树守卫"
-  },
-  "46540": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "罗蕾塔"
-  },
-  "46560": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "铃珠猎人"
-  },
-  "46580": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "飞龙"
-  },
-  "46630": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "腐败树灵"
-  },
-  "46640": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "祖灵"
-  },
-  "46660": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "黑剑眷属"
-  },
-  "46670": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "黄金树化身"
-  },
-  "46680": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "土龙"
-  },
-  "46740": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "死鸟"
-  },
-  "46870": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "铃珠猎人"
-  },
-  "46502": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "恶兆之子"
-  },
-  "46503": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "守墓斗士"
-  },
-  "46504": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "兽人集团"
-  },
-  "46505": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "混种集团"
-  },
-  "46602": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "结晶人"
-  },
-  "46603": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "石肤众王"
-  },
-  "46604": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "失乡骑士"
-  },
-  "46605": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "诺克斯战士"
-  },
-  "46606": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "猎犬骑士"
-  },
-  "46700": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "龙人士兵"
-  },
-  "46701": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "神皮使徒"
-  },
-  "46702": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "神皮贵族"
-  },
-  "46703": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "剑盾熔炉"
-  },
-  "46704": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "树熔炉"
-  },
-  "46800": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "死鸟"
-  },
-  "46801": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "古龙"
-  },
-  "46802": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "双神皮"
-  },
-  "4770": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "唤声船"
-  },
-  "4780": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "贪食魔龙"
-  },
-  "4790": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "百足恶魔"
-  },
-  "4800": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "弗雷迪亚"
-  },
-  "4810": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "熔铁恶魔"
-  },
-  "4820": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "无名王者"
-  },
-  "4830": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "舞娘"
-  },
-  "4840": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "恶兆妖鬼"
-  },
-  "4850": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "龙装骑兵"
-  },
-  "4860": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "大树骑兵"
-  },
-  "4870": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "神皮使徒"
-  },
-  "4880": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "双神皮"
-  },
-  "4890": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "蚯蚓脸"
-  },
-  "4910": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "接肢君王"
-  },
-  "4917": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "石像鬼"
-  },
-  "4918": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "大土龙"
-  },
-  "4919": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "古龙"
-  },
-  "4920": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "坠星成兽"
-  },
-  "4921": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "死鸟"
-  },
-  "4923": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "龙人士兵"
-  },
-  "4924": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "铃珠猎人"
-  },
-  "4925": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "熔炉&河马"
-  },
-  "4926": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "偏地老将"
-  },
-  "4927": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "战地老将"
-  },
-  "4928": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "黑夜骑兵"
-  },
-  "4929": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "女王&剑圣"
-  },
-  "4930": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "王室幽魂"
-  },
-  "4990": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "腐败树灵"
-  },
-  "5200": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "咒剑士"
-  },
-  "5203": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "洞底恶魔"
-  },
-  "5201": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "大红熊"
-  },
-  "5202": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "死骑士"
-  },
-  "5210": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "鲜血君王"
-  },
-  "5213": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "恶魔王子"
-  },
-  "5211": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "神兽舞狮"
-  },
-  "5212": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "亚尔特留斯"
-  },
-  "7700": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY1额外BOSS"
-  },
-  "7720": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY2额外BOSS"
-  },
-  "7701": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY1陨石"
-  },
-  "7721": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY2陨石"
-  },
-  "7702": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY1灵庙"
-  },
-  "7722": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY2灵庙"
-  },
-  "7704": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY1黑夜势力"
-  },
-  "7724": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY2黑夜势力"
-  },
-  "7705": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY1"
-  },
-  "7725": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "DAY2"
-  },
-  "3040": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "恶兆妖鬼"
-  },
-  "3050": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "巨大水泡"
-  },
-  "3060": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "虫群"
-  },
-  "3070": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "恶魔诅咒"
-  },
-  "3110": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "冰雾笼罩"
-  },
-  "3120": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "火焰野兽"
-  },
-  "3130": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "安定者审判"
+  "0": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "无",
+    "basicClass": "other"
   },
   "510": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "冰雾笼罩"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "冰雾笼罩",
+    "basicClass": "other"
   },
   "520": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "火焰野兽"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "火焰野兽",
+    "basicClass": "other"
   },
   "540": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "巨大水泡"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "巨大水泡",
+    "basicClass": "other"
   },
   "550": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "虫群"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "虫群",
+    "basicClass": "other"
   },
   "560": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "恶魔诅咒"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "恶魔诅咒",
+    "basicClass": "other"
+  },
+  "3040": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "恶兆妖鬼",
+    "basicClass": "other"
+  },
+  "3050": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "巨大水泡",
+    "basicClass": "other"
+  },
+  "3060": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "虫群",
+    "basicClass": "other"
+  },
+  "3070": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "恶魔诅咒",
+    "basicClass": "other"
+  },
+  "3110": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "冰雾笼罩",
+    "basicClass": "other"
+  },
+  "3120": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "火焰野兽",
+    "basicClass": "other"
+  },
+  "3130": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "安定者审判",
+    "basicClass": "other"
+  },
+  "4770": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "唤声船",
+    "basicClass": "other"
+  },
+  "4780": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "贪食魔龙",
+    "basicClass": "other"
+  },
+  "4790": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "百足恶魔",
+    "basicClass": "other"
+  },
+  "4800": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "弗雷迪亚",
+    "basicClass": "other"
+  },
+  "4810": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "熔铁恶魔",
+    "basicClass": "other"
+  },
+  "4820": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "无名王者",
+    "basicClass": "other"
+  },
+  "4830": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "舞娘",
+    "basicClass": "other"
+  },
+  "4840": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "恶兆妖鬼",
+    "basicClass": "other"
+  },
+  "4850": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "龙装骑兵",
+    "basicClass": "other"
+  },
+  "4860": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "大树骑兵",
+    "basicClass": "other"
+  },
+  "4870": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "神皮使徒",
+    "basicClass": "other"
+  },
+  "4880": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "双神皮",
+    "basicClass": "other"
+  },
+  "4890": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "蚯蚓脸",
+    "basicClass": "other"
+  },
+  "4910": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "接肢君王",
+    "basicClass": "other"
+  },
+  "4917": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "石像鬼",
+    "basicClass": "other"
+  },
+  "4918": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "大土龙",
+    "basicClass": "other"
+  },
+  "4919": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "古龙",
+    "basicClass": "other"
+  },
+  "4920": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "坠星成兽",
+    "basicClass": "other"
+  },
+  "4921": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "死鸟",
+    "basicClass": "other"
+  },
+  "4923": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "龙人士兵",
+    "basicClass": "other"
+  },
+  "4924": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "铃珠猎人",
+    "basicClass": "other"
+  },
+  "4925": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "熔炉&河马",
+    "basicClass": "other"
+  },
+  "4926": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "偏地老将",
+    "basicClass": "other"
+  },
+  "4927": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "战地老将",
+    "basicClass": "other"
+  },
+  "4928": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "黑夜骑兵",
+    "basicClass": "other"
+  },
+  "4929": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "女王&剑圣",
+    "basicClass": "other"
+  },
+  "4930": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "王室幽魂",
+    "basicClass": "other"
+  },
+  "4990": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "腐败树灵",
+    "basicClass": "other"
+  },
+  "5200": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "咒剑士",
+    "basicClass": "other"
+  },
+  "5201": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "大红熊",
+    "basicClass": "other"
+  },
+  "5202": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "死骑士",
+    "basicClass": "other"
+  },
+  "5203": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "洞底恶魔",
+    "basicClass": "other"
+  },
+  "5210": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "鲜血君王",
+    "basicClass": "other"
+  },
+  "5211": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "神兽舞狮",
+    "basicClass": "other"
+  },
+  "5212": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "亚尔特留斯",
+    "basicClass": "other"
+  },
+  "5213": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "恶魔王子",
+    "basicClass": "other"
+  },
+  "7700": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY1额外BOSS",
+    "basicClass": "other"
+  },
+  "7701": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY1陨石",
+    "basicClass": "other"
+  },
+  "7702": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY1灵庙",
+    "basicClass": "other"
+  },
+  "7704": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY1黑夜势力",
+    "basicClass": "other"
+  },
+  "7705": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY1",
+    "basicClass": "other"
   },
   "7706": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "mage",
-    "name": "魔法师塔"
-  },
-  "7726": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "mage",
-    "name": "魔法师塔"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "魔法师塔",
+    "basicClass": "mage"
   },
   "7707": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "癫火塔"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "癫火塔",
+    "basicClass": "other"
+  },
+  "7720": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY2额外BOSS",
+    "basicClass": "other"
+  },
+  "7721": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY2陨石",
+    "basicClass": "other"
+  },
+  "7722": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY2灵庙",
+    "basicClass": "other"
+  },
+  "7724": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY2黑夜势力",
+    "basicClass": "other"
+  },
+  "7725": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "DAY2",
+    "basicClass": "other"
+  },
+  "7726": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "魔法师塔",
+    "basicClass": "mage"
   },
   "7727": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "癫火塔"
-  },
-  "0": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "无"
-  },
-  "47702": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "唤声船"
-  },
-  "47802": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "贪食魔龙"
-  },
-  "47902": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "fieldBoss",
-    "name": "百足恶魔"
-  },
-  "48002": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "弗雷迪亚"
-  },
-  "48102": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "熔铁恶魔"
-  },
-  "48202": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "无名王者"
-  },
-  "48302": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "舞娘"
-  },
-  "48402": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "恶兆妖鬼"
-  },
-  "48502": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "龙装骑兵"
-  },
-  "48602": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "大树骑兵"
-  },
-  "48702": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "神皮使徒"
-  },
-  "48802": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "双神皮"
-  },
-  "48902": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "蚯蚓脸"
-  },
-  "49102": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "接肢君王"
-  },
-  "49172": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "石像鬼"
-  },
-  "49182": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "大土龙"
-  },
-  "49192": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "古龙"
-  },
-  "49202": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "坠星成兽"
-  },
-  "49212": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "死鸟"
-  },
-  "49232": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "龙人士兵"
-  },
-  "49242": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "铃珠猎人"
-  },
-  "49252": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "熔炉&河马"
-  },
-  "49262": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "偏地老将"
-  },
-  "49272": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "战地老将"
-  },
-  "49282": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "黑夜骑兵"
-  },
-  "49292": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "女王&剑圣"
-  },
-  "49302": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "王室幽魂"
-  },
-  "49902": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "腐败树灵"
-  },
-  "41000": {
-    "advCategory": "minorBase",
-    "basicClass": "church",
-    "icon": "church",
-    "name": "教堂"
-  },
-  "45000": {
-    "advCategory": "fieldBoss",
-    "basicClass": "carriage",
-    "icon": "fieldBoss",
-    "name": "马车"
-  },
-  "38100": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "cathedral_blank",
-    "name": "火焰修士"
-  },
-  "38001": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "cathedral_blank",
-    "name": "魔像守卫"
-  },
-  "30301": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "fort_blank",
-    "name": "结晶人"
-  },
-  "32000": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "失乡骑士"
-  },
-  "30300": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "fort_blank",
-    "name": "魔像守卫"
-  },
-  "30001": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "fort_blank",
-    "name": "铁处女"
-  },
-  "30000": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "fort_blank",
-    "name": "骑士兵长"
-  },
-  "38000": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "cathedral_blank",
-    "name": "神谕使者"
-  },
-  "38101": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "cathedral_blank",
-    "name": "灵庙骑士"
-  },
-  "32201": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "癫火山妖"
-  },
-  "32101": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "红狮子骑士"
-  },
-  "32001": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "老狮子"
-  },
-  "32200": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "火焰战车"
-  },
-  "32102": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "罗德尔骑士"
-  },
-  "32100": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "camp_blank",
-    "name": "狮子混种"
-  },
-  "37900": {
-    "advCategory": "minorBase",
-    "basicClass": "village",
-    "icon": "ruin_blank",
-    "name": "特殊商人"
-  },
-  "34100": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "调香师"
-  },
-  "34200": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "蚯蚓脸"
-  },
-  "34300": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "亚兹拉兽人"
-  },
-  "34104": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "卢恩熊"
-  },
-  "34000": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "归树看门犬"
-  },
-  "34101": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "堕落调香师"
-  },
-  "34003": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "白金之子"
-  },
-  "51000": {
-    "advCategory": "minorBase",
-    "basicClass": "church",
-    "icon": "cathedral_blank",
-    "name": "教堂"
-  },
-  "34102": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "战斗法师"
-  },
-  "34103": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "白金射手"
-  },
-  "34002": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "萨米尔"
-  },
-  "49410": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "majorBase",
-    "name": "失乡城"
-  },
-  "49430": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "majorBase",
-    "name": "熔炉城"
-  },
-  "49420": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "majorBase",
-    "name": "山妖城"
-  },
-  "49400": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "持秤商人"
-  },
-  "34001": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "鲜血贵族"
-  },
-  "50103": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "死骑士"
-  },
-  "40002": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "枯树"
-  },
-  "40003": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "水池倒影"
-  },
-  "40000": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "门上方"
-  },
-  "40007": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "奔逃树桩"
-  },
-  "50011": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "蜘蛛蝎"
-  },
-  "40006": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "雾门"
-  },
-  "40004": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "幻影平台"
-  },
-  "40008": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "熄灭烛台"
-  },
-  "40009": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "消失雕像"
-  },
-  "50001": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "腐败眷属"
-  },
-  "50102": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "血怪之首"
-  },
-  "40005": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "草丛"
-  },
-  "50113": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "神皮使徒"
-  },
-  "50100": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "恶兆之子"
-  },
-  "50114": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "厄兆猎人"
-  },
-  "41010": {
-    "advCategory": "minorBase",
-    "basicClass": "church",
-    "icon": "church",
-    "name": "教堂"
-  },
-  "50112": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "守墓斗士"
-  },
-  "50104": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "神鸟战士"
-  },
-  "50030": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "杜鹃骑士"
-  },
-  "44010": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "破败小屋"
-  },
-  "50050": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "癫火花"
-  },
-  "50020": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "冻霜螯虾"
-  },
-  "52520": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "咒剑士+蜘蛛蝎"
-  },
-  "45010": {
-    "advCategory": "fieldBoss",
-    "basicClass": "carriage",
-    "icon": "fieldBoss",
-    "name": "马车"
-  },
-  "52460": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "仿生泪滴"
-  },
-  "40001": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "恶魔雕像"
-  },
-  "50040": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "尊腐骑士"
-  },
-  "52570": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "紫怪之首+双熔炉"
-  },
-  "53990": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "野外商人"
-  },
-  "50116": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "祖灵之民"
-  },
-  "52420": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "唤灵蜗牛+灵火龙"
-  },
-  "53590": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "cathedral_blank",
-    "name": "神皮城"
-  },
-  "53610": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "猎犬骑士"
-  },
-  "53680": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "神兽城"
-  },
-  "52400": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "大审判官"
-  },
-  "53580": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "梅瑟莫城"
-  },
-  "53600": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "厄兆猎人"
-  },
-  "53670": {
-    "advCategory": "majorBase",
-    "basicClass": "other",
-    "icon": "evergaol",
-    "name": "尊腐城"
-  },
-  "51150": {
-    "advCategory": "minorBase",
-    "basicClass": "carriage",
-    "icon": "cathedral_blank",
-    "name": "马车"
-  },
-  "52550": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "红狼+先祖之灵"
-  },
-  "52450": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "巨蟹"
-  },
-  "51050": {
-    "advCategory": "minorBase",
-    "basicClass": "church",
-    "icon": "cathedral_blank",
-    "name": "教堂"
-  },
-  "52500": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "field_boss",
-    "name": "巨鸦+血怪之首"
-  },
-  "53710": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "咒剑士"
-  },
-  "53720": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "厄兆之子"
-  },
-  "53700": {
-    "advCategory": "fieldBoss",
-    "basicClass": "other",
-    "icon": "ruin_blank",
-    "name": "失乡"
-  },
-  "51109": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "消失雕像"
-  },
-  "51108": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "熄灭烛台"
-  },
-  "51101": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "恶魔雕像"
-  },
-  "51107": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "奔逃树桩"
-  },
-  "51100": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "门上方"
-  },
-  "51102": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "枯树"
-  },
-  "51103": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "水池倒影"
-  },
-  "51104": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "幻影平台"
-  },
-  "51106": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "雾门"
-  },
-  "51105": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "cathedral_blank",
-    "name": "草丛"
-  },
-  "21500": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "51051": {
-    "advCategory": "minorBase",
-    "basicClass": "church",
-    "icon": "cathedral_blank",
-    "name": "教堂"
-  },
-  "20800": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "20400": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "21100": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "21400": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "event",
-    "name": "红点"
-  },
-  "20600": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "20900": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "21300": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "21200": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "41011": {
-    "advCategory": "minorBase",
-    "basicClass": "church",
-    "icon": "church",
-    "name": "教堂"
-  },
-  "40905": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "恶魔雕像·草丛·二楼背面"
-  },
-  "20500": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "21000": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "20100": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "40908": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "枯树附近·门右侧·消失雕像"
-  },
-  "40907": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "幻影平台·门右侧·熄灭烛台"
-  },
-  "20300": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
-  },
-  "40904": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "幻影平台·水池倒影·二楼背面"
-  },
-  "40900": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "门上方·枯树·消失雕像"
-  },
-  "40901": {
-    "advCategory": "minorBase",
-    "basicClass": "mage",
-    "icon": "rise",
-    "name": "恶魔雕像·枯树·奔逃树桩"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "癫火塔",
+    "basicClass": "other"
   },
   "20000": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "红点"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20100": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20300": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20400": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20500": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20600": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20800": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "20900": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "21000": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "21100": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "21200": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "21300": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "21400": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "21500": {
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "红点",
+    "basicClass": "other"
+  },
+  "30000": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "骑士兵长",
+    "basicClass": "other"
+  },
+  "30001": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "铁处女",
+    "basicClass": "other"
+  },
+  "30300": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "魔像守卫",
+    "basicClass": "other"
+  },
+  "30301": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "结晶人",
+    "basicClass": "other"
+  },
+  "32000": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "失乡骑士",
+    "basicClass": "other"
+  },
+  "32001": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "老狮子",
+    "basicClass": "other"
+  },
+  "32100": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "狮子混种",
+    "basicClass": "other"
+  },
+  "32101": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "红狮子骑士",
+    "basicClass": "other"
+  },
+  "32102": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "罗德尔骑士",
+    "basicClass": "other"
+  },
+  "32200": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "火焰战车",
+    "basicClass": "other"
+  },
+  "32201": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "癫火山妖",
+    "basicClass": "other"
+  },
+  "34000": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "归树看门犬",
+    "basicClass": "other"
+  },
+  "34001": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "鲜血贵族",
+    "basicClass": "other"
+  },
+  "34002": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "萨米尔",
+    "basicClass": "other"
+  },
+  "34003": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "白金之子",
+    "basicClass": "other"
+  },
+  "34100": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "调香师",
+    "basicClass": "other"
+  },
+  "34101": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "堕落调香师",
+    "basicClass": "other"
+  },
+  "34102": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "战斗法师",
+    "basicClass": "other"
+  },
+  "34103": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "白金射手",
+    "basicClass": "other"
+  },
+  "34104": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "卢恩熊",
+    "basicClass": "other"
+  },
+  "34200": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "蚯蚓脸",
+    "basicClass": "other"
+  },
+  "34300": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "亚兹拉兽人",
+    "basicClass": "other"
+  },
+  "37900": {
+    "category": "landmark",
+    "icon": "merchant",
+    "name": "特殊商人",
+    "basicClass": "other"
+  },
+  "38000": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "神谕使者",
+    "basicClass": "other"
+  },
+  "38001": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "魔像守卫",
+    "basicClass": "other"
+  },
+  "38100": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "火焰修士",
+    "basicClass": "other"
+  },
+  "38101": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "灵庙骑士",
+    "basicClass": "other"
+  },
+  "40000": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40001": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40002": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40003": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40004": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40005": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40006": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40007": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40008": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40009": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40900": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40901": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40904": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40905": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40907": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "40908": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "41000": {
+    "category": "landmark",
+    "icon": "church",
+    "name": "教堂",
+    "basicClass": "church"
+  },
+  "41010": {
+    "category": "landmark",
+    "icon": "church",
+    "name": "教堂",
+    "basicClass": "church"
+  },
+  "41011": {
+    "category": "landmark",
+    "icon": "church",
+    "name": "教堂",
+    "basicClass": "church"
   },
   "43300": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "腐败小营地"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "腐败小营地",
+    "basicClass": "other"
   },
   "43301": {
-    "advCategory": "minorBase",
-    "basicClass": "other",
-    "icon": "other",
-    "name": "腐败小营地"
+    "category": "excluded",
+    "icon": "unknown",
+    "name": "腐败小营地",
+    "basicClass": "other"
+  },
+  "44010": {
+    "category": "landmark",
+    "icon": "blessing",
+    "name": "破败小屋",
+    "basicClass": "other"
+  },
+  "45000": {
+    "category": "landmark",
+    "icon": "blessing",
+    "name": "马车",
+    "basicClass": "carriage"
+  },
+  "45010": {
+    "category": "landmark",
+    "icon": "blessing",
+    "name": "马车",
+    "basicClass": "carriage"
+  },
+  "45510": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "黑刀刺客",
+    "basicClass": "other"
+  },
+  "46502": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "恶兆之子",
+    "basicClass": "other"
+  },
+  "46503": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "守墓斗士",
+    "basicClass": "other"
+  },
+  "46504": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "兽人集团",
+    "basicClass": "other"
+  },
+  "46505": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "混种集团",
+    "basicClass": "other"
+  },
+  "46510": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "红狼",
+    "basicClass": "other"
+  },
+  "46520": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "龙装",
+    "basicClass": "other"
+  },
+  "46530": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "大树守卫",
+    "basicClass": "other"
+  },
+  "46540": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "罗蕾塔",
+    "basicClass": "other"
+  },
+  "46550": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "狮子混种",
+    "basicClass": "other"
+  },
+  "46560": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "铃珠猎人",
+    "basicClass": "other"
+  },
+  "46570": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "老狮子",
+    "basicClass": "other"
+  },
+  "46580": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "飞龙",
+    "basicClass": "other"
+  },
+  "46590": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "王室幽魂",
+    "basicClass": "other"
+  },
+  "46602": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "结晶人",
+    "basicClass": "other"
+  },
+  "46603": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "石肤众王",
+    "basicClass": "other"
+  },
+  "46604": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "失乡骑士",
+    "basicClass": "other"
+  },
+  "46605": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "诺克斯战士",
+    "basicClass": "other"
+  },
+  "46606": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "猎犬骑士",
+    "basicClass": "other"
+  },
+  "46620": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "黑夜骑兵",
+    "basicClass": "other"
+  },
+  "46630": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "腐败树灵",
+    "basicClass": "other"
+  },
+  "46640": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "祖灵",
+    "basicClass": "other"
+  },
+  "46650": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "接肢贵族",
+    "basicClass": "other"
+  },
+  "46660": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "黑剑眷属",
+    "basicClass": "other"
+  },
+  "46670": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "黄金树化身",
+    "basicClass": "other"
+  },
+  "46680": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "土龙",
+    "basicClass": "other"
+  },
+  "46690": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "萨米尔",
+    "basicClass": "other"
+  },
+  "46700": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "龙人士兵",
+    "basicClass": "other"
+  },
+  "46701": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "神皮使徒",
+    "basicClass": "other"
+  },
+  "46702": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "神皮贵族",
+    "basicClass": "other"
+  },
+  "46703": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "剑盾熔炉",
+    "basicClass": "other"
+  },
+  "46704": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "树熔炉",
+    "basicClass": "other"
+  },
+  "46710": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "米兰达花",
+    "basicClass": "other"
+  },
+  "46720": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "河马",
+    "basicClass": "other"
+  },
+  "46740": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "死鸟",
+    "basicClass": "other"
+  },
+  "46770": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "亚人女王",
+    "basicClass": "other"
+  },
+  "46800": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "死鸟",
+    "basicClass": "other"
+  },
+  "46801": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "古龙",
+    "basicClass": "other"
+  },
+  "46802": {
+    "category": "evergaol",
+    "icon": "evergaol",
+    "name": "双神皮",
+    "basicClass": "other"
+  },
+  "46810": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "黑刀刺客",
+    "basicClass": "other"
+  },
+  "46820": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "红狼",
+    "basicClass": "other"
+  },
+  "46860": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "狮子混种",
+    "basicClass": "other"
+  },
+  "46870": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "铃珠猎人",
+    "basicClass": "other"
+  },
+  "46880": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "王室幽魂",
+    "basicClass": "other"
+  },
+  "46910": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "接肢贵族",
+    "basicClass": "other"
+  },
+  "46950": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "萨米尔",
+    "basicClass": "other"
+  },
+  "47702": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "唤声船",
+    "basicClass": "other"
+  },
+  "47802": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "贪食魔龙",
+    "basicClass": "other"
+  },
+  "47902": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "百足恶魔",
+    "basicClass": "other"
+  },
+  "48002": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "弗雷迪亚",
+    "basicClass": "other"
+  },
+  "48102": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "熔铁恶魔",
+    "basicClass": "other"
+  },
+  "48202": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "无名王者",
+    "basicClass": "other"
+  },
+  "48302": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "舞娘",
+    "basicClass": "other"
+  },
+  "48402": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "恶兆妖鬼",
+    "basicClass": "other"
+  },
+  "48502": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "龙装骑兵",
+    "basicClass": "other"
+  },
+  "48602": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "大树骑兵",
+    "basicClass": "other"
+  },
+  "48702": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "神皮使徒",
+    "basicClass": "other"
+  },
+  "48802": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "双神皮",
+    "basicClass": "other"
+  },
+  "48902": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "蚯蚓脸",
+    "basicClass": "other"
+  },
+  "49102": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "接肢君王",
+    "basicClass": "other"
+  },
+  "49172": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "石像鬼",
+    "basicClass": "other"
+  },
+  "49182": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "大土龙",
+    "basicClass": "other"
+  },
+  "49192": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "古龙",
+    "basicClass": "other"
+  },
+  "49202": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "坠星成兽",
+    "basicClass": "other"
+  },
+  "49212": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "死鸟",
+    "basicClass": "other"
+  },
+  "49232": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "龙人士兵",
+    "basicClass": "other"
+  },
+  "49242": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "铃珠猎人",
+    "basicClass": "other"
+  },
+  "49252": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "熔炉&河马",
+    "basicClass": "other"
+  },
+  "49262": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "偏地老将",
+    "basicClass": "other"
+  },
+  "49272": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "战地老将",
+    "basicClass": "other"
+  },
+  "49282": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "黑夜骑兵",
+    "basicClass": "other"
+  },
+  "49292": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "女王&剑圣",
+    "basicClass": "other"
+  },
+  "49302": {
+    "category": "nightBoss",
+    "icon": "field_boss",
+    "name": "王室幽魂",
+    "basicClass": "other"
+  },
+  "49400": {
+    "category": "scaleMerchant",
+    "icon": "merchant",
+    "name": "持秤商人",
+    "basicClass": "other"
+  },
+  "49410": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "失乡城",
+    "basicClass": "other"
+  },
+  "49420": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "山妖城",
+    "basicClass": "other"
+  },
+  "49430": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "熔炉城",
+    "basicClass": "other"
+  },
+  "49902": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "腐败树灵",
+    "basicClass": "other"
+  },
+  "50001": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "腐败眷属",
+    "basicClass": "other"
+  },
+  "50011": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "蜘蛛蝎",
+    "basicClass": "other"
+  },
+  "50020": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "冻霜螯虾",
+    "basicClass": "other"
+  },
+  "50030": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "杜鹃骑士",
+    "basicClass": "other"
+  },
+  "50040": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "尊腐骑士",
+    "basicClass": "other"
+  },
+  "50050": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "癫火花",
+    "basicClass": "other"
+  },
+  "50100": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "恶兆之子",
+    "basicClass": "other"
+  },
+  "50102": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "血怪之首",
+    "basicClass": "other"
+  },
+  "50103": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "死骑士",
+    "basicClass": "other"
+  },
+  "50104": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "神鸟战士",
+    "basicClass": "other"
+  },
+  "50112": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "守墓斗士",
+    "basicClass": "other"
+  },
+  "50113": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "神皮使徒",
+    "basicClass": "other"
+  },
+  "50114": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "厄兆猎人",
+    "basicClass": "other"
+  },
+  "50116": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "祖灵之民",
+    "basicClass": "other"
+  },
+  "51000": {
+    "category": "landmark",
+    "icon": "church",
+    "name": "教堂",
+    "basicClass": "church"
+  },
+  "51050": {
+    "category": "landmark",
+    "icon": "church",
+    "name": "教堂",
+    "basicClass": "church"
+  },
+  "51051": {
+    "category": "landmark",
+    "icon": "church",
+    "name": "教堂",
+    "basicClass": "church"
+  },
+  "51100": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51101": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51102": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51103": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51104": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51105": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51106": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51107": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51108": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51109": {
+    "category": "landmark",
+    "icon": "rise",
+    "name": "法师塔",
+    "basicClass": "mage"
+  },
+  "51150": {
+    "category": "landmark",
+    "icon": "blessing",
+    "name": "马车",
+    "basicClass": "carriage"
+  },
+  "52400": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "大审判官",
+    "basicClass": "other"
+  },
+  "52420": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "唤灵蜗牛+灵火龙",
+    "basicClass": "other"
+  },
+  "52450": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "巨蟹",
+    "basicClass": "other"
+  },
+  "52460": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "仿生泪滴",
+    "basicClass": "other"
+  },
+  "52500": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "巨鸦+血怪之首",
+    "basicClass": "other"
+  },
+  "52520": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "咒剑士+蜘蛛蝎",
+    "basicClass": "other"
+  },
+  "52550": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "红狼+先祖之灵",
+    "basicClass": "other"
+  },
+  "52570": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "紫怪之首+双熔炉",
+    "basicClass": "other"
+  },
+  "53580": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "梅瑟莫城",
+    "basicClass": "other"
+  },
+  "53590": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "神皮城",
+    "basicClass": "other"
+  },
+  "53600": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "厄兆猎人",
+    "basicClass": "other"
+  },
+  "53610": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "猎犬骑士",
+    "basicClass": "other"
+  },
+  "53670": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "尊腐城",
+    "basicClass": "other"
+  },
+  "53680": {
+    "category": "castle",
+    "icon": "castle",
+    "name": "神兽城",
+    "basicClass": "other"
+  },
+  "53700": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "失乡",
+    "basicClass": "other"
+  },
+  "53710": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "咒剑士",
+    "basicClass": "other"
+  },
+  "53720": {
+    "category": "fieldBoss",
+    "icon": "field_boss",
+    "name": "厄兆之子",
+    "basicClass": "other"
+  },
+  "53990": {
+    "category": "merchant",
+    "icon": "merchant",
+    "name": "野外商人",
+    "basicClass": "other"
   }
 }

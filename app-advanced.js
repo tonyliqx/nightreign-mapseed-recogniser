@@ -408,8 +408,8 @@ class NightreignApp {
             category: poi.category,
             currentState: this.poiStates[poi.id]?.state || 'dot',
             selectionState: this.poiStates[poi.id]?.selectionState || {
-                layer1: null, // Icon for major base/field boss, structure for minor base, boss for evergaol/rotted woods
-                layer2: null  // Boss for major base/field boss (null for others)
+                layer1: null, // 单层：选中的 type 中文名
+                layer2: null  // 弃用（保留兼容）
             }
         }));
 
@@ -502,10 +502,8 @@ class NightreignApp {
             
             const clickedSpawn = this.findClickedSpawnPoint(canvasX, canvasY);
             if (clickedSpawn) {
-                // Use click position - menu uses position: fixed (viewport-relative)
-                this.showSpawnContextMenu(clickedSpawn, e.clientX, e.clientY);
-            } else {
-                this.hideSpawnContextMenu();
+                // 出生点一次点选：直接按 location 过滤并进入 POI（无 per-seed 敌人数据，不弹敌人菜单）
+                this.selectSpawnPoint(clickedSpawn);
             }
         });
 
@@ -634,6 +632,28 @@ class NightreignApp {
         }
     }
 
+    selectSpawnPoint(spawnPoint) {
+        this.selectedSpawnPoint = spawnPoint;
+        this.selectedSpawnEnemy = null;  // 无 per-seed 敌人数据（见 memory: spawn-enemy-source-and-fallback-fix）
+
+        console.log(`📍 Selected spawn point: ${spawnPoint.location}`);
+
+        // 按 location 过滤种子
+        this.filterSeedsBySpawnPoint();
+
+        // 仅剩 1 个种子 → 直接出结果
+        if (this.filteredSeeds.length === 1) {
+            console.log(`🎯 Only 1 seed remaining after spawn point selection - showing result directly`);
+            this.startPOIRecognition();
+            this.showResult(this.filteredSeeds[0]);
+            return;
+        }
+
+        this.updateSpawnSeedCount();
+        // 进入 POI 识别
+        this.startPOIRecognition();
+    }
+
     selectSpawnEnemy(spawnPoint, enemy) {
         this.selectedSpawnPoint = spawnPoint;
         this.selectedSpawnEnemy = enemy;
@@ -660,36 +680,21 @@ class NightreignApp {
     }
 
     filterSeedsBySpawnPoint() {
-        if (!this.selectedSpawnPoint || !this.selectedSpawnEnemy) return;
-        
+        if (!this.selectedSpawnPoint) return;
+
         console.log(`🔍 Filtering seeds by spawn point...`);
         console.log(`   Spawn location: ${this.selectedSpawnPoint.location}`);
-        console.log(`   Spawn enemy: ${this.selectedSpawnEnemy}`);
-        
-        // Filter from base seeds
+
+        // 仅按 location 过滤（无 per-seed 敌人数据）
         this.spawnFilteredSeeds = this.baseFilteredSeeds.filter(seed => {
             const spawnPoint = seed.spawnPoint;
-            if (!spawnPoint || spawnPoint.location !== this.selectedSpawnPoint.location) {
-                return false;
-            }
-            
-            // If enemy is "I don't know", only filter by location
-            if (this.selectedSpawnEnemy === "I don't know") {
-                return true;
-            }
-            
-            // Otherwise filter by both location and enemy
-            return spawnPoint.enemy === this.selectedSpawnEnemy;
+            return spawnPoint && spawnPoint.location === this.selectedSpawnPoint.location;
         });
-        
-        // Set current filtered seeds to spawn filtered
+
         this.filteredSeeds = [...this.spawnFilteredSeeds];
-        
-        // Reset POI filtering
         this.poiFilteredSeeds = [];
-        
         this.updateSeedCounts();
-        
+
         console.log(`🔍 Spawn filtered to ${this.filteredSeeds.length} seeds`);
     }
 
@@ -782,106 +787,61 @@ class NightreignApp {
 
     checkPOIMatches(seed) {
         console.log(`🔍 Checking POI matches for seed ${seed.seedNumber}`);
-        
+
         // Check if the seed matches all current POI selections
         for (const poi of this.currentPOIs) {
             const poiState = this.poiStates[poi.id];
             if (!poiState || !poiState.selectionState) continue;
-            
+
             const selectionState = poiState.selectionState;
             if (!selectionState.layer1 && !selectionState.layer2) continue; // No selection made
-            
+
             console.log(`🔍 Checking POI ${poi.name} (${poi.category}) in seed ${seed.seedNumber}`);
-            
-            // Find the matching POI in the seed
+
+            // 无 POI 时 type 视为 null，对应"Empty"选择（不再因 findPOIInSeed 返回 null 直接淘汰）
             const matchingPOI = this.findPOIInSeed(seed, poi.id);
-            if (!matchingPOI) {
-                console.log(`❌ POI ${poi.name} not found in seed ${seed.seedNumber}`);
-                return false; // POI not found in seed
-            }
-            
-            // Check if the POI matches the selection
-            if (!this.poiMatchesSelection(matchingPOI, selectionState)) {
-                console.log(`❌ POI ${poi.name} doesn't match selection in seed ${seed.seedNumber}`);
-                console.log(`   Expected: layer1=${selectionState.layer1}, layer2=${selectionState.layer2}`);
-                console.log(`   Found: icon=${matchingPOI.icon}, structure=${matchingPOI.structure}, boss=${matchingPOI.boss}`);
+            const expectedType = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
+            const actualType = matchingPOI ? (matchingPOI.type || null) : null;
+            if (actualType !== expectedType) {
+                console.log(`❌ POI ${poi.name} doesn't match in seed ${seed.seedNumber}: expected ${expectedType}, found ${actualType}`);
                 return false;
             }
         }
-        
+
         console.log(`✅ All POI matches successful for seed ${seed.seedNumber}`);
         return true;
     }
 
     poiMatchesSelection(poiData, selectionState) {
-        const category = poiData.category;
-        
-        console.log(`🔍 Checking POI match for category: ${category}`);
-        console.log(`   Selection state: layer1=${selectionState.layer1}, layer2=${selectionState.layer2}`);
-        console.log(`   POI data: icon=${poiData.icon}, structure=${poiData.structure}, boss=${poiData.boss}`);
-        
-        // Map JSON category names to internal category names
-        const mappedCategory = this.mapCategoryToInternal(category);
-        console.log(`   Mapped category: ${category} → ${mappedCategory}`);
-        
-        if (mappedCategory === 'major_base' || mappedCategory === 'field_boss') {
-            // Two-layer system: Icon → Boss
-            if (selectionState.layer1) {
-                const expectedIcon = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
-                if (poiData.icon !== expectedIcon) {
-                    console.log(`   ❌ Icon mismatch: expected ${expectedIcon}, got ${poiData.icon}`);
-                    return false;
-                }
+        // 单层交互：选择值 = type 中文名；匹配 seed poi.type == selectionState.layer1
+        console.log(`🔍 Checking POI match: type=${poiData.type}, category=${poiData.category}`);
+        console.log(`   Selection: layer1=${selectionState.layer1}`);
+
+        if (selectionState.layer1) {
+            const expected = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
+            if ((poiData.type || null) !== expected) {
+                console.log(`   ❌ Type mismatch: expected ${expected}, got ${poiData.type}`);
+                return false;
             }
-            if (selectionState.layer2) {
-                const expectedBoss = selectionState.layer2 === 'Empty' ? null : selectionState.layer2;
-                if (poiData.boss !== expectedBoss) {
-                    console.log(`   ❌ Boss mismatch: expected ${expectedBoss}, got ${poiData.boss}`);
-                    return false;
-                }
-            }
-            console.log(`   ✅ Major base/field boss match successful`);
-        } else if (mappedCategory === 'minor_base') {
-            // Single-layer system: Icon only
-            if (selectionState.layer1) {
-                const expectedIcon = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
-                if (poiData.icon !== expectedIcon) {
-                    console.log(`   ❌ Icon mismatch: expected ${expectedIcon}, got ${poiData.icon}`);
-                    return false;
-                }
-            }
-            console.log(`   ✅ Minor base match successful`);
-        } else if (mappedCategory === 'evergaol' || mappedCategory === 'rotted_woods') {
-            // Single-layer system: Boss
-            if (selectionState.layer1) {
-                const expectedBoss = selectionState.layer1 === 'Empty' ? null : selectionState.layer1;
-                if (poiData.boss !== expectedBoss) {
-                    console.log(`   ❌ Boss mismatch: expected ${expectedBoss}, got ${poiData.boss}`);
-                    return false;
-                }
-            }
-            console.log(`   ✅ Evergaol/rotted woods match successful`);
         }
-        
-        console.log(`   ✅ POI match successful overall`);
+
+        console.log(`   ✅ POI match successful`);
         return true;
     }
 
     mapCategoryToInternal(jsonCategory) {
-        const mapping = {
-            'majorBase': 'major_base',
-            'minorBase': 'minor_base',
-            'fieldBoss': 'field_boss',
-            'evergaol': 'evergaol',
-            'rottedWoods': 'rotted_woods'
-        };
-        return mapping[jsonCategory] || 'minor_base';
+        // NAME 类别 key（landmark/stronghold/fieldBoss/...）已是内部 key，直接用
+        return jsonCategory;
     }
 
     setupCanvas() {
         const canvas = document.getElementById('map-canvas');
         const ctx = canvas.getContext('2d');
-        
+
+        // 隐藏结果页高清 pattern 图（回到识别页重画底图）
+        const resultImg = document.getElementById('result-pattern-img');
+        if (resultImg) resultImg.style.display = 'none';
+
         // Clear canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
@@ -918,50 +878,57 @@ class NightreignApp {
     }
 
     drawPOI(poi, ctx) {
+        // 隐藏点位不绘制（剩余种子无解）
+        if (poi.currentState === 'hidden') return;
+
         const x = poi.x;
         const y = poi.y;
-        
+
+        // 仅共享点位(landmark)放大 50% 且用橙色突出；其他类别保持原色原大小
+        const isLandmark = poi.category === 'landmark';
+        const r = isLandmark ? 1.5 : 1;
+
         if (poi.currentState === 'dot') {
             // Draw dot with outline for visibility
-            ctx.fillStyle = '#ffd700';
+            ctx.fillStyle = isLandmark ? '#ff8c00' : '#ffd700';
             ctx.strokeStyle = '#000000';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(x, y, 6, 0, 2 * Math.PI);
+            ctx.arc(x, y, 6 * r, 0, 2 * Math.PI);
             ctx.fill();
             ctx.stroke();
         } else if (poi.currentState === 'icon') {
             // Draw icon state (layer1 selected)
-            ctx.fillStyle = '#4CAF50';
+            ctx.fillStyle = isLandmark ? '#ff8c00' : '#4CAF50';
             ctx.strokeStyle = '#000000';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(x, y, 8, 0, 2 * Math.PI);
+            ctx.arc(x, y, 8 * r, 0, 2 * Math.PI);
             ctx.fill();
             ctx.stroke();
-            
+
             // Draw small indicator
             ctx.fillStyle = '#ffffff';
             ctx.beginPath();
-            ctx.arc(x, y, 3, 0, 2 * Math.PI);
+            ctx.arc(x, y, 3 * r, 0, 2 * Math.PI);
             ctx.fill();
         } else if (poi.currentState === 'specific') {
             // Draw specific state (both layers or single layer selected)
-            ctx.fillStyle = '#2196F3';
+            ctx.fillStyle = isLandmark ? '#ff8c00' : '#2196F3';
             ctx.strokeStyle = '#000000';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(x, y, 8, 0, 2 * Math.PI);
+            ctx.arc(x, y, 8 * r, 0, 2 * Math.PI);
             ctx.fill();
             ctx.stroke();
-            
+
             // Draw checkmark
             ctx.strokeStyle = '#ffffff';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.moveTo(x - 2, y);
-            ctx.lineTo(x, y + 2);
-            ctx.lineTo(x + 3, y - 1);
+            ctx.moveTo(x - 2 * r, y);
+            ctx.lineTo(x, y + 2 * r);
+            ctx.lineTo(x + 3 * r, y - r);
             ctx.stroke();
         }
     }
@@ -1046,6 +1013,7 @@ class NightreignApp {
         const tolerance = 20;
         
         return this.currentPOIs.find(poi => {
+            if (poi.currentState === 'hidden') return false;  // 隐藏点位不可点
             const dx = x - poi.x;
             const dy = y - poi.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
@@ -1054,39 +1022,14 @@ class NightreignApp {
     }
 
     getPOIDataFromSeed(seed, poiId) {
-        if (!seed || !seed.pois) return null;
-        
-        // Find the POI in the seed data by matching coordinates
         const targetPOI = this.findPOIInSeed(seed, poiId);
         if (!targetPOI) return null;
-        
-        // Extract value based on category
-        const category = targetPOI.category || 'minor_base';
-        let value = null;
-        
-        switch (category) {
-            case 'major_base':
-                value = targetPOI.structure && targetPOI.boss ? 
-                    `${targetPOI.structure.toLowerCase()}_${targetPOI.boss.toLowerCase().replace(/\s+/g, '_')}` :
-                    targetPOI.structure?.toLowerCase();
-                break;
-            case 'minor_base':
-                value = targetPOI.structure?.toLowerCase() || 'church';
-                break;
-            case 'field_boss':
-            case 'evergaol':
-            case 'rotted_woods':
-                value = targetPOI.boss?.toLowerCase().replace(/\s+/g, '_') || category;
-                break;
-            default:
-                value = 'unknown';
-        }
-        
+        // 单层：选择值 = type 中文名
         return {
-            value: value,
-            structure: targetPOI.structure,
-            boss: targetPOI.boss,
-            icon: targetPOI.icon
+            value: targetPOI.type || null,
+            type: targetPOI.type,
+            icon: targetPOI.icon,
+            category: targetPOI.category
         };
     }
 
@@ -1097,15 +1040,13 @@ class NightreignApp {
         const poiData = this.poiData;
         if (!poiData) return null;
         
-        // Find the POI in our data by ID
+        // 用 seed 所在地形限定槽位查找：各地形 slot id 都从 "0" 重新编号，
+        // 遍历所有 mapTypes 取首个命中，会拿到别地形同 id 槽位的错位坐标
+        // （如大空洞 slot12 会被首位 Default slot12 命中 → 坐标对不上 → 误判无 POI → 全部归零）。
         let targetPOI = null;
-        for (const mapType in poiData.mapTypes) {
-            const mapPOIs = poiData.mapTypes[mapType].pois;
-            const found = mapPOIs.find(poi => poi.id === poiId);
-            if (found) {
-                targetPOI = found;
-                break;
-            }
+        const mapType = seed.mapType || this.selectedMap;
+        if (mapType && poiData.mapTypes[mapType]) {
+            targetPOI = poiData.mapTypes[mapType].pois.find(poi => poi.id === poiId) || null;
         }
         
         if (!targetPOI) return null;
@@ -1207,15 +1148,8 @@ class NightreignApp {
     }
 
     generateHierarchicalMenu(container, poi) {
-        const category = poi.category;
-        
-        if (category === 'major_base' || category === 'field_boss') {
-            // Two-layer system: Icon → Boss
-            this.generateTwoLayerMenu(container, poi);
-        } else {
-            // Single-layer system: Icon (minor_base) or Boss (evergaol/rotted_woods)
-            this.generateSingleLayerMenu(container, poi);
-        }
+        // 单层交互：所有 POI 统一走单层 type 菜单（弃用双层 icon→boss）
+        this.generateSingleLayerMenu(container, poi);
     }
 
     generateTwoLayerMenu(container, poi) {
@@ -1447,64 +1381,45 @@ class NightreignApp {
     }
 
     generateSingleLayerMenu(container, poi) {
-        const category = poi.category;
         const options = this.getAvailableOptions(poi, 1);
-        
+
         if (options.length === 0) {
             const noOptionsText = this.languageManager ? this.languageManager.getText('ui.no_options_available') : 'No options available';
             container.innerHTML = `<div class="context-menu-item">${noOptionsText}</div>`;
             return;
         }
-        
+
         const section = document.createElement('div');
         section.className = 'context-menu-section';
-        
-        const headerText = category === 'minor_base' ? 'Select Icon' : 'Boss';
-        const i18nKey = category === 'minor_base' ? 'context.select_icon' : 'context.select_enemy';
-        section.innerHTML = `<div class="context-menu-header" data-i18n="${i18nKey}">${headerText}</div>`;
-        
+
+        // 标题用类别中文名（共享点位/野外据点/野外BOSS/…）
+        const headerText = this.getCategoryDisplayName(poi.category);
+        section.innerHTML = `<div class="context-menu-header">${headerText}</div>`;
+
         const optionsContainer = document.createElement('div');
-        // Use icon grid for minor_base (has icons), text grid for others
-        const gridClass = category === 'minor_base' ? 'icon-grid' : 'text-grid';
-        optionsContainer.className = `context-menu-options ${gridClass}`;
-        
+        optionsContainer.className = 'context-menu-options text-grid';
+
         options.forEach(option => {
             const item = document.createElement('div');
-            item.className = 'context-menu-item';
+            item.className = 'context-menu-item text-only';
             if (poi.selectionState.layer1 === option) {
                 item.classList.add('selected');
             }
-            
-            // For minor base, show icon + text; for others, just text
-            if (category === 'minor_base') {
-                // Create icon element for all options (including Empty)
-                const iconImg = document.createElement('img');
-                iconImg.src = this.getIconPath(option);
-                iconImg.alt = this.formatOptionName(option);
-                iconImg.className = 'context-menu-icon';
-                
-                // Add icon only (no text to save space)
-                item.classList.add('icon-only');
-                item.appendChild(iconImg);
-            } else {
-                // For evergaol/rotted_woods, just show text
-                item.classList.add('text-only');
-                // Use translated boss name
-            const displayName = this.getBossDisplayName(option);
-            item.textContent = displayName;
-            }
-            
+            // type 已是中文名，直接显示；Empty 兜底翻译
+            item.textContent = option === 'Empty'
+                ? (this.languageManager ? this.languageManager.getText('context.empty') || '空' : '空')
+                : option;
             item.addEventListener('click', () => {
                 this.selectLayer1(poi, option);
                 this.hideContextMenu();
             });
             optionsContainer.appendChild(item);
         });
-        
+
         section.appendChild(optionsContainer);
         container.appendChild(section);
-        
-        // Clear selection option
+
+        // 清除选择
         if (poi.selectionState.layer1) {
             const clearItem = document.createElement('div');
             clearItem.className = 'context-menu-item clear-option';
@@ -1515,7 +1430,7 @@ class NightreignApp {
             });
             container.appendChild(clearItem);
         }
-        
+
         // Translate all newly created elements at the end
         if (this.languageManager) {
             this.languageManager.updateUI();
@@ -1607,47 +1522,26 @@ class NightreignApp {
     }
 
     selectLayer1(poi, value) {
-        console.log(`🎯 Selecting layer1: ${value} for POI ${poi.name} (${poi.category})`);
-        
-        // Update POI selection state
+        console.log(`🎯 Selecting type: ${value} for POI ${poi.name} (${poi.category})`);
+
+        // 单层：只设 layer1（type 中文名），layer2 弃用
         poi.selectionState.layer1 = value;
-        poi.selectionState.layer2 = null; // Reset layer2 when layer1 changes
-        
-        // Update POI state for display
+        poi.selectionState.layer2 = null;
+
         this.updatePOIDisplayState(poi);
-        
-        // Store in persistent state
+
         this.poiStates[poi.id] = {
             state: poi.currentState,
             selectionState: poi.selectionState
         };
-        
+
         console.log(`📍 Updated POI state:`, this.poiStates[poi.id]);
-        
-        // Redraw canvas and filter seeds
+
         this.setupCanvas();
         this.filterSeedsByPOI();
-        
-        // Check if there's only one layer 2 option available after layer 1 selection
-        const availableLayer2Options = this.getAvailableOptions(poi, 2);
-        if (availableLayer2Options.length === 1) {
-            console.log(`🎯 Auto-selecting layer2: ${availableLayer2Options[0]} (only option available)`);
-            this.selectLayer2(poi, availableLayer2Options[0]);
-            this.hideContextMenu(); // Close the context menu since we auto-selected
-            return true; // Return true to indicate auto-skip happened
-        }
-        
-        // Special case: if "Empty" is selected as layer1, auto-select "Empty" as layer2
-        if (value === 'Empty') {
-            console.log(`🎯 Auto-selecting layer2: Empty (Empty icon selected)`);
-            this.selectLayer2(poi, 'Empty');
-            this.hideContextMenu(); // Close the context menu since we auto-selected
-            return true; // Return true to indicate auto-skip happened
-        }
-        
-        console.log(`📍 Selected ${poi.category} layer1: ${value} for ${poi.name}`);
-        console.log(`🔍 Current POI states:`, this.poiStates);
-        return false; // Return false to indicate no auto-skip
+
+        console.log(`📍 Selected ${poi.category} type: ${value} for ${poi.name}`);
+        return false; // 单层无 auto-skip
     }
 
     selectLayer2(poi, value) {
@@ -1747,34 +1641,22 @@ class NightreignApp {
     }
 
     updatePOIStateFromSeeds(poi) {
-        const category = poi.category;
-        const mappedCategory = this.mapCategoryToInternal(category);
-        
-        console.log(`🔍 Checking definite values for ${poi.name} (${mappedCategory})`);
-        
-        if (mappedCategory === 'major_base' || mappedCategory === 'field_boss') {
-            // Two-layer system: check for definite icon and boss
-            const iconOptions = this.getAvailableOptions(poi, 1);
-            const bossOptions = this.getAvailableOptions(poi, 2);
-            
-            if (iconOptions.length === 1 && bossOptions.length === 1) {
-                // Both layers have definite values
-                console.log(`🎯 ${poi.name} has definite values: icon=${iconOptions[0]}, boss=${bossOptions[0]}`);
-                this.autoSelectPOI(poi, iconOptions[0], bossOptions[0]);
-            } else if (iconOptions.length === 1) {
-                // Only icon is definite
-                console.log(`🎯 ${poi.name} has definite icon: ${iconOptions[0]}`);
-                this.autoSelectPOI(poi, iconOptions[0], null);
+        // 单层：根据候选 seed 中该槽位的可选项收窄显示状态
+        const typeOptions = this.getAvailableOptions(poi, 1);
+
+        if (typeOptions.length === 1) {
+            if (typeOptions[0] === 'Empty') {
+                // 所有候选 seed 此坐标都无 POI → 隐藏点位
+                poi.currentState = 'hidden';
+                console.log(`⬛ ${poi.name} hidden (no POI in any remaining seed)`);
+            } else {
+                // 所有候选 seed 此坐标同 type → 自动选中
+                console.log(`🎯 ${poi.name} has definite type: ${typeOptions[0]}`);
+                this.autoSelectPOI(poi, typeOptions[0], null);
             }
-        } else if (mappedCategory === 'minor_base' || mappedCategory === 'evergaol' || mappedCategory === 'rotted_woods') {
-            // Single-layer system: check for definite boss
-            const bossOptions = this.getAvailableOptions(poi, 1);
-            
-            if (bossOptions.length === 1) {
-                // Boss is definite
-                console.log(`🎯 ${poi.name} has definite boss: ${bossOptions[0]}`);
-                this.autoSelectPOI(poi, bossOptions[0], null);
-            }
+        } else {
+            // 多选项（含 Empty 或多种 type）→ 金圆可点
+            poi.currentState = 'dot';
         }
     }
 
@@ -1801,28 +1683,8 @@ class NightreignApp {
     }
 
     updatePOIDisplayState(poi) {
-        const category = poi.category;
-        
-        if (category === 'major_base' || category === 'field_boss') {
-            if (poi.selectionState.layer2) {
-                // Both layers selected - show specific boss
-                poi.currentState = 'specific';
-            } else if (poi.selectionState.layer1) {
-                // Only layer1 selected - show icon
-                poi.currentState = 'icon';
-            } else {
-                // Nothing selected - show dot
-                poi.currentState = 'dot';
-            }
-        } else {
-            if (poi.selectionState.layer1) {
-                // Single layer selected
-                poi.currentState = 'specific';
-            } else {
-                // Nothing selected - show dot
-                poi.currentState = 'dot';
-            }
-        }
+        // 单层：layer1 有值=specific（蓝勾），否则=dot（金圆）
+        poi.currentState = poi.selectionState.layer1 ? 'specific' : 'dot';
     }
 
     formatOptionName(option) {
@@ -1850,12 +1712,13 @@ class NightreignApp {
     }
 
     getCategoryDisplayName(category) {
+        // NAME 类别 key → 中文（权威分类，用户 2026-08-04 裁定）
         const names = {
-            'major_base': 'Major Base',
-            'minor_base': 'Minor Base',
-            'field_boss': 'Field Boss',
-            'evergaol': 'Evergaol',
-            'rotted_woods': 'Rotted Woods'
+            'landmark': '共享点位',
+            'stronghold': '野外据点',
+            'fieldBoss': '野外BOSS',
+            'scaleMerchant': '山羊事件商人',
+            'merchant': '商人'
         };
         return names[category] || category;
     }
@@ -2076,131 +1939,49 @@ class NightreignApp {
     }
 
     getAvailableOptions(poi, layer) {
-        if (!this.seedData) {
-            console.log('❌ No seed data available');
-            return [];
+        // 候选集必须与 filterSeedsByPOI 的 sourceSeeds 同源（spawn/base），
+        // 绝不能在 filteredSeeds 为空时 fallback 到全部 seedData——那会跨地形/跨夜王
+        // 显示全局选项（如别处才有的法师塔），而过滤却在 spawn/base 子集跑，导致
+        // 用户选了菜单里显示的选项却归零（选项来源与过滤来源不一致）。
+        // 链路：filteredSeeds(POI缩窄) → spawnFilteredSeeds(落地点) → baseFilteredSeeds(地图+夜王)
+        let seedsToCheck;
+        if (this.filteredSeeds && this.filteredSeeds.length > 0) {
+            seedsToCheck = this.filteredSeeds;
+        } else if (this.spawnFilteredSeeds && this.spawnFilteredSeeds.length > 0) {
+            seedsToCheck = this.spawnFilteredSeeds;
+        } else {
+            seedsToCheck = this.baseFilteredSeeds || [];
         }
+        console.log(`🔍 Using ${seedsToCheck.length} seeds for options (filtered/spawn/base, never all)`);
 
-        const category = poi.category;
-        console.log(`🔍 Getting options for ${poi.name} (${category}) at (${poi.x}, ${poi.y})`);
-        
-        // Use filtered seeds instead of all seeds
-        const seedsToCheck = this.filteredSeeds && this.filteredSeeds.length > 0 ? this.filteredSeeds : Object.values(this.seedData);
-        console.log(`🔍 Using ${seedsToCheck.length} seeds for filtering (${this.filteredSeeds ? 'filtered' : 'all'})`);
-        
-        // Get seeds that have this POI at these coordinates AND match current filters
-        const seedsWithLocation = seedsToCheck.filter(seed => {
-            if (!seed.pois) return false;
-            
-            // Find POI in seed by coordinate matching (now flattened structure)
-            const targetX = poi.x * 2; // Scale back to original coordinates
-            const targetY = poi.y * 2;
-            
-            const hasMatchingPOI = Object.values(seed.pois).some(poiData => {
-                const poiX = poiData.coordinates.x;
-                const poiY = poiData.coordinates.y;
-                const matches = Math.abs(poiX - targetX) <= 2 && Math.abs(poiY - targetY) <= 2;
-                if (matches) {
-                    console.log(`✅ Found matching POI: ${poiData.location} at (${poiX}, ${poiY}) for target (${targetX}, ${targetY})`);
-                }
-                return matches;
-            });
-            
-            return hasMatchingPOI;
-        });
+        const targetX = poi.x * 2; // Scale back to original coordinates
+        const targetY = poi.y * 2;
 
-        console.log(`📍 Found ${seedsWithLocation.length} seeds with matching POI:`, seedsWithLocation.map(seed => seed.seedNumber));
-
-        if (seedsWithLocation.length === 0) {
-            console.log('❌ No seeds found with matching POI coordinates');
-            return [];
-        }
-
-        // Collect unique values based on category and layer
+        // 每个候选 seed 贡献一个选项：有 POI→type，无 POI→Empty。
+        // 不能只统计"有 POI"的 seed，否则 ==1 判定会忽略无 POI 的 seed，
+        // 导致 autoSelect 误判，进而 checkPOIMatches 淘汰无 POI 的种子（归零 bug）。
         const uniqueValues = new Set();
-        
-        seedsWithLocation.forEach(seed => {
-            // Find the matching POI by coordinates (now flattened structure)
-            const targetX = poi.x * 2;
-            const targetY = poi.y * 2;
-            
+        seedsToCheck.forEach(seed => {
+            if (!seed.pois) { uniqueValues.add('Empty'); return; }
             const matchingPOI = Object.values(seed.pois).find(poiData => {
-                const poiX = poiData.coordinates.x;
-                const poiY = poiData.coordinates.y;
-                return Math.abs(poiX - targetX) <= 2 && Math.abs(poiY - targetY) <= 2;
+                return Math.abs(poiData.coordinates.x - targetX) <= 2 &&
+                       Math.abs(poiData.coordinates.y - targetY) <= 2;
             });
-            
-            if (!matchingPOI) return;
-
-            console.log(`📊 Processing POI: ${matchingPOI.location}, structure: ${matchingPOI.structure}, boss: ${matchingPOI.boss}, icon: ${matchingPOI.icon}`);
-
-            if (category === 'major_base' || category === 'field_boss') {
-                if (layer === 1) {
-                    // Layer 1: Icon
-                    if (matchingPOI.icon) {
-                        uniqueValues.add(matchingPOI.icon);
-                        console.log(`➕ Added icon: ${matchingPOI.icon}`);
-                    } else {
-                        // Add "Empty" option for null icon
-                        uniqueValues.add('Empty');
-                        console.log(`➕ Added Empty icon option`);
-                    }
-                } else if (layer === 2) {
-                    // Layer 2: Boss (filtered by current layer1 selection)
-                    const iconMatches = !poi.selectionState.layer1 || 
-                        matchingPOI.icon === poi.selectionState.layer1 ||
-                        (poi.selectionState.layer1 === 'Empty' && !matchingPOI.icon);
-                    
-                    if (iconMatches) {
-                        if (matchingPOI.boss) {
-                            uniqueValues.add(matchingPOI.boss);
-                            console.log(`➕ Added boss: ${matchingPOI.boss}`);
-                        } else {
-                            // Add "Empty" option for null boss
-                            uniqueValues.add('Empty');
-                            console.log(`➕ Added Empty boss option`);
-                        }
-                    }
-                }
-            } else if (category === 'minor_base') {
-                if (layer === 1) {
-                    // Layer 1: Icon only (single-layer system)
-                    if (matchingPOI.icon) {
-                        uniqueValues.add(matchingPOI.icon);
-                        console.log(`➕ Added icon: ${matchingPOI.icon}`);
-                    } else {
-                        // Add "Empty" option for null icon
-                        uniqueValues.add('Empty');
-                        console.log(`➕ Added Empty icon option`);
-                    }
-                }
-                // No layer 2 for minor base - single layer only
-            } else if (category === 'evergaol' || category === 'rotted_woods') {
-                if (layer === 1) {
-                    // Layer 1: Boss
-                    if (matchingPOI.boss) {
-                        uniqueValues.add(matchingPOI.boss);
-                        console.log(`➕ Added boss: ${matchingPOI.boss}`);
-                    } else {
-                        // Add "Empty" option for null boss
-                        uniqueValues.add('Empty');
-                        console.log(`➕ Added Empty boss option`);
-                    }
-                }
+            if (matchingPOI) {
+                uniqueValues.add(matchingPOI.type || 'Empty');
+            } else {
+                uniqueValues.add('Empty');  // 此坐标无 POI → 算空选项
             }
         });
 
         const result = Array.from(uniqueValues).sort((a, b) => {
-            // Put "Empty" at the end
             if (a === 'Empty') return 1;
             if (b === 'Empty') return -1;
-            // Sort everything else alphabetically
             return a.localeCompare(b);
         });
         console.log(`🎯 Final options for layer ${layer}:`, result);
         return result;
     }
-
 
     showError(message) {
         // Simple error display
@@ -2244,41 +2025,31 @@ class NightreignApp {
     showPatternImageOnCanvas(seed) {
         const canvas = document.getElementById('map-canvas');
         const ctx = canvas.getContext('2d');
-        
-        // Clear canvas
+        const container = canvas.parentElement;  // .map-container
+
+        // 清空 canvas（透明，由覆盖在上面的高清 <img> 显示 pattern）
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Set cursor to pointer to indicate clickability
         canvas.style.cursor = 'pointer';
-        
-        // Load and draw the pattern image
-        const patternImage = new Image();
-        patternImage.onload = () => {
-            // Draw the pattern image scaled to fit the canvas
-            ctx.drawImage(patternImage, 0, 0, 768, 768);
-            console.log(`📸 Drew pattern image for seed ${seed.seedNumber}`);
-            
-            // Add a subtle overlay to indicate it's clickable
-            this.addClickableOverlay();
-        };
-        patternImage.onerror = () => {
-            console.error(`❌ Failed to load pattern image for seed ${seed.seedNumber}`);
-            // Fallback: draw a message
-            ctx.fillStyle = '#ffffff';
-            ctx.font = '24px Arial';
-            ctx.textAlign = 'center';
-            const patternText = this.languageManager ? this.languageManager.getText('ui.map_pattern') : 'Pattern';
-            const seedNumberText = this.languageManager ? this.languageManager.getText('ui.seed_number') : 'Seed';
-            ctx.fillText(`${patternText} for ${seedNumberText} ${seed.seedNumber}`, 384, 384);
-        };
-        
-        const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
-        // DLC 种子(≥1000) 用 Fuwish 汉化版 pattern 图（assets/pattern/dlc/，语言无关，DLC 图仅中文版）
-        const imagePath = seed.seedNumber >= 1000
-            ? `assets/pattern/dlc/${seed.seedNumber}.jpg`
-            : `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
-        console.log(`🖼️ Loading image: ${imagePath} for seed ${seed.seedNumber}`);
-        patternImage.src = imagePath;
+
+        // 用 <img> 显示高清 pattern 图：原图 1536，浏览器原生 retina 缩放清晰；
+        // 画进 768 canvas 缓冲再被 retina 放大会模糊，故改用 img 覆盖 canvas
+        let img = document.getElementById('result-pattern-img');
+        if (!img) {
+            img = document.createElement('img');
+            img.id = 'result-pattern-img';
+            img.style.cssText = 'position:absolute;cursor:pointer;border-radius:10px;display:none;z-index:1;';
+            img.addEventListener('click', () => this.openFullscreen());
+            container.appendChild(img);
+        }
+        // 精确覆盖 canvas（同位置同尺寸，响应式下也正确）
+        img.style.left = canvas.offsetLeft + 'px';
+        img.style.top = canvas.offsetTop + 'px';
+        img.style.width = canvas.offsetWidth + 'px';
+        img.style.height = canvas.offsetHeight + 'px';
+        img.src = this.getPatternImagePath(seed);
+        img.style.display = 'block';
+
+        console.log(`🖼️ Showing hi-res pattern image for seed ${seed.seedNumber}`);
     }
 
 
@@ -2409,14 +2180,22 @@ class NightreignApp {
         this.resultScreenListenersSetup = true;
     }
 
+    getPatternImagePath(seed) {
+        const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
+        // DLC 种子(≥1000) 用 Fuwish 汉化版 pattern 图（assets/pattern/dlc/，语言无关，DLC 图仅中文版）
+        // 本体种子用按语言的 3 位编号图
+        return seed.seedNumber >= 1000
+            ? `assets/pattern/dlc/${seed.seedNumber}.jpg`
+            : `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+    }
+
     openFullscreen() {
         const seed = this.foundSeed || this.filteredSeeds[0];
         if (!seed) return;
-        
-        const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
-        const imagePath = `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+
+        const imagePath = this.getPatternImagePath(seed);
         window.open(imagePath, '_blank');
-        
+
         console.log(`🔗 Opened fullscreen image: ${imagePath}`);
     }
 

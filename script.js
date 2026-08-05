@@ -1,21 +1,91 @@
 // Main application for Nightreign seed recognition
-let CV_CLASSIFICATION_DATA = null; // Will hold the exported classification results
+// === 新数据层：权威源 dataset/nightreignMapPatterns.json（NAME 分类 + 聚类槽位 + 内嵌中文 type）===
+// 弃用旧体系：seedDataMatrix（data.js 种子身份）+ CV_CLASSIFICATION_DATA（dataset.json 5 值简化分类）。
+// 出生点数据 SEED_SPAWN / SPAWN_POINTS_BY_MAP 仍保留在 data.js（768 权威落地点，与 JSON 种子按 seedNum 关联）。
+let SEED_REGISTRY = [];        // [{seedNumber, nightlord, mapType}] 全部种子身份（替代 seedDataMatrix 的 row[0/1/2]）
+let POI_SLOTS_BY_MAP = {};     // {mapType: [{id, name, x(768), y(768), category, index}]} 仅 landmark 槽位（替代 POI_SLOTS_BY_MAP）
+let SEED_POIS_RAW = null;      // JSON 原始 seeds 对象（key=seedNumber 字符串），供 findRealPOITypeAtCoordinate 按坐标查 type
 
-// Load classification results from dataset.json
-async function loadClassificationResults() {
+// landmark type（中文）→ icon 路径。源自 nightreignMapPatterns.json 的 landmark type 集合：
+// 教堂/法师塔/马车/特殊商人/破败小屋（icon 分别 church/rise/carriage/merchant/blessing）。
+// 'empty'（无建筑）与未命中 type 走 createPOISuggestionUI 内部兜底，不在此表。
+const TYPE_ICON_MAP = {
+    '教堂': 'assets/icons/church.png',
+    '法师塔': 'assets/icons/rise.png',
+    '马车': 'assets/icons/carriage.png',
+    '特殊商人': 'assets/icons/merchant.png',
+    '破败小屋': 'assets/icons/blessing.png',
+};
+
+// type 显示名映射：内部 type 值（参与匹配/排序/状态机）与界面显示文字解耦。
+// 仅影响渲染文字，不动数据源（JSON/CSV/vendor NAME.xlsx）。新增显示别名在此追加。
+const TYPE_DISPLAY_MAP = {
+    '特殊商人': '大商人',  // 移动端浮窗 4 字换行 → 改 3 字「大商人」
+    '破败小屋': '祷告屋',  // 同上，4 字 → 3 字
+};
+
+// 共享点位浮窗「方向覆盖」坐标集（768 空间，容差±3px）。命中则按 dir 渲染，跳过 originalId 偏移表。
+// 各地形同坐标点的 originalId 不同，故按坐标判断而非 originalId。新增条目向数组追加 {x,y,dir}。
+// 已知条目（verify_pool 标定图，均四地形 Default/Mountaintop/Crater/Rotted Woods 同坐标）：
+//   #300 (158.8,542.5) below ｜ #301 (162.7,425.4) left
+const POI_RENDER_OVERRIDE = [
+    { x: 158.8, y: 542.5, dir: 'below' },                                // #300（全平台）
+    { x: 162.7, y: 425.4, dir: 'left' },                                 // #301（全平台）
+    { x: 594.6, y: 273.4, dir: 'right', valign: 'bottom', vertical: true, mobile: true }, // #116 移动端：点位右侧+底对齐，竖排（向上展开）
+    { x: 615.3, y: 445.1, dir: 'right', valign: 'top', vertical: true, mobile: true },    // #312 移动端：点位右侧+顶对齐，竖排（向下展开）
+    { x: 530.65, y: 281.3, noTail: true, mobile: true },                   // #314 移动端：无箭头，右上角锚定点位最右侧，向左下方展开
+    { x: 349.15, y: 531.15, noTail: true, valign: 'top', mobile: true },   // #305 移动端：无箭头，右下角锚定点位最右侧，向左上方展开
+    { x: 725.4, y: 499.25, dir: 'left', noTail: true, vertical: true },   // #1153 大空洞：无箭头贴边，竖向左侧居中（PC+移动端）
+    { x: 472.65, y: 399.15, dir: 'right', noTail: true, vertical: true, mobile: true }, // #1152 大空洞：无箭头贴边，竖向右侧居中
+];
+
+// 气泡尾 SVG（白填充 + 蓝描边 #4fc3f7，匹配浮窗边框）。尖朝向 POI 那一侧。
+const BUBBLE_TAIL_SVG = {
+    below: '<svg width="22" height="12" viewBox="0 0 22 12"><polygon points="11,1 21,11 1,11" fill="rgba(255,255,255,0.98)" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round"/></svg>',
+    above: '<svg width="22" height="12" viewBox="0 0 22 12"><polygon points="11,11 21,1 1,1" fill="rgba(255,255,255,0.98)" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round"/></svg>',
+    left:  '<svg width="12" height="22" viewBox="0 0 12 22"><polygon points="11,11 1,1 1,21" fill="rgba(255,255,255,0.98)" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round"/></svg>',
+    right: '<svg width="12" height="22" viewBox="0 0 12 22"><polygon points="1,11 11,1 11,21" fill="rgba(255,255,255,0.98)" stroke="#4fc3f7" stroke-width="2" stroke-linejoin="round"/></svg>',
+};
+
+async function loadSeedData() {
     try {
-        const response = await fetch('dataset/dataset.json');
+        const response = await fetch('dataset/nightreignMapPatterns.json');
         const data = await response.json();
 
-        if (data.classifications) {
-            CV_CLASSIFICATION_DATA = data.classifications;
-            const seedCount = Object.keys(CV_CLASSIFICATION_DATA).length;
-            console.log('✅ Loaded classification results:', seedCount, 'seeds');
-            return true;
-        }
-        return false;
+        const seeds = data.seeds || {};
+        SEED_POIS_RAW = seeds;
+        SEED_REGISTRY = Object.values(seeds).map(s => ({
+            seedNumber: s.seedNumber,
+            nightlord: s.nightlord,
+            mapType: s.mapType
+        }));
+
+        // 各地形 landmark 槽位：coordinates 1536→768（×0.5）
+        const plm = data.poiLookupByMapType || {};
+        // 原 POIS_BY_MAP（data.js）含人工微调的语义 id（1-11，各地形复用），suggestion 浮窗据此做
+        // 防重叠偏移。JSON landmark 按坐标最近邻继承该 originalId；poiStates 等 key 仍用 JSON id。
+        const legacy = (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {};
+        POI_SLOTS_BY_MAP = {};
+        Object.keys(plm).forEach(mt => {
+            const legMap = legacy[mt] || [];
+            POI_SLOTS_BY_MAP[mt] = plm[mt]
+                .filter(p => p.category === 'landmark')
+                .map(p => {
+                    const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
+                    let originalId = p.id;      // 兜底用 JSON id
+                    let best = Infinity;
+                    legMap.forEach(lp => {
+                        const d = (lp.x - x) ** 2 + (lp.y - y) ** 2;
+                        if (d < best) { best = d; originalId = lp.id; }
+                    });
+                    return { id: p.id, originalId, name: p.name || p.id, x, y, category: p.category, index: p.index };
+                });
+        });
+
+        console.log('✅ 种子数据已加载:', SEED_REGISTRY.length, '颗种子,', Object.keys(POI_SLOTS_BY_MAP).length, '地形');
+        return true;
     } catch (error) {
-        console.warn('⚠️ Dataset not found (this is normal if not yet created):', error.message);
+        console.error('❌ 加载 nightreignMapPatterns.json 失败:', error);
         return false;
     }
 }
@@ -30,7 +100,7 @@ class NightreignMapRecogniser {
         this.spawnPhase = true;      // true=出生点阶段（锁地标），false=地标阶段
         this.currentPOIs = [];
         this.poiStates = {};
-        // 大空洞碰撞消歧状态：A=守教堂BOSS名, B='血'|'毒'；null=未选
+        // 大空洞碰撞消歧状态：A=A点 fieldBoss type, B=B点 stronghold 据点；null=未选
         this.disambigStates = { A: null, B: null };
         this.disambigActive = false;        // 当前是否处于消歧模式（GH + 剩 2 碰撞种子）
         this.currentDisambigPair = null;    // 当前碰撞对 [seedNum1, seedNum2]（升序）
@@ -38,12 +108,7 @@ class NightreignMapRecogniser {
         this.disambigMenus = { A: null, B: null };  // #disambig-menu-a/b DOM 引用（setupContextMenu 初始化）
         this.images = {
             maps: {},
-            church: new Image(),
-            mage: new Image(),
-            village: new Image(),
-            empty: new Image(),
-            carriage: new Image(),
-            favicon: new Image()
+            empty: new Image(),  // POI "空"标记图标（drawPOI 用）
         };
         this.showingSeedImage = false;
         this.canvas = null;
@@ -73,32 +138,20 @@ class NightreignMapRecogniser {
 
 
     setupImages() {
-        // Load icon images (data URIs don't need crossOrigin)
-        this.images.church.src = ICON_ASSETS.church;
-        this.images.mage.src = ICON_ASSETS.mage;
-        this.images.village.src = ICON_ASSETS.village;
+        // Load icon images (POI "空"标记图标)
         this.images.empty.src = ICON_ASSETS.empty;
-        this.images.carriage.src = ICON_ASSETS.carriage;
-        this.images.favicon.src = 'assets/images/church.png';
+
+        // POI type 图标（中文 type → Image，源自 TYPE_ICON_MAP，对齐 nightreignMapPatterns.json）
+        this.typeImages = {};
+        Object.entries(TYPE_ICON_MAP).forEach(([type, src]) => {
+            const img = new Image();
+            img.src = src;
+            this.typeImages[type] = img;
+        });
 
         // Add error handling for images
-        this.images.church.onerror = () => {
-            console.warn('Failed to load church icon');
-        };
-        this.images.mage.onerror = () => {
-            console.warn('Failed to load mage icon');
-        };
-        this.images.favicon.onerror = () => {
-            console.warn('Failed to load favicon icon');
-        };
-        this.images.village.onerror = () => {
-            console.warn('Failed to load village icon');
-        };
         this.images.empty.onerror = () => {
             console.warn('Failed to load empty icon');
-        };
-        this.images.carriage.onerror = () => {
-            console.warn('Failed to load carriage icon');
         };
 
         // Load map images with error handling
@@ -209,7 +262,6 @@ class NightreignMapRecogniser {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.hideHelpModal();
-                this.hideContextMenu();
             }
         });
 
@@ -221,13 +273,6 @@ class NightreignMapRecogniser {
         // Context menu setup
         this.setupContextMenu();
 
-        // Hide context menu when clicking elsewhere
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('#poi-context-menu')) {
-                this.hideContextMenu();
-            }
-        });
-
         // 消歧菜单为 fixed 定位，页面滚动/缩放后需重算屏幕坐标以继续贴在紫点旁
         this.repositionHandler = () => this.repositionDisambigMenus();
         window.addEventListener('scroll', this.repositionHandler, true);  // capture：捕获任意滚动容器
@@ -236,26 +281,16 @@ class NightreignMapRecogniser {
 
     async loadInitialData() {
         try {
-            // Load both seed data and classification data
-            const hasClassifications = await loadClassificationResults();
-            const seedCount = seedDataMatrix.length;
+            // 加载权威种子数据（nightreignMapPatterns.json）
+            await loadSeedData();
+            const seedCount = SEED_REGISTRY.length;
 
             // Update status display
             const statusElement = document.getElementById('cv-status');
             if (statusElement) {
-                if (hasClassifications) {
-                    const classCount = Object.keys(CV_CLASSIFICATION_DATA).length;
-                    // Store parameters for language updates
-                    statusElement.dataset.loadingType = 'classified';
-                    statusElement.dataset.seedCount = seedCount;
-                    statusElement.dataset.classCount = classCount;
-                    statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.classified', { count: seedCount, classified: classCount })}</span>`;
-                } else {
-                    // Store parameters for language updates
-                    statusElement.dataset.loadingType = 'seeds';
-                    statusElement.dataset.seedCount = seedCount;
-                    statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.seeds', { count: seedCount })}</span>`;
-                }
+                statusElement.dataset.loadingType = 'seeds';
+                statusElement.dataset.seedCount = seedCount;
+                statusElement.innerHTML = `<span style="color: #28a745;">✅ ${this.getText('loading.seeds', { count: seedCount })}</span>`;
             }
 
             this.hideLoadingSection();
@@ -287,7 +322,7 @@ class NightreignMapRecogniser {
 
     showDefaultMap() {
         // Set up a default map (Default map type) for immediate interaction
-        this.currentPOIs = POIS_BY_MAP['Default'] || [];
+        this.currentPOIs = POI_SLOTS_BY_MAP['Default'] || [];
         this.poiStates = this.initializePOIStates();
 
         // Show interaction section and instructions
@@ -432,15 +467,9 @@ class NightreignMapRecogniser {
             console.log(`Selected nightlord: ${nightlord}`);
         }
 
-        // 切换夜王后，已选出生点可能在新夜王下不存在（该夜王的该地形从无此出生点）→ 清除并回出生点阶段，POI 标记保留
-        if (this.selectedSpawn && this.chosenMap) {
-            const validSpawns = this.getValidSpawns();
-            if (!validSpawns.some(sp => sp.value === this.selectedSpawn)) {
-                this.selectedSpawn = null;
-                this.spawnPhase = true;
-                console.log('Cleared spawn: not valid under new nightlord');
-            }
-        }
+        // 切换夜王重置地图：清出生点、回出生点阶段（POI 标记由 updateGameState→initializePOIStates 重置为全 dot，消歧由 resetDisambig 清）
+        this.selectedSpawn = null;
+        this.spawnPhase = true;
 
         this.updateGameState();
     }
@@ -449,7 +478,7 @@ class NightreignMapRecogniser {
         // If the same map is clicked again, clear the selection
         if (this.chosenMap === map) {
             this.chosenMap = null;
-            this.currentPOIs = POIS_BY_MAP['Default'] || [];
+            this.currentPOIs = POI_SLOTS_BY_MAP['Default'] || [];
             this.poiStates = this.initializePOIStates();
 
             // Update UI
@@ -464,7 +493,7 @@ class NightreignMapRecogniser {
         } else {
             // Select the new map
             this.chosenMap = map;
-            this.currentPOIs = POIS_BY_MAP[map] || [];
+            this.currentPOIs = POI_SLOTS_BY_MAP[map] || [];
             this.poiStates = this.initializePOIStates();
             this.selectedSpawn = null;   // 切地图重置出生点
             this.spawnPhase = true;      // 新地图默认回到出生点阶段
@@ -493,27 +522,38 @@ class NightreignMapRecogniser {
         return states;
     }
 
-    // 检测 POI 过滤后的剩余种子是否正好是 GH_DISAMBIG 里的某个碰撞对。
-    // 返回 [seedNum1, seedNum2]（升序）或 null。
-    detectDisambigPair(filteredSeeds) {
-        if (this.chosenMap !== 'Great Hollow') return null;
-        if (!filteredSeeds || filteredSeeds.length !== 2) return null;
-        const nums = filteredSeeds.map(r => r[0]).sort((a, b) => a - b);
-        if (GH_DISAMBIG[nums[0]] && GH_DISAMBIG[nums[1]]) return nums;
-        return null;
+    // 检测剩余种子是否存在 landmark 碰撞（任意两种子的 landmark type 向量相同 → 无法仅靠 landmark 区分）。
+    // 动态判定，不依赖硬编码 GH_DISAMBIG：碰撞种子的区分值由 A/B 点位实时从 JSON 读取。
+    detectHasLandmarkCollision(filteredSeeds) {
+        if (this.chosenMap !== 'Great Hollow') return false;
+        if (!filteredSeeds || filteredSeeds.length < 2) return false;
+        // 消歧是共享 landmark 穷尽后的最后手段：所有共享点位都已确定（无 dot 未标记）才考虑，
+        // 否则优先让用户继续标 landmark（未标完时消歧菜单会提前冒出、干扰判断）
+        const allMarked = this.currentPOIs.every(poi => this.poiStates[poi.id] !== 'dot');
+        if (!allMarked) return false;
+        // 所有 landmark 标定后仍存在向量重复 → 真正无法靠 landmark 区分 → 触发消歧
+        const vectors = new Set();
+        for (const s of filteredSeeds) {
+            const vec = JSON.stringify(this.currentPOIs.map(poi =>
+                this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y)));
+            if (vectors.has(vec)) return true;  // 向量重复 → 碰撞
+            vectors.add(vec);
+        }
+        return false;
     }
 
     // 渲染碰撞消歧点位（仅消歧模式；由 drawMap 调用）。紫色圆点，与 POI 'dot' 视觉一致。
     drawDisambigPoints() {
         if (!this.disambigActive) return;
-        [GH_DISAMBIG_POINTS.A, GH_DISAMBIG_POINTS.B].forEach(pt => {
-            const state = (pt.kind === 'boss') ? this.disambigStates.A : this.disambigStates.B;
+        ['A', 'B'].forEach(k => {
+            const pt = GH_DISAMBIG_POINTS[k];
+            const state = this.disambigStates[k];
             const { x, y } = pt;
             if (!state) {
-                // 未选：紫色圆点（不显示 A/B 字样）
+                // 未选：紫色圆点
                 this.drawDot(x, y, '', '#b266ff');
             } else {
-                // 已选：紫色实心圆 + 选中值文字
+                // 已选/已锁定：紫色实心圆 + 圆下方文字标签（完整 type 名；单值点直接展示结果）
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, ICON_SIZE / 2, 0, 2 * Math.PI);
                 this.ctx.fillStyle = '#b266ff';
@@ -521,20 +561,38 @@ class NightreignMapRecogniser {
                 this.ctx.strokeStyle = '#ffffff';
                 this.ctx.lineWidth = 2;
                 this.ctx.stroke();
-                this.ctx.fillStyle = '#ffffff';
                 this.ctx.font = 'bold 11px Inter, sans-serif';
                 this.ctx.textAlign = 'center';
                 this.ctx.textBaseline = 'middle';
-                this.ctx.fillText(state, x, y);
+                const ty = y + ICON_SIZE / 2 + 10;
+                this.ctx.lineWidth = 3;
+                this.ctx.strokeStyle = '#000000';
+                const disp = this.displayName(state);  // 显示名（如 特殊商人→大商人）
+                this.ctx.strokeText(disp, x, ty);  // 黑描边，地图杂色上保证可读
+                this.ctx.fillStyle = '#ffffff';
+                this.ctx.fillText(disp, x, ty);
             }
         });
     }
 
     updateGameState() {
         this.resetDisambig();  // 切换地图时清除上一张图的消歧状态（避免 A/B 坐标错画到新地图）
+
+        // 换夜王/地图 = 全新查询：退出"单种子结果图"模式。
+        // 否则 showingSeedImage=true 会让 renderMap() 直接 return（画布卡在旧种子图），
+        // 且 drawDefaultMapWithImage 会画在仍被 showSeedImage 隐藏的 canvas 上。
+        if (this.showingSeedImage) {
+            this.showingSeedImage = false;
+            this.hideSeedDetails();
+            const canvas = document.getElementById('map-canvas');
+            const seedImageContainer = document.getElementById('seed-image-container');
+            if (canvas) canvas.style.display = 'block';
+            if (seedImageContainer) seedImageContainer.style.display = 'none';
+        }
+
         if (this.chosenMap) {
             // Map is selected - show full functionality
-            this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
+            this.currentPOIs = POI_SLOTS_BY_MAP[this.chosenMap] || [];
             this.poiStates = this.initializePOIStates();
 
             this.showInteractionSection();
@@ -544,7 +602,7 @@ class NightreignMapRecogniser {
             this.hideSelectionOverlay();
         } else {
             // No map selected - show default view but keep interaction available
-            this.currentPOIs = POIS_BY_MAP['Default'] || [];
+            this.currentPOIs = POI_SLOTS_BY_MAP['Default'] || [];
             this.poiStates = this.initializePOIStates();
 
             this.showInteractionSection();
@@ -588,141 +646,14 @@ class NightreignMapRecogniser {
     }
 
     setupContextMenu() {
-        this.contextMenu = document.getElementById('poi-context-menu');
+        // 旧右键 4 类菜单（#poi-context-menu）已移除，POI 标记改用 suggestion 浮窗。
+        // 此处仅保留消歧菜单 DOM 引用初始化。
         this.disambigMenus = {
             A: document.getElementById('disambig-menu-a'),
             B: document.getElementById('disambig-menu-b'),
         };
-
-        // 处理上下文菜单项点击
-        document.querySelectorAll('.context-menu-item').forEach(item => {
-            // 同时处理点击和触摸事件
-            const handleSelection = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-
-                // 添加触摸反馈效果
-                item.classList.add('touch-feedback');
-
-                // 获取POI类型
-                const type = e.currentTarget.dataset.type;
-
-                if (this.currentRightClickedPOI) {
-                    console.log(`Selected ${type} for POI ${this.currentRightClickedPOI.id}`);
-
-                    // 更新POI状态
-                    this.poiStates[this.currentRightClickedPOI.id] = type;
-
-                    // 重绘地图
-                    this.drawMap(this.images.maps[this.chosenMap]);
-
-                    // 更新种子过滤
-                    this.updateSeedFiltering();
-
-                    // 隐藏菜单
-                    setTimeout(() => {
-                        this.hideContextMenu();
-                        this.currentRightClickedPOI = null;
-
-                        // 移除触摸反馈效果
-                        item.classList.remove('touch-feedback');
-                    }, 150);
-                }
-            };
-
-            // 添加点击事件监听器
-            item.addEventListener('click', handleSelection);
-
-            // 添加触摸事件监听器
-            item.addEventListener('touchstart', (e) => {
-                // 添加触摸反馈
-                item.classList.add('touch-feedback');
-            });
-
-            item.addEventListener('touchend', handleSelection);
-
-            item.addEventListener('touchcancel', (e) => {
-                // 移除触摸反馈
-                item.classList.remove('touch-feedback');
-            });
-        });
-
-        // 点击其他区域关闭菜单
-        document.addEventListener('touchstart', (e) => {
-            if (this.contextMenu &&
-                this.contextMenu.style.display === 'block' &&
-                !this.contextMenu.contains(e.target)) {
-                this.hideContextMenu();
-            }
-        }, { passive: true });
     }
 
-    showContextMenu(x, y) {
-        this.hideDisambigMenu();  // 与消歧菜单互斥
-        if (this.contextMenu) {
-            console.log(`Showing context menu at (${x}, ${y})`);
-
-            // 确保菜单在视口内
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-            const menuWidth = 240; // 更新的菜单宽度
-            const menuHeight = 220; // 至多 4 项（mage/village/carriage/空白；大空洞隐藏 village）
-
-            // 调整位置以确保菜单完全可见
-            let adjustedX = x;
-            let adjustedY = y;
-
-            if (x + menuWidth > viewportWidth) {
-                adjustedX = viewportWidth - menuWidth - 20;
-            }
-
-            if (y + menuHeight > viewportHeight) {
-                adjustedY = viewportHeight - menuHeight - 20;
-            }
-
-            console.log(`Adjusted position: (${adjustedX}, ${adjustedY})`);
-
-            // 大空洞地形无村庄候选点（数据层已确认全 0），隐藏 village 菜单项避免误导选点
-            const villageItem = this.contextMenu.querySelector('.context-menu-item[data-type="village"]');
-            if (villageItem) {
-                villageItem.style.display = (this.chosenMap === 'Great Hollow') ? 'none' : '';
-            }
-
-            // 设置菜单位置并显示
-            this.contextMenu.style.left = `${adjustedX}px`;
-            this.contextMenu.style.top = `${adjustedY}px`;
-            this.contextMenu.style.display = 'block';
-
-            // 添加动画效果
-            this.contextMenu.style.opacity = '0';
-            this.contextMenu.style.transform = 'scale(0.95)';
-            this.contextMenu.style.transition = 'opacity 0.2s, transform 0.2s';
-
-            // 强制重绘以确保动画生效
-            setTimeout(() => {
-                this.contextMenu.style.opacity = '1';
-                this.contextMenu.style.transform = 'scale(1)';
-                console.log('Context menu animation completed');
-            }, 10);
-
-            // 确保菜单可见
-            this.contextMenu.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    }
-
-    hideContextMenu() {
-        if (this.contextMenu) {
-            // 添加淡出效果
-            this.contextMenu.style.opacity = '0';
-            this.contextMenu.style.transform = 'scale(0.95)';
-
-            // 等待淡出完成后隐藏
-            setTimeout(() => {
-                this.contextMenu.style.display = 'none';
-            }, 200);
-        }
-        this.currentRightClickedPOI = null;
-    }
 
     // 长按指示器方法
     showLongPressIndicator(x, y) {
@@ -859,8 +790,10 @@ class NightreignMapRecogniser {
         // 碰撞消歧点位（仅消歧模式：GH 剩 2 碰撞种子时由 updateSeedFiltering 置位）
         this.drawDisambigPoints();
 
-        // 画出生点标记（蓝色三角，不受 spawnPhase 透明度影响）
-        spawns.forEach(sp => this.drawSpawnMarker(sp));
+        // 画出生点标记（蓝色三角）：仅出生点阶段显示；选完进入地标阶段后隐藏（用户反馈：选完不再显示点位标志）
+        if (this.spawnPhase) {
+            spawns.forEach(sp => this.drawSpawnMarker(sp));
+        }
 
         // 出生点阶段顶部提示
         if (this.spawnPhase && spawns.length > 0) {
@@ -879,34 +812,23 @@ class NightreignMapRecogniser {
     drawPOI(poi, state) {
         const { x, y } = poi;
 
-        switch (state) {
-            case 'dot':
+        if (state === 'dot') {
+            // 未标记：橙色圆点（landmark 统一色）
+            this.drawDot(x, y, '', '#ff8c00');
+        } else if (state === 'empty') {
+            // 用户标记为"空"（该坐标无建筑）
+            this.drawIcon(this.images.empty, x, y);
+        } else if (state === 'hidden') {
+            // 全空（候选种子在此坐标均无 POI）：不画
+        } else {
+            // 已选 type（中文）：画对应图标（TYPE_ICON_MAP）
+            const img = this.typeImages && this.typeImages[state];
+            if (img) {
+                this.drawIcon(img, x, y);
+            } else {
+                // 未知 type 兜底：橙色圆点
                 this.drawDot(x, y, '', '#ff8c00');
-                break;
-            case 'church':
-                // Use favicon if available, otherwise fallback to church icon
-                if (this.images.favicon.complete && this.images.favicon.naturalWidth > 0) {
-                    this.drawIcon(this.images.favicon, x, y);
-                } else {
-                    this.drawIcon(this.images.church, x, y);
-                }
-                break;
-            case 'mage':
-                this.drawIcon(this.images.mage, x, y);
-                break;
-            case 'village':
-                this.drawIcon(this.images.village, x, y);
-                break;
-            case 'empty':
-                // 该坐标无建筑（dataset 'nothing'→null），用户主动标记为"空"
-                this.drawIcon(this.images.empty, x, y);
-                break;
-            case 'carriage':
-                this.drawIcon(this.images.carriage, x, y);
-                break;
-            case 'unknown':
-                // Per user request, these are now invisible, removing the dot.
-                break;
+            }
         }
     }
 
@@ -929,9 +851,23 @@ class NightreignMapRecogniser {
     }
 
     drawIcon(image, x, y) {
-        if (image.complete) {
+        if (!image.complete) return;
+        const nw = image.naturalWidth, nh = image.naturalHeight;
+        // 无尺寸信息（未加载完）兜底正方形
+        if (!nw || !nh) {
             this.ctx.drawImage(image, x - ICON_SIZE / 2, y - ICON_SIZE / 2, ICON_SIZE, ICON_SIZE);
+            return;
         }
+        // 按原始宽高比缩放到 ICON_SIZE×ICON_SIZE 内（contain），避免非正方形素材
+        // （教堂134×180 / 法师塔95×210 / 马车215×179 / 特殊商人271×127）被强制正方形拉伸失衡
+        const scale = Math.min(ICON_SIZE / nw, ICON_SIZE / nh);
+        const w = nw * scale, h = nh * scale;
+        this.ctx.drawImage(image, x - w / 2, y - h / 2, w, h);
+    }
+
+    // type 显示名（内部 type 值 → 界面文字；仅渲染层映射，不改数据源/匹配/排序逻辑）
+    displayName(type) {
+        return TYPE_DISPLAY_MAP[type] || type;
     }
 
     drawSpawnMarker(sp) {
@@ -998,23 +934,19 @@ class NightreignMapRecogniser {
             // 地标阶段：POI 优先
             const poi = this.findClickedPOI(pos.x, pos.y);
             if (poi) {
-                // If POI is already marked (not a dot), clear it back to dot
-                if (this.poiStates[poi.id] !== 'dot') {
-                    console.log(`Clearing POI ${poi.id} - was ${this.poiStates[poi.id]}`);
+                // 已选点位 → 清回 dot（保留 userIsClearing 抑制 auto-fill 把值填回）
+                if (this.poiStates[poi.id] !== 'dot' && this.poiStates[poi.id] !== 'hidden') {
                     this.poiStates[poi.id] = 'dot';
-                    this.userIsClearing = true; // Set flag before clearing
+                    this.userIsClearing = true;
+                    this.drawMap(this.images.maps[this.chosenMap]);
+                    this.updateSeedFiltering();
+                    this.userIsClearing = false;
+                    this.hidePOISuggestions();
                 } else {
-                    // If it's a dot, mark as church
-                    console.log(`Marking POI ${poi.id} as church`);
-                    this.poiStates[poi.id] = 'church';
+                    // dot/hidden → 左键快捷标记教堂（候选含教堂），否则弹 suggestion 浮窗
+                    this.markChurchOrSuggest(poi);
                 }
-
-                this.drawMap(this.images.maps[this.chosenMap]);
-                this.updateSeedFiltering();
-
-                // Reset the flag after processing
-                this.userIsClearing = false;
-                return;   // ← 关键：POI 命中后 return，不再查 spawn
+                return;   // POI 命中后 return，不再查 spawn
             }
 
             // 地标阶段、POI 未命中：允许改选/取消出生点（不改变 spawnPhase）
@@ -1036,18 +968,8 @@ class NightreignMapRecogniser {
 
             console.log("Long press detected!");
 
-            // 显示上下文菜单
-            this.currentRightClickedPOI = lastTouchedPoi;
-
-            // 获取触摸位置
-            const touch = e.changedTouches ? e.changedTouches[0] : e.touches[0];
-
-            // 计算菜单位置
-            const menuX = Math.min(touch.clientX, window.innerWidth - 160);
-            const menuY = Math.min(touch.clientY, window.innerHeight - 150);
-
-            // 显示菜单
-            this.showContextMenu(menuX, menuY);
+            // 长按 = 弹 suggestion 浮窗（等同短按/左键，单层交互）
+            this.showPOISuggestionAt(lastTouchedPoi);
 
             // 隐藏长按指示器
             this.hideLongPressIndicator();
@@ -1139,24 +1061,18 @@ class NightreignMapRecogniser {
 
             if (touchDuration < 500 && !touchMoved) {
                 if (lastTouchedPoi) {
-                    console.log(`Short tap on POI ${lastTouchedPoi.id}`);
-
-                    // If POI is already marked (not a dot), clear it back to dot
-                    if (this.poiStates[lastTouchedPoi.id] !== 'dot') {
-                        console.log(`Clearing POI ${lastTouchedPoi.id} - was ${this.poiStates[lastTouchedPoi.id]}`);
+                    // 已选点位 → 清回 dot；dot/hidden → 弹 suggestion 浮窗（等同左键）
+                    if (this.poiStates[lastTouchedPoi.id] !== 'dot' && this.poiStates[lastTouchedPoi.id] !== 'hidden') {
                         this.poiStates[lastTouchedPoi.id] = 'dot';
-                        this.userIsClearing = true; // Set flag before clearing
+                        this.userIsClearing = true;
+                        this.drawMap(this.images.maps[this.chosenMap]);
+                        this.updateSeedFiltering();
+                        this.userIsClearing = false;
+                        this.hidePOISuggestions();
                     } else {
-                        // If it's a dot, mark as church
-                        console.log(`Marking POI ${lastTouchedPoi.id} as church`);
-                        this.poiStates[lastTouchedPoi.id] = 'church';
+                        // 单点快捷标记教堂（候选含教堂），否则弹 suggestion 浮窗
+                        this.markChurchOrSuggest(lastTouchedPoi);
                     }
-
-                    this.drawMap(this.images.maps[this.chosenMap]);
-                    this.updateSeedFiltering();
-
-                    // Reset the flag after processing
-                    this.userIsClearing = false;
                 } else if (!this.spawnPhase && !spawnToggledInTouchstart) {
                     // 地标阶段、POI 未命中的短按：允许改选/取消出生点（排除 spawn 阶段 touchstart 已处理的触摸）
                     const spawn = this.findClickedSpawn(lastTouchPos.x, lastTouchPos.y);
@@ -1215,7 +1131,7 @@ class NightreignMapRecogniser {
             lastTouchedPoi = null;
         }, { passive: true });
 
-        // Right click - show context menu
+        // Right click - show suggestion (single-layer, 同左键)
         this.canvas.addEventListener('contextmenu', (e) => {
             e.preventDefault();
             if (!this.chosenMap) {
@@ -1225,12 +1141,11 @@ class NightreignMapRecogniser {
             const pos = this.getMousePos(e);
             const poi = this.findClickedPOI(pos.x, pos.y);
             if (poi) {
-                this.currentRightClickedPOI = poi;
-                this.showContextMenu(e.clientX, e.clientY);
+                this.showPOISuggestionAt(poi);
             }
         });
 
-        // Middle click - mark as unknown
+        // Middle click - show suggestion (single-layer, 同左/右键)
         this.canvas.addEventListener('mousedown', (e) => {
             if (e.button === 1) {
                 e.preventDefault();
@@ -1241,9 +1156,7 @@ class NightreignMapRecogniser {
                 const pos = this.getMousePos(e);
                 const poi = this.findClickedPOI(pos.x, pos.y);
                 if (poi) {
-                    this.poiStates[poi.id] = 'unknown';
-                    this.drawMap(this.images.maps[this.chosenMap]);
-                    this.updateSeedFiltering();
+                    this.showPOISuggestionAt(poi);
                 }
             }
         });
@@ -1293,30 +1206,38 @@ class NightreignMapRecogniser {
 
     // 动态生成 A、B 两个独立小菜单，各自依附在紫色点位右侧（空间不足翻左侧/下方）。
     // 消歧模式下由 updateSeedFiltering 自动调用，常驻显示直到退出消歧模式。
-    // A 菜单：候选 BOSS 名（boss 图标）；B 菜单：血/毒遗迹（ruin_blood/ruin_poison 图标）。
+    // A 菜单：A 点 fieldBoss type（中文，无图标）；B 菜单：B 点 stronghold 据点名（中文，无图标）。
+    // 动态生成 A/B 消歧菜单：从剩余种子在 A/B 坐标的实际 type（JSON 内嵌）读取，去重保序。
+    // 弃用硬编码 GH_DISAMBIG —— 该表只录部分夜王种子，无法覆盖 GH 全部 22 个碰撞组。
     showDisambigMenu() {
-        if (!this.currentDisambigPair) return;
-        const lang = this.languageManager.getCurrentLanguage();
-        const t = (key) => (translations[lang] && translations[lang][key]) || key;
-        const [s1, s2] = this.currentDisambigPair;
-        const vals = [GH_DISAMBIG[s1], GH_DISAMBIG[s2]];
+        const seeds = this.lastFilteredSeeds || [];
+        const ptA = GH_DISAMBIG_POINTS.A, ptB = GH_DISAMBIG_POINTS.B;
 
-        // A 组候选（守教堂 BOSS 名，去重保序）
-        const bossVals = [];
-        vals.forEach(d => { if (d.bossA && !bossVals.includes(d.bossA)) bossVals.push(d.bossA); });
-        // B 组候选（血/毒遗迹，去重保序）
-        const ruinVals = [];
-        vals.forEach(d => { if (d.ruinB && !ruinVals.includes(d.ruinB)) ruinVals.push(d.ruinB); });
+        // 收集某点在剩余种子的候选 type（去重保序）
+        const collect = (pt) => {
+            const vals = [];
+            seeds.forEach(s => {
+                const v = this.findRealPOITypeAtCoordinate(s.seedNumber, pt.x, pt.y);
+                if (v && !vals.includes(v)) vals.push(v);
+            });
+            return vals;
+        };
+        const bossVals = collect(ptA);        // A 点 fieldBoss 候选
+        const strongholdVals = collect(ptB);  // B 点 stronghold 据点候选
 
-        // A 菜单：只列守教堂 BOSS 名（无图标）
-        this.renderDisambigMenu(GH_DISAMBIG_POINTS.A, this.disambigMenus.A, 'A',
-            bossVals.map(v => ({ value: v, label: v })), t);
-        // B 菜单：只显示血/毒遗迹图标（图标本身即辨识，尺寸由 CSS 放大一倍）
-        this.renderDisambigMenu(GH_DISAMBIG_POINTS.B, this.disambigMenus.B, 'B',
-            ruinVals.map(v => ({
-                value: v,
-                icon: (v === '血') ? 'ruin_blood.png' : 'ruin_poison.png',
-            })), t);
+        // 仅多值点弹菜单；单值点已自动锁定（见 updateSeedFiltering），drawDisambigPoints 直接展示已选态，不弹单项菜单
+        if (bossVals.length >= 2) {
+            this.renderDisambigMenu(ptA, this.disambigMenus.A, 'A',
+                bossVals.map(v => ({ value: v, label: v })));
+        } else if (this.disambigMenus.A) {
+            this.disambigMenus.A.style.display = 'none';
+        }
+        if (strongholdVals.length >= 2) {
+            this.renderDisambigMenu(ptB, this.disambigMenus.B, 'B',
+                strongholdVals.map(v => ({ value: v, label: v })));
+        } else if (this.disambigMenus.B) {
+            this.disambigMenus.B.style.display = 'none';
+        }
     }
 
     // 渲染单个消歧菜单并依附到对应点位（常驻：选中后由 updateSeedFiltering 刷新高亮，不关闭）
@@ -1326,7 +1247,7 @@ class NightreignMapRecogniser {
         const selStyle = (on) => on ? ' style="background:rgba(178,102,255,0.25);"' : '';
         let html = '';
         items.forEach(it => {
-            const label = it.label ? `<span style="white-space:nowrap;">${it.label}</span>` : '';
+            const label = it.label ? `<span style="white-space:nowrap;">${this.displayName(it.label)}</span>` : '';
             html += `<div class="context-menu-item" data-value="${it.value}"${selStyle(it.value === this.disambigStates[key])}>${iconImg(it.icon)}${label}</div>`;
         });
         menuEl.innerHTML = html;
@@ -1368,8 +1289,8 @@ class NightreignMapRecogniser {
         const menuHeight = menuEl.offsetHeight || 120;
         const gap = 18;  // 点边缘到菜单的间距
 
-        // 移动端：B 点(血毒遗迹)菜单放点位正下方，避免向右延伸落在 A、B 两点之间造成混淆
-        const preferBelow = window.innerWidth <= 768 && point.kind === 'ruin';
+        // 移动端：B 点(stronghold 据点)菜单放点位正下方，避免向右延伸落在 A、B 两点之间造成混淆
+        const preferBelow = window.innerWidth <= 768 && point.kind === 'stronghold';
 
         let x, y;
         if (preferBelow) {
@@ -1408,11 +1329,8 @@ class NightreignMapRecogniser {
 
     // 设置某个消歧点的选择值（null=清除），然后重绘 + 过滤
     setDisambigState(point, value) {
-        if (point.kind === 'boss') {
-            this.disambigStates.A = value;
-        } else {
-            this.disambigStates.B = value;
-        }
+        const key = (point.kind === 'fieldBoss') ? 'A' : 'B';
+        this.disambigStates[key] = value;
         this.drawMap(this.images.maps[this.chosenMap]);
         this.updateSeedFiltering();
     }
@@ -1444,9 +1362,9 @@ class NightreignMapRecogniser {
         if (!this.chosenNightlord) return candidates;
         // 已选夜王：只保留该夜王 + 该地形下实际有种子使用的出生点，其余永不出现 → 不显示
         const possibleValues = new Set(
-            seedDataMatrix
-                .filter(row => row[1] === this.chosenNightlord && row[2] === this.chosenMap)
-                .map(row => SEED_SPAWN[row[0]])
+            SEED_REGISTRY
+                .filter(s => s.nightlord === this.chosenNightlord && s.mapType === this.chosenMap)
+                .map(s => SEED_SPAWN[s.seedNumber])
         );
         return candidates.filter(sp => possibleValues.has(sp.value));
     }
@@ -1471,7 +1389,7 @@ class NightreignMapRecogniser {
         // If a map is selected, keep it and redraw with reset POIs
         if (this.chosenMap) {
             // Reinitialize POI states for current map
-            this.currentPOIs = POIS_BY_MAP[this.chosenMap] || [];
+            this.currentPOIs = POI_SLOTS_BY_MAP[this.chosenMap] || [];
             this.poiStates = this.initializePOIStates();
             this.selectedSpawn = null;
             this.spawnPhase = true;
@@ -1485,7 +1403,7 @@ class NightreignMapRecogniser {
             this.updateSeedFiltering();
         } else {
             // No map selected - reset to default
-            this.currentPOIs = POIS_BY_MAP['Default'] || [];
+            this.currentPOIs = POI_SLOTS_BY_MAP['Default'] || [];
             this.poiStates = this.initializePOIStates();
 
             // Draw default map
@@ -1524,36 +1442,26 @@ class NightreignMapRecogniser {
         this.hidePOISuggestions();
     }
 
-    classifyPOI(poiString) {
-        if (!poiString) return null;
-        if (poiString.includes('Church')) return 'Church';
-        if (poiString.includes('Sorcerer') || poiString.includes('Mage') || poiString.includes('Rise')) return 'Mage';
-        if (poiString.includes('Village')) return 'Village';
-        return 'Other'; // Return 'Other' for non-Church/Mage/Village POIs instead of null
-    }
 
     updateSeedCount() {
         if (!this.chosenNightlord && !this.chosenMap) {
-            document.getElementById('seed-count').textContent = seedDataMatrix.length;
+            document.getElementById('seed-count').textContent = SEED_REGISTRY.length;
             return;
         }
 
         // Use actual seed data to count seeds
         let count = 0;
         if (this.chosenNightlord && this.chosenMap) {
-            // Both selected - count actual seeds with this combination
-            count = seedDataMatrix.filter(row =>
-                row[1] === this.chosenNightlord && row[2] === this.chosenMap
+            count = SEED_REGISTRY.filter(s =>
+                s.nightlord === this.chosenNightlord && s.mapType === this.chosenMap
             ).length;
         } else if (this.chosenNightlord) {
-            // Only nightlord selected - count all seeds for this nightlord
-            count = seedDataMatrix.filter(row =>
-                row[1] === this.chosenNightlord
+            count = SEED_REGISTRY.filter(s =>
+                s.nightlord === this.chosenNightlord
             ).length;
         } else if (this.chosenMap) {
-            // Only map selected - count all seeds for this map type
-            count = seedDataMatrix.filter(row =>
-                row[2] === this.chosenMap
+            count = SEED_REGISTRY.filter(s =>
+                s.mapType === this.chosenMap
             ).length;
         }
 
@@ -1568,188 +1476,146 @@ class NightreignMapRecogniser {
         }
 
         // Filter seeds by nightlord and map
-        const possibleSeeds = seedDataMatrix.filter(row => {
-            const allNightlords = !this.chosenNightlord || row[1] === this.chosenNightlord;
-            const spawnOk = !this.selectedSpawn || SEED_SPAWN[row[0]] === this.selectedSpawn;
-            return allNightlords && row[2] === this.chosenMap && spawnOk;
+        const possibleSeeds = SEED_REGISTRY.filter(s => {
+            const allNightlords = !this.chosenNightlord || s.nightlord === this.chosenNightlord;
+            const spawnOk = !this.selectedSpawn || SEED_SPAWN[s.seedNumber] === this.selectedSpawn;
+            return allNightlords && s.mapType === this.chosenMap && spawnOk;
         });
 
         console.log(`Found ${possibleSeeds.length} seeds for ${this.chosenNightlord} + ${this.chosenMap}`);
 
         // Filter by POI states using coordinate-based matching
-        let filteredSeeds = possibleSeeds.filter(row => {
-            const seedNum = row[0];
-            console.log(`\n🔍 Checking Seed ${seedNum}:`);
+        // poiStates 值：'dot'(未标记) / 中文名 type(用户选定或 auto-fill) / 'empty'(无建筑) / 'hidden'(全空,不画)
+        let filteredSeeds = possibleSeeds.filter(s => {
+            const seedNum = s.seedNumber;
 
             for (const poi of this.currentPOIs) {
                 const userState = this.poiStates[poi.id];
 
-                // If user hasn't marked this POI yet, skip it
-                if (userState === 'dot') {
-                    console.log(`  POI ${poi.id} at (${poi.x}, ${poi.y}): User hasn't marked - SKIPPING`);
-                    continue;
-                }
+                // 未标记 / 隐藏点位 不参与匹配
+                if (userState === 'dot' || userState === 'hidden') continue;
 
-                console.log(`  POI ${poi.id} at (${poi.x}, ${poi.y}): User marked as ${userState.toUpperCase()}`);
+                // 该坐标在真实种子里中文 type（无建筑→null）
+                const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
 
-                // Find what POI type exists at this coordinate in the real seed data
-                const realPOIType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
-                console.log(`    Real data shows: ${realPOIType || 'NOTHING'} at this location`);
-
-                // If user marked as unknown (?), reject if seed has Church/Mage/Village here
-                if (userState === 'unknown') {
-                    if (realPOIType === 'church' || realPOIType === 'mage' || realPOIType === 'village') {
-                        console.log(`    ❌ REJECTED: User said unknown but real data has ${realPOIType}`);
-                        return false;
-                    }
-                    console.log(`    ✅ OK: User said unknown and real data has ${realPOIType || 'nothing'}`);
-                    continue;
-                }
-
-                // User has marked a concrete type - seed MUST match exactly
-                if (userState === 'church') {
-                    if (realPOIType !== 'church') {
-                        console.log(`    ❌ REJECTED: User said church but real data has ${realPOIType || 'nothing'}`);
-                        return false;
-                    }
-                    console.log(`    ✅ MATCH: User said church and real data has church`);
-                } else if (userState === 'mage') {
-                    if (realPOIType !== 'mage') {
-                        console.log(`    ❌ REJECTED: User said mage but real data has ${realPOIType || 'nothing'}`);
-                        return false;
-                    }
-                    console.log(`    ✅ MATCH: User said mage and real data has mage`);
-                } else if (userState === 'village') {
-                    if (realPOIType !== 'village') {
-                        console.log(`    ❌ REJECTED: User said village but real data has ${realPOIType || 'nothing'}`);
-                        return false;
-                    }
-                    console.log(`    ✅ MATCH: User said village and real data has village`);
-                } else if (userState === 'carriage') {
-                    if (realPOIType !== 'carriage') {
-                        console.log(`    ❌ REJECTED: User said carriage but real data has ${realPOIType || 'nothing'}`);
-                        return false;
-                    }
-                    console.log(`    ✅ MATCH: User said carriage and real data has carriage`);
-                } else if (userState === 'empty') {
-                    // 用户标记为"无建筑"：仅当真实数据也是 nothing（null）时通过
-                    if (realPOIType !== null) {
-                        console.log(`    ❌ REJECTED: User said empty but real data has ${realPOIType || 'nothing'}`);
-                        return false;
-                    }
-                    console.log(`    ✅ MATCH: User said empty and real data has nothing`);
+                if (userState === 'empty') {
+                    // 用户标记"空"：仅当真实数据也无建筑（null）时通过
+                    if (realType !== null) return false;
+                } else {
+                    // 用户标了具体中文 type：必须严格相等
+                    if (realType !== userState) return false;
                 }
             }
-            console.log(`  ✅ Seed ${seedNum} PASSED all POI checks`);
             return true;
         });
 
-        console.log(`After POI filtering: ${filteredSeeds.length} seeds remaining`);
-
         this.updateSeedCountDisplay(filteredSeeds.length);
 
-        // Auto-fill determined POIs
-        // IMPORTANT: Disable auto-fill when the user is trying to clear an existing POI, auto-fill may just put the cleared value back in automatically.
+        // Auto-fill：剩余种子对该 POI 收敛到单值时自动填充（仅作用于用户未手标的 dot 位点）
+        // IMPORTANT: 用户正在清除时禁用 auto-fill，避免刚清掉的值又被自动填回。
+        // 归零防护：possibleTypes 让每个候选种子都贡献一项（有建筑→type，无建筑→null），
+        // autoSet 的值必然存在于 filteredSeeds，不会选到导致归零的选项（见 memory: elimination-zero-seed-bug）。
         if (filteredSeeds.length > 0 && !this.userIsClearing) {
             this.currentPOIs.forEach(poi => {
-                // Only check POIs that the user hasn't marked yet
                 if (this.poiStates[poi.id] === 'dot') {
                     const possibleTypes = new Set();
-
-                    filteredSeeds.forEach(seedRow => {
-                        const seedNum = seedRow[0];
-                        const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
-                        possibleTypes.add(realType);
+                    filteredSeeds.forEach(s => {
+                        possibleTypes.add(this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y));
                     });
 
-                    // If all remaining seeds agree on the type for this POI
                     if (possibleTypes.size === 1) {
                         const determinedType = possibleTypes.values().next().value;
-
-                        if (determinedType === 'church' || determinedType === 'mage' || determinedType === 'village') {
-                            console.log(`✅ Auto-setting POI ${poi.id} to ${determinedType}`);
+                        if (determinedType === null || determinedType === undefined) {
+                            // 所有剩余种子该坐标都无建筑：隐藏，避免用户去点必然归零的空位点
+                            this.poiStates[poi.id] = 'hidden';
+                        } else {
+                            // 全部种子同 type：自动填该中文 type
                             this.poiStates[poi.id] = determinedType;
-                        } else if (determinedType === 'carriage') {
-                            console.log(`✅ Auto-setting POI ${poi.id} to carriage`);
-                            this.poiStates[poi.id] = 'carriage';
-                        } else if (!determinedType) {
-                            // 所有剩余种子该坐标都无建筑（dataset 'nothing'→null）：标 unknown（渲染不可见），
-                            // 避免用户去点一个"选任何类型都会被拒、必然 0 种子"的空位点。
-                            console.log(`✅ Auto-hiding POI ${poi.id} (no building in any remaining seed)`);
-                            this.poiStates[poi.id] = 'unknown';
                         }
                     }
                 }
             });
         }
 
-        // === 大空洞碰撞消歧 ===
+        // === 大空洞碰撞消歧（A=fieldBoss + B=stronghold 双点；动态：从剩余种子 JSON 实际值生成）===
         const wasActive = this.disambigActive;
-        const prevPair = this.currentDisambigPair;
+        const prevStates = { A: this.disambigStates.A, B: this.disambigStates.B };
 
-        // 1) POI 过滤后检测碰撞对；碰撞对变了（含退出碰撞）→ 清空旧 A/B 选择，
-        //    避免旧值把新种子集合二次过滤错
-        const candidatePair = this.detectDisambigPair(filteredSeeds);
-        const pairChanged = !candidatePair || !prevPair ||
-            prevPair[0] !== candidatePair[0] || prevPair[1] !== candidatePair[1];
-        if (pairChanged) {
+        // 1) 检测 landmark 碰撞；进入/退出碰撞 → 清空旧 A/B 选择，避免旧值错过滤新种子集合
+        const hasCollision = this.detectHasLandmarkCollision(filteredSeeds);
+        if (hasCollision !== wasActive) {
             this.disambigStates = { A: null, B: null };
         }
 
-        // 2) 按用户已选的 A/B 值二次过滤
-        if (this.disambigStates.A || this.disambigStates.B) {
-            filteredSeeds = filteredSeeds.filter(row => {
-                const d = GH_DISAMBIG[row[0]];
-                if (!d) return true;
-                if (this.disambigStates.A && d.bossA !== this.disambigStates.A) return false;
-                if (this.disambigStates.B && d.ruinB !== this.disambigStates.B) return false;
-                return true;
-            });
+        // 2) 单值消歧点自动锁定 + 按已选/锁定值二次过滤（迭代至稳定）
+        //    某点在剩余种子只有一种 type → 无消歧价值，直接锁定展示，不弹单项菜单让用户点；
+        //    A 锁定过滤后 B 可能由多值变单值，故迭代至无新单值。
+        if (hasCollision) {
+            const ptA = GH_DISAMBIG_POINTS.A, ptB = GH_DISAMBIG_POINTS.B;
+            let changed = true;
+            while (changed) {
+                changed = false;
+                for (const [key, pt] of [['A', ptA], ['B', ptB]]) {
+                    if (this.disambigStates[key]) continue;  // 已锁定 / 用户已选
+                    const vals = new Set();
+                    filteredSeeds.forEach(s => {
+                        const v = this.findRealPOITypeAtCoordinate(s.seedNumber, pt.x, pt.y);
+                        if (v) vals.add(v);
+                    });
+                    if (vals.size === 1) {                    // 唯一值 → 自动锁定（直接展示）
+                        this.disambigStates[key] = vals.values().next().value;
+                        changed = true;
+                    }
+                }
+                // 按已锁定/已选值过滤，影响下一轮另一点的候选判断
+                filteredSeeds = filteredSeeds.filter(s => {
+                    if (this.disambigStates.A &&
+                        this.findRealPOITypeAtCoordinate(s.seedNumber, ptA.x, ptA.y) !== this.disambigStates.A) return false;
+                    if (this.disambigStates.B &&
+                        this.findRealPOITypeAtCoordinate(s.seedNumber, ptB.x, ptB.y) !== this.disambigStates.B) return false;
+                    return true;
+                });
+            }
         }
 
-        // 3) 二次过滤后重新检测：仍在碰撞对 → 消歧继续；否则退出（含选够出唯一答案的情况）
-        const pair = this.detectDisambigPair(filteredSeeds);
-        this.disambigActive = (pair !== null);
-        if (pair) {
-            this.currentDisambigPair = pair;
-        } else {
-            this.currentDisambigPair = null;
+        // 3) 缓存二次过滤后的候选种子（动态消歧菜单据此生成多值点候选）
+        this.lastFilteredSeeds = filteredSeeds;
+
+        // 4) 二次过滤后重新检测：仍碰撞 → 消歧继续；收敛到唯一答案 / 退出 → 清状态
+        this.disambigActive = this.detectHasLandmarkCollision(filteredSeeds);
+        if (!this.disambigActive) {
             this.disambigStates = { A: null, B: null };
         }
 
-        // 4) 消歧模式切换（进入/退出）→ 重绘以显示/隐藏 A/B 紫点
-        if (wasActive !== this.disambigActive) {
+        // 5) 消歧状态变化（进入/退出 / 单值自动锁定）→ 重绘以更新紫点显隐与已选展示态
+        const statesChanged = prevStates.A !== this.disambigStates.A || prevStates.B !== this.disambigStates.B;
+        if (wasActive !== this.disambigActive || statesChanged) {
             this.drawMap(this.images.maps[this.chosenMap]);
         }
-        // 5) 消歧菜单：仍在消歧模式 → 自动显示并刷新；收敛到唯一答案 / 退出 → 隐藏
+        // 6) 消歧菜单：仅多值点弹菜单（单值点已自动锁定，drawDisambigPoints 直接展示已选态）
         if (this.disambigActive) {
             this.showDisambigMenu();
         } else if (wasActive) {
             this.hideDisambigMenu();
         }
 
-        // Check if we should show POI suggestions
-        const isMobile = window.innerWidth <= 768;
-        
-        // Desktop: show when ≤ 10 seeds remain, Mobile: show when ≤ 4 seeds remain
-        const desktopThreshold = 10;
-        const mobileThreshold = 4;
-        
-        // spawn 阶段（出生点未选定）不显示建筑类别建议：建议是叠在 canvas 上的 DOM，
-        // 不受 drawMap 的 spawnPhase 守卫控制，会在出生点阶段同时冒出并遮挡出生点。
-        // 选完出生点（spawnPhase=false）后由下方逻辑正常展示。
-        // 大空洞 POI 点位少：选完出生点后直接展示全部推荐，不受种子数阈值限制
-        const isGreatHollow = this.chosenMap === 'Great Hollow';
-        const shouldShowSuggestions = !this.spawnPhase &&
-                                    filteredSeeds.length > 1 &&
-                                    (isGreatHollow ||
-                                     (isMobile ? filteredSeeds.length <= mobileThreshold :
-                                                filteredSeeds.length <= desktopThreshold));
-        
-        if (shouldShowSuggestions) {
-            this.showPOISuggestions(filteredSeeds, isMobile);
-        } else {
-            this.hidePOISuggestions();
+        // 消歧二次过滤后刷新「已匹配地图数」——消歧（单值锁定 / 用户选 A/B）可能把数量收敛到 1，
+        // 1451 行那次用的是消歧前的旧值（如收敛到 1 仍显示 2），此处用最终 filteredSeeds 覆盖
+        this.updateSeedCountDisplay(filteredSeeds.length);
+
+        // === 选完出生点后自动批量展示 POI 类型推荐（原版行为，迁移时丢失，现恢复）===
+        // 大空洞 POI 少：选完出生点即展示全部；其余地形种子收敛到阈值内才展示，避免浮窗过多
+        if (!this.spawnPhase && filteredSeeds.length > 1) {
+            const isMobile = window.innerWidth <= 768;
+            const isGreatHollow = this.chosenMap === 'Great Hollow';
+            const desktopThreshold = 10, mobileThreshold = 4;
+            const shouldShow = isGreatHollow ||
+                (isMobile ? filteredSeeds.length <= mobileThreshold : filteredSeeds.length <= desktopThreshold);
+            if (shouldShow) {
+                this.showAllPOISuggestions(filteredSeeds, isMobile);
+            } else {
+                this.hidePOISuggestions();  // 种子数超阈值：清掉自动批量浮窗，改由用户手动点 POI 触发
+            }
         }
 
         if (filteredSeeds.length === 0) {
@@ -1774,7 +1640,6 @@ class NightreignMapRecogniser {
     }
 
     showSingleSeed(seedRow) {
-        const mapSeed = seedRow[0];
         this.showingSeedImage = true;
 
         // Hide any POI suggestions since we found the final seed
@@ -1784,307 +1649,282 @@ class NightreignMapRecogniser {
         this.showSeedImage(seedRow);
     }
 
-    showPOISuggestions(filteredSeeds, isMobile = false) {
-        console.log(`Showing POI suggestions for ${filteredSeeds.length} remaining seeds${isMobile ? ' (mobile)' : ''}`);
+    // 点击 landmark（dot 态）时弹出该点位在剩余种子里的候选 type 浮窗 —— 单层交互的载体。
+    // 候选 = 该坐标在 lastFilteredSeeds（updateSeedFiltering 缓存）中的中文 type 集合，无建筑→'empty'。
+    // 选完出生点后自动批量展示所有未标记 POI 的类型推荐（恢复原版引导式标记行为）
+    // 触发于 updateSeedFiltering 末尾：!spawnPhase && 剩余>1种子 && (大空洞豁免 || 种子数≤阈值)
+    // 浮窗候选按固定顺序排列：教堂 → 法师塔 → 特殊商人 → 马车 → 破败小屋 → 空白
+    // （其余未命中 type 兜底排末尾，保证跨点位浮窗顺序一致）
+    sortPOITypes(types) {
+        const order = ['教堂', '法师塔', '特殊商人', '马车', '破败小屋', 'empty'];
+        return types.slice().sort((a, b) => {
+            const ia = order.indexOf(a), ib = order.indexOf(b);
+            return (ia === -1 ? order.length : ia) - (ib === -1 ? order.length : ib);
+        });
+    }
 
-        // Calculate possible POI types for each unmarked POI
-        const suggestions = this.calculatePOISuggestions(filteredSeeds);
-
-        // Remove any existing suggestions
+    showAllPOISuggestions(filteredSeeds, isMobile) {
         this.hidePOISuggestions();
-
-        // Create suggestion UI for each POI that has possible values
-        Object.entries(suggestions).forEach(([poiId, possibleTypes]) => {
-            if (possibleTypes.length > 0) {
-                this.createPOISuggestionUI(poiId, possibleTypes, isMobile);
+        this.currentPOIs.forEach(poi => {
+            if (this.poiStates[poi.id] !== 'dot') return;  // 只展示未标记的多值位点（auto-fill 已收敛的不展示）
+            const possibleTypes = new Set();
+            filteredSeeds.forEach(s => {
+                possibleTypes.add(this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y));
+            });
+            const types = this.sortPOITypes(Array.from(possibleTypes).map(t => (t === null || t === undefined) ? 'empty' : t));
+            if (types.length > 0) {
+                this.createPOISuggestionUI(poi.id, types, isMobile);
             }
         });
     }
 
-    calculatePOISuggestions(filteredSeeds) {
-        const suggestions = {};
-
-        // For each unmarked POI, find what types are possible across remaining seeds
-        this.currentPOIs.forEach(poi => {
-            if (this.poiStates[poi.id] === 'dot') {
-                const possibleTypes = new Set();
-
-                filteredSeeds.forEach(seedRow => {
-                    const seedNum = seedRow[0];
-                    const realType = this.findRealPOITypeAtCoordinate(seedNum, poi.x, poi.y);
-
-                    // 汇总该 POI 在剩余种子中可能出现的建筑类型，供用户区分种子
-                    if (realType === 'church') {
-                        possibleTypes.add('church');
-                    } else if (realType === 'mage') {
-                        possibleTypes.add('mage');
-                    } else if (realType === 'village') {
-                        possibleTypes.add('village');
-                    } else if (realType === 'carriage') {
-                        possibleTypes.add('carriage');
-                    } else if (!realType) {
-                        // 真实数据为 nothing（无建筑）：作为"空白"选项出现，
-                        // 让用户能主动区分"有建筑 vs 无建筑"的种子（如 POI4 马车 vs 空地）
-                        possibleTypes.add('empty');
-                    }
-                });
-
-                suggestions[poi.id] = Array.from(possibleTypes);
-                console.log(`POI ${poi.id} can be: ${Array.from(possibleTypes).join(', ')}`);
-            }
+    // 左键/单击快捷标记：候选含「教堂」→ 直接标记教堂（恢复原版快捷行为）；否则弹 suggestion 浮窗
+    // （候选不含教堂时强标会归零，fallback 让用户从候选里选）。右键/长按始终弹浮窗（精细选任意 type）。
+    markChurchOrSuggest(poi) {
+        if (!poi) return;
+        const candidates = new Set();
+        (this.lastFilteredSeeds || []).forEach(s => {
+            candidates.add(this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y));
         });
+        if (candidates.has('教堂')) {
+            this.hidePOISuggestions();
+            this.poiStates[poi.id] = '教堂';
+            this.drawMap(this.images.maps[this.chosenMap]);
+            this.updateSeedFiltering();
+        } else {
+            this.showPOISuggestionAt(poi);
+        }
+    }
 
-        return suggestions;
+    showPOISuggestionAt(poi) {
+        if (!poi) return;
+        this.hidePOISuggestions();
+
+        const seeds = this.lastFilteredSeeds || [];
+        const possibleTypes = new Set();
+        seeds.forEach(s => {
+            possibleTypes.add(this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y));
+        });
+        // null/undefined → 'empty'（无建筑选项）
+        const types = this.sortPOITypes(Array.from(possibleTypes).map(t => (t === null || t === undefined) ? 'empty' : t));
+        if (types.length === 0) return;
+
+        this.createPOISuggestionUI(poi.id, types, window.innerWidth <= 768);
     }
 
     createPOISuggestionUI(poiId, possibleTypes, isMobile = false) {
-        const poiIdInt = parseInt(poiId, 10);
-        const poi = this.currentPOIs.find(p => p.id === poiIdInt);
+        // POI id 来自 JSON（字符串），poiStates 全程以字符串 id 为 key；
+        // 用 String() 双向归一，避免 parseInt 转 number 后与字符串 id === 比较失败（曾导致浮窗从不创建）
+        const poi = this.currentPOIs.find(p => String(p.id) === String(poiId));
         if (!poi) return;
 
-        // Create suggestion container
         const suggestionContainer = document.createElement('div');
         suggestionContainer.className = 'poi-suggestion-container';
         suggestionContainer.id = `suggestion-${poiId}`;
-        
-        // Add mobile class for styling
         if (isMobile) {
             suggestionContainer.classList.add('mobile-suggestion');
-            // POI3 强制竖向单列排列（默认 flex-row 下多按钮会横向）
-            if (poiIdInt === 3) suggestionContainer.classList.add('single-column');
-            
-            // For mobile, we'll check the layout after buttons are added
-            // to determine if it's single column
-            setTimeout(() => {
-                const buttons = suggestionContainer.querySelectorAll('.poi-suggestion-btn');
-                if (buttons.length > 0) {
-                    // Check if buttons are stacked vertically (single column)
-                    const firstButton = buttons[0];
-                    const secondButton = buttons[1];
-                    
-                    if (secondButton) {
-                        const firstRect = firstButton.getBoundingClientRect();
-                        const secondRect = secondButton.getBoundingClientRect();
-                        
-                        // If buttons are stacked vertically (second button is below first)
-                        if (secondRect.top > firstRect.bottom) {
-                            suggestionContainer.classList.add('single-column');
-                        }
-                    } else {
-                        // Only one button, definitely single column
-                        suggestionContainer.classList.add('single-column');
-                    }
-                }
-            }, 50);
+            // POI3（originalId=3）强制竖向单列
+            if (parseInt(poi.originalId, 10) === 3) suggestionContainer.classList.add('single-column');
         }
 
-        // Position it near the POI on the canvas
-        const mapContainer = document.querySelector('.map-container');
-        const canvas = document.getElementById('map-canvas');
-        const canvasRect = canvas.getBoundingClientRect();
-        const containerRect = mapContainer.getBoundingClientRect();
-
-        const scaleX = canvasRect.width / canvas.width;
-        const scaleY = canvasRect.height / canvas.height;
-
-        // Calculate POI position relative to the map container
-        const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
-        const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
-
-        // For mobile, use the same relative positioning as desktop but with adjusted offsets
-        if (isMobile) {
-            suggestionContainer.style.position = 'absolute';
-            suggestionContainer.style.transform = 'translateX(-50%)';
-            
-            // Use the same positioning logic as desktop but with smaller offsets
-            // to account for the smaller size (50% scale)
-            if (poiIdInt === 2) {
-                suggestionContainer.style.left = `${relativeX - 20}px`;
-                suggestionContainer.style.top = `${relativeY - 38}px`;
-            } else if (poiIdInt === 3) {
-                // POI3：贴点位左侧（translateX(-50%) 下中心左移 25px，右缘留约 5px 间隙）
-                suggestionContainer.style.left = `${relativeX - 25}px`;
-                suggestionContainer.style.top = `${relativeY - 20}px`;
-            } else if (poiIdInt === 4) {
-                suggestionContainer.style.left = `${relativeX + 10}px`;
-                suggestionContainer.style.top = `${relativeY - 40}px`;
-            } else if (poiIdInt === 5) {
-                suggestionContainer.style.left = `${relativeX - 20}px`;
-                suggestionContainer.style.top = `${relativeY - 50}px`;
-            } else if (poiIdInt === 6) {
-                suggestionContainer.style.left = `${relativeX}px`;
-                suggestionContainer.style.top = `${relativeY + 10}px`;
-            } else if (poiIdInt === 8) {
-                suggestionContainer.style.left = `${relativeX + 10}px`;
-                suggestionContainer.style.top = `${relativeY + 10}px`;
-            } else if (poiIdInt === 9) {
-                suggestionContainer.style.left = `${relativeX - 20}px`;
-                suggestionContainer.style.top = `${relativeY + 10}px`;
-            } else if (poiIdInt === 10) {
-                suggestionContainer.style.left = `${relativeX + 20}px`;
-                suggestionContainer.style.top = `${relativeY - 40}px`;
-            } else {
-                suggestionContainer.style.left = `${relativeX}px`;
-                suggestionContainer.style.top = `${relativeY - 40}px`;
-            }
-        } else {
-            // Desktop positioning (original logic)
-            suggestionContainer.style.transform = 'translateX(-50%)';
-
-            if (poiIdInt === 2) {
-                suggestionContainer.style.left = `${relativeX - 30}px`;
-                suggestionContainer.style.top = `${relativeY + 20}px`;
-            } else if (poiIdInt === 4) {
-                suggestionContainer.style.left = `${relativeX + 20}px`;
-                suggestionContainer.style.top = `${relativeY - 80}px`;
-            } else if (poiIdInt === 5) {
-                suggestionContainer.style.left = `${relativeX - 40}px`;
-                suggestionContainer.style.top = `${relativeY - 100}px`;
-            } else if (poiIdInt === 6) {
-                suggestionContainer.style.left = `${relativeX}px`;
-                suggestionContainer.style.top = `${relativeY + 20}px`;
-            } else if (poiIdInt === 8) {
-                suggestionContainer.style.left = `${relativeX + 20}px`;
-                suggestionContainer.style.top = `${relativeY + 20}px`;
-            } else if (poiIdInt === 9) {
-                suggestionContainer.style.left = `${relativeX - 40}px`;
-                suggestionContainer.style.top = `${relativeY + 20}px`;
-            } else if (poiIdInt === 10) {
-                suggestionContainer.style.left = `${relativeX + 40}px`;
-                suggestionContainer.style.top = `${relativeY - 80}px`;
-            } else {
-                suggestionContainer.style.left = `${relativeX}px`;
-                suggestionContainer.style.top = `${relativeY - 80}px`;
-            }
-        }
-
-        // Create suggestion buttons for each possible type
+        // 候选按钮：每个 type 一个（icon + 中文名），'empty' 用空图标，未命中 type 用 unknown 兜底
         possibleTypes.forEach(type => {
             const button = document.createElement('button');
             button.className = 'poi-suggestion-btn';
             button.dataset.type = type;
             button.dataset.poiId = poiId;
-
-            // Add icon and label with data-i18n attribute for automatic translation
-            if (type === 'church') {
-                button.innerHTML = `<img src="assets/images/church.png" class="suggestion-icon" alt="${this.getText('poi.church')}"><span data-i18n="poi.church">${this.getText('poi.church')}</span>`;
-            } else if (type === 'mage') {
-                button.innerHTML = `<img src="assets/images/mage-tower.png" class="suggestion-icon" alt="${this.getText('poi.mage')}"><span data-i18n="poi.mage">${this.getText('poi.mage')}</span>`;
-            } else if (type === 'village') {
-                button.innerHTML = `<img src="assets/images/village.png" class="suggestion-icon" alt="${this.getText('poi.village')}"><span data-i18n="poi.village">${this.getText('poi.village')}</span>`;
-            } else if (type === 'carriage') {
-                button.innerHTML = `<img src="assets/images/carriage.png" class="suggestion-icon" alt="${this.getText('poi.carriage')}"><span data-i18n="poi.carriage">${this.getText('poi.carriage')}</span>`;
-            } else if (type === 'empty') {
-                button.innerHTML = `<img src="assets/images/empty.png" class="suggestion-icon" alt="${this.getText('poi.empty')}"><span data-i18n="poi.empty">${this.getText('poi.empty')}</span>`;
-            }
-
-            // Add click handler
-            button.addEventListener('click', (e) => {
+            const iconPath = (type === 'empty') ? 'assets/images/empty.png' : (TYPE_ICON_MAP[type] || 'assets/icons/unknown.png');
+            const label = (type === 'empty') ? this.getText('poi.empty') : this.displayName(type);
+            button.innerHTML = `<img src="${iconPath}" class="suggestion-icon" alt="${label}"><span>${label}</span>`;
+            const handler = (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 this.selectSuggestedPOI(poiId, type);
-            });
-
-            // Add touch handler for mobile
-            button.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.selectSuggestedPOI(poiId, type);
-            }, { passive: false });
-
+            };
+            button.addEventListener('click', handler);
+            button.addEventListener('touchstart', handler, { passive: false });
             suggestionContainer.appendChild(button);
         });
 
-        // Add to the map container
-        mapContainer.appendChild(suggestionContainer);
-
-        // Add scroll event listener for mobile to keep suggestions positioned correctly
+        // mobile：按钮渲染后检测是否竖排（≤1 按钮或第二行落在第一行下方），竖排则加 single-column
         if (isMobile) {
+            setTimeout(() => {
+                const btns = suggestionContainer.querySelectorAll('.poi-suggestion-btn');
+                if (btns.length <= 1) {
+                    suggestionContainer.classList.add('single-column');
+                } else if (btns[1].getBoundingClientRect().top > btns[0].getBoundingClientRect().bottom) {
+                    suggestionContainer.classList.add('single-column');
+                }
+            }, 50);
         }
 
-        // Add entrance animation
-        setTimeout(() => {
+        // 定位：沿用原版按 POI 语义 id（originalId，1-11）的防重叠偏移 + translateX(-50%) 居中。
+        // originalId 由 loadSeedData 按 JSON 坐标最近邻匹配 POIS_BY_MAP（data.js）继承，各地形通用。
+        const mapContainer = document.querySelector('.map-container');
+        const canvas = document.getElementById('map-canvas');
+        const canvasRect = canvas.getBoundingClientRect();
+        const containerRect = mapContainer.getBoundingClientRect();
+        const scaleX = canvasRect.width / canvas.width;
+        const scaleY = canvasRect.height / canvas.height;
+        const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
+        const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
+
+        const oid = poi.originalId != null ? parseInt(poi.originalId, 10) : null;
+        // 命中「方向覆盖」坐标集：mobile:true 项仅移动端命中，其余全平台。按 dir 渲染，跳过 originalId 偏移表。
+        const ov = POI_RENDER_OVERRIDE.find(c => {
+            if (Math.abs(poi.x - c.x) > 3 || Math.abs(poi.y - c.y) > 3) return false;
+            if (c.mobile && !isMobile) return false;
+            return true;
+        });
+        let dx = 0, dy = 0, transform = 'translateX(-50%)';
+        let tailDir = null;  // 气泡尾方向；null=不加（浮窗靠上点位时）
+        if (ov) {
+            if (ov.noTail) {
+                const r = 19 * scaleX;  // 点位显示半径
+                if (ov.dir === 'left') {
+                    // 无箭头贴边：浮窗右边贴点位左边缘，垂直居中
+                    dx = -r; dy = 0; transform = 'translate(-100%, -50%)';
+                } else if (ov.dir === 'right') {
+                    // 无箭头贴边：浮窗左边贴点位右边缘，垂直居中
+                    dx = r; dy = 0; transform = 'translate(0%, -50%)';
+                } else {
+                    // #314/#305：右角锚定点位最右侧（右边=点位右边缘 x）
+                    dx = r; dy = 0;
+                    transform = (ov.valign === 'top') ? 'translate(-100%, -100%)' : 'translate(-100%, 0%)';
+                }
+                // tailDir 保持 null → 不创建 .bubble-tail
+            } else {
+                tailDir = ov.dir;
+                // off = 点位显示半径(19×scaleX) + 尾长，让尾尖恰好指向点位边缘、浮窗主体不压点位
+                const off = 19 * scaleX + 8;
+                if (ov.dir === 'below') { dx = 0; dy = off; }
+                else if (ov.dir === 'left') { dx = -off; transform = 'translate(-100%, -50%)'; }
+                else if (ov.dir === 'right') {
+                    dx = off;
+                    const r = 19 * scaleX;  // 点位显示半径
+                    // valign：浮窗底/顶边对齐到点位的下/上边缘（非中心），主体向反方向展开；箭头指向点位中心
+                    if (ov.valign === 'bottom') { dy = r;  transform = 'translate(0%, -100%)'; }
+                    else if (ov.valign === 'top') { dy = -r; transform = 'translate(0%, 0%)'; }
+                    else transform = 'translate(0%, -50%)';
+                }
+            }
+        } else if (isMobile) {
+            switch (oid) {
+                case 2:  dx = -20; dy = -38; break;
+                case 3:  dx = -25; dy = -20; break;
+                case 4:  dx =  10; dy = -40; break;
+                case 5:  dx = -20; dy = -50; break;
+                case 6:  dx =   0; dy =  10; break;
+                case 8:  dx =  10; dy =  10; break;
+                case 9:  dx = -20; dy =  10; break;
+                case 10: dx =  20; dy = -40; break;
+                default: dx =   0; dy = -40; break;
+            }
+        } else {
+            switch (oid) {
+                case 2:  dx = -30; dy =  20; break;
+                case 4:  dx =  20; dy = -80; break;
+                case 5:  dx = -40; dy = -100; break;
+                case 6:  dx =   0; dy =  20; break;
+                case 8:  dx =  20; dy =  20; break;
+                case 9:  dx = -40; dy =  20; break;
+                case 10: dx =  40; dy = -80; break;
+                default: dx =   0; dy = -80; break;
+            }
+        }
+
+        // 非 override 且浮窗没「靠上」点位（|dy| 大）：下方 dy>0→顶边朝上箭头、上方 dy<0→底边朝下箭头；dy 拉开含尾长
+        if (!ov && dy > 0) {
+            tailDir = 'below';
+            dy = Math.max(dy, 19 * scaleX + 8);
+        } else if (!ov && dy < 0) {
+            tailDir = 'above';
+            dy = Math.min(dy, -(19 * scaleX + 8));
+        }
+        // noTail 且 vertical：竖排浮窗（noTail 不进 if(tailDir)，需单独加 vertical 类）
+        if (ov && ov.noTail && ov.vertical) suggestionContainer.classList.add('vertical');
+        // 气泡尾（override 三方向 + 下方浮窗）；靠上点位（上方 dy<0）不加。
+        if (tailDir) {
+            suggestionContainer.classList.add(`pointer-${tailDir}`);
+            if (tailDir === 'left' || (ov && ov.vertical)) suggestionContainer.classList.add('vertical');  // 左侧浮窗(#301)或标记 vertical 的点位竖排
+            const tail = document.createElement('div');
+            tail.className = `bubble-tail tail-${tailDir}`;
+            tail.innerHTML = BUBBLE_TAIL_SVG[tailDir];
+            suggestionContainer.appendChild(tail);
+            // 箭头沿尾根边滑向点位实际方向（点位未必在浮窗正上/下/左/右居中）：
+            // below→顶边水平偏移 -dx；left/right→侧边垂直偏移 -dy。渲染后按框宽 clamp 在边缘内。
+            requestAnimationFrame(() => {
+                const boxH = suggestionContainer.offsetHeight;
+                const radius = 19 * scaleX;  // POI 显示半径
+                const gap = 8;               // 尾长
+                if (tailDir === 'below' || tailDir === 'above') {
+                    // 水平：箭头沿水平边滑向点位方向（-dx）
+                    const maxOffX = Math.max(0, suggestionContainer.offsetWidth / 2 - 14);
+                    const offX = Math.max(-maxOffX, Math.min(maxOffX, -dx));
+                    tail.style.left = `calc(50% + ${offX}px)`;
+                    // 垂直：按浮窗实际高度动态拉开，确保浮窗完全离开点位、尾尖贴点位边缘。
+                    // 固定 dy 在移动端高浮窗（竖排/换行）下量不够，会让浮窗跨越点位，使朝上/朝下箭头指反。
+                    if (tailDir === 'below') {
+                        const needDy = radius + gap;
+                        const finalDy = Math.max(dy, needDy);
+                        if (finalDy !== dy) suggestionContainer.style.top = `${relativeY + finalDy}px`;
+                    } else {
+                        const needDy = -(boxH + radius + gap);
+                        const finalDy = Math.min(dy, needDy);
+                        if (finalDy !== dy) suggestionContainer.style.top = `${relativeY + finalDy}px`;
+                    }
+                } else {  // left / right：箭头在浮窗侧边，垂直位置随 valign
+                    const maxOffY = Math.max(0, boxH / 2 - 14);
+                    let offY;
+                    if (tailDir === 'right' && ov && ov.valign === 'bottom') {
+                        offY = boxH / 2 - radius;     // 底对齐：浮窗底边=点位下边缘，箭头指向点位中心（距底 radius）
+                    } else if (tailDir === 'right' && ov && ov.valign === 'top') {
+                        offY = -(boxH / 2 - radius);  // 顶对齐：浮窗顶边=点位上边缘，箭头指向点位中心（距顶 radius）
+                    } else {
+                        offY = Math.max(-maxOffY, Math.min(maxOffY, -dy));  // 默认指向点位（-dy），clamp 在侧边内
+                    }
+                    tail.style.top = `calc(50% + ${offY}px)`;
+                }
+                // 移动端统一缩小箭头：s=min(1, radius/11)，与点位显示半径匹配；
+                // PC 端 radius 大（≈19）→ s=1 不缩。套用到所有方向（below/above/left/right）。
+                const s = Math.min(1, radius / 11);
+                if (s < 1) {
+                    const svg = tail.querySelector('svg');
+                    if (svg) {
+                        if (tailDir === 'below' || tailDir === 'above') {
+                            svg.style.width = `${22 * s}px`;
+                            svg.style.height = `${12 * s}px`;
+                        } else {  // left / right
+                            svg.style.width = `${12 * s}px`;
+                            svg.style.height = `${22 * s}px`;
+                        }
+                    }
+                    // 尾长（箭头根伸出浮窗边缘外的距离）同步按 s 缩短，与缩小后的箭头等比
+                    if (tailDir === 'below') tail.style.top = `${-10 * s}px`;
+                    else if (tailDir === 'above') tail.style.bottom = `${-10 * s}px`;
+                    else if (tailDir === 'left') tail.style.right = `${-6 * s}px`;
+                    else if (tailDir === 'right') tail.style.left = `${-6 * s}px`;
+                }
+            });
+        }
+
+        suggestionContainer.style.position = 'absolute';
+        suggestionContainer.style.transform = transform;
+        suggestionContainer.style.left = `${relativeX + dx}px`;
+        suggestionContainer.style.top = `${relativeY + dy}px`;
+        mapContainer.appendChild(suggestionContainer);
+
+        requestAnimationFrame(() => {
             suggestionContainer.classList.add('visible');
-        }, 50);
+        });
     }
 
     selectSuggestedPOI(poiId, type) {
-        console.log(`Selecting suggested ${type} for POI ${poiId}`);
-
-        // Update POI state
+        // type 为中文 type 名或 'empty'；写入 poiStates 触发重过滤
         this.poiStates[poiId] = type;
-
-        // Redraw map
+        this.hidePOISuggestions();
         this.drawMap(this.images.maps[this.chosenMap]);
-
-        // Update seed filtering (this will recalculate suggestions)
         this.updateSeedFiltering();
-    }
-
-    ensureSuggestionInViewport(suggestionContainer, mapContainer) {
-        // Ensure suggestion doesn't go outside viewport bounds
-        const rect = suggestionContainer.getBoundingClientRect();
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        
-        let left = parseFloat(suggestionContainer.style.left);
-        let top = parseFloat(suggestionContainer.style.top);
-        
-        // Check right edge
-        if (rect.right > viewportWidth) {
-            left -= (rect.right - viewportWidth + 10);
-        }
-        
-        // Check left edge
-        if (rect.left < 10) {
-            left = 10;
-        }
-        
-        // Check bottom edge
-        if (rect.bottom > viewportHeight) {
-            top -= (rect.bottom - viewportHeight + 10);
-        }
-        
-        // Check top edge
-        if (rect.top < 10) {
-            top = 10;
-        }
-        
-        suggestionContainer.style.left = `${left}px`;
-        suggestionContainer.style.top = `${top}px`;
-    }
-
-    ensureSuggestionInViewport(suggestionContainer, mapContainer) {
-        // Ensure suggestion doesn't go outside viewport bounds
-        const rect = suggestionContainer.getBoundingClientRect();
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        
-        let left = parseFloat(suggestionContainer.style.left);
-        let top = parseFloat(suggestionContainer.style.top);
-        
-        // Check right edge
-        if (rect.right > viewportWidth) {
-            left -= (rect.right - viewportWidth + 10);
-        }
-        
-        // Check left edge
-        if (rect.left < 10) {
-            left = 10;
-        }
-        
-        // Check bottom edge
-        if (rect.bottom > viewportHeight) {
-            top -= (rect.bottom - viewportHeight + 10);
-        }
-        
-        // Check top edge
-        if (rect.top < 10) {
-            top = 10;
-        }
-        
-        suggestionContainer.style.left = `${left}px`;
-        suggestionContainer.style.top = `${top}px`;
     }
 
     hidePOISuggestions() {
@@ -2100,9 +1940,9 @@ class NightreignMapRecogniser {
     }
 
     showSeedImage(seedRow) {
-        const mapSeed = seedRow[0];
-        const nightlord = seedRow[1] || this.getText('nightlord.unknown');
-        const mapType = seedRow[2] || this.getText('map.default');
+        const mapSeed = seedRow.seedNumber;
+        const nightlord = seedRow.nightlord || this.getText('nightlord.unknown');
+        const mapType = seedRow.mapType || this.getText('map.default');
 
         // Store the seed row for refresh purposes
         this.lastSeedRow = seedRow;
@@ -2203,34 +2043,17 @@ class NightreignMapRecogniser {
     }
 
     findRealPOITypeAtCoordinate(seedNum, clickX, clickY) {
-        // Use CV classification data if available
-        if (CV_CLASSIFICATION_DATA) {
-            const seedKey = seedNum.toString().padStart(3, '0');
-            const seedClassifications = CV_CLASSIFICATION_DATA[seedKey];
-
-            if (seedClassifications) {
-                // Find which clickable POI this coordinate matches
-                const clickablePOI = this.currentPOIs.find(poi => {
-                    const dx = clickX - poi.x;
-                    const dy = clickY - poi.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    return distance <= 40; // Same tolerance as used elsewhere
-                });
-
-                if (clickablePOI) {
-                    const poiKey = `POI${clickablePOI.id}`;
-                    const cvClassification = seedClassifications[poiKey];
-
-                    if (cvClassification) {
-                        console.log(`    ✅ Classification: ${cvClassification.toUpperCase()} for POI ${clickablePOI.id}`);
-                        return cvClassification === 'nothing' ? null : cvClassification;
-                    }
-                }
+        // clickX/clickY 为 768 空间（currentPOIs 的 poi 坐标），×2 转 1536 与 seed.pois 匹配（容差 2）。
+        // 直接按坐标匹配，不依赖 slot id —— 不同地形坐标天然不同，不会跨地形错位
+        // （possibleSeeds 已按 mapType 过滤，seed 必属于当前地形）。见 memory: elimination-zero-seed-bug #3。
+        const seed = SEED_POIS_RAW && SEED_POIS_RAW[String(seedNum)];
+        if (!seed || !seed.pois) return null;
+        const tx = clickX * 2, ty = clickY * 2;
+        for (const poi of Object.values(seed.pois)) {
+            if (Math.abs(poi.coordinates.x - tx) <= 2 && Math.abs(poi.coordinates.y - ty) <= 2) {
+                return poi.type || null;  // 中文名 type；无建筑时字段缺失→null
             }
         }
-
-        // No classification data available - return null
-        console.log(`    ❌ No classification found in dataset for seed ${seedNum}`);
         return null;
     }
 

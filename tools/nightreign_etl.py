@@ -31,7 +31,8 @@ def load_source(vendor_dir):
     return SourceBundle(patterns, coords, construct, names)
 
 EVERGAOL_COORDS = set(range(601,608)) | set(range(2601,2608))
-ROTTED_WOODS_TYPES = set()  # Task 1.1 校对后填入腐败森林独有 boss 的 type 集合
+# 参与 POI 匹配的 category key（用户 2026-08-04 裁定）；merchant 仅大空洞地形，由调用方按地形过滤
+INCLUDED_CATEGORIES = {"landmark", "stronghold", "fieldBoss", "scaleMerchant", "merchant"}
 
 def apply_void_offset(coord_index, pic_xy):
     x, y = pic_xy
@@ -44,18 +45,23 @@ def to768(pic_xy):
     return (pic_xy[0]/2.0, pic_xy[1]/2.0)
 
 def category_of(type_id, coord_index, type_map, names):
+    # evergaol 按 coord 601-607/2601-2607 兜底判定（type 未在 type_map 时）
     if coord_index in EVERGAOL_COORDS:
         return "evergaol"
     t = type_map.get(str(type_id))
     if t:
-        if str(type_id) in {str(x) for x in ROTTED_WOODS_TYPES}:
-            return "rottedWoods"
-        return t["advCategory"]
-    # 兜底规则
-    s = str(type_id)
-    if s in ("49410","49420","49430"): return "majorBase"
-    if s[:2] in ("45","46","47","52","53"): return "fieldBoss"
-    return "minorBase"
+        return t["category"]
+    # 兜底：未知 type 按 NAME 中文名推断，否则 excluded（不参与匹配）
+    n = names.get(type_id, "")
+    if "教堂" in n or "法师塔" in n or "村庄" in n or "马车" in n: return "landmark"
+    if "商人" in n: return "merchant"
+    return "excluded"
+
+def icon_of(type_id, type_map, names):
+    t = type_map.get(str(type_id))
+    if t:
+        return t["icon"]
+    return "unknown"
 
 def basic_class_of(type_id, type_map, names):
     t = type_map.get(str(type_id))

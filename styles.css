@@ -1518,20 +1518,32 @@ body {
 .poi-suggestion-container {
     position: absolute;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 14px;
     padding: 4px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     border: 2px solid #4fc3f7;
     display: flex;
     gap: 4px;
     flex-wrap: wrap;
     max-width: 240px;
+    overflow: visible;  /* 三角箭头(::before/::after)需伸出框外；backdrop-filter 会裁剪溢出，故移除 */
     opacity: 0;
     transform: translateY(10px) scale(0.9);
     transition: all 0.3s ease;
     pointer-events: none;
+}
+
+/* 漫画对话框尾：SVG 三角指向 POI（独立 DOM 元素 .bubble-tail，伸出浮窗 overflow:visible 外）*/
+.bubble-tail { position: absolute; z-index: 2; line-height: 0; }
+.bubble-tail.tail-below { top: -10px; left: 50%; transform: translateX(-50%); }
+.bubble-tail.tail-above { bottom: -10px; left: 50%; transform: translateX(-50%); }
+.bubble-tail.tail-left { right: -6px; top: 50%; transform: translateY(-50%); }
+.bubble-tail.tail-right { left: -6px; top: 50%; transform: translateY(-50%); }
+
+/* 左侧方向覆盖浮窗（如 #301）竖向单列排布（含 PC 端，避免横向过宽挡地图）*/
+.poi-suggestion-container.vertical {
+    flex-direction: column;
 }
 
 .poi-suggestion-container.visible {
@@ -1594,7 +1606,7 @@ body {
     /* 缩小50% */
     transform: scale(0.5);
     transform-origin: center;
-    max-width: 120px;
+    max-width: 150px;
     padding: 3px;
     gap: 2px;
     border-radius: 8px;
@@ -1612,22 +1624,29 @@ body {
 }
 
 .poi-suggestion-container.mobile-suggestion .poi-suggestion-btn {
-    min-width: 30px;
-    padding: 3px 4px;
+    min-width: 32px;  /* 容 3 字（内容区随 padding 变）；4×32+gap+padding 恰填满 max-width 内容区，一行 4 个 */
+    padding: 2px 3px;  /* 紧凑：减小按钮内 icon/span 与边框的留白 */
     border-radius: 5px;
     font-size: 8px;
+}
+
+/* 竖向单列布局（mobile 单按钮一行时收窄） */
+.poi-suggestion-container.mobile-suggestion.single-column {
+    max-width: 40px;
 }
 
 .poi-suggestion-container.mobile-suggestion .suggestion-icon {
     width: 12px;
     height: 12px;
-    margin-bottom: 1px;
+    margin-bottom: 0;  /* 紧凑：icon 紧贴下方文字 */
 }
 
 .poi-suggestion-container.mobile-suggestion .poi-suggestion-btn span {
+    display: inline-block;  /* span 默认 inline，max-width/word-wrap 对 inline 无效；改 inline-block 让 22px 限制生效，按钮宽稳定 32px */
     font-size: 7px;
-    max-width: 25px;
+    max-width: 22px;  /* 钉到 32px 按钮内容区(32−8 padding−2 border=22)；超长名按 word-wrap 换行，不再撑宽按钮 */
     line-height: 1;
+    word-wrap: break-word;
 }
 
 /* Ensure mobile suggestions don't overlap - use flex wrap instead of scroll */
@@ -1635,8 +1654,9 @@ body {
     max-height: none;
     overflow-y: visible;
     flex-wrap: wrap;
+    width: max-content;  /* 显式按内容撑开，避免 absolute+flex 在移动端 shrink-to-fit 算窄导致按钮提前换行 */
     /* Default width for multiple items */
-    max-width: 120px;
+    max-width: 150px;
 }
 
 /* When only one suggestion per row (single column layout) */

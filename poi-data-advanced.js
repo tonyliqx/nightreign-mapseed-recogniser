@@ -1,6 +1,7 @@
 /**
  * POI Data - New Architecture
  * Loads and structures data from JSON for dynamic use
+ * 单层交互 + NAME 类别（弃用 5 类/双层 icon→boss），决策见 memory: category-name-taxonomy-decision
  */
 
 // Global POI data structure
@@ -12,91 +13,50 @@ async function loadPOIData() {
     try {
         const response = await fetch('dataset/nightreignMapPatterns.json');
         const jsonData = await response.json();
-        
-        // Initialize POI_DATA
-        POI_DATA = {
-            mapTypes: {}
-        };
-        
-        // Process POI lookup data (now flattened structure)
+
+        POI_DATA = { mapTypes: {} };
+
+        // 槽位 POI：coordinates 1536→768（×0.5），category 用 NAME 类别 key 直接用
         if (jsonData.poiLookupByMapType) {
             Object.keys(jsonData.poiLookupByMapType).forEach(mapType => {
                 const mapPOIs = jsonData.poiLookupByMapType[mapType];
-                
-                // Process the flattened POI list
                 const allPOIs = mapPOIs.map(poi => ({
                     id: poi.id,
-                    name: poi.location,
-                    x: poi.coordinates.x * 0.5, // Scale from 1536x1536 to 768x768, preserve decimals
+                    name: poi.name || poi.id,  // 新源槽位无地名，用 id 兜底
+                    x: poi.coordinates.x * 0.5, // 1536→768
                     y: poi.coordinates.y * 0.5,
-                    category: mapCategoryToInternal(poi.category)
+                    category: poi.category
                 }));
-                
-                POI_DATA.mapTypes[mapType] = {
-                    pois: allPOIs
-                };
+                POI_DATA.mapTypes[mapType] = { pois: allPOIs };
             });
         }
-        
-        // Process individual seeds for POI data
+
         SEED_DATA = jsonData.seeds || {};
-        
-        // Build layer mappings from JSON data
-        POI_DATA.layerMappings = buildLayerMappings(SEED_DATA);
-        
-        // Build icon path mappings
+        POI_DATA.layerMappings = {};  // 单层交互，无 layer mappings
         POI_DATA.iconPaths = buildIconPaths();
-        
-        console.log('✅ POI data loaded successfully');
-        console.log('Map types:', Object.keys(POI_DATA.mapTypes));
-        console.log('Sample map data:', POI_DATA.mapTypes['Default']);
-        console.log('Layer mappings:', POI_DATA.layerMappings);
-        
+
+        console.log('✅ POI data loaded. Map types:', Object.keys(POI_DATA.mapTypes));
         return POI_DATA;
-        
     } catch (error) {
         console.error('❌ Failed to load POI data:', error);
         throw error;
     }
 }
 
-// Build icon path mappings
+// icon 路径映射（单层用类别默认 icon）
 function buildIconPaths() {
     return {
-        // Major Base Icons
+        'castle': 'assets/icons/castle.png',
         'camp_blank': 'assets/icons/camp_blank.png',
-        'camp_fire': 'assets/icons/camp_fire.png',
-        'camp_madness': 'assets/icons/camp_madness.png',
-        'camp_lightning': 'assets/icons/camp_lightning.png',
-        'fort_blank': 'assets/icons/fort_blank.png',
-        'fort_magic': 'assets/icons/fort_magic.png',
-        'cathedral_blank': 'assets/icons/cathedral_blank.png',
-        'cathedral_fire': 'assets/icons/cathedral_fire.png',
-        'cathedral_holy': 'assets/icons/cathedral_holy.png',
-        'ruin_blank': 'assets/icons/ruin_blank.png',
-        'ruin_blood': 'assets/icons/ruin_blood.png',
-        'ruin_death': 'assets/icons/ruin_death.png',
-        'ruin_frost': 'assets/icons/ruin_frost.png',
-        'ruin_holy': 'assets/icons/ruin_holy.png',
-        'ruin_lightning': 'assets/icons/ruin_lightning.png',
-        'ruin_magic': 'assets/icons/ruin_magic.png',
-        'ruin_poison': 'assets/icons/ruin_poison.png',
-        'ruin_sleep': 'assets/icons/ruin_sleep.png',
-        
-        // Minor Base Icons
+        'field_boss': 'assets/icons/field_boss.png',
+        'evergaol': 'assets/icons/evergaol.png',
+        'merchant': 'assets/icons/merchant.png',
         'church': 'assets/icons/church.png',
         'rise': 'assets/icons/rise.png',
         'ancient_rise': 'assets/icons/ancient_rise.png',
         'village': 'assets/icons/village.png',
-        
-        // Field Boss Icons
-        'field_boss': 'assets/icons/field_boss.png',
-        'elite': 'assets/icons/elite.png',
-        'unknown_field_boss': 'assets/icons/unknown_field_boss.png',
-        
-        // Evergaol Icons
-        'evergaol': 'assets/icons/evergaol.png',
-        
+        'blessing': 'assets/icons/blessing.png',
+        'unknown': 'assets/icons/unknown.png',
         // Nightlord Icons
         'Adel': 'assets/icons/Adel.png',
         'Caligo': 'assets/icons/Caligo.png',
@@ -109,148 +69,47 @@ function buildIconPaths() {
     };
 }
 
-// Build layer mappings from JSON data
-function buildLayerMappings(seedData) {
-    if (!seedData) {
-        console.log('❌ No seed data available for building layer mappings');
-        return {};
-    }
-    
-    console.log('🔧 Building layer mappings from JSON data...');
-    
-    // Initialize mappings
-    const layerMappings = {
-        major_base: {},
-        field_boss: {}
-    };
-    
-    // Process all seeds to build mappings
-    Object.values(seedData).forEach(seed => {
-        if (!seed.pois) return;
-        
-        Object.values(seed.pois).forEach(poi => {
-            const category = poi.category;
-            
-            if (category === 'majorBase') {
-                if (poi.icon && poi.boss) {
-                    if (!layerMappings.major_base[poi.icon]) {
-                        layerMappings.major_base[poi.icon] = new Set();
-                    }
-                    layerMappings.major_base[poi.icon].add(poi.boss);
-                }
-            } else if (category === 'fieldBoss') {
-                if (poi.icon && poi.boss) {
-                    if (!layerMappings.field_boss[poi.icon]) {
-                        layerMappings.field_boss[poi.icon] = new Set();
-                    }
-                    layerMappings.field_boss[poi.icon].add(poi.boss);
-                }
-            }
-        });
-    });
-    
-    // Convert Sets to Arrays for easier handling
-    Object.keys(layerMappings).forEach(category => {
-        Object.keys(layerMappings[category]).forEach(icon => {
-            layerMappings[category][icon] = Array.from(layerMappings[category][icon]);
-        });
-    });
-    
-    console.log('✅ Layer mappings built:', layerMappings);
-    return layerMappings;
-}
-
-// Map JSON category names to internal category names
+// category 直接用 NAME 类别 key（弃用 5 类映射）
 function mapCategoryToInternal(jsonCategory) {
-    const mapping = {
-        'majorBase': 'major_base',
-        'minorBase': 'minor_base',
-        'fieldBoss': 'field_boss',
-        'evergaol': 'evergaol',
-        'rottedWoods': 'rotted_woods'
-    };
-    return mapping[jsonCategory] || 'minor_base';
+    return jsonCategory;
 }
 
-// Get POI data from a specific seed
+// 取 seed 中某 POI 的单层选择值（type 中文名）
 function getPOIDataFromSeed(seed, poiId) {
-    if (!SEED_DATA || !seed || !seed.pois) return null;
-    
-    // Find the POI in the seed data by matching coordinates
     const targetPOI = findPOIInSeed(seed, poiId);
     if (!targetPOI) return null;
-    
-    // Extract value based on category
-    const category = targetPOI.category || 'minor_base';
-    let value = null;
-    
-    switch (category) {
-        case 'major_base':
-            value = targetPOI.structure && targetPOI.boss ? 
-                `${targetPOI.structure.toLowerCase()}_${targetPOI.boss.toLowerCase().replace(/\s+/g, '_')}` :
-                targetPOI.structure?.toLowerCase();
-            break;
-        case 'minor_base':
-            value = targetPOI.structure?.toLowerCase() || 'church';
-            break;
-        case 'field_boss':
-        case 'evergaol':
-        case 'rotted_woods':
-            value = targetPOI.boss?.toLowerCase().replace(/\s+/g, '_') || category;
-            break;
-        default:
-            value = 'unknown';
-    }
-    
     return {
-        value: value,
-        structure: targetPOI.structure,
-        boss: targetPOI.boss,
-        icon: targetPOI.icon
+        value: targetPOI.type || null,
+        type: targetPOI.type,
+        icon: targetPOI.icon,
+        category: targetPOI.category
     };
 }
 
-// Find POI in seed data by matching coordinates
+// 按坐标匹配在 seed 中找 POI（槽位 poi.x 768 ×2 = seed coordinates 1536）
 function findPOIInSeed(seed, poiId) {
     if (!seed || !seed.pois) return null;
-    
-    // Get the POI data from our loaded POI data to find coordinates
     const poiData = window.poiData;
     if (!poiData) return null;
-    
-    // Find the POI in our data by ID
+
+    // 用 seed 所在地形限定（各地形 slot id 从 "0" 重新编号，跨地形取首个会错位）
     let targetPOI = null;
-    for (const mapType in poiData.mapTypes) {
-        const mapPOIs = poiData.mapTypes[mapType].pois;
-        const found = mapPOIs.find(poi => poi.id === poiId);
-        if (found) {
-            targetPOI = found;
-            break;
-        }
+    if (seed.mapType && poiData.mapTypes[seed.mapType]) {
+        targetPOI = poiData.mapTypes[seed.mapType].pois.find(poi => poi.id === poiId) || null;
     }
-    
     if (!targetPOI) return null;
-    
-    // Now find the matching POI in the seed data by coordinates
-    // Scale back from 768x768 to 1536x1536
+
     const targetX = targetPOI.x * 2;
     const targetY = targetPOI.y * 2;
-    
-    // Search through all POIs in the seed (now flattened structure)
-    for (const [poiKey, poi] of Object.entries(seed.pois)) {
-        const poiX = poi.coordinates.x;
-        const poiY = poi.coordinates.y;
-        
-        // Check if coordinates match (with tolerance)
-        if (Math.abs(poiX - targetX) <= 2 && Math.abs(poiY - targetY) <= 2) {
-            return { ...poi, category: poi.category };
+
+    for (const poi of Object.values(seed.pois)) {
+        if (Math.abs(poi.coordinates.x - targetX) <= 2 && Math.abs(poi.coordinates.y - targetY) <= 2) {
+            return poi;
         }
     }
-    
     return null;
 }
 
-// Export for use in app
 window.POI_DATA = POI_DATA;
 window.SEED_DATA = SEED_DATA;
 window.loadPOIData = loadPOIData;

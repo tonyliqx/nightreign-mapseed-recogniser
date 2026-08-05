@@ -76,6 +76,7 @@ const translations_advanced = {
     'context.select_enemy': '选择敌人',
     'context.i_dont_know': '我不知道',
     'context.select_icon': '选择图标',
+    'context.empty': '空',
 
     // Help section translations
     'help.title': '帮助',
@@ -294,6 +295,7 @@ const translations_advanced = {
     'context.select_enemy': 'Select Enemy',
     'context.i_dont_know': 'I don\'t know',
     'context.select_icon': 'Select Icon',
+    'context.empty': 'Empty',
     
     // Help section translations
     'help.title': 'Help',

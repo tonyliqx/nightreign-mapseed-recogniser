@@ -42,13 +42,13 @@ def test_load_source_coord_uses_unnamed4(tmp_path):
     b = load_source(str(tmp_path))
     assert int(b.construct.iloc[0]["coord_index"]) == 108  # 取 Unnamed:4，非 coord_index 的 307
 
-from nightreign_etl import (apply_void_offset, to768, category_of, basic_class_of,
-                            EVERGAOL_COORDS, VOID_UNDERGROUND_COORDS)
+from nightreign_etl import (apply_void_offset, to768, category_of, icon_of, basic_class_of,
+                            EVERGAOL_COORDS, VOID_UNDERGROUND_COORDS, INCLUDED_CATEGORIES)
 
 TYPE_MAP = {
-    "38100": {"advCategory":"minorBase","basicClass":"village","icon":"village","name":"村庄"},
-    "41000": {"advCategory":"minorBase","basicClass":"church","icon":"church","name":"教堂"},
-    "4770":  {"advCategory":"fieldBoss","basicClass":"other","icon":"fieldBoss","name":"唤声船"},
+    "38100": {"category":"landmark","basicClass":"village","icon":"village","name":"村庄"},
+    "41000": {"category":"landmark","basicClass":"church","icon":"church","name":"教堂"},
+    "4770":  {"category":"fieldBoss","basicClass":"other","icon":"field_boss","name":"唤声船"},
 }
 NAMES = {38100:"村庄", 41000:"教堂", 4770:"唤声船"}
 
@@ -68,7 +68,18 @@ def test_category_evergaol_by_coord():
 
 def test_category_from_typemap():
     assert category_of(4770, 100, TYPE_MAP, NAMES) == "fieldBoss"
-    assert category_of(38100, 100, TYPE_MAP, NAMES) == "minorBase"
+    assert category_of(38100, 100, TYPE_MAP, NAMES) == "landmark"
+
+def test_icon_of():
+    assert icon_of(41000, TYPE_MAP, NAMES) == "church"
+    assert icon_of(4770, TYPE_MAP, NAMES) == "field_boss"
+
+def test_included_categories():
+    # 参与 POI 匹配的 5 类（merchant 仅大空洞地形，由调用方过滤）
+    assert {"landmark","stronghold","fieldBoss","scaleMerchant","merchant"} <= INCLUDED_CATEGORIES
+    assert "castle" not in INCLUDED_CATEGORIES
+    assert "nightBoss" not in INCLUDED_CATEGORIES
+    assert "evergaol" not in INCLUDED_CATEGORIES
 
 def test_basic_class():
     assert basic_class_of(38100, TYPE_MAP, NAMES) == "village"
