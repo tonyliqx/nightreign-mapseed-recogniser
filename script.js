@@ -1961,10 +1961,8 @@ class NightreignMapRecogniser {
 
         const seedStr = mapSeed.toString().padStart(3, '0');
         const currentLang = this.languageManager.getCurrentLanguage();
-        // DLC 种子(≥1000) 用 Fuwish 汉化版 pattern 图（assets/pattern/dlc/，语言无关，DLC 图仅中文版）
-        const seedImageUrl = mapSeed >= 1000
-            ? `assets/pattern/dlc/${seedStr}.jpg`
-            : `assets/pattern/${currentLang}/${seedStr}.jpg`;
+        // 种子结果图：本体(0-319, 3位补零)与 DLC(1000-1199, 4位) 均按语言目录存放
+        const seedImageUrl = `assets/pattern/${currentLang}/${seedStr}.jpg`;
 
         // 检查是否为移动设备
         const isMobile = window.innerWidth <= 768;

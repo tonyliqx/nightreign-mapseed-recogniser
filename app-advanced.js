@@ -2182,11 +2182,8 @@ class NightreignApp {
 
     getPatternImagePath(seed) {
         const currentLang = (this.languageManager && this.languageManager.currentLang) ? this.languageManager.currentLang : 'en';
-        // DLC 种子(≥1000) 用 Fuwish 汉化版 pattern 图（assets/pattern/dlc/，语言无关，DLC 图仅中文版）
-        // 本体种子用按语言的 3 位编号图
-        return seed.seedNumber >= 1000
-            ? `assets/pattern/dlc/${seed.seedNumber}.jpg`
-            : `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
+        // 种子结果图：本体(0-319, 3位补零)与 DLC(1000-1199, 4位) 均按语言目录存放
+        return `assets/pattern/${currentLang}/${seed.seedNumber.toString().padStart(3, '0')}.jpg`;
     }
 
     openFullscreen() {
