@@ -438,13 +438,19 @@ class NightreignMapRecogniser {
         }
     }
 
+    // 更新「当前选择」显示；基础版已移除该 UI，元素不存在时安全跳过
+    setChosenText(id, text) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    }
+
     selectNightlord(nightlord) {
         // If the same nightlord is clicked again, clear the selection
         if (this.chosenNightlord === nightlord) {
             this.chosenNightlord = null;
 
             // Update UI
-            document.getElementById('chosen-nightlord').textContent = this.getText('nightlord.none');
+            this.setChosenText('chosen-nightlord', this.getText('nightlord.none'));
 
             // Clear all button states
             document.querySelectorAll('.nightlord-btn').forEach(btn => {
@@ -457,7 +463,7 @@ class NightreignMapRecogniser {
             this.chosenNightlord = nightlord;
 
             // Update UI
-            document.getElementById('chosen-nightlord').textContent = this.getNightlordTranslatedName(nightlord);
+            this.setChosenText('chosen-nightlord', this.getNightlordTranslatedName(nightlord));
 
             // Update button states
             document.querySelectorAll('.nightlord-btn').forEach(btn => {
@@ -482,7 +488,7 @@ class NightreignMapRecogniser {
             this.poiStates = this.initializePOIStates();
 
             // Update UI
-            document.getElementById('chosen-map').textContent = this.getText('map.none');
+            this.setChosenText('chosen-map', this.getText('map.none'));
 
             // Clear all button states
             document.querySelectorAll('.map-btn').forEach(btn => {
@@ -501,7 +507,7 @@ class NightreignMapRecogniser {
             console.log(`Selected map: ${map}, POIs: ${this.currentPOIs.length}`);
 
             // Update UI
-            document.getElementById('chosen-map').textContent = this.getMapTranslatedName(map);
+            this.setChosenText('chosen-map', this.getMapTranslatedName(map));
 
             // Update button states
             document.querySelectorAll('.map-btn').forEach(btn => {
@@ -1381,7 +1387,7 @@ class NightreignMapRecogniser {
         this.hideNightlordInfo();
 
         // Update UI for nightlord selection
-        document.getElementById('chosen-nightlord').textContent = this.getText('nightlord.none');
+        this.setChosenText('chosen-nightlord', this.getText('nightlord.none'));
         document.querySelectorAll('.nightlord-btn').forEach(btn => {
             btn.classList.remove('active');
         });

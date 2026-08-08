@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title data-i18n="app.title">艾尔登法环 黑夜君临：地图种子识别器</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2.1.0">
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a2e">
@@ -59,24 +59,52 @@
                 <div class="selection-grid">
                     <div class="selection-card">
                         <h3 data-i18n="selection.nightlord">选择你的夜王</h3>
-                        <p class="current-selection"><span data-i18n="selection.current">当前选择：</span><span id="chosen-nightlord" data-i18n="nightlord.none">无</span></p>
                         <div class="button-grid">
-                            <button class="nightlord-btn" data-nightlord="Gladius" data-i18n="nightlord.gladius">三狼</button>
-                            <button class="nightlord-btn" data-nightlord="Adel" data-i18n="nightlord.adel">大嘴</button>
-                            <button class="nightlord-btn" data-nightlord="Gnoster" data-i18n="nightlord.gnoster">慧心虫</button>
-                            <button class="nightlord-btn" data-nightlord="Maris" data-i18n="nightlord.maris">征兆</button>
-                            <button class="nightlord-btn" data-nightlord="Libra" data-i18n="nightlord.libra">山羊</button>
-                            <button class="nightlord-btn" data-nightlord="Fulghor" data-i18n="nightlord.fulghor">人马</button>
-                            <button class="nightlord-btn" data-nightlord="Caligo" data-i18n="nightlord.caligo">冰龙</button>
-                            <button class="nightlord-btn" data-nightlord="Heolstor" data-i18n="nightlord.heolstor">黑夜王</button>
-                            <button class="nightlord-btn" data-nightlord="Harmonia" data-i18n="nightlord.harmonia">七仙女</button>
-                            <button class="nightlord-btn" data-nightlord="Straghess" data-i18n="nightlord.straghess">垃圾王</button>
+                            <button class="nightlord-btn" data-nightlord="Gladius">
+                                <img src="assets/icons/Gladius.png" alt="Gladius" class="nightlord-icon">
+                                <span data-i18n="nightlord.gladius">三狼</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Adel">
+                                <img src="assets/icons/Adel.png" alt="Adel" class="nightlord-icon">
+                                <span data-i18n="nightlord.adel">大嘴</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Gnoster">
+                                <img src="assets/icons/Gnoster.png" alt="Gnoster" class="nightlord-icon">
+                                <span data-i18n="nightlord.gnoster">慧心虫</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Maris">
+                                <img src="assets/icons/Maris.png" alt="Maris" class="nightlord-icon">
+                                <span data-i18n="nightlord.maris">征兆</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Libra">
+                                <img src="assets/icons/Libra.png" alt="Libra" class="nightlord-icon">
+                                <span data-i18n="nightlord.libra">山羊</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Fulghor">
+                                <img src="assets/icons/Fulghor.png" alt="Fulghor" class="nightlord-icon">
+                                <span data-i18n="nightlord.fulghor">人马</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Caligo">
+                                <img src="assets/icons/Caligo.png" alt="Caligo" class="nightlord-icon">
+                                <span data-i18n="nightlord.caligo">冰龙</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Heolstor">
+                                <img src="assets/icons/Heolstor.png" alt="Heolstor" class="nightlord-icon">
+                                <span data-i18n="nightlord.heolstor">黑夜王</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Harmonia">
+                                <img src="assets/icons/Harmonia.png" alt="Harmonia" class="nightlord-icon">
+                                <span data-i18n="nightlord.harmonia">七仙女</span>
+                            </button>
+                            <button class="nightlord-btn" data-nightlord="Straghess">
+                                <img src="assets/icons/Straghess.png" alt="Straghess" class="nightlord-icon">
+                                <span data-i18n="nightlord.straghess">垃圾王</span>
+                            </button>
                         </div>
                     </div>
 
                     <div class="selection-card">
                         <h3 data-i18n="selection.map">选择你的地图 / 特殊地形</h3>
-                        <p class="current-selection"><span data-i18n="selection.current">当前选择：</span><span id="chosen-map" data-i18n="map.none">无</span></p>
                         <div class="button-grid">
                             <button class="map-btn" data-map="Default" data-i18n="map.default">默认</button>
                             <button class="map-btn" data-map="Mountaintop" data-i18n="map.mountaintop">山顶</button>
@@ -209,6 +237,6 @@
     <script src="i18n/translations.js?v=2"></script>
     <script src="i18n/language-manager.js?v=3"></script>
     <script src="data.js"></script>
-    <script src="script.js?v=2.0.0"></script>
+    <script src="script.js?v=2.1.0"></script>
 </body>
 </html>
