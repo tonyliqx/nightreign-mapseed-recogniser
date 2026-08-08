@@ -60,10 +60,7 @@ class NightreignApp {
         await this.loadData();
         console.log('✅ Data loaded successfully');
         
-        // Load map images in the background
-        console.log('🖼️ Loading map images...');
-        await this.loadMapImages();
-        console.log('✅ Map images loaded successfully');
+        // 底图改为按需懒加载：用户在 startRecognition() 选定地形后才加载对应底图（见 loadMapImage）
         
         // Initialize language manager with advanced translations
         try {
@@ -120,33 +117,24 @@ class NightreignApp {
         }
     }
 
-    async loadMapImages() {
-        try {
-            const mapTypes = ['Default', 'Crater', 'Mountaintop', 'Noklateo', 'Rotted Woods', 'Great Hollow'];
-            const imagePromises = mapTypes.map(mapType => {
-                return new Promise((resolve, reject) => {
-                    const img = new Image();
-                    img.onload = () => {
-                        this.mapImages[mapType] = img;
-                        resolve();
-                    };
-                    img.onerror = () => {
-                        console.warn(`⚠️ Failed to load map image for ${mapType}`);
-                        resolve(); // Continue even if one image fails
-                    };
-                    
-                    // Map type names to file names
-                    const fileName = this.getMapFileName(mapType);
-                    img.src = `assets/map/${fileName}`;
-                });
-            });
-            
-            await Promise.all(imagePromises);
-            console.log('✅ Map images loaded successfully');
-            
-        } catch (error) {
-            console.error('❌ Failed to load map images:', error);
-        }
+    async loadMapImage(mapType) {
+        // 已加载则直接复用缓存（用户重复选同一地形时命中）
+        if (this.mapImages[mapType]) return this.mapImages[mapType];
+
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+                this.mapImages[mapType] = img;
+                console.log(`🗺️ Loaded map image: ${mapType}`);
+                resolve(img);
+            };
+            img.onerror = () => {
+                console.warn(`⚠️ Failed to load map image for ${mapType}`);
+                resolve(null); // 加载失败返回 null，drawMapBackground 会走深色 fallback
+            };
+            const fileName = this.getMapFileName(mapType);
+            img.src = `assets/map/${fileName}`;
+        });
     }
 
     getMapFileName(mapType) {
@@ -327,7 +315,7 @@ class NightreignApp {
         }
     }
 
-    startRecognition() {
+    async startRecognition() {
         if (!this.selectedMap) return;
         
         // Check if data is loaded
@@ -352,8 +340,8 @@ class NightreignApp {
         document.getElementById('spawn-current-map').textContent = this.getMapDisplayName(this.selectedMap);
         document.getElementById('spawn-current-nightlord').textContent = this.getNightlordDisplayName(this.selectedNightlord);
 
-        // Set current map image
-        this.currentMapImage = this.mapImages[this.selectedMap];
+        // 按需加载选中地形的底图（首次加载后缓存复用）
+        this.currentMapImage = await this.loadMapImage(this.selectedMap);
 
         // Filter seeds based on current selections
         this.filterSeeds();
