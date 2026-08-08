@@ -322,8 +322,8 @@ body {
     justify-content: center;
 }
 
-/* 地图 / 夜王 / 匹配种子 三组信息合并同一行 */
-.spawn-info-bar {
+/* 地图 / 夜王 / 匹配种子 三组信息合并同一行（spawn 与 recognition 共用）*/
+.info-bar {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -815,7 +815,7 @@ body {
         font-size: 0.85rem;
         margin-top: 0.3rem;
     }
-    .spawn-info-bar {
+    .info-bar {
         justify-content: center;
         gap: 0.4rem 0.7rem;
         font-size: 0.85rem;
