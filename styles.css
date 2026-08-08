@@ -157,12 +157,6 @@ body {
     order: 2;
 }
 
-.title i {
-    margin-right: 15px;
-    color: #ffd700;
-    -webkit-text-fill-color: #ffd700;
-}
-
 .subtitle {
     margin: 0;
     opacity: 0.9;
