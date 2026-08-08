@@ -322,15 +322,21 @@ body {
     justify-content: center;
 }
 
-/* 地图 / 夜王 / 匹配种子 三组信息合并同一行（spawn 与 recognition 共用）*/
+/* 地图+夜王一行、匹配种子一行：中英文长短名都稳定两行（spawn 与 recognition 共用）*/
 .info-bar {
+    display: flex;
+    flex-direction: column;   /* 两行布局：第一行地图+夜王，第二行匹配种子 */
+    gap: 0.25rem;
+    width: 100%;
+    margin-bottom: 0.6rem;
+}
+
+.info-row {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    width: 100%;          /* recognition-header 是 flex 容器，info-bar 作为 item 默认宽度=内容；强制占满，与 spawn(块级父) 一致 */
-    white-space: nowrap;  /* 防 spans 内中文被 flex 压缩到 min-content(单字) 后逐字断行——这才是「两行」的真正根因 */
+    white-space: nowrap;      /* 整行文本不换行，防止中文逐字断行 */
     gap: 0.4rem 1rem;
-    margin-bottom: 0.6rem;
 }
 
 #spawn-canvas {
@@ -795,7 +801,6 @@ body {
     .recognition-header {
         flex-direction: column;
         text-align: center;
-        padding: 0.8rem 1rem;   /* 移动端减小左右内边距，给 info-bar 更多宽度，避免长地名/夜王名溢出 */
     }
     
     .recognition-controls {
@@ -819,6 +824,9 @@ body {
         margin-top: 0.3rem;
     }
     .info-bar {
+        gap: 0.2rem;
+    }
+    .info-row {
         justify-content: center;
         gap: 0.4rem 0.7rem;
         font-size: 0.85rem;
