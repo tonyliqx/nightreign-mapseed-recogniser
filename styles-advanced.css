@@ -327,6 +327,8 @@ body {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    width: 100%;          /* recognition-header 是 flex 容器，info-bar 作为 item 默认宽度=内容；强制占满，与 spawn(块级父) 一致 */
+    min-width: 0;
     gap: 0.4rem 1rem;
     margin-bottom: 0.6rem;
 }
