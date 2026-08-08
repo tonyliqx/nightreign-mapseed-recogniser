@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" data-lang="zh">
 <head>
     <meta charset="UTF-8">
     <script>
-    // 尽早同步检测语言，避免「先英文后中文」首屏闪烁。
-    // HTML 默认文本为英文：若用户目标语言非英文，先隐藏页面，等 updateUI() 翻译完再显示。
+    // 尽早同步检测语言，避免首屏语言闪烁。
+    // HTML 默认文本为中文：若用户目标语言非中文（如英文），先隐藏页面，等 updateUI() 翻译完再显示。
     // 检测优先级与 LanguageManager.detectLanguage() 完全一致：URL > cookie > localStorage > 浏览器语言 > 默认 zh
     (function () {
         try {
@@ -23,7 +23,7 @@
             }
             lang = lang || 'zh';
             document.documentElement.setAttribute('data-lang', lang);
-            if (lang !== 'en') {
+            if (lang !== 'zh') {
                 document.documentElement.style.visibility = 'hidden';
                 // 兜底：万一 LanguageManager 未正常 init（脚本异常等），1.5s 后强制显示，避免永久白屏
                 setTimeout(function () { document.documentElement.style.visibility = ''; }, 1500);
@@ -32,9 +32,9 @@
     })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nightreign Map Seed Recognizer</title>
-    <meta name="description" data-i18n="app.description" content="Interactive tool: Identify Elden Ring Nightreign map seeds through POI locations">
-    <meta name="keywords" data-i18n="app.keywords" content="Elden Ring, Nightreign, map, seed, recognizer, POI, tool">
+    <title>艾尔登法环 黑夜君临：地图种子识别器</title>
+    <meta name="description" data-i18n="app.description" content="交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子">
+    <meta name="keywords" data-i18n="app.keywords" content="艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具">
     <link rel="stylesheet" href="styles-advanced.css?v=2.1.1">
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -49,16 +49,16 @@
                 <div class="header-controls">
                     <button id="switch-to-basic-btn" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        <span data-i18n="nav.basic">Switch to Basic Mode</span>
+                        <span data-i18n="nav.basic">切换到基础模式</span>
                     </button>
                     <button id="lang-toggle" class="lang-btn" title="Switch Language">
                         <i class="fas fa-globe"></i>
-                        <span id="current-lang" data-i18n="lang.current">English</span>
+                        <span id="current-lang" data-i18n="lang.current">中文</span>
                     </button>
                 </div>
                 <h1 class="app-title">
                     <i class="fas fa-map"></i>
-                    <span data-i18n="app.title">Nightreign Map Seed Recognizer</span>
+                    <span data-i18n="app.title">艾尔登法环 黑夜君临：地图种子识别器</span>
                 </h1>
             </div>
         </header>
@@ -69,90 +69,90 @@
             <div id="loading-screen" class="loading-screen">
                 <div class="loading-content">
                     <i class="fas fa-spinner fa-spin"></i>
-                    <p data-i18n="ui.loading_map_data">Loading map data...</p>
+                    <p data-i18n="ui.loading_map_data">正在加载地图数据...</p>
                 </div>
             </div>
 
             <!-- Selection Screen -->
             <div id="selection-screen" class="selection-screen" style="display: none;">
                 <div class="selection-container">
-                    <h2 data-i18n="ui.select_parameters">Select Parameters</h2>
+                    <h2 data-i18n="ui.select_parameters">选择参数</h2>
                     
                     <!-- Map Type Selection -->
                     <div class="selection-group">
-                        <h3><span data-i18n="selection.map">Map Type</span> <span class="required">*</span></h3>
+                        <h3><span data-i18n="selection.map">选择你的地图 / 特殊地形</span> <span class="required">*</span></h3>
                         <div class="map-grid">
                             <button class="map-btn" data-map="Default">
-                                <span data-i18n="map.default">Default</span>
+                                <span data-i18n="map.default">默认</span>
                             </button>
                             <button class="map-btn" data-map="Crater">
-                                <span data-i18n="map.crater">Crater</span>
+                                <span data-i18n="map.crater">火山</span>
                             </button>
                             <button class="map-btn" data-map="Mountaintop">
-                                <span data-i18n="map.mountaintop">Mountaintop</span>
+                                <span data-i18n="map.mountaintop">山顶</span>
                             </button>
                             <button class="map-btn" data-map="Rotted Woods">
-                                <span data-i18n="map.rotted_woods">Rotted Woods</span>
+                                <span data-i18n="map.rotted_woods">腐败森林</span>
                             </button>
                             <button class="map-btn" data-map="Noklateo">
-                                <span data-i18n="map.noklateo">Noklateo</span>
+                                <span data-i18n="map.noklateo">隐城</span>
                             </button>
                             <button class="map-btn" data-map="Great Hollow">
-                                <span data-i18n="map.great_hollow">Great Hollow</span>
+                                <span data-i18n="map.great_hollow">大空洞</span>
                             </button>
                         </div>
                     </div>
 
                     <!-- Nightlord Selection -->
                     <div class="selection-group">
-                        <h3><span data-i18n="selection.nightlord">Nightlord</span> <span class="optional" data-i18n="selection.optional">(Optional)</span></h3>
+                        <h3><span data-i18n="selection.nightlord">选择你的夜王</span> <span class="optional" data-i18n="selection.optional">(可选)</span></h3>
                         <div class="nightlord-grid">
                             <button class="nightlord-btn" data-nightlord="Gladius">
                                 <img src="assets/icons/Gladius.png" alt="Gladius" class="nightlord-icon">
-                                <span data-i18n="nightlord.gladius">Gladius</span>
+                                <span data-i18n="nightlord.gladius">三狼</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Adel">
                                 <img src="assets/icons/Adel.png" alt="Adel" class="nightlord-icon">
-                                <span data-i18n="nightlord.adel">Adel</span>
+                                <span data-i18n="nightlord.adel">大嘴</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Gnoster">
                                 <img src="assets/icons/Gnoster.png" alt="Gnoster" class="nightlord-icon">
-                                <span data-i18n="nightlord.gnoster">Gnoster</span>
+                                <span data-i18n="nightlord.gnoster">慧心虫</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Maris">
                                 <img src="assets/icons/Maris.png" alt="Maris" class="nightlord-icon">
-                                <span data-i18n="nightlord.maris">Maris</span>
+                                <span data-i18n="nightlord.maris">征兆</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Libra">
                                 <img src="assets/icons/Libra.png" alt="Libra" class="nightlord-icon">
-                                <span data-i18n="nightlord.libra">Libra</span>
+                                <span data-i18n="nightlord.libra">山羊</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Fulghor">
                                 <img src="assets/icons/Fulghor.png" alt="Fulghor" class="nightlord-icon">
-                                <span data-i18n="nightlord.fulghor">Fulghor</span>
+                                <span data-i18n="nightlord.fulghor">人马</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Caligo">
                                 <img src="assets/icons/Caligo.png" alt="Caligo" class="nightlord-icon">
-                                <span data-i18n="nightlord.caligo">Caligo</span>
+                                <span data-i18n="nightlord.caligo">冰龙</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Heolstor">
                                 <img src="assets/icons/Heolstor.png" alt="Heolstor" class="nightlord-icon">
-                                <span data-i18n="nightlord.heolstor">Heolstor</span>
+                                <span data-i18n="nightlord.heolstor">黑夜王</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Harmonia">
                                 <img src="assets/icons/Harmonia.png" alt="Harmonia" class="nightlord-icon">
-                                <span data-i18n="nightlord.harmonia">Harmonia</span>
+                                <span data-i18n="nightlord.harmonia">七仙女</span>
                             </button>
                             <button class="nightlord-btn" data-nightlord="Straghess">
                                 <img src="assets/icons/Straghess.png" alt="Straghess" class="nightlord-icon">
-                                <span data-i18n="nightlord.straghess">Straghess</span>
+                                <span data-i18n="nightlord.straghess">垃圾王</span>
                             </button>
                         </div>
                     </div>
 
                     <button id="start-recognition" class="start-btn" disabled>
                         <i class="fas fa-play"></i>
-                        <span data-i18n="actions.start">Select Map Type to Continue</span>
+                        <span data-i18n="actions.start">开始识别</span>
                     </button>
                 </div>
             </div>
@@ -160,33 +160,33 @@
             <!-- Spawn Point Selection Screen -->
             <div id="spawn-screen" class="spawn-screen" style="display: none;">
                 <div class="screen-header">
-                    <h2><i class="fas fa-map-marker-alt"></i> <span data-i18n="spawn.title">Select Spawn Point</span></h2>
-                    <p data-i18n="spawn.description">Click on a spawn point location to select it, then choose the enemy type.</p>
+                    <h2><i class="fas fa-map-marker-alt"></i> <span data-i18n="spawn.title">选择出生点</span></h2>
+                    <p data-i18n="spawn.description">点击出生点位置进行选择，然后选择敌人类型。</p>
                 </div>
 
                 <div class="current-selection">
-                    <span class="selection-label" data-i18n="spawn.map">Map:</span>
+                    <span class="selection-label" data-i18n="spawn.map">地图:</span>
                     <span id="spawn-current-map" class="selection-value">-</span>
-                    <span class="selection-label" data-i18n="spawn.nightlord">Nightlord:</span>
+                    <span class="selection-label" data-i18n="spawn.nightlord">夜王:</span>
                     <span id="spawn-current-nightlord" class="selection-value">-</span>
                 </div>
                 <div class="seed-count">
-                    <span class="count-label" data-i18n="spawn.seeds">Matching Seeds:</span>
+                    <span class="count-label" data-i18n="spawn.seeds">匹配种子:</span>
                     <span id="spawn-seed-count" class="count-value">0</span>
                 </div>
 
                 <div class="spawn-controls">
                     <button id="spawn-back-btn" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        <span data-i18n="spawn.back">Back</span>
+                        <span data-i18n="spawn.back">返回</span>
                     </button>
                     <button id="spawn-skip-btn" class="control-btn">
                         <i class="fas fa-arrow-right"></i>
-                        <span data-i18n="spawn.skip">Skip Spawn Selection</span>
+                        <span data-i18n="spawn.skip">跳过出生点选择</span>
                     </button>
                     <button id="spawn-help-btn" class="control-btn">
                         <i class="fas fa-question-circle"></i>
-                        <span data-i18n="spawn.help">Help</span>
+                        <span data-i18n="spawn.help">帮助</span>
                     </button>
                 </div>
 
@@ -204,13 +204,13 @@
             <div id="recognition-screen" class="recognition-screen" style="display: none;">
                 <div class="recognition-header">
                     <div class="current-selection">
-                        <span class="selection-label" data-i18n="ui.map">Map:</span>
+                        <span class="selection-label" data-i18n="ui.map">地图:</span>
                         <span id="current-map" class="selection-value">-</span>
-                        <span class="selection-label" data-i18n="ui.nightlord">Nightlord:</span>
+                        <span class="selection-label" data-i18n="ui.nightlord">夜王:</span>
                         <span id="current-nightlord" class="selection-value">-</span>
                     </div>
                     <div class="seed-count">
-                        <span class="count-label" data-i18n="ui.matching_seeds">Matching Seeds:</span>
+                        <span class="count-label" data-i18n="ui.matching_seeds">匹配种子:</span>
                         <span id="seed-count" class="count-value">0</span>
                     </div>
                 </div>
@@ -218,15 +218,15 @@
                 <div class="recognition-controls">
                     <button id="back-btn" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        <span data-i18n="actions.back">Back</span>
+                        <span data-i18n="actions.back">返回</span>
                     </button>
                     <button id="clear-all-btn" class="control-btn clear-btn">
                         <i class="fas fa-eraser"></i>
-                        <span data-i18n="actions.clear_all">Clear All POIs</span>
+                        <span data-i18n="actions.clear_all">清除所有POI</span>
                     </button>
                     <button id="help-btn" class="control-btn">
                         <i class="fas fa-question-circle"></i>
-                        <span data-i18n="actions.help">Help</span>
+                        <span data-i18n="actions.help">帮助</span>
                     </button>
                 </div>
 
@@ -244,18 +244,18 @@
             <!-- Result Screen -->
             <div id="result-screen" class="result-screen" style="display: none;">
                 <div class="result-header">
-                    <h2><i class="fas fa-check-circle"></i> <span data-i18n="ui.seed_found">Seed Found!</span></h2>
+                    <h2><i class="fas fa-check-circle"></i> <span data-i18n="ui.seed_found">找到种子！</span></h2>
                     <div class="result-info">
                         <div class="result-details">
-                            <span class="detail-label" data-i18n="ui.seed_number">Seed Number:</span>
+                            <span class="detail-label" data-i18n="ui.seed_number">种子编号:</span>
                             <span id="result-seed-number" class="detail-value">-</span>
                         </div>
                         <div class="result-details">
-                            <span class="detail-label" data-i18n="ui.nightlord">Nightlord:</span>
+                            <span class="detail-label" data-i18n="ui.nightlord">夜王:</span>
                             <span id="result-nightlord" class="detail-value">-</span>
                         </div>
                         <div class="result-details">
-                            <span class="detail-label" data-i18n="ui.map_type">Map Type:</span>
+                            <span class="detail-label" data-i18n="ui.map_type">地图类型:</span>
                             <span id="result-map-type" class="detail-value">-</span>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                     <div class="result-image-overlay">
                         <button id="open-fullscreen" class="fullscreen-btn">
                             <i class="fas fa-expand"></i>
-                            <span data-i18n="actions.open_new_tab">Open in New Tab</span>
+                            <span data-i18n="actions.open_new_tab">在新标签页中打开</span>
                         </button>
                     </div>
                 </div>
@@ -274,11 +274,11 @@
                 <div class="result-controls">
                     <button id="back-to-recognition" class="control-btn">
                         <i class="fas fa-arrow-left"></i>
-                        <span data-i18n="actions.back_to_recognition">Back to Recognition</span>
+                        <span data-i18n="actions.back_to_recognition">返回识别</span>
                     </button>
                     <button id="new-search" class="control-btn primary">
                         <i class="fas fa-search"></i>
-                        <span data-i18n="actions.new_search">New Search</span>
+                        <span data-i18n="actions.new_search">新搜索</span>
                     </button>
                 </div>
             </div>
@@ -288,64 +288,64 @@
         <div id="help-modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3><i class="fas fa-question-circle"></i> <span data-i18n="help.title">Help</span></h3>
+                    <h3><i class="fas fa-question-circle"></i> <span data-i18n="help.title">帮助</span></h3>
                     <button class="close-btn" id="close-help">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="help-section">
-                        <h4 data-i18n="help.overview.title">Overview</h4>
-                        <p data-i18n="help.overview.description">This advanced map seed recognizer helps you identify the exact map pattern by marking Points of Interest (POIs) and spawn points. The process involves three main steps: spawn point selection, POI marking, and result identification.</p>
+                        <h4 data-i18n="help.overview.title">概述</h4>
+                        <p data-i18n="help.overview.description">这个高级地图种子识别器通过标记兴趣点（POI）和生成点来帮助您识别确切的地图模式。该过程包括三个主要步骤：生成点选择、POI标记和结果识别。</p>
                     </div>
 
                     <div class="help-section">
-                        <h4 data-i18n="help.step1.title">Step 1: Select Nightlord & Map Type</h4>
-                        <p data-i18n="help.step1.description">Choose your nightlord character and the map type you're exploring. This initial selection helps narrow down the possible seed patterns.</p>
+                        <h4 data-i18n="help.step1.title">步骤1：选择夜王和地图类型</h4>
+                        <p data-i18n="help.step1.description">选择您的夜王角色和您正在探索的地图类型。这个初始选择有助于缩小可能的种子模式范围。</p>
                     </div>
 
                     <div class="help-section">
-                        <h4 data-i18n="help.step2.title">Step 2: Mark Spawn Point</h4>
-                        <p data-i18n="help.step2.description">Click on the spawn point dot on the map, then select the enemy type from the context menu. If you're unsure about the enemy, select "I don't know" to proceed with just the coordinate information.</p>
+                        <h4 data-i18n="help.step2.title">步骤2：标记出生点</h4>
+                        <p data-i18n="help.step2.description">点击地图上的出生点圆点，然后从菜单中选择敌人类型。如果您不确定敌人类型，选择"我不知道"以仅使用坐标信息继续。</p>
                         <ul>
-                            <li data-i18n="help.step2.tip1">The spawn point helps significantly narrow down possible seeds</li>
-                            <li data-i18n="help.step2.tip2">If only one enemy type is possible, it will be auto-selected</li>
-                            <li data-i18n="help.step2.tip3">If only one seed remains after spawn selection, you'll go directly to results</li>
+                            <li data-i18n="help.step2.tip1">出生点有助于显著缩小可能的种子范围</li>
+                            <li data-i18n="help.step2.tip2">如果只有一种敌人类型可能，将自动选择</li>
+                            <li data-i18n="help.step2.tip3">如果出生点选择后只剩一个种子，将直接跳转到结果</li>
                         </ul>
                     </div>
 
                     <div class="help-section">
-                        <h4 data-i18n="help.step3.title">Step 3: Mark POIs (Points of Interest)</h4>
-                        <p data-i18n="help.step3.description">Left-click on POI dots to open context menus and select the correct structure type and enemy. Right-click to clear the current POI. The system will automatically filter seeds based on your selections.</p>
+                        <h4 data-i18n="help.step3.title">步骤3：标记POI（兴趣点）</h4>
+                        <p data-i18n="help.step3.description">左键点击POI圆点打开菜单，选择正确的结构类型和敌人。右键点击可清除当前POI。系统将根据您的选择自动过滤种子。</p>
                         <ul>
-                            <li data-i18n="help.step3.tip1">Two-layer POIs: Select structure type first, then enemy type</li>
-                            <li data-i18n="help.step3.tip2">Single-layer POIs: Select enemy type directly</li>
-                            <li data-i18n="help.step3.tip3">If only one option remains in layer 2, it will be auto-selected</li>
-                            <li data-i18n="help.step3.tip4">Use "Clear Selection" to reset a POI if you made a mistake</li>
+                            <li data-i18n="help.step3.tip1">双层POI：先选择结构类型，再选择敌人类型</li>
+                            <li data-i18n="help.step3.tip2">单层POI：直接选择敌人类型</li>
+                            <li data-i18n="help.step3.tip3">如果第2层只剩一个选项，将自动选择</li>
+                            <li data-i18n="help.step3.tip4">使用"清除选择"重置POI（如果出错）</li>
                         </ul>
                     </div>
 
                     <div class="help-section">
-                        <h4 data-i18n="help.step4.title">Step 4: View Results</h4>
-                        <p data-i18n="help.step4.description">Once enough POIs are marked to identify a unique seed, the result screen will show the exact map pattern with seed number, nightlord, and map type details.</p>
+                        <h4 data-i18n="help.step4.title">步骤4：查看结果</h4>
+                        <p data-i18n="help.step4.description">一旦标记了足够的POI来识别唯一种子，结果屏幕将显示确切的地图模式，包括种子编号、夜王和地图类型详情。</p>
                     </div>
 
                     <div class="help-section">
-                        <h4 data-i18n="help.tips.title">Tips & Tricks</h4>
+                        <h4 data-i18n="help.tips.title">技巧和窍门</h4>
                         <ul>
-                            <li data-i18n="help.tips.tip1">Start with spawn point selection for maximum seed filtering</li>
-                            <li data-i18n="help.tips.tip2">Mark POIs that are most distinctive or unique to your map</li>
-                            <li data-i18n="help.tips.tip3">Use the "Clear All POIs" button to start over if needed</li>
-                            <li data-i18n="help.tips.tip4">The "Back" button returns you to the selection screen</li>
-                            <li data-i18n="help.tips.tip5">Toggle between English and Chinese using the language button</li>
+                            <li data-i18n="help.tips.tip1">从生成点选择开始以获得最大的种子过滤效果</li>
+                            <li data-i18n="help.tips.tip2">标记您地图上最独特或最特殊的POI</li>
+                            <li data-i18n="help.tips.tip3">如需要，使用"清除所有POI"按钮重新开始</li>
+                            <li data-i18n="help.tips.tip4">"返回"按钮将您带回选择屏幕</li>
+                            <li data-i18n="help.tips.tip5">使用语言按钮在英文和中文之间切换</li>
                         </ul>
                     </div>
 
                     <div class="help-section">
-                        <h4 data-i18n="help.controls.title">Controls</h4>
+                        <h4 data-i18n="help.controls.title">控制说明</h4>
                         <ul>
-                            <li data-i18n="help.controls.click">Click: Select options from context menus</li>
-                            <li data-i18n="help.controls.right_click">Right-click: Clear current POI</li>
-                            <li data-i18n="help.controls.clear">Clear All POIs: Reset all POI selections</li>
-                            <li data-i18n="help.controls.back">Back: Return to nightlord/map selection</li>
+                            <li data-i18n="help.controls.click">点击：从菜单中选择选项</li>
+                            <li data-i18n="help.controls.right_click">右键点击：清除当前POI</li>
+                            <li data-i18n="help.controls.clear">清除所有POI：重置所有POI选择</li>
+                            <li data-i18n="help.controls.back">返回：回到夜王/地图选择</li>
                         </ul>
                     </div>
                 </div>
