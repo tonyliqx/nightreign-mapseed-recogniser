@@ -358,6 +358,24 @@ body {
     text-align: center;
 }
 
+/* 地形框标题行内计数：「选择地形 | 已匹配：N」 */
+.selection-card h3 .title-match-count {
+    font-size: 0.95rem;
+    color: #b8c6db;
+    font-weight: 500;
+}
+.selection-card h3 .title-sep {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.25);
+}
+.selection-card h3 .seed-count {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+    display: inline;
+    text-shadow: none;
+}
+
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -597,14 +615,29 @@ body {
     gap: 1rem;
 }
 
-/* 右侧地图区：顶部计数栏 + 地图画布 */
+/* 右侧地图区：地图画布 + 底部信息栏（计数/编号） */
 .map-area {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-/* 地图上方计数栏：金色框，宽度对齐画布(768)，计数与夜王信息左右分布 */
+/* PC 双列布局：右侧地图画布在视口中垂直居中（与 #seed-image-container 种子图同效）；
+   平板/移动端单列布局不受影响（保持画布紧跟侧栏、按内容高度排布）。 */
+@media (min-width: 1024px) {
+    .map-area {
+        min-height: 100vh;
+        justify-content: center;
+    }
+    /* 画布按视口可用高度限高（扣顶部 header + 夜王反推卡片），保持正方形比例。
+       canvas 与 img 不同：CSS 缩放不会自动保持比例，width 与 max-height 双向独立截断会变形。
+       故只用 min(列宽, 视口高-160) 作 width 单方向取值，height:auto 沿用固有 1:1 比例跟随。 */
+    #map-canvas {
+        width: min(100%, calc(100vh - 160px));
+    }
+}
+
+/* 地图下方信息栏：金色框，与地图同宽；识别中显示「已匹配地图」计数，命中后切到种子编号 */
 .results-header {
     display: flex;
     flex-direction: row;
@@ -613,8 +646,6 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 768px;
-    margin: 0 auto;
     box-sizing: border-box;
     padding: 12px;
     background: rgba(255, 215, 0, 0.1);
@@ -668,6 +699,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* 命中种子后：地图下方信息栏显示的种子编号（与「已匹配地图」计数同位置切换） */
+.results-header .seed-result-info {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.results-header .seed-result-number {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 @media (max-width: 1024px) {
@@ -849,6 +902,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     background: #2b2b2b;
+    width: 100%;
     max-width: 100%;
     height: auto;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);

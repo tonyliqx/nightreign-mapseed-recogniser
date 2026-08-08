@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title data-i18n="app.title">黑夜君临：地图种子识别器</title>
-    <link rel="stylesheet" href="styles.css?v=2.2.6">
+    <link rel="stylesheet" href="styles.css?v=2.3.2">
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a2e">
@@ -104,7 +104,10 @@
                         </div>
 
                         <div class="selection-card">
-                            <h3 data-i18n="selection.map">选择你的地图 / 特殊地形</h3>
+                            <h3 class="map-card-title">
+                                <span data-i18n="selection.map">选择地形</span>
+                                <span class="title-match-count"><span class="title-sep">|</span><span data-i18n="results.matched_short">已匹配：</span><span id="seed-count" class="seed-count">0</span></span>
+                            </h3>
                             <div class="button-grid">
                                 <button class="map-btn" data-map="Default" data-i18n="map.default">默认</button>
                                 <button class="map-btn" data-map="Mountaintop" data-i18n="map.mountaintop">山顶</button>
@@ -132,18 +135,8 @@
                     </aside>
 
                     <div class="map-area">
-                        <div class="results-header">
-                            <div class="seed-counter">
-                                <span class="nightlord-label" data-i18n="results.matched">已匹配地图: </span>
-                                <div class="seed-count" id="seed-count">0</div>
-                            </div>
-                            <div class="nightlord-info" id="nightlord-info" style="display: none;">
-                                <span class="nightlord-label" data-i18n="results.nightlord">夜王: </span>
-                                <span class="nightlord-name" id="nightlord-name"></span>
-                            </div>
-                        </div>
                         <div class="map-container">
-                            <canvas id="map-canvas" width="768" height="768"></canvas>
+                            <canvas id="map-canvas" width="1536" height="1536"></canvas>
                             <div id="seed-image-container" style="display: none;"></div>
                             <div id="selection-overlay" class="selection-overlay">
                                 <div class="overlay-message">
@@ -222,9 +215,9 @@
         </p>
     </footer>
 
-    <script src="i18n/translations.js?v=3"></script>
+    <script src="i18n/translations.js?v=5"></script>
     <script src="i18n/language-manager.js?v=3"></script>
     <script src="data.js"></script>
-    <script src="script.js?v=2.2.0"></script>
+    <script src="script.js?v=2.2.4"></script>
 </body>
 </html>

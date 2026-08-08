@@ -50,7 +50,7 @@ const translations = {
     
     // Selection
     'selection.nightlord': '选择你的夜王',
-    'selection.map': '选择你的地图 / 特殊地形',
+    'selection.map': '选择地形',
     'selection.current': '当前选择：',
     
     // Actions
@@ -61,7 +61,9 @@ const translations = {
     
     // Results
     'results.matched': '已匹配地图: ',
+    'results.matched_short': '已匹配：',
     'results.nightlord': '夜王: ',
+    'results.seed_number': '种子编号: ',
     'results.seed': '地图种子: ',
     'results.no_seeds': '未找到种子<br>请重置地图',
     
@@ -177,7 +179,7 @@ const translations = {
     'map.noklateo': 'Noklateo',
     'map.great_hollow': 'Great Hollow',
     'selection.nightlord': 'Select Your Nightlord',
-    'selection.map': 'Select Your Map / Special Terrain',
+    'selection.map': 'Terrain',
     'selection.current': 'Current Selection: ',
     
     // Actions
@@ -188,7 +190,9 @@ const translations = {
     
     // Results
     'results.matched': 'Matched Maps: ',
+    'results.matched_short': 'Matched: ',
     'results.nightlord': 'Nightlord: ',
+    'results.seed_number': 'Seed No.: ',
     'results.seed': 'Map Seed: ',
     'results.no_seeds': 'No seeds found<br>Please reset the map',
     

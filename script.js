@@ -348,6 +348,9 @@ class NightreignMapRecogniser {
     }
 
     drawDefaultMap() {
+        // canvas 内部分辨率提至 1536（与底图源 1:1 清晰，CSS 再缩小填充右栏＝与种子图同等大小），
+        // 数据/坐标/字体/图标仍为 768 空间不变，setTransform(2) 把 768 坐标系映射到 1536 canvas。
+        this.ctx.setTransform(2, 0, 0, 2, 0, 0);
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
         // Draw a nice default background
@@ -389,6 +392,7 @@ class NightreignMapRecogniser {
     }
 
     drawDefaultMapWithImage() {
+        this.ctx.setTransform(2, 0, 0, 2, 0, 0);  // 768 数据空间 → 1536 canvas（见 drawDefaultMap 注释）
         // Try to use the actual Default POI image if available
         const defaultMapImg = this.images.maps['Default'];
 
@@ -411,6 +415,7 @@ class NightreignMapRecogniser {
     }
 
     drawMapWithSelectedImage() {
+        this.ctx.setTransform(2, 0, 0, 2, 0, 0);  // 768 数据空间 → 1536 canvas（见 drawDefaultMap 注释）
         // Use the selected map's POI image if available
         const mapImg = this.images.maps[this.chosenMap];
 
@@ -472,6 +477,7 @@ class NightreignMapRecogniser {
         this.spawnPhase = true;
 
         this.updateGameState();
+        this.scrollMapIntoView();
     }
 
     selectMap(map) {
@@ -512,6 +518,18 @@ class NightreignMapRecogniser {
         }
 
         this.updateGameState();
+        this.scrollMapIntoView();
+    }
+
+    // PC 端选夜王/地形后，把地图区滚到视口顶部——map-area 在 @media(min-width:1024px) 下
+    // min-height:100vh + justify-content:center，故画布落在屏幕上下中央。与最终种子图
+    // （showSeedImage 的 scrollIntoView）同机制；移动端单列布局不触发。
+    scrollMapIntoView() {
+        if (window.matchMedia('(min-width: 1024px)').matches) {
+            requestAnimationFrame(() => {
+                document.querySelector('.map-area')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            });
+        }
     }
 
     initializePOIStates() {
@@ -666,8 +684,8 @@ class NightreignMapRecogniser {
         // 计算指示器位置
         const canvas = document.getElementById('map-canvas');
         const rect = canvas.getBoundingClientRect();
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
+        const scaleX = (canvas.width / 2) / rect.width;   // canvas 1536 / 数据 768 空间
+        const scaleY = (canvas.height / 2) / rect.height;
 
         const screenX = (x / scaleX) + rect.left - 30;
         const screenY = (y / scaleY) + rect.top - 30;
@@ -743,6 +761,7 @@ class NightreignMapRecogniser {
     }
 
     drawMap(mapImage) {
+        this.ctx.setTransform(2, 0, 0, 2, 0, 0);  // 768 数据空间 → 1536 canvas（见 drawDefaultMap 注释）
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
         // Always draw a background first
@@ -1173,8 +1192,8 @@ class NightreignMapRecogniser {
 
     getMousePos(event) {
         const rect = this.canvas.getBoundingClientRect();
-        const scaleX = this.canvas.width / rect.width;
-        const scaleY = this.canvas.height / rect.height;
+        const scaleX = (this.canvas.width / 2) / rect.width;   // canvas 1536 / 数据 768 空间
+        const scaleY = (this.canvas.height / 2) / rect.height;
 
         return {
             x: (event.clientX - rect.left) * scaleX,
@@ -1763,8 +1782,8 @@ class NightreignMapRecogniser {
         const canvas = document.getElementById('map-canvas');
         const canvasRect = canvas.getBoundingClientRect();
         const containerRect = mapContainer.getBoundingClientRect();
-        const scaleX = canvasRect.width / canvas.width;
-        const scaleY = canvasRect.height / canvas.height;
+        const scaleX = canvasRect.width / (canvas.width / 2);   // canvas 1536 / 数据 768 空间
+        const scaleY = canvasRect.height / (canvas.height / 2);
         const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
 
