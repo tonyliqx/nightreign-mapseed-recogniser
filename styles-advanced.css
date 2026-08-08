@@ -353,17 +353,7 @@ body {
 }
 
 .recognition-header {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 1rem 2rem;
     margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
 }
 
 .recognition-controls {
@@ -796,11 +786,6 @@ body {
         padding: 0.65rem 1.4rem;
         font-size: 1rem;
         margin-top: 0.7rem;
-    }
-    
-    .recognition-header {
-        flex-direction: column;
-        text-align: center;
     }
     
     .recognition-controls {
