@@ -69,6 +69,14 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header-controls .control-btn,
+.header-controls .lang-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .control-btn {
@@ -712,8 +720,59 @@ body {
         font-size: 1.4rem;
     }
     
-    .nightlord-grid, .map-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    /* 选择参数页紧凑化：减少移动端滑动 */
+    .selection-container {
+        padding: 1.1rem 0.9rem;
+    }
+    .selection-container h2 {
+        font-size: 1.35rem;
+        margin-bottom: 0.9rem;
+    }
+    .selection-group {
+        margin-bottom: 1rem;
+    }
+    .selection-group h3 {
+        font-size: 1.02rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* 夜王：横排大卡 → 竖排小卡（图标上 / 名字下），一行 4 个 */
+    .nightlord-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    .nightlord-btn {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.45rem 0.2rem;
+        min-height: auto;
+    }
+    .nightlord-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .nightlord-btn span {
+        font-size: 0.78rem;
+        flex: 0 0 auto;
+    }
+
+    /* 地图：一行 3 个 */
+    .map-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+    .map-btn {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.88rem;
+    }
+
+    /* 开始按钮缩小 */
+    .start-btn {
+        padding: 0.65rem 1.4rem;
+        font-size: 1rem;
+        margin-top: 0.7rem;
     }
     
     .recognition-header {
