@@ -481,21 +481,15 @@ class NightreignMapRecogniser {
     }
 
     selectMap(map) {
-        // If the same map is clicked again, clear the selection
+        // 再次点击已选地形：重置当前地图标记（回出生点阶段、清 POI），保留地形选中
+        // 与夜王选择（夜王/地形是独立维度），不滚动
         if (this.chosenMap === map) {
-            this.chosenMap = null;
-            this.currentPOIs = POI_SLOTS_BY_MAP['Default'] || [];
-            this.poiStates = this.initializePOIStates();
-
-            // Update UI
-            this.setChosenText('chosen-map', this.getText('map.none'));
-
-            // Clear all button states
-            document.querySelectorAll('.map-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            console.log('Cleared map selection');
+            this.selectedSpawn = null;
+            this.spawnPhase = true;
+            this.hidePOISuggestions();
+            this.updateGameState();   // 退出种子图、重置 poiStates、重画、重新筛选
+            console.log(`Reset markers for map: ${map}`);
+            return;                    // 重置不走末尾的 scrollMapIntoView
         } else {
             // Select the new map
             this.chosenMap = map;
@@ -1994,9 +1988,9 @@ class NightreignMapRecogniser {
         seedImageContainer.style.display = 'flex';
         // 检查是否为移动设备（供模板共用）
         const isMobile = window.innerWidth <= 768;
-        // 滚动策略与选地形后完全一致：复用 scrollMapIntoView——滚外层 .map-area，
-        // PC 滚到顶部（种子图在 100vh 区垂直居中），移动端滚到底部（与窗口底部对齐）
-        this.scrollMapIntoView('end');
+        // 滚动策略：仅 PC 滚到顶部（种子图在 100vh 区垂直居中）；移动端不自动滚动，
+        // 避免标记出最终种子时页面突兀跳动（用户保持在当前标记位置查看）
+        this.scrollMapIntoView();
 
         const seedStr = mapSeed.toString().padStart(3, '0');
         const currentLang = this.languageManager.getCurrentLanguage();
