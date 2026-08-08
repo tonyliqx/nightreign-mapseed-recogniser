@@ -837,6 +837,26 @@ body {
     .spawn-controls .control-btn i {
         flex: 0 0 auto;
     }
+
+    /* 识别页：返回/清除所有POI/帮助三按钮移动端强制同一行 */
+    .recognition-controls {
+        flex-direction: row;      /* 覆盖上方 flex-direction:column */
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+        padding: 0.6rem 0.5rem;
+    }
+    .recognition-controls .control-btn {
+        width: auto;              /* 覆盖 .control-btn{width:100%} 全局影响 */
+        max-width: none;
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 0.4rem 0.45rem;
+        font-size: 0.76rem;
+        white-space: nowrap;
+    }
+    .recognition-controls .control-btn i {
+        flex: 0 0 auto;
+    }
     
     #map-canvas,
     #spawn-canvas {
