@@ -482,14 +482,12 @@ class NightreignMapRecogniser {
 
     selectMap(map) {
         // 再次点击已选地形：重置当前地图标记（回出生点阶段、清 POI），保留地形选中
-        // 与夜王选择（夜王/地形是独立维度），不滚动
+        // 与夜王选择（夜王/地形是独立维度）；与新选地形一致，末尾同样滚动到地图区
         if (this.chosenMap === map) {
             this.selectedSpawn = null;
             this.spawnPhase = true;
             this.hidePOISuggestions();
-            this.updateGameState();   // 退出种子图、重置 poiStates、重画、重新筛选
             console.log(`Reset markers for map: ${map}`);
-            return;                    // 重置不走末尾的 scrollMapIntoView
         } else {
             // Select the new map
             this.chosenMap = map;
