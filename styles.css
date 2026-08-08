@@ -1174,14 +1174,12 @@ body {
     }
 
     /* 移动端种子图片全屏显示 - 最大化展示，移除金边 */
+    /* 移动端种子图在页面流内显示（无全屏遮罩），上方重置按钮不被遮挡，便于迅速重置；
+       min-height:auto 覆盖基础 100vh，按内容高度紧凑展示 */
     #seed-image-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #000000;
-        z-index: 1000;
+        position: relative;
+        background: transparent;
+        min-height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1190,24 +1188,24 @@ body {
         margin: 0;
     }
 
+    /* 卡片刚好包住种子图片 + 编号，居中在遮罩内（不再全屏拉伸、上下留大片黑边） */
     .seed-result-container {
-        width: 100%;
-        height: 100%;
+        position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-        position: relative;
+        max-width: min(92vw, calc(100vh - 140px));
+        background: #1a1a2e;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 15px;
+        padding: 12px;
         margin: 0;
-        padding: 20px 0;
     }
 
     .seed-image-link {
         width: 100%;
-        height: calc(100% - 80px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: auto;
+        display: block;
         margin: 0;
         padding: 0;
         text-decoration: none;
@@ -1215,29 +1213,18 @@ body {
 
     .seed-image {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: contain;
         border: none;
-        border-radius: 0;
+        border-radius: 10px;
         box-shadow: none;
         margin: 0;
         padding: 0;
     }
 
+    /* 移动端隐藏种子编号/夜王/提示：不占布局空间，图片底贴屏幕底（与 POI 点选区一致） */
     .seed-info {
-        position: absolute;
-        bottom: 20px;
-        left: 10px;
-        right: 10px;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.8);
-        padding: 12px;
-        backdrop-filter: blur(10px);
-        margin: 0;
-        border: none;
-        border-radius: 8px;
-        max-width: 90%;
-        margin: 0 auto;
+        display: none;
     }
 
     .seed-number {
@@ -1380,11 +1367,9 @@ body {
     .help-btn {
         padding: 10px 15px;
         font-size: 0.9rem;
-        /* 固定等宽：宽度 = 3字+图标+内边距，强制每行≤3字（6字→3+3，5字→3+2），
-           三个方格宽度一致。flex:0 0 auto 防止在 flex 容器里被拉伸/压缩。
-           height:auto 让两行文字撑高背景，min-height 保持单行紧凑。 */
-        width: 7em;
-        flex: 0 0 auto;
+        /* 三个按钮由 .compact-button-row 的 grid 1fr 1fr 自然填满：重置独占整行、
+           跳过+帮助平分第二行，两行总宽一致。height:auto 让多字按钮换行撑高背景，
+           min-height 保持单行紧凑。 */
         height: auto;
         min-height: 36px;
         line-height: 1.2;

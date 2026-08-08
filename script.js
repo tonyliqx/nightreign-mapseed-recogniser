@@ -518,16 +518,19 @@ class NightreignMapRecogniser {
         }
 
         this.updateGameState();
-        this.scrollMapIntoView();
+        this.scrollMapIntoView('end');
     }
 
-    // PC 端选夜王/地形后，把地图区滚到视口顶部——map-area 在 @media(min-width:1024px) 下
-    // min-height:100vh + justify-content:center，故画布落在屏幕上下中央。与最终种子图
-    // （showSeedImage 的 scrollIntoView）同机制；移动端单列布局不触发。
-    scrollMapIntoView() {
-        if (window.matchMedia('(min-width: 1024px)').matches) {
+    // 选夜王/地形后滚动地图区：PC（≥1024px）滚到视口顶部——map-area 在
+    // @media(min-width:1024px) 下 min-height:100vh + justify-content:center，画布落在屏幕
+    // 上下中央（与最终种子图同机制）。移动端默认不滚；调用方传 mobileBlock 时按其对齐
+    // （selectMap 传 'end'：选地形后画布与窗口底部对齐）。
+    scrollMapIntoView(mobileBlock = null) {
+        const isPC = window.matchMedia('(min-width: 1024px)').matches;
+        const block = isPC ? 'start' : mobileBlock;
+        if (block) {
             requestAnimationFrame(() => {
-                document.querySelector('.map-area')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                document.querySelector('.map-area')?.scrollIntoView({ block, behavior: 'smooth' });
             });
         }
     }
@@ -1388,6 +1391,12 @@ class NightreignMapRecogniser {
     }
 
     resetMap() {
+        // 恢复画布显示（showSeedImage 会隐藏 canvas、显示种子图），否则重绘不可见
+        const canvas = document.getElementById('map-canvas');
+        const seedImageContainer = document.getElementById('seed-image-container');
+        if (canvas) canvas.style.display = 'block';
+        if (seedImageContainer) seedImageContainer.style.display = 'none';
+
         // Clear only nightlord selection and POI states, keep map selection
         this.chosenNightlord = null;
         this.poiStates = this.initializePOIStates();
@@ -1434,6 +1443,13 @@ class NightreignMapRecogniser {
         }
 
         console.log('Reset completed - cleared nightlord selection and POI states, kept map selection');
+
+        // 移动端：重置后滚回夜王选择区，方便重新开始（PC 分栏布局下夜王常驻可见，无需滚动）
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+            requestAnimationFrame(() => {
+                document.querySelector('.results-sidebar .selection-card')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            });
+        }
     }
 
     skipSpawn() {
@@ -1976,20 +1992,19 @@ class NightreignMapRecogniser {
 
         canvas.style.display = 'none';
         seedImageContainer.style.display = 'flex';
-        // 种子图区域已 min-height:100vh + 垂直居中，滚到其顶部让图片落在屏幕上下中央
-        requestAnimationFrame(() => seedImageContainer.scrollIntoView({ block: 'start', behavior: 'smooth' }));
+        // 检查是否为移动设备（供模板共用）
+        const isMobile = window.innerWidth <= 768;
+        // 滚动策略与选地形后完全一致：复用 scrollMapIntoView——滚外层 .map-area，
+        // PC 滚到顶部（种子图在 100vh 区垂直居中），移动端滚到底部（与窗口底部对齐）
+        this.scrollMapIntoView('end');
 
         const seedStr = mapSeed.toString().padStart(3, '0');
         const currentLang = this.languageManager.getCurrentLanguage();
         // 种子结果图：本体(0-319, 3位补零)与 DLC(1000-1199, 4位) 均按语言目录存放
         const seedImageUrl = `assets/pattern/${currentLang}/${seedStr}.jpg`;
 
-        // 检查是否为移动设备
-        const isMobile = window.innerWidth <= 768;
-
         seedImageContainer.innerHTML = `
             <div class="seed-result-container">
-                ${isMobile ? '<button class="close-fullscreen-btn">&times;</button>' : ''}
                 <a href="${seedImageUrl}" target="_blank" class="seed-image-link">
                     <img src="${seedImageUrl}" alt="${this.getText('seed.alt_text', { seed: mapSeed })}" class="seed-image">
                 </a>
@@ -2000,18 +2015,6 @@ class NightreignMapRecogniser {
                 </div>
             </div>
         `;
-
-        // 为移动端关闭按钮添加事件监听
-        if (isMobile) {
-            const closeBtn = seedImageContainer.querySelector('.close-fullscreen-btn');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    seedImageContainer.style.display = 'none';
-                    canvas.style.display = 'block';
-                    this.renderMap();
-                });
-            }
-        }
     }
 
     updateNightlordInfo(nightlordChinese) {
