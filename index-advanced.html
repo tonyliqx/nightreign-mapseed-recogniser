@@ -2,6 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+    // 尽早同步检测语言，避免「先英文后中文」首屏闪烁。
+    // HTML 默认文本为英文：若用户目标语言非英文，先隐藏页面，等 updateUI() 翻译完再显示。
+    // 检测优先级与 LanguageManager.detectLanguage() 完全一致：URL > cookie > localStorage > 浏览器语言 > 默认 zh
+    (function () {
+        try {
+            var lang = new URLSearchParams(location.search).get('lang');
+            if (lang !== 'zh' && lang !== 'en') {
+                var m = document.cookie.match(/(?:^|;\s*)preferred-language=(zh|en)/);
+                if (m) lang = m[1];
+            }
+            if (lang !== 'zh' && lang !== 'en') {
+                var s = localStorage.getItem('preferred-language');
+                if (s === 'zh' || s === 'en') lang = s;
+            }
+            if (lang !== 'zh' && lang !== 'en') {
+                var b = (navigator.language || '').split('-')[0];
+                if (b === 'zh' || b === 'en') lang = b;
+            }
+            lang = lang || 'zh';
+            document.documentElement.setAttribute('data-lang', lang);
+            if (lang !== 'en') {
+                document.documentElement.style.visibility = 'hidden';
+                // 兜底：万一 LanguageManager 未正常 init（脚本异常等），1.5s 后强制显示，避免永久白屏
+                setTimeout(function () { document.documentElement.style.visibility = ''; }, 1500);
+            }
+        } catch (e) {}
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nightreign Map Seed Recognizer</title>
     <meta name="description" data-i18n="app.description" content="Interactive tool: Identify Elden Ring Nightreign map seeds through POI locations">
@@ -10,7 +39,7 @@
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="i18n/translations-advanced.js?v=12"></script>
-    <script src="i18n/language-manager.js?v=8"></script>
+    <script src="i18n/language-manager.js?v=9"></script>
 </head>
 <body>
     <div class="app-container">

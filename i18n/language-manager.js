@@ -66,7 +66,9 @@ class LanguageManager {
     
     // Update all text content
     this.updateUI();
-    
+    // 恢复可见性：head 内联脚本可能在翻译前隐藏了页面以避免语言闪烁，翻译完成即可显示
+    document.documentElement.style.visibility = '';
+
     // Update asset paths
     this.updateAssets();
     
