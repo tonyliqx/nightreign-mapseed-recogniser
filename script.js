@@ -308,10 +308,7 @@ class NightreignMapRecogniser {
     }
 
     showSelectionSection() {
-        const selectionSection = document.getElementById('selection-section');
-        selectionSection.style.display = 'block';
-
-        // Also show results section with initial seed count
+        // 选择区（夜王/地形）已并入 results-sidebar 常驻显示，这里只需确保 results-section 显示
         const resultsSection = document.getElementById('results-section');
         resultsSection.style.display = 'block';
         this.updateSeedCount();
@@ -325,10 +322,7 @@ class NightreignMapRecogniser {
         this.currentPOIs = POI_SLOTS_BY_MAP['Default'] || [];
         this.poiStates = this.initializePOIStates();
 
-        // Show interaction section and instructions
-        const interactionSection = document.getElementById('interaction-section');
-        interactionSection.style.display = 'block';
-
+        // 操作按钮已常驻 results-sidebar，无需单独显示 interaction-section
         // Render the default map
         this.renderDefaultMap();
     }
@@ -626,8 +620,7 @@ class NightreignMapRecogniser {
     }
 
     showInteractionSection() {
-        const interactionSection = document.getElementById('interaction-section');
-        interactionSection.style.display = 'block';
+        // 操作按钮（重置/跳过/帮助）已常驻 results-sidebar，无需切换 section
     }
 
     showResultsSection() {
@@ -1963,7 +1956,9 @@ class NightreignMapRecogniser {
         const seedImageContainer = document.getElementById('seed-image-container');
 
         canvas.style.display = 'none';
-        seedImageContainer.style.display = 'block';
+        seedImageContainer.style.display = 'flex';
+        // 种子图区域已 min-height:100vh + 垂直居中，滚到其顶部让图片落在屏幕上下中央
+        requestAnimationFrame(() => seedImageContainer.scrollIntoView({ block: 'start', behavior: 'smooth' }));
 
         const seedStr = mapSeed.toString().padStart(3, '0');
         const currentLang = this.languageManager.getCurrentLanguage();

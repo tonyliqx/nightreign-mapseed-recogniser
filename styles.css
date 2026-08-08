@@ -343,7 +343,7 @@ body {
 }
 
 .selection-card {
-    padding: 1.5rem;
+    padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -360,8 +360,8 @@ body {
 
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
 }
 
 .nightlord-btn,
@@ -381,14 +381,14 @@ body {
     font-weight: 500;
 }
 
-/* 夜王按钮：横排，图标在左、名字在右（对齐高级版）*/
+/* 夜王按钮：横排，图标在左、名字在右（侧栏双列紧凑）*/
 .nightlord-btn {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    min-height: 80px;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    min-height: 58px;
 }
 
 .nightlord-btn span {
@@ -410,8 +410,8 @@ body {
 }
 
 .nightlord-icon {
-    width: 64px;
-    height: 64px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
     transition: all 0.3s ease;
     flex: 0 0 auto;
@@ -585,12 +585,26 @@ body {
 /* Results */
 .results-grid {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 380px 1fr;
     gap: 30px;
     align-items: start;
 }
 
-/* 种子计数器和夜王信息在一行展示 - 参照nightlord-info样式 */
+/* 左侧栏：夜王/地形选择，纵向堆叠 */
+.results-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* 右侧地图区：顶部计数栏 + 地图画布 */
+.map-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* 地图上方计数栏：金色框，宽度对齐画布(768)，计数与夜王信息左右分布 */
 .results-header {
     display: flex;
     flex-direction: row;
@@ -598,12 +612,15 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    box-sizing: border-box;
     padding: 12px;
     background: rgba(255, 215, 0, 0.1);
     border-radius: 10px;
     border: 1px solid rgba(255, 215, 0, 0.3);
     text-align: center;
-    margin-bottom: 20px;
 }
 
 /* 调整seed-counter样式 - 确保标签和计数在同一行 */
@@ -657,15 +674,6 @@ body {
     .results-grid {
         grid-template-columns: 1fr;
         gap: 15px;
-    }
-
-    .seed-counter {
-        order: 1;
-        margin-bottom: 0;
-    }
-
-    .map-container {
-        order: 2;
     }
 }
 
@@ -847,7 +855,14 @@ body {
     cursor: crosshair;
 }
 
+/* PC：最终种子图区域占满视口高度并垂直居中，显示时滚到此处让图片落在屏幕上下中央 */
 #seed-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
     text-align: center;
 }
 
@@ -934,15 +949,21 @@ body {
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
-/* 重置按钮区域紧凑样式 */
+/* 侧栏底部操作按钮：重置独占一行，跳过/帮助并排一行，带卡片框 */
 .compact-button-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 1rem;
     margin: 0;
-    min-height: auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.compact-button-row #reset-map-btn {
+    grid-column: 1 / -1;
 }
 
 /* 移动端夜王信息样式 */
