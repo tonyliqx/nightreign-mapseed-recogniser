@@ -328,7 +328,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     width: 100%;          /* recognition-header 是 flex 容器，info-bar 作为 item 默认宽度=内容；强制占满，与 spawn(块级父) 一致 */
-    min-width: 0;
+    white-space: nowrap;  /* 防 spans 内中文被 flex 压缩到 min-content(单字) 后逐字断行——这才是「两行」的真正根因 */
     gap: 0.4rem 1rem;
     margin-bottom: 0.6rem;
 }
@@ -795,6 +795,7 @@ body {
     .recognition-header {
         flex-direction: column;
         text-align: center;
+        padding: 0.8rem 1rem;   /* 移动端减小左右内边距，给 info-bar 更多宽度，避免长地名/夜王名溢出 */
     }
     
     .recognition-controls {
