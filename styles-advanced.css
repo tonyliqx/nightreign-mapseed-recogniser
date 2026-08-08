@@ -322,6 +322,15 @@ body {
     justify-content: center;
 }
 
+/* 地图 / 夜王 / 匹配种子 三组信息合并同一行 */
+.spawn-info-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.4rem 1rem;
+    margin-bottom: 0.6rem;
+}
+
 #spawn-canvas {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -806,9 +815,10 @@ body {
         font-size: 0.85rem;
         margin-top: 0.3rem;
     }
-    .spawn-screen .current-selection,
-    .spawn-screen .seed-count {
-        font-size: 0.88rem;
+    .spawn-info-bar {
+        justify-content: center;
+        gap: 0.4rem 0.7rem;
+        font-size: 0.85rem;
     }
     .spawn-controls {
         flex-wrap: nowrap;
