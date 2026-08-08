@@ -794,6 +794,39 @@ body {
     .current-selection {
         justify-content: center;
     }
+
+    /* 出生点选择页紧凑化 + 返回/跳过/帮助三按钮移动端强制同一行 */
+    .spawn-screen .screen-header {
+        margin-bottom: 0.6rem;
+    }
+    .spawn-screen .screen-header h2 {
+        font-size: 1.2rem;
+    }
+    .spawn-screen .screen-header p {
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+    }
+    .spawn-screen .current-selection,
+    .spawn-screen .seed-count {
+        font-size: 0.88rem;
+    }
+    .spawn-controls {
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+        margin-bottom: 0.7rem;
+    }
+    .spawn-controls .control-btn {
+        width: auto;            /* 覆盖结果页 .control-btn{width:100%} 的全局影响 */
+        max-width: none;
+        flex: 1 1 auto;         /* 按内容分配，长按钮（跳过出生点选择）多占 */
+        min-width: 0;
+        padding: 0.4rem 0.45rem;
+        font-size: 0.76rem;
+        white-space: nowrap;    /* 文字不换行，保证三按钮始终一行 */
+    }
+    .spawn-controls .control-btn i {
+        flex: 0 0 auto;
+    }
     
     #map-canvas,
     #spawn-canvas {
