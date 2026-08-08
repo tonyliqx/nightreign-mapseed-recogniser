@@ -69,7 +69,6 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -714,6 +713,13 @@ body {
     .header-content {
         padding: 0 1rem;
         gap: 15px;
+    }
+
+    /* 移动端 header 按钮缩小，确保「切换基础模式 + 语言钮」始终同一行 */
+    .header-controls .control-btn,
+    .header-controls .lang-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
     }
     
     .app-title {
