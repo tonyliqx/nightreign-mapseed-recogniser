@@ -1116,7 +1116,7 @@ body {
     /* 夜王按钮：移动端改竖排（图标上、名下）+ 一行 4 个。
        横排下英文长名(Straghess/Heolstor/Harmonia)撑爆按钮，竖排让文字独占整列宽。
        用 .nightlord-grid 后代选择器提高特异性，覆盖下方 .nightlord-btn 通用规则及 480 断点。*/
-    .nightlord-grid {
+    .button-grid.nightlord-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 0.4rem;
     }
