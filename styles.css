@@ -382,6 +382,12 @@ body {
     gap: 0.6rem;
 }
 
+/* 地形按钮：固定一行 2 个。移动端 auto-fit 在窄屏排出多列、长名(Rotted Woods/Great Hollow)
+   被迫换行且高度参差；固定 2 列让 6 个按钮整齐排成 3 行。双类特异性压过各断点 .button-grid。*/
+.button-grid.map-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .nightlord-btn,
 .map-btn {
     background: rgba(255, 255, 255, 0.1);
