@@ -229,8 +229,8 @@ const translations = {
     'help.poi_church': 'Church',
     'help.poi_tower': 'Mage Tower',
     'help.poi_merchant': 'Merchant (Special Merchant)',
-    'help.poi_carriage': 'Stonesword Key',
-    'help.poi_hut': 'Shack (Seal)',
+    'help.poi_carriage': 'Carriage (With Stonesword Key)',
+    'help.poi_hut': 'Shack (With Seals)',
     'help.poi_empty': 'Empty (no building here)',
     
     // Seed display
