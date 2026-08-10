@@ -1393,10 +1393,8 @@ class NightreignApp {
             if (poi.selectionState.layer1 === option) {
                 item.classList.add('selected');
             }
-            // type 已是中文名，直接显示；Empty 兜底翻译
-            item.textContent = option === 'Empty'
-                ? (this.languageManager ? this.languageManager.getText('context.empty') || '空' : '空')
-                : option;
+            // Empty 兜底翻译；英文模式查 POI_TYPE_EN 映射，缺映射回退中文
+            item.textContent = this.getPoiTypeDisplay(option);
             item.addEventListener('click', () => {
                 this.selectLayer1(poi, option);
                 this.hideContextMenu();
@@ -1700,15 +1698,32 @@ class NightreignApp {
     }
 
     getCategoryDisplayName(category) {
-        // NAME 类别 key → 中文（权威分类，用户 2026-08-04 裁定）
-        const names = {
+        // NAME 类别 key → 显示名；英文走 i18n category.*，中文回退硬编码
+        const fallback = {
             'landmark': '共享点位',
             'stronghold': '野外据点',
             'fieldBoss': '野外BOSS',
             'scaleMerchant': '山羊事件商人',
             'merchant': '商人'
         };
-        return names[category] || category;
+        if (this.languageManager) {
+            const key = 'category.' + category;
+            const t = this.languageManager.getText(key);
+            if (t && t !== key) return t; // 命中翻译
+        }
+        return fallback[category] || category; // 中文或无翻译
+    }
+
+    getPoiTypeDisplay(option) {
+        // Empty 走 i18n；英文模式查 POI_TYPE_EN 中文→英文映射，缺映射回退中文原值
+        if (option === 'Empty') {
+            return this.languageManager ? (this.languageManager.getText('context.empty') || '空') : '空';
+        }
+        if (this.languageManager && this.languageManager.isEnglish() &&
+            typeof POI_TYPE_EN !== 'undefined' && POI_TYPE_EN[option]) {
+            return POI_TYPE_EN[option];
+        }
+        return option; // 中文模式或无映射：原样中文
     }
 
     getDisplayNameForValue(value) {
