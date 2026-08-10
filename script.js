@@ -24,6 +24,9 @@ const TYPE_DISPLAY_MAP = {
     '破败小屋': '祷告屋',  // 同上，4 字 → 3 字
 };
 
+// 出生点 label 圈数字 → 阿拉伯数字（英文版 drawSpawnMarker 渲染 SP1/SP2… 用；中文版沿用原 label）
+const CIRCLED_TO_NUM = { '①':'1','②':'2','③':'3','④':'4','⑤':'5','⑥':'6','⑦':'7','⑧':'8','⑨':'9' };
+
 // 共享点位浮窗「方向覆盖」坐标集（768 空间，容差±3px）。命中则按 dir 渲染，跳过 originalId 偏移表。
 // 各地形同坐标点的 originalId 不同，故按坐标判断而非 originalId。新增条目向数组追加 {x,y,dir}。
 // 已知条目（verify_pool 标定图，均四地形 Default/Mountaintop/Crater/Rotted Woods 同坐标）：
@@ -905,12 +908,15 @@ class NightreignMapRecogniser {
         this.ctx.strokeStyle = '#000000';
         this.ctx.lineWidth = 2;
         this.ctx.stroke();
-        // 序号 label
+        // 序号 label：中文「出生点①」/ 英文「SP1」（圈数字→阿拉伯数字）
+        const spawnText = this.languageManager.getCurrentLanguage() === 'en'
+            ? 'SP' + (CIRCLED_TO_NUM[(label.match(/[①-⑨]/) || [])[0]] || '')
+            : label;
         this.ctx.fillStyle = '#ffffff';
         this.ctx.font = 'bold 11px Inter, sans-serif';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
-        this.ctx.fillText(label, x, y + r * 0.3);
+        this.ctx.fillText(spawnText, x, y + r * 0.3);
     }
 
     setupCanvasEventListeners() {

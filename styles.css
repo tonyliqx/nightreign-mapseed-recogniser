@@ -1830,6 +1830,21 @@ body {
     }
 }
 
+/* 英文版 POI 浮窗：隐藏 type 中文文字标签（教堂/法师塔/特殊商人/马车/破败小屋/empty 未做英文翻译），
+   图标放大利用空间。中文版不受影响；[data-lang] 随语言切换变化，CSS 自动重匹配，无需 JS 介入。*/
+[data-lang="en"] .poi-suggestion-btn span {
+    display: none;
+}
+[data-lang="en"] .suggestion-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0;
+}
+[data-lang="en"] .poi-suggestion-container.mobile-suggestion .suggestion-icon {
+    width: 22px;
+    height: 22px;
+}
+
 /* Touch feedback for context menu items */
 .context-menu-item.touch-feedback {
     background-color: #e3f2fd !important;
