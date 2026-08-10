@@ -1371,6 +1371,15 @@ class NightreignApp {
     generateSingleLayerMenu(container, poi) {
         const options = this.getAvailableOptions(poi, 1);
 
+        // 共享点位(landmark)固定顺序：教堂/法师塔/特殊商人/马车/破败小屋/空（中英文一致）
+        if (poi.category === 'landmark') {
+            const order = ['教堂', '法师塔', '特殊商人', '马车', '破败小屋', 'Empty'];
+            options.sort((a, b) => {
+                const ia = order.indexOf(a), ib = order.indexOf(b);
+                return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+            });
+        }
+
         if (options.length === 0) {
             const noOptionsText = this.languageManager ? this.languageManager.getText('ui.no_options_available') : 'No options available';
             container.innerHTML = `<div class="context-menu-item">${noOptionsText}</div>`;
