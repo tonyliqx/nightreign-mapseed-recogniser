@@ -1113,6 +1113,33 @@ body {
         gap: 0.6rem;
     }
 
+    /* 夜王按钮：移动端改竖排（图标上、名下）+ 一行 4 个。
+       横排下英文长名(Straghess/Heolstor/Harmonia)撑爆按钮，竖排让文字独占整列宽。
+       用 .nightlord-grid 后代选择器提高特异性，覆盖下方 .nightlord-btn 通用规则及 480 断点。*/
+    .nightlord-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.4rem;
+    }
+    .nightlord-grid .nightlord-btn {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 58px;
+        padding: 0.4rem 0.2rem;
+        gap: 0.25rem;
+    }
+    .nightlord-grid .nightlord-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .nightlord-grid .nightlord-btn span {
+        flex: 0 0 auto;
+        font-size: 0.7rem;
+        text-align: center;
+        line-height: 1.1;
+        overflow-wrap: anywhere;  /* 极小屏长名兜底折行，避免溢出 */
+    }
+
     .nightlord-btn {
         min-height: 64px;
         padding: 0.6rem 0.8rem;
