@@ -161,27 +161,30 @@
             </div>
             <div class="modal-body">
                 <div class="help-section">
-                    <h4>🎮 <span data-i18n="help.usage">使用方法</span></h4>
-                    <p data-i18n="help.usage_desc">通过对比地图上的教堂和法师塔位置，识别器会帮助你识别 黑夜君临 地图种子。</p>
-
                     <h4>📋 <span data-i18n="help.steps">使用步骤</span></h4>
                     <ol>
-                        <li data-i18n="help.step1" data-i18n-html="true">从列表中选择<strong>夜王</strong>（非必选）</li>
-                        <li data-i18n="help.step2" data-i18n-html="true">选择<strong>地图/特殊地形</strong>类型</li>
-                        <li data-i18n="help.step3">查看地图上高亮的橙色圆点 —— 这些是可能标注的兴趣点位置</li>
-                        <li data-i18n="help.step4" data-i18n-html="true">点击橙色圆点，标记你在游戏中看到的内容：
-                        <li data-i18n="help.step5">随着标记增加，可能的种子会被逐步筛选</li>
-                        <li data-i18n="help.step6">当仅剩一个结果时，会显示最终完整的种子详情和地图图像</li>
+                        <li data-i18n="help.step1" data-i18n-html="true">选择<strong>夜王</strong>（可选）</li>
+                        <li data-i18n="help.step2" data-i18n-html="true">选择<strong>地形</strong></li>
+                        <li data-i18n="help.step3" data-i18n-html="true">选择<strong>出生点</strong>（可选）</li>
+                        <li data-i18n="help.step4" data-i18n-html="true">点选地图上的 POI：
+                            <ul class="help-sub">
+                                <li data-i18n="help.step4_pc" data-i18n-html="true"><strong>PC</strong>：左键标记教堂，右键选择其他选项</li>
+                                <li data-i18n="help.step4_mobile" data-i18n-html="true"><strong>移动端</strong>：单击标记教堂，长按选择其他选项</li>
+                                <li data-i18n="help.step4_clear" data-i18n-html="true">再次点击已标记的点可<strong>取消标记</strong></li>
+                            </ul>
+                        </li>
+                        <li data-i18n="help.step5" data-i18n-html="true">标记越多，种子筛选越快；仅剩一个时显示完整种子详情与地图图像</li>
                     </ol>
 
-                    <h4>💡 <span data-i18n="help.tips">提示</span></h4>
-                    <ul>
-                        <li data-i18n="help.tip1">尽量多标记你在游戏中能确认的兴趣点</li>
-                        <li data-i18n="help.tip2">使用右键菜单或者长按选择法师塔、村庄或其他兴趣点</li>
-                        <li data-i18n="help.tip3">如果没有结果，请重置，并重新标注兴趣点，请确保兴趣点标注准确</li>
-                        <li data-i18n="help.tip4">最终种子会显示详细布局，以便核对</li>
-                        <li data-i18n="help.tip5">在标记兴趣点前请选择夜王（非必选）和特殊地形</li>
-                    </ul>
+                    <h4>🗺️ <span data-i18n="help.poi_meaning">POI 图标意义</span></h4>
+                    <div class="help-poi-grid">
+                        <div class="help-poi-item"><img src="assets/icons/church.png" class="help-poi-icon" alt="教堂"><span data-i18n="help.poi_church">教堂</span></div>
+                        <div class="help-poi-item"><img src="assets/icons/rise.png" class="help-poi-icon" alt="法师塔"><span data-i18n="help.poi_tower">法师塔</span></div>
+                        <div class="help-poi-item"><img src="assets/icons/merchant.png" class="help-poi-icon" alt="大商人"><span data-i18n="help.poi_merchant">大商人（特殊商人）</span></div>
+                        <div class="help-poi-item"><img src="assets/icons/carriage.png" class="help-poi-icon" alt="马车"><span data-i18n="help.poi_carriage">马车</span></div>
+                        <div class="help-poi-item"><img src="assets/icons/blessing.png" class="help-poi-icon" alt="祷告屋"><span data-i18n="help.poi_hut">祷告屋（破败小屋）</span></div>
+                        <div class="help-poi-item"><img src="assets/images/empty.png" class="help-poi-icon" alt="空"><span data-i18n="help.poi_empty">空（该位置无建筑）</span></div>
+                    </div>
                 </div>
             </div>
         </div>
