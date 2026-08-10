@@ -1845,6 +1845,17 @@ body {
     height: 22px;
 }
 
+/* 移动端中文版 POI 浮窗：同样去掉文字标签、图标放大（与英文版移动端一致）。
+   仅作用于 .mobile-suggestion（手机浮窗），PC 中文版保留文字。
+   特异性 (0,4,1) 压过移动端 .mobile-suggestion span 的 inline-block。*/
+[data-lang="zh"] .poi-suggestion-container.mobile-suggestion .poi-suggestion-btn span {
+    display: none;
+}
+[data-lang="zh"] .poi-suggestion-container.mobile-suggestion .suggestion-icon {
+    width: 22px;
+    height: 22px;
+}
+
 /* Touch feedback for context menu items */
 .context-menu-item.touch-feedback {
     background-color: #e3f2fd !important;
