@@ -477,7 +477,14 @@ class NightreignMapRecogniser {
         this.spawnPhase = true;
 
         this.updateGameState();
-        this.scrollMapIntoView();
+        // 移动端选夜王后滚回夜王选择区，使夜王/地形两区都进入视口；PC 仍滚到地图区
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+            requestAnimationFrame(() => {
+                document.querySelector('.results-sidebar .selection-card')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            });
+        } else {
+            this.scrollMapIntoView();
+        }
     }
 
     selectMap(map) {
