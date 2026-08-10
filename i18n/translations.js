@@ -92,7 +92,7 @@ const translations = {
     'help.steps': '使用步骤',
     'help.step1': '选择<strong>夜王</strong>（可选）',
     'help.step2': '选择<strong>地形</strong>',
-    'help.step3': '选择<strong>出生点</strong>（可选）',
+    'help.step3': '选择<strong>出生点</strong>（可跳过）',
     'help.step4': '点选地图上的 POI：',
     'help.step4_pc': '<strong>PC</strong>：左键标记教堂，右键选择其他选项',
     'help.step4_mobile': '<strong>移动端</strong>：单击标记教堂，长按选择其他选项',
@@ -102,8 +102,8 @@ const translations = {
     'help.poi_church': '教堂',
     'help.poi_tower': '法师塔',
     'help.poi_merchant': '大商人（特殊商人）',
-    'help.poi_carriage': '马车',
-    'help.poi_hut': '祷告屋（破败小屋）',
+    'help.poi_carriage': '马车（石剑钥匙）',
+    'help.poi_hut': '破败小屋（祷告屋）',
     'help.poi_empty': '空（该位置无建筑）',
     
     // Seed display
@@ -219,7 +219,7 @@ const translations = {
     'help.steps': 'Usage Steps',
     'help.step1': 'Select a <strong>Nightlord</strong> (optional)',
     'help.step2': 'Select <strong>Terrain</strong>',
-    'help.step3': 'Select a <strong>Spawn Point</strong> (optional)',
+    'help.step3': 'Select a <strong>Spawn Point</strong> (skippable)',
     'help.step4': 'Click POIs on the map:',
     'help.step4_pc': '<strong>PC</strong>: left-click to mark Church, right-click for other options',
     'help.step4_mobile': '<strong>Mobile</strong>: tap to mark Church, long-press for other options',
@@ -229,8 +229,8 @@ const translations = {
     'help.poi_church': 'Church',
     'help.poi_tower': 'Mage Tower',
     'help.poi_merchant': 'Merchant (Special Merchant)',
-    'help.poi_carriage': 'Carriage',
-    'help.poi_hut': 'Prayer Room (Ruined Hut)',
+    'help.poi_carriage': 'Stonesword Key',
+    'help.poi_hut': 'Shack (Seal)',
     'help.poi_empty': 'Empty (no building here)',
     
     // Seed display
