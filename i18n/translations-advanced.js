@@ -2,7 +2,7 @@
 const translations_advanced = {
   'zh': {
     // App metadata
-    'app.title': '黑夜君临：地图种子识别器',
+    'app.title': '黑夜君临-地图种子识别器',
     'app.description': '交互工具：通过兴趣点位置识别艾尔登法环 黑夜君临 地图种子',
     'app.keywords': '艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具',
     
@@ -228,7 +228,7 @@ const translations_advanced = {
   
   'en': {
     // App metadata
-    'app.title': 'Nightreign: Map Seed Recognizer',
+    'app.title': 'Nightreign - Map Seed Recognizer',
     'app.description': 'Interactive tool: Identify Elden Ring Nightreign map seeds through POI locations',
     'app.keywords': 'Elden Ring, Nightreign, map, seed, recognizer, POI, tool',
     
