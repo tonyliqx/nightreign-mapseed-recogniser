@@ -89,12 +89,12 @@ const CATEGORY_ICON_MAP = {
     'merchant': 'assets/icons/merchant.png',
 };
 
-// category → dot 未标记态颜色。landmark 橙（现状），其余金（区分共享点位 vs 额外点位）。
+// category → dot 未标记态颜色。landmark 橙（现状）；scaleMerchant 红（持秤商人单独高亮）；其余金。
 const CATEGORY_DOT_COLOR = {
     'landmark': '#ff8c00',
     'fieldBoss': '#ffd700',
     'stronghold': '#ffd700',
-    'scaleMerchant': '#ffd700',
+    'scaleMerchant': '#ff2d2d',
     'merchant': '#ffd700',
 };
 
@@ -966,8 +966,9 @@ class NightreignMapRecogniser {
     drawPOI(poi, state) {
         const { x, y } = poi;
         const cat = poi.category || 'landmark';
-        // 高级模式额外点位（非 landmark 共享点位）缩小 50%；共享点位保持基础版尺寸
-        const scale = (advancedMode && cat !== 'landmark') ? 0.5 : 1;
+        // 高级模式额外点位（非 landmark）缩小 50%；scaleMerchant 持秤商人在此基础上再缩 50% → 0.25；共享点位保持基础尺寸
+        const scale = (advancedMode && cat === 'scaleMerchant') ? 0.25
+            : (advancedMode && cat !== 'landmark') ? 0.5 : 1;
 
         if (state === 'dot') {
             const color = CATEGORY_DOT_COLOR[cat] || '#ffd700';
