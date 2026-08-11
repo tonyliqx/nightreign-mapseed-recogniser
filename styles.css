@@ -1875,24 +1875,29 @@ body {
     transform: scale(0.98);
 }
 
-/* 高级模式非共享点位浮窗：纯文字选项，纵向单列撑满、字体加大、减少留白 */
+/* 高级模式非共享点位浮窗：纯文字选项，每行 3 个等分填满、多了换行、字体加大 */
 .poi-suggestion-container.non-landmark-suggestion {
-    flex-direction: column;   /* 纵向单列，消除横向 gap 留白 */
-    max-width: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 固定 3 列等分，超出自动换行 */
     padding: 3px;
     gap: 3px;
+    width: 220px;
 }
 .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
-    flex-direction: row;      /* 纯文字行内排布（无图标） */
+    flex-direction: row;
     justify-content: center;
-    width: 100%;              /* 撑满容器宽度 */
     min-width: 0;
-    padding: 5px 8px;
-    font-size: 13px;          /* 字体加大（原 10px） */
+    padding: 5px 4px;
+    font-size: 13px;
+    overflow: hidden;
 }
 .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
-    font-size: 13px;          /* span 同步加大（原 9px） */
-    max-width: none;          /* 取消 40px 限宽，文字撑满 */
+    font-size: 13px;
+    max-width: none;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* 高级模式开关 toggle */
