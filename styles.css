@@ -1875,29 +1875,26 @@ body {
     transform: scale(0.98);
 }
 
-/* 高级模式非共享点位浮窗：纯文字选项，每行 3 个等分填满、多了换行、字体加大 */
+/* 高级模式非共享点位浮窗：每行 3 个、容器宽度随内容自适应、字体加大 */
 .poi-suggestion-container.non-landmark-suggestion {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 固定 3 列等分，超出自动换行 */
+    grid-template-columns: repeat(3, auto);  /* 3 列，每列按内容自适应宽度 */
+    width: max-content;   /* 容器宽度随内容自适应（非固定） */
     padding: 3px;
     gap: 3px;
-    width: 250px;
 }
 .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
     flex-direction: row;
     justify-content: center;
     min-width: 0;
-    padding: 5px 4px;
+    padding: 5px 6px;
     font-size: 13px;
-    overflow: hidden;
 }
 .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
     font-size: 13px;
     max-width: none;
     text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: nowrap;   /* 单行，按钮按文字宽度自适应 */
 }
 
 /* 高级模式开关 toggle */
