@@ -1856,7 +1856,9 @@ class NightreignMapRecogniser {
             button.className = 'poi-suggestion-btn';
             button.dataset.type = type;
             button.dataset.poiId = poiId;
-            const iconPath = (type === 'empty') ? 'assets/images/empty.png' : (TYPE_ICON_MAP[type] || 'assets/icons/unknown.png');
+            const iconPath = (type === 'empty')
+                ? 'assets/images/empty.png'
+                : (TYPE_ICON_MAP[type] || CATEGORY_ICON_MAP[poi.category] || 'assets/icons/unknown.png');
             const label = (type === 'empty') ? this.getText('poi.empty') : this.displayName(type);
             button.innerHTML = `<img src="${iconPath}" class="suggestion-icon" alt="${label}"><span>${label}</span>`;
             const handler = (e) => {
