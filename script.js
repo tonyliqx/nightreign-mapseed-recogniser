@@ -157,23 +157,40 @@ class NightreignMapRecogniser {
             console.warn('Failed to load empty icon');
         };
 
-        // Load map images with error handling
-        Object.entries(MAP_IMAGES).forEach(([mapName, url]) => {
-            const img = new Image();
-            // Don't need crossOrigin for local images
-            // img.crossOrigin = 'anonymous';
-            img.onload = () => {
-                console.log(`Map image loaded: ${mapName}`);
-            };
-            img.onerror = () => {
-                console.warn(`Failed to load map image: ${mapName}`, url);
-            };
-
-            // Load real images
-            img.src = url;
-
-            this.images.maps[mapName] = img;
+        // 加载地形底图（统一走 ensureMapLoaded，便于 Task 2 切换懒加载）
+        Object.keys(MAP_IMAGES).forEach((mapName) => {
+            this.ensureMapLoaded(mapName);
         });
+    }
+
+    /**
+     * 幂等懒加载地形底图：已加载/加载中则返回缓存 Image，否则创建并开始下载。
+     * 加载完成时带守卫重绘——仅当该图仍是当前 chosenMap 的图才重绘，
+     * 避免用户快速切换地形时，前一张后加载完把当前地形覆盖（串图）。
+     */
+    ensureMapLoaded(mapName) {
+        if (this.images.maps[mapName]) {
+            return this.images.maps[mapName];
+        }
+        const url = MAP_IMAGES[mapName];
+        if (!url) {
+            console.warn(`Unknown map: ${mapName}`);
+            return null;
+        }
+        const img = new Image();
+        img.onload = () => {
+            console.log(`Map image loaded: ${mapName}`);
+            // 防串图守卫：仅当该图仍是当前选中地形时才重绘
+            if (img === this.images.maps[this.chosenMap]) {
+                this.drawMap(img);
+            }
+        };
+        img.onerror = () => {
+            console.warn(`Failed to load map image: ${mapName}`, url);
+        };
+        img.src = url;
+        this.images.maps[mapName] = img;
+        return img;
     }
 
     onLanguageChanged(language) {
@@ -754,11 +771,7 @@ class NightreignMapRecogniser {
             this.drawMap(mapImage);
         } else {
             console.log(`Waiting for map image to load: ${this.chosenMap}`);
-            mapImage.onload = () => {
-                console.log(`Map image loaded: ${this.chosenMap}`);
-                this.drawMap(mapImage);
-            };
-            // Also draw immediately with what we have
+            // 图正在加载：ensureMapLoaded 已绑 onload（带防串图守卫）负责加载完重绘，此处先画占位
             this.drawMap(mapImage);
         }
 
