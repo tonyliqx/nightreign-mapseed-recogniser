@@ -27,6 +27,41 @@ function initAdvancedMode() {
     }
 }
 
+let RAW_POI_LOOKUP = null;  // 缓存 JSON 原始 poiLookupByMapType，供 rebuildPOISlots 复用
+
+// 按 categories 集合过滤槽位，坐标 1536→768（×0.5），landmark 按 POIS_BY_MAP 最近邻继承 originalId。
+// 抽自 loadSeedData，供开关切换时重建 POI_SLOTS_BY_MAP（不重新 fetch）。
+function buildPOISlots(plm, categories, legacyMap) {
+    const catSet = new Set(categories);
+    const result = {};
+    Object.keys(plm).forEach(mt => {
+        const legMap = legacyMap[mt] || [];
+        result[mt] = plm[mt]
+            .filter(p => catSet.has(p.category))
+            .map(p => {
+                const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
+                let originalId = p.id;
+                let best = Infinity;
+                legMap.forEach(lp => {
+                    const d = (lp.x - x) ** 2 + (lp.y - y) ** 2;
+                    if (d < best) { best = d; originalId = lp.id; }
+                });
+                return { id: p.id, originalId, name: p.name || p.id, x, y, category: p.category, index: p.index };
+            });
+    });
+    return result;
+}
+
+// 切换开关后重建 POI_SLOTS_BY_MAP（用缓存 raw，不重新 fetch）。categories 省略则取当前活跃集。
+function rebuildPOISlots(categories) {
+    if (!RAW_POI_LOOKUP) return;
+    POI_SLOTS_BY_MAP = buildPOISlots(
+        RAW_POI_LOOKUP,
+        categories || getActiveCategories(),
+        (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {}
+    );
+}
+
 // landmark type（中文）→ icon 路径。源自 nightreignMapPatterns.json 的 landmark type 集合：
 // 教堂/法师塔/马车/特殊商人/破败小屋（icon 分别 church/rise/carriage/merchant/blessing）。
 // 'empty'（无建筑）与未命中 type 走 createPOISuggestionUI 内部兜底，不在此表。
@@ -84,27 +119,9 @@ async function loadSeedData() {
             mapType: s.mapType
         }));
 
-        // 各地形 landmark 槽位：coordinates 1536→768（×0.5）
-        const plm = data.poiLookupByMapType || {};
-        // 原 POIS_BY_MAP（data.js）含人工微调的语义 id（1-11，各地形复用），suggestion 浮窗据此做
-        // 防重叠偏移。JSON landmark 按坐标最近邻继承该 originalId；poiStates 等 key 仍用 JSON id。
-        const legacy = (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {};
-        POI_SLOTS_BY_MAP = {};
-        Object.keys(plm).forEach(mt => {
-            const legMap = legacy[mt] || [];
-            POI_SLOTS_BY_MAP[mt] = plm[mt]
-                .filter(p => p.category === 'landmark')
-                .map(p => {
-                    const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
-                    let originalId = p.id;      // 兜底用 JSON id
-                    let best = Infinity;
-                    legMap.forEach(lp => {
-                        const d = (lp.x - x) ** 2 + (lp.y - y) ** 2;
-                        if (d < best) { best = d; originalId = lp.id; }
-                    });
-                    return { id: p.id, originalId, name: p.name || p.id, x, y, category: p.category, index: p.index };
-                });
-        });
+        // 缓存原始 poiLookupByMapType，供切换开关时 rebuildPOISlots 重建（不重新 fetch）
+        RAW_POI_LOOKUP = data.poiLookupByMapType || {};
+        POI_SLOTS_BY_MAP = buildPOISlots(RAW_POI_LOOKUP, getActiveCategories(), (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {});
 
         console.log('✅ 种子数据已加载:', SEED_REGISTRY.length, '颗种子,', Object.keys(POI_SLOTS_BY_MAP).length, '地形');
         return true;
