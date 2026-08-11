@@ -966,8 +966,8 @@ class NightreignMapRecogniser {
     drawPOI(poi, state) {
         const { x, y } = poi;
         const cat = poi.category || 'landmark';
-        // 高级模式点位与基础版同尺寸（用户反馈 1.5x 放大过大）；scale 参数保留以备后续调整
-        const scale = 1;
+        // 高级模式额外点位（非 landmark 共享点位）缩小 50%；共享点位保持基础版尺寸
+        const scale = (advancedMode && cat !== 'landmark') ? 0.5 : 1;
 
         if (state === 'dot') {
             const color = CATEGORY_DOT_COLOR[cat] || '#ffd700';
@@ -1858,7 +1858,8 @@ class NightreignMapRecogniser {
         (this.lastFilteredSeeds || []).forEach(s => {
             candidates.add(this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y));
         });
-        if (candidates.has('教堂')) {
+        // 仅基础模式保留「自动标记教堂」快捷行为；高级模式始终弹完整浮窗供精细选择
+        if (!advancedMode && candidates.has('教堂')) {
             this.hidePOISuggestions();
             this.poiStates[poi.id] = '教堂';
             this.drawMap(this.images.maps[this.chosenMap]);
