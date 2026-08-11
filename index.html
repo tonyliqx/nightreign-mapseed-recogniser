@@ -17,10 +17,11 @@
     <div class="container">
         <header class="header">
             <div class="header-controls">
-                <!-- 入口：跳转高级版「地图缺失模式」index-advanced.html -->
-                <button id="switch-to-advanced-btn" class="control-btn">
-                    <i class="fas fa-arrow-right"></i>
-                    <span data-i18n="nav.advanced">Advanced Mode</span>
+                <!-- 高级模式开关：开=全部 category 点位，关=仅共享点位（基础版行为） -->
+                <button id="switch-to-advanced-btn" class="advanced-toggle" type="button" role="switch" aria-checked="false">
+                    <i class="fas fa-layer-group"></i>
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <span data-i18n="nav.advanced">高级模式</span>
                 </button>
                 <!-- 入口：夜王反推 boss-reverse.html -->
                 <a href="boss-reverse.html" class="control-btn">

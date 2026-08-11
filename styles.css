@@ -1874,3 +1874,23 @@ body {
     background-color: #e3f2fd !important;
     transform: scale(0.98);
 }
+
+/* 高级模式开关 toggle */
+.advanced-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: #ccc; padding: 4px 10px; border-radius: 20px;
+    cursor: pointer; font-size: 13px; user-select: none;
+}
+.advanced-toggle .toggle-track {
+    position: relative; width: 32px; height: 16px;
+    background: #555; border-radius: 10px; transition: background .2s;
+}
+.advanced-toggle .toggle-thumb {
+    position: absolute; top: 2px; left: 2px;
+    width: 12px; height: 12px; background: #fff;
+    border-radius: 50%; transition: left .2s;
+}
+.advanced-toggle.active { color: #00e5ff; border-color: #00e5ff; }
+.advanced-toggle.active .toggle-track { background: #00e5ff; }
+.advanced-toggle.active .toggle-thumb { left: 18px; }

@@ -352,10 +352,7 @@ class NightreignMapRecogniser {
             }
         });
 
-        // Switch to advanced mode
-        document.getElementById('switch-to-advanced-btn').addEventListener('click', () => {
-            window.location.href = 'index-advanced.html';
-        });
+        this.setupAdvancedToggle();
 
         // Context menu setup
         this.setupContextMenu();
@@ -530,6 +527,57 @@ class NightreignMapRecogniser {
     setChosenText(id, text) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
+    }
+
+    // 绑定高级模式开关（替代原跳转按钮）
+    setupAdvancedToggle() {
+        const btn = document.getElementById('switch-to-advanced-btn');
+        if (!btn || this._advToggleBound) return;
+        this._advToggleBound = true;
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.toggleAdvancedMode();
+        });
+        this.updateAdvancedToggleUI();
+    }
+
+    updateAdvancedToggleUI() {
+        const btn = document.getElementById('switch-to-advanced-btn');
+        if (!btn) return;
+        btn.classList.toggle('active', advancedMode);
+        btn.setAttribute('aria-checked', advancedMode ? 'true' : 'false');
+    }
+
+    toggleAdvancedMode() {
+        advancedMode = !advancedMode;
+        localStorage.setItem(ADVANCED_STORAGE_KEY, advancedMode ? '1' : '0');
+        this.updateAdvancedToggleUI();
+        this.resetForCategoryChange();
+    }
+
+    // 切换 category 范围后：退出种子图模式 + 清标记 + 重建槽位 + 重画
+    resetForCategoryChange() {
+        // 退出单种子图模式（若在展示结果图）
+        const imgContainer = document.getElementById('seed-image-container');
+        if (imgContainer) imgContainer.style.display = 'none';
+        this.canvas && (this.canvas.style.display = '');
+
+        // 清标记状态
+        this.poiStates = {};
+        this.selectedSpawn = null;
+        this.spawnPhase = false;
+        this.lastFilteredSeeds = null;
+
+        // 重建槽位（用缓存 raw，不重新 fetch）
+        rebuildPOISlots();
+
+        // 显式重赋 currentPOIs：renderMap 只重画现有 currentPOIs，
+        // 切换 category 后必须重新从 POI_SLOTS_BY_MAP 取新点位集（参考 script.js:345/525 的赋值模式）
+        if (this.chosenMap) {
+            this.currentPOIs = (POI_SLOTS_BY_MAP[this.chosenMap] || []).slice();
+            this.ensureMapLoaded(this.chosenMap);
+            this.renderMap();
+        }
     }
 
     selectNightlord(nightlord) {
