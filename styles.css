@@ -1875,6 +1875,26 @@ body {
     transform: scale(0.98);
 }
 
+/* 高级模式非共享点位浮窗：纯文字选项，纵向单列撑满、字体加大、减少留白 */
+.poi-suggestion-container.non-landmark-suggestion {
+    flex-direction: column;   /* 纵向单列，消除横向 gap 留白 */
+    max-width: 150px;
+    padding: 3px;
+    gap: 3px;
+}
+.poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
+    flex-direction: row;      /* 纯文字行内排布（无图标） */
+    justify-content: center;
+    width: 100%;              /* 撑满容器宽度 */
+    min-width: 0;
+    padding: 5px 8px;
+    font-size: 13px;          /* 字体加大（原 10px） */
+}
+.poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
+    font-size: 13px;          /* span 同步加大（原 9px） */
+    max-width: none;          /* 取消 40px 限宽，文字撑满 */
+}
+
 /* 高级模式开关 toggle */
 .advanced-toggle {
     display: inline-flex; align-items: center; gap: 6px;

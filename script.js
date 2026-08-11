@@ -1894,7 +1894,12 @@ class NightreignMapRecogniser {
         const suggestionContainer = document.createElement('div');
         suggestionContainer.className = 'poi-suggestion-container';
         suggestionContainer.id = `suggestion-${poiId}`;
-        if (isMobile) {
+        // 高级模式非共享点位：纯文字选项纵向撑满、字体加大（见 CSS .non-landmark-suggestion）；
+        // 此类点位不走 mobile-suggestion（避免移动端 scale(0.5) 缩小 + 中文版 span 隐藏——纯文字浮窗需正常尺寸）
+        const isNonLandmark = advancedMode && poi.category !== 'landmark';
+        if (isNonLandmark) {
+            suggestionContainer.classList.add('non-landmark-suggestion');
+        } else if (isMobile) {
             suggestionContainer.classList.add('mobile-suggestion');
             // POI3（originalId=3）强制竖向单列
             if (parseInt(poi.originalId, 10) === 3) suggestionContainer.classList.add('single-column');
