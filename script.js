@@ -157,10 +157,9 @@ class NightreignMapRecogniser {
             console.warn('Failed to load empty icon');
         };
 
-        // 加载地形底图（统一走 ensureMapLoaded，便于 Task 2 切换懒加载）
-        Object.keys(MAP_IMAGES).forEach((mapName) => {
-            this.ensureMapLoaded(mapName);
-        });
+        // 预加载默认地形（最常用，且 drawDefaultMapWithImage 在未选地形时会用到）；
+        // 其余 5 种地形改为懒加载——selectMap 选中时由 ensureMapLoaded 按需下载。
+        this.ensureMapLoaded('Default');
     }
 
     /**
@@ -518,6 +517,7 @@ class NightreignMapRecogniser {
         } else {
             // Select the new map
             this.chosenMap = map;
+            this.ensureMapLoaded(map);  // 懒加载该地形底图（已加载则命中缓存）
             this.currentPOIs = POI_SLOTS_BY_MAP[map] || [];
             this.poiStates = this.initializePOIStates();
             this.selectedSpawn = null;   // 切地图重置出生点
