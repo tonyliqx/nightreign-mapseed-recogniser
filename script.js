@@ -182,6 +182,10 @@ class NightreignMapRecogniser {
             // 防串图守卫：仅当该图仍是当前选中地形时才重绘
             if (img === this.images.maps[this.chosenMap]) {
                 this.drawMap(img);
+            } else if (mapName === 'Default' && !this.chosenMap && this.ctx) {
+                // 冷加载首屏：Default 预加载完时用户尚未选地形（chosenMap=null），
+                // 主守卫恒 false 不重绘——补画到默认视图，让首屏看到真实 Default 底图
+                this.drawDefaultMapWithImage();
             }
         };
         img.onerror = () => {
