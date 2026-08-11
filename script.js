@@ -917,30 +917,33 @@ class NightreignMapRecogniser {
 
     drawPOI(poi, state) {
         const { x, y } = poi;
+        const cat = poi.category || 'landmark';
+        // landmark 在开关开时放大 1.5x（突出共享点位）；开关关时保持 1x（零回归）
+        const scale = (advancedMode && cat === 'landmark') ? 1.5 : 1;
 
         if (state === 'dot') {
-            // 未标记：橙色圆点（landmark 统一色）
-            this.drawDot(x, y, '', '#ff8c00');
+            const color = CATEGORY_DOT_COLOR[cat] || '#ffd700';
+            this.drawDot(x, y, '', color, scale);
         } else if (state === 'empty') {
-            // 用户标记为"空"（该坐标无建筑）
-            this.drawIcon(this.images.empty, x, y);
+            this.drawIcon(this.images.empty, x, y, scale);
         } else if (state === 'hidden') {
-            // 全空（候选种子在此坐标均无 POI）：不画
+            // 候选种子在此坐标均无 POI：不画
         } else {
-            // 已选 type（中文）：画对应图标（TYPE_ICON_MAP）
-            const img = this.typeImages && this.typeImages[state];
+            // 已选 type：先查 type 专属 icon（landmark），再查 category 默认 icon
+            const img = (this.typeImages && this.typeImages[state])
+                || (this.categoryImages && this.categoryImages[cat]);
             if (img) {
-                this.drawIcon(img, x, y);
+                this.drawIcon(img, x, y, scale);
             } else {
-                // 未知 type 兜底：橙色圆点
-                this.drawDot(x, y, '', '#ff8c00');
+                this.drawDot(x, y, '', '#ff8c00', scale);
             }
         }
     }
 
-    drawDot(x, y, label, color) {
+    drawDot(x, y, label, color, scale = 1) {
+        const r = (ICON_SIZE / 2) * scale;
         this.ctx.beginPath();
-        this.ctx.arc(x, y, ICON_SIZE / 2, 0, 2 * Math.PI);
+        this.ctx.arc(x, y, r, 0, 2 * Math.PI);
         this.ctx.fillStyle = color;
         this.ctx.fill();
         this.ctx.strokeStyle = '#000000';
@@ -956,18 +959,16 @@ class NightreignMapRecogniser {
         }
     }
 
-    drawIcon(image, x, y) {
+    drawIcon(image, x, y, scale = 1) {
         if (!image.complete) return;
         const nw = image.naturalWidth, nh = image.naturalHeight;
-        // 无尺寸信息（未加载完）兜底正方形
+        const box = ICON_SIZE * scale;
         if (!nw || !nh) {
-            this.ctx.drawImage(image, x - ICON_SIZE / 2, y - ICON_SIZE / 2, ICON_SIZE, ICON_SIZE);
+            this.ctx.drawImage(image, x - box / 2, y - box / 2, box, box);
             return;
         }
-        // 按原始宽高比缩放到 ICON_SIZE×ICON_SIZE 内（contain），避免非正方形素材
-        // （教堂134×180 / 法师塔95×210 / 马车215×179 / 特殊商人271×127）被强制正方形拉伸失衡
-        const scale = Math.min(ICON_SIZE / nw, ICON_SIZE / nh);
-        const w = nw * scale, h = nh * scale;
+        const s = Math.min(box / nw, box / nh);
+        const w = nw * s, h = nh * s;
         this.ctx.drawImage(image, x - w / 2, y - h / 2, w, h);
     }
 
