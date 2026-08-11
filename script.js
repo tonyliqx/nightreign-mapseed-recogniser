@@ -966,8 +966,8 @@ class NightreignMapRecogniser {
     drawPOI(poi, state) {
         const { x, y } = poi;
         const cat = poi.category || 'landmark';
-        // landmark 在开关开时放大 1.5x（突出共享点位）；开关关时保持 1x（零回归）
-        const scale = (advancedMode && cat === 'landmark') ? 1.5 : 1;
+        // 高级模式点位与基础版同尺寸（用户反馈 1.5x 放大过大）；scale 参数保留以备后续调整
+        const scale = 1;
 
         if (state === 'dot') {
             const color = CATEGORY_DOT_COLOR[cat] || '#ffd700';
@@ -1775,8 +1775,9 @@ class NightreignMapRecogniser {
         this.updateSeedCountDisplay(filteredSeeds.length);
 
         // === 选完出生点后自动批量展示 POI 类型推荐（原版行为，迁移时丢失，现恢复）===
+        // 仅基础模式自动展示；高级模式改由用户点击 POI 触发（额外点位多，自动浮窗过密）
         // 大空洞 POI 少：选完出生点即展示全部；其余地形种子收敛到阈值内才展示，避免浮窗过多
-        if (!this.spawnPhase && filteredSeeds.length > 1) {
+        if (!advancedMode && !this.spawnPhase && filteredSeeds.length > 1) {
             const isMobile = window.innerWidth <= 768;
             const isGreatHollow = this.chosenMap === 'Great Hollow';
             const desktopThreshold = 10, mobileThreshold = 4;
@@ -1908,7 +1909,11 @@ class NightreignMapRecogniser {
                 ? 'assets/images/empty.png'
                 : (TYPE_ICON_MAP[type] || CATEGORY_ICON_MAP[poi.category] || 'assets/icons/unknown.png');
             const label = (type === 'empty') ? this.getText('poi.empty') : this.displayName(type);
-            button.innerHTML = `<img src="${iconPath}" class="suggestion-icon" alt="${label}"><span>${label}</span>`;
+            // 共享点位（landmark）显示图标；高级模式额外点位（非 landmark）仅显示名称，无图标
+            const showIcon = poi.category === 'landmark';
+            button.innerHTML = showIcon
+                ? `<img src="${iconPath}" class="suggestion-icon" alt="${label}"><span>${label}</span>`
+                : `<span>${label}</span>`;
             const handler = (e) => {
                 e.preventDefault();
                 e.stopPropagation();

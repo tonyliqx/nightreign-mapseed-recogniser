@@ -13,7 +13,7 @@ const translations = {
     'lang.switch': '切换语言',
     
     // Navigation
-    'nav.advanced': '高级模式',
+    'nav.advanced': '地图缺失模式',
     
     // Loading
     'loading.init': '正在初始化地图数据，请稍候...',
@@ -142,7 +142,7 @@ const translations = {
     'lang.switch': 'Switch Language',
     
     // Navigation
-    'nav.advanced': 'Advanced',
+    'nav.advanced': 'Map Missing MODE',
     
     // Loading
     'loading.init': 'Initializing map data, please wait...',
