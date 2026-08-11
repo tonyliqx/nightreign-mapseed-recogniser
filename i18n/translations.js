@@ -127,8 +127,15 @@ const translations = {
     // Errors
     'error.load_failed': '数据加载失败，请刷新页面。',
     'error.select_map': '请先选择地图再标记兴趣点',
+
+    // Category display names（高级模式 POI 分类）
+    'category.landmark': '共享点位',
+    'category.stronghold': '野外据点',
+    'category.fieldBoss': '野外BOSS',
+    'category.scaleMerchant': '山羊事件商人',
+    'category.merchant': '商人',
   },
-  
+
   'en': {
     // App metadata
     'app.title': 'Nightreign - Map Seed Recognizer',
@@ -254,7 +261,96 @@ const translations = {
     // Errors
     'error.load_failed': 'Failed to load data. Please refresh the page.',
     'error.select_map': 'Please select a map before marking POIs',
+
+    // Category display names (Advanced mode POI categories)
+    'category.landmark': 'Landmark',
+    'category.stronghold': 'Stronghold',
+    'category.fieldBoss': 'Field Boss',
+    'category.scaleMerchant': 'Scale Merchant',
+    'category.merchant': 'Merchant',
   }
+};
+
+// POI type 中文名→英文名映射（英文模式渲染时查表）
+// 来源：NAME.xlsx（74）+ 手补法师塔/破败小屋/野外商人（3）。共 77 项
+const POI_TYPE_EN = {
+  '亚人女王': "Demi-Human Queen",  // fieldBoss
+  '亚兹拉兽人': "Beastmen of Farum Azula",  // stronghold
+  '仿生泪滴': "Mimic Tears",  // stronghold
+  '冻霜螯虾': "Frost Crayfish",  // stronghold
+  '卢恩熊': "Runebear",  // stronghold
+  '厄兆之子': "Omen",  // fieldBoss
+  '厄兆猎人': "Omenkiller",  // fieldBoss/stronghold
+  '咒剑士': "Curseblade",  // fieldBoss
+  '咒剑士+蜘蛛蝎': "Curseblade+Spider Scorpions",  // stronghold
+  '唤灵蜗牛+灵火龙': "Spiritcaller Snail+Ghostflame Dragon",  // stronghold
+  '土龙': "Magma Wyrm",  // fieldBoss
+  '堕落调香师': "Depraved Perfumer",  // stronghold
+  '大审判官': "Inquisitor+Elder Inquisitor",  // stronghold
+  '大树守卫': "Tree Sentinel",  // fieldBoss
+  '失乡': "Banished Knights",  // fieldBoss
+  '失乡骑士': "Banished Knights",  // stronghold
+  '守墓斗士': "Grave Warden Duelists",  // stronghold
+  '尊腐骑士': "Cleanrot Knights",  // stronghold
+  '巨蟹': "Giant Crabs",  // stronghold
+  '巨鸦+血怪之首': "Bloodbane Giant Crows+Chief Bloodfiend",  // stronghold
+  '归树看门犬': "Erdtree Burial Watchdogs",  // stronghold
+  '恶兆之子': "Omen",  // stronghold
+  '战斗法师': "Battlemages",  // stronghold
+  '持秤商人': "Scale-Bearing Merchant",  // scaleMerchant
+  '接肢贵族': "Grafted Scion",  // fieldBoss
+  '教堂': "Church",  // landmark
+  '杜鹃骑士': "Cuckoo Knights",  // stronghold
+  '死骑士': "Death Knight",  // stronghold
+  '死鸟': "Death Rite Bird",  // fieldBoss
+  '河马': "Golden Hippopotamus",  // fieldBoss
+  '法师塔': "Sorcerer's Rise",  // landmark（手补）
+  '火焰修士': "Fire Monk",  // stronghold
+  '火焰战车': "Flame Chariots",  // stronghold
+  '灵庙骑士': "Mausoleum Knight",  // stronghold
+  '特殊商人': "Township",  // landmark
+  '狮子混种': "Leonine Misbegotten",  // fieldBoss/stronghold
+  '猎犬骑士': "Bloodhound Knight",  // fieldBoss
+  '王室幽魂': "Royal Revenant",  // fieldBoss
+  '癫火山妖': "Frenzied Flame Troll",  // stronghold
+  '癫火花': "Nomads",  // stronghold
+  '白金之子': "Albinaurics",  // stronghold
+  '白金射手': "Albinauric Archers",  // stronghold
+  '破败小屋': "Shack",  // landmark（手补）
+  '祖灵': "Ancestor Spirit",  // fieldBoss
+  '祖灵之民': "Ancestral Follower Warriors",  // stronghold
+  '神皮使徒': "Godskin Apostle",  // stronghold
+  '神谕使者': "Oracle Envoys",  // stronghold
+  '神鸟战士': "Divine Bird Warrior",  // stronghold
+  '米兰达花': "Miranda Blossom",  // fieldBoss
+  '紫怪之首+双熔炉': "Chief Purple Fiend+Crucible Knights",  // stronghold
+  '红狮子骑士': "Redmane Knights",  // stronghold
+  '红狼': "Red Wolf",  // fieldBoss
+  '红狼+先祖之灵': "Red Wolf+Ancestor Spirit",  // stronghold
+  '结晶人': "Crystalians",  // stronghold
+  '罗德尔骑士': "Royal Army Knights",  // stronghold
+  '罗蕾塔': "Royal Carian Knight",  // fieldBoss
+  '老狮子': "Elder Lion",  // fieldBoss/stronghold
+  '腐败树灵': "Ulcerated Tree Spirit",  // fieldBoss
+  '腐败眷属': "Kindred of Rot",  // stronghold
+  '萨米尔': "Ancient Hero of Zamor",  // fieldBoss/stronghold
+  '蚯蚓脸': "Wormface",  // stronghold
+  '蜘蛛蝎': "Spider Scorpions",  // stronghold
+  '血怪之首': "Chief Bloodfiend",  // stronghold
+  '调香师': "Perfumer",  // stronghold
+  '野外商人': "Township",  // merchant（手补）
+  '铁处女': "Abductor Virgin",  // stronghold
+  '铃珠猎人': "Bell Bearing Hunter",  // fieldBoss
+  '飞龙': "Flying Dragon",  // fieldBoss
+  '马车': "Abandoned Carriage",  // landmark
+  '骑士兵长': "Lordsworn Captain",  // stronghold
+  '魔像守卫': "Guardian Golem",  // stronghold
+  '鲜血贵族': "Sanguine Nobles",  // stronghold
+  '黄金树化身': "Erdtree Avatar",  // fieldBoss
+  '黑刀刺客': "Black Knife Assassin",  // fieldBoss
+  '黑剑眷属': "Black Blade Kindred",  // fieldBoss
+  '黑夜骑兵': "Night's Cavalry Duo",  // fieldBoss
+  '龙装': "Draconic Tree Sentinel",  // fieldBoss
 };
 
 // Export for use in other files

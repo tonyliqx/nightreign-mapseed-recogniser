@@ -1022,6 +1022,10 @@ class NightreignMapRecogniser {
 
     // type 显示名（内部 type 值 → 界面文字；仅渲染层映射，不改数据源/匹配/排序逻辑）
     displayName(type) {
+        if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en'
+            && typeof POI_TYPE_EN !== 'undefined' && POI_TYPE_EN[type]) {
+            return POI_TYPE_EN[type];
+        }
         return TYPE_DISPLAY_MAP[type] || type;
     }
 
