@@ -1948,6 +1948,20 @@ class NightreignMapRecogniser {
         const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
 
+        // 高级模式额外点位（非 landmark）：无三角、紧贴点位上方展示。
+        // 这类点位由用户逐个点击触发浮窗（不批量自动展示），不会拥挤，故去掉气泡尾、紧贴点位。
+        // early return：跳过下方 landmark 专用的 override/originalId 偏移 + 三角逻辑。
+        if (advancedMode && poi.category !== 'landmark') {
+            const r = 19 * scaleX * 0.5;  // 非共享点位缩小 0.5 后的显示半径
+            suggestionContainer.style.position = 'absolute';
+            suggestionContainer.style.transform = 'translate(-50%, -100%)';  // 水平居中、底边贴点位上边缘
+            suggestionContainer.style.left = `${relativeX}px`;
+            suggestionContainer.style.top = `${relativeY - r}px`;
+            mapContainer.appendChild(suggestionContainer);
+            requestAnimationFrame(() => suggestionContainer.classList.add('visible'));
+            return;
+        }
+
         const oid = poi.originalId != null ? parseInt(poi.originalId, 10) : null;
         // 命中「方向覆盖」坐标集：mobile:true 项仅移动端命中，其余全平台。按 dir 渲染，跳过 originalId 偏移表。
         const ov = POI_RENDER_OVERRIDE.find(c => {
