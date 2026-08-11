@@ -6,6 +6,27 @@ let SEED_REGISTRY = [];        // [{seedNumber, nightlord, mapType}] 全部种�
 let POI_SLOTS_BY_MAP = {};     // {mapType: [{id, name, x(768), y(768), category, index}]} 仅 landmark 槽位（替代 POI_SLOTS_BY_MAP）
 let SEED_POIS_RAW = null;      // JSON 原始 seeds 对象（key=seedNumber 字符串），供 findRealPOITypeAtCoordinate 按坐标查 type
 
+// === 高级模式开关 ===
+// 关=仅 landmark（基础版行为）；开=全部 5 类 category（高级版行为）。
+// 状态来源优先级：URL ?advanced=1 > localStorage > 默认关。
+let advancedMode = false;
+const ADVANCED_CATEGORIES = ['landmark', 'stronghold', 'fieldBoss', 'scaleMerchant', 'merchant'];
+const BASIC_CATEGORIES = ['landmark'];
+const ADVANCED_STORAGE_KEY = 'advanced-mode';
+
+function getActiveCategories() {
+    return advancedMode ? ADVANCED_CATEGORIES : BASIC_CATEGORIES;
+}
+
+function initAdvancedMode() {
+    const urlAdv = new URLSearchParams(location.search).get('advanced');
+    if (urlAdv === '1') {
+        advancedMode = true;
+    } else {
+        advancedMode = (localStorage.getItem(ADVANCED_STORAGE_KEY) === '1');
+    }
+}
+
 // landmark type（中文）→ icon 路径。源自 nightreignMapPatterns.json 的 landmark type 集合：
 // 教堂/法师塔/马车/特殊商人/破败小屋（icon 分别 church/rise/carriage/merchant/blessing）。
 // 'empty'（无建筑）与未命中 type 走 createPOISuggestionUI 内部兜底，不在此表。
@@ -304,6 +325,8 @@ class NightreignMapRecogniser {
 
     async loadInitialData() {
         try {
+            // 高级模式开关必须先于数据加载确定（数据层会根据 category 集合过滤）
+            initAdvancedMode();
             // 加载权威种子数据（nightreignMapPatterns.json）
             await loadSeedData();
             const seedCount = SEED_REGISTRY.length;
