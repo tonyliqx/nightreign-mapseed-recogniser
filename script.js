@@ -80,6 +80,24 @@ const TYPE_DISPLAY_MAP = {
     '破败小屋': '祷告屋',  // 同上，4 字 → 3 字
 };
 
+// category → 默认 icon（已选态用）。landmark 走 TYPE_ICON_MAP（按 type），其余按 category 统一 icon。
+// 依据 nightreignMapPatterns.json：fieldBoss 27 种 type 共用 field_boss，stronghold 47 种共用 camp_blank。
+const CATEGORY_ICON_MAP = {
+    'fieldBoss': 'assets/icons/field_boss.png',
+    'stronghold': 'assets/icons/camp_blank.png',
+    'scaleMerchant': 'assets/icons/merchant.png',
+    'merchant': 'assets/icons/merchant.png',
+};
+
+// category → dot 未标记态颜色。landmark 橙（现状），其余金（区分共享点位 vs 额外点位）。
+const CATEGORY_DOT_COLOR = {
+    'landmark': '#ff8c00',
+    'fieldBoss': '#ffd700',
+    'stronghold': '#ffd700',
+    'scaleMerchant': '#ffd700',
+    'merchant': '#ffd700',
+};
+
 // 出生点 label 圈数字 → 阿拉伯数字（英文版 drawSpawnMarker 渲染 SP1/SP2… 用；中文版沿用原 label）
 const CIRCLED_TO_NUM = { '①':'1','②':'2','③':'3','④':'4','⑤':'5','⑥':'6','⑦':'7','⑧':'8','⑨':'9' };
 
@@ -188,6 +206,14 @@ class NightreignMapRecogniser {
             const img = new Image();
             img.src = src;
             this.typeImages[type] = img;
+        });
+
+        // category 默认图标（非 landmark 的 category 统一 icon，预加载供 Task 4/5 渲染用）
+        this.categoryImages = {};
+        Object.entries(CATEGORY_ICON_MAP).forEach(([cat, src]) => {
+            const img = new Image();
+            img.src = src;
+            this.categoryImages[cat] = img;
         });
 
         // Add error handling for images
