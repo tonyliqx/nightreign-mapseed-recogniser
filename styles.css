@@ -1881,7 +1881,7 @@ body {
     grid-template-columns: repeat(3, 1fr);  /* 固定 3 列等分，超出自动换行 */
     padding: 3px;
     gap: 3px;
-    width: 220px;
+    width: 250px;
 }
 .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
     flex-direction: row;
