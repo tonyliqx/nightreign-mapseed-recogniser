@@ -611,20 +611,6 @@ body {
     gap: 0.75rem;
 }
 
-/* 画布内部顶部工具栏：高级模式开关浮于画布顶部正中（叠在地图上）。
-   map-container 为 position:relative，此栏绝对定位贴顶居中；z-index 高于 overlay/POI 始终可见可点。*/
-.map-top-bar {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-}
-/* 开关浮于亮色地图上，加半透明深色底保证文字可读 */
-.map-top-bar .advanced-toggle {
-    background: rgba(0, 0, 0, 0.55);
-}
-
 /* PC 双列布局：右侧地图画布在视口中垂直居中（与 #seed-image-container 种子图同效）；
    平板/移动端单列布局不受影响（保持画布紧跟侧栏、按内容高度排布）。 */
 @media (min-width: 1024px) {
@@ -1019,8 +1005,12 @@ body {
     border-radius: 20px;
 }
 
-.compact-button-row #reset-map-btn {
-    grid-column: 1 / -1;
+/* 地图缺失模式开关置于 compact-button-row 第1行右列，与重置按钮并排（重置缩成1列，开关占另1列）。
+   撑满单元格宽度、内容居中，字号匹配 reset-btn；grid 默认 stretch 使其与重置等高。*/
+.compact-button-row .advanced-toggle {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
 }
 
 /* 移动端夜王信息样式 */

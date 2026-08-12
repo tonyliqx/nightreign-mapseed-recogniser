@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title data-i18n="app.title">黑夜君临-地图种子识别器</title>
-    <link rel="stylesheet" href="styles.css?v=2.4.7">
+    <link rel="stylesheet" href="styles.css?v=2.4.8">
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a2e">
@@ -115,6 +115,11 @@
                                 <i class="fas fa-undo"></i>
                                 <span data-i18n="action.reset">重置所有标记</span>
                             </button>
+                            <!-- 地图缺失模式开关：与重置并排（重置半宽，开关占另一半） -->
+                            <button id="switch-to-advanced-btn" class="advanced-toggle" type="button" role="switch" aria-checked="false">
+                                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                                <span data-i18n="nav.advanced">地图缺失模式</span>
+                            </button>
                             <button id="skip-spawn-btn" class="reset-btn">
                                 <i class="fas fa-forward"></i>
                                 <span data-i18n="action.skip_spawn">跳过出生点</span>
@@ -128,14 +133,6 @@
 
                     <div class="map-area">
                         <div class="map-container">
-                            <!-- 高级模式开关：浮于画布内部顶部正中 -->
-                            <div class="map-top-bar">
-                                <button id="switch-to-advanced-btn" class="advanced-toggle" type="button" role="switch" aria-checked="false">
-                                    <i class="fas fa-layer-group"></i>
-                                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                                    <span data-i18n="nav.advanced">高级模式</span>
-                                </button>
-                            </div>
                             <canvas id="map-canvas" width="1536" height="1536"></canvas>
                             <div id="seed-image-container" style="display: none;"></div>
                             <div id="selection-overlay" class="selection-overlay">
