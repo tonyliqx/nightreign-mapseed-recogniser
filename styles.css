@@ -1020,6 +1020,8 @@ body {
     width: 100%;
     justify-content: center;
     font-size: 0.9rem;
+    color: #fff;        /* 文字样式与 reset-btn/help-btn 统一：白字 */
+    font-weight: 600;   /* 与 reset-btn/help-btn 统一：600 字重 */
 }
 
 /* 移动端夜王信息样式 */
