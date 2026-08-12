@@ -1897,6 +1897,13 @@ body {
     white-space: nowrap;   /* 单行，按钮按文字宽度自适应 */
 }
 
+/* 英文版例外：高级模式非共享点位浮窗为纯文字（无 icon），必须保留 span。
+   否则被上方 [data-lang="en"] ... span { display:none }（基础版英文靠 icon 隐藏中文标签）
+   清空成空格子。特异性 (0,4,1) 压过 (0,3,1)。*/
+[data-lang="en"] .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
+    display: inline-block;
+}
+
 /* 高级模式开关 toggle */
 .advanced-toggle {
     display: inline-flex; align-items: center; gap: 6px;
