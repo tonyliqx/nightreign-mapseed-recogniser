@@ -611,10 +611,18 @@ body {
     gap: 0.75rem;
 }
 
-/* 画布顶部工具栏：高级模式开关居中置于画布正上方 */
+/* 画布内部顶部工具栏：高级模式开关浮于画布顶部正中（叠在地图上）。
+   map-container 为 position:relative，此栏绝对定位贴顶居中；z-index 高于 overlay/POI 始终可见可点。*/
 .map-top-bar {
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+/* 开关浮于亮色地图上，加半透明深色底保证文字可读 */
+.map-top-bar .advanced-toggle {
+    background: rgba(0, 0, 0, 0.55);
 }
 
 /* PC 双列布局：右侧地图画布在视口中垂直居中（与 #seed-image-container 种子图同效）；
