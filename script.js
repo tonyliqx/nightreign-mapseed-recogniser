@@ -1939,15 +1939,16 @@ class NightreignMapRecogniser {
     // （其余未命中 type 兜底排末尾，保证跨点位浮窗顺序一致）
     sortPOITypes(types) {
         const order = ['教堂', '法师塔', '特殊商人', '马车', '破败小屋', 'empty'];
-        // landmark type 走上方 order（0-5）；stronghold type 走 STRONGHOLD_TYPE_ORDER（+100 段，按
-        // 要塞<大教堂<大型营地<大型遗迹<池沼<锻造村 分组）；其余未映射 type 排末尾（+1000）。
-        // landmark / stronghold 不会同浮窗出现，分段仅为防互扰。
+        // landmark type 走 order（0-5）；stronghold type 走 STRONGHOLD_TYPE_ORDER（+100 段，按
+        // 要塞<大教堂<大型营地<大型遗迹<池沼<锻造村 分组）；fieldBoss 走 +200/+300 段（普通<精英，
+        // 见 isEliteFieldBoss）。各 category 不会同浮窗出现，分段仅为防互扰；组内保持稳定原序。
         const key = (t) => {
             const i = order.indexOf(t);
             if (i !== -1) return i;
             const s = STRONGHOLD_TYPE_ORDER[t];
             if (s !== undefined) return s + 100;
-            return 1000;
+            if (isEliteFieldBoss(t)) return 300;   // 精英野外BOSS 排后
+            return 200;                            // 普通野外BOSS / 商人等 排前
         };
         return types.slice().sort((a, b) => key(a) - key(b));
     }
