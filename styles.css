@@ -1960,7 +1960,7 @@ body {
 /* 高级模式开关 toggle */
 .advanced-toggle {
     display: inline-flex; align-items: center; gap: 6px;
-    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    background: transparent; border: 2px solid rgba(255,255,255,0.2);
     color: #ccc; padding: 4px 10px; border-radius: 20px;
     cursor: pointer; font-size: 13px; user-select: none;
 }
