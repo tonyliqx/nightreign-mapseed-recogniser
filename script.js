@@ -156,6 +156,20 @@ function isDlcStrongholdType(type) {
     return o !== undefined && o >= 26;
 }
 
+// 精英野外BOSS（fieldBoss）type → 浮窗按钮浅红背景（与 DLC 据点同色，见 .poi-elite）。
+// 分类依据：用户提供的 type ID 权威列表——
+//   精英：46520龙装/46530大树守卫/46540罗蕾塔/46560+46870铃珠猎人/46580飞龙/
+//         46640祖灵/46660黑剑眷属/46670黄金树化身/46680土龙/46740死鸟/46630+49902腐败树灵
+// 中文名零歧义（同名 type 同分类），故显示层按中文名集合判定即可，各地形含大空洞天然生效。
+// 大空洞5个DLC专属 fieldBoss（厄兆之子/厄兆猎人/咒剑士/失乡/猎犬骑士）经确认归普通，不在此表。
+const ELITE_FIELD_BOSS_TYPES = new Set([
+    '龙装', '大树守卫', '罗蕾塔', '铃珠猎人', '飞龙',
+    '祖灵', '黑剑眷属', '黄金树化身', '土龙', '死鸟', '腐败树灵',
+]);
+function isEliteFieldBoss(type) {
+    return ELITE_FIELD_BOSS_TYPES.has(type);
+}
+
 // category → 默认 icon（已选态用）。landmark 走 TYPE_ICON_MAP（按 type），其余按 category 统一 icon。
 // 依据 nightreignMapPatterns.json：fieldBoss 27 种 type 共用 field_boss，stronghold 47 种共用 camp_blank。
 const CATEGORY_ICON_MAP = {
@@ -2014,9 +2028,11 @@ class NightreignMapRecogniser {
             button.className = 'poi-suggestion-btn';
             button.dataset.type = type;
             button.dataset.poiId = poiId;
-            // DLC 野外据点（池沼/锻造村）按钮浅红背景区分
+            // 浅红背景区分：DLC 野外据点（池沼/锻造村）或 精英野外BOSS（含大空洞）
             if (poi.category !== 'landmark' && isDlcStrongholdType(type)) {
                 button.classList.add('dlc-stronghold');
+            } else if (poi.category === 'fieldBoss' && isEliteFieldBoss(type)) {
+                button.classList.add('poi-elite');
             }
             const iconPath = (type === 'empty')
                 ? 'assets/images/empty.png'
