@@ -352,6 +352,10 @@ class NightreignMapRecogniser {
 
     onLanguageChanged(language) {
         console.log('Language changed to:', language);
+
+        // 关闭 POI 悬浮窗：浮窗候选名为创建时按当时语言生成，切换语言后会显示旧语言，
+        // 故直接关闭（用户重新点 POI 即可弹出新语言的浮窗）。
+        this.hidePOISuggestions();
         
         // Refresh seed image if currently displayed (handles pattern images)
         if (this.showingSeedImage) {
@@ -441,6 +445,18 @@ class NightreignMapRecogniser {
                 this.hideHelpModal();
             }
         });
+
+        // 点击/触摸画布外区域（侧栏、页头、页面空白等）时关闭 POI 悬浮窗。
+        // 仅处理 mapContainer 之外的点击——画布内的空白关闭由 canvas click/touch 分支负责，
+        // 这样右键(contextmenu)/中键(mousedown)弹出的浮窗不会被同次事件冒泡误关。
+        const closeSuggestionOnOutside = (e) => {
+            const t = e.target;
+            if (t && t.closest && !t.closest('.map-container')) {
+                this.hidePOISuggestions();
+            }
+        };
+        document.addEventListener('mousedown', closeSuggestionOnOutside);
+        document.addEventListener('touchstart', closeSuggestionOnOutside, { passive: true });
 
         this.setupAdvancedToggle();
 
@@ -1224,6 +1240,9 @@ class NightreignMapRecogniser {
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
                 console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+            } else {
+                // 纯空白点击（无 POI、无出生点）→ 关闭悬浮窗
+                this.hidePOISuggestions();
             }
         });
 
@@ -1349,6 +1368,9 @@ class NightreignMapRecogniser {
                         this.drawMap(this.images.maps[this.chosenMap]);
                         this.updateSeedFiltering();
                         console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                    } else {
+                        // 纯空白短按（无 POI、无出生点）→ 关闭悬浮窗
+                        this.hidePOISuggestions();
                     }
                 }
             }
