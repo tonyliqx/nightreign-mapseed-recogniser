@@ -2089,6 +2089,15 @@ class NightreignMapRecogniser {
             mapContainer.appendChild(suggestionContainer);
             requestAnimationFrame(() => {
                 suggestionContainer.classList.add('visible');
+                // 边缘约束：浮窗 translateX(-50%) 居中于点位，靠近左右边缘时 clamp left 防溢出屏幕。
+                // 宽度<容器才 clamp（极端宽浮窗贴边即可）；clamp 后浮窗略偏离点位但不出屏。
+                const cw = mapContainer.clientWidth;
+                const fw = suggestionContainer.offsetWidth;
+                if (fw < cw) {
+                    const half = fw / 2;
+                    const clamped = Math.max(half, Math.min(relativeX, cw - half));
+                    if (Math.abs(clamped - relativeX) > 0.5) suggestionContainer.style.left = `${clamped}px`;
+                }
                 // 英文模式长名自适应缩字号：max-width + 两行内放不下（line-clamp:2 下
                 // scrollHeight > clientHeight 即被截）时，逐档缩该 span 字号直至完整塞下（不截断）。
                 // 中文为 nowrap 单行不限宽，无此问题，故仅英文触发。
