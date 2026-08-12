@@ -2028,7 +2028,22 @@ class NightreignMapRecogniser {
             suggestionContainer.style.left = `${relativeX}px`;
             suggestionContainer.style.top = `${relativeY - r}px`;
             mapContainer.appendChild(suggestionContainer);
-            requestAnimationFrame(() => suggestionContainer.classList.add('visible'));
+            requestAnimationFrame(() => {
+                suggestionContainer.classList.add('visible');
+                // 英文模式长名自适应缩字号：max-width + 两行内放不下（line-clamp:2 下
+                // scrollHeight > clientHeight 即被截）时，逐档缩该 span 字号直至完整塞下（不截断）。
+                // 中文为 nowrap 单行不限宽，无此问题，故仅英文触发。
+                if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en') {
+                    suggestionContainer.querySelectorAll('.poi-suggestion-btn span').forEach(span => {
+                        let fs = 11, guard = 0;
+                        span.style.fontSize = fs + 'px';
+                        while (span.scrollHeight - span.clientHeight > 1 && fs > 7 && guard++ < 16) {
+                            fs -= 0.5;
+                            span.style.fontSize = fs + 'px';
+                        }
+                    });
+                }
+            });
             return;
         }
 

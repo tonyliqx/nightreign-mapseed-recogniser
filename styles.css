@@ -1899,9 +1899,22 @@ body {
 
 /* 英文版例外：高级模式非共享点位浮窗为纯文字（无 icon），必须保留 span。
    否则被上方 [data-lang="en"] ... span { display:none }（基础版英文靠 icon 隐藏中文标签）
-   清空成空格子。特异性 (0,4,1) 压过 (0,3,1)。*/
+   清空成空格子。特异性 (0,4,1) 压过 (0,3,1)。
+   英文 BOSS 名长短不一，选项文字左对齐更整齐（中文仍居中）。*/
+[data-lang="en"] .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
+    justify-content: flex-start;
+}
 [data-lang="en"] .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
-    display: inline-block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;        /* 最多两行，超出截断省略 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 11px;              /* 较中文版 13px 缩小 */
+    line-height: 1.2;
+    max-width: 16ch;              /* 限定宽度，长名在此换行成两行 */
+    white-space: normal;          /* 覆盖父规则 nowrap，允许换行 */
+    word-break: break-word;       /* 长单词可断行 */
+    text-align: left;
 }
 
 /* 高级模式开关 toggle */
