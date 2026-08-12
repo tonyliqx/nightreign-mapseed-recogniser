@@ -476,7 +476,7 @@
   "30300": {
     "category": "stronghold",
     "icon": "camp_blank",
-    "name": "魔像大弓",
+    "name": "魔像(弓)",
     "basicClass": "other"
   },
   "30301": {
@@ -608,7 +608,7 @@
   "38001": {
     "category": "stronghold",
     "icon": "camp_blank",
-    "name": "魔像大戟",
+    "name": "魔像(戟)",
     "basicClass": "other"
   },
   "38100": {

@@ -345,8 +345,8 @@ const POI_TYPE_EN = {
   '飞龙': "Flying Dragon",  // fieldBoss
   '马车': "Abandoned Carriage",  // landmark
   '骑士兵长': "Lordsworn Captain",  // stronghold
-  '魔像大弓': "Golem (Greatbow)",  // stronghold（要塞 30300）
-  '魔像大戟': "Golem (Halberd)",  // stronghold（大教堂 38001）
+  '魔像(弓)': "Golem (Greatbow)",  // stronghold（要塞 30300）
+  '魔像(戟)': "Golem (Halberd)",  // stronghold（大教堂 38001）
   '鲜血贵族': "Sanguine Noble",  // stronghold（大型遗迹 34001）
   '鲜血贵族们': "Sanguine Nobles",  // stronghold（池沼 50060，DLC）
   '黄金树化身': "Erdtree Avatar",  // fieldBoss
