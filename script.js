@@ -31,13 +31,38 @@ let RAW_POI_LOOKUP = null;  // 缓存 JSON 原始 poiLookupByMapType，供 rebui
 
 // 按 categories 集合过滤槽位，坐标 1536→768（×0.5），landmark 按 POIS_BY_MAP 最近邻继承 originalId。
 // 抽自 loadSeedData，供开关切换时重建 POI_SLOTS_BY_MAP（不重新 fetch）。
+
+// 特定地形需排除的 category（用户需求：大空洞不展示野外商人 merchant POI）
+const CATEGORY_EXCLUDE_BY_MAP = {
+    'Great Hollow': ['merchant'],
+};
+
+// 特定地形按坐标排除的点位（用户需求：大空洞两座神授塔的 BOSS 点位不展示）。
+// 坐标为 poiLookupByMapType 原始 1536 空间，filter 内距离阈值 5px 匹配。
+// 塔1(382,619/670/721)、塔2(1099,993/1044/1095)，各三层；其中 619/993 数据未收录，预留。
+const COORD_EXCLUDE_BY_MAP = {
+    'Great Hollow': [
+        { x: 382, y: 619 }, { x: 382, y: 670 }, { x: 382, y: 721 },
+        { x: 1099, y: 993 }, { x: 1099, y: 1044 }, { x: 1099, y: 1095 },
+    ],
+};
+
 function buildPOISlots(plm, categories, legacyMap) {
     const catSet = new Set(categories);
     const result = {};
     Object.keys(plm).forEach(mt => {
         const legMap = legacyMap[mt] || [];
+        const excl = new Set(CATEGORY_EXCLUDE_BY_MAP[mt] || []);
+        const exclCoords = COORD_EXCLUDE_BY_MAP[mt] || [];
         result[mt] = plm[mt]
-            .filter(p => catSet.has(p.category))
+            .filter(p => {
+                if (!catSet.has(p.category) || excl.has(p.category)) return false;
+                if (exclCoords.length) {
+                    const c = p.coordinates;
+                    if (exclCoords.some(e => Math.abs(e.x - c.x) < 5 && Math.abs(e.y - c.y) < 5)) return false;
+                }
+                return true;
+            })
             .map(p => {
                 const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
                 let originalId = p.id;
@@ -78,6 +103,32 @@ const TYPE_ICON_MAP = {
 const TYPE_DISPLAY_MAP = {
     '特殊商人': '大商人',  // 移动端浮窗 4 字换行 → 改 3 字「大商人」
     '破败小屋': '祷告屋',  // 同上，4 字 → 3 字
+};
+
+// 大空洞专属：据点(stronghold) BOSS 名 → 其守护的遗迹/教堂识别名（用户需求，仅大空洞地形、仅中文模式）。
+// 仅影响 displayName 渲染文字，内部 type 不变（匹配/状态机/浮窗 data-value 仍用原 type）。
+// 基础版大空洞消歧菜单（B 点守护据点）也走此映射 → 显示遗迹名更直观。
+const GH_TYPE_DISPLAY_OVERRIDE = {
+    '咒剑士+蜘蛛蝎': '毒遗迹',
+    '巨鸦+血怪之首': '血遗迹',
+    '紫怪之首+双熔炉': '睡眠遗迹',
+    '红狼+先祖之灵': '魔力遗迹',
+    '唤灵蜗牛+灵火龙': '冻伤教堂',
+    '大审判官': '圣教堂',
+    '巨蟹': '睡眠教堂',
+    '仿生泪滴': '雷电教堂',
+};
+
+// 大空洞专属识别名（英文模式），与上方中文表一一对应（用户需求，仅大空洞地形、仅英文模式）。
+const GH_TYPE_DISPLAY_OVERRIDE_EN = {
+    '咒剑士+蜘蛛蝎': 'Poison',
+    '巨鸦+血怪之首': 'Blood',
+    '紫怪之首+双熔炉': 'Sleep',
+    '红狼+先祖之灵': 'Magic',
+    '唤灵蜗牛+灵火龙': 'Frostbite',
+    '大审判官': 'Holy',
+    '巨蟹': 'Sleep',
+    '仿生泪滴': 'Lightning',
 };
 
 // category → 默认 icon（已选态用）。landmark 走 TYPE_ICON_MAP（按 type），其余按 category 统一 icon。
@@ -681,6 +732,7 @@ class NightreignMapRecogniser {
     // 动态判定，不依赖硬编码 GH_DISAMBIG：碰撞种子的区分值由 A/B 点位实时从 JSON 读取。
     detectHasLandmarkCollision(filteredSeeds) {
         if (this.chosenMap !== 'Great Hollow') return false;
+        if (advancedMode) return false;  // 高级版提供 stronghold/fieldBoss 等额外 category 区分维度，关闭大空洞 landmark 碰撞消歧
         if (!filteredSeeds || filteredSeeds.length < 2) return false;
         // 消歧是共享 landmark 穷尽后的最后手段：所有共享点位都已确定（无 dot 未标记）才考虑，
         // 否则优先让用户继续标 landmark（未标完时消歧菜单会提前冒出、干扰判断）
@@ -1020,9 +1072,20 @@ class NightreignMapRecogniser {
 
     // type 显示名（内部 type 值 → 界面文字；仅渲染层映射，不改数据源/匹配/排序逻辑）
     displayName(type) {
-        if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en'
-            && typeof POI_TYPE_EN !== 'undefined' && POI_TYPE_EN[type]) {
-            return POI_TYPE_EN[type];
+        if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en') {
+            // 大空洞专属识别名（英文模式）优先于通用 POI_TYPE_EN
+            if (this.chosenMap === 'Great Hollow' && typeof GH_TYPE_DISPLAY_OVERRIDE_EN !== 'undefined'
+                && GH_TYPE_DISPLAY_OVERRIDE_EN[type]) {
+                return GH_TYPE_DISPLAY_OVERRIDE_EN[type];
+            }
+            if (typeof POI_TYPE_EN !== 'undefined' && POI_TYPE_EN[type]) {
+                return POI_TYPE_EN[type];
+            }
+        }
+        // 大空洞专属识别名（中文模式）：据点 BOSS → 其守护的遗迹/教堂名，便于快速识别
+        if (this.chosenMap === 'Great Hollow' && typeof GH_TYPE_DISPLAY_OVERRIDE !== 'undefined'
+            && GH_TYPE_DISPLAY_OVERRIDE[type]) {
+            return GH_TYPE_DISPLAY_OVERRIDE[type];
         }
         return TYPE_DISPLAY_MAP[type] || type;
     }
