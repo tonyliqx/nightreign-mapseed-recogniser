@@ -555,29 +555,26 @@ class NightreignMapRecogniser {
         this.resetForCategoryChange();
     }
 
-    // 切换 category 范围后：退出种子图模式 + 清标记 + 重建槽位 + 重画
+    // 切换 category 范围后：重建槽位 + 回到出生点阶段，状态机转换委托 updateGameState。
     resetForCategoryChange() {
-        // 退出单种子图模式（若在展示结果图）
-        const imgContainer = document.getElementById('seed-image-container');
-        if (imgContainer) imgContainer.style.display = 'none';
-        this.canvas && (this.canvas.style.display = '');
-
-        // 清标记状态
-        this.poiStates = {};
-        this.selectedSpawn = null;
-        this.spawnPhase = false;
-        this.lastFilteredSeeds = null;
-
-        // 重建槽位（用缓存 raw，不重新 fetch）
+        // category 变了：重建 POI_SLOTS_BY_MAP（依赖 getActiveCategories）。这是 updateGameState 不做的关键步骤。
         rebuildPOISlots();
 
-        // 显式重赋 currentPOIs：renderMap 只重画现有 currentPOIs，
-        // 切换 category 后必须重新从 POI_SLOTS_BY_MAP 取新点位集（参考 script.js:345/525 的赋值模式）
-        if (this.chosenMap) {
-            this.currentPOIs = (POI_SLOTS_BY_MAP[this.chosenMap] || []).slice();
-            this.ensureMapLoaded(this.chosenMap);
-            this.renderMap();
-        }
+        // 关闭可能残留的浮窗 / 消歧菜单 DOM（状态由 updateGameState→resetDisambig 清）
+        this.hidePOISuggestions();
+        this.hideDisambigMenu();
+
+        // 回到出生点阶段（与 selectMap 一致：切换后等同重新进入该地形）。
+        // spawnPhase 必须为 true：drawMap 据此隐藏 POI、显示出生点；若为 false 且 selectedSpawn=null，
+        // 是非法状态组合，POI 会画出却不可点选。
+        this.selectedSpawn = null;
+        this.spawnPhase = true;
+        if (this.chosenMap) this.ensureMapLoaded(this.chosenMap);
+
+        // updateGameState 接管：重建 currentPOIs/poiStates（initializePOIStates 补 'dot'）、
+        // renderMap、updateSeedFiltering、退出种子图模式、resetDisambig。
+        // 不在此手动重复——曾因 poiStates={} 未补 'dot' 导致 drawPOI 误判已选态。
+        this.updateGameState();
     }
 
     selectNightlord(nightlord) {
