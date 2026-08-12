@@ -1973,6 +1973,6 @@ body {
     width: 12px; height: 12px; background: #fff;
     border-radius: 50%; transition: left .2s;
 }
-.advanced-toggle.active { color: #00e5ff; border-color: #00e5ff; }
-.advanced-toggle.active .toggle-track { background: #00e5ff; }
+.advanced-toggle.active { color: #ffd700; border-color: #ffd700; }
+.advanced-toggle.active .toggle-track { background: #ffd700; }
 .advanced-toggle.active .toggle-thumb { left: 18px; }
