@@ -1020,6 +1020,8 @@ body {
     width: 100%;
     justify-content: center;
     font-size: 0.9rem;
+    color: #fff;        /* 文字样式与 reset-btn/help-btn 统一：白字 */
+    font-weight: 600;   /* 与 reset-btn/help-btn 统一：600 字重 */
 }
 
 /* 移动端夜王信息样式 */
@@ -1971,6 +1973,6 @@ body {
     width: 12px; height: 12px; background: #fff;
     border-radius: 50%; transition: left .2s;
 }
-.advanced-toggle.active { color: #00e5ff; border-color: #00e5ff; }
-.advanced-toggle.active .toggle-track { background: #00e5ff; }
+.advanced-toggle.active { color: #ffd700; border-color: #ffd700; }
+.advanced-toggle.active .toggle-track { background: #ffd700; }
 .advanced-toggle.active .toggle-thumb { left: 18px; }
