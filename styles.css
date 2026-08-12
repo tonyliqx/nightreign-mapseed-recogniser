@@ -59,21 +59,22 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
     text-decoration: none;
-    padding: 8px 16px;
+    padding: 6px 12px;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .control-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .control-btn i {
@@ -101,7 +102,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    /* 不加 backdrop-filter：嵌套在 header(已 backdrop-filter) 内，WebKit 滚动时会让按钮文字/图标渲染丢失 */
 }
 
 .lang-btn:hover {
@@ -118,6 +119,14 @@ body {
 
 .lang-btn span {
     white-space: nowrap;
+}
+
+/* 夜王反推(.control-btn) 与语言切换(.lang-btn) 按钮等高：
+   <a> 与 <button> 默认盒模型/line-height 不同，统一固定 height 消除视觉高度差 */
+.header-controls .control-btn,
+.header-controls .lang-btn {
+    box-sizing: border-box;
+    height: 38px;
 }
 
 /* Mobile responsive adjustments */
@@ -1005,8 +1014,12 @@ body {
     border-radius: 20px;
 }
 
-.compact-button-row #reset-map-btn {
-    grid-column: 1 / -1;
+/* 地图缺失模式开关置于 compact-button-row 第1行右列，与重置按钮并排（重置缩成1列，开关占另1列）。
+   撑满单元格宽度、内容居中，字号匹配 reset-btn；grid 默认 stretch 使其与重置等高。*/
+.compact-button-row .advanced-toggle {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
 }
 
 /* 移动端夜王信息样式 */
@@ -1348,6 +1361,11 @@ body {
     .lang-btn {
         padding: 5px 8px;
         font-size: 0.75rem;
+    }
+
+    .header-controls .control-btn,
+    .header-controls .lang-btn {
+        height: 34px;
     }
 
     .subtitle {
@@ -1723,6 +1741,19 @@ body {
     box-shadow: 0 2px 6px rgba(79, 195, 247, 0.4);
 }
 
+/* 浮窗按钮浅红背景区分：DLC 野外据点（池沼/锻造村 .dlc-stronghold）与 精英野外BOSS（.poi-elite）共用样式。
+   特异性 (0,3,0) 压过 .poi-suggestion-btn / :hover (0,2,0)，hover 时浅红加深。*/
+.poi-suggestion-btn.dlc-stronghold,
+.poi-suggestion-btn.poi-elite {
+    background: linear-gradient(135deg, #ffe5e5, #ffd0d0);
+    border-color: #e8a0a0;
+}
+.poi-suggestion-btn.dlc-stronghold:hover,
+.poi-suggestion-btn.poi-elite:hover {
+    background: linear-gradient(135deg, #ffd8d8, #ffbdbd);
+    border-color: #e07070;
+}
+
 .suggestion-icon {
     width: 20px;
     height: 20px;
@@ -1841,6 +1872,13 @@ body {
         line-height: 1;
         max-width: 35px;
     }
+
+    /* 高级模式非共享点位浮窗(non-landmark)：放宽 140px 限制到 92vw，
+       既按 max-content 自适应、一行容纳 3 个候选，又约束不超屏幕。
+       特异性 (0,2,0) 同 :not 规则、源序在后，故覆盖 140px。*/
+    .poi-suggestion-container.non-landmark-suggestion {
+        max-width: 92vw;
+    }
 }
 
 /* 英文版 POI 浮窗：隐藏 type 中文文字标签（教堂/法师塔/特殊商人/马车/破败小屋/empty 未做英文翻译），
@@ -1874,3 +1912,65 @@ body {
     background-color: #e3f2fd !important;
     transform: scale(0.98);
 }
+
+/* 高级模式非共享点位浮窗：每行 3 个、容器宽度随内容自适应、字体加大 */
+.poi-suggestion-container.non-landmark-suggestion {
+    display: grid;
+    grid-template-columns: repeat(3, auto);  /* 3 列，每列按内容自适应宽度 */
+    width: max-content;   /* 容器宽度随内容自适应（非固定） */
+    padding: 3px;
+    gap: 3px;
+}
+.poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
+    flex-direction: row;
+    justify-content: center;
+    min-width: 0;
+    padding: 5px 6px;
+    font-size: 13px;
+}
+.poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
+    font-size: 13px;
+    max-width: none;
+    text-align: center;
+    white-space: nowrap;   /* 单行，按钮按文字宽度自适应 */
+}
+
+/* 英文版例外：高级模式非共享点位浮窗为纯文字（无 icon），必须保留 span。
+   否则被上方 [data-lang="en"] ... span { display:none }（基础版英文靠 icon 隐藏中文标签）
+   清空成空格子。特异性 (0,4,1) 压过 (0,3,1)。
+   英文 BOSS 名长短不一，选项文字左对齐更整齐（中文仍居中）。*/
+[data-lang="en"] .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn {
+    justify-content: flex-start;
+}
+[data-lang="en"] .poi-suggestion-container.non-landmark-suggestion .poi-suggestion-btn span {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;        /* 最多两行，超出截断省略 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 11px;              /* 较中文版 13px 缩小 */
+    line-height: 1.2;
+    max-width: 16ch;              /* 限定宽度，长名在此换行成两行 */
+    white-space: normal;          /* 覆盖父规则 nowrap，允许换行 */
+    word-break: break-word;       /* 长单词可断行 */
+    text-align: left;
+}
+
+/* 高级模式开关 toggle */
+.advanced-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: #ccc; padding: 4px 10px; border-radius: 20px;
+    cursor: pointer; font-size: 13px; user-select: none;
+}
+.advanced-toggle .toggle-track {
+    position: relative; width: 32px; height: 16px;
+    background: #555; border-radius: 10px; transition: background .2s;
+}
+.advanced-toggle .toggle-thumb {
+    position: absolute; top: 2px; left: 2px;
+    width: 12px; height: 12px; background: #fff;
+    border-radius: 50%; transition: left .2s;
+}
+.advanced-toggle.active { color: #00e5ff; border-color: #00e5ff; }
+.advanced-toggle.active .toggle-track { background: #00e5ff; }
+.advanced-toggle.active .toggle-thumb { left: 18px; }

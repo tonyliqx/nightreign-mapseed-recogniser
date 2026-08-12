@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title data-i18n="app.title">黑夜君临-地图种子识别器</title>
-    <link rel="stylesheet" href="styles.css?v=2.3.9">
+    <link rel="stylesheet" href="styles.css?v=2.4.13">
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a2e">
@@ -17,11 +17,6 @@
     <div class="container">
         <header class="header">
             <div class="header-controls">
-                <!-- 入口：跳转高级版「地图缺失模式」index-advanced.html -->
-                <button id="switch-to-advanced-btn" class="control-btn">
-                    <i class="fas fa-arrow-right"></i>
-                    <span data-i18n="nav.advanced">Advanced Mode</span>
-                </button>
                 <!-- 入口：夜王反推 boss-reverse.html -->
                 <a href="boss-reverse.html" class="control-btn">
                     <img src="assets/icons/boss.png" alt="夜王反推" class="control-btn-icon">
@@ -120,6 +115,11 @@
                                 <i class="fas fa-undo"></i>
                                 <span data-i18n="action.reset">重置所有标记</span>
                             </button>
+                            <!-- 地图缺失模式开关：与重置并排（重置半宽，开关占另一半） -->
+                            <button id="switch-to-advanced-btn" class="advanced-toggle" type="button" role="switch" aria-checked="false">
+                                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                                <span data-i18n="nav.advanced">地图缺失模式</span>
+                            </button>
                             <button id="skip-spawn-btn" class="reset-btn">
                                 <i class="fas fa-forward"></i>
                                 <span data-i18n="action.skip_spawn">跳过出生点</span>
@@ -215,9 +215,9 @@
         </p>
     </footer>
 
-    <script src="i18n/translations.js?v=9"></script>
+    <script src="i18n/translations.js?v=12"></script>
     <script src="i18n/language-manager.js?v=3"></script>
     <script src="data.js"></script>
-    <script src="script.js?v=2.2.13"></script>
+    <script src="script.js?v=2.2.24"></script>
 </body>
 </html>

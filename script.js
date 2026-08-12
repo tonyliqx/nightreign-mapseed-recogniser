@@ -6,6 +6,87 @@ let SEED_REGISTRY = [];        // [{seedNumber, nightlord, mapType}] 全部种�
 let POI_SLOTS_BY_MAP = {};     // {mapType: [{id, name, x(768), y(768), category, index}]} 仅 landmark 槽位（替代 POI_SLOTS_BY_MAP）
 let SEED_POIS_RAW = null;      // JSON 原始 seeds 对象（key=seedNumber 字符串），供 findRealPOITypeAtCoordinate 按坐标查 type
 
+// === 高级模式开关 ===
+// 关=仅 landmark（基础版行为）；开=全部 5 类 category（高级版行为）。
+// 状态来源优先级：URL ?advanced=1 > localStorage > 默认关。
+let advancedMode = false;
+const ADVANCED_CATEGORIES = ['landmark', 'stronghold', 'fieldBoss', 'scaleMerchant', 'merchant'];
+const BASIC_CATEGORIES = ['landmark'];
+const ADVANCED_STORAGE_KEY = 'advanced-mode';
+
+function getActiveCategories() {
+    return advancedMode ? ADVANCED_CATEGORIES : BASIC_CATEGORIES;
+}
+
+function initAdvancedMode() {
+    const urlAdv = new URLSearchParams(location.search).get('advanced');
+    if (urlAdv === '1') {
+        advancedMode = true;
+    } else {
+        advancedMode = (localStorage.getItem(ADVANCED_STORAGE_KEY) === '1');
+    }
+}
+
+let RAW_POI_LOOKUP = null;  // 缓存 JSON 原始 poiLookupByMapType，供 rebuildPOISlots 复用
+
+// 按 categories 集合过滤槽位，坐标 1536→768（×0.5），landmark 按 POIS_BY_MAP 最近邻继承 originalId。
+// 抽自 loadSeedData，供开关切换时重建 POI_SLOTS_BY_MAP（不重新 fetch）。
+
+// 特定地形需排除的 category（用户需求：大空洞不展示野外商人 merchant POI）
+const CATEGORY_EXCLUDE_BY_MAP = {
+    'Great Hollow': ['merchant'],
+};
+
+// 特定地形按坐标排除的点位（用户需求：大空洞两座神授塔的 BOSS 点位不展示）。
+// 坐标为 poiLookupByMapType 原始 1536 空间，filter 内距离阈值 5px 匹配。
+// 塔1(382,619/670/721)、塔2(1099,993/1044/1095)，各三层；其中 619/993 数据未收录，预留。
+const COORD_EXCLUDE_BY_MAP = {
+    'Great Hollow': [
+        { x: 382, y: 619 }, { x: 382, y: 670 }, { x: 382, y: 721 },
+        { x: 1099, y: 993 }, { x: 1099, y: 1044 }, { x: 1099, y: 1095 },
+    ],
+};
+
+function buildPOISlots(plm, categories, legacyMap) {
+    const catSet = new Set(categories);
+    const result = {};
+    Object.keys(plm).forEach(mt => {
+        const legMap = legacyMap[mt] || [];
+        const excl = new Set(CATEGORY_EXCLUDE_BY_MAP[mt] || []);
+        const exclCoords = COORD_EXCLUDE_BY_MAP[mt] || [];
+        result[mt] = plm[mt]
+            .filter(p => {
+                if (!catSet.has(p.category) || excl.has(p.category)) return false;
+                if (exclCoords.length) {
+                    const c = p.coordinates;
+                    if (exclCoords.some(e => Math.abs(e.x - c.x) < 5 && Math.abs(e.y - c.y) < 5)) return false;
+                }
+                return true;
+            })
+            .map(p => {
+                const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
+                let originalId = p.id;
+                let best = Infinity;
+                legMap.forEach(lp => {
+                    const d = (lp.x - x) ** 2 + (lp.y - y) ** 2;
+                    if (d < best) { best = d; originalId = lp.id; }
+                });
+                return { id: p.id, originalId, name: p.name || p.id, x, y, category: p.category, index: p.index };
+            });
+    });
+    return result;
+}
+
+// 切换开关后重建 POI_SLOTS_BY_MAP（用缓存 raw，不重新 fetch）。categories 省略则取当前活跃集。
+function rebuildPOISlots(categories) {
+    if (!RAW_POI_LOOKUP) return;
+    POI_SLOTS_BY_MAP = buildPOISlots(
+        RAW_POI_LOOKUP,
+        categories || getActiveCategories(),
+        (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {}
+    );
+}
+
 // landmark type（中文）→ icon 路径。源自 nightreignMapPatterns.json 的 landmark type 集合：
 // 教堂/法师塔/马车/特殊商人/破败小屋（icon 分别 church/rise/carriage/merchant/blessing）。
 // 'empty'（无建筑）与未命中 type 走 createPOISuggestionUI 内部兜底，不在此表。
@@ -22,6 +103,89 @@ const TYPE_ICON_MAP = {
 const TYPE_DISPLAY_MAP = {
     '特殊商人': '大商人',  // 移动端浮窗 4 字换行 → 改 3 字「大商人」
     '破败小屋': '祷告屋',  // 同上，4 字 → 3 字
+};
+
+// 大空洞专属：据点(stronghold) BOSS 名 → 其守护的遗迹/教堂识别名（用户需求，仅大空洞地形、仅中文模式）。
+// 仅影响 displayName 渲染文字，内部 type 不变（匹配/状态机/浮窗 data-value 仍用原 type）。
+// 基础版大空洞消歧菜单（B 点守护据点）也走此映射 → 显示遗迹名更直观。
+const GH_TYPE_DISPLAY_OVERRIDE = {
+    '咒剑士+蜘蛛蝎': '毒遗迹',
+    '巨鸦+血怪之首': '血遗迹',
+    '紫怪之首+双熔炉': '睡眠遗迹',
+    '红狼+先祖之灵': '魔力遗迹',
+    '唤灵蜗牛+灵火龙': '冻伤教堂',
+    '大审判官': '圣教堂',
+    '巨蟹': '睡眠教堂',
+    '仿生泪滴': '雷电教堂',
+};
+
+// 大空洞专属识别名（英文模式），与上方中文表一一对应（用户需求，仅大空洞地形、仅英文模式）。
+const GH_TYPE_DISPLAY_OVERRIDE_EN = {
+    '咒剑士+蜘蛛蝎': 'Poison',
+    '巨鸦+血怪之首': 'Blood',
+    '紫怪之首+双熔炉': 'Sleep',
+    '红狼+先祖之灵': 'Magic',
+    '唤灵蜗牛+灵火龙': 'Frostbite',
+    '大审判官': 'Holy',
+    '巨蟹': 'Sleep',
+    '仿生泪滴': 'Lightning',
+};
+
+// 野外据点（stronghold）BOSS type → 建筑分组排序索引。
+// 分组顺序：要塞 < 大教堂 < 大型营地 < 大型遗迹 < 池沼(DLC) < 锻造村(DLC)。
+// 浮窗候选按此顺序排（见 sortPOITypes）；池沼、锻造村（order ≥ 26）为 DLC 建筑，按钮浅红底（见 .dlc-stronghold）。
+// 跨建筑重名已按建筑拆分：「魔像(弓)」(要塞 30300) vs「魔像(戟)」(大教堂 38001)；「鲜血贵族」(大型遗迹 34001) vs「鲜血贵族们」(池沼 50060)。
+// 大空洞专属 stronghold type（咒剑士+蜘蛛蝎 等）不在此表——大空洞走 GH_TYPE_DISPLAY_OVERRIDE 遗迹名，单独体系。
+const STRONGHOLD_TYPE_ORDER = {
+    // 要塞
+    '骑士兵长': 0, '铁处女': 1, '魔像(弓)': 2, '结晶人': 3,
+    // 大教堂
+    '神谕使者': 4, '魔像(戟)': 5, '火焰修士': 6, '灵庙骑士': 7,
+    // 大型营地
+    '失乡骑士': 8, '老狮子': 9, '狮子混种': 10, '红狮子骑士': 11, '罗德尔骑士': 12, '火焰战车': 13, '癫火山妖': 14,
+    // 大型遗迹
+    '归树看门犬': 15, '鲜血贵族': 16, '萨米尔': 17, '白金之子': 18, '调香师': 19, '堕落调香师': 20, '战斗法师': 21, '白金射手': 22, '卢恩熊': 23, '蚯蚓脸': 24, '亚兹拉兽人': 25,
+    // 池沼（DLC）
+    '腐败眷属': 26, '蜘蛛蝎': 27, '冻霜螯虾': 28, '杜鹃骑士': 29, '尊腐骑士': 30, '癫火花': 31, '鲜血贵族们': 32,
+    // 锻造村（DLC）
+    '恶兆之子': 33, '血怪之首': 34, '死骑士': 35, '神鸟战士': 36, '守墓斗士': 37, '黑焰修士': 38, '厄兆猎人': 39, '祖灵之民': 40,
+};
+// 是否 DLC 建筑组（池沼/锻造村）的 stronghold type → 浮窗按钮浅红背景。
+function isDlcStrongholdType(type) {
+    const o = STRONGHOLD_TYPE_ORDER[type];
+    return o !== undefined && o >= 26;
+}
+
+// 精英野外BOSS（fieldBoss）type → 浮窗按钮浅红背景（与 DLC 据点同色，见 .poi-elite）。
+// 分类依据：用户提供的 type ID 权威列表——
+//   精英：46520龙装/46530大树守卫/46540罗蕾塔/46560+46870铃珠猎人/46580飞龙/
+//         46640祖灵/46660黑剑眷属/46670黄金树化身/46680土龙/46740死鸟/46630+49902腐败树灵
+// 中文名零歧义（同名 type 同分类），故显示层按中文名集合判定即可，各地形含大空洞天然生效。
+// 大空洞5个DLC专属 fieldBoss（厄兆之子/厄兆猎人/咒剑士/失乡/猎犬骑士）经确认归普通，不在此表。
+const ELITE_FIELD_BOSS_TYPES = new Set([
+    '龙装', '大树守卫', '罗蕾塔', '铃珠猎人', '飞龙',
+    '祖灵', '黑剑眷属', '黄金树化身', '土龙', '死鸟', '腐败树灵',
+]);
+function isEliteFieldBoss(type) {
+    return ELITE_FIELD_BOSS_TYPES.has(type);
+}
+
+// category → 默认 icon（已选态用）。landmark 走 TYPE_ICON_MAP（按 type），其余按 category 统一 icon。
+// 依据 nightreignMapPatterns.json：fieldBoss 27 种 type 共用 field_boss，stronghold 47 种共用 camp_blank。
+const CATEGORY_ICON_MAP = {
+    'fieldBoss': 'assets/icons/field_boss.png',
+    'stronghold': 'assets/icons/camp_blank.png',
+    'scaleMerchant': 'assets/icons/merchant.png',
+    'merchant': 'assets/icons/merchant.png',
+};
+
+// category → dot 未标记态颜色。landmark 橙（现状）；scaleMerchant 红（持秤商人单独高亮）；其余金。
+const CATEGORY_DOT_COLOR = {
+    'landmark': '#ff8c00',
+    'fieldBoss': '#ffd700',
+    'stronghold': '#ffd700',
+    'scaleMerchant': '#ff2d2d',
+    'merchant': '#ffd700',
 };
 
 // 出生点 label 圈数字 → 阿拉伯数字（英文版 drawSpawnMarker 渲染 SP1/SP2… 用；中文版沿用原 label）
@@ -63,27 +227,9 @@ async function loadSeedData() {
             mapType: s.mapType
         }));
 
-        // 各地形 landmark 槽位：coordinates 1536→768（×0.5）
-        const plm = data.poiLookupByMapType || {};
-        // 原 POIS_BY_MAP（data.js）含人工微调的语义 id（1-11，各地形复用），suggestion 浮窗据此做
-        // 防重叠偏移。JSON landmark 按坐标最近邻继承该 originalId；poiStates 等 key 仍用 JSON id。
-        const legacy = (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {};
-        POI_SLOTS_BY_MAP = {};
-        Object.keys(plm).forEach(mt => {
-            const legMap = legacy[mt] || [];
-            POI_SLOTS_BY_MAP[mt] = plm[mt]
-                .filter(p => p.category === 'landmark')
-                .map(p => {
-                    const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
-                    let originalId = p.id;      // 兜底用 JSON id
-                    let best = Infinity;
-                    legMap.forEach(lp => {
-                        const d = (lp.x - x) ** 2 + (lp.y - y) ** 2;
-                        if (d < best) { best = d; originalId = lp.id; }
-                    });
-                    return { id: p.id, originalId, name: p.name || p.id, x, y, category: p.category, index: p.index };
-                });
-        });
+        // 缓存原始 poiLookupByMapType，供切换开关时 rebuildPOISlots 重建（不重新 fetch）
+        RAW_POI_LOOKUP = data.poiLookupByMapType || {};
+        POI_SLOTS_BY_MAP = buildPOISlots(RAW_POI_LOOKUP, getActiveCategories(), (typeof POIS_BY_MAP !== 'undefined') ? POIS_BY_MAP : {});
 
         console.log('✅ 种子数据已加载:', SEED_REGISTRY.length, '颗种子,', Object.keys(POI_SLOTS_BY_MAP).length, '地形');
         return true;
@@ -152,6 +298,14 @@ class NightreignMapRecogniser {
             this.typeImages[type] = img;
         });
 
+        // category 默认图标（非 landmark 的 category 统一 icon，预加载供 Task 4/5 渲染用）
+        this.categoryImages = {};
+        Object.entries(CATEGORY_ICON_MAP).forEach(([cat, src]) => {
+            const img = new Image();
+            img.src = src;
+            this.categoryImages[cat] = img;
+        });
+
         // Add error handling for images
         this.images.empty.onerror = () => {
             console.warn('Failed to load empty icon');
@@ -198,12 +352,12 @@ class NightreignMapRecogniser {
 
     onLanguageChanged(language) {
         console.log('Language changed to:', language);
-        
-        // Refresh seed image if currently displayed (handles pattern images)
-        if (this.showingSeedImage) {
-            this.refreshSeedImage();
-        }
-        
+
+        // 切换语言时执行「重置所有标记」（等同点重置按钮）：清空夜王/POI 标记、退出种子图、
+        // 回到选出生点阶段（保留地形）。浮窗候选名为创建时按当时语言生成，切换后必须重置；
+        // resetMap 内含 hidePOISuggestions，顺带关闭浮窗。
+        this.resetMap();
+
         // Update loading status messages if they exist
         this.updateLoadingStatusMessages();
     }
@@ -288,10 +442,19 @@ class NightreignMapRecogniser {
             }
         });
 
-        // Switch to advanced mode
-        document.getElementById('switch-to-advanced-btn').addEventListener('click', () => {
-            window.location.href = 'index-advanced.html';
-        });
+        // 点击/触摸画布外区域（侧栏、页头、页面空白等）时关闭 POI 悬浮窗。
+        // 仅处理 mapContainer 之外的点击——画布内的空白关闭由 canvas click/touch 分支负责，
+        // 这样右键(contextmenu)/中键(mousedown)弹出的浮窗不会被同次事件冒泡误关。
+        const closeSuggestionOnOutside = (e) => {
+            const t = e.target;
+            if (t && t.closest && !t.closest('.map-container')) {
+                this.hidePOISuggestions();
+            }
+        };
+        document.addEventListener('mousedown', closeSuggestionOnOutside);
+        document.addEventListener('touchstart', closeSuggestionOnOutside, { passive: true });
+
+        this.setupAdvancedToggle();
 
         // Context menu setup
         this.setupContextMenu();
@@ -304,6 +467,12 @@ class NightreignMapRecogniser {
 
     async loadInitialData() {
         try {
+            // 高级模式开关必须先于数据加载确定（数据层会根据 category 集合过滤）
+            initAdvancedMode();
+            // initAdvancedMode 可能据 localStorage/URL 改 advancedMode，须同步按钮 UI：
+            // setupAdvancedToggle 早先按默认 false 渲染过按钮，若不同步，逻辑态与按钮错位 →
+            // 刷新后首次点击只抵消错位（用户感觉要点两次才切过去）。
+            this.updateAdvancedToggleUI();
             // 加载权威种子数据（nightreignMapPatterns.json）
             await loadSeedData();
             const seedCount = SEED_REGISTRY.length;
@@ -466,6 +635,54 @@ class NightreignMapRecogniser {
         if (el) el.textContent = text;
     }
 
+    // 绑定高级模式开关（替代原跳转按钮）
+    setupAdvancedToggle() {
+        const btn = document.getElementById('switch-to-advanced-btn');
+        if (!btn || this._advToggleBound) return;
+        this._advToggleBound = true;
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.toggleAdvancedMode();
+        });
+        this.updateAdvancedToggleUI();
+    }
+
+    updateAdvancedToggleUI() {
+        const btn = document.getElementById('switch-to-advanced-btn');
+        if (!btn) return;
+        btn.classList.toggle('active', advancedMode);
+        btn.setAttribute('aria-checked', advancedMode ? 'true' : 'false');
+    }
+
+    toggleAdvancedMode() {
+        advancedMode = !advancedMode;
+        localStorage.setItem(ADVANCED_STORAGE_KEY, advancedMode ? '1' : '0');
+        this.updateAdvancedToggleUI();
+        this.resetForCategoryChange();
+    }
+
+    // 切换 category 范围后：重建槽位 + 回到出生点阶段，状态机转换委托 updateGameState。
+    resetForCategoryChange() {
+        // category 变了：重建 POI_SLOTS_BY_MAP（依赖 getActiveCategories）。这是 updateGameState 不做的关键步骤。
+        rebuildPOISlots();
+
+        // 关闭可能残留的浮窗 / 消歧菜单 DOM（状态由 updateGameState→resetDisambig 清）
+        this.hidePOISuggestions();
+        this.hideDisambigMenu();
+
+        // 回到出生点阶段（与 selectMap 一致：切换后等同重新进入该地形）。
+        // spawnPhase 必须为 true：drawMap 据此隐藏 POI、显示出生点；若为 false 且 selectedSpawn=null，
+        // 是非法状态组合，POI 会画出却不可点选。
+        this.selectedSpawn = null;
+        this.spawnPhase = true;
+        if (this.chosenMap) this.ensureMapLoaded(this.chosenMap);
+
+        // updateGameState 接管：重建 currentPOIs/poiStates（initializePOIStates 补 'dot'）、
+        // renderMap、updateSeedFiltering、退出种子图模式、resetDisambig。
+        // 不在此手动重复——曾因 poiStates={} 未补 'dot' 导致 drawPOI 误判已选态。
+        this.updateGameState();
+    }
+
     selectNightlord(nightlord) {
         // If the same nightlord is clicked again, clear the selection
         if (this.chosenNightlord === nightlord) {
@@ -511,12 +728,14 @@ class NightreignMapRecogniser {
     }
 
     selectMap(map) {
+        // 切地形（含重选同地形）一律清待选浮窗：旧浮窗坐标绑的是旧地图，留着会叠加/错位到新地图。
+        // 原仅 if（重选同地形）分支清，else（切新地形）漏清 → 残留。
+        this.hidePOISuggestions();
         // 再次点击已选地形：重置当前地图标记（回出生点阶段、清 POI），保留地形选中
         // 与夜王选择（夜王/地形是独立维度）；与新选地形一致，末尾同样滚动到地图区
         if (this.chosenMap === map) {
             this.selectedSpawn = null;
             this.spawnPhase = true;
-            this.hidePOISuggestions();
             console.log(`Reset markers for map: ${map}`);
         } else {
             // Select the new map
@@ -570,6 +789,7 @@ class NightreignMapRecogniser {
     // 动态判定，不依赖硬编码 GH_DISAMBIG：碰撞种子的区分值由 A/B 点位实时从 JSON 读取。
     detectHasLandmarkCollision(filteredSeeds) {
         if (this.chosenMap !== 'Great Hollow') return false;
+        if (advancedMode) return false;  // 高级版提供 stronghold/fieldBoss 等额外 category 区分维度，关闭大空洞 landmark 碰撞消歧
         if (!filteredSeeds || filteredSeeds.length < 2) return false;
         // 消歧是共享 landmark 穷尽后的最后手段：所有共享点位都已确定（无 dot 未标记）才考虑，
         // 否则优先让用户继续标 landmark（未标完时消歧菜单会提前冒出、干扰判断）
@@ -851,30 +1071,34 @@ class NightreignMapRecogniser {
 
     drawPOI(poi, state) {
         const { x, y } = poi;
+        const cat = poi.category || 'landmark';
+        // 高级模式额外点位（非 landmark）缩小 50%；scaleMerchant 持秤商人在此基础上再缩 50% → 0.25；共享点位保持基础尺寸
+        const scale = (advancedMode && cat === 'scaleMerchant') ? 0.25
+            : (advancedMode && cat !== 'landmark') ? 0.5 : 1;
 
         if (state === 'dot') {
-            // 未标记：橙色圆点（landmark 统一色）
-            this.drawDot(x, y, '', '#ff8c00');
+            const color = CATEGORY_DOT_COLOR[cat] || '#ffd700';
+            this.drawDot(x, y, '', color, scale);
         } else if (state === 'empty') {
-            // 用户标记为"空"（该坐标无建筑）
-            this.drawIcon(this.images.empty, x, y);
+            this.drawIcon(this.images.empty, x, y, scale);
         } else if (state === 'hidden') {
-            // 全空（候选种子在此坐标均无 POI）：不画
+            // 候选种子在此坐标均无 POI：不画
         } else {
-            // 已选 type（中文）：画对应图标（TYPE_ICON_MAP）
-            const img = this.typeImages && this.typeImages[state];
+            // 已选 type：先查 type 专属 icon（landmark），再查 category 默认 icon
+            const img = (this.typeImages && this.typeImages[state])
+                || (this.categoryImages && this.categoryImages[cat]);
             if (img) {
-                this.drawIcon(img, x, y);
+                this.drawIcon(img, x, y, scale);
             } else {
-                // 未知 type 兜底：橙色圆点
-                this.drawDot(x, y, '', '#ff8c00');
+                this.drawDot(x, y, '', '#ff8c00', scale);
             }
         }
     }
 
-    drawDot(x, y, label, color) {
+    drawDot(x, y, label, color, scale = 1) {
+        const r = (ICON_SIZE / 2) * scale;
         this.ctx.beginPath();
-        this.ctx.arc(x, y, ICON_SIZE / 2, 0, 2 * Math.PI);
+        this.ctx.arc(x, y, r, 0, 2 * Math.PI);
         this.ctx.fillStyle = color;
         this.ctx.fill();
         this.ctx.strokeStyle = '#000000';
@@ -890,23 +1114,36 @@ class NightreignMapRecogniser {
         }
     }
 
-    drawIcon(image, x, y) {
+    drawIcon(image, x, y, scale = 1) {
         if (!image.complete) return;
         const nw = image.naturalWidth, nh = image.naturalHeight;
-        // 无尺寸信息（未加载完）兜底正方形
+        const box = ICON_SIZE * scale;
         if (!nw || !nh) {
-            this.ctx.drawImage(image, x - ICON_SIZE / 2, y - ICON_SIZE / 2, ICON_SIZE, ICON_SIZE);
+            this.ctx.drawImage(image, x - box / 2, y - box / 2, box, box);
             return;
         }
-        // 按原始宽高比缩放到 ICON_SIZE×ICON_SIZE 内（contain），避免非正方形素材
-        // （教堂134×180 / 法师塔95×210 / 马车215×179 / 特殊商人271×127）被强制正方形拉伸失衡
-        const scale = Math.min(ICON_SIZE / nw, ICON_SIZE / nh);
-        const w = nw * scale, h = nh * scale;
+        const s = Math.min(box / nw, box / nh);
+        const w = nw * s, h = nh * s;
         this.ctx.drawImage(image, x - w / 2, y - h / 2, w, h);
     }
 
     // type 显示名（内部 type 值 → 界面文字；仅渲染层映射，不改数据源/匹配/排序逻辑）
     displayName(type) {
+        if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en') {
+            // 大空洞专属识别名（英文模式）优先于通用 POI_TYPE_EN
+            if (this.chosenMap === 'Great Hollow' && typeof GH_TYPE_DISPLAY_OVERRIDE_EN !== 'undefined'
+                && GH_TYPE_DISPLAY_OVERRIDE_EN[type]) {
+                return GH_TYPE_DISPLAY_OVERRIDE_EN[type];
+            }
+            if (typeof POI_TYPE_EN !== 'undefined' && POI_TYPE_EN[type]) {
+                return POI_TYPE_EN[type];
+            }
+        }
+        // 大空洞专属识别名（中文模式）：据点 BOSS → 其守护的遗迹/教堂名，便于快速识别
+        if (this.chosenMap === 'Great Hollow' && typeof GH_TYPE_DISPLAY_OVERRIDE !== 'undefined'
+            && GH_TYPE_DISPLAY_OVERRIDE[type]) {
+            return GH_TYPE_DISPLAY_OVERRIDE[type];
+        }
         return TYPE_DISPLAY_MAP[type] || type;
     }
 
@@ -999,6 +1236,9 @@ class NightreignMapRecogniser {
                 this.drawMap(this.images.maps[this.chosenMap]);
                 this.updateSeedFiltering();
                 console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+            } else {
+                // 纯空白点击（无 POI、无出生点）→ 关闭悬浮窗
+                this.hidePOISuggestions();
             }
         });
 
@@ -1124,6 +1364,9 @@ class NightreignMapRecogniser {
                         this.drawMap(this.images.maps[this.chosenMap]);
                         this.updateSeedFiltering();
                         console.log(`Spawn ${this.selectedSpawn ? 'selected' : 'cleared'}: ${spawn.value}`);
+                    } else {
+                        // 纯空白短按（无 POI、无出生点）→ 关闭悬浮窗
+                        this.hidePOISuggestions();
                     }
                 }
             }
@@ -1660,8 +1903,9 @@ class NightreignMapRecogniser {
         this.updateSeedCountDisplay(filteredSeeds.length);
 
         // === 选完出生点后自动批量展示 POI 类型推荐（原版行为，迁移时丢失，现恢复）===
+        // 仅基础模式自动展示；高级模式改由用户点击 POI 触发（额外点位多，自动浮窗过密）
         // 大空洞 POI 少：选完出生点即展示全部；其余地形种子收敛到阈值内才展示，避免浮窗过多
-        if (!this.spawnPhase && filteredSeeds.length > 1) {
+        if (!advancedMode && !this.spawnPhase && filteredSeeds.length > 1) {
             const isMobile = window.innerWidth <= 768;
             const isGreatHollow = this.chosenMap === 'Great Hollow';
             const desktopThreshold = 10, mobileThreshold = 4;
@@ -1713,10 +1957,18 @@ class NightreignMapRecogniser {
     // （其余未命中 type 兜底排末尾，保证跨点位浮窗顺序一致）
     sortPOITypes(types) {
         const order = ['教堂', '法师塔', '特殊商人', '马车', '破败小屋', 'empty'];
-        return types.slice().sort((a, b) => {
-            const ia = order.indexOf(a), ib = order.indexOf(b);
-            return (ia === -1 ? order.length : ia) - (ib === -1 ? order.length : ib);
-        });
+        // landmark type 走 order（0-5）；stronghold type 走 STRONGHOLD_TYPE_ORDER（+100 段，按
+        // 要塞<大教堂<大型营地<大型遗迹<池沼<锻造村 分组）；fieldBoss 走 +200/+300 段（普通<精英，
+        // 见 isEliteFieldBoss）。各 category 不会同浮窗出现，分段仅为防互扰；组内保持稳定原序。
+        const key = (t) => {
+            const i = order.indexOf(t);
+            if (i !== -1) return i;
+            const s = STRONGHOLD_TYPE_ORDER[t];
+            if (s !== undefined) return s + 100;
+            if (isEliteFieldBoss(t)) return 300;   // 精英野外BOSS 排后
+            return 200;                            // 普通野外BOSS / 商人等 排前
+        };
+        return types.slice().sort((a, b) => key(a) - key(b));
     }
 
     showAllPOISuggestions(filteredSeeds, isMobile) {
@@ -1742,7 +1994,8 @@ class NightreignMapRecogniser {
         (this.lastFilteredSeeds || []).forEach(s => {
             candidates.add(this.findRealPOITypeAtCoordinate(s.seedNumber, poi.x, poi.y));
         });
-        if (candidates.has('教堂')) {
+        // 仅基础模式保留「自动标记教堂」快捷行为；高级模式始终弹完整浮窗供精细选择
+        if (!advancedMode && candidates.has('教堂')) {
             this.hidePOISuggestions();
             this.poiStates[poi.id] = '教堂';
             this.drawMap(this.images.maps[this.chosenMap]);
@@ -1777,7 +2030,12 @@ class NightreignMapRecogniser {
         const suggestionContainer = document.createElement('div');
         suggestionContainer.className = 'poi-suggestion-container';
         suggestionContainer.id = `suggestion-${poiId}`;
-        if (isMobile) {
+        // 高级模式非共享点位：纯文字选项纵向撑满、字体加大（见 CSS .non-landmark-suggestion）；
+        // 此类点位不走 mobile-suggestion（避免移动端 scale(0.5) 缩小 + 中文版 span 隐藏——纯文字浮窗需正常尺寸）
+        const isNonLandmark = advancedMode && poi.category !== 'landmark';
+        if (isNonLandmark) {
+            suggestionContainer.classList.add('non-landmark-suggestion');
+        } else if (isMobile) {
             suggestionContainer.classList.add('mobile-suggestion');
             // POI3（originalId=3）强制竖向单列
             if (parseInt(poi.originalId, 10) === 3) suggestionContainer.classList.add('single-column');
@@ -1789,9 +2047,21 @@ class NightreignMapRecogniser {
             button.className = 'poi-suggestion-btn';
             button.dataset.type = type;
             button.dataset.poiId = poiId;
-            const iconPath = (type === 'empty') ? 'assets/images/empty.png' : (TYPE_ICON_MAP[type] || 'assets/icons/unknown.png');
+            // 浅红背景区分：DLC 野外据点（池沼/锻造村）或 精英野外BOSS（含大空洞）
+            if (poi.category !== 'landmark' && isDlcStrongholdType(type)) {
+                button.classList.add('dlc-stronghold');
+            } else if (poi.category === 'fieldBoss' && isEliteFieldBoss(type)) {
+                button.classList.add('poi-elite');
+            }
+            const iconPath = (type === 'empty')
+                ? 'assets/images/empty.png'
+                : (TYPE_ICON_MAP[type] || CATEGORY_ICON_MAP[poi.category] || 'assets/icons/unknown.png');
             const label = (type === 'empty') ? this.getText('poi.empty') : this.displayName(type);
-            button.innerHTML = `<img src="${iconPath}" class="suggestion-icon" alt="${label}"><span>${label}</span>`;
+            // 共享点位（landmark）显示图标；高级模式额外点位（非 landmark）仅显示名称，无图标
+            const showIcon = poi.category === 'landmark';
+            button.innerHTML = showIcon
+                ? `<img src="${iconPath}" class="suggestion-icon" alt="${label}"><span>${label}</span>`
+                : `<span>${label}</span>`;
             const handler = (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -1824,6 +2094,47 @@ class NightreignMapRecogniser {
         const scaleY = canvasRect.height / (canvas.height / 2);
         const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
+
+        // 高级模式额外点位（非 landmark）：无三角、紧贴点位上方展示。
+        // 这类点位由用户逐个点击触发浮窗（不批量自动展示），不会拥挤，故去掉气泡尾、紧贴点位。
+        // early return：跳过下方 landmark 专用的 override/originalId 偏移 + 三角逻辑。
+        if (advancedMode && poi.category !== 'landmark') {
+            const r = 19 * scaleX * 0.5;  // 非共享点位缩小 0.5 后的显示半径
+            suggestionContainer.style.position = 'absolute';
+            suggestionContainer.style.transform = 'translate(-50%, -100%)';  // 水平居中、底边贴点位上边缘
+            suggestionContainer.style.left = `${relativeX}px`;
+            suggestionContainer.style.top = `${relativeY - r}px`;
+            mapContainer.appendChild(suggestionContainer);
+            requestAnimationFrame(() => {
+                suggestionContainer.classList.add('visible');
+                const cw = mapContainer.clientWidth;
+                // 英文模式自适应缩字号：浮窗水平超容器（移动端窄屏）或 span 两行内截断（line-clamp:2）
+                // 时，统一逐档缩所有 span 字号——其 max-width 用 ch 单位，字号小→列窄→浮窗窄，
+                // 直至浮窗不超宽且不截断。中文为 nowrap 单行不限宽，故仅英文触发。
+                // （旧版仅按垂直截断判定，移动端水平超屏时不缩字号导致溢出。）
+                if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en') {
+                    const spans = suggestionContainer.querySelectorAll('.poi-suggestion-btn span');
+                    let fs = 11, guard = 0;
+                    const apply = (s) => spans.forEach(sp => sp.style.fontSize = s + 'px');
+                    apply(fs);
+                    while (fs > 7 && guard++ < 20 &&
+                           (suggestionContainer.offsetWidth > cw ||
+                            [...spans].some(sp => sp.scrollHeight - sp.clientHeight > 1))) {
+                        fs -= 0.5;
+                        apply(fs);
+                    }
+                }
+                // 边缘约束：浮窗 translateX(-50%) 居中于点位，靠近左右边缘时 clamp left 防溢出屏幕。
+                // 用缩字号后的最终宽度计算；宽度<容器才 clamp；clamp 后浮窗略偏离点位但不出屏。
+                const fw = suggestionContainer.offsetWidth;
+                if (fw < cw) {
+                    const half = fw / 2;
+                    const clamped = Math.max(half, Math.min(relativeX, cw - half));
+                    if (Math.abs(clamped - relativeX) > 0.5) suggestionContainer.style.left = `${clamped}px`;
+                }
+            });
+            return;
+        }
 
         const oid = poi.originalId != null ? parseInt(poi.originalId, 10) : null;
         // 命中「方向覆盖」坐标集：mobile:true 项仅移动端命中，其余全平台。按 dir 渲染，跳过 originalId 偏移表。

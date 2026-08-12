@@ -37,8 +37,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -1604,8 +1604,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -2015,8 +2015,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -2334,8 +2334,8 @@
           "icon": "field_boss"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -2459,8 +2459,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -2815,8 +2815,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -2837,8 +2837,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -3123,8 +3123,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -3259,8 +3259,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -3556,8 +3556,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -3670,8 +3670,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -3978,8 +3978,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -4437,8 +4437,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -5248,8 +5248,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -5270,8 +5270,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -5637,8 +5637,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -6026,8 +6026,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -6323,8 +6323,8 @@
           "icon": "field_boss"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -6334,8 +6334,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -6815,8 +6815,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -6837,8 +6837,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -7112,8 +7112,8 @@
           "icon": "field_boss"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -7226,8 +7226,8 @@
           "icon": "camp_blank"
         },
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -7512,8 +7512,8 @@
           "icon": "field_boss"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -7582,8 +7582,8 @@
           "icon": "camp_blank"
         },
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -7593,8 +7593,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -7982,8 +7982,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -7993,8 +7993,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -8272,8 +8272,8 @@
       },
       "pois": {
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -8294,8 +8294,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -8514,8 +8514,8 @@
           "icon": "field_boss"
         },
         "5": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 5,
           "coordinates": {
@@ -8584,8 +8584,8 @@
           "icon": "camp_blank"
         },
         "5": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 5,
           "coordinates": {
@@ -8804,8 +8804,8 @@
           "icon": "field_boss"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -8863,8 +8863,8 @@
       },
       "pois": {
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -9127,8 +9127,8 @@
           "icon": "merchant"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -9476,8 +9476,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -9509,8 +9509,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -9729,8 +9729,8 @@
           "icon": "camp_blank"
         },
         "18": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 18,
           "coordinates": {
@@ -9777,8 +9777,8 @@
       },
       "pois": {
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -10056,8 +10056,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -10298,8 +10298,8 @@
           "icon": "field_boss"
         },
         "1": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -10937,8 +10937,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -11267,8 +11267,8 @@
           "icon": "field_boss"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -11337,8 +11337,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -11359,8 +11359,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -11726,8 +11726,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -12056,8 +12056,8 @@
           "icon": "field_boss"
         },
         "25": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 25,
           "coordinates": {
@@ -12093,8 +12093,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -12493,8 +12493,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -12882,8 +12882,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -13183,8 +13183,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -13205,8 +13205,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -13495,8 +13495,8 @@
       },
       "pois": {
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -13528,8 +13528,8 @@
           "icon": "camp_blank"
         },
         "26": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 26,
           "coordinates": {
@@ -13807,8 +13807,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -14119,8 +14119,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -14409,8 +14409,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -14420,8 +14420,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -14695,8 +14695,8 @@
           "icon": "field_boss"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -14820,8 +14820,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -15209,8 +15209,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -15598,8 +15598,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -15631,8 +15631,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -15906,8 +15906,8 @@
           "icon": "field_boss"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -15917,8 +15917,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -15987,8 +15987,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -16009,8 +16009,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -16295,8 +16295,8 @@
           "icon": "field_boss"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -16376,8 +16376,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -16684,8 +16684,8 @@
           "icon": "field_boss"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -16798,8 +16798,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -17598,8 +17598,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -17609,8 +17609,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -17884,8 +17884,8 @@
           "icon": "field_boss"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -18431,8 +18431,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -18739,8 +18739,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -18831,8 +18831,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -18842,8 +18842,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -19264,8 +19264,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -19664,8 +19664,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -20042,8 +20042,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -20064,8 +20064,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -20464,8 +20464,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -20853,8 +20853,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -21686,8 +21686,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -21708,8 +21708,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -21983,8 +21983,8 @@
           "icon": "field_boss"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -22097,8 +22097,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -22383,8 +22383,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -22464,8 +22464,8 @@
           "icon": "camp_blank"
         },
         "15": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 15,
           "coordinates": {
@@ -23044,8 +23044,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -23356,8 +23356,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -23668,8 +23668,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -23936,8 +23936,8 @@
           "icon": "camp_blank"
         },
         "28": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 28,
           "coordinates": {
@@ -24259,8 +24259,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -24468,8 +24468,8 @@
           "icon": "field_boss"
         },
         "8": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 8,
           "coordinates": {
@@ -24516,8 +24516,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -24527,8 +24527,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -25419,8 +25419,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -25716,8 +25716,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -25764,8 +25764,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -25775,8 +25775,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -26175,8 +26175,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -26186,8 +26186,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -26483,8 +26483,8 @@
           "icon": "field_boss"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -26553,8 +26553,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -26920,8 +26920,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -27610,8 +27610,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -27632,8 +27632,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -27933,8 +27933,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -27955,8 +27955,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -28197,8 +28197,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -28557,8 +28557,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -28579,8 +28579,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -28858,8 +28858,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -28880,8 +28880,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -29166,8 +29166,8 @@
           "icon": "field_boss"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -29177,8 +29177,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -29280,8 +29280,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -29588,8 +29588,8 @@
           "icon": "field_boss"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -29658,8 +29658,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -29680,8 +29680,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -30069,8 +30069,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -30891,8 +30891,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -31313,8 +31313,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -31324,8 +31324,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -31702,8 +31702,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -32135,8 +32135,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -32432,8 +32432,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -33346,8 +33346,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -33768,8 +33768,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -34190,8 +34190,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -34487,8 +34487,8 @@
           "icon": "field_boss"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -34498,8 +34498,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -34601,8 +34601,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -34909,8 +34909,8 @@
           "icon": "merchant"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -34979,8 +34979,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -34990,8 +34990,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -35287,8 +35287,8 @@
           "icon": "field_boss"
         },
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -35379,8 +35379,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -35801,8 +35801,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -35812,8 +35812,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -36109,8 +36109,8 @@
           "icon": "merchant"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -36234,8 +36234,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -36245,8 +36245,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -36520,8 +36520,8 @@
           "icon": "field_boss"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -37012,8 +37012,8 @@
       },
       "pois": {
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -37335,8 +37335,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -37555,8 +37555,8 @@
           "icon": "field_boss"
         },
         "5": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 5,
           "coordinates": {
@@ -37614,8 +37614,8 @@
       },
       "pois": {
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -37926,8 +37926,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -38168,8 +38168,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -38205,8 +38205,8 @@
       },
       "pois": {
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -38227,8 +38227,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -38458,8 +38458,8 @@
           "icon": "field_boss"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -38469,8 +38469,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -38506,8 +38506,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -38528,8 +38528,8 @@
           "icon": "camp_blank"
         },
         "8": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 8,
           "coordinates": {
@@ -38829,8 +38829,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -39086,8 +39086,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -39097,8 +39097,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -39677,8 +39677,8 @@
       },
       "pois": {
         "14": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 14,
           "coordinates": {
@@ -39908,8 +39908,8 @@
           "icon": "field_boss"
         },
         "8": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 8,
           "coordinates": {
@@ -40000,8 +40000,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -40367,8 +40367,8 @@
       },
       "pois": {
         "33": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 33,
           "coordinates": {
@@ -40719,8 +40719,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -40800,8 +40800,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -41167,8 +41167,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -41556,8 +41556,8 @@
       },
       "pois": {
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -41578,8 +41578,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -41945,8 +41945,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -41967,8 +41967,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -42187,8 +42187,8 @@
           "icon": "field_boss"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -42246,8 +42246,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -43894,8 +43894,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -44327,8 +44327,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -44349,8 +44349,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -44646,8 +44646,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -44716,8 +44716,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -45149,8 +45149,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -45446,8 +45446,8 @@
           "icon": "field_boss"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -45582,8 +45582,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -45868,8 +45868,8 @@
           "icon": "merchant"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -46371,8 +46371,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -47160,8 +47160,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -47582,8 +47582,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -47868,8 +47868,8 @@
           "icon": "field_boss"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -47982,8 +47982,8 @@
           "icon": "camp_blank"
         },
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -47993,8 +47993,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -48393,8 +48393,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -49193,8 +49193,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -49215,8 +49215,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -49615,8 +49615,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -49912,8 +49912,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -50015,8 +50015,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -50323,8 +50323,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -51160,8 +51160,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -51582,8 +51582,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -51905,8 +51905,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -52147,8 +52147,8 @@
           "icon": "field_boss"
         },
         "5": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 5,
           "coordinates": {
@@ -52206,8 +52206,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -52529,8 +52529,8 @@
           "icon": "camp_blank"
         },
         "15": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 15,
           "coordinates": {
@@ -53656,8 +53656,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -53924,8 +53924,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -53935,8 +53935,8 @@
           "icon": "camp_blank"
         },
         "18": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 18,
           "coordinates": {
@@ -54882,8 +54882,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -54893,8 +54893,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -55282,8 +55282,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -55671,8 +55671,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -56071,8 +56071,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -56438,8 +56438,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -56761,8 +56761,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -57095,8 +57095,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -57719,8 +57719,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -57961,8 +57961,8 @@
           "icon": "field_boss"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -58053,8 +58053,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -58442,8 +58442,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -58761,8 +58761,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -58886,8 +58886,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -59664,8 +59664,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -60042,8 +60042,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -60075,8 +60075,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -60475,8 +60475,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -60761,8 +60761,8 @@
           "icon": "field_boss"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -61686,8 +61686,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -61708,8 +61708,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -61983,8 +61983,8 @@
           "icon": "field_boss"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -62108,8 +62108,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -63275,8 +63275,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -63297,8 +63297,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -63664,8 +63664,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -63686,8 +63686,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -63994,8 +63994,8 @@
           "icon": "field_boss"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -64853,8 +64853,8 @@
       },
       "pois": {
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -65172,8 +65172,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -65286,8 +65286,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -65583,8 +65583,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -65686,8 +65686,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -65697,8 +65697,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -66119,8 +66119,8 @@
           "icon": "camp_blank"
         },
         "15": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 15,
           "coordinates": {
@@ -66387,8 +66387,8 @@
       },
       "pois": {
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -66710,8 +66710,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -66721,8 +66721,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -66978,8 +66978,8 @@
           "icon": "camp_blank"
         },
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -67257,8 +67257,8 @@
       },
       "pois": {
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -67268,8 +67268,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -67510,8 +67510,8 @@
           "icon": "field_boss"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -67547,8 +67547,8 @@
       },
       "pois": {
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -67569,8 +67569,8 @@
           "icon": "camp_blank"
         },
         "14": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 14,
           "coordinates": {
@@ -67778,8 +67778,8 @@
           "icon": "field_boss"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -67848,8 +67848,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -68079,8 +68079,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -68127,8 +68127,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -68149,8 +68149,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -68369,8 +68369,8 @@
           "icon": "camp_blank"
         },
         "8": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 8,
           "coordinates": {
@@ -69386,8 +69386,8 @@
       },
       "pois": {
         "33": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 33,
           "coordinates": {
@@ -69819,8 +69819,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -70164,8 +70164,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -70531,8 +70531,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -70564,8 +70564,8 @@
           "icon": "camp_blank"
         },
         "33": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 33,
           "coordinates": {
@@ -70920,8 +70920,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -71254,8 +71254,8 @@
           "icon": "camp_blank"
         },
         "26": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 26,
           "coordinates": {
@@ -71544,8 +71544,8 @@
           "icon": "camp_blank"
         },
         "30": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 30,
           "coordinates": {
@@ -71555,8 +71555,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -71775,8 +71775,8 @@
           "icon": "field_boss"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -71834,8 +71834,8 @@
       },
       "pois": {
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -71856,8 +71856,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -72157,8 +72157,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -73324,8 +73324,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -73724,8 +73724,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -74010,8 +74010,8 @@
           "icon": "field_boss"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -74021,8 +74021,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -74124,8 +74124,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -74535,8 +74535,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -74557,8 +74557,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -74968,8 +74968,8 @@
           "icon": "camp_blank"
         },
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -75254,8 +75254,8 @@
           "icon": "field_boss"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -75357,8 +75357,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -76568,8 +76568,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -76968,8 +76968,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -76979,8 +76979,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -77768,8 +77768,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -77790,8 +77790,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -78098,8 +78098,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -78979,8 +78979,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -79001,8 +79001,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -79276,8 +79276,8 @@
           "icon": "field_boss"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -79346,8 +79346,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -79368,8 +79368,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -79665,8 +79665,8 @@
           "icon": "field_boss"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -79757,8 +79757,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -80179,8 +80179,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -80498,8 +80498,8 @@
           "icon": "field_boss"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -80902,8 +80902,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -81493,8 +81493,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -81761,8 +81761,8 @@
       },
       "pois": {
         "15": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 15,
           "coordinates": {
@@ -82363,8 +82363,8 @@
           "icon": "camp_blank"
         },
         "18": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 18,
           "coordinates": {
@@ -82572,8 +82572,8 @@
           "icon": "field_boss"
         },
         "28": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 28,
           "coordinates": {
@@ -82664,8 +82664,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -82932,8 +82932,8 @@
       },
       "pois": {
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -82954,8 +82954,8 @@
           "icon": "camp_blank"
         },
         "8": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 8,
           "coordinates": {
@@ -83211,8 +83211,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -83512,8 +83512,8 @@
       },
       "pois": {
         "25": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 25,
           "coordinates": {
@@ -83523,8 +83523,8 @@
           "icon": "camp_blank"
         },
         "33": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 33,
           "coordinates": {
@@ -84301,8 +84301,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -84679,8 +84679,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -84701,8 +84701,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -84998,8 +84998,8 @@
           "icon": "field_boss"
         },
         "33": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 33,
           "coordinates": {
@@ -85068,8 +85068,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -85079,8 +85079,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -85490,8 +85490,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -86114,8 +86114,8 @@
           "icon": "camp_blank"
         },
         "30": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 30,
           "coordinates": {
@@ -86393,8 +86393,8 @@
       },
       "pois": {
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -87028,8 +87028,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -87406,8 +87406,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -87417,8 +87417,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -87747,8 +87747,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -87850,8 +87850,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -87872,8 +87872,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -88147,8 +88147,8 @@
           "icon": "field_boss"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -88158,8 +88158,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -88250,8 +88250,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -88639,8 +88639,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -88661,8 +88661,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -89039,8 +89039,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -89358,8 +89358,8 @@
           "icon": "field_boss"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -89450,8 +89450,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -90283,8 +90283,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -91083,8 +91083,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -91516,8 +91516,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -91813,8 +91813,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -92272,8 +92272,8 @@
       },
       "pois": {
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -92294,8 +92294,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -92694,8 +92694,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -92991,8 +92991,8 @@
           "icon": "field_boss"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -93094,8 +93094,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -93435,8 +93435,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -93505,8 +93505,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -93516,8 +93516,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -93927,8 +93927,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -94213,8 +94213,8 @@
           "icon": "field_boss"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -94316,8 +94316,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -94705,8 +94705,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -95340,8 +95340,8 @@
       },
       "pois": {
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -95663,8 +95663,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -95674,8 +95674,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -95964,8 +95964,8 @@
           "icon": "camp_blank"
         },
         "5": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 5,
           "coordinates": {
@@ -96195,8 +96195,8 @@
           "icon": "camp_blank"
         },
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -96276,8 +96276,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -96555,8 +96555,8 @@
           "icon": "camp_blank"
         },
         "18": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 18,
           "coordinates": {
@@ -96577,8 +96577,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -96786,8 +96786,8 @@
           "icon": "field_boss"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -96797,8 +96797,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -96856,8 +96856,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -96867,8 +96867,8 @@
           "icon": "camp_blank"
         },
         "28": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 28,
           "coordinates": {
@@ -97076,8 +97076,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -97124,8 +97124,8 @@
       },
       "pois": {
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -97146,8 +97146,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -97414,8 +97414,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -97436,8 +97436,8 @@
           "icon": "camp_blank"
         },
         "14": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 14,
           "coordinates": {
@@ -97645,8 +97645,8 @@
           "icon": "field_boss"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -97656,8 +97656,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -97737,8 +97737,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -97957,8 +97957,8 @@
           "icon": "merchant"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -98027,8 +98027,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -98405,8 +98405,8 @@
       },
       "pois": {
         "25": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 25,
           "coordinates": {
@@ -98416,8 +98416,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -98746,8 +98746,8 @@
           "icon": "field_boss"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -99194,8 +99194,8 @@
       },
       "pois": {
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -99216,8 +99216,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -99535,8 +99535,8 @@
           "icon": "merchant"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -99594,8 +99594,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -100251,8 +100251,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -100273,8 +100273,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -100515,8 +100515,8 @@
           "icon": "merchant"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -100526,8 +100526,8 @@
           "icon": "camp_blank"
         },
         "26": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 26,
           "coordinates": {
@@ -100596,8 +100596,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -101187,8 +101187,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -101209,8 +101209,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -101510,8 +101510,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -101921,8 +101921,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -102321,8 +102321,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -102710,8 +102710,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -103040,8 +103040,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -103110,8 +103110,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -103121,8 +103121,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -103429,8 +103429,8 @@
           "icon": "field_boss"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -103554,8 +103554,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -103932,8 +103932,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -103954,8 +103954,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -104251,8 +104251,8 @@
           "icon": "merchant"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -104754,8 +104754,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -105198,8 +105198,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -105495,8 +105495,8 @@
           "icon": "merchant"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -105587,8 +105587,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -105987,8 +105987,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -106284,8 +106284,8 @@
           "icon": "field_boss"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -106376,8 +106376,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -106409,8 +106409,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -106706,8 +106706,8 @@
           "icon": "merchant"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -106728,8 +106728,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -106787,8 +106787,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -107095,8 +107095,8 @@
           "icon": "field_boss"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -107187,8 +107187,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -107209,8 +107209,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -107620,8 +107620,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -107917,8 +107917,8 @@
           "icon": "field_boss"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -108031,8 +108031,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -108420,8 +108420,8 @@
       },
       "pois": {
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -108442,8 +108442,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -109609,8 +109609,8 @@
       },
       "pois": {
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -109642,8 +109642,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -109862,8 +109862,8 @@
           "icon": "merchant"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -109873,8 +109873,8 @@
           "icon": "camp_blank"
         },
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -109943,8 +109943,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -110222,8 +110222,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -110523,8 +110523,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -110534,8 +110534,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -110824,8 +110824,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -111092,8 +111092,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -111404,8 +111404,8 @@
           "icon": "camp_blank"
         },
         "8": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 8,
           "coordinates": {
@@ -111635,8 +111635,8 @@
           "icon": "merchant"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -111705,8 +111705,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -111936,8 +111936,8 @@
           "icon": "field_boss"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -111984,8 +111984,8 @@
           "icon": "camp_blank"
         },
         "14": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 14,
           "coordinates": {
@@ -112274,8 +112274,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -112505,8 +112505,8 @@
           "icon": "merchant"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -112575,8 +112575,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -112883,8 +112883,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -113342,8 +113342,8 @@
       },
       "pois": {
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -113731,8 +113731,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -113753,8 +113753,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -114131,8 +114131,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -115133,8 +115133,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -115155,8 +115155,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -115375,8 +115375,8 @@
           "icon": "merchant"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -115456,8 +115456,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -115467,8 +115467,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -115768,8 +115768,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -116124,8 +116124,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -116491,8 +116491,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -117280,8 +117280,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -119398,8 +119398,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -119431,8 +119431,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -119442,8 +119442,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -119726,6 +119726,28 @@
             "y": 347.1
           },
           "icon": "rise"
+        },
+        "20": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 20,
+          "coordinates": {
+            "x": 896.1,
+            "y": 655.0
+          },
+          "icon": "camp_blank"
+        },
+        "11": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 11,
+          "coordinates": {
+            "x": 642.2,
+            "y": 466.1
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -119743,8 +119765,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -120587,8 +120609,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -120884,8 +120906,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -120987,8 +121009,8 @@
           "icon": "camp_blank"
         },
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -121009,8 +121031,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -121031,8 +121053,8 @@
           "icon": "camp_blank"
         },
         "36": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -121284,8 +121306,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -121326,6 +121348,28 @@
             "y": 347.1
           },
           "icon": "rise"
+        },
+        "0": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 0,
+          "coordinates": {
+            "x": 618.6,
+            "y": 281.2
+          },
+          "icon": "camp_blank"
+        },
+        "10": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 10,
+          "coordinates": {
+            "x": 965.9,
+            "y": 453.4
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -122694,8 +122738,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -123077,6 +123121,28 @@
             "y": 1216.8
           },
           "icon": "rise"
+        },
+        "36": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 36,
+          "coordinates": {
+            "x": 938.4,
+            "y": 1049.5
+          },
+          "icon": "camp_blank"
+        },
+        "34": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 34,
+          "coordinates": {
+            "x": 434.7,
+            "y": 999.4
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -123116,8 +123182,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -123466,6 +123532,28 @@
             "y": 545.4
           },
           "icon": "blessing"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
+        },
+        "22": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 22,
+          "coordinates": {
+            "x": 442.5,
+            "y": 685.5
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -123483,8 +123571,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -123527,8 +123615,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -123560,8 +123648,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -123866,6 +123954,28 @@
             "y": 545.4
           },
           "icon": "rise"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 360.9,
+            "y": 434.7
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -123927,8 +124037,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -123960,8 +124070,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -126445,8 +126555,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -126900,8 +127010,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -126933,8 +127043,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -127208,8 +127318,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -127250,6 +127360,17 @@
             "y": 1216.8
           },
           "icon": "rise"
+        },
+        "36": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 36,
+          "coordinates": {
+            "x": 938.4,
+            "y": 1049.5
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -127267,8 +127388,8 @@
       },
       "pois": {
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -127608,8 +127729,8 @@
           "icon": "merchant"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -127626,6 +127747,28 @@
           "coordinates": {
             "x": 1018.1,
             "y": 711.1
+          },
+          "icon": "camp_blank"
+        },
+        "2": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 2,
+          "coordinates": {
+            "x": 1090.9,
+            "y": 337.3
+          },
+          "icon": "camp_blank"
+        },
+        "45": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 45,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
           },
           "icon": "camp_blank"
         }
@@ -127689,8 +127832,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -127722,8 +127865,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -129396,8 +129539,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -129840,8 +129983,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -129873,8 +130016,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -131051,8 +131194,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -131073,8 +131216,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -131095,8 +131238,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -131337,8 +131480,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -131348,8 +131491,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -132714,8 +132857,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -133191,8 +133334,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -133503,8 +133646,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -133991,8 +134134,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -134347,8 +134490,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -134380,8 +134523,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -134413,8 +134556,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -134666,8 +134809,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -134708,6 +134851,28 @@
             "y": 850.8
           },
           "icon": "rise"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
+        },
+        "22": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 22,
+          "coordinates": {
+            "x": 442.5,
+            "y": 685.5
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -136076,8 +136241,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -136454,8 +136619,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -136909,8 +137074,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -136942,8 +137107,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -137195,8 +137360,8 @@
           "icon": "field_boss"
         },
         "45": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -137687,8 +137852,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -137698,8 +137863,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -137731,8 +137896,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -138026,6 +138191,28 @@
             "y": 545.4
           },
           "icon": "rise"
+        },
+        "19": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 19,
+          "coordinates": {
+            "x": 1184.3,
+            "y": 651.1
+          },
+          "icon": "camp_blank"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 360.9,
+            "y": 434.7
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -139394,8 +139581,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -140111,6 +140298,39 @@
             "y": 1062.3
           },
           "icon": "rise"
+        },
+        "11": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 11,
+          "coordinates": {
+            "x": 642.2,
+            "y": 466.1
+          },
+          "icon": "camp_blank"
+        },
+        "23": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 23,
+          "coordinates": {
+            "x": 1018.1,
+            "y": 711.1
+          },
+          "icon": "camp_blank"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 360.9,
+            "y": 434.7
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -140605,8 +140825,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -140880,8 +141100,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -140922,6 +141142,17 @@
             "y": 545.4
           },
           "icon": "rise"
+        },
+        "27": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 27,
+          "coordinates": {
+            "x": 496.6,
+            "y": 844.9
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -140994,8 +141225,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -141322,6 +141553,28 @@
             "y": 546.8
           },
           "icon": "rise"
+        },
+        "45": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 45,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -142668,8 +142921,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -143040,6 +143293,17 @@
             "y": 562.6
           },
           "icon": "rise"
+        },
+        "36": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 36,
+          "coordinates": {
+            "x": 938.4,
+            "y": 1049.5
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -143394,6 +143658,39 @@
           "coordinates": {
             "x": 1149.9,
             "y": 961.0
+          },
+          "icon": "camp_blank"
+        },
+        "45": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 45,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
+        },
+        "20": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 20,
+          "coordinates": {
+            "x": 896.1,
+            "y": 655.0
+          },
+          "icon": "camp_blank"
+        },
+        "41": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 41,
+          "coordinates": {
+            "x": 1141.0,
+            "y": 1126.3
           },
           "icon": "camp_blank"
         }
@@ -143785,6 +144082,17 @@
             "y": 1062.3
           },
           "icon": "rise"
+        },
+        "45": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 45,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -143857,8 +144165,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -143879,8 +144187,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -144174,6 +144482,17 @@
             "y": 347.1
           },
           "icon": "blessing"
+        },
+        "20": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 20,
+          "coordinates": {
+            "x": 896.1,
+            "y": 655.0
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -144235,8 +144554,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -144257,8 +144576,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -144279,8 +144598,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -144624,8 +144943,8 @@
           "icon": "camp_blank"
         },
         "45": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 45,
           "coordinates": {
@@ -144635,8 +144954,8 @@
           "icon": "camp_blank"
         },
         "31": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 31,
           "coordinates": {
@@ -144943,8 +145262,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -145057,8 +145376,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -145802,8 +146121,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -146152,6 +146471,17 @@
             "y": 1216.8
           },
           "icon": "rise"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -146235,8 +146565,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -147374,6 +147704,28 @@
             "y": 968.9
           },
           "icon": "rise"
+        },
+        "23": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 23,
+          "coordinates": {
+            "x": 1018.1,
+            "y": 711.1
+          },
+          "icon": "camp_blank"
+        },
+        "41": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 41,
+          "coordinates": {
+            "x": 1141.0,
+            "y": 1126.3
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -147435,8 +147787,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -148279,8 +148631,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -148312,8 +148664,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -149512,8 +149864,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -150695,6 +151047,28 @@
             "y": 1062.3
           },
           "icon": "rise"
+        },
+        "41": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 41,
+          "coordinates": {
+            "x": 1141.0,
+            "y": 1126.3
+          },
+          "icon": "camp_blank"
+        },
+        "31": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 31,
+          "coordinates": {
+            "x": 967.9,
+            "y": 902.9
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -150712,8 +151086,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -150996,6 +151370,17 @@
             "y": 562.6
           },
           "icon": "rise"
+        },
+        "24": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 24,
+          "coordinates": {
+            "x": 938.4,
+            "y": 1049.5
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -151013,8 +151398,8 @@
       },
       "pois": {
         "24": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 24,
           "coordinates": {
@@ -151308,6 +151693,17 @@
             "y": 1062.3
           },
           "icon": "blessing"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -151670,8 +152066,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -152272,8 +152668,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -152503,8 +152899,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -152584,8 +152980,8 @@
           "icon": "camp_blank"
         },
         "14": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 14,
           "coordinates": {
@@ -152793,8 +153189,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -152874,8 +153270,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -153678,8 +154074,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -154039,6 +154435,17 @@
             "y": 1062.3
           },
           "icon": "blessing"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 360.9,
+            "y": 434.7
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -154089,8 +154496,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -154478,8 +154885,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -154775,8 +155182,8 @@
           "icon": "field_boss"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -154867,8 +155274,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -161223,6 +161630,17 @@
             "y": 961.0
           },
           "icon": "camp_blank"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 360.9,
+            "y": 434.7
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -161262,8 +161680,8 @@
           "icon": "camp_blank"
         },
         "26": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 26,
           "coordinates": {
@@ -161284,8 +161702,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -161306,8 +161724,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -161482,8 +161900,8 @@
           "icon": "field_boss"
         },
         "27": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -161513,6 +161931,28 @@
             "y": 546.8
           },
           "icon": "rise"
+        },
+        "19": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 19,
+          "coordinates": {
+            "x": 1184.3,
+            "y": 651.1
+          },
+          "icon": "camp_blank"
+        },
+        "10": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 10,
+          "coordinates": {
+            "x": 965.9,
+            "y": 453.4
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -161574,8 +162014,8 @@
           "icon": "camp_blank"
         },
         "30": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 30,
           "coordinates": {
@@ -162220,8 +162660,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -162877,8 +163317,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -162943,8 +163383,8 @@
           "icon": "camp_blank"
         },
         "34": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 34,
           "coordinates": {
@@ -162965,8 +163405,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -163699,8 +164139,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -163710,8 +164150,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -163983,6 +164423,28 @@
             "y": 999.4
           },
           "icon": "camp_blank"
+        },
+        "20": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 20,
+          "coordinates": {
+            "x": 896.1,
+            "y": 655.0
+          },
+          "icon": "camp_blank"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -164033,8 +164495,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -164055,8 +164517,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -164077,8 +164539,8 @@
           "icon": "camp_blank"
         },
         "20": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 20,
           "coordinates": {
@@ -164372,6 +164834,17 @@
             "y": 545.4
           },
           "icon": "rise"
+        },
+        "23": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 23,
+          "coordinates": {
+            "x": 1018.1,
+            "y": 711.1
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -164422,8 +164895,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -164739,6 +165212,39 @@
             "y": 890.2
           },
           "icon": "rise"
+        },
+        "36": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 36,
+          "coordinates": {
+            "x": 938.4,
+            "y": 1049.5
+          },
+          "icon": "camp_blank"
+        },
+        "41": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 41,
+          "coordinates": {
+            "x": 1141.0,
+            "y": 1126.3
+          },
+          "icon": "camp_blank"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -164756,8 +165262,8 @@
       },
       "pois": {
         "32": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -164822,8 +165328,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -165119,8 +165625,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -165211,8 +165717,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -166033,8 +166539,8 @@
           "icon": "camp_blank"
         },
         "41": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 41,
           "coordinates": {
@@ -166319,8 +166825,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -166350,6 +166856,17 @@
             "y": 610.8
           },
           "icon": "rise"
+        },
+        "11": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 11,
+          "coordinates": {
+            "x": 642.2,
+            "y": 466.1
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -167189,8 +167706,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -167515,6 +168032,28 @@
           "coordinates": {
             "x": 618.6,
             "y": 281.2
+          },
+          "icon": "camp_blank"
+        },
+        "31": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 31,
+          "coordinates": {
+            "x": 967.9,
+            "y": 902.9
+          },
+          "icon": "camp_blank"
+        },
+        "2": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 2,
+          "coordinates": {
+            "x": 1090.9,
+            "y": 337.3
           },
           "icon": "camp_blank"
         }
@@ -168356,8 +168895,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -168411,8 +168950,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -168750,6 +169289,17 @@
             "y": 968.9
           },
           "icon": "rise"
+        },
+        "2": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 2,
+          "coordinates": {
+            "x": 1090.9,
+            "y": 337.3
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -168822,8 +169372,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -169119,8 +169669,8 @@
           "icon": "camp_blank"
         },
         "23": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -169150,6 +169700,17 @@
             "y": 968.9
           },
           "icon": "rise"
+        },
+        "0": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 0,
+          "coordinates": {
+            "x": 618.6,
+            "y": 281.2
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -169233,8 +169794,8 @@
           "icon": "camp_blank"
         },
         "0": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 0,
           "coordinates": {
@@ -169578,8 +170139,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -169989,8 +170550,8 @@
       },
       "pois": {
         "36": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 36,
           "coordinates": {
@@ -170684,6 +171245,17 @@
             "y": 546.8
           },
           "icon": "blessing"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -171057,8 +171629,8 @@
           "icon": "camp_blank"
         },
         "32": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 32,
           "coordinates": {
@@ -171336,8 +171908,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -171587,6 +172159,17 @@
             "y": 850.8
           },
           "icon": "blessing"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -171637,8 +172220,8 @@
           "icon": "camp_blank"
         },
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -171938,8 +172521,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -171949,8 +172532,8 @@
           "icon": "camp_blank"
         },
         "14": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 14,
           "coordinates": {
@@ -171971,8 +172554,8 @@
           "icon": "camp_blank"
         },
         "18": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 18,
           "coordinates": {
@@ -172147,8 +172730,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -172184,8 +172767,8 @@
       },
       "pois": {
         "23": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 23,
           "coordinates": {
@@ -172228,8 +172811,8 @@
           "icon": "camp_blank"
         },
         "1": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 1,
           "coordinates": {
@@ -172250,8 +172833,8 @@
           "icon": "camp_blank"
         },
         "21": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -172463,8 +173046,8 @@
       },
       "pois": {
         "9": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 9,
           "coordinates": {
@@ -172786,8 +173369,8 @@
           "icon": "camp_blank"
         },
         "3": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 3,
           "coordinates": {
@@ -173015,6 +173598,28 @@
             "y": 1062.3
           },
           "icon": "blessing"
+        },
+        "19": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 19,
+          "coordinates": {
+            "x": 1149.9,
+            "y": 961.0
+          },
+          "icon": "camp_blank"
+        },
+        "32": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 32,
+          "coordinates": {
+            "x": 613.7,
+            "y": 1194.2
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -173305,6 +173910,17 @@
             "y": 546.8
           },
           "icon": "rise"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 442.5,
+            "y": 685.5
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -173670,6 +174286,17 @@
           "coordinates": {
             "x": 613.7,
             "y": 1194.2
+          },
+          "icon": "camp_blank"
+        },
+        "0": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 0,
+          "coordinates": {
+            "x": 618.6,
+            "y": 281.2
           },
           "icon": "camp_blank"
         }
@@ -174122,8 +174749,8 @@
           "icon": "camp_blank"
         },
         "11": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -174467,8 +175094,8 @@
       },
       "pois": {
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -174819,8 +175446,8 @@
           "icon": "camp_blank"
         },
         "2": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(弓)",
+          "type": "魔像(弓)",
           "category": "stronghold",
           "index": 2,
           "coordinates": {
@@ -174867,8 +175494,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -174911,8 +175538,8 @@
           "icon": "camp_blank"
         },
         "19": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -175197,8 +175824,8 @@
           "icon": "field_boss"
         },
         "21": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 21,
           "coordinates": {
@@ -180867,6 +181494,28 @@
             "y": 562.6
           },
           "icon": "rise"
+        },
+        "11": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 11,
+          "coordinates": {
+            "x": 642.2,
+            "y": 466.1
+          },
+          "icon": "camp_blank"
+        },
+        "9": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 9,
+          "coordinates": {
+            "x": 360.9,
+            "y": 434.7
+          },
+          "icon": "camp_blank"
         }
       }
     },
@@ -180928,8 +181577,8 @@
           "icon": "camp_blank"
         },
         "29": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 29,
           "coordinates": {
@@ -180961,8 +181610,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -181174,8 +181823,8 @@
       },
       "pois": {
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -181427,8 +182076,8 @@
           "icon": "field_boss"
         },
         "11": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 11,
           "coordinates": {
@@ -181519,8 +182168,8 @@
           "icon": "camp_blank"
         },
         "10": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 10,
           "coordinates": {
@@ -181541,8 +182190,8 @@
           "icon": "camp_blank"
         },
         "27": {
-          "name": "神皮使徒",
-          "type": "神皮使徒",
+          "name": "黑焰修士",
+          "type": "黑焰修士",
           "category": "stronghold",
           "index": 27,
           "coordinates": {
@@ -181750,8 +182399,8 @@
           "icon": "field_boss"
         },
         "19": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 19,
           "coordinates": {
@@ -181809,8 +182458,8 @@
       },
       "pois": {
         "22": {
-          "name": "魔像守卫",
-          "type": "魔像守卫",
+          "name": "魔像(戟)",
+          "type": "魔像(戟)",
           "category": "stronghold",
           "index": 22,
           "coordinates": {
@@ -182069,6 +182718,17 @@
           "coordinates": {
             "x": 642.2,
             "y": 466.1
+          },
+          "icon": "camp_blank"
+        },
+        "10": {
+          "name": "鲜血贵族们",
+          "type": "鲜血贵族们",
+          "category": "stronghold",
+          "index": 10,
+          "coordinates": {
+            "x": 965.9,
+            "y": 453.4
           },
           "icon": "camp_blank"
         }
