@@ -149,7 +149,7 @@ const translations = {
     'lang.switch': 'Switch Language',
     
     // Navigation
-    'nav.advanced': 'Map Missing MODE',
+    'nav.advanced': 'Map Missing Mode',
     
     // Loading
     'loading.init': 'Initializing map data, please wait...',
