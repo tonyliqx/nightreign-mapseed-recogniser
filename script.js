@@ -353,15 +353,11 @@ class NightreignMapRecogniser {
     onLanguageChanged(language) {
         console.log('Language changed to:', language);
 
-        // 关闭 POI 悬浮窗：浮窗候选名为创建时按当时语言生成，切换语言后会显示旧语言，
-        // 故直接关闭（用户重新点 POI 即可弹出新语言的浮窗）。
-        this.hidePOISuggestions();
-        
-        // Refresh seed image if currently displayed (handles pattern images)
-        if (this.showingSeedImage) {
-            this.refreshSeedImage();
-        }
-        
+        // 切换语言时执行「重置所有标记」（等同点重置按钮）：清空夜王/POI 标记、退出种子图、
+        // 回到选出生点阶段（保留地形）。浮窗候选名为创建时按当时语言生成，切换后必须重置；
+        // resetMap 内含 hidePOISuggestions，顺带关闭浮窗。
+        this.resetMap();
+
         // Update loading status messages if they exist
         this.updateLoadingStatusMessages();
     }

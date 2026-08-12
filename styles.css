@@ -120,6 +120,14 @@ body {
     white-space: nowrap;
 }
 
+/* 夜王反推(.control-btn) 与语言切换(.lang-btn) 按钮等高：
+   <a> 与 <button> 默认盒模型/line-height 不同，统一固定 height 消除视觉高度差 */
+.header-controls .control-btn,
+.header-controls .lang-btn {
+    box-sizing: border-box;
+    height: 38px;
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
     .header {
@@ -1352,6 +1360,11 @@ body {
     .lang-btn {
         padding: 5px 8px;
         font-size: 0.75rem;
+    }
+
+    .header-controls .control-btn,
+    .header-controls .lang-btn {
+        height: 34px;
     }
 
     .subtitle {
