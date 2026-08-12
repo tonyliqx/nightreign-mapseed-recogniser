@@ -101,7 +101,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    /* 不加 backdrop-filter：嵌套在 header(已 backdrop-filter) 内，WebKit 滚动时会让按钮文字/图标渲染丢失 */
 }
 
 .lang-btn:hover {
