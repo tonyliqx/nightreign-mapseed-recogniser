@@ -2089,27 +2089,30 @@ class NightreignMapRecogniser {
             mapContainer.appendChild(suggestionContainer);
             requestAnimationFrame(() => {
                 suggestionContainer.classList.add('visible');
-                // 边缘约束：浮窗 translateX(-50%) 居中于点位，靠近左右边缘时 clamp left 防溢出屏幕。
-                // 宽度<容器才 clamp（极端宽浮窗贴边即可）；clamp 后浮窗略偏离点位但不出屏。
                 const cw = mapContainer.clientWidth;
+                // 英文模式自适应缩字号：浮窗水平超容器（移动端窄屏）或 span 两行内截断（line-clamp:2）
+                // 时，统一逐档缩所有 span 字号——其 max-width 用 ch 单位，字号小→列窄→浮窗窄，
+                // 直至浮窗不超宽且不截断。中文为 nowrap 单行不限宽，故仅英文触发。
+                // （旧版仅按垂直截断判定，移动端水平超屏时不缩字号导致溢出。）
+                if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en') {
+                    const spans = suggestionContainer.querySelectorAll('.poi-suggestion-btn span');
+                    let fs = 11, guard = 0;
+                    const apply = (s) => spans.forEach(sp => sp.style.fontSize = s + 'px');
+                    apply(fs);
+                    while (fs > 7 && guard++ < 20 &&
+                           (suggestionContainer.offsetWidth > cw ||
+                            [...spans].some(sp => sp.scrollHeight - sp.clientHeight > 1))) {
+                        fs -= 0.5;
+                        apply(fs);
+                    }
+                }
+                // 边缘约束：浮窗 translateX(-50%) 居中于点位，靠近左右边缘时 clamp left 防溢出屏幕。
+                // 用缩字号后的最终宽度计算；宽度<容器才 clamp；clamp 后浮窗略偏离点位但不出屏。
                 const fw = suggestionContainer.offsetWidth;
                 if (fw < cw) {
                     const half = fw / 2;
                     const clamped = Math.max(half, Math.min(relativeX, cw - half));
                     if (Math.abs(clamped - relativeX) > 0.5) suggestionContainer.style.left = `${clamped}px`;
-                }
-                // 英文模式长名自适应缩字号：max-width + 两行内放不下（line-clamp:2 下
-                // scrollHeight > clientHeight 即被截）时，逐档缩该 span 字号直至完整塞下（不截断）。
-                // 中文为 nowrap 单行不限宽，无此问题，故仅英文触发。
-                if (this.languageManager && this.languageManager.getCurrentLanguage() === 'en') {
-                    suggestionContainer.querySelectorAll('.poi-suggestion-btn span').forEach(span => {
-                        let fs = 11, guard = 0;
-                        span.style.fontSize = fs + 'px';
-                        while (span.scrollHeight - span.clientHeight > 1 && fs > 7 && guard++ < 16) {
-                            fs -= 0.5;
-                            span.style.fontSize = fs + 'px';
-                        }
-                    });
                 }
             });
             return;
