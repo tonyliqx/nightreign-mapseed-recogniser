@@ -418,6 +418,10 @@ class NightreignMapRecogniser {
         try {
             // 高级模式开关必须先于数据加载确定（数据层会根据 category 集合过滤）
             initAdvancedMode();
+            // initAdvancedMode 可能据 localStorage/URL 改 advancedMode，须同步按钮 UI：
+            // setupAdvancedToggle 早先按默认 false 渲染过按钮，若不同步，逻辑态与按钮错位 →
+            // 刷新后首次点击只抵消错位（用户感觉要点两次才切过去）。
+            this.updateAdvancedToggleUI();
             // 加载权威种子数据（nightreignMapPatterns.json）
             await loadSeedData();
             const seedCount = SEED_REGISTRY.length;
@@ -673,12 +677,14 @@ class NightreignMapRecogniser {
     }
 
     selectMap(map) {
+        // 切地形（含重选同地形）一律清待选浮窗：旧浮窗坐标绑的是旧地图，留着会叠加/错位到新地图。
+        // 原仅 if（重选同地形）分支清，else（切新地形）漏清 → 残留。
+        this.hidePOISuggestions();
         // 再次点击已选地形：重置当前地图标记（回出生点阶段、清 POI），保留地形选中
         // 与夜王选择（夜王/地形是独立维度）；与新选地形一致，末尾同样滚动到地图区
         if (this.chosenMap === map) {
             this.selectedSpawn = null;
             this.spawnPhase = true;
-            this.hidePOISuggestions();
             console.log(`Reset markers for map: ${map}`);
         } else {
             // Select the new map
