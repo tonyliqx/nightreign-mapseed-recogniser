@@ -133,7 +133,9 @@ class LanguageManager {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
       const key = element.getAttribute('data-i18n');
-      const text = this.getText(key);
+      // 版本号跟随 styles.css?v= 自动同步（避免改样式后忘记改版本号）
+      const params = key === 'app.version' ? { version: this.getAssetVersion('styles.css') } : {};
+      const text = this.getText(key, params);
       if (text) {
         if (element.tagName === 'INPUT' && element.type === 'text') {
           element.value = text;
@@ -229,6 +231,14 @@ class LanguageManager {
     });
 
     return result;
+  }
+
+  // 从 <link href="xxx?v=..."> 读取资源缓存版本号（如 styles.css?v=2.4.15 → "2.4.15"）
+  getAssetVersion(file) {
+    const link = document.querySelector(`link[href*="${file}"]`);
+    if (!link) return '';
+    const m = link.getAttribute('href').match(/[?&]v=([^&]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
   }
 
   getCurrentLanguage() {
