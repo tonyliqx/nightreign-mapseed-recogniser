@@ -54,6 +54,12 @@ def main():
     patterns, coords, construct, names = src.patterns, src.coords, src.construct, src.names
     seed_terr = dict(zip(patterns["ID"], patterns["Special"]))
     d = construct[construct["is_display"] == 1].copy()
+    # 补录：vendor 早期 CONSTRUCT 把「池沼·鲜血贵族们」(type=50060) 误标 is_display=0，
+    # 同槽位的兄弟 boss（腐败眷属 50001 等）均为 is_display=1，外部 v0.3.3 已修正为 1。
+    # 在 vendor 整体同步到 v0.3.3 前，于此幂等强制纳入（vendor 已修正后此条件不再命中）。
+    missing_50060 = construct[(construct["type"] == 50060) & (construct["is_display"] == 0)]
+    if len(missing_50060):
+        d = pd.concat([d, missing_50060], ignore_index=True)
     d["terr"] = d["MAP"].map(seed_terr)
 
     # ---- 1. poiLookupByMapType: 按地形聚类 coord → 槽位 ----

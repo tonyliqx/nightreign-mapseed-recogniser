@@ -476,7 +476,7 @@
   "30300": {
     "category": "stronghold",
     "icon": "camp_blank",
-    "name": "魔像守卫",
+    "name": "魔像大弓",
     "basicClass": "other"
   },
   "30301": {
@@ -608,7 +608,7 @@
   "38001": {
     "category": "stronghold",
     "icon": "camp_blank",
-    "name": "魔像守卫",
+    "name": "魔像大戟",
     "basicClass": "other"
   },
   "38100": {
@@ -1271,6 +1271,12 @@
     "name": "癫火花",
     "basicClass": "other"
   },
+  "50060": {
+    "category": "stronghold",
+    "icon": "camp_blank",
+    "name": "鲜血贵族们",
+    "basicClass": "other"
+  },
   "50100": {
     "category": "stronghold",
     "icon": "camp_blank",
@@ -1304,7 +1310,7 @@
   "50113": {
     "category": "stronghold",
     "icon": "camp_blank",
-    "name": "神皮使徒",
+    "name": "黑焰修士",
     "basicClass": "other"
   },
   "50114": {

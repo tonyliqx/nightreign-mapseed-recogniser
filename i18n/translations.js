@@ -319,7 +319,8 @@ const POI_TYPE_EN = {
   '破败小屋': "Shack",  // landmark（手补）
   '祖灵': "Ancestor Spirit",  // fieldBoss
   '祖灵之民': "Ancestral Follower Warriors",  // stronghold
-  '神皮使徒': "Godskin Apostle",  // stronghold
+  '神皮使徒': "Godskin Apostle",  // evergaol/nightBoss（stronghold 50113 已纠正为黑焰修士）
+  '黑焰修士': "Blackflame Monk",  // stronghold（锻造村 50113，原误录为神皮使徒）
   '神谕使者': "Oracle Envoys",  // stronghold
   '神鸟战士': "Divine Bird Warrior",  // stronghold
   '米兰达花': "Miranda Blossom",  // fieldBoss
@@ -344,8 +345,10 @@ const POI_TYPE_EN = {
   '飞龙': "Flying Dragon",  // fieldBoss
   '马车': "Abandoned Carriage",  // landmark
   '骑士兵长': "Lordsworn Captain",  // stronghold
-  '魔像守卫': "Guardian Golem",  // stronghold
-  '鲜血贵族': "Sanguine Nobles",  // stronghold
+  '魔像大弓': "Golem (Greatbow)",  // stronghold（要塞 30300）
+  '魔像大戟': "Golem (Halberd)",  // stronghold（大教堂 38001）
+  '鲜血贵族': "Sanguine Noble",  // stronghold（大型遗迹 34001）
+  '鲜血贵族们': "Sanguine Nobles",  // stronghold（池沼 50060，DLC）
   '黄金树化身': "Erdtree Avatar",  // fieldBoss
   '黑刀刺客': "Black Knife Assassin",  // fieldBoss
   '黑剑眷属': "Black Blade Kindred",  // fieldBoss

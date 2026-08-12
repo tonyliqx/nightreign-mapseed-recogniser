@@ -131,6 +131,31 @@ const GH_TYPE_DISPLAY_OVERRIDE_EN = {
     '仿生泪滴': 'Lightning',
 };
 
+// 野外据点（stronghold）BOSS type → 建筑分组排序索引。
+// 分组顺序：要塞 < 大教堂 < 大型营地 < 大型遗迹 < 池沼(DLC) < 锻造村(DLC)。
+// 浮窗候选按此顺序排（见 sortPOITypes）；池沼、锻造村（order ≥ 26）为 DLC 建筑，按钮浅红底（见 .dlc-stronghold）。
+// 跨建筑重名已按建筑拆分：「魔像大弓」(要塞 30300) vs「魔像大戟」(大教堂 38001)；「鲜血贵族」(大型遗迹 34001) vs「鲜血贵族们」(池沼 50060)。
+// 大空洞专属 stronghold type（咒剑士+蜘蛛蝎 等）不在此表——大空洞走 GH_TYPE_DISPLAY_OVERRIDE 遗迹名，单独体系。
+const STRONGHOLD_TYPE_ORDER = {
+    // 要塞
+    '骑士兵长': 0, '铁处女': 1, '魔像大弓': 2, '结晶人': 3,
+    // 大教堂
+    '神谕使者': 4, '魔像大戟': 5, '火焰修士': 6, '灵庙骑士': 7,
+    // 大型营地
+    '失乡骑士': 8, '老狮子': 9, '狮子混种': 10, '红狮子骑士': 11, '罗德尔骑士': 12, '火焰战车': 13, '癫火山妖': 14,
+    // 大型遗迹
+    '归树看门犬': 15, '鲜血贵族': 16, '萨米尔': 17, '白金之子': 18, '调香师': 19, '堕落调香师': 20, '战斗法师': 21, '白金射手': 22, '卢恩熊': 23, '蚯蚓脸': 24, '亚兹拉兽人': 25,
+    // 池沼（DLC）
+    '腐败眷属': 26, '蜘蛛蝎': 27, '冻霜螯虾': 28, '杜鹃骑士': 29, '尊腐骑士': 30, '癫火花': 31, '鲜血贵族们': 32,
+    // 锻造村（DLC）
+    '恶兆之子': 33, '血怪之首': 34, '死骑士': 35, '神鸟战士': 36, '守墓斗士': 37, '黑焰修士': 38, '厄兆猎人': 39, '祖灵之民': 40,
+};
+// 是否 DLC 建筑组（池沼/锻造村）的 stronghold type → 浮窗按钮浅红背景。
+function isDlcStrongholdType(type) {
+    const o = STRONGHOLD_TYPE_ORDER[type];
+    return o !== undefined && o >= 26;
+}
+
 // category → 默认 icon（已选态用）。landmark 走 TYPE_ICON_MAP（按 type），其余按 category 统一 icon。
 // 依据 nightreignMapPatterns.json：fieldBoss 27 种 type 共用 field_boss，stronghold 47 种共用 camp_blank。
 const CATEGORY_ICON_MAP = {
@@ -1900,10 +1925,17 @@ class NightreignMapRecogniser {
     // （其余未命中 type 兜底排末尾，保证跨点位浮窗顺序一致）
     sortPOITypes(types) {
         const order = ['教堂', '法师塔', '特殊商人', '马车', '破败小屋', 'empty'];
-        return types.slice().sort((a, b) => {
-            const ia = order.indexOf(a), ib = order.indexOf(b);
-            return (ia === -1 ? order.length : ia) - (ib === -1 ? order.length : ib);
-        });
+        // landmark type 走上方 order（0-5）；stronghold type 走 STRONGHOLD_TYPE_ORDER（+100 段，按
+        // 要塞<大教堂<大型营地<大型遗迹<池沼<锻造村 分组）；其余未映射 type 排末尾（+1000）。
+        // landmark / stronghold 不会同浮窗出现，分段仅为防互扰。
+        const key = (t) => {
+            const i = order.indexOf(t);
+            if (i !== -1) return i;
+            const s = STRONGHOLD_TYPE_ORDER[t];
+            if (s !== undefined) return s + 100;
+            return 1000;
+        };
+        return types.slice().sort((a, b) => key(a) - key(b));
     }
 
     showAllPOISuggestions(filteredSeeds, isMobile) {
@@ -1982,6 +2014,10 @@ class NightreignMapRecogniser {
             button.className = 'poi-suggestion-btn';
             button.dataset.type = type;
             button.dataset.poiId = poiId;
+            // DLC 野外据点（池沼/锻造村）按钮浅红背景区分
+            if (poi.category !== 'landmark' && isDlcStrongholdType(type)) {
+                button.classList.add('dlc-stronghold');
+            }
             const iconPath = (type === 'empty')
                 ? 'assets/images/empty.png'
                 : (TYPE_ICON_MAP[type] || CATEGORY_ICON_MAP[poi.category] || 'assets/icons/unknown.png');
