@@ -1858,6 +1858,13 @@ body {
         line-height: 1;
         max-width: 35px;
     }
+
+    /* 高级模式非共享点位浮窗(non-landmark)：解除上方 140px 限制，
+       按 max-content 自适应宽度，确保移动端一行容纳 3 个候选完整显示。
+       特异性 (0,2,0) 同 :not 规则、源序在后，故覆盖 140px。*/
+    .poi-suggestion-container.non-landmark-suggestion {
+        max-width: none;
+    }
 }
 
 /* 英文版 POI 浮窗：隐藏 type 中文文字标签（教堂/法师塔/特殊商人/马车/破败小屋/empty 未做英文翻译），
