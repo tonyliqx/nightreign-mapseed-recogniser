@@ -9,7 +9,7 @@ const translations = {
     'app.keywords': '艾尔登法环, 黑夜君临, 地图, 种子, 识别器, 兴趣点, 工具',
     
     // Language toggle
-    'lang.current': 'zh',
+    'lang.current': 'English',  // 按钮显示「切换目标语言」母语名：中文界面→English，点击切英文
     'lang.switch': '切换语言',
     
     // Navigation
@@ -145,7 +145,7 @@ const translations = {
     'app.keywords': 'Elden Ring, Nightreign, map, seed, recognizer, POI, tool',
     
     // Language toggle
-    'lang.current': 'en',
+    'lang.current': '中文',  // 按钮显示「切换目标语言」母语名：英文界面→中文，点击切中文
     'lang.switch': 'Switch Language',
     
     // Navigation
