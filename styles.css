@@ -611,6 +611,12 @@ body {
     gap: 0.75rem;
 }
 
+/* 画布顶部工具栏：高级模式开关居中置于画布正上方 */
+.map-top-bar {
+    display: flex;
+    justify-content: center;
+}
+
 /* PC 双列布局：右侧地图画布在视口中垂直居中（与 #seed-image-container 种子图同效）；
    平板/移动端单列布局不受影响（保持画布紧跟侧栏、按内容高度排布）。 */
 @media (min-width: 1024px) {
