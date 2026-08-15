@@ -1,0 +1,20 @@
+{
+  "name": "nightreign-mapseed-recogniser",
+  "version": "2.4.18",
+  "private": true,
+  "description": "黑夜君临地图种子识别器 - Web + Android (Capacitor)",
+  "scripts": {
+    "app:dist": "bash tools/build-app.sh",
+    "app:sync": "bash tools/build-app.sh && cap sync android",
+    "app:build": "bash tools/build-app.sh && cap sync android && cd android && ./gradlew assembleRelease"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  },
+  "dependencies": {
+    "@capacitor-community/keep-awake": "^7.1.0",
+    "@capacitor/app": "^7.1.2"
+  }
+}

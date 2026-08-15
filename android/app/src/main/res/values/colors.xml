@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App 主题深色（与页面 body 渐变起点 #1a1a2e 一致）：
+         edge-to-edge 下系统导航栏区域露出的是窗口背景，必须设深色避免白边 -->
+    <color name="dark_background">#1a1a2e</color>
+</resources>

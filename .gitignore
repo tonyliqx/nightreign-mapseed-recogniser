@@ -22,3 +22,17 @@ distnr/
 
 # 新源只读副本（可由 tools 重建）
 vendor/
+
+# Android 打包（Capacitor）
+node_modules/
+app-dist/
+android-signing/
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+gui-test-screenshots/
+.zcode/
+
+# APK 产物只上传 gitee Release，不进仓库
+*.apk

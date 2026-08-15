@@ -15,6 +15,14 @@ Nightreign Map Recogniser 是一个用于识别和交互式探索游戏地图的
 - **beta版** [here](https://tonyliqx.github.io/nightreign-mapseed-recogniser/)
 - **稳定版** [here](https://dsm.lixiangzj.xyz:7443/)
 
+## 安卓 App（黑环识图器）
+
+提供打包好的安卓 APK，在本仓库 [Releases](https://gitee.com/lixiangzj/nightreign-mapseed-recogniser-master/releases) 下载安装（首次安装需允许"未知来源应用"）。
+
+- 种子结果图不内置在安装包内：识别到种子时按需下载并缓存到本机，已缓存的图**离线也能查看**（可在「帮助与提示」中查看/清除图片缓存）
+- 安装包约 30M，数据与图片缓存机制详见 `pattern-cache.js`
+- 打包与发版流程见 [docs/android-app-build.md](docs/android-app-build.md)
+
 ## 功能特点
 
 - **地图识别**：通过预定义的模式识别地图上的标记点（POI）。

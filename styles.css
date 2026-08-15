@@ -953,6 +953,101 @@ body {
     border-radius: 12px;
     box-shadow: 0 6px 24px rgba(79, 195, 247, 0.4);
     object-fit: contain;
+    cursor: zoom-in;
+}
+
+/* 种子图加载骨架 / 失败重试（pattern 图按需下载，见 pattern-cache.js） */
+.seed-image-wrap {
+    display: block;
+    width: 100%;
+}
+
+.seed-image-skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 220px;
+    border: 3px dashed #4fc3f7;
+    border-radius: 12px;
+    color: #8ecae6;
+    background: rgba(26, 26, 46, 0.6);
+}
+
+.seed-image-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #ffb74d;
+}
+
+.seed-retry-btn {
+    padding: 6px 18px;
+    border: 1px solid #4fc3f7;
+    border-radius: 6px;
+    background: transparent;
+    color: #4fc3f7;
+    cursor: pointer;
+}
+
+.seed-retry-btn:hover {
+    background: rgba(79, 195, 247, 0.15);
+}
+
+/* 应用内大图查看（替代新标签页打开：App WebView 内行为统一且离线可用）。
+   支持双指捏合/滚轮/双击缩放与拖动平移（script.js setupLightboxGestures） */
+.pattern-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.92);
+    cursor: zoom-out;
+    touch-action: none;      /* 手势交给 Pointer Events，阻止浏览器页面缩放 */
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.pattern-lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border: 2px solid #4fc3f7;
+    border-radius: 8px;
+    object-fit: contain;
+    will-change: transform;
+}
+
+.pattern-lightbox img.zoomed {
+    cursor: grab;
+}
+
+.pattern-lightbox img.zoomed:active {
+    cursor: grabbing;
+}
+
+.pattern-lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pattern-lightbox-close:hover {
+    background: rgba(79, 195, 247, 0.3);
 }
 
 .seed-info {
@@ -1606,16 +1701,6 @@ body {
     opacity: 0.9;
 }
 
-/* 步骤4 的 PC/移动端子列表 */
-.help-sub {
-    margin: 6px 0 0;
-    padding-left: 20px;
-    list-style: disc;
-}
-.help-sub li {
-    margin-bottom: 4px;
-}
-
 /* POI 图标说明网格（帮助弹窗） */
 .help-poi-grid {
     display: grid;
@@ -1634,6 +1719,43 @@ body {
     height: 28px;
     object-fit: contain;
     flex: 0 0 auto;
+}
+
+/* 地图缺失模式三色点图例（色值与 script.js CATEGORY_DOT_COLOR 一致） */
+.help-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
+    margin: 4px 0 8px;
+}
+.help-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.help-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    flex: 0 0 auto;
+}
+.help-dot-orange { background: #ff8c00; }
+.help-dot-yellow { background: #ffd700; }
+.help-dot-red    { background: #ff2d2d; }
+
+/* 帮助弹窗 · 图片缓存管理（pattern-cache.js） */
+.help-cache-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 4px 0 12px;
+}
+
+.help-cache-row #pattern-cache-stats {
+    color: #8ecae6;
 }
 
 .help-section ol,

@@ -2,9 +2,9 @@
 <html lang="zh" data-lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title data-i18n="app.title">黑夜君临-地图种子识别器</title>
-    <link rel="stylesheet" href="styles.css?v=2.4.16">
+    <link rel="stylesheet" href="styles.css?v=2.4.21">
     <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a2e">
@@ -158,22 +158,44 @@
             </div>
             <div class="modal-body">
                 <div class="help-section">
+                    <!-- 1. 使用步骤 -->
                     <h4>📋 <span data-i18n="help.steps">使用步骤</span></h4>
                     <ol>
                         <li data-i18n="help.step1" data-i18n-html="true">选择<strong>夜王</strong>（可选）</li>
                         <li data-i18n="help.step2" data-i18n-html="true">选择<strong>地形</strong></li>
-                        <li data-i18n="help.step3" data-i18n-html="true">选择<strong>出生点</strong>（可跳过）</li>
-                        <li data-i18n="help.step4" data-i18n-html="true">点选地图上的 POI：
-                            <ul class="help-sub">
-                                <li data-i18n="help.step4_pc" data-i18n-html="true"><strong>PC</strong>：左键标记教堂，右键选择其他选项</li>
-                                <li data-i18n="help.step4_mobile" data-i18n-html="true"><strong>移动端</strong>：单击标记教堂，长按选择其他选项</li>
-                                <li data-i18n="help.step4_clear" data-i18n-html="true">再次点击已标记的点可<strong>取消标记</strong></li>
-                            </ul>
-                        </li>
-                        <li data-i18n="help.step5" data-i18n-html="true">标记越多，种子筛选越快；仅剩一个时显示完整种子详情与地图图像</li>
+                        <li data-i18n="help.step3" data-i18n-html="true">如需使用<strong>地图缺失模式</strong>，请打开「地图缺失模式」开关</li>
+                        <li data-i18n="help.step4" data-i18n-html="true">选择<strong>出生点</strong>（可跳过）</li>
+                        <li data-i18n="help.step5" data-i18n-html="true">点选地图上的标记点：标记越多，种子筛选越快；仅剩一个时显示完整种子详情与地图图像</li>
                     </ol>
 
-                    <h4>🗺️ <span data-i18n="help.poi_meaning">POI 图标意义</span></h4>
+                    <!-- 2. 匹配原理 -->
+                    <h4>🧠 <span data-i18n="help.principle">匹配原理</span></h4>
+                    <ul>
+                        <li data-i18n="help.principle_basic" data-i18n-html="true"><strong>常规模式</strong>：根据夜王、地形、出生点，以及资源共享点位（教堂、法师塔、祷告屋、马车）的位置信息，快速锁定对应的地图种子</li>
+                        <li data-i18n="help.principle_advanced" data-i18n-html="true"><strong>地图缺失模式</strong>：基于常规模式，额外根据周围野外 BOSS 和要塞据点的 BOSS 来快速定位当前地图种子</li>
+                    </ul>
+
+                    <!-- 3. 常规模式 标记点操作 -->
+                    <h4>📱 <span data-i18n="help.basic_mode">常规模式 · 标记点操作方式</span></h4>
+                    <ol>
+                        <li data-i18n="help.basic_pc" data-i18n-html="true"><strong>PC</strong>：<strong>左键点击</strong>点位会直接标记为教堂，<strong>右键点击</strong>可展示完整可标记列表</li>
+                        <li data-i18n="help.basic_mobile" data-i18n-html="true"><strong>移动端</strong>：<strong>单点</strong>会直接标记为教堂，<strong>长按</strong>可展示完整可标记列表</li>
+                        <li data-i18n="help.basic_clear" data-i18n-html="true">再次点击已经标记的点位，会取消该点的标记</li>
+                        <li data-i18n="help.basic_auto_options" data-i18n-html="true">当剩余匹配种子在一定数量内时，会自动展示所有剩余标记点可选项</li>
+                        <li data-i18n="help.basic_auto_seed" data-i18n-html="true">当筛选出最终地图种子时，会自动展示出该种子</li>
+                    </ol>
+
+                    <!-- 4. 地图缺失模式 标记点操作 -->
+                    <h4>🗺️ <span data-i18n="help.advanced_mode">地图缺失模式 · 标记点操作方式</span></h4>
+                    <div class="help-legend">
+                        <div class="help-legend-item"><span class="help-dot help-dot-orange"></span><span data-i18n="help.advanced_orange">橙色圆点：常规模式标记点的点位</span></div>
+                        <div class="help-legend-item"><span class="help-dot help-dot-yellow"></span><span data-i18n="help.advanced_yellow">黄色圆点：野外 BOSS 与要塞据点 BOSS</span></div>
+                        <div class="help-legend-item"><span class="help-dot help-dot-red"></span><span data-i18n="help.advanced_red">红色圆点：持秤商人点位</span></div>
+                    </div>
+                    <p data-i18n="help.advanced_click" data-i18n-html="true" style="margin-top: 4px;">点击要标记的点位进行标记，直到匹配出最终地图种子。再次点击已经标记的点位可取消该点的标记</p>
+
+                    <!-- 5. 标记点图标意义 -->
+                    <h4>🚏 <span data-i18n="help.poi_meaning">标记点图标意义</span></h4>
                     <div class="help-poi-grid">
                         <div class="help-poi-item"><img src="assets/icons/church.png" class="help-poi-icon" alt="教堂"><span data-i18n="help.poi_church">教堂</span></div>
                         <div class="help-poi-item"><img src="assets/icons/rise.png" class="help-poi-icon" alt="法师塔"><span data-i18n="help.poi_tower">法师塔</span></div>
@@ -181,6 +203,14 @@
                         <div class="help-poi-item"><img src="assets/icons/carriage.png" class="help-poi-icon" alt="马车（石剑钥匙）"><span data-i18n="help.poi_carriage">马车（石剑钥匙）</span></div>
                         <div class="help-poi-item"><img src="assets/icons/blessing.png" class="help-poi-icon" alt="破败小屋"><span data-i18n="help.poi_hut">破败小屋（祷告屋）</span></div>
                         <div class="help-poi-item"><img src="assets/images/empty.png" class="help-poi-icon" alt="空"><span data-i18n="help.poi_empty">空（该位置无建筑）</span></div>
+                    </div>
+
+                    <!-- 6. 图片缓存管理 -->
+                    <h4>💾 <span data-i18n="help.cache_title">图片缓存</span></h4>
+                    <p data-i18n="help.cache_desc">种子结果图按需下载并缓存在本机，已缓存在无网络时也可查看</p>
+                    <div class="help-cache-row">
+                        <span id="pattern-cache-stats"></span>
+                        <button type="button" id="clear-pattern-cache" class="seed-retry-btn" data-i18n="help.cache_clear">清除缓存</button>
                     </div>
                 </div>
             </div>
@@ -215,9 +245,10 @@
         </p>
     </footer>
 
-    <script src="i18n/translations.js?v=14"></script>
-    <script src="i18n/language-manager.js?v=4"></script>
-    <script src="data.js"></script>
-    <script src="script.js?v=2.2.24"></script>
+  <script src="i18n/translations.js?v=18"></script>
+  <script src="i18n/language-manager.js?v=4"></script>
+  <script src="data.js"></script>
+  <script src="pattern-cache.js?v=1"></script>
+  <script src="script.js?v=2.3.5"></script>
 </body>
 </html>

@@ -29,6 +29,45 @@ function initAdvancedMode() {
 
 let RAW_POI_LOOKUP = null;  // 缓存 JSON 原始 poiLookupByMapType，供 rebuildPOISlots 复用
 
+// === 屏幕常亮（展示最终种子图时延迟息屏） ===
+// 出最终种子图时保持亮屏 35 分钟（约一局游戏时长）：App 端走 @capacitor-community/keep-awake
+// 原生 FLAG_KEEP_SCREEN_ON（无时长参数，由 JS 计时到期释放），Web 端走 Wake Lock API。
+// 重置/离开种子图立即释放；切后台系统会自动释放，回前台若仍在看种子图则重新持有。
+const ScreenAwake = (() => {
+    const HOLD_MS = 35 * 60 * 1000;
+    let timer = null;
+    let webLock = null;
+    let held = false;
+
+    const nativePlugin = () => (window.Capacitor && window.Capacitor.isNativePlatform
+        && window.Capacitor.isNativePlatform()) ? window.Capacitor.Plugins.KeepAwake : null;
+
+    async function hold() {
+        const plugin = nativePlugin();
+        if (plugin) {
+            plugin.keepAwake().catch(() => {});   // 原生 flag 幂等，重复调用无害
+        } else if ('wakeLock' in navigator && !(webLock && webLock.active)) {
+            // 未持有或已被系统释放（切后台）才重新请求，避免重复请求导致旧锁泄漏
+            try { webLock = await navigator.wakeLock.request('screen'); } catch (e) { /* 无权限/不可用则跳过 */ }
+        }
+        held = true;
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(release, HOLD_MS);
+    }
+
+    function release() {
+        if (timer) { clearTimeout(timer); timer = null; }
+        held = false;
+        const plugin = nativePlugin();
+        if (plugin) {
+            plugin.allowSleep().catch(() => {});
+        }
+        if (webLock) { webLock.release().catch(() => {}); webLock = null; }
+    }
+
+    return { hold, release, state: () => ({ held, lockActive: !!(webLock && webLock.active) }) };
+})();
+
 // 按 categories 集合过滤槽位，坐标 1536→768（×0.5），landmark 按 POIS_BY_MAP 最近邻继承 originalId。
 // 抽自 loadSeedData，供开关切换时重建 POI_SLOTS_BY_MAP（不重新 fetch）。
 
@@ -442,6 +481,38 @@ class NightreignMapRecogniser {
             }
         });
 
+        // 屏幕常亮：切后台时系统会自动释放 WakeLock，回前台若大图仍打开则重新持有（重新计 35 分钟）
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && document.querySelector('.pattern-lightbox')) {
+                ScreenAwake.hold();
+            }
+        });
+
+        // 安卓返回键/边缘左滑返回（系统手势）优先级：关闭大图 > 关闭帮助弹窗 > 历史返回 > 退出 App。
+        // 仅在 Capacitor 原生环境注册（需 @capacitor/app 插件）；Web 端无此事件源。
+        if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
+            const AppPlugin = window.Capacitor.Plugins.App;
+            if (AppPlugin) {
+                AppPlugin.addListener('backButton', ({ canGoBack }) => {
+                    const lightbox = document.querySelector('.pattern-lightbox');
+                    if (lightbox) {
+                        (lightbox.closeLightbox || lightbox.remove).call(lightbox);
+                        return;
+                    }
+                    const helpModal = document.getElementById('help-modal');
+                    if (helpModal && helpModal.style.display !== 'none') {
+                        this.hideHelpModal();
+                        return;
+                    }
+                    if (canGoBack) {
+                        window.history.back();
+                    } else {
+                        AppPlugin.exitApp();
+                    }
+                });
+            }
+        }
+
         // 点击/触摸画布外区域（侧栏、页头、页面空白等）时关闭 POI 悬浮窗。
         // 仅处理 mapContainer 之外的点击——画布内的空白关闭由 canvas click/touch 分支负责，
         // 这样右键(contextmenu)/中键(mousedown)弹出的浮窗不会被同次事件冒泡误关。
@@ -848,6 +919,7 @@ class NightreignMapRecogniser {
         if (this.showingSeedImage) {
             this.showingSeedImage = false;
             this.hideSeedDetails();
+            ScreenAwake.release();   // 兜底：正常路径由大图关闭时释放
             const canvas = document.getElementById('map-canvas');
             const seedImageContainer = document.getElementById('seed-image-container');
             if (canvas) canvas.style.display = 'block';
@@ -1667,6 +1739,7 @@ class NightreignMapRecogniser {
         this.poiStates = this.initializePOIStates();
         this.resetDisambig();  // 清除大空洞碰撞消歧状态
         this.showingSeedImage = false;
+        ScreenAwake.release();   // 兜底：正常路径由大图关闭时释放
 
         // Hide POI suggestions and nightlord info
         this.hidePOISuggestions();
@@ -2333,21 +2406,228 @@ class NightreignMapRecogniser {
 
         const seedStr = mapSeed.toString().padStart(3, '0');
         const currentLang = this.languageManager.getCurrentLanguage();
-        // 种子结果图：本体(0-319, 3位补零)与 DLC(1000-1199, 4位) 均按语言目录存放
-        const seedImageUrl = `assets/pattern/${currentLang}/${seedStr}.jpg`;
 
+        // pattern 图按需加载：App 内从线上源下载并入 IndexedDB 缓存（pattern-cache.js），
+        // Web 版同源直取同样入缓存；不再用 <a target="_blank">（Capacitor WebView 内新窗口行为不可控，
+        // 改为应用内 lightbox 查看大图）
         seedImageContainer.innerHTML = `
             <div class="seed-result-container">
-                <a href="${seedImageUrl}" target="_blank" class="seed-image-link">
-                    <img src="${seedImageUrl}" alt="${this.getText('seed.alt_text', { seed: mapSeed })}" class="seed-image">
-                </a>
+                <div class="seed-image-wrap">
+                    <img alt="${this.getText('seed.alt_text', { seed: mapSeed })}" class="seed-image" style="display:none">
+                    <div class="seed-image-skeleton">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>${this.getText('seed.loading')}</span>
+                    </div>
+                </div>
                 <div class="seed-info">
                     <span class="seed-number">${this.getText('seed.number', { seed: mapSeed })}</span>
                     ${isMobile && nightlordTranslated ? `<span class="seed-info-separator">|</span><span class="seed-nightlord">${this.getText('seed.nightlord', { nightlord: nightlordTranslated })}</span>` : ''}
-                    <small class="seed-hint">${isMobile ? this.getText('seed.click_mobile') : this.getText('seed.click_large')}</small>
+                    <small class="seed-hint">${this.getText('seed.click_enlarge')}</small>
                 </div>
             </div>
         `;
+        this.renderSeedPatternImage(seedImageContainer, currentLang, seedStr);
+    }
+
+    // 加载并显示种子 pattern 图：缓存命中或下载成功得 blob URL，失败退回直载，仍失败给重试入口
+    renderSeedPatternImage(container, lang, seedStr) {
+        const img = container.querySelector('.seed-image');
+        const skeleton = container.querySelector('.seed-image-skeleton');
+        if (!img || !skeleton) return;
+        skeleton.style.display = 'flex';
+        img.style.display = 'none';
+        PatternCache.getUrl(lang, seedStr)
+            .catch(() => PatternCache.getFallbackUrl(lang, seedStr))
+            .then(url => {
+                img.onload = () => {
+                    skeleton.style.display = 'none';
+                    img.style.display = 'block';
+                };
+                img.onerror = () => this.showSeedImageError(container, lang, seedStr);
+                img.onclick = () => this.showPatternLightbox(img.src);
+                img.src = url;
+            });
+    }
+
+    // 图片加载失败：骨架区显示提示与重试按钮（断网 + 未缓存场景）
+    showSeedImageError(container, lang, seedStr) {
+        const skeleton = container.querySelector('.seed-image-skeleton');
+        if (!skeleton) return;
+        skeleton.innerHTML = `
+            <div class="seed-image-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>${this.getText('seed.load_error')}</span>
+                <button type="button" class="seed-retry-btn">${this.getText('seed.retry')}</button>
+            </div>`;
+        skeleton.style.display = 'flex';
+        skeleton.querySelector('.seed-retry-btn').addEventListener('click', () => {
+            skeleton.innerHTML = `<i class="fas fa-spinner fa-spin"></i><span>${this.getText('seed.loading')}</span>`;
+            this.renderSeedPatternImage(container, lang, seedStr);
+        });
+    }
+
+    // 应用内大图查看（全屏遮罩）：双指捏合/滚轮/双击缩放，放大后拖动平移；
+    // 未放大时单击空白、左滑、ESC 或 ✕ 关闭。Pointer Events 统一处理鼠标与触摸。
+    // 点击种子图打开大图时才触发亮屏 35 分钟（关闭大图恢复系统息屏，见 ScreenAwake）。
+    showPatternLightbox(src) {
+        const overlay = document.createElement('div');
+        overlay.className = 'pattern-lightbox';
+        overlay.innerHTML = `
+            <button type="button" class="pattern-lightbox-close" aria-label="Close">&times;</button>
+            <img src="${src}" alt="">`;
+        document.body.appendChild(overlay);
+        ScreenAwake.hold();
+        this.setupLightboxGestures(overlay);
+
+        const closeLightbox = () => {
+            overlay.remove();
+            ScreenAwake.release();
+        };
+        overlay.closeLightbox = closeLightbox;   // 供返回键路径统一走带释放的关闭
+        document.addEventListener('keydown', function onEsc(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                document.removeEventListener('keydown', onEsc);
+            }
+        });
+    }
+
+    setupLightboxGestures(overlay) {
+        const img = overlay.querySelector('img');
+        const closeBtn = overlay.querySelector('.pattern-lightbox-close');
+        const MIN_SCALE = 1, MAX_SCALE = 4, TAP_MOVE_TOLERANCE = 6;
+        let scale = 1, tx = 0, ty = 0;
+        let pointers = new Map();       // pointerId -> {x, y}
+        let pinchBase = null;           // 双指手势起始基准（dist/scale/中心/平移）
+        let moved = false, downX = 0, downY = 0, downTime = 0;
+        let lastPos = { x: 0, y: 0 };   // 最近一次 pointermove 位置：pointercancel 的 clientX/Y 为 0，滑动判定用它
+        let lastTapTime = 0, lastTapX = 0, lastTapY = 0;
+        let closeTimer = null;
+
+        const apply = (animate = false) => {
+            img.style.transition = animate ? 'transform 0.25s ease' : 'none';
+            img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+            img.classList.toggle('zoomed', scale > 1.01);
+        };
+
+        const clampPan = () => {
+            if (scale <= 1.01) { tx = 0; ty = 0; return; }
+            // 放大后限制拖动范围：图片边缘不远离视口（offsetWidth 为未变换布局尺寸）
+            const mx = Math.max(0, (img.offsetWidth * scale - innerWidth) / 2) + 40;
+            const my = Math.max(0, (img.offsetHeight * scale - innerHeight) / 2) + 40;
+            tx = Math.min(mx, Math.max(-mx, tx));
+            ty = Math.min(my, Math.max(-my, ty));
+        };
+
+        // 以屏幕坐标 (px,py) 为锚点缩放：锚点处的图像内容缩放前后不动
+        const zoomAt = (px, py, targetScale, animate = false) => {
+            const ns = Math.min(MAX_SCALE, Math.max(MIN_SCALE, targetScale));
+            if (ns === scale) return;
+            const cx = innerWidth / 2 + tx, cy = innerHeight / 2 + ty;   // 图片中心当前屏幕位置
+            const vx = (px - cx) / scale, vy = (py - cy) / scale;
+            tx += (scale - ns) * vx;
+            ty += (scale - ns) * vy;
+            scale = ns;
+            clampPan();
+            apply(animate);
+        };
+
+        const close = () => {
+            overlay.remove();
+            ScreenAwake.release();   // 关闭大图恢复系统默认息屏
+        };
+
+        closeBtn.addEventListener('click', close);
+        closeBtn.addEventListener('pointerdown', e => e.stopPropagation());
+
+        overlay.addEventListener('pointerdown', e => {
+            if (e.target === closeBtn) return;
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            moved = false;
+            if (pointers.size === 1) {
+                downX = e.clientX; downY = e.clientY; downTime = Date.now();
+                lastPos = { x: e.clientX, y: e.clientY };
+            } else if (pointers.size === 2) {
+                const [p1, p2] = [...pointers.values()];
+                pinchBase = {
+                    dist: Math.hypot(p1.x - p2.x, p1.y - p2.y),
+                    scale, tx, ty,
+                    cx: (p1.x + p2.x) / 2, cy: (p1.y + p2.y) / 2,
+                };
+                moved = true;   // 第二根手指按下即视为手势，不再当作 tap
+            }
+        });
+
+        overlay.addEventListener('pointermove', e => {
+            if (!pointers.has(e.pointerId)) return;
+            const prev = pointers.get(e.pointerId);
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            if (pointers.size === 1) lastPos = { x: e.clientX, y: e.clientY };
+            if (pointers.size === 1) {
+                if (Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY) > TAP_MOVE_TOLERANCE) moved = true;
+                if (scale > 1.01) {
+                    tx += e.clientX - prev.x;
+                    ty += e.clientY - prev.y;
+                    clampPan();
+                    apply();
+                }
+            } else if (pointers.size === 2 && pinchBase) {
+                const [p1, p2] = [...pointers.values()];
+                const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+                const ns = Math.min(MAX_SCALE, Math.max(MIN_SCALE, pinchBase.scale * dist / pinchBase.dist));
+                // 保持初始双指中心对应的图像点不动，并跟随双指中心平移
+                const vx = (pinchBase.cx - (innerWidth / 2 + pinchBase.tx)) / pinchBase.scale;
+                const vy = (pinchBase.cy - (innerHeight / 2 + pinchBase.ty)) / pinchBase.scale;
+                tx = pinchBase.tx + (pinchBase.scale - ns) * vx + (p1.x + p2.x) / 2 - pinchBase.cx;
+                ty = pinchBase.ty + (pinchBase.scale - ns) * vy + (p1.y + p2.y) / 2 - pinchBase.cy;
+                scale = ns;
+                clampPan();
+                apply();
+            }
+        });
+
+        const endPointer = e => {
+            if (!pointers.has(e.pointerId)) return;
+            pointers.delete(e.pointerId);
+            pinchBase = null;
+            if (pointers.size > 0) return;
+            if (moved) {
+                // 未放大状态左滑 = 关闭（移动端"左滑返回"直觉；放大状态左滑仅平移）。
+                // 用 lastPos 而非 e.clientX：pointercancel（原生手势抢占）坐标为 0
+                if (scale <= 1.01
+                    && (lastPos.x - downX) < -70
+                    && Math.abs(lastPos.y - downY) < 50) {
+                    close();
+                }
+                return;
+            }
+            // 单击/双击判定；单击关闭需延迟，避免双击的第一击把图关掉
+            const now = Date.now();
+            const isDoubleTap = now - lastTapTime < 300
+                && Math.hypot(e.clientX - lastTapX, e.clientY - lastTapY) < 40;
+            lastTapTime = now; lastTapX = e.clientX; lastTapY = e.clientY;
+            if (isDoubleTap) {
+                lastTapTime = 0;
+                if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+                if (scale > 1.01) {
+                    scale = 1; tx = 0; ty = 0;
+                    apply(true);
+                } else {
+                    zoomAt(e.clientX, e.clientY, 2.5, true);
+                }
+            } else if (scale <= 1.01 && e.target !== img) {
+                // 单击关闭仅作用于图片以外的遮罩空白区（点图片不关，防误触）
+                closeTimer = setTimeout(() => { closeTimer = null; close(); }, 320);
+            }
+        };
+        overlay.addEventListener('pointerup', endPointer);
+        overlay.addEventListener('pointercancel', endPointer);
+
+        // PC 滚轮缩放（以光标为锚点）
+        overlay.addEventListener('wheel', e => {
+            e.preventDefault();
+            zoomAt(e.clientX, e.clientY, scale * (e.deltaY < 0 ? 1.2 : 1 / 1.2));
+        }, { passive: false });
     }
 
     updateNightlordInfo(nightlordChinese) {
@@ -2388,6 +2668,26 @@ class NightreignMapRecogniser {
         const helpModal = document.getElementById('help-modal');
         helpModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        this.refreshCacheStats();
+    }
+
+    // 帮助弹窗内的图片缓存统计与清除（pattern-cache.js）
+    refreshCacheStats() {
+        const statsEl = document.getElementById('pattern-cache-stats');
+        const clearBtn = document.getElementById('clear-pattern-cache');
+        if (!statsEl) return;
+        PatternCache.stats().then(({ count, bytes }) => {
+            statsEl.textContent = this.getText('help.cache_stats', {
+                count,
+                size: (bytes / 1048576).toFixed(1),
+            });
+        });
+        if (clearBtn && !clearBtn._bound) {
+            clearBtn._bound = true;
+            clearBtn.addEventListener('click', () => {
+                PatternCache.clear().then(() => this.refreshCacheStats());
+            });
+        }
     }
 
     hideHelpModal() {

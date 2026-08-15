@@ -1,0 +1,8 @@
+{
+    "appId": "com.lixiangzj.heihuan",
+    "appName": "黑环识图器",
+    "webDir": "app-dist",
+    "android": {
+        "allowMixedContent": false
+    }
+}

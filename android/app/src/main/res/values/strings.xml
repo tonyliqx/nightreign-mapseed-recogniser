@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">黑环识图器</string>
+    <string name="title_activity_main">黑环识图器</string>
+    <string name="package_name">com.lixiangzj.heihuan</string>
+    <string name="custom_url_scheme">com.lixiangzj.heihuan</string>
+</resources>
