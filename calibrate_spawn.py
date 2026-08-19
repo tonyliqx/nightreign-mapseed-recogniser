@@ -1,4 +1,4 @@
-"""一次性标定：从源目录 Start_*.png 提取出生点箭头坐标，转 768 空间，
+"""一次性标定：从源目录 Start_*.png 提取出生点箭头坐标，转 1536 空间，
 写 dataset/dlc-params/spawn_calib.json。
 
 dev 时工具（用 Pillow，非生产路径）。生产端 integrate_dlc.py 用
@@ -17,14 +17,22 @@ from PIL import Image
 
 PROJ = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PROJ)
-from integrate_dlc import (transform_coord_basic, transform_coord_great_hollow,
-                           load_great_hollow_calib, SRC_DEFAULT)
+from integrate_dlc import SRC_DEFAULT
 
 SRC = os.path.join(SRC_DEFAULT, "素材")
 OUT = os.path.join(PROJ, "dataset", "dlc-params", "spawn_calib.json")
 
 BASIC_VALUES = [str(v) for v in range(700, 709)]   # 700-708，基础地图
 GH_VALUES = ["13000", "13001", "13002"]            # 大空洞
+
+# Start_*.png 仍是 4775×4775 原始图素空间（vendor v0.3.3 只烘焙了 坐标.csv，
+# 图素未烘焙），本工具自持 4775→1536 缩放，勿复用 integrate_dlc 的 transform_*
+# （2026-08-18 起 v0.3.3 坐标恒等口径，4775 图素直传会错 3 倍）。
+K_4775_TO_1536 = 1536 / 4775
+# GH 分支保留老公式常数（= 老版 calib scale 0.327666/offset -98.433,-83.636，
+# 即 (pic×1.0186-306)×K）：注意 GH 落地点已人工实测校准（坐鸟点→落地点），
+# 重跑本工具会回退人工校准，仅作语义参考。
+_GH_SCALE, _GH_OFF = 0.327666, (-98.433, -83.636)
 
 
 def centroid_4775(png_path: str):
@@ -41,15 +49,14 @@ def centroid_4775(png_path: str):
 
 
 def main():
-    calib = load_great_hollow_calib()
     out = {}
     for v in BASIC_VALUES:
         px, py = centroid_4775(os.path.join(SRC, f"Start_{v}.png"))
-        bx, by = transform_coord_basic(px, py, 768)
-        out[v] = [round(bx, 1), round(by, 1)]
+        out[v] = [round(px * K_4775_TO_1536, 1), round(py * K_4775_TO_1536, 1)]
     for v in GH_VALUES:
         px, py = centroid_4775(os.path.join(SRC, f"Start_{v}.png"))
-        gx, gy = transform_coord_great_hollow(px, py, "", calib, 768)
+        gx = px * _GH_SCALE + _GH_OFF[0]
+        gy = py * _GH_SCALE + _GH_OFF[1]
         out[v] = [round(gx, 1), round(gy, 1)]
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)

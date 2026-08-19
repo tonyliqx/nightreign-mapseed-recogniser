@@ -1,96 +1,96 @@
 // Point of Interest data for each map
 const POIS_BY_MAP = {
   Default: [
-    { id: 1, x: 155, y: 551 },
-    { id: 2, x: 350, y: 545 },
-    { id: 3, x: 155, y: 436 },
-    { id: 4, x: 280, y: 308 },
-    { id: 5, x: 165, y: 284 },
-    { id: 6, x: 436, y: 620 },
-    { id: 7, x: 420, y: 495 },
-    { id: 8, x: 620, y: 455 },
-    { id: 9, x: 530, y: 285 },
-    { id: 10, x: 595, y: 278 },
-    { id: 11, x: 410, y: 180 }
+    { id: 1, x: 310, y: 1102 },
+    { id: 2, x: 700, y: 1090 },
+    { id: 3, x: 310, y: 872 },
+    { id: 4, x: 560, y: 616 },
+    { id: 5, x: 330, y: 568 },
+    { id: 6, x: 872, y: 1240 },
+    { id: 7, x: 840, y: 990 },
+    { id: 8, x: 1240, y: 910 },
+    { id: 9, x: 1060, y: 570 },
+    { id: 10, x: 1190, y: 556 },
+    { id: 11, x: 820, y: 360 }
   ],
 
   Crater: [
-    { id: 1, x: 155, y: 551 },
-    { id: 2, x: 348, y: 545 },
-    { id: 3, x: 155, y: 440 },
-    { id: 5, x: 165, y: 284 },
-    { id: 6, x: 436, y: 630 },
-    { id: 7, x: 420, y: 495 },
-    { id: 8, x: 620, y: 455 },
-    { id: 9, x: 530, y: 295 },
-    { id: 10, x: 595, y: 278 }
+    { id: 1, x: 310, y: 1102 },
+    { id: 2, x: 696, y: 1090 },
+    { id: 3, x: 310, y: 880 },
+    { id: 5, x: 330, y: 568 },
+    { id: 6, x: 872, y: 1260 },
+    { id: 7, x: 840, y: 990 },
+    { id: 8, x: 1240, y: 910 },
+    { id: 9, x: 1060, y: 590 },
+    { id: 10, x: 1190, y: 556 }
   ],
 
   "Rotted Woods": [
-    { id: 1, x: 153, y: 557 },
-    { id: 2, x: 350, y: 545 },
-    { id: 3, x: 155, y: 442 },
-    { id: 4, x: 275, y: 315 },
-    { id: 5, x: 165, y: 284 },
-    { id: 9, x: 530, y: 285 },
-    { id: 10, x: 597, y: 285 },
-    { id: 11, x: 410, y: 180 }
+    { id: 1, x: 306, y: 1114 },
+    { id: 2, x: 700, y: 1090 },
+    { id: 3, x: 310, y: 884 },
+    { id: 4, x: 550, y: 630 },
+    { id: 5, x: 330, y: 568 },
+    { id: 9, x: 1060, y: 570 },
+    { id: 10, x: 1194, y: 570 },
+    { id: 11, x: 820, y: 360 }
   ],
 
   Mountaintop: [
-    { id: 1, x: 155, y: 551 },
-    { id: 2, x: 345, y: 547 },
-    { id: 3, x: 155, y: 440 },
-    { id: 6, x: 436, y: 620 },
-    { id: 7, x: 420, y: 495 },
-    { id: 8, x: 620, y: 460 },
-    { id: 9, x: 530, y: 285 },
-    { id: 10, x: 595, y: 278 },
-    { id: 11, x: 410, y: 180 }
+    { id: 1, x: 310, y: 1102 },
+    { id: 2, x: 690, y: 1094 },
+    { id: 3, x: 310, y: 880 },
+    { id: 6, x: 872, y: 1240 },
+    { id: 7, x: 840, y: 990 },
+    { id: 8, x: 1240, y: 920 },
+    { id: 9, x: 1060, y: 570 },
+    { id: 10, x: 1190, y: 556 },
+    { id: 11, x: 820, y: 360 }
   ],
 
   Noklateo: [
-    { id: 4, x: 278, y: 308 },
-    { id: 5, x: 165, y: 284 },
-    { id: 6, x: 436, y: 620 },
-    { id: 7, x: 420, y: 495 },
-    { id: 8, x: 620, y: 455 },
-    { id: 9, x: 530, y: 287 },
-    { id: 10, x: 595, y: 278 },
-    { id: 11, x: 410, y: 182 }
+    { id: 4, x: 556, y: 616 },
+    { id: 5, x: 330, y: 568 },
+    { id: 6, x: 872, y: 1240 },
+    { id: 7, x: 840, y: 990 },
+    { id: 8, x: 1240, y: 910 },
+    { id: 9, x: 1060, y: 574 },
+    { id: 10, x: 1190, y: 556 },
+    { id: 11, x: 820, y: 364 }
   ],
 
   // DLC: The Forsaken Hollows - Great Hollow POI 候选点，由 integrate_dlc.py 聚类 + 过滤生成
-  // （768 空间。先聚类排除 boss 得 7 候选点，再用探针 basic 过滤掉在所有大空洞种子都非地标
+  // （1536 空间。先聚类排除 boss 得 7 候选点，再用探针 basic 过滤掉在所有大空洞种子都非地标
   //   （other/nothing）的点——主城 boss 群（53xxx 城堡废墟/汉字标识）、固定 evergaol、以及
-  //   主城固定大教堂（53590，每局固定刷新在 229.3,220.3，basic=other）等永远不是野外可变
+  //   主城固定大教堂（53590，每局固定刷新在 458.6,440.6，basic=other）等永远不是野外可变
   //   地标（教堂/法师塔/村庄/马车），不参与选点。过滤后剩 4 个可变地标候选点，重新编号 1..4。
   //   用户决策 2026-07-08：大空洞 POI 只保留可变地标，上半部分主城信息不可定位，不参与选点。）
   "Great Hollow": [
-    { id: 1, x: 427.6, y: 363.9 },
-    { id: 2, x: 235.3, y: 365.5 },
-    { id: 3, x: 676.7, y: 462.6 },
-    { id: 4, x: 241.0, y: 546.4 }
+    { id: 1, x: 945.3, y: 798.3 },
+    { id: 2, x: 547.8, y: 801.6 },
+    { id: 3, x: 1450.8, y: 998.5 },
+    { id: 4, x: 559.6, y: 1175.5 }
   ]
 };
 
 // === Great Hollow 碰撞消歧 ===
 // 当 GH 地形剩余正好 2 个碰撞种子（5 对之一）时，额外显示这两个点选位，
 // 复用 POI「点击→弹菜单→选→过滤」交互，把结果收敛到唯一种子。
-//   A=(416,351) 紧邻 POI1，选「守教堂的野外 BOSS」名 —— 区分全部 5 对
-//   B=(164,406) 在 POI2 左下方，选「血遗迹/毒遗迹」—— 区分 4 对（1182/1183 都毒，靠 A 兜底）
-// 坐标空间 768（与 POIS_BY_MAP 一致）。数据源自源 CSV：
+//   A=(832,702) 紧邻 POI1，选「守教堂的野外 BOSS」名 —— 区分全部 5 对
+//   B=(328,812) 在 POI2 左下方，选「血遗迹/毒遗迹」—— 区分 4 对（1182/1183 都毒，靠 A 兜底）
+// 坐标空间 1536（与 POIS_BY_MAP 一致）。数据源自源 CSV：
 //   A 点 4xxxx field boss（红狼/王室幽魂/接肢/萨米尔）、B 点 52500(血)/52520(毒) 遗迹，
 //   经 integrate_dlc.py 提取核对。注意：这两个点 basic 分类为 other，不进 dataset.json，
 //   故独立维护于此，不并入 POIS_BY_MAP。
 // 双点消歧：A=A 点 fieldBoss（需走过去确认），B=B 点 stronghold 据点（地图直接可见）。
 // 两点组合区分全部 5 对 GH 碰撞（覆盖率均 80/80）。玩家可选更易确认的点。
 const GH_DISAMBIG_POINTS = {
-  A: { id: 'ghDisambigA', x: 453, y: 374, kind: 'fieldBoss', labelKey: 'gh.disambig.aLabel' },
-  B: { id: 'ghDisambigB', x: 200, y: 443, kind: 'stronghold', labelKey: 'gh.disambig.bLabel' },
+  A: { id: 'ghDisambigA', x: 906, y: 748, kind: 'fieldBoss', labelKey: 'gh.disambig.aLabel' },
+  B: { id: 'ghDisambigB', x: 400, y: 886, kind: 'stronghold', labelKey: 'gh.disambig.bLabel' },
 };
 
-// bossA = A 点(453,374) fieldBoss type；strongholdB = B 点(200,443) stronghold 据点名（中文，源自 nightreignMapPatterns.json）。
+// bossA = A 点(906,748) fieldBoss type；strongholdB = B 点(400,886) stronghold 据点名（中文，源自 nightreignMapPatterns.json）。
 const GH_DISAMBIG = {
   1120: { bossA: '红狼',       strongholdB: '巨鸦+血怪之首' },
   1133: { bossA: '王室幽魂',   strongholdB: '咒剑士+蜘蛛蝎' },
@@ -125,8 +125,8 @@ const ICON_ASSETS = {
 };
 
 // Constants
-const ICON_SIZE = 38;
-const CANVAS_SIZE = 768;
+const ICON_SIZE = 76;
+const CANVAS_SIZE = 1536;
 
 // Available Nightlords
 const NIGHTLORDS = [
@@ -17570,54 +17570,54 @@ const SEED_SPAWN = {
 
 const SPAWN_POINTS_BY_MAP = {
   "Default": [
-    { value: "700", x: 149.4, y: 561.5, label: "出生点①" },
-    { value: "701", x: 156.5, y: 425.4, label: "出生点②" },
-    { value: "702", x: 163.4, y: 279.9, label: "出生点③" },
-    { value: "703", x: 246.4, y: 282.4, label: "出生点④" },
-    { value: "704", x: 440.9, y: 633.0, label: "出生点⑤" },
-    { value: "705", x: 377.0, y: 507.7, label: "出生点⑥" },
-    { value: "706", x: 393.1, y: 145.2, label: "出生点⑦" },
-    { value: "707", x: 643.4, y: 397.7, label: "出生点⑧" },
-    { value: "708", x: 521.8, y: 278.2, label: "出生点⑨" }
+    { value: "700", x: 298.8, y: 1123.0, label: "出生点①" },
+    { value: "701", x: 313.0, y: 850.8, label: "出生点②" },
+    { value: "702", x: 326.8, y: 559.8, label: "出生点③" },
+    { value: "703", x: 492.8, y: 564.8, label: "出生点④" },
+    { value: "704", x: 881.8, y: 1266.0, label: "出生点⑤" },
+    { value: "705", x: 754.0, y: 1015.4, label: "出生点⑥" },
+    { value: "706", x: 786.2, y: 290.4, label: "出生点⑦" },
+    { value: "707", x: 1286.8, y: 795.4, label: "出生点⑧" },
+    { value: "708", x: 1043.6, y: 556.4, label: "出生点⑨" }
   ],
   "Mountaintop": [
-    { value: "700", x: 149.4, y: 561.5, label: "出生点①" },
-    { value: "701", x: 156.5, y: 425.4, label: "出生点②" },
-    { value: "704", x: 440.9, y: 633.0, label: "出生点③" },
-    { value: "705", x: 377.0, y: 507.7, label: "出生点④" },
-    { value: "706", x: 393.1, y: 145.2, label: "出生点⑤" },
-    { value: "707", x: 643.4, y: 397.7, label: "出生点⑥" },
-    { value: "708", x: 521.8, y: 278.2, label: "出生点⑦" }
+    { value: "700", x: 298.8, y: 1123.0, label: "出生点①" },
+    { value: "701", x: 313.0, y: 850.8, label: "出生点②" },
+    { value: "704", x: 881.8, y: 1266.0, label: "出生点③" },
+    { value: "705", x: 754.0, y: 1015.4, label: "出生点④" },
+    { value: "706", x: 786.2, y: 290.4, label: "出生点⑤" },
+    { value: "707", x: 1286.8, y: 795.4, label: "出生点⑥" },
+    { value: "708", x: 1043.6, y: 556.4, label: "出生点⑦" }
   ],
   "Crater": [
-    { value: "700", x: 149.4, y: 561.5, label: "出生点①" },
-    { value: "701", x: 156.5, y: 425.4, label: "出生点②" },
-    { value: "702", x: 163.4, y: 279.9, label: "出生点③" },
-    { value: "704", x: 440.9, y: 633.0, label: "出生点④" },
-    { value: "705", x: 377.0, y: 507.7, label: "出生点⑤" },
-    { value: "707", x: 643.4, y: 397.7, label: "出生点⑥" },
-    { value: "708", x: 521.8, y: 278.2, label: "出生点⑦" }
+    { value: "700", x: 298.8, y: 1123.0, label: "出生点①" },
+    { value: "701", x: 313.0, y: 850.8, label: "出生点②" },
+    { value: "702", x: 326.8, y: 559.8, label: "出生点③" },
+    { value: "704", x: 881.8, y: 1266.0, label: "出生点④" },
+    { value: "705", x: 754.0, y: 1015.4, label: "出生点⑤" },
+    { value: "707", x: 1286.8, y: 795.4, label: "出生点⑥" },
+    { value: "708", x: 1043.6, y: 556.4, label: "出生点⑦" }
   ],
   "Rotted Woods": [
-    { value: "700", x: 149.4, y: 561.5, label: "出生点①" },
-    { value: "701", x: 156.5, y: 425.4, label: "出生点②" },
-    { value: "702", x: 163.4, y: 279.9, label: "出生点③" },
-    { value: "703", x: 246.4, y: 282.4, label: "出生点④" },
-    { value: "706", x: 393.1, y: 145.2, label: "出生点⑤" },
-    { value: "708", x: 521.8, y: 278.2, label: "出生点⑥" }
+    { value: "700", x: 298.8, y: 1123.0, label: "出生点①" },
+    { value: "701", x: 313.0, y: 850.8, label: "出生点②" },
+    { value: "702", x: 326.8, y: 559.8, label: "出生点③" },
+    { value: "703", x: 492.8, y: 564.8, label: "出生点④" },
+    { value: "706", x: 786.2, y: 290.4, label: "出生点⑤" },
+    { value: "708", x: 1043.6, y: 556.4, label: "出生点⑥" }
   ],
   "Great Hollow": [
-    { value: "13000", x: 91.8, y: 491.9, label: "出生点①" },
-    { value: "13001", x: 261.2, y: 574.7, label: "出生点②" },
-    { value: "13002", x: 442.2, y: 126.4, label: "出生点③" }
+    { value: "13000", x: 410.0, y: 1100.0, label: "出生点①" },
+    { value: "13001", x: 695.0, y: 1230.0, label: "出生点②" },
+    { value: "13002", x: 1110.0, y: 437.0, label: "出生点③" }
   ],
   "Noklateo": [
-    { value: "702", x: 163.4, y: 279.9, label: "出生点①" },
-    { value: "703", x: 246.4, y: 282.4, label: "出生点②" },
-    { value: "704", x: 440.9, y: 633.0, label: "出生点③" },
-    { value: "705", x: 377.0, y: 507.7, label: "出生点④" },
-    { value: "706", x: 393.1, y: 145.2, label: "出生点⑤" },
-    { value: "707", x: 643.4, y: 397.7, label: "出生点⑥" },
-    { value: "708", x: 521.8, y: 278.2, label: "出生点⑦" }
+    { value: "702", x: 326.8, y: 559.8, label: "出生点①" },
+    { value: "703", x: 492.8, y: 564.8, label: "出生点②" },
+    { value: "704", x: 881.8, y: 1266.0, label: "出生点③" },
+    { value: "705", x: 754.0, y: 1015.4, label: "出生点④" },
+    { value: "706", x: 786.2, y: 290.4, label: "出生点⑤" },
+    { value: "707", x: 1286.8, y: 795.4, label: "出生点⑥" },
+    { value: "708", x: 1043.6, y: 556.4, label: "出生点⑦" }
   ]
 };

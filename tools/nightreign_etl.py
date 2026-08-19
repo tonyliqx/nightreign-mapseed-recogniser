@@ -1,17 +1,53 @@
 # tools/nightreign_etl.py
 from collections import namedtuple
 import csv
+import os
 import pandas as pd
 
 SPECIAL_TO_MAP = {0:"Default",1:"Mountaintop",2:"Crater",3:"Rotted Woods",4:"Great Hollow",5:"Noklateo"}
 NIGHTLORD_TO_KEY = {0:"Gladius",1:"Adel",2:"Gnoster",3:"Maris",4:"Libra",5:"Fulghor",6:"Caligo",7:"Heolstor",8:"Harmonia",9:"Straghess"}
 
 # 大空洞地下建筑 coord 集合（渲染层偏移，ETL 显示坐标需同步偏移以对齐 background_4）
-K = 1536/4775
+# v0.3.3 坐标已 1536 直出，偏移取直值（源 POI总览生成.py px+=277/py+=114）
 VOID_UNDERGROUND_COORDS = {1160,1159,1107,1110,1153,1175,1174,1213}
-VOID_UNDERGROUND_OFFSET = (862*K, 355*K)  # ≈(277.3, 114.2)
+VOID_UNDERGROUND_OFFSET = (277.284, 114.195)
 
 SourceBundle = namedtuple("SourceBundle", ["patterns","coords","construct","names"])
+
+def _read_xlsx_name_pairs(path):
+    """标准库读 NAME.xlsx → {int(ID): 中文名}。vendor 源 2026-08 从 NAME.csv 迁到 xlsx；
+    zipfile+xml 手解析（与 integrate_dlc._read_xlsx_rows 同款实现，两模块各自独立不互相
+    import），首行表头跳过。"""
+    import zipfile
+    import xml.etree.ElementTree as ET
+    ns = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    with zipfile.ZipFile(path) as z:
+        ss = []
+        if 'xl/sharedStrings.xml' in z.namelist():
+            ss = [''.join(t.text or '' for t in si.findall('.//m:t', ns))
+                  for si in ET.fromstring(z.read('xl/sharedStrings.xml')).findall('m:si', ns)]
+        sheet = ET.fromstring(z.read('xl/worksheets/sheet1.xml'))
+    names = {}
+    for row in sheet.findall('.//m:row', ns)[1:]:   # 跳表头（ID/中文名/英文名/…）
+        cells = {}
+        for c in row.findall('m:c', ns):
+            idx = 0
+            for ch in c.get('r', ''):                # "B3" → 列号 2
+                if not ch.isalpha():
+                    break
+                idx = idx * 26 + (ord(ch.upper()) - 64)
+            v = c.find('m:v', ns)
+            if v is None:                             # inlineStr
+                is_el = c.find('m:is', ns)
+                text = ''.join(t.text or '' for t in is_el.findall('.//m:t', ns)) if is_el is not None else ''
+            elif c.get('t') == 's':                   # shared string
+                text = ss[int(v.text)]
+            else:                                     # 数字/公式值
+                text = v.text or ''
+            cells[idx] = text
+        if cells.get(1, '').strip():
+            names[int(float(cells[1]))] = cells.get(2, '')
+    return names
 
 def load_source(vendor_dir):
     patterns = pd.read_csv(f"{vendor_dir}/MAP_PATTERN.csv")
@@ -23,11 +59,15 @@ def load_source(vendor_dir):
     # 真实坐标须取 Unnamed:4。测试 fixture 无此列时跳过（保持 coord_index）。
     if "Unnamed: 4" in construct.columns:
         construct["coord_index"] = construct["Unnamed: 4"]
+    # NAME：xlsx 优先（vendor 2026-08 从 csv 迁到 xlsx），旧 csv 回退
     names = {}
-    with open(f"{vendor_dir}/NAME.csv", encoding="utf-8") as f:
-        for row in csv.reader(f):
-            if row and row[0].strip():
-                names[int(row[0])] = row[1]
+    if os.path.exists(f"{vendor_dir}/NAME.xlsx"):
+        names = _read_xlsx_name_pairs(f"{vendor_dir}/NAME.xlsx")
+    else:
+        with open(f"{vendor_dir}/NAME.csv", encoding="utf-8") as f:
+            for row in csv.reader(f):
+                if row and row[0].strip():
+                    names[int(row[0])] = row[1]
     return SourceBundle(patterns, coords, construct, names)
 
 EVERGAOL_COORDS = set(range(601,608)) | set(range(2601,2608))

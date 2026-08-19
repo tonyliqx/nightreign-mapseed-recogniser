@@ -15,7 +15,7 @@ from tools.eval_basic_remap import authoritive_map, build_fixed_icon_map
 
 PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(PROJ, "distnr", "audit")
-TOL = 40
+TOL = 80
 LANDMARK_LABEL = {"church": "教堂", "mage": "法师塔", "village": "村庄", "carriage": "马车"}
 
 
@@ -28,7 +28,7 @@ def main():
     cur_all = json.load(open(os.path.join(PROJ, "dataset", "dataset.json"), encoding="utf-8"))["classifications"]
     new = M.build_basic_classifications(source, icon_map=fixed)
     calib = M.load_great_hollow_calib()
-    gh_pois_768 = M.cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)
+    gh_pois_1536 = M.cluster_great_hollow_pois(source, calib, 1536, exclude_bosses=True)
     pois_by_map = M._load_basic_pois_by_map()
     names = source["names"]
 
@@ -57,7 +57,7 @@ def main():
     for mt, sid4, sid in picked:
         pat = source["patterns"].get(sid)
         is_gh = mt == "Great Hollow"
-        pois = gh_pois_768 if is_gh else pois_by_map.get(mt, [])
+        pois = gh_pois_1536 if is_gh else pois_by_map.get(mt, [])
         old_cls, new_cls = cur_all.get(sid4, {}), new[sid4]
         lines += [f"## 种子 {sid4}（{mt}）", "",
                   "| POI(坐标) | 修正前→后 | 实际建筑 type(距离) | 图标 |",
@@ -75,8 +75,8 @@ def main():
                 coord = source["coords"].get(con["coord_index"])
                 if not coord:
                     continue
-                bx, by = (M.transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 768)
-                          if is_gh else M.transform_coord_basic(coord[0], coord[1], 768))
+                bx, by = (M.transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 1536)
+                          if is_gh else M.transform_coord_basic(coord[0], coord[1], 1536))
                 d = ((p["x"] - bx) ** 2 + (p["y"] - by) ** 2) ** 0.5
                 if d > TOL:
                     continue

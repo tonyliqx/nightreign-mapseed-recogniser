@@ -53,9 +53,10 @@ class TestGetPoiIcon(unittest.TestCase):
     def test_dlc_numeric_structure_uses_type_mapping(self):
         """DLC 数字 5xxxx structure 走数字分支，返回 type→icon 映射。
 
-        回归对象：52420（major_base 数字 type）→ cathedral_blank。
+        回归对象：51000（major_base 数字 type）→ cathedral_blank。
+        （原回归对象 52420 已被用户权威修正为 fieldBoss「黄金化身」，归 field_boss 表。）
         """
-        icon = self.mod.get_poi_icon("major_base", "52420", None, self.real_mappings)
+        icon = self.mod.get_poi_icon("major_base", "51000", None, self.real_mappings)
         self.assertEqual(icon, "cathedral_blank")
 
 

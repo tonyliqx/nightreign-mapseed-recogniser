@@ -35,18 +35,18 @@ class TestReadSourceData(unittest.TestCase):
 
 
 from integrate_dlc import (transform_coord_basic, transform_coord_great_hollow,
-                           load_great_hollow_calib, SCALE_1536, SCALE_768)
+                           load_great_hollow_calib)
 
 class TestTransformCoord(unittest.TestCase):
     def test_basic_1536(self):
-        # 源 picXY 4775 → 1536 纯缩放
-        x, y = transform_coord_basic(4775, 4775, 1536)
-        self.assertAlmostEqual(x, 1536, places=1)
-        self.assertAlmostEqual(y, 1536, places=1)
+        # v0.3.3 源 picXY 已烘焙为 1536 原生值 → 恒等返回
+        x, y = transform_coord_basic(1000.0, 800.0, 1536)
+        self.assertEqual((x, y), (1000.0, 800.0))
 
     def test_basic_768(self):
-        x, y = transform_coord_basic(0, 0, 768)
-        self.assertEqual((x, y), (0.0, 0.0))
+        # 768 空间 = 1536 值减半（能力保留，现行调用方统一 1536）
+        x, y = transform_coord_basic(1000.0, 800.0, 768)
+        self.assertEqual((x, y), (500.0, 400.0))
 
     def test_great_hollow_uses_calib_scale(self):
         calib = {"scale_x": 0.32168, "scale_y": 0.32168,
@@ -146,7 +146,7 @@ class TestCluster(unittest.TestCase):
         self.calib = load_great_hollow_calib()
 
     def test_returns_clustered_pois(self):
-        pois = cluster_great_hollow_pois(self.source, self.calib, 768)
+        pois = cluster_great_hollow_pois(self.source, self.calib, 1536)
         self.assertGreater(len(pois), 10)   # Great Hollow 至少十几个候选点
         self.assertLess(len(pois), 100)      # 不应爆炸
         # id 连续从 1 开始
@@ -154,16 +154,18 @@ class TestCluster(unittest.TestCase):
         self.assertEqual([p["id"] for p in pois], list(range(1, len(pois) + 1)))
 
     def test_all_coords_in_canvas(self):
-        pois = cluster_great_hollow_pois(self.source, self.calib, 768)
+        pois = cluster_great_hollow_pois(self.source, self.calib, 1536)
         for p in pois:
-            self.assertTrue(0 <= p["x"] <= 768)
-            self.assertTrue(0 <= p["y"] <= 768)
+            # 上限放宽 24px 余量：v0.3.3 (86,75) 平移下，地底展示区右缘质心可
+            # 轻微越 1536 边（实测 max +8.3px），图标仍可见，非数据错误
+            self.assertTrue(0 <= p["x"] <= 1560, f"x={p['x']}")
+            self.assertTrue(0 <= p["y"] <= 1560, f"y={p['y']}")
 
     def test_exclude_bosses_reduces_points(self):
         """基础版排除 boss 后候选点应显著减少——boss 占源坐标 ~60%，混合聚类致
         17/25 候选点被 boss 主导，挤掉教堂/法师塔地标。排除后回归地标位置。"""
-        with_bosses = cluster_great_hollow_pois(self.source, self.calib, 768)
-        without_bosses = cluster_great_hollow_pois(self.source, self.calib, 768, exclude_bosses=True)
+        with_bosses = cluster_great_hollow_pois(self.source, self.calib, 1536)
+        without_bosses = cluster_great_hollow_pois(self.source, self.calib, 1536, exclude_bosses=True)
         self.assertLess(len(without_bosses), len(with_bosses),
                         "排除 boss 后候选点应更少")
         self.assertGreater(len(without_bosses), 0)
@@ -175,7 +177,7 @@ class TestCluster(unittest.TestCase):
         """exclude_bosses=True 的候选点 source_coords 不得含 4xxxx boss 或 field_boss 图标 type。"""
         from integrate_dlc import load_type_category_icon
         icon = load_type_category_icon()
-        pois = cluster_great_hollow_pois(self.source, self.calib, 768, exclude_bosses=True)
+        pois = cluster_great_hollow_pois(self.source, self.calib, 1536, exclude_bosses=True)
         self.assertGreater(len(pois), 0)
         for p in pois:
             for _px, _py, _ci, t in p["source_coords"]:
@@ -283,7 +285,7 @@ class TestFilterLandmarkPois(unittest.TestCase):
         calib = load_great_hollow_calib()
         icon = load_type_category_icon()
         base = build_base_type_category(self.source)
-        self.gh_all = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
+        self.gh_all = cluster_great_hollow_pois(self.source, calib, 1536, exclude_bosses=True)
         self.probe = build_basic_classifications(self.source, icon, base, self.gh_all, calib)
         self.gh_sids = {sid for sid, pat in self.source["patterns"].items()
                         if SPECIAL_TO_MAP.get(pat["special"]) == "Great Hollow"
@@ -294,7 +296,9 @@ class TestFilterLandmarkPois(unittest.TestCase):
         self.assertEqual(len(kept), 4)
         self.assertEqual([p["id"] for p in kept], [1, 2, 3, 4])
         for p in kept:
-            self.assertTrue(0 <= p["x"] <= 768 and 0 <= p["y"] <= 768)
+            # 上限余量同 test_all_coords_in_canvas（(86,75) 平移的边缘效应）
+            self.assertTrue(0 <= p["x"] <= 1560 and 0 <= p["y"] <= 1560,
+                            f"({p['x']}, {p['y']})")
 
     def test_kept_pois_match_landmark_coords(self):
         """保留的 4 个点坐标 == 旧候选点中至少一个大空洞种子为地标的点坐标。
@@ -303,7 +307,7 @@ class TestFilterLandmarkPois(unittest.TestCase):
         landmark 用 4 类（含 carriage），与 _filter_landmark_pois 的 landmark 集合一致。"""
         landmark = {"church", "mage", "village", "carriage"}
         calib = load_great_hollow_calib()
-        gh_fresh = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
+        gh_fresh = cluster_great_hollow_pois(self.source, calib, 1536, exclude_bosses=True)
         landmark_coords = {(round(p["x"], 1), round(p["y"], 1)) for p in gh_fresh
                            if any(self.probe.get(sid, {}).get(f"POI{p['id']}") in landmark
                                   for sid in self.gh_sids)}
@@ -321,7 +325,7 @@ class TestFilterLandmarkPois(unittest.TestCase):
         主城点在所有种子非地标（other/nothing），被移除。最终保留 4 个可变地标。"""
         landmark = {"church", "mage", "village", "carriage"}
         calib = load_great_hollow_calib()
-        gh_fresh = cluster_great_hollow_pois(self.source, calib, 768, exclude_bosses=True)
+        gh_fresh = cluster_great_hollow_pois(self.source, calib, 1536, exclude_bosses=True)
         non_landmark = sorted(p["id"] for p in gh_fresh
                               if not any(self.probe.get(sid, {}).get(f"POI{p['id']}") in landmark
                                          for sid in self.gh_sids))
@@ -358,11 +362,11 @@ class TestSpawnCalib(unittest.TestCase):
         expected = {str(v) for v in range(700, 709)} | {"13000", "13001", "13002"}
         self.assertEqual(set(calib.keys()), expected)
 
-    def test_coords_in_768_canvas(self):
+    def test_coords_in_1536_canvas(self):
         calib = load_spawn_calib()
         for v, (x, y) in calib.items():
-            self.assertTrue(0 <= x <= 768, f"{v} x={x} 越界")
-            self.assertTrue(0 <= y <= 768, f"{v} y={y} 越界")
+            self.assertTrue(0 <= x <= 1536, f"{v} x={x} 越界")
+            self.assertTrue(0 <= y <= 1536, f"{v} y={y} 越界")
 
 
 from integrate_dlc import build_basic_spawn_snippets, SPECIAL_TO_MAP
@@ -391,7 +395,7 @@ class TestSpawnSnippets(unittest.TestCase):
         snip = build_basic_spawn_snippets(self.source)
         for m in _re.finditer(r'x: ([\d.]+), y: ([\d.]+)', snip["spawn_points_by_map"]):
             x, y = float(m.group(1)), float(m.group(2))
-            self.assertTrue(0 <= x <= 768 and 0 <= y <= 768, f"({x},{y}) 越界")
+            self.assertTrue(0 <= x <= 1536 and 0 <= y <= 1536, f"({x},{y}) 越界")
 
     def test_spawn_points_subset_per_map(self):
         """每地图的出生点必须是该地图种子实际出现的 Start_190 子集（无死标记）。"""

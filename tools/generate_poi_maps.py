@@ -2,13 +2,13 @@
 """为 5 种非大空洞地形生成 POI 点位诊断图。
 
 每地形一张图（1536 背景），叠加：
-  - POI 候选点（红圈+编号+坐标）+ 40px 容差圈（768 空间，×2=80px in 1536）
+  - POI 候选点（红圈+编号+坐标）+ 80px 容差圈（1536 空间）
   - 出生点（蓝三角+编号）
   - 该地形所有 DLC 种子（1000-1199）的地标 construct（church/mage/village/carriage），
     按类型着色；区分「被最近 POI 40px 容差捕获」（实心）vs「被丢弃」（红边空心=丢失地标）
 
 用途：定位 1159 类 bug——直观看出哪些地标 construct 因 >40px 容差被丢弃，
-导致基础版 dataset.json 分类为 nothing。坐标系 POIS_BY_MAP/SPAWN 为 768，背景图 1536，渲染 ×2。
+导致基础版 dataset.json 分类为 nothing。坐标系 POIS_BY_MAP/SPAWN 与背景图同为 1536，1:1 渲染。
 
 纯 Python 3 标准库 + Pillow，无第三方依赖（同 integrate_dlc.py / generate_great_hollow_map.py）。
 """
@@ -28,8 +28,8 @@ from integrate_dlc import (
 
 PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIST = os.path.join(PROJ, "distnr")
-S = 2.0  # 768 渲染空间 → 1536 背图层
-TOL_PX = 40  # 基础版查询容差（768 空间），见 integrate_dlc.build_basic_classifications
+S = 1.0  # 数据 1536 → 1536 背图层，1:1
+TOL_PX = 80  # 基础版查询容差（1536 空间），见 integrate_dlc.build_basic_classifications
 
 TERRAINS = {
     "Default": "Default-POI.png",
@@ -61,7 +61,7 @@ def load_font(size):
 
 
 def load_spawns_by_map():
-    """从 data.js 解析 SPAWN_POINTS_BY_MAP：{map: [{value,x,y,label}]}（768 空间）。"""
+    """从 data.js 解析 SPAWN_POINTS_BY_MAP：{map: [{value,x,y,label}]}（1536 空间）。"""
     txt = open(os.path.join(PROJ, "data.js"), encoding="utf-8").read()
     out = {}
     for m in re.finditer(r'"?([\w ]+)"?\s*:\s*\[(.*?)\]', txt, re.S):
@@ -130,7 +130,7 @@ def main():
                 coord = source["coords"].get(con["coord_index"])
                 if not coord:
                     continue
-                bx, by = transform_coord_basic(coord[0], coord[1], 768)
+                bx, by = transform_coord_basic(coord[0], coord[1], 1536)
                 c = _classify_type(con["type"], source, icon_map, base_map)
                 if c["basic"] not in COLORS:
                     continue

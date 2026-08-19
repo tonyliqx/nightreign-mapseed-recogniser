@@ -27,7 +27,7 @@ OUT = os.path.join(PROJ, "distnr", "audit")
 ICONS_OUT = os.path.join(OUT, "icons")
 SRC_ICONS = os.path.join(SRC, "素材")
 
-VOTE_TOL = 30   # 投票容差（与 build_base_type_category 一致）
+VOTE_TOL = 60   # 投票容差（1536 空间，与 build_base_type_category 一致）
 LANDMARKS = {"church", "mage", "village", "carriage"}
 
 
@@ -60,7 +60,7 @@ def run_vote_tally(source, pois_by_map, classifications):
             coord = source["coords"].get(con["coord_index"])
             if not coord:
                 continue
-            bx, by = M.transform_coord_basic(coord[0], coord[1], 768)
+            bx, by = M.transform_coord_basic(coord[0], coord[1], 1536)
             best, best_d = None, 1e9
             for p in pois:
                 d = (p["x"] - bx) ** 2 + (p["y"] - by) ** 2
@@ -109,7 +109,7 @@ def main():
             "basic": top, "vote_count": total,
             "dist": dist, "unstable": unstable,
             "icon_present": icon_present,
-            "reps": [{"seed": s, "map": m, "poi": p, "xy768": [x, y]}
+            "reps": [{"seed": s, "map": m, "poi": p, "xy1536": [x, y]}
                      for (s, m, p, x, y) in reps],
         })
 
@@ -123,12 +123,12 @@ def main():
         return " ".join(f"{k}:{v}" for k, v in sorted(d.items(), key=lambda kv: -kv[1]))
 
     def fmt_reps(rs):
-        return " / ".join(f"{x['seed']}({x['map']}·POI{x['poi']}·{x['xy768'][0]},{x['xy768'][1]})"
+        return " / ".join(f"{x['seed']}({x['map']}·POI{x['poi']}·{x['xy1536'][0]},{x['xy1536'][1]})"
                           for x in rs) or "—(无POI匹配样本)"
 
     md = ["# 基础建筑 type 分类排查清单",
           "",
-          f"投票样本：0-319 基础种子 | 投票容差 {VOTE_TOL}px(768) | 共 {len(rows)} 个基础建筑 type",
+          f"投票样本：0-319 基础种子 | 投票容差 {VOTE_TOL}px(1536) | 共 {len(rows)} 个基础建筑 type",
           "",
           "**⚠ 险胜** = top 与次高票差 ≤2，投票不稳（正是 RW 修复翻转的那类）。",
           "",
@@ -137,7 +137,7 @@ def main():
           "",
           "## 🔴 误报风险组（被投票成地标 church/mage/village/carriage）",
           "",
-          "| type | 当前basic | 投票分布 | 险胜 | 代表种子(地形·POI·xy768) |",
+          "| type | 当前basic | 投票分布 | 险胜 | 代表种子(地形·POI·xy1536) |",
           "|------|-----------|----------|------|--------------------------|"]
     for r in rows:
         if r["basic"] not in LANDMARKS:

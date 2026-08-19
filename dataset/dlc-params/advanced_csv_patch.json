@@ -44,60 +44,60 @@
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51101"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "恶魔雕像"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "王室幽魂",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大树骑兵",
-        "greatHollow_12": "化身",
-        "greatHollow_11": "树灵",
-        "greatHollow_10": "土龙",
-        "greatHollow_8": "接肢",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "土龙",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大树骑兵",
+        "greatHollow_12": "黄金树化身",
+        "greatHollow_11": "腐败树灵",
+        "greatHollow_10": "亚人女王",
+        "greatHollow_8": "接肢贵族",
         "greatHollow_13": "老狮子",
         "greatHollow_15": "米兰达花",
         "greatHollow_2": "祖灵",
         "greatHollow_1": "罗蕾塔",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1006": {
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51108"
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "熄灭烛台"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "米兰达花",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "铃珠猎人",
-        "greatHollow_10": "化身",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "铃珠猎人",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_15": "狮子混种",
         "greatHollow_11": "萨米尔",
         "greatHollow_8": "红狼",
-        "greatHollow_12": "树灵",
+        "greatHollow_12": "腐败树灵",
         "greatHollow_2": "祖灵",
         "greatHollow_13": "黑剑眷属",
         "greatHollow_1": "罗蕾塔"
@@ -107,95 +107,95 @@
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51100"
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "门上方"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "偏地老将",
-        "greatHollow_10": "树灵",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "偏地老将",
+        "greatHollow_10": "河马",
         "greatHollow_11": "黑剑眷属",
         "greatHollow_2": "萨米尔",
         "greatHollow_8": "狮子混种",
         "greatHollow_12": "土龙",
         "greatHollow_15": "亚人女王",
         "greatHollow_13": "罗蕾塔",
-        "greatHollow_1": "化身"
+        "greatHollow_1": "黄金树化身"
       }
     },
     "1008": {
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51101",
-        "greatHollow_22": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "恶魔雕像",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "王室幽魂",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "熔炉&河马",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "龙装",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_11": "祖灵",
         "greatHollow_8": "亚人女王",
         "greatHollow_12": "老狮子",
-        "greatHollow_10": "龙装",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_15": "狮子混种",
         "greatHollow_2": "罗蕾塔",
-        "greatHollow_13": "化身",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_1": "死鸟",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1009": {
       "mapType": "Great Hollow",
       "nightlord": "Gladius",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51109"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大土龙",
-        "greatHollow_10": "河马",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "河马",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大土龙",
+        "greatHollow_10": "王室幽魂",
         "greatHollow_13": "萨米尔",
-        "greatHollow_8": "接肢",
+        "greatHollow_8": "接肢贵族",
         "greatHollow_11": "狮子混种",
-        "greatHollow_2": "树灵",
-        "greatHollow_12": "化身",
+        "greatHollow_2": "腐败树灵",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "铃珠猎人"
       }
@@ -244,63 +244,63 @@
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51104"
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "幻影平台"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大土龙",
-        "greatHollow_10": "狮子混种",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "老狮子",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大土龙",
         "greatHollow_12": "红狼",
-        "greatHollow_8": "53990",
+        "greatHollow_8": "野外商人",
         "greatHollow_11": "罗蕾塔",
+        "greatHollow_10": "狮子混种",
         "greatHollow_2": "铃珠猎人",
         "greatHollow_13": "龙装",
         "greatHollow_15": "祖灵",
         "greatHollow_1": "大树守卫",
-        "greatHollow_17": "49400"
+        "greatHollow_17": "持秤商人"
       }
     },
     "1016": {
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51107",
-        "greatHollow_9": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "奔逃树桩",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "萨米尔",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "龙人士兵",
-        "greatHollow_10": "化身",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "龙人士兵",
+        "greatHollow_10": "河马",
         "greatHollow_12": "黑夜骑兵",
         "greatHollow_11": "铃珠猎人",
-        "greatHollow_8": "53990",
-        "greatHollow_2": "接肢",
+        "greatHollow_8": "野外商人",
+        "greatHollow_2": "接肢贵族",
         "greatHollow_13": "土龙",
-        "greatHollow_15": "树灵",
+        "greatHollow_15": "腐败树灵",
         "greatHollow_1": "大树守卫"
       }
     },
@@ -308,65 +308,65 @@
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51102",
-        "greatHollow_9": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "枯树",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "萨米尔",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "铃珠猎人",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "萨米尔",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "铃珠猎人",
         "greatHollow_2": "亚人女王",
         "greatHollow_11": "土龙",
         "greatHollow_12": "龙装",
-        "greatHollow_10": "罗蕾塔",
         "greatHollow_8": "黑刀刺客",
-        "greatHollow_13": "接肢",
-        "greatHollow_15": "化身",
+        "greatHollow_13": "接肢贵族",
+        "greatHollow_15": "黄金树化身",
+        "greatHollow_10": "罗蕾塔",
         "greatHollow_1": "死鸟",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1018": {
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51107"
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "奔逃树桩"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "双神皮",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "老狮子",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "双神皮",
         "greatHollow_11": "龙装",
         "greatHollow_15": "亚人女王",
-        "greatHollow_8": "53990",
-        "greatHollow_10": "老狮子",
+        "greatHollow_8": "野外商人",
+        "greatHollow_10": "河马",
         "greatHollow_12": "祖灵",
         "greatHollow_2": "大树守卫",
-        "greatHollow_13": "化身",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -374,32 +374,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Adel",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51106",
-        "greatHollow_22": "51150"
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "雾门",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "铃珠猎人",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "双神皮",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "铃珠猎人",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "双神皮",
         "greatHollow_11": "死鸟",
         "greatHollow_12": "红狼",
         "greatHollow_2": "黑刀刺客",
         "greatHollow_8": "狮子混种",
         "greatHollow_10": "萨米尔",
         "greatHollow_15": "土龙",
-        "greatHollow_13": "树灵",
+        "greatHollow_13": "腐败树灵",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -447,60 +447,60 @@
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51103",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "水池倒影",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "接肢",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "双神皮",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "双神皮",
         "greatHollow_12": "萨米尔",
         "greatHollow_11": "铃珠猎人",
         "greatHollow_2": "黑夜骑兵",
-        "greatHollow_10": "祖灵",
-        "greatHollow_8": "53990",
+        "greatHollow_10": "河马",
+        "greatHollow_8": "野外商人",
         "greatHollow_13": "罗蕾塔",
         "greatHollow_15": "大树守卫",
-        "greatHollow_1": "树灵"
+        "greatHollow_1": "腐败树灵"
       }
     },
     "1026": {
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51107",
-        "greatHollow_9": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "奔逃树桩",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
-        "greatHollow_11": "化身",
-        "greatHollow_4": "熔炉&河马",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "罗蕾塔",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_11": "黄金树化身",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_2": "红狼",
         "greatHollow_8": "狮子混种",
-        "greatHollow_12": "树灵",
-        "greatHollow_10": "罗蕾塔",
-        "greatHollow_13": "接肢",
+        "greatHollow_12": "腐败树灵",
+        "greatHollow_10": "河马",
+        "greatHollow_13": "接肢贵族",
         "greatHollow_15": "黑剑眷属",
         "greatHollow_1": "死鸟"
       }
@@ -509,60 +509,60 @@
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51104"
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "幻影平台"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "死鸟",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "死鸟",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "黑剑眷属",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_5": "偏地老将",
         "greatHollow_12": "黑夜骑兵",
-        "greatHollow_10": "53990",
         "greatHollow_8": "老狮子",
         "greatHollow_13": "狮子混种",
         "greatHollow_2": "萨米尔",
-        "greatHollow_15": "化身",
+        "greatHollow_15": "黄金树化身",
+        "greatHollow_10": "野外商人",
         "greatHollow_1": "大树守卫",
-        "greatHollow_6": "49400"
+        "greatHollow_6": "持秤商人"
       }
     },
     "1028": {
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_22": "51106",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_22": "雾门",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "狮子混种",
-        "greatHollow_4": "死鸟",
-        "greatHollow_12": "49400",
-        "greatHollow_10": "53990",
+        "greatHollow_5": "死鸟",
+        "greatHollow_12": "持秤商人",
+        "greatHollow_10": "野外商人",
         "greatHollow_8": "王室幽魂",
         "greatHollow_2": "黑刀刺客",
-        "greatHollow_15": "树灵",
+        "greatHollow_15": "腐败树灵",
         "greatHollow_13": "黑剑眷属",
         "greatHollow_1": "龙装"
       }
@@ -571,32 +571,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Gnoster",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51105"
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "草丛"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黑刀刺客",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "祖灵",
-        "greatHollow_4": "坠星成兽",
+        "greatHollow_5": "坠星成兽",
         "greatHollow_12": "罗蕾塔",
         "greatHollow_2": "萨米尔",
-        "greatHollow_10": "龙装",
         "greatHollow_8": "米兰达花",
         "greatHollow_15": "红狼",
         "greatHollow_13": "黑剑眷属",
+        "greatHollow_10": "龙装",
         "greatHollow_1": "大树守卫",
-        "greatHollow_3": "49400"
+        "greatHollow_3": "持秤商人"
       }
     },
     "1030": {
@@ -643,31 +643,31 @@
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51108",
-        "greatHollow_22": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "熄灭烛台",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "龙装",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "坠星成兽",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "龙装",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "坠星成兽",
         "greatHollow_11": "黑剑眷属",
-        "greatHollow_10": "老狮子",
-        "greatHollow_12": "49400",
-        "greatHollow_8": "53990",
+        "greatHollow_12": "持秤商人",
+        "greatHollow_8": "野外商人",
         "greatHollow_15": "黑刀刺客",
         "greatHollow_2": "萨米尔",
-        "greatHollow_13": "化身",
+        "greatHollow_10": "老狮子",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_1": "祖灵"
       }
     },
@@ -675,62 +675,62 @@
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51106",
-        "greatHollow_22": "51107"
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "雾门",
+        "greatHollow_22": "奔逃树桩"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "王室幽魂",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "死鸟",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "铃珠猎人",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_12": "祖灵",
         "greatHollow_8": "狮子混种",
         "greatHollow_2": "红狼",
-        "greatHollow_10": "死鸟",
+        "greatHollow_10": "老狮子",
         "greatHollow_15": "黑刀刺客",
         "greatHollow_13": "罗蕾塔",
-        "greatHollow_1": "化身"
+        "greatHollow_1": "黄金树化身"
       }
     },
     "1037": {
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51108",
-        "greatHollow_9": "51109"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "熄灭烛台",
+        "greatHollow_9": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑剑眷属",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "熔炉&河马",
-        "greatHollow_10": "亚人女王",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黑剑眷属",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_8": "黑刀刺客",
-        "greatHollow_11": "树灵",
+        "greatHollow_11": "腐败树灵",
         "greatHollow_15": "狮子混种",
-        "greatHollow_12": "49400",
+        "greatHollow_10": "亚人女王",
+        "greatHollow_12": "持秤商人",
         "greatHollow_13": "龙装",
         "greatHollow_2": "罗蕾塔",
         "greatHollow_1": "祖灵"
@@ -740,64 +740,64 @@
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51100",
-        "greatHollow_9": "51150"
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "门上方",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "铃珠猎人",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "黑刀刺客",
-        "greatHollow_4": "大树骑兵",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_2": "王室幽魂",
-        "greatHollow_10": "铃珠猎人",
+        "greatHollow_10": "老狮子",
         "greatHollow_8": "萨米尔",
         "greatHollow_12": "罗蕾塔",
         "greatHollow_13": "土龙",
         "greatHollow_15": "死鸟",
-        "greatHollow_1": "树灵"
+        "greatHollow_1": "腐败树灵"
       }
     },
     "1039": {
       "mapType": "Great Hollow",
       "nightlord": "Maris",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51150",
-        "greatHollow_8": "51103"
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "马车",
+        "greatHollow_8": "水池倒影"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "树灵",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "偏地老将",
         "greatHollow_15": "狮子混种",
         "greatHollow_11": "死鸟",
-        "greatHollow_10": "河马",
         "greatHollow_8": "黑刀刺客",
         "greatHollow_2": "红狼",
+        "greatHollow_10": "河马",
         "greatHollow_13": "老狮子",
-        "greatHollow_12": "化身",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_1": "黑剑眷属",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1040": {
@@ -844,27 +844,27 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51101",
-        "greatHollow_9": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "恶魔雕像",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "大树骑兵",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "龙装",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_11": "土龙",
         "greatHollow_13": "老狮子",
-        "greatHollow_10": "龙装",
+        "greatHollow_10": "河马",
         "greatHollow_8": "狮子混种",
         "greatHollow_2": "王室幽魂",
         "greatHollow_12": "黑剑眷属",
@@ -876,29 +876,29 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_22": "51101",
-        "greatHollow_10": "51150"
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_22": "恶魔雕像",
+        "greatHollow_10": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "王室幽魂",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "死鸟",
-        "greatHollow_4": "龙装骑兵",
+        "greatHollow_5": "龙装骑兵",
         "greatHollow_15": "河马",
-        "greatHollow_10": "祖灵",
+        "greatHollow_10": "老狮子",
         "greatHollow_8": "黑夜骑兵",
         "greatHollow_12": "铃珠猎人",
         "greatHollow_2": "萨米尔",
-        "greatHollow_13": "化身",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -906,28 +906,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_22": "51102",
-        "greatHollow_8": "51103"
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_22": "枯树",
+        "greatHollow_8": "水池倒影"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "萨米尔",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "土龙",
-        "greatHollow_4": "舞娘",
+        "greatHollow_5": "舞娘",
         "greatHollow_15": "米兰达花",
-        "greatHollow_8": "接肢",
-        "greatHollow_10": "53990",
+        "greatHollow_8": "接肢贵族",
+        "greatHollow_10": "野外商人",
         "greatHollow_2": "黑刀刺客",
         "greatHollow_12": "铃珠猎人",
         "greatHollow_13": "黑剑眷属",
@@ -938,60 +938,60 @@
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51102"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "枯树"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "亚人女王",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "亚人女王",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "罗蕾塔",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_12": "黑剑眷属",
-        "greatHollow_10": "化身",
         "greatHollow_8": "河马",
         "greatHollow_2": "米兰达花",
         "greatHollow_15": "黑夜骑兵",
+        "greatHollow_10": "黄金树化身",
         "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "祖灵",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1049": {
       "mapType": "Great Hollow",
       "nightlord": "Libra",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51103",
-        "greatHollow_9": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "水池倒影",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "河马",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "铃珠猎人",
-        "greatHollow_10": "大树守卫",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "大树守卫",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "铃珠猎人",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_8": "萨米尔",
         "greatHollow_12": "祖灵",
-        "greatHollow_11": "化身",
+        "greatHollow_11": "黄金树化身",
         "greatHollow_2": "红狼",
         "greatHollow_13": "黑刀刺客",
         "greatHollow_15": "死鸟",
@@ -1042,28 +1042,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51104"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "幻影平台"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "米兰达花",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "恶兆妖鬼",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "恶兆妖鬼",
         "greatHollow_12": "祖灵",
         "greatHollow_2": "河马",
         "greatHollow_11": "大树守卫",
-        "greatHollow_10": "53990",
+        "greatHollow_10": "野外商人",
         "greatHollow_8": "黑刀刺客",
         "greatHollow_13": "萨米尔",
         "greatHollow_15": "死鸟",
@@ -1074,96 +1074,96 @@
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51150",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51107"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "马车",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "奔逃树桩"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大树骑兵",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "河马",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_11": "黑剑眷属",
-        "greatHollow_10": "河马",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_12": "罗蕾塔",
         "greatHollow_2": "米兰达花",
         "greatHollow_8": "亚人女王",
         "greatHollow_15": "铃珠猎人",
-        "greatHollow_13": "化身",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_1": "龙装",
-        "greatHollow_14": "49400"
+        "greatHollow_14": "持秤商人"
       }
     },
     "1057": {
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51104"
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "幻影平台"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52460",
-        "greatHollow_11": "树灵",
-        "greatHollow_4": "熔炉&河马",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "铃珠猎人",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_11": "腐败树灵",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_8": "河马",
-        "greatHollow_2": "接肢",
-        "greatHollow_10": "铃珠猎人",
+        "greatHollow_2": "接肢贵族",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_12": "死鸟",
         "greatHollow_15": "狮子混种",
         "greatHollow_13": "祖灵",
-        "greatHollow_1": "化身"
+        "greatHollow_1": "黄金树化身"
       }
     },
     "1058": {
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51105",
-        "greatHollow_22": "51106"
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "草丛",
+        "greatHollow_22": "雾门"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "老狮子",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_13": "狮子混种",
         "greatHollow_11": "龙装",
         "greatHollow_8": "黑刀刺客",
-        "greatHollow_10": "祖灵",
         "greatHollow_12": "罗蕾塔",
         "greatHollow_2": "红狼",
         "greatHollow_15": "大树守卫",
+        "greatHollow_10": "祖灵",
         "greatHollow_1": "土龙"
       }
     },
@@ -1171,30 +1171,30 @@
       "mapType": "Great Hollow",
       "nightlord": "Fulghor",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_22": "51107"
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_22": "奔逃树桩"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "化身",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "坠星成兽",
-        "greatHollow_10": "死鸟",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "坠星成兽",
         "greatHollow_11": "罗蕾塔",
         "greatHollow_8": "河马",
         "greatHollow_12": "黑剑眷属",
         "greatHollow_2": "老狮子",
         "greatHollow_15": "红狼",
         "greatHollow_13": "黑刀刺客",
+        "greatHollow_10": "死鸟",
         "greatHollow_1": "铃珠猎人"
       }
     },
@@ -1242,31 +1242,31 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51108",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "熄灭烛台",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "罗蕾塔",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "大树骑兵",
-        "greatHollow_8": "53990",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "罗蕾塔",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "大树骑兵",
+        "greatHollow_8": "野外商人",
         "greatHollow_12": "米兰达花",
-        "greatHollow_10": "化身",
         "greatHollow_11": "死鸟",
         "greatHollow_2": "老狮子",
-        "greatHollow_15": "接肢",
+        "greatHollow_15": "接肢贵族",
         "greatHollow_13": "祖灵",
+        "greatHollow_10": "黄金树化身",
         "greatHollow_1": "龙装"
       }
     },
@@ -1274,24 +1274,24 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51109"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "亚人女王",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黑剑眷属",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "黑夜骑兵",
-        "greatHollow_4": "死鸟",
+        "greatHollow_5": "死鸟",
         "greatHollow_15": "红狼",
-        "greatHollow_10": "53990",
+        "greatHollow_10": "野外商人",
         "greatHollow_8": "老狮子",
         "greatHollow_12": "祖灵",
         "greatHollow_2": "铃珠猎人",
@@ -1303,62 +1303,62 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_22": "51100",
-        "greatHollow_10": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_22": "门上方",
+        "greatHollow_10": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "狮子混种",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "舞娘",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "狮子混种",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "舞娘",
         "greatHollow_2": "萨米尔",
-        "greatHollow_10": "铃珠猎人",
-        "greatHollow_8": "接肢",
+        "greatHollow_8": "接肢贵族",
         "greatHollow_11": "黑刀刺客",
         "greatHollow_12": "罗蕾塔",
-        "greatHollow_13": "树灵",
+        "greatHollow_10": "铃珠猎人",
+        "greatHollow_13": "腐败树灵",
         "greatHollow_15": "大树守卫",
         "greatHollow_1": "死鸟",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1068": {
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51100"
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "门上方"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "树灵",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "恶兆妖鬼",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "恶兆妖鬼",
         "greatHollow_11": "死鸟",
         "greatHollow_8": "河马",
-        "greatHollow_10": "萨米尔",
-        "greatHollow_12": "化身",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_2": "红狼",
+        "greatHollow_10": "萨米尔",
         "greatHollow_13": "王室幽魂",
         "greatHollow_15": "祖灵",
         "greatHollow_1": "大树守卫"
@@ -1368,32 +1368,32 @@
       "mapType": "Great Hollow",
       "nightlord": "Caligo",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51101",
-        "greatHollow_22": "51150"
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "恶魔雕像",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "死鸟",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "铃珠猎人",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_5": "偏地老将",
         "greatHollow_12": "土龙",
-        "greatHollow_10": "死鸟",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_2": "黑刀刺客",
         "greatHollow_8": "王室幽魂",
         "greatHollow_13": "亚人女王",
         "greatHollow_15": "大树守卫",
-        "greatHollow_1": "化身"
+        "greatHollow_1": "黄金树化身"
       }
     },
     "1070": {
@@ -1440,62 +1440,62 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51150",
-        "greatHollow_9": "51105"
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "马车",
+        "greatHollow_9": "草丛"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "化身",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "偏地老将",
         "greatHollow_8": "萨米尔",
-        "greatHollow_10": "祖灵",
         "greatHollow_15": "老狮子",
         "greatHollow_11": "河马",
         "greatHollow_12": "米兰达花",
         "greatHollow_13": "铃珠猎人",
+        "greatHollow_10": "祖灵",
         "greatHollow_2": "大树守卫",
-        "greatHollow_1": "树灵"
+        "greatHollow_1": "腐败树灵"
       }
     },
     "1076": {
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51102"
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "枯树"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "大树守卫",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "龙装",
-        "greatHollow_4": "坠星成兽",
+        "greatHollow_5": "坠星成兽",
         "greatHollow_2": "河马",
-        "greatHollow_10": "大树守卫",
+        "greatHollow_10": "黑刀刺客",
         "greatHollow_8": "狮子混种",
         "greatHollow_12": "亚人女王",
         "greatHollow_15": "铃珠猎人",
-        "greatHollow_13": "化身",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -1503,29 +1503,29 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51103",
-        "greatHollow_10": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "水池倒影",
+        "greatHollow_10": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "化身",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "黑刀刺客",
-        "greatHollow_4": "舞娘",
+        "greatHollow_5": "舞娘",
         "greatHollow_13": "河马",
-        "greatHollow_10": "接肢",
         "greatHollow_8": "萨米尔",
         "greatHollow_12": "死鸟",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_2": "祖灵",
         "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "土龙"
@@ -1535,29 +1535,29 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51109"
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "狮子混种",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "河马",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "萨米尔",
-        "greatHollow_4": "死鸟",
-        "greatHollow_10": "河马",
+        "greatHollow_5": "死鸟",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_13": "老狮子",
         "greatHollow_8": "黑夜骑兵",
-        "greatHollow_12": "化身",
-        "greatHollow_2": "树灵",
+        "greatHollow_12": "黄金树化身",
+        "greatHollow_2": "腐败树灵",
         "greatHollow_15": "祖灵",
         "greatHollow_1": "大树守卫"
       }
@@ -1566,30 +1566,30 @@
       "mapType": "Great Hollow",
       "nightlord": "Heolstor",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51104",
-        "greatHollow_22": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "幻影平台",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "黑夜骑兵",
-        "greatHollow_5": "52450",
-        "greatHollow_11": "树灵",
-        "greatHollow_4": "熔炉&河马",
-        "greatHollow_10": "土龙",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "土龙",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_11": "腐败树灵",
+        "greatHollow_5": "熔炉&河马",
+        "greatHollow_10": "红狼",
         "greatHollow_8": "黑刀刺客",
         "greatHollow_12": "萨米尔",
-        "greatHollow_2": "接肢",
+        "greatHollow_2": "接肢贵族",
         "greatHollow_15": "龙装",
         "greatHollow_13": "大树守卫",
-        "greatHollow_1": "化身"
+        "greatHollow_1": "黄金树化身"
       }
     },
     "1080": {
@@ -1876,64 +1876,64 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51105",
-        "greatHollow_8": "51106"
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "草丛",
+        "greatHollow_8": "雾门"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "熔炉&河马",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_15": "黑刀刺客",
-        "greatHollow_10": "49400",
+        "greatHollow_10": "持秤商人",
         "greatHollow_11": "罗蕾塔",
         "greatHollow_8": "王室幽魂",
         "greatHollow_2": "亚人女王",
         "greatHollow_12": "祖灵",
         "greatHollow_13": "大树守卫",
         "greatHollow_1": "龙装",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1116": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51100",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "门上方",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "龙装",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_5": "偏地老将",
         "greatHollow_12": "祖灵",
         "greatHollow_2": "黑刀刺客",
-        "greatHollow_10": "53990",
+        "greatHollow_10": "野外商人",
         "greatHollow_8": "狮子混种",
-        "greatHollow_15": "接肢",
+        "greatHollow_15": "接肢贵族",
         "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "大树守卫"
       }
@@ -1942,154 +1942,154 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51108"
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "熄灭烛台"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "铃珠猎人",
-        "greatHollow_4": "龙装骑兵",
-        "greatHollow_8": "接肢",
+        "greatHollow_5": "龙装骑兵",
+        "greatHollow_8": "接肢贵族",
         "greatHollow_15": "黑刀刺客",
-        "greatHollow_10": "树灵",
-        "greatHollow_12": "化身",
+        "greatHollow_10": "亚人女王",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_2": "萨米尔",
         "greatHollow_13": "祖灵",
         "greatHollow_1": "黑剑眷属",
-        "greatHollow_22": "49400"
+        "greatHollow_22": "持秤商人"
       }
     },
     "1118": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51107"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "奔逃树桩"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "河马",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "大树守卫",
-        "greatHollow_4": "双神皮",
+        "greatHollow_5": "双神皮",
         "greatHollow_2": "红狼",
-        "greatHollow_10": "祖灵",
+        "greatHollow_10": "亚人女王",
         "greatHollow_8": "老狮子",
-        "greatHollow_12": "接肢",
-        "greatHollow_15": "化身",
-        "greatHollow_13": "树灵",
+        "greatHollow_12": "接肢贵族",
+        "greatHollow_15": "黄金树化身",
+        "greatHollow_13": "腐败树灵",
         "greatHollow_1": "龙装",
-        "greatHollow_3": "49400"
+        "greatHollow_3": "持秤商人"
       }
     },
     "1119": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51108"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "熄灭烛台"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "米兰达花",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "舞娘",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "土龙",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "舞娘",
         "greatHollow_12": "龙装",
-        "greatHollow_11": "树灵",
-        "greatHollow_10": "土龙",
+        "greatHollow_11": "腐败树灵",
+        "greatHollow_10": "接肢贵族",
         "greatHollow_8": "王室幽魂",
         "greatHollow_15": "黑夜骑兵",
         "greatHollow_13": "狮子混种",
         "greatHollow_2": "祖灵",
-        "greatHollow_1": "化身",
-        "greatHollow_6": "49400"
+        "greatHollow_1": "黄金树化身",
+        "greatHollow_6": "持秤商人"
       }
     },
     "1120": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51101"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "恶魔雕像"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "黑剑眷属",
-        "greatHollow_4": "舞娘",
-        "greatHollow_10": "化身",
+        "greatHollow_5": "舞娘",
+        "greatHollow_10": "河马",
         "greatHollow_12": "祖灵",
         "greatHollow_8": "红狼",
         "greatHollow_15": "黑刀刺客",
         "greatHollow_2": "萨米尔",
         "greatHollow_13": "土龙",
         "greatHollow_1": "铃珠猎人",
-        "greatHollow_14": "49400"
+        "greatHollow_14": "持秤商人"
       }
     },
     "1121": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51108",
-        "greatHollow_22": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "熄灭烛台",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "狮子混种",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "罗蕾塔",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "龙装",
-        "greatHollow_4": "舞娘",
+        "greatHollow_5": "舞娘",
         "greatHollow_2": "老狮子",
-        "greatHollow_12": "化身",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_8": "黑刀刺客",
-        "greatHollow_10": "罗蕾塔",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_15": "红狼",
         "greatHollow_13": "死鸟",
         "greatHollow_1": "大树守卫"
@@ -2099,27 +2099,27 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51109",
-        "greatHollow_10": "51150"
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "消失雕像",
+        "greatHollow_10": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "接肢",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_2": "米兰达花",
         "greatHollow_11": "萨米尔",
-        "greatHollow_10": "祖灵",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_8": "河马",
         "greatHollow_12": "土龙",
         "greatHollow_15": "铃珠猎人",
@@ -2131,30 +2131,30 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51102"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "枯树"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "死鸟",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "偏地老将",
-        "greatHollow_10": "红狼",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "死鸟",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "偏地老将",
         "greatHollow_15": "老狮子",
         "greatHollow_11": "罗蕾塔",
         "greatHollow_8": "萨米尔",
         "greatHollow_13": "米兰达花",
-        "greatHollow_12": "化身",
+        "greatHollow_12": "黄金树化身",
+        "greatHollow_10": "红狼",
         "greatHollow_2": "龙装",
         "greatHollow_1": "大树守卫"
       }
@@ -2163,64 +2163,64 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51109",
-        "greatHollow_10": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "消失雕像",
+        "greatHollow_10": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "王室幽魂",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "恶兆妖鬼",
-        "greatHollow_10": "铃珠猎人",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "王室幽魂",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "恶兆妖鬼",
         "greatHollow_15": "狮子混种",
         "greatHollow_11": "河马",
         "greatHollow_8": "亚人女王",
-        "greatHollow_12": "树灵",
+        "greatHollow_12": "腐败树灵",
+        "greatHollow_10": "铃珠猎人",
         "greatHollow_13": "罗蕾塔",
         "greatHollow_2": "大树守卫",
-        "greatHollow_1": "化身",
-        "greatHollow_14": "49400"
+        "greatHollow_1": "黄金树化身",
+        "greatHollow_14": "持秤商人"
       }
     },
     "1125": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51105"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "草丛"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "米兰达花",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "死鸟",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_13": "黑夜骑兵",
         "greatHollow_11": "祖灵",
-        "greatHollow_8": "接肢",
-        "greatHollow_10": "49400",
+        "greatHollow_8": "接肢贵族",
+        "greatHollow_10": "持秤商人",
         "greatHollow_12": "萨米尔",
         "greatHollow_2": "大树守卫",
-        "greatHollow_15": "树灵",
+        "greatHollow_15": "腐败树灵",
         "greatHollow_1": "铃珠猎人"
       }
     },
@@ -2228,28 +2228,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51100",
-        "greatHollow_22": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "门上方",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "萨米尔",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_12": "龙装",
         "greatHollow_8": "黑刀刺客",
-        "greatHollow_10": "树灵",
+        "greatHollow_10": "狮子混种",
         "greatHollow_11": "红狼",
         "greatHollow_2": "亚人女王",
         "greatHollow_13": "黑剑眷属",
@@ -2261,28 +2261,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51101"
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "恶魔雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "亚人女王",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "铃珠猎人",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_2": "萨米尔",
         "greatHollow_8": "米兰达花",
         "greatHollow_12": "土龙",
-        "greatHollow_10": "祖灵",
-        "greatHollow_13": "接肢",
-        "greatHollow_15": "树灵",
+        "greatHollow_10": "老狮子",
+        "greatHollow_13": "接肢贵族",
+        "greatHollow_15": "腐败树灵",
         "greatHollow_1": "死鸟"
       }
     },
@@ -2290,61 +2290,61 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51150",
-        "greatHollow_22": "51109"
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "马车",
+        "greatHollow_22": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "罗蕾塔",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "铃珠猎人",
-        "greatHollow_11": "接肢",
-        "greatHollow_10": "王室幽魂",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "罗蕾塔",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "铃珠猎人",
+        "greatHollow_11": "接肢贵族",
         "greatHollow_13": "米兰达花",
         "greatHollow_8": "河马",
+        "greatHollow_10": "王室幽魂",
         "greatHollow_12": "黑剑眷属",
-        "greatHollow_15": "化身",
+        "greatHollow_15": "黄金树化身",
         "greatHollow_2": "大树守卫",
-        "greatHollow_1": "树灵",
-        "greatHollow_7": "53990"
+        "greatHollow_1": "腐败树灵",
+        "greatHollow_7": "野外商人"
       }
     },
     "1129": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_22": "51102"
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_22": "枯树"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "接肢",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "恶兆妖鬼",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "接肢贵族",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "恶兆妖鬼",
         "greatHollow_13": "黑刀刺客",
         "greatHollow_11": "死鸟",
-        "greatHollow_10": "亚人女王",
         "greatHollow_8": "河马",
         "greatHollow_12": "铃珠猎人",
+        "greatHollow_10": "亚人女王",
         "greatHollow_15": "祖灵",
         "greatHollow_2": "罗蕾塔",
         "greatHollow_1": "土龙"
@@ -2354,89 +2354,89 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51150",
-        "greatHollow_9": "51103"
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "马车",
+        "greatHollow_9": "水池倒影"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑夜骑兵",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黑夜骑兵",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "大树守卫",
-        "greatHollow_4": "大树骑兵",
-        "greatHollow_10": "老狮子",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_8": "河马",
         "greatHollow_12": "土龙",
+        "greatHollow_10": "老狮子",
         "greatHollow_2": "亚人女王",
-        "greatHollow_13": "化身",
-        "greatHollow_15": "树灵",
+        "greatHollow_13": "黄金树化身",
+        "greatHollow_15": "腐败树灵",
         "greatHollow_1": "龙装",
-        "greatHollow_22": "49400"
+        "greatHollow_22": "持秤商人"
       }
     },
     "1131": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51100",
-        "greatHollow_9": "51150"
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "门上方",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "龙人士兵",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "罗蕾塔",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "龙人士兵",
         "greatHollow_2": "狮子混种",
-        "greatHollow_11": "化身",
+        "greatHollow_11": "黄金树化身",
         "greatHollow_12": "祖灵",
-        "greatHollow_10": "罗蕾塔",
-        "greatHollow_8": "53990",
+        "greatHollow_10": "王室幽魂",
+        "greatHollow_8": "野外商人",
         "greatHollow_13": "河马",
         "greatHollow_15": "死鸟",
         "greatHollow_1": "大树守卫",
-        "greatHollow_17": "49400"
+        "greatHollow_17": "持秤商人"
       }
     },
     "1132": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51103"
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "水池倒影"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "萨米尔",
-        "greatHollow_5": "52460",
-        "greatHollow_11": "化身",
-        "greatHollow_4": "双神皮",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "老狮子",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_11": "黄金树化身",
+        "greatHollow_5": "双神皮",
         "greatHollow_8": "红狼",
-        "greatHollow_10": "53990",
+        "greatHollow_10": "野外商人",
         "greatHollow_2": "亚人女王",
         "greatHollow_12": "祖灵",
         "greatHollow_15": "黑剑眷属",
@@ -2448,65 +2448,65 @@
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51104"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "幻影平台"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "大土龙",
-        "greatHollow_10": "53990",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "大土龙",
+        "greatHollow_10": "野外商人",
         "greatHollow_12": "死鸟",
         "greatHollow_2": "狮子混种",
         "greatHollow_11": "龙装",
         "greatHollow_8": "王室幽魂",
         "greatHollow_13": "黑刀刺客",
         "greatHollow_15": "大树守卫",
-        "greatHollow_1": "化身",
-        "greatHollow_3": "49400"
+        "greatHollow_1": "黄金树化身",
+        "greatHollow_3": "持秤商人"
       }
     },
     "1134": {
       "mapType": "Great Hollow",
       "nightlord": "Harmonia",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51101"
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "恶魔雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "米兰达花",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "死鸟",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "死鸟",
         "greatHollow_12": "罗蕾塔",
         "greatHollow_11": "大树守卫",
         "greatHollow_8": "王室幽魂",
-        "greatHollow_10": "祖灵",
-        "greatHollow_2": "接肢",
+        "greatHollow_10": "萨米尔",
+        "greatHollow_2": "接肢贵族",
         "greatHollow_13": "河马",
         "greatHollow_15": "龙装",
         "greatHollow_1": "土龙",
-        "greatHollow_22": "49400"
+        "greatHollow_22": "持秤商人"
       }
     },
     "1135": {
@@ -2833,62 +2833,62 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51108",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "熄灭烛台",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "熔炉&河马",
-        "greatHollow_10": "树灵",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "腐败树灵",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "熔炉&河马",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_2": "河马",
         "greatHollow_11": "死鸟",
-        "greatHollow_12": "化身",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_8": "米兰达花",
         "greatHollow_15": "黑刀刺客",
         "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "土龙",
-        "greatHollow_22": "49400"
+        "greatHollow_22": "持秤商人"
       }
     },
     "1176": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51105",
-        "greatHollow_22": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "草丛",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "接肢",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黑剑眷属",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "偏地老将",
         "greatHollow_2": "王室幽魂",
         "greatHollow_11": "黑刀刺客",
         "greatHollow_8": "狮子混种",
-        "greatHollow_10": "黑剑眷属",
+        "greatHollow_10": "萨米尔",
         "greatHollow_12": "罗蕾塔",
         "greatHollow_15": "铃珠猎人",
         "greatHollow_13": "死鸟",
@@ -2899,28 +2899,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51101",
-        "greatHollow_22": "51150"
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "恶魔雕像",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "接肢",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "铃珠猎人",
-        "greatHollow_10": "黑刀刺客",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黑刀刺客",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "铃珠猎人",
+        "greatHollow_10": "王室幽魂",
         "greatHollow_8": "米兰达花",
-        "greatHollow_11": "树灵",
+        "greatHollow_11": "腐败树灵",
         "greatHollow_12": "死鸟",
         "greatHollow_2": "老狮子",
         "greatHollow_13": "黑剑眷属",
@@ -2932,27 +2932,27 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51109"
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "坠星成兽",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "罗蕾塔",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "坠星成兽",
         "greatHollow_12": "死鸟",
         "greatHollow_2": "萨米尔",
-        "greatHollow_10": "罗蕾塔",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_8": "黑刀刺客",
         "greatHollow_11": "祖灵",
         "greatHollow_13": "老狮子",
@@ -2964,28 +2964,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51106",
-        "greatHollow_10": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "雾门",
+        "greatHollow_10": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大土龙",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "死鸟",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大土龙",
         "greatHollow_13": "老狮子",
-        "greatHollow_10": "死鸟",
+        "greatHollow_10": "黑夜骑兵",
         "greatHollow_8": "王室幽魂",
-        "greatHollow_11": "树灵",
+        "greatHollow_11": "腐败树灵",
         "greatHollow_15": "河马",
         "greatHollow_12": "祖灵",
         "greatHollow_2": "大树守卫",
@@ -2996,27 +2996,27 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51107"
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "奔逃树桩"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "坠星成兽",
-        "greatHollow_11": "化身",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "萨米尔",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "坠星成兽",
+        "greatHollow_11": "黄金树化身",
         "greatHollow_12": "大树守卫",
         "greatHollow_8": "老狮子",
-        "greatHollow_10": "53990",
+        "greatHollow_10": "野外商人",
         "greatHollow_2": "黑夜骑兵",
         "greatHollow_15": "罗蕾塔",
         "greatHollow_13": "铃珠猎人",
@@ -3027,30 +3027,30 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51109"
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "河马",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "大树骑兵",
-        "greatHollow_10": "53990",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黑剑眷属",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "大树骑兵",
+        "greatHollow_10": "野外商人",
         "greatHollow_2": "黑刀刺客",
         "greatHollow_11": "米兰达花",
         "greatHollow_12": "土龙",
         "greatHollow_8": "老狮子",
-        "greatHollow_13": "化身",
+        "greatHollow_13": "黄金树化身",
         "greatHollow_15": "祖灵",
         "greatHollow_1": "死鸟"
       }
@@ -3059,28 +3059,28 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_9": "51150",
-        "greatHollow_22": "51102"
+        "greatHollow_1": "神皮城",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_9": "马车",
+        "greatHollow_22": "枯树"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "接肢",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "坠星成兽",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黑剑眷属",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "坠星成兽",
         "greatHollow_11": "亚人女王",
         "greatHollow_2": "狮子混种",
         "greatHollow_8": "红狼",
-        "greatHollow_10": "黑剑眷属",
+        "greatHollow_10": "萨米尔",
         "greatHollow_12": "铃珠猎人",
         "greatHollow_13": "罗蕾塔",
         "greatHollow_15": "祖灵",
@@ -3091,31 +3091,31 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51108",
-        "greatHollow_9": "51150"
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "熄灭烛台",
+        "greatHollow_9": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大树骑兵",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "老狮子",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_12": "河马",
-        "greatHollow_11": "化身",
-        "greatHollow_10": "祖灵",
+        "greatHollow_11": "黄金树化身",
         "greatHollow_8": "萨米尔",
         "greatHollow_15": "米兰达花",
         "greatHollow_2": "罗蕾塔",
+        "greatHollow_10": "祖灵",
         "greatHollow_13": "铃珠猎人",
         "greatHollow_1": "黑剑眷属"
       }
@@ -3124,57 +3124,57 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51108",
-        "greatHollow_22": "51150"
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "熄灭烛台",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53710"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52450",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "黑刀刺客",
+        "greatHollow_4": "巨蟹",
         "greatHollow_11": "黑剑眷属",
-        "greatHollow_4": "死鸟",
-        "greatHollow_12": "49400",
-        "greatHollow_10": "土龙",
+        "greatHollow_5": "死鸟",
+        "greatHollow_12": "持秤商人",
         "greatHollow_8": "米兰达花",
         "greatHollow_13": "红狼",
         "greatHollow_15": "铃珠猎人",
+        "greatHollow_10": "土龙",
         "greatHollow_2": "大树守卫",
         "greatHollow_1": "祖灵",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1185": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51109"
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "老狮子",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "黑夜骑兵",
-        "greatHollow_4": "大树骑兵",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_2": "王室幽魂",
-        "greatHollow_10": "化身",
+        "greatHollow_10": "亚人女王",
         "greatHollow_8": "黑刀刺客",
         "greatHollow_12": "铃珠猎人",
         "greatHollow_13": "土龙",
@@ -3186,27 +3186,27 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51109"
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "消失雕像"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {},
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "祖灵",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "祖灵",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "黑夜骑兵",
-        "greatHollow_4": "舞娘",
+        "greatHollow_5": "舞娘",
         "greatHollow_12": "米兰达花",
-        "greatHollow_10": "黑剑眷属",
         "greatHollow_8": "黑刀刺客",
         "greatHollow_13": "亚人女王",
         "greatHollow_15": "死鸟",
+        "greatHollow_10": "黑剑眷属",
         "greatHollow_2": "罗蕾塔",
         "greatHollow_1": "铃珠猎人"
       }
@@ -3215,63 +3215,63 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_8": "51109",
-        "greatHollow_22": "51150"
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_8": "消失雕像",
+        "greatHollow_22": "马车"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "红狼",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "龙装骑兵",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "米兰达花",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "龙装骑兵",
         "greatHollow_2": "黑刀刺客",
         "greatHollow_11": "黑剑眷属",
-        "greatHollow_8": "接肢",
-        "greatHollow_10": "53990",
+        "greatHollow_8": "接肢贵族",
+        "greatHollow_10": "野外商人",
         "greatHollow_12": "土龙",
         "greatHollow_13": "铃珠猎人",
         "greatHollow_15": "祖灵",
-        "greatHollow_1": "化身"
+        "greatHollow_1": "黄金树化身"
       }
     },
     "1188": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51100",
-        "greatHollow_10": "51101"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "门上方",
+        "greatHollow_10": "恶魔雕像"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53710"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "咒剑士"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "化身",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "黄金树化身",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "老狮子",
-        "greatHollow_4": "大树骑兵",
-        "greatHollow_8": "53990",
-        "greatHollow_10": "49400",
+        "greatHollow_5": "大树骑兵",
+        "greatHollow_8": "野外商人",
         "greatHollow_12": "铃珠猎人",
+        "greatHollow_10": "持秤商人",
         "greatHollow_15": "狮子混种",
         "greatHollow_13": "土龙",
-        "greatHollow_2": "树灵",
+        "greatHollow_2": "腐败树灵",
         "greatHollow_1": "罗蕾塔"
       }
     },
@@ -3279,30 +3279,30 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51102",
-        "greatHollow_10": "51103"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "枯树",
+        "greatHollow_10": "水池倒影"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "河马",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "双神皮",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "接肢贵族",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "双神皮",
         "greatHollow_13": "黑刀刺客",
         "greatHollow_8": "萨米尔",
-        "greatHollow_10": "接肢",
+        "greatHollow_10": "狮子混种",
         "greatHollow_11": "土龙",
         "greatHollow_2": "黑夜骑兵",
-        "greatHollow_12": "化身",
+        "greatHollow_12": "黄金树化身",
         "greatHollow_15": "死鸟",
         "greatHollow_1": "铃珠猎人"
       }
@@ -3311,162 +3311,162 @@
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_8": "51000",
-        "greatHollow_22": "51000",
-        "greatHollow_9": "51104"
+        "greatHollow_1": "神皮城",
+        "greatHollow_8": "教堂",
+        "greatHollow_22": "教堂",
+        "greatHollow_9": "幻影平台"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "53990",
-        "greatHollow_20": "王室幽魂",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "大树骑兵",
+        "greatHollow_19": "野外商人",
+        "greatHollow_18": "龙装",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "大树骑兵",
         "greatHollow_8": "老狮子",
-        "greatHollow_10": "龙装",
+        "greatHollow_10": "米兰达花",
         "greatHollow_11": "红狼",
         "greatHollow_13": "河马",
         "greatHollow_12": "祖灵",
-        "greatHollow_2": "树灵",
+        "greatHollow_2": "腐败树灵",
         "greatHollow_15": "罗蕾塔",
         "greatHollow_1": "土龙",
-        "greatHollow_6": "49400"
+        "greatHollow_6": "持秤商人"
       }
     },
     "1191": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_22": "51000",
-        "greatHollow_8": "51000",
-        "greatHollow_10": "51105"
+        "greatHollow_22": "教堂",
+        "greatHollow_8": "教堂",
+        "greatHollow_10": "草丛"
       },
       "minor_base": {
-        "greatHollow_1": "53580",
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53720"
+        "greatHollow_1": "梅瑟莫城",
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52420",
-        "greatHollow_20": "黑夜骑兵",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "熔炉&河马",
+        "greatHollow_19": "唤灵蜗牛+灵火龙",
+        "greatHollow_18": "河马",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_12": "祖灵",
         "greatHollow_11": "死鸟",
         "greatHollow_2": "米兰达花",
         "greatHollow_8": "狮子混种",
-        "greatHollow_10": "河马",
-        "greatHollow_15": "化身",
+        "greatHollow_10": "黑刀刺客",
+        "greatHollow_15": "黄金树化身",
         "greatHollow_13": "罗蕾塔",
-        "greatHollow_1": "树灵"
+        "greatHollow_1": "腐败树灵"
       }
     },
     "1192": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51106",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "雾门",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53600",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "厄兆猎人",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_17": "53670"
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "黑刀刺客",
-        "greatHollow_5": "52460",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "米兰达花",
+        "greatHollow_4": "仿生泪滴",
         "greatHollow_11": "大树守卫",
-        "greatHollow_4": "偏地老将",
+        "greatHollow_5": "偏地老将",
         "greatHollow_12": "祖灵",
-        "greatHollow_10": "米兰达花",
-        "greatHollow_8": "接肢",
+        "greatHollow_10": "狮子混种",
+        "greatHollow_8": "接肢贵族",
         "greatHollow_2": "红狼",
         "greatHollow_13": "土龙",
         "greatHollow_15": "铃珠猎人",
         "greatHollow_1": "罗蕾塔",
-        "greatHollow_7": "53990"
+        "greatHollow_7": "野外商人"
       }
     },
     "1193": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_22": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_9": "51107",
-        "greatHollow_8": "51150"
+        "greatHollow_1": "神皮城",
+        "greatHollow_22": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_9": "奔逃树桩",
+        "greatHollow_8": "马车"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53700"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "失乡"
       },
       "evergaol": {
-        "greatHollow_11": "52520"
+        "greatHollow_11": "咒剑士+蜘蛛蝎"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "萨米尔",
-        "greatHollow_5": "52460",
-        "greatHollow_4": "舞娘",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "接肢贵族",
+        "greatHollow_4": "仿生泪滴",
+        "greatHollow_5": "舞娘",
         "greatHollow_12": "龙装",
         "greatHollow_11": "河马",
-        "greatHollow_10": "接肢",
-        "greatHollow_8": "53990",
+        "greatHollow_10": "老狮子",
+        "greatHollow_8": "野外商人",
         "greatHollow_2": "祖灵",
-        "greatHollow_15": "化身",
+        "greatHollow_15": "黄金树化身",
         "greatHollow_13": "罗蕾塔",
         "greatHollow_1": "土龙",
-        "greatHollow_17": "49400"
+        "greatHollow_17": "持秤商人"
       }
     },
     "1194": {
       "mapType": "Great Hollow",
       "nightlord": "Straghess",
       "major_base": {
-        "greatHollow_1": "53590",
-        "greatHollow_9": "51000",
-        "greatHollow_10": "51000",
-        "greatHollow_22": "51108"
+        "greatHollow_1": "神皮城",
+        "greatHollow_9": "教堂",
+        "greatHollow_10": "教堂",
+        "greatHollow_22": "熄灭烛台"
       },
       "minor_base": {
-        "greatHollow_3": "53610",
-        "greatHollow_17": "53720"
+        "greatHollow_3": "猎犬骑士",
+        "greatHollow_17": "厄兆之子"
       },
       "evergaol": {
-        "greatHollow_11": "52520",
-        "greatHollow_17": "53670"
+        "greatHollow_11": "咒剑士+蜘蛛蝎",
+        "greatHollow_17": "尊腐城"
       },
       "field_boss": {
-        "greatHollow_18": "52400",
-        "greatHollow_20": "米兰达花",
-        "greatHollow_5": "52450",
-        "greatHollow_4": "熔炉&河马",
+        "greatHollow_19": "大审判官",
+        "greatHollow_18": "亚人女王",
+        "greatHollow_4": "巨蟹",
+        "greatHollow_5": "熔炉&河马",
         "greatHollow_8": "老狮子",
         "greatHollow_15": "萨米尔",
-        "greatHollow_11": "化身",
-        "greatHollow_10": "亚人女王",
-        "greatHollow_13": "接肢",
+        "greatHollow_11": "黄金树化身",
+        "greatHollow_10": "王室幽魂",
+        "greatHollow_13": "接肢贵族",
         "greatHollow_2": "大树守卫",
         "greatHollow_12": "祖灵",
-        "greatHollow_1": "树灵"
+        "greatHollow_1": "腐败树灵"
       }
     },
     "1195": {
@@ -3512,104 +3512,104 @@
   },
   "great_hollow_coords": {
     "greatHollow_1": [
-      447.7,
-      409.3
+      524.1,
+      469.1
     ],
     "greatHollow_2": [
-      629.6,
-      474.4
+      712.1,
+      536.4
     ],
     "greatHollow_3": [
-      461.3,
-      507.4
+      538.2,
+      570.5
     ],
     "greatHollow_4": [
-      262.0,
-      555.3
+      1182.8,
+      637.0
     ],
     "greatHollow_5": [
-      1085.1,
-      571.7
+      382.2,
+      670.0
     ],
     "greatHollow_6": [
-      1020.2,
-      640.0
+      1115.7,
+      707.6
     ],
     "greatHollow_7": [
-      563.7,
-      668.5
+      644.0,
+      737.0
     ],
     "greatHollow_8": [
-      832.0,
-      702.1
+      921.3,
+      771.7
     ],
     "greatHollow_9": [
-      470.6,
-      731.0
+      547.8,
+      801.6
     ],
     "greatHollow_10": [
-      966.3,
-      743.4
+      1060.1,
+      814.4
     ],
     "greatHollow_11": [
-      339.2,
-      762.7
+      412.0,
+      834.4
     ],
     "greatHollow_12": [
-      606.7,
-      786.3
+      688.4,
+      858.8
     ],
     "greatHollow_13": [
-      497.0,
-      851.0
+      575.0,
+      925.6
     ],
     "greatHollow_14": [
-      409.5,
-      873.5
+      484.6,
+      948.9
     ],
     "greatHollow_15": [
-      636.4,
-      919.3
+      719.1,
+      996.2
     ],
     "greatHollow_16": [
-      1353.4,
-      925.2
+      1450.8,
+      998.5
     ],
     "greatHollow_17": [
-      851.8,
-      948.5
+      941.7,
+      1026.4
     ],
     "greatHollow_18": [
-      749.2,
-      967.6
+      1098.8,
+      1044.1
     ],
     "greatHollow_19": [
-      1256.4,
-      975.9
+      835.7,
+      1046.1
     ],
     "greatHollow_20": [
-      1003.8,
-      1014.0
+      1350.5,
+      1050.8
     ],
     "greatHollow_21": [
-      1360.7,
-      1018.2
+      1458.3,
+      1094.6
     ],
     "greatHollow_22": [
-      481.7,
-      1090.0
+      559.2,
+      1172.6
     ],
     "greatHollow_23": [
-      1256.0,
-      1100.9
+      1350.2,
+      1180.1
     ],
     "greatHollow_24": [
-      1157.3,
-      1141.9
+      1248.1,
+      1222.4
     ],
     "greatHollow_25": [
-      921.9,
-      1195.1
+      1004.9,
+      1277.3
     ]
   }
 }

@@ -12,13 +12,51 @@ SRC_DEFAULT = "/Users/lixiang/Documents/AI_code/Nightreign-maps-including-dlc-v0
 DLC_SEED_RANGE = range(1000, 1200)  # 200 条 DLC 种子
 SPECIAL_TO_MAP = {0: "Default", 1: "Mountaintop", 2: "Crater",
                   3: "Rotted Woods", 4: "Great Hollow", 5: "Noklateo"}
-SCALE_1536 = 1536 / 4775   # 高级版坐标空间
-SCALE_768 = 768 / 4775     # 基础版坐标空间
+# v0.3.3 起 坐标.csv 的 picXY 已烘焙为 1536 原生对齐值（源 POI总览生成.py：直取画
+# background_*.png，「常规×1.02 贴底图，无需运行时放大」），老的 4775 缩放口径作废。
 
 
 def _read_csv_rows(path: str) -> List[List[str]]:
     with open(path, "r", encoding="utf-8") as f:
         return list(csv.reader(f))
+
+
+def _read_xlsx_rows(path: str) -> List[List[str]]:
+    """标准库读 xlsx 首个工作表 → list[list[str]]（按列字母对位，空单元格补 ''）。
+
+    vendor 源 2026-08 从 NAME.csv 迁到 NAME.xlsx（本机 externally-managed 禁装
+    pandas/openpyxl，故 zipfile+xml 手解析，与 calibrate_spawn 用 Pillow 替 numpy 同理）。
+    仅支持单表直线读：sharedStrings/inlineStr/数字三种单元格，够 NAME.xlsx 用。"""
+    import zipfile
+    import xml.etree.ElementTree as ET
+    ns = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    with zipfile.ZipFile(path) as z:
+        ss = []
+        if 'xl/sharedStrings.xml' in z.namelist():
+            ss = [''.join(t.text or '' for t in si.findall('.//m:t', ns))
+                  for si in ET.fromstring(z.read('xl/sharedStrings.xml')).findall('m:si', ns)]
+        sheet = ET.fromstring(z.read('xl/worksheets/sheet1.xml'))
+    rows = []
+    for row in sheet.findall('.//m:row', ns):
+        cells = {}
+        for c in row.findall('m:c', ns):
+            idx = 0
+            for ch in c.get('r', ''):          # "B3" → 列号 2
+                if not ch.isalpha():
+                    break
+                idx = idx * 26 + (ord(ch.upper()) - 64)
+            v = c.find('m:v', ns)
+            if v is None:                       # inlineStr
+                is_el = c.find('m:is', ns)
+                text = ''.join(t.text or '' for t in is_el.findall('.//m:t', ns)) if is_el is not None else ''
+            elif c.get('t') == 's':             # shared string
+                text = ss[int(v.text)]
+            else:                               # 数字/公式值
+                text = v.text or ''
+            cells[idx] = text
+        if cells:
+            rows.append([cells.get(i, '') for i in range(1, max(cells) + 1)])
+    return rows
 
 
 def read_source_data(src_dir: str = SRC_DEFAULT) -> Dict[str, Any]:
@@ -45,7 +83,10 @@ def read_source_data(src_dir: str = SRC_DEFAULT) -> Dict[str, Any]:
         if not row or len(row) < 6 or not row[1].strip().isdigit():
             continue
         sid = row[1].strip()
-        ci = row[5].strip()
+        # 真坐标ID 在第 4 列（Unnamed:4，与源脚本 iloc[4] 一致）；第 5 列名义 coord_index
+        # 在 108↔307、116↔313 及各自 +2000 变体共 4 对上与其互换（约 5.3% 行），不可靠。
+        ci = (row[4].strip() if len(row) > 4 and row[4].strip() else
+              (row[5].strip() if len(row) > 5 else ""))
         if not ci:
             continue
         constructs.setdefault(sid, []).append(
@@ -64,9 +105,14 @@ def read_source_data(src_dir: str = SRC_DEFAULT) -> Dict[str, Any]:
         if px > 0 or py > 0:  # 跳过 (0,0) 占位
             coords[row[0].strip()] = (px, py)
 
-    # NAME.csv: ID,中文名(,英文名)
+    # NAME：vendor 源已迁 NAME.xlsx（ID,中文名,英文名,类别…，含表头行）；旧 csv 保留回退
     names: Dict[str, str] = {}
-    for row in _read_csv_rows(os.path.join(src_dir, "NAME.csv")):
+    xlsx = os.path.join(src_dir, "NAME.xlsx")
+    if os.path.exists(xlsx):
+        name_rows = _read_xlsx_rows(xlsx)[1:]  # 跳表头（ID/中文名/英文名/…）
+    else:
+        name_rows = _read_csv_rows(os.path.join(src_dir, "NAME.csv"))
+    for row in name_rows:
         if not row or len(row) < 2 or not row[0].strip():
             continue
         names[row[0].strip()] = row[1].strip()
@@ -76,10 +122,12 @@ def read_source_data(src_dir: str = SRC_DEFAULT) -> Dict[str, Any]:
 
 
 def transform_coord_basic(pic_x: float, pic_y: float, target_space: int) -> Tuple[float, float]:
-    """基础地图（Special 0/1/2/3/5）：源 picXY(4775) → 目标空间，纯线性缩放，无偏移。
-    设计文档 §5.1 已用基础种子 0 验证。"""
-    scale = SCALE_1536 if target_space == 1536 else SCALE_768
-    return (pic_x * scale, pic_y * scale)
+    """基础地图（Special 0/1/2/3/5）：v0.3.3 源 picXY 已是 1536 原生值，恒等返回；
+    target_space=768 时减半（能力保留，现行调用方统一 1536）。
+    2026-08-18 重标定：老口径 picXY(4775)×1536/4775 已作废——v0.3.3 坐标表烘焙时
+    已完成缩放贴图，复算会二次压缩致最近邻全 miss（地标命中 0%，恒等后 81.2%）。"""
+    half = 0.5 if target_space == 768 else 1.0
+    return (pic_x * half, pic_y * half)
 
 
 def load_great_hollow_calib() -> Dict[str, Any]:
@@ -88,15 +136,15 @@ def load_great_hollow_calib() -> Dict[str, Any]:
     if os.path.exists(path):
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
-    return {"scale_x": 0.32168, "scale_y": 0.32168,
+    return {"scale_x": 1.0, "scale_y": 1.0,
             "offset_x": 0.0, "offset_y": 0.0,
-            "underground_offset": [0.0, 0.0], "underground_coord_ids": [],
-            "residual_max": -1, "method": "fallback_missing",
-            "note": "calib.json 不存在，回退纯缩放。"}
+            "underground_offset": [277.284, 114.195], "underground_coord_ids": [],
+            "residual_max": -1, "method": "fallback_v033_defaults",
+            "note": "calib.json 不存在，回退 v0.3.3 默认口径（见 great_hollow_calib.json note）。"}
 
 
 def load_spawn_calib() -> Dict[str, List[float]]:
-    """加载 dataset/dlc-params/spawn_calib.json：{出生点值: [x768, y768]}（12 键）。
+    """加载 dataset/dlc-params/spawn_calib.json：{出生点值: [x1536, y1536]}（12 键）。
 
     由 dev 时 calibrate_spawn.py（Pillow）从源素材 Start_*.png 标定产出；
     生产端纯 json.load，无第三方依赖。与 load_great_hollow_calib 同模式。"""
@@ -107,9 +155,14 @@ def load_spawn_calib() -> Dict[str, List[float]]:
 
 def transform_coord_great_hollow(pic_x: float, pic_y: float, coord_id: str,
                                   calib: Dict[str, Any], target_space: int) -> Tuple[float, float]:
-    """Great Hollow：应用标定参数（已含源 transform_coord 的影响）。
-    calib 的 scale 是「源 picXY 经 transform_coord 后 → 1536」的系数；
-    若 target_space==768 再 ×0.5。地底建筑额外加 underground_offset。"""
+    """Great Hollow：应用标定参数。v0.3.3 口径（2026-08-18 二次修正）：picXY 已 1536
+    原生、与所有地形统一公式直贴 background_4，scale=1、offset=(0,0)（源 生成地形底图.py
+    docstring：「所有地形统一 (old-119)*1536/4536，含大空洞」）。地底 8 个 coord 再加
+    (277,114)=862×K,355×K——源把地下层整体偏移到 background_4 右下「展示区」避让地表
+    （上下立体地形），见 源 POI总览生成.py `px += 277; py += 114` 与
+    生成地形底图.py VOID_UNDER_OFFSET。此前版本误加地表 (86,75)：那是老版聚类锚点
+    （老公式 4775 管线产物）自身的系统残差，不是新坐标需要补偿的偏移。
+    target_space==768 时全参数 ×0.5（能力保留）。"""
     half = 0.5 if target_space == 768 else 1.0
     x = pic_x * calib["scale_x"] * half + calib["offset_x"] * half
     y = pic_y * calib["scale_y"] * half + calib["offset_y"] * half
@@ -153,7 +206,7 @@ def build_maptype_fix(source: Dict[str, Any], target_override: Dict[str, str] = 
 import re
 
 def _load_basic_pois_by_map() -> Dict[str, List[Dict]]:
-    """从 data.js 读 POIS_BY_MAP：{map: [{id,x,y}, ...]}（768 空间）。
+    """从 data.js 读 POIS_BY_MAP：{map: [{id,x,y}, ...]}（1536 空间）。
 
     key 可带引号（"Rotted Woods"、"Great Hollow"）也可不带（Default 等），
     故正则用可选引号 "?...?"?。旧版只匹配不带引号的裸 key，漏掉了带引号 key，
@@ -217,14 +270,14 @@ def build_base_type_category(source: Dict[str, Any]) -> Dict[str, Dict]:
             coord = source["coords"].get(con["coord_index"])
             if not coord:
                 continue
-            bx, by = transform_coord_basic(coord[0], coord[1], 768)
+            bx, by = transform_coord_basic(coord[0], coord[1], 1536)
             # 最近邻匹配 POI
             best, best_d = None, 1e9
             for p in pois:
                 d = (p["x"] - bx) ** 2 + (p["y"] - by) ** 2
                 if d < best_d:
                     best_d, best = d, p
-            if best is None or best_d > 30 * 30:
+            if best is None or best_d > 60 * 60:
                 continue
             basic = cls.get(f"POI{best['id']}")
             if not basic:
@@ -256,8 +309,8 @@ def cluster_great_hollow_pois(source: Dict[str, Any], calib: Dict[str, Any],
                               target_space: int, merge_threshold: float = 45.0,
                               exclude_bosses: bool = False) -> List[Dict]:
     """收集 80 条 Great Hollow 种子的全部建筑坐标（目标空间），近邻聚类去重。
-    merge_threshold 以 768 空间像素为基准，按 target_space 线性缩放——保证基础版(768)
-    与高级版(1536)聚类等价、候选点 id 一一对应。45px(768)≈源 280px。
+    merge_threshold 以 768 空间像素为基准，按 target_space 线性缩放——不同 target_space
+    聚类等价、候选点 id 一一对应。45px(768)≈源 280px。2026-08 全链路 1536 后调用方统一传 1536（等效 90px）。
 
     exclude_bosses=True 时剔除 boss 坐标（field_boss 图标 + 4xxxx boss type）。
     背景：boss 坐标占源数据 ~60%（每种子带 DAY1/2 Boss），混合聚类会令 17/25 候选点
@@ -440,7 +493,7 @@ def build_advanced_csv_rows(source: Dict, icon_map: Dict,
 
 
 def build_basic_classifications(source: Dict, icon_map: Dict = None,
-                                 base_map: Dict = None, gh_pois_768: List[Dict] = None,
+                                 base_map: Dict = None, gh_pois_basic: List[Dict] = None,
                                  calib: Dict = None, existing_pois_by_map: Dict = None) -> Dict[str, Dict[str, str]]:
     """生成 200 条 DLC 种子的基础版 5 类（church/mage/village/carriage/nothing）分类。
     返回 {seed_id(零填充4位): {"POI<n>": <class>, ...}}。"""
@@ -450,9 +503,9 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
         base_map = build_base_type_category(source)
     if calib is None:
         calib = load_great_hollow_calib()
-    if gh_pois_768 is None:
+    if gh_pois_basic is None:
         # 基础版候选点排除 boss（语义为教堂/法师塔/村庄），见 cluster_great_hollow_pois 文档
-        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)
+        gh_pois_basic = cluster_great_hollow_pois(source, calib, 1536, exclude_bosses=True)
     if existing_pois_by_map is None:
         existing_pois_by_map = _load_basic_pois_by_map()
 
@@ -463,7 +516,7 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
         maptype = SPECIAL_TO_MAP.get(pat["special"], "Default")
 
         if maptype == "Great Hollow":
-            pois = gh_pois_768
+            pois = gh_pois_basic
         else:
             pois = existing_pois_by_map.get(maptype, [])
 
@@ -479,15 +532,15 @@ def build_basic_classifications(source: Dict, icon_map: Dict = None,
             if not coord:
                 continue
             if maptype == "Great Hollow":
-                bx, by = transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 768)
+                bx, by = transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 1536)
             else:
-                bx, by = transform_coord_basic(coord[0], coord[1], 768)
+                bx, by = transform_coord_basic(coord[0], coord[1], 1536)
             best, best_d = None, 1e9
             for p in pois:
                 d = (p["x"] - bx) ** 2 + (p["y"] - by) ** 2
                 if d < best_d:
                     best_d, best = d, p
-            if best is None or best_d > 40 * 40:  # 基础版查询容差 40px
+            if best is None or best_d > 80 * 80:  # 基础版查询容差 80px（1536 空间）
                 continue
             c = _classify_type(con["type"], source, icon_map, base_map)
             # 只让地标（教堂/法师塔/村庄/马车）标注候选点。候选点本身是地标点，附近的
@@ -529,22 +582,22 @@ def _filter_landmark_pois(gh_pois: List[Dict], basic_cls: Dict[str, Dict[str, st
 
 
 def build_basic_datajs_snippets(source: Dict, calib: Dict = None,
-                                gh_pois_768: List[Dict] = None,
+                                gh_pois_basic: List[Dict] = None,
                                 target_override: Dict[str, str] = None) -> Dict[str, Any]:
     """生成基础版 data.js 需要的两类片段：
-    - pois_by_map_gh: POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量（768 空间候选点）
+    - pois_by_map_gh: POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量（1536 空间候选点）
     - seed_matrix_fixes: seedDataMatrix 的 mapType 纠正表 {seed_id: maptype}
 
     target_override 透传给 build_maptype_fix（测试注入用，生产留空读 data.js）。"""
     if calib is None:
         calib = load_great_hollow_calib()
-    if gh_pois_768 is None:
+    if gh_pois_basic is None:
         # 基础版候选点排除 boss（语义为教堂/法师塔/村庄），见 cluster_great_hollow_pois 文档
-        gh_pois_768 = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)
+        gh_pois_basic = cluster_great_hollow_pois(source, calib, 1536, exclude_bosses=True)
 
     # POIS_BY_MAP["Great Hollow"] 的 JS 数组字面量
     lines = []
-    for p in gh_pois_768:
+    for p in gh_pois_basic:
         lines.append(f"    {{ id: {p['id']}, x: {p['x']}, y: {p['y']} }}")
     pois_js = ",\n".join(lines)
 
@@ -564,7 +617,7 @@ def build_basic_spawn_snippets(source: Dict) -> Dict[str, Any]:
     - seed_spawn: `const SEED_SPAWN = {seedNum: "value", ...}`（全 520 种子）
     - spawn_points_by_map: `const SPAWN_POINTS_BY_MAP = {map: [{value,x,y,label}, ...]}`
 
-    坐标来自 load_spawn_calib()（dev 标定产物，{value: [x768,y768]}）。
+    坐标来自 load_spawn_calib()（dev 标定产物，{value: [x1536,y1536]}）。
     每地图出生点子集由该地图种子的 Start_190（source["patterns"][sid]["start"]）去重得出，
     避免 canvas 上出现永远不会命中的死标记。label 用"出生点①/②/③"序号（GH 无地名，统一序号）。"""
     calib = load_spawn_calib()
@@ -612,28 +665,28 @@ def main():
     base_map = build_base_type_category(source)
 
     gh_1536 = cluster_great_hollow_pois(source, calib, 1536)
-    gh_768_all = cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)  # 基础版排除 boss
+    gh_basic_all = cluster_great_hollow_pois(source, calib, 1536, exclude_bosses=True)  # 基础版排除 boss
 
     # 基础版候选点：先跑探针 basic，再过滤"永远非地标"的候选点（主城boss群/固定evergaol），
     # 重新编号 1..N。这些点永远 other，不参与选点，留着只会增加噪音与误标。
-    basic_probe = build_basic_classifications(source, icon_map, base_map, gh_768_all, calib)
+    basic_probe = build_basic_classifications(source, icon_map, base_map, gh_basic_all, calib)
     # 仅在大空洞种子范围内判断——basic_probe 含全地图种子，非大空洞种子的 POI1/4/6
     # 是基础地图的点（教堂等），会误命中地标集合，导致一个候选点都过滤不掉。
     gh_seed_ids = {sid for sid, pat in source["patterns"].items()
                    if SPECIAL_TO_MAP.get(pat["special"]) == "Great Hollow" and 1000 <= int(sid) <= 1199}
-    gh_768 = _filter_landmark_pois(gh_768_all, basic_probe, gh_seed_ids)
+    gh_basic = _filter_landmark_pois(gh_basic_all, basic_probe, gh_seed_ids)
 
     # 高级版 CSV 行（用 1536 全候选点，不过滤——高级版 boss/evergaol 是有效分类）
     adv_rows = build_advanced_csv_rows(source, icon_map, base_map, gh_1536, calib)
     _write_advanced_csv_patch(adv_rows, gh_1536)
     print(f"✅ 高级版 CSV 补丁写出（{len(adv_rows)} 种子）")
 
-    # 基础版（用过滤后的 gh_768）
-    basic_cls = build_basic_classifications(source, icon_map, base_map, gh_768, calib)
+    # 基础版（用过滤后的 gh_basic）
+    basic_cls = build_basic_classifications(source, icon_map, base_map, gh_basic, calib)
     _append_basic_dataset_json(basic_cls)
     print(f"✅ dataset.json 更新 {len(basic_cls)} DLC 种子分类")
 
-    snip = build_basic_datajs_snippets(source, calib, gh_768)
+    snip = build_basic_datajs_snippets(source, calib, gh_basic)
     snip.update(build_basic_spawn_snippets(source))  # 注入 SEED_SPAWN / SPAWN_POINTS_BY_MAP
     _write_datajs_snippet_file(snip)
     print("✅ data.js 片段写出（含基础版出生点，见 dataset/dlc-params/datajs_snippet.txt，人工应用）")

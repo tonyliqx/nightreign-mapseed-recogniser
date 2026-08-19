@@ -1,9 +1,9 @@
 // Main application for Nightreign seed recognition
 // === 新数据层：权威源 dataset/nightreignMapPatterns.json（NAME 分类 + 聚类槽位 + 内嵌中文 type）===
 // 弃用旧体系：seedDataMatrix（data.js 种子身份）+ CV_CLASSIFICATION_DATA（dataset.json 5 值简化分类）。
-// 出生点数据 SEED_SPAWN / SPAWN_POINTS_BY_MAP 仍保留在 data.js（768 权威落地点，与 JSON 种子按 seedNum 关联）。
+// 出生点数据 SEED_SPAWN / SPAWN_POINTS_BY_MAP 仍保留在 data.js（1536 权威落地点，与 JSON 种子按 seedNum 关联）。
 let SEED_REGISTRY = [];        // [{seedNumber, nightlord, mapType}] 全部种子身份（替代 seedDataMatrix 的 row[0/1/2]）
-let POI_SLOTS_BY_MAP = {};     // {mapType: [{id, name, x(768), y(768), category, index}]} 仅 landmark 槽位（替代 POI_SLOTS_BY_MAP）
+let POI_SLOTS_BY_MAP = {};     // {mapType: [{id, name, x(1536), y(1536), category, index}]} 仅 landmark 槽位（替代 POI_SLOTS_BY_MAP）
 let SEED_POIS_RAW = null;      // JSON 原始 seeds 对象（key=seedNumber 字符串），供 findRealPOITypeAtCoordinate 按坐标查 type
 
 // === 高级模式开关 ===
@@ -68,7 +68,7 @@ const ScreenAwake = (() => {
     return { hold, release, state: () => ({ held, lockActive: !!(webLock && webLock.active) }) };
 })();
 
-// 按 categories 集合过滤槽位，坐标 1536→768（×0.5），landmark 按 POIS_BY_MAP 最近邻继承 originalId。
+// 按 categories 集合过滤槽位（坐标 1536 原样直用），landmark 按 POIS_BY_MAP 最近邻继承 originalId。
 // 抽自 loadSeedData，供开关切换时重建 POI_SLOTS_BY_MAP（不重新 fetch）。
 
 // 特定地形需排除的 category（用户需求：大空洞不展示野外商人 merchant POI）
@@ -103,7 +103,7 @@ function buildPOISlots(plm, categories, legacyMap) {
                 return true;
             })
             .map(p => {
-                const x = p.coordinates.x * 0.5, y = p.coordinates.y * 0.5;
+                const x = p.coordinates.x, y = p.coordinates.y;
                 let originalId = p.id;
                 let best = Infinity;
                 legMap.forEach(lp => {
@@ -230,19 +230,19 @@ const CATEGORY_DOT_COLOR = {
 // 出生点 label 圈数字 → 阿拉伯数字（英文版 drawSpawnMarker 渲染 SP1/SP2… 用；中文版沿用原 label）
 const CIRCLED_TO_NUM = { '①':'1','②':'2','③':'3','④':'4','⑤':'5','⑥':'6','⑦':'7','⑧':'8','⑨':'9' };
 
-// 共享点位浮窗「方向覆盖」坐标集（768 空间，容差±3px）。命中则按 dir 渲染，跳过 originalId 偏移表。
+// 共享点位浮窗「方向覆盖」坐标集（1536 空间，容差±6px）。命中则按 dir 渲染，跳过 originalId 偏移表。
 // 各地形同坐标点的 originalId 不同，故按坐标判断而非 originalId。新增条目向数组追加 {x,y,dir}。
 // 已知条目（verify_pool 标定图，均四地形 Default/Mountaintop/Crater/Rotted Woods 同坐标）：
-//   #300 (158.8,542.5) below ｜ #301 (162.7,425.4) left
+//   #300 (317.6,1085.0) below ｜ #301 (325.4,850.8) left
 const POI_RENDER_OVERRIDE = [
-    { x: 158.8, y: 542.5, dir: 'below' },                                // #300（全平台）
-    { x: 162.7, y: 425.4, dir: 'left' },                                 // #301（全平台）
-    { x: 594.6, y: 273.4, dir: 'right', valign: 'bottom', vertical: true, mobile: true }, // #116 移动端：点位右侧+底对齐，竖排（向上展开）
-    { x: 615.3, y: 445.1, dir: 'right', valign: 'top', vertical: true, mobile: true },    // #312 移动端：点位右侧+顶对齐，竖排（向下展开）
-    { x: 530.65, y: 281.3, noTail: true, mobile: true },                   // #314 移动端：无箭头，右上角锚定点位最右侧，向左下方展开
-    { x: 349.15, y: 531.15, noTail: true, valign: 'top', mobile: true },   // #305 移动端：无箭头，右下角锚定点位最右侧，向左上方展开
-    { x: 725.4, y: 499.25, dir: 'left', noTail: true, vertical: true },   // #1153 大空洞：无箭头贴边，竖向左侧居中（PC+移动端）
-    { x: 472.65, y: 399.15, dir: 'right', noTail: true, vertical: true, mobile: true }, // #1152 大空洞：无箭头贴边，竖向右侧居中
+    { x: 317.6, y: 1085.0, dir: 'below' },                                // #300（全平台）
+    { x: 325.4, y: 850.8, dir: 'left' },                                 // #301（全平台）
+    { x: 1189.2, y: 546.8, dir: 'right', valign: 'bottom', vertical: true, mobile: true }, // #116 移动端：点位右侧+底对齐，竖排（向上展开）
+    { x: 1230.6, y: 890.2, dir: 'right', valign: 'top', vertical: true, mobile: true },    // #312 移动端：点位右侧+顶对齐，竖排（向下展开）
+    { x: 1061.3, y: 562.6, noTail: true, mobile: true },                   // #314 移动端：无箭头，右上角锚定点位最右侧，向左下方展开
+    { x: 698.3, y: 1062.3, noTail: true, valign: 'top', mobile: true },   // #305 移动端：无箭头，右下角锚定点位最右侧，向左上方展开
+    { x: 1450.8, y: 998.5, dir: 'left', noTail: true, vertical: true },   // #1153 大空洞：无箭头贴边，竖向左侧居中（PC+移动端）
+    { x: 945.3, y: 798.3, dir: 'right', noTail: true, vertical: true, mobile: true }, // #1152 大空洞：无箭头贴边，竖向右侧居中
 ];
 
 // 气泡尾 SVG（白填充 + 蓝描边 #4fc3f7，匹配浮窗边框）。尖朝向 POI 那一侧。
@@ -611,9 +611,8 @@ class NightreignMapRecogniser {
     }
 
     drawDefaultMap() {
-        // canvas 内部分辨率提至 1536（与底图源 1:1 清晰，CSS 再缩小填充右栏＝与种子图同等大小），
-        // 数据/坐标/字体/图标仍为 768 空间不变，setTransform(2) 把 768 坐标系映射到 1536 canvas。
-        this.ctx.setTransform(2, 0, 0, 2, 0, 0);
+        // canvas 内部分辨率 1536（与底图源 1:1 清晰，CSS 再缩小填充右栏＝与种子图同等大小），
+        // 数据/坐标/字体/图标已全量迁移 1536 空间，canvas 与数据 1:1 直接绘制。
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
         // Draw a nice default background
@@ -626,24 +625,24 @@ class NightreignMapRecogniser {
 
         // Add decorative border
         this.ctx.strokeStyle = '#4fc3f7';
-        this.ctx.lineWidth = 4;
-        this.ctx.strokeRect(10, 10, CANVAS_SIZE - 20, CANVAS_SIZE - 20);
+        this.ctx.lineWidth = 8;
+        this.ctx.strokeRect(20, 20, CANVAS_SIZE - 40, CANVAS_SIZE - 40);
 
         // Add title
         this.ctx.fillStyle = '#ffd700';
-        this.ctx.font = 'bold 28px Inter, sans-serif';
+        this.ctx.font = 'bold 56px Inter, sans-serif';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
         const mapTitle = this.chosenMap ? `${this.chosenMap} Map Area` : 'Default Map Area';
-        this.ctx.fillText(mapTitle, CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 60);
+        this.ctx.fillText(mapTitle, CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 120);
 
         this.ctx.fillStyle = '#4fc3f7';
-        this.ctx.font = 'bold 18px Inter, sans-serif';
-        this.ctx.fillText(this.getText('map.click_dots'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 20);
+        this.ctx.font = 'bold 36px Inter, sans-serif';
+        this.ctx.fillText(this.getText('map.click_dots'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 - 40);
 
         this.ctx.fillStyle = '#ffffff';
-        this.ctx.font = '14px Inter, sans-serif';
-        this.ctx.fillText(this.getText('map.select_parameters'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 20);
+        this.ctx.font = '28px Inter, sans-serif';
+        this.ctx.fillText(this.getText('map.select_parameters'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 40);
 
         // Draw POIs for Default map
         this.currentPOIs.forEach(poi => {
@@ -655,7 +654,6 @@ class NightreignMapRecogniser {
     }
 
     drawDefaultMapWithImage() {
-        this.ctx.setTransform(2, 0, 0, 2, 0, 0);  // 768 数据空间 → 1536 canvas（见 drawDefaultMap 注释）
         // Try to use the actual Default POI image if available
         const defaultMapImg = this.images.maps['Default'];
 
@@ -678,7 +676,6 @@ class NightreignMapRecogniser {
     }
 
     drawMapWithSelectedImage() {
-        this.ctx.setTransform(2, 0, 0, 2, 0, 0);  // 768 数据空间 → 1536 canvas（见 drawDefaultMap 注释）
         // Use the selected map's POI image if available
         const mapImg = this.images.maps[this.chosenMap];
 
@@ -894,13 +891,13 @@ class NightreignMapRecogniser {
                 this.ctx.fillStyle = '#b266ff';
                 this.ctx.fill();
                 this.ctx.strokeStyle = '#ffffff';
-                this.ctx.lineWidth = 2;
+                this.ctx.lineWidth = 4;
                 this.ctx.stroke();
-                this.ctx.font = 'bold 11px Inter, sans-serif';
+                this.ctx.font = 'bold 22px Inter, sans-serif';
                 this.ctx.textAlign = 'center';
                 this.ctx.textBaseline = 'middle';
-                const ty = y + ICON_SIZE / 2 + 10;
-                this.ctx.lineWidth = 3;
+                const ty = y + ICON_SIZE / 2 + 20;
+                this.ctx.lineWidth = 6;
                 this.ctx.strokeStyle = '#000000';
                 const disp = this.displayName(state);  // 显示名（如 特殊商人→大商人）
                 this.ctx.strokeText(disp, x, ty);  // 黑描边，地图杂色上保证可读
@@ -1002,8 +999,8 @@ class NightreignMapRecogniser {
         // 计算指示器位置
         const canvas = document.getElementById('map-canvas');
         const rect = canvas.getBoundingClientRect();
-        const scaleX = (canvas.width / 2) / rect.width;   // canvas 1536 / 数据 768 空间
-        const scaleY = (canvas.height / 2) / rect.height;
+        const scaleX = canvas.width / rect.width;   // canvas 1536 = 数据空间 1:1
+        const scaleY = canvas.height / rect.height;
 
         const screenX = (x / scaleX) + rect.left - 30;
         const screenY = (y / scaleY) + rect.top - 30;
@@ -1075,7 +1072,6 @@ class NightreignMapRecogniser {
     }
 
     drawMap(mapImage) {
-        this.ctx.setTransform(2, 0, 0, 2, 0, 0);  // 768 数据空间 → 1536 canvas（见 drawDefaultMap 注释）
         this.ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
         // Always draw a background first
@@ -1097,12 +1093,12 @@ class NightreignMapRecogniser {
 
                 // Add text
                 this.ctx.fillStyle = '#ffffff';
-                this.ctx.font = 'bold 20px Inter, sans-serif';
+                this.ctx.font = 'bold 40px Inter, sans-serif';
                 this.ctx.textAlign = 'center';
                 this.ctx.textBaseline = 'middle';
                 this.ctx.fillText(`${this.chosenMap} Map`, CANVAS_SIZE / 2, CANVAS_SIZE / 2);
-                this.ctx.font = '14px Inter, sans-serif';
-                this.ctx.fillText(this.getText('map.click_dots'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 30);
+                this.ctx.font = '28px Inter, sans-serif';
+                this.ctx.fillText(this.getText('map.click_dots'), CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 60);
             }
         }
 
@@ -1130,12 +1126,12 @@ class NightreignMapRecogniser {
         // 出生点阶段顶部提示
         if (this.spawnPhase && spawns.length > 0) {
             this.ctx.fillStyle = 'rgba(0,0,0,0.7)';
-            this.ctx.fillRect(0, 0, CANVAS_SIZE, 40);
+            this.ctx.fillRect(0, 0, CANVAS_SIZE, 80);
             this.ctx.fillStyle = '#00e5ff';
-            this.ctx.font = 'bold 16px Inter, sans-serif';
+            this.ctx.font = 'bold 32px Inter, sans-serif';
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
-            this.ctx.fillText(this.getText('map.spawn_hint'), CANVAS_SIZE / 2, 20);
+            this.ctx.fillText(this.getText('map.spawn_hint'), CANVAS_SIZE / 2, 40);
         }
 
         console.log(`Drew map with ${this.currentPOIs.length} POIs and ${spawns.length} spawn points for ${this.chosenMap}`);
@@ -1174,12 +1170,12 @@ class NightreignMapRecogniser {
         this.ctx.fillStyle = color;
         this.ctx.fill();
         this.ctx.strokeStyle = '#000000';
-        this.ctx.lineWidth = 2;
+        this.ctx.lineWidth = 4;
         this.ctx.stroke();
 
         if (label) {
             this.ctx.fillStyle = '#000000';
-            this.ctx.font = 'bold 16px Inter, sans-serif';
+            this.ctx.font = 'bold 32px Inter, sans-serif';
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
             this.ctx.fillText(label, x, y);
@@ -1232,14 +1228,14 @@ class NightreignMapRecogniser {
         this.ctx.fillStyle = selected ? '#00e5ff' : '#2196f3';
         this.ctx.fill();
         this.ctx.strokeStyle = '#000000';
-        this.ctx.lineWidth = 2;
+        this.ctx.lineWidth = 4;
         this.ctx.stroke();
         // 序号 label：中文「出生点①」/ 英文「SP1」（圈数字→阿拉伯数字）
         const spawnText = this.languageManager.getCurrentLanguage() === 'en'
             ? 'SP' + (CIRCLED_TO_NUM[(label.match(/[①-⑨]/) || [])[0]] || '')
             : label;
         this.ctx.fillStyle = '#ffffff';
-        this.ctx.font = 'bold 11px Inter, sans-serif';
+        this.ctx.font = 'bold 22px Inter, sans-serif';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
         this.ctx.fillText(spawnText, x, y + r * 0.3);
@@ -1462,7 +1458,7 @@ class NightreignMapRecogniser {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             // 只有移动超过一定距离才算移动
-            if (distance > 10) {
+            if (distance > 20) {
                 touchMoved = true;
                 console.log("Touch moved");
 
@@ -1532,8 +1528,8 @@ class NightreignMapRecogniser {
 
     getMousePos(event) {
         const rect = this.canvas.getBoundingClientRect();
-        const scaleX = (this.canvas.width / 2) / rect.width;   // canvas 1536 / 数据 768 空间
-        const scaleY = (this.canvas.height / 2) / rect.height;
+        const scaleX = this.canvas.width / rect.width;   // canvas 1536 = 数据空间 1:1
+        const scaleY = this.canvas.height / rect.height;
 
         return {
             x: (event.clientX - rect.left) * scaleX,
@@ -1635,7 +1631,7 @@ class NightreignMapRecogniser {
     }
 
     // 单个消歧菜单定位：贴在对应紫色点位右侧、纵向居中于该点；
-    // 右侧放不下翻左侧，仍放不下（窄屏）改点位正下方。canvas 坐标(768 空间)→屏幕坐标。
+    // 右侧放不下翻左侧，仍放不下（窄屏）改点位正下方。canvas 坐标(1536 空间)→屏幕坐标。
     positionDisambigMenu(point, menuEl) {
         if (!menuEl || !this.canvas) return;
         const rect = this.canvas.getBoundingClientRect();
@@ -2163,8 +2159,8 @@ class NightreignMapRecogniser {
         const canvas = document.getElementById('map-canvas');
         const canvasRect = canvas.getBoundingClientRect();
         const containerRect = mapContainer.getBoundingClientRect();
-        const scaleX = canvasRect.width / (canvas.width / 2);   // canvas 1536 / 数据 768 空间
-        const scaleY = canvasRect.height / (canvas.height / 2);
+        const scaleX = canvasRect.width / canvas.width;   // canvas 1536 = 数据空间 1:1
+        const scaleY = canvasRect.height / canvas.height;
         const relativeX = (canvasRect.left - containerRect.left) + (poi.x * scaleX);
         const relativeY = (canvasRect.top - containerRect.top) + (poi.y * scaleY);
 
@@ -2172,7 +2168,7 @@ class NightreignMapRecogniser {
         // 这类点位由用户逐个点击触发浮窗（不批量自动展示），不会拥挤，故去掉气泡尾、紧贴点位。
         // early return：跳过下方 landmark 专用的 override/originalId 偏移 + 三角逻辑。
         if (advancedMode && poi.category !== 'landmark') {
-            const r = 19 * scaleX * 0.5;  // 非共享点位缩小 0.5 后的显示半径
+            const r = 38 * scaleX * 0.5;  // 非共享点位缩小 0.5 后的显示半径
             suggestionContainer.style.position = 'absolute';
             suggestionContainer.style.transform = 'translate(-50%, -100%)';  // 水平居中、底边贴点位上边缘
             suggestionContainer.style.left = `${relativeX}px`;
@@ -2212,7 +2208,7 @@ class NightreignMapRecogniser {
         const oid = poi.originalId != null ? parseInt(poi.originalId, 10) : null;
         // 命中「方向覆盖」坐标集：mobile:true 项仅移动端命中，其余全平台。按 dir 渲染，跳过 originalId 偏移表。
         const ov = POI_RENDER_OVERRIDE.find(c => {
-            if (Math.abs(poi.x - c.x) > 3 || Math.abs(poi.y - c.y) > 3) return false;
+            if (Math.abs(poi.x - c.x) > 6 || Math.abs(poi.y - c.y) > 6) return false;
             if (c.mobile && !isMobile) return false;
             return true;
         });
@@ -2220,7 +2216,7 @@ class NightreignMapRecogniser {
         let tailDir = null;  // 气泡尾方向；null=不加（浮窗靠上点位时）
         if (ov) {
             if (ov.noTail) {
-                const r = 19 * scaleX;  // 点位显示半径
+                const r = 38 * scaleX;  // 点位显示半径
                 if (ov.dir === 'left') {
                     // 无箭头贴边：浮窗右边贴点位左边缘，垂直居中
                     dx = -r; dy = 0; transform = 'translate(-100%, -50%)';
@@ -2236,12 +2232,12 @@ class NightreignMapRecogniser {
             } else {
                 tailDir = ov.dir;
                 // off = 点位显示半径(19×scaleX) + 尾长，让尾尖恰好指向点位边缘、浮窗主体不压点位
-                const off = 19 * scaleX + 8;
+                const off = 38 * scaleX + 8;
                 if (ov.dir === 'below') { dx = 0; dy = off; }
                 else if (ov.dir === 'left') { dx = -off; transform = 'translate(-100%, -50%)'; }
                 else if (ov.dir === 'right') {
                     dx = off;
-                    const r = 19 * scaleX;  // 点位显示半径
+                    const r = 38 * scaleX;  // 点位显示半径
                     // valign：浮窗底/顶边对齐到点位的下/上边缘（非中心），主体向反方向展开；箭头指向点位中心
                     if (ov.valign === 'bottom') { dy = r;  transform = 'translate(0%, -100%)'; }
                     else if (ov.valign === 'top') { dy = -r; transform = 'translate(0%, 0%)'; }
@@ -2276,10 +2272,10 @@ class NightreignMapRecogniser {
         // 非 override 且浮窗没「靠上」点位（|dy| 大）：下方 dy>0→顶边朝上箭头、上方 dy<0→底边朝下箭头；dy 拉开含尾长
         if (!ov && dy > 0) {
             tailDir = 'below';
-            dy = Math.max(dy, 19 * scaleX + 8);
+            dy = Math.max(dy, 38 * scaleX + 8);
         } else if (!ov && dy < 0) {
             tailDir = 'above';
-            dy = Math.min(dy, -(19 * scaleX + 8));
+            dy = Math.min(dy, -(38 * scaleX + 8));
         }
         // noTail 且 vertical：竖排浮窗（noTail 不进 if(tailDir)，需单独加 vertical 类）
         if (ov && ov.noTail && ov.vertical) suggestionContainer.classList.add('vertical');
@@ -2295,7 +2291,7 @@ class NightreignMapRecogniser {
             // below→顶边水平偏移 -dx；left/right→侧边垂直偏移 -dy。渲染后按框宽 clamp 在边缘内。
             requestAnimationFrame(() => {
                 const boxH = suggestionContainer.offsetHeight;
-                const radius = 19 * scaleX;  // POI 显示半径
+                const radius = 38 * scaleX;  // POI 显示半径
                 const gap = 8;               // 尾长
                 if (tailDir === 'below' || tailDir === 'above') {
                     // 水平：箭头沿水平边滑向点位方向（-dx）
@@ -2697,12 +2693,12 @@ class NightreignMapRecogniser {
     }
 
     findRealPOITypeAtCoordinate(seedNum, clickX, clickY) {
-        // clickX/clickY 为 768 空间（currentPOIs 的 poi 坐标），×2 转 1536 与 seed.pois 匹配（容差 2）。
+        // clickX/clickY 为 1536 空间（currentPOIs 的 poi 坐标），与 seed.pois（1536）直接匹配（容差 2）。
         // 直接按坐标匹配，不依赖 slot id —— 不同地形坐标天然不同，不会跨地形错位
         // （possibleSeeds 已按 mapType 过滤，seed 必属于当前地形）。见 memory: elimination-zero-seed-bug #3。
         const seed = SEED_POIS_RAW && SEED_POIS_RAW[String(seedNum)];
         if (!seed || !seed.pois) return null;
-        const tx = clickX * 2, ty = clickY * 2;
+        const tx = clickX, ty = clickY;
         for (const poi of Object.values(seed.pois)) {
             if (Math.abs(poi.coordinates.x - tx) <= 2 && Math.abs(poi.coordinates.y - ty) <= 2) {
                 return poi.type || null;  // 中文名 type；无建筑时字段缺失→null

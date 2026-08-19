@@ -2,7 +2,7 @@
     "name": "Elden Ring: Nightreign Map Seed Recogniser",
     "short_name": "Nightreign Seeds",
     "description": "Interactive tool to identify Nightreign map seeds based on point-of-interest locations",
-    "version": "2.0.0",
+    "version": "2.4.25",
     "icons": [
         {
             "src": "assets/icons/pwa-192.png",

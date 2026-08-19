@@ -14,7 +14,7 @@ from tools.eval_basic_remap import authoritive_map, build_fixed_icon_map
 
 PROJ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(PROJ, "distnr", "audit")
-TOL = 40
+TOL = 80
 LANDMARKS = {"church", "mage", "village", "carriage"}
 
 
@@ -26,7 +26,7 @@ def main():
     cur_all = json.load(open(os.path.join(PROJ, "dataset", "dataset.json"), encoding="utf-8"))["classifications"]
     new = M.build_basic_classifications(source, icon_map=fixed)
     calib = M.load_great_hollow_calib()
-    gh_pois_768 = M.cluster_great_hollow_pois(source, calib, 768, exclude_bosses=True)
+    gh_pois_1536 = M.cluster_great_hollow_pois(source, calib, 1536, exclude_bosses=True)
     pois_by_map = M._load_basic_pois_by_map()
     names = source["names"]
 
@@ -38,7 +38,7 @@ def main():
             print(f"种子 {sid0} 不存在"); continue
         maptype = M.SPECIAL_TO_MAP.get(pat["special"], "Default")
         is_gh = maptype == "Great Hollow"
-        pois = gh_pois_768 if is_gh else pois_by_map.get(maptype, [])
+        pois = gh_pois_1536 if is_gh else pois_by_map.get(maptype, [])
 
         lines = [f"# 种子 {sid4} 抽查明细", "",
                  f"地形: **{maptype}** | 夜王: {pat['nightlord']} | 候选点 {len(pois)} 个", "",
@@ -62,9 +62,9 @@ def main():
             if not coord:
                 continue
             if is_gh:
-                bx, by = M.transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 768)
+                bx, by = M.transform_coord_great_hollow(coord[0], coord[1], con["coord_index"], calib, 1536)
             else:
-                bx, by = M.transform_coord_basic(coord[0], coord[1], 768)
+                bx, by = M.transform_coord_basic(coord[0], coord[1], 1536)
             best, best_d = None, 1e9
             for p in pois:
                 d = (p["x"] - bx) ** 2 + (p["y"] - by) ** 2
@@ -85,7 +85,7 @@ def main():
         shown = [r for r in rows if r[8] or r[2] in LANDMARKS or r[3] in LANDMARKS]
         lines.append(f"（共 {len(rows)} 个显示建筑，下表列 {len(shown)} 个：匹配POI或地标类）")
         lines.append("")
-        lines.append("| type | 命名 | _classify后basic | 权威basic | xy768 | 最近POI | 距离 | 捕获(≤40) |")
+        lines.append("| type | 命名 | _classify后basic | 权威basic | xy1536 | 最近POI | 距离 | 捕获(≤80) |")
         lines.append("|------|------|-----------------|-----------|-------|---------|------|-----------|")
         for t, name, cb, ab, bx, by, pid, dist, cap in shown:
             star = "⭐" if ab in LANDMARKS else ""

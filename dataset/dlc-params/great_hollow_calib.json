@@ -1,11 +1,11 @@
 {
-  "scale_x": 0.327666,
-  "scale_y": 0.327666,
-  "offset_x": -98.433,
-  "offset_y": -83.636,
+  "scale_x": 1.0,
+  "scale_y": 1.0,
+  "offset_x": 0.0,
+  "offset_y": 0.0,
   "underground_offset": [277.284, 114.195],
   "underground_coord_ids": ["1160", "1159", "1107", "1110", "1153", "1175", "1174", "1213"],
-  "residual_max": 0.0,
-  "method": "source_known_constants_background4_scaled_to_1536",
-  "note": "great_hollow.jpg = background_4.png LANCZOS 缩放到1536（与源同源）。变换 = 源 汉化地图导出.py:51 transform_coord (x*1.0186-306, y*1.0186-260, 地底 +862/+355) 复合 ×(1536/4775)。常量确定性，无需拟合。scale/offset/underground_offset 均为目标1536空间值；768空间由 transform_coord_great_hollow 内 half=0.5 折算。underground_coord_ids 来自源 underground_coords={1160,1159,1107,1110,1153,1175,1174,1213}。"
+  "residual_max": 45.0,
+  "method": "v033_authoritative_identity",
+  "note": "2026-08-18 二次修正：大空洞与所有地形统一公式 (old-119)*1536/4536 直贴 background_4，scale=1、offset=(0,0)——权威依据为源 生成地形底图.py docstring（「所有地形统一…含大空洞 59 个 coord」），该脚本正是 background_4.png 的生成器；源 POI总览生成.py 亦以 picXY 直画作图、无地表偏移。此前误加的 (86,75) 系老版聚类锚点（advanced_csv_patch.json，老公式 4775 管线 ×1.0186-306,260 产物）自身的系统残差（网格拟合 25 锚中位 11px 稳定可测），并非新坐标需要补偿的偏移——锚点偏差 ≠ 坐标偏差，方向当时搞反了。地底 8 coord 仍加 (277,114)=862×K,355×K：源把地下层整体偏移到 background_4 右下展示区避让地表（上下立体地形），与 生成地形底图.py VOID_UNDER_OFFSET、POI总览生成.py px+=277/py+=114 一致。底图核验：v0.3.3 background_4 与本仓 assets/map/great_hollow.jpg 零平移像素差 0.6（同图）。老口径（scale 0.327666 / offset -98.433,-83.636）随 v0.3.3 作废。underground_coord_ids 来自源 underground_coords。"
 }
